@@ -1,6 +1,6 @@
 # This is the Rails 2.3 and bundler 0.9 install code
 # from http://andre.arko.net/2010/02/13/using-bundler-09-with-rails-235/
-# remove for Rails 3
+# Remove this file for Rails 3
 
 begin
   # Require the preresolved locked set of gems.
