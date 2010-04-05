@@ -1,0 +1,274 @@
+AK:
+  id: 1
+  abbrev: AK
+  name: Alaska
+  fips_code: 2
+AL:
+  id: 2
+  abbrev: AL
+  name: Alabama
+  fips_code: 1
+AR:
+  id: 3
+  abbrev: AR
+  name: Arkansas
+  fips_code: 5
+AS:
+  id: 4
+  abbrev: AS
+  name: American Samoa
+AZ:
+  id: 5
+  abbrev: AZ
+  name: Arizona
+  fips_code: 4
+CA:
+  id: 6
+  abbrev: CA
+  name: California
+  fips_code: 6
+CO:
+  id: 7
+  abbrev: CO
+  name: Colorado
+  fips_code: 8
+CT:
+  id: 8
+  abbrev: CT
+  name: Connecticut
+  fips_code: 9
+DC:
+  id: 9
+  abbrev: DC
+  name: District of Columbia
+  fips_code: 11
+  unicameral: true
+DE:
+  id: 10
+  abbrev: DE
+  name: Delaware
+  fips_code: 10
+FL:
+  id: 11
+  abbrev: FL
+  name: Florida
+  fips_code: 12
+GA:
+  id: 12
+  abbrev: GA
+  name: Georgia
+  fips_code: 13
+GU:
+  id: 13
+  abbrev: GU
+  name: Guam
+HI:
+  id: 14
+  abbrev: HI
+  name: Hawaii
+  fips_code: 15
+IA:
+  id: 15
+  abbrev: IA
+  name: Iowa
+  fips_code: 19
+ID:
+  id: 16
+  abbrev: ID
+  name: Idaho
+  fips_code: 16
+IL:
+  id: 17
+  abbrev: IL
+  name: Illinois
+  fips_code: 17
+IN:
+  id: 18
+  abbrev: IN
+  name: Indiana
+  fips_code: 18
+KS:
+  id: 19
+  abbrev: KS
+  name: Kansas
+  fips_code: 20
+KY:
+  id: 20
+  abbrev: KY
+  name: Kentucky
+  fips_code: 21
+LA:
+  id: 21
+  abbrev: LA
+  name: Louisiana
+  fips_code: 22
+MA:
+  id: 22
+  abbrev: MA
+  name: Massachusetts
+  fips_code: 25
+MD:
+  id: 23
+  abbrev: MD
+  name: Maryland
+  fips_code: 24
+ME:
+  id: 24
+  abbrev: ME
+  name: Maine
+  fips_code: 23
+MI:
+  id: 25
+  abbrev: MI
+  name: Michigan
+  fips_code: 26
+MN:
+  id: 26
+  abbrev: MN
+  name: Minnesota
+  fips_code: 27
+MO:
+  id: 27
+  abbrev: MO
+  name: Missouri
+  fips_code: 29
+MS:
+  id: 28
+  abbrev: MS
+  name: Mississippi
+  fips_code: 28
+MT:
+  id: 29
+  abbrev: MT
+  name: Montana
+  fips_code: 30
+NC:
+  id: 30
+  abbrev: NC
+  name: North Carolina
+  fips_code: 37
+ND:
+  id: 31
+  abbrev: ND
+  name: North Dakota
+  fips_code: 38
+NE:
+  id: 32
+  abbrev: NE
+  name: Nebraska
+  fips_code: 31
+  unicameral: true
+NH:
+  id: 33
+  abbrev: NH
+  name: New Hampshire
+  fips_code: 33
+NJ:
+  id: 34
+  abbrev: NJ
+  name: New Jersey
+  fips_code: 34
+NM:
+  id: 35
+  abbrev: NM
+  name: New Mexico
+  fips_code: 35
+NV:
+  id: 36
+  abbrev: NV
+  name: Nevada
+  fips_code: 32
+NY:
+  id: 37
+  abbrev: NY
+  name: New York
+  fips_code: 36
+OH:
+  id: 38
+  abbrev: OH
+  name: Ohio
+  fips_code: 39
+OK:
+  id: 39
+  abbrev: OK
+  name: Oklahoma
+  fips_code: 40
+OR:
+  id: 40
+  abbrev: OR
+  name: Oregon
+  fips_code: 41
+PA:
+  id: 41
+  abbrev: PA
+  name: Pennsylvania
+  fips_code: 42
+PR:
+  id: 42
+  abbrev: PR
+  name: Puerto Rico
+  fips_code: 72
+RI:
+  id: 43
+  abbrev: RI
+  name: Rhode Island
+  fips_code: 44
+SC:
+  id: 44
+  abbrev: SC
+  name: South Carolina
+  fips_code: 45
+SD:
+  id: 45
+  abbrev: SD
+  name: South Dakota
+  fips_code: 46
+TN:
+  id: 46
+  abbrev: TN
+  name: Tennessee
+  fips_code: 47
+TX:
+  id: 47
+  abbrev: TX
+  name: Texas
+  fips_code: 48
+UT:
+  id: 48
+  abbrev: UT
+  name: Utah
+  fips_code: 49
+VA:
+  id: 49
+  abbrev: VA
+  name: Virginia
+  fips_code: 51
+VI:
+  id: 50
+  abbrev: VI
+  name: Virgin Islands
+VT:
+  id: 51
+  abbrev: VT
+  name: Vermont
+  fips_code: 50
+WA:
+  id: 52
+  abbrev: WA
+  name: Washington
+  fips_code: 53
+WI:
+  id: 53
+  abbrev: WI
+  name: Wisconsin
+  fips_code: 55
+WV:
+  id: 54
+  abbrev: WV
+  name: West Virginia
+  fips_code: 54
+WY:
+  id: 55
+  abbrev: WY
+  name: Wyoming
+  fips_code: 56
