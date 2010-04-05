@@ -30,4 +30,8 @@ describe District do
     district.should_not be_valid
   end
 
+  it "should allow us to find a district by lat/long" do
+    
+  end
+
 end

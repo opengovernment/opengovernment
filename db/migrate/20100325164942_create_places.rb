@@ -16,7 +16,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :census_sld
       t.references :district_type
       t.references :state
-      t.multi_polygon :geom, :srid => 4269 # Census SRID
+      t.multi_polygon :geom# , :srid => 4269 Census SRID
     end
 
     add_index :districts, :geom, :spatial => true
