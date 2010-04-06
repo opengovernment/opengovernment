@@ -12,5 +12,4 @@ describe DistrictType do
     DistrictType.create!(@valid_attributes)
   end
 
-
 end

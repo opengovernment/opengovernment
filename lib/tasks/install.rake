@@ -1,11 +1,22 @@
 # Configuration
 require 'yaml'
- 
+
+desc "Install OpenGovernment under the current Rails.env"
+task :install => :environment do
+  puts "Creating #{Rails.env} database..."
+  Rake::Task['db:create'].invoke
+
+  puts "Setting up the #{Rails.env} database"
+  Rake::Task['db:migrate'].invoke
+  
+  # Core internal data
+  Rake::Task['install:data'].invoke
+end
 
 namespace :install do
   desc "Download and insert all core data"
   task :data => :environment do
-    # Core internal data
+    # Fixtures
     Rake::Task['install:load:states'].invoke
 
     # Fetch all exteral data
@@ -14,7 +25,7 @@ namespace :install do
     # Load external data
     Rake::Task['install:load:districts'].invoke
   end
-  
+
   namespace :fetch do
     task :all do
       Rake::Task['install:fetch:districts'].invoke
@@ -143,7 +154,6 @@ namespace :install do
       end
     end
 
-    desc "Import states table from fixture"
     task :states => :environment do
       require 'active_record/fixtures'
 

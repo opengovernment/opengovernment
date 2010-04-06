@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <meta charset="utf-8" />
+   <%= stylesheet_link_tag 'http://frame.serverboy.net/latest/' %>
+   <!--[if IE]>
+   <%= javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js' %>
+   <![endif]-->
+   <style>
+     article, aside, dialog, figure, footer, header,
+     hgroup, menu, nav, section { display: block; }
+   </style>
+ 	<title>OpenGovernment - <%= yield(:title) || "revealing state and local government data" %></title>
+</head>
+<body>
+<div id="container">
+   <%= yield %>
+</div>
+</body>
+</html>

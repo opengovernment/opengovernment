@@ -4,3 +4,4 @@ tmp/**/*
 tmp/*
 db/schema.rb
 public/assets/*
+.bundle/*

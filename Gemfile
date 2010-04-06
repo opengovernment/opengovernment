@@ -26,6 +26,9 @@ gem "ancestry"
 # remove this (and the plugin) for Rails 3
 gem "erubis"
 
+# Asset packaging
+gem "jammit"
+
 group :development do
    # Get TextMate links in development views
    gem "rails-footnotes"

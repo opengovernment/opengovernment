@@ -1,0 +1,11 @@
+# How to obtain keys:
+# Google maps: http://www.google.com/apis/maps/signup.html
+# Yahoo: https://developer.apps.yahoo.com/wsregapp/
+# Sunlight labs: http://services.sunlightlabs.com/docs/Sunlight_Congress_API/
+# Follow The Money: http://www.followthemoney.org/services/
+# Project Vote Smart: http://www.votesmart.org/services_api.php
+google_maps: your_maps_key
+sunlight_labs: your_sunlight_labs_key
+follow_the_money: your_ftm_key
+yahoo: your_yahoo_key
+votesmart: your_votesmart_key
