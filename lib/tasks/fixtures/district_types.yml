@@ -1,6 +1,7 @@
 C1:
   id: 1
   description: Congressional District (at Large)
+  at_large: true
   name: C1
 C2:
   id: 2
@@ -13,6 +14,7 @@ C3:
 C4:
   id: 4
   description: Resident Commissioner District (at Large)
+  at_large: true
   name: C4
 LU:
   id: 5

@@ -44,3 +44,4 @@ end
 
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
+POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.

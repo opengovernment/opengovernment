@@ -8,15 +8,16 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :district_types do |t|
       t.string :name
       t.string :description
+      t.boolean :at_large
     end
 
     create_table :districts do |t|
       t.string :name
-      t.boolean :at_large
       t.string :census_sld
       t.references :district_type
       t.references :state
       t.multi_polygon :geom # , :srid => 4269  Census SRID
+      t.integer :vintage # From the census data. A year ('06') or congress ('110')
     end
 
     add_index :districts, :geom, :spatial => true
