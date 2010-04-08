@@ -35,12 +35,15 @@ group :development do
 end
 
 ## Bundle gems used only in certain environments:
-group :test, :cucumber do
+group :cucumber do
    gem "cucumber-rails"
    gem "database_cleaner"
    gem "webrat"
+end
+
+group :test, :cucumber do
    gem "rspec"
    gem "rspec-rails"
-   gem "shoulda"
-   gem "factory_girl"
+   gem "faker"
+   gem "machinist"
 end
