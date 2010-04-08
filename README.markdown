@@ -2,9 +2,9 @@ OpenGovernment is a Ruby on Rails application for aggregating and presenting ope
 
 # Requirements
 Before you start, you will need to download and install the following:
-   * PostgreSQL 8.4
-   * [PostGIS](http://postgis.refractions.net/) (which requires the [proj4](http://trac.osgeo.org/proj/) and [geos](http://trac.osgeo.org/geos/) libraries)
-   * Rails 2.3.x and Gem Bundler (the bundler gem)
+  * PostgreSQL 8.4
+  * [PostGIS](http://postgis.refractions.net/) (which requires the [proj4](http://trac.osgeo.org/proj/) and [geos](http://trac.osgeo.org/geos/) libraries)
+  * Rails 2.3.x and Gem Bundler (the bundler gem)
 
 # Installation
   * Create your database user and give it superuser privileges
