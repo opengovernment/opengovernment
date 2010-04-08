@@ -7,7 +7,8 @@ describe District do
       :district_type => DistrictType.find(:first),
       :state => State.find(:first)
     }
-    # 3000 French Pl, Austin, TX 78722
+    # Using our test data,
+    # 3000 French Pl, Austin, TX 78722 should return these districts:
     @french_pl_districts = District.find(:all, :conditions => {:census_sld => ["046", "014", "25"] })
   end
 
@@ -26,10 +27,15 @@ describe District do
   end
 
   it "should always require a name" do
+    # No name
     district = District.create(@valid_attributes.except(:name))
-    district.should_not be_valid
+    district.save.should be_false
+    district.errors_on(:name).should_not be_empty
+    
+    # Blank name
     district.name = ""
-    district.should_not be_valid
+    district.save.should be_false
+    district.errors_on(:name).should_not be_empty
   end
 
   it "should allow us to find the correct districts by lat/long" do
