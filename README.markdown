@@ -10,7 +10,7 @@ Before you start, you will need to download and install the following:
   * Create your database user and give it superuser privileges
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Run the following:
-  
+
     bundle install
     rake install
 
