@@ -1,6 +1,6 @@
 include GeoRuby::Shp4r
 
-module Import::Parse::Shapefile
+module OpenGov::Parse::Shapefile
 
   def self.process(shapefile, opts = {})
 

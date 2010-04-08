@@ -1,12 +1,14 @@
-require 'spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe District do
-  before(:each) do
+  before do    
     @valid_attributes = {
       :name => "District 1",
-      :district_type => DistrictType::LL,
+      :district_type => DistrictType.find(:first),
       :state => State.find(:first)
     }
+    # 3000 French Pl, Austin, TX 78722
+    @french_pl_districts = District.find(:all, :conditions => {:census_sld => ["046", "014", "25"] })
   end
 
   it "should create a new instance given valid attributes" do
@@ -30,8 +32,17 @@ describe District do
     district.should_not be_valid
   end
 
-  it "should allow us to find a district by lat/long" do
-    
+  it "should allow us to find the correct districts by lat/long" do
+    # 3000 French Pl, Austin, TX 78722
+    districts = District.find_by_x_y(30.286308, -97.719782)
+    districts.size.should eql(3)
+    districts.should eql(@french_pl_districts)
+  end
+
+  it "should allow us to find the correct districts by address" do
+    districts = District.find_by_address("3000 French Pl, Austin, TX")
+    districts.size.should eql(3)
+    districts.should eql(@french_pl_districts)
   end
 
 end

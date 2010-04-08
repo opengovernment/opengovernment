@@ -17,7 +17,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.references :district_type
       t.references :state
       t.multi_polygon :geom # , :srid => 4269  Census SRID
-      t.integer :vintage # From the census data. A year ('06') or congress ('110')
+      t.string :vintage, :limit => 4 # From the census data. A year ('06') or congress ('110')
     end
 
     add_index :districts, :geom, :spatial => true

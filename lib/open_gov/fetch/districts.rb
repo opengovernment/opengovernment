@@ -1,5 +1,5 @@
-module Import::Fetch::Districts
-  include Import::Districts
+module OpenGov::Fetch::Districts
+  include OpenGov::District
 
   # Which census datasets will we fetch?
   # See filename conventions at http://www.census.gov/geo/www/cob/filenames.html

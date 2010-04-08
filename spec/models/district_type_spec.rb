@@ -1,10 +1,10 @@
-require 'spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe DistrictType do
   before(:each) do
     @valid_attributes = {
-      :name => "Congressional District",
-      :lsad => "LL"
+      :description => "Congressional District",
+      :name => "LL"
     }
   end
 

@@ -22,6 +22,7 @@ end
 
 namespace :db do
   namespace :create do
+    desc "Install PostGIS tables"
     task :postgis => :environment do
 
       unless ActiveRecord::Base.connection.table_exists?("geometry_columns")
@@ -73,7 +74,7 @@ namespace :fetch do
 
   desc "Get the district SHP files for Congress and all active states"
   task :districts => :setup do
-    Import::Fetch::Districts.process
+    OpenGov::Fetch::Districts.process
   end
 end
 
@@ -88,7 +89,7 @@ namespace :load do
   end
 
   task :districts => :setup do
-    include Import::Districts
+    include OpenGov::District
     require 'active_record/fixtures'
 
     puts "Setting up district types"
@@ -104,93 +105,7 @@ namespace :load do
     Dir.chdir(DATA_DIR)
 
     Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
-
-      puts "Inserting shapefile #{File.basename(shpfile)}"
-      insert_shapefile shpfile
-
-      table_name = File.basename(shpfile, '.shp')
-      puts "Migrating #{table_name} table into districts"
-
-      arTable = Class.new(ActiveRecord::Base) do
-        set_table_name table_name
-      end
-      
-      # All tables will have at least:
-      # - state (fips_code)
-      # - the_geom (geometry)
-      # - lsad (district type)
-
-      # If table_name starts with sl:
-      # - sldl (district number, or ZZZ for undistricted areas)
-
-      # If it starts with su:
-      # - sldu (district number, or ZZZ)
-      
-      # and if it starts with cd:
-      # - cd (district number, or 00 for at large)
-      table_type = table_name[0, 2]
-
-      arTable.find(:all).each do |shape|
-        
-        # We're not using the LSAD for state houses, because
-        # there are lots of LSADs we don't care about.
-        district_type = case table_type
-        when AREA_STATE_LOWER then
-          DistrictType::LL
-        when AREA_STATE_UPPER then
-          DistrictType::LU
-        when AREA_CONGRESSIONAL_DISTRICT then
-          eval("DistrictType::#{shape.lsad.upcase}")
-        else
-          raise "Unsupported table type #{table_type} encountered"
-        end
-
-        vintage = case table_type
-        when AREA_STATE_LOWER, AREA_STATE_UPPER # State
-          Import::Fetch::Districts::VINTAGE
-        else # Federal
-          Import::Fetch::Districts::CONGRESS
-        end
-
-        d = District.create(
-          :name => district_name_for(shape),
-          :district_type => district_type,
-          :vintage => vintage,
-          :state => State.find(:first, :conditions => {:fips_code => shape.state}),
-          :census_sld => shape[:cd] || shape[:sldl] || shape[:sldu],
-          :geom => shape.the_geom
-        )
-      end
-
-      puts "Dropping #{table_name} conversion table"
-      Import::Parse::Shapefile.cleanup(shpfile)
-    end
-
-    #if CONGRESSIONAL_SHP_FILE =~ /(.*)\.shp/
-    #  table_name = $1.downcase
-    
-    #  if ActiveRecord::Base.connection.table_exists?(table_name)
-    #    ActiveRecord::Schema.execute "insert into districts"
-    #  end
-    #end
-    
-  end
-  
-  def district_name_for(shape)
-    census_name_column = (shape[:cd] || shape[:name])      
-    fips_code = shape.state.to_i
-    
-    # Some states have sane district names in the dataset
-    # We check via the FIPS codes.
-    if [32, 25].include?(fips_code)
-      census_name_column
-    elsif fips_code == 50        
-      # These have names like "Orleans-Caledonia-1"
-      "District " + census_name_column
-    elsif fips_code == 33 && shape.lsad == "LL"  
-      "District " + census_name_column
-    else
-      "District " + census_name_column.to_i.to_s
+      OpenGov::District::import!(shpfile)
     end
   end
 
@@ -202,6 +117,3 @@ namespace :load do
   end
 end
 
-def insert_shapefile(fn)
-  Import::Parse::Shapefile.process(fn, :drop_table => true)
-end
