@@ -14,3 +14,11 @@ Steps for installing on Mac OS X:
 * Run sudo gem install bundler
 * Then, from the opengovernment dir, run "bundle install"
 * Run "rake install" to set up the database, install PostGIS, install fixtures, and download and install datasets.
+
+To prepare the test database:
+* rake db:test:prepare
+* RAILS_ENV=test rake db:create:postgis
+* RAILS_ENV=test rake spec:db:fixtures:load
+
+To run RSpec tests:
+* rake spec

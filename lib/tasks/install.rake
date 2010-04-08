@@ -5,7 +5,7 @@ desc "Install OpenGovernment under the current Rails env"
 task :install => :environment do
   abcs = ActiveRecord::Base.configurations
   if abcs[Rails.env]["adapter"] != 'postgresql'
-    raise "Sorry, OpenGovernment requires PostgreSQL 8.4"
+    raise "Sorry, OpenGovernment requires PostgreSQL"
   end
 
   puts "Creating #{Rails.env} database..."
