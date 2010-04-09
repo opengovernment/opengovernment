@@ -5,6 +5,10 @@ class State < ActiveRecord::Base
   named_scope :unsupported, :conditions => {:launch_date => nil}
   validates_uniqueness_of :fips_code
   
+  def to_param
+    [id.to_s, abbrev.downcase].join('-')
+  end
+  
   def unsupported?
     launch_date.blank?
   end

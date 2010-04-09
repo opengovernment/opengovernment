@@ -10,10 +10,13 @@ class District < ActiveRecord::Base
       find_by_sql(["select d.* from districts d where ST_Contains(geom, ST_GeomFromText('POINT(? ?)', -1))", lng, lat]);
     end
 
+    # This returns the point object (GeoLoc)
+    # and the districts associated with that point,
+    # or nil if nothing was found.
     def find_by_address(addr)
       point = GeoKit::Geocoders::MultiGeocoder.geocode(addr)
       return nil unless point.success?
-      self.find_by_x_y(point.lat, point.lng)
+      [point, self.find_by_x_y(point.lat, point.lng)]
     end
   end
 end

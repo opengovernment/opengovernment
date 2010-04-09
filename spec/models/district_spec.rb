@@ -47,8 +47,9 @@ describe District do
 
   it "should allow us to find the correct districts by address" do
     districts = District.find_by_address("3000 French Pl, Austin, TX")
-    districts.size.should eql(3)
-    districts.should eql(@french_pl_districts)
+    districts.size.should eql(2)
+    districts[1].size.should eql(3)
+    districts[1].should eql(@french_pl_districts)
   end
 
 end

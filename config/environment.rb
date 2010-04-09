@@ -11,6 +11,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 API_KEYS = YAML::load(File.open(File.join(File.dirname(__FILE__), 'api_keys.yml')))
 
+Haml::Template.options[:format] = :html5
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers

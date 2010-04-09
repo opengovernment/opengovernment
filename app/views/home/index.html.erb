@@ -1,1 +1,5 @@
 <%= us_map_image_tag %>
+<% form_tag 'search', :method => :get do %>
+   <%= text_field_tag :q, params[:q] %>
+   <%= submit_tag "Find" %>
+<% end %>
