@@ -1,6 +1,6 @@
 module OpenGov::Parse::Shapefile
   def self.to_sql(shapefile, table_name)
-    `shp2pgsql -c -D -s #{OpenGov::District::CENSUS_SRID} -i -I #{shapefile} #{table_name} > #{File.join(File.dirname(shapefile), table_name)}.sql`
+    `shp2pgsql -c -D -s #{District::SRID} -i -I #{shapefile} #{table_name} > #{File.join(File.dirname(shapefile), table_name)}.sql`
   end
 
   def self.process(shapefile, opts = {})

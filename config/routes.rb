@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
-  map.resources :districts, :member => { :search => :get }
+  map.resources :districts, :member => { :search => :get, :show_js => :post }
   map.connect 'search', :controller => 'districts', :action => 'search'
 
   # Sample of regular route:

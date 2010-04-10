@@ -7,9 +7,6 @@ module OpenGov::District
   AREA_CONGRESSIONAL_DISTRICT = 'cd'
   AREA_STATE_UPPER = 'su'
   AREA_STATE_LOWER = 'sl'
-  
-  # The geographic SRID used for all Census bureau data
-  CENSUS_SRID = 4269
 
   def import!(shpfile)
     puts "Inserting shapefile #{File.basename(shpfile)}"
