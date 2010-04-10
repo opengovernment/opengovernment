@@ -16,7 +16,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :census_sld
       t.references :district_type
       t.references :state
-      t.multi_polygon :geom, :srid => OpenGov::District::CENSUS_SRID
+      t.multi_polygon :geom, :srid => District::SRID
       t.string :vintage, :limit => 4 # From the census data. A year ('06') or congress ('110')
     end
 
