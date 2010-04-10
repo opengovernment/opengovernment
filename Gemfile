@@ -20,7 +20,10 @@ gem "ym4r"
 gem "geokit"
 
 # Place hierarchy
-gem "ancestry"
+# gem "ancestry"
+
+# HAML!
+gem "haml"
 
 # Required for rails_xss plugin, which turns on XSS protection by default;
 # remove this (and the plugin) for Rails 3

@@ -1,6 +1,7 @@
-include GeoRuby::Shp4r
-
 module OpenGov::Parse::Shapefile
+  def self.to_sql(shapefile, table_name)
+    `shp2pgsql -c -D -s #{OpenGov::District::CENSUS_SRID} -i -I #{shapefile} #{table_name} > #{File.join(File.dirname(shapefile), table_name)}.sql`
+  end
 
   def self.process(shapefile, opts = {})
 
@@ -26,45 +27,18 @@ module OpenGov::Parse::Shapefile
         raise "Table already exists; try again with :drop_table => true option to drop." unless drop_table
         ActiveRecord::Schema.drop_table(table_name)
       end
-
-      #empty block : the columns will be added afterwards
-      ActiveRecord::Schema.create_table(table_name, :options => table_options){}
-
-      ShpFile.open(shp_filename.to_s) do |shapes|
-        shapes.fields.each do |field|
-          ActiveRecord::Schema.add_column(table_name, field.name.downcase, shp_field_type_2_rails(field.type))
-        end
-
-        #add the geometric column in the_geom
-        ActiveRecord::Schema.add_column(table_name, :the_geom, shp_geom_type_2_rails(shapes.shp_type), :null => false)
-        
-        #add an index
-        ActiveRecord::Schema.add_index(table_name, :the_geom, :spatial => true)
-
-        #add the data
-        #create a subclass of ActiveRecord::Base wired to the table just created
-        arTable = Class.new(ActiveRecord::Base) do
-          set_table_name table_name
-        end
-
-        #go though all the shapes in the file
-        shapes.each do |shape|
-          #create an ActiveRecord object
-          record = arTable.new
-
-          #fill the fields
-          shapes.fields.each do |field|
-            record[field.name.downcase] = shape.data[field.name]
-          end
-
-          #fill the geometry
-          record.the_geom = shape.geometry
-
-          #save to the database
-          record.save
-        end
-      end
     end
+
+    # This creates an SQL file in the same directory as the shapefile
+    to_sql(shp_filename, table_name)
+
+    abcs = ActiveRecord::Base.configurations
+    ENV['PGHOST']     = abcs[Rails.env]["host"] if abcs[Rails.env]["host"]
+    ENV['PGPORT']     = abcs[Rails.env]["port"].to_s if abcs[Rails.env]["port"]
+    ENV['PGPASSWORD'] = abcs[Rails.env]["password"].to_s if abcs[Rails.env]["password"]
+
+    # Parse our shape SQL file
+    `psql -U "#{abcs[Rails.env]["username"]}" -f #{File.join(File.dirname(shapefile), table_name)}.sql #{abcs[Rails.env]["database"]}`
   end
 
   def self.cleanup(shapefile)
@@ -78,7 +52,6 @@ module OpenGov::Parse::Shapefile
 
       #drop the table if it exists
       if ActiveRecord::Base.connection.table_exists?(table_name)
-        ActiveRecord::Schema.remove_index(table_name, :the_geom)
         ActiveRecord::Schema.drop_table(table_name)
       end
     end
