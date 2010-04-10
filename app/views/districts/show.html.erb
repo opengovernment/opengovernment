@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <%= GMap::VML_NAMESPACE %> >
+<head>
+  <title>District Boundaries</title>
+  <%= javascript_include_tag :defaults %>
+
+  <%= stylesheet_link_tag 'ym4r' %>
+  <%= raw GMap.header %>
+  <%= raw @map.to_html %>
+</head>
+	
+<body>
+  <div id="main">
+
+    <% form_remote_tag(:url => {:action => :show_js}) do %>
+      <div id="form" >
+	<label for="district_id">district id:</label>
+
+	<%= text_field_tag :district_id %>
+	<%= submit_tag "Find" %>
+      </div>
+    <% end %>
+
+    <%= raw @map.div %>
+    <div id="notice" style="display:none;"></div>
+  </div>
+  </body>
+
+</html>

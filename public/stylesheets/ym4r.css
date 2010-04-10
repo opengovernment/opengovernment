@@ -1,0 +1,36 @@
+body {
+	background-color: #888;
+	font-family:Arial;
+	font-size: 20px;
+	margin: 25px;
+}
+
+#main {
+	margin: 0;
+	margin-bottom:10px;
+  	background-color:#eee;
+	border: 5px solid #333;
+	padding: 25px;
+}
+
+#form {
+	border: none;
+	text-align: center;
+	padding-bottom:25px;
+}
+
+#map_div{
+	margin: 0px auto;
+	width:800px;
+        height:400px;
+}
+
+#notice{
+	color: red;
+	padding-top:25px;
+	text-align: center;
+}
+
+img {
+	border: none;
+}
