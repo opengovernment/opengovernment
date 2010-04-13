@@ -29,39 +29,10 @@ class CreatePlaces < ActiveRecord::Migration
       t.integer :fips_code
       t.datetime :launch_date
     end
-    
-  #  create_table :legislatures do |t|
-  #    t.string :name # maps to fiftystate#legislature_name
-  #    t.string :upper_chamber_name
-  #    t.string :lower_chamber_name
-  #    t.integer :upper_chamber_term
-  #    t.integer :lower_chamber_term
-  #    t.string :upper_chamber_title
-  #    t.string :lower_chamber_title
-  #    t.timestamps
-  #  end
-  #  
-  #  create_table :legislatures_places do |t|
-  #    t.integer :legislature_id
-  #    t.integer :placeable_id
-  #    t.string :placeable_type
-  #  end
-  #  
-  #  create_table :people do |t|
-  #    # ID column should hold fiftystates#leg_id
-  #    t.string :first_name
-  #    t.string :middle_name
-  #    t.string :last_name
-  #    t.string :suffix
-  #    t.string :party
-  #    t.references :legislature
-  #  end
+
   end
 
   def self.down
-  #  drop_table :people
-  #  drop_table :legislatures_places
-  #  drop_table :legislatures
     drop_table :states
     remove_index :districts, :geom
     drop_table :districts

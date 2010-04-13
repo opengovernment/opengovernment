@@ -1,4 +1,5 @@
 class DistrictsController < ApplicationController
+  before_filter :find_district, :except => :search
 
   def search
     if @districts = District.find_by_address(params[:q])
@@ -19,10 +20,8 @@ class DistrictsController < ApplicationController
 
   def show_js
 
-    dta = District.find_by_id(params[:district_id])
-
-    if dta.nil?
-      @message = "#{params[:district_id]} not in Districts"
+    if @district.nil?
+      @message = "#{params[:id]} not in Districts"
     else
 
       @id = dta.id
@@ -36,6 +35,10 @@ class DistrictsController < ApplicationController
       @zoom = @map.get_bounds_zoom_level(GLatLngBounds.from_georuby(envelope))
 
     end
+  end
+
+  def find_district
+    @district = params[:id] ? District.find_by_id(params[:id]) : nil
   end
 
 end
