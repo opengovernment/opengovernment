@@ -42,6 +42,7 @@ group :cucumber do
    gem "cucumber-rails"
    gem "database_cleaner"
    gem "webrat"
+   gem "factory_girl"
 end
 
 group :test, :cucumber do
@@ -49,4 +50,5 @@ group :test, :cucumber do
    gem "rspec-rails"
    gem "faker"
    gem "machinist"
+   gem "ruby-debug"
 end

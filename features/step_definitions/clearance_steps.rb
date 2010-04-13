@@ -48,11 +48,14 @@ end
 
 Then /^a confirmation message should be sent to "(.*)"$/ do |email|
   user = User.find_by_email(email)
-  sent = ActionMailer::Base.deliveries.first
-  assert_equal [user.email], sent.to
-  assert_match /confirm/i, sent.subject
   assert !user.confirmation_token.blank?
-  assert_match /#{user.confirmation_token}/, sent.body
+  assert !ActionMailer::Base.deliveries.empty?
+  result = ActionMailer::Base.deliveries.any? do |email|
+    email.to == [user.email] &&
+    email.subject =~ /confirm/i &&
+    email.body =~ /#{user.confirmation_token}/
+  end
+  assert result
 end
 
 When /^I follow the confirmation link sent to "(.*)"$/ do |email|
@@ -63,11 +66,14 @@ end
 
 Then /^a password reset message should be sent to "(.*)"$/ do |email|
   user = User.find_by_email(email)
-  sent = ActionMailer::Base.deliveries.first
-  assert_equal [user.email], sent.to
-  assert_match /password/i, sent.subject
   assert !user.confirmation_token.blank?
-  assert_match /#{user.confirmation_token}/, sent.body
+  assert !ActionMailer::Base.deliveries.empty?
+  result = ActionMailer::Base.deliveries.any? do |email|
+    email.to == [user.email] &&
+    email.subject =~ /password/i &&
+    email.body =~ /#{user.confirmation_token}/
+  end
+  assert result
 end
 
 When /^I follow the password reset link sent to "(.*)"$/ do |email|
@@ -91,11 +97,11 @@ When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   When %{I go to the sign in page}
   And %{I fill in "Email" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign In"}
+  And %{I press "Sign in"}
 end
 
 When /^I sign out$/ do
-  visit '/session', :delete
+  visit '/sign_out'
 end
 
 When /^I request password reset link to be sent to "(.*)"$/ do |email|

@@ -2,7 +2,7 @@
   %h3= "#{kind.to_s.capitalize} states:"
   - if eval("@s_#{kind}").size == 0
     %p= "None yet."
-  %ul
+  %ul(id="status_#{kind}")
     - eval("@s_#{kind}").each do |state|
       %li<
         = link_to(state.name, edit_admin_state_path(state))
