@@ -105,7 +105,7 @@ namespace :load do
     puts "Setting up district types"
     Dir.chdir(Rails.root)
     Fixtures.create_fixtures('lib/tasks/fixtures', 'district_types')
-    
+
     # Force a reload of the DistrictType class, so we get the proper constants
     Object.class_eval do
       remove_const("DistrictType") if const_defined?("DistrictType")
