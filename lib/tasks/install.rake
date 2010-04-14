@@ -65,6 +65,8 @@ end
 namespace :fetch do
   task :all do
     Rake::Task['fetch:districts'].invoke
+    Rake::Task['fetch:states'].execute
+    Rake::Task['fetch:people'].execute
   end
 
   task :setup => :environment do
@@ -75,6 +77,14 @@ namespace :fetch do
   desc "Get the district SHP files for Congress and all active states"
   task :districts => :setup do
     OpenGov::Fetch::Districts.process
+  end
+  
+  task :states => :setup do
+    OpenGov::Fetch::States.process
+  end
+
+  task :states => :setup do
+    OpenGov::Fetch::People.process
   end
 end
 

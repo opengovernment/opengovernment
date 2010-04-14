@@ -25,8 +25,8 @@ default_run_options[:pty] = true
 set :use_sudo, true
 
 namespace :deploy do
-  desc "Link the images"
-  task :link_images do
+  desc "Link the shared/ files"
+  task :link_shared do
     run "cp #{deploy_to}/#{shared_dir}/database.yml #{current_release}/config/database.yml"
     run "cp #{deploy_to}/#{shared_dir}/api_keys.yml #{current_release}/config/api_keys.yml"
     run "cp #{deploy_to}/#{shared_dir}/gmaps_api_key.yml #{current_release}/config/gmaps_api_key.yml"
@@ -50,6 +50,27 @@ namespace :deploy do
   end
 end
 
+namespace :bundler do  
+  %w(install update uninstall).each do |cmd|  
+    task cmd, :except => { :no_release => true }  do  
+      opts = cmd == 'uninstall' ? '--all' : '--source=http://gemcutter.org --no-rdoc --no-ri'  
+      run("sudo gem #{cmd} bundler #{opts}")  
+    end  
+  end  
+  
+  task :symlink_vendor do  
+    run %Q{ rm -fr   #{release_path}/vendor/bundler_gems}  
+    run %Q{ mkdir -p #{shared_path}/bundler_gems}  
+    run %Q{ ln -nfs  #{shared_path}/bundler_gems #{release_path}/vendor/bundler_gems}  
+  end  
+  
+  task :bundle_new_release do  
+    bundler.symlink_vendor  
+    run("cd #{release_path} && bundle install vendor/bundler_gems && bundle lock")  
+  end  
+end  
+after 'deploy:update_code', 'bundler:bundle_new_release'
+
 # Deploy hooks...
 
 #
@@ -57,5 +78,5 @@ end
 #
 set :keep_releases, 4
 after "deploy:update", "deploy:cleanup"
-#after "deploy:update_code", "deploy:link_images"
+after "deploy:update_code", "deploy:link_shared"
 #after "deploy:update_code", "deploy:jammit"

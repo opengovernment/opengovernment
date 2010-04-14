@@ -4,7 +4,7 @@ class State < ActiveRecord::Base
   named_scope :pending, :conditions => ["launch_date >= ?", Time.now]
   named_scope :unsupported, :conditions => {:launch_date => nil}
   validates_uniqueness_of :fips_code, :allow_nil => true
-  
+
   def to_param
     [id.to_s, abbrev.downcase].join('-')
   end

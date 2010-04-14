@@ -30,7 +30,7 @@ gem "haml"
 gem "erubis"
 
 # Asset packaging
-gem "jammit"
+#gem "jammit"
 
 group :development do
    # Get TextMate links in development views

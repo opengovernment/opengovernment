@@ -35,5 +35,5 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   Clearance::Routes.draw(map)
-  Jammit::Routes.draw(map)
+  #Jammit::Routes.draw(map)
 end
