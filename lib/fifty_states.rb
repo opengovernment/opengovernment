@@ -5,6 +5,8 @@ module FiftyStates
 
   # These classes encapsulate the results of calls to the Fifty States API
   class FiftyStateObject
+    DATES = [:updated_at, :first_action, :last_action, :date, :created_at]
+
     class << self
       attr_reader :attrs
 
@@ -15,7 +17,7 @@ module FiftyStates
       def get(uri)
         puts "getting #{uri} #{@attrs.inspect}"
         if uri = URI.parse(uri)
-          res = get_uri(uri)
+          res = fetch_uri(uri)
           return res unless res.kind_of?(Net::HTTPOK)
           self.from_json(res.body)
         end
@@ -24,7 +26,7 @@ module FiftyStates
       def search(uri)
         puts "getting #{uri} #{@attrs.inspect}"
         if uri = URI.parse(uri)
-          res = get_uri(uri)
+          res = fetch_uri(uri)
           return res unless res.kind_of?(Net::HTTPOK)
           ActiveSupport::JSON.decode(res.body).collect { |x| self.new x }
         end
@@ -32,7 +34,7 @@ module FiftyStates
 
       private
 
-      def get_uri(uri)
+      def fetch_uri(uri)
         Net::HTTP.start(uri.host, uri.port) do |http|
           http.get(uri.request_uri)
         end
@@ -41,7 +43,7 @@ module FiftyStates
 
     def initialize(h={})
       self.class.attrs.each do |var|
-        eval("@#{var.to_s} = h['#{var.to_s}']")
+        DATES.include?(var) ? eval("@#{var.to_s} = h['#{var.to_s}'].to_datetime") : eval("@#{var.to_s} = h['#{var.to_s}']")
       end
     end
 
@@ -69,7 +71,7 @@ module FiftyStates
   end
 
   class Bill < FiftyStateObject
-    @attrs = [:title, :state, :session, :chamber, :bill_id, :actions, :sponsors]
+    @attrs = [:title, :state, :session, :chamber, :bill_id, :actions, :sponsors, :first_action, :last_action, :updated_at, :votes]
 
     attr_reader *@attrs
 
