@@ -31,7 +31,7 @@ namespace :deploy do
     run "cp #{deploy_to}/#{shared_dir}/api_keys.yml #{current_release}/config/api_keys.yml"
     run "cp #{deploy_to}/#{shared_dir}/gmaps_api_key.yml #{current_release}/config/gmaps_api_key.yml"
 #    run "ln -s #{deploy_to}/#{shared_dir}/files/synch_s3_asset_host.yml #{current_release}/config/"
-    sudo "chown -R mongrel:admins #{current_release}"
+    sudo "chgrp -R admins #{current_release}"
   end
 
   desc "Compile CSS & JS for public/assets/ (see assets.yml)"
@@ -46,6 +46,7 @@ namespace :deploy do
 
   desc "Restart Passenger"
   task :restart do
+    sudo "chgrp admins #{deploy_to}/current"
     sudo "touch #{deploy_to}/current/tmp/restart.txt"
   end
 end
