@@ -67,7 +67,7 @@ namespace :bundler do
   task :bundle_new_release do  
     bundler.symlink_vendor  
     run("cd #{release_path} && bundle install vendor/bundler_gems && bundle lock")
-    sudo "cd ${release_path} && chmod g+w -R .bundle tmp"
+    sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end  
 after 'deploy:update_code', 'bundler:bundle_new_release'
