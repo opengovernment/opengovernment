@@ -62,12 +62,13 @@ namespace :bundler do
     run %Q{ rm -fr   #{release_path}/vendor/bundler_gems}  
     run %Q{ mkdir -p #{shared_path}/bundler_gems}  
     run %Q{ ln -nfs  #{shared_path}/bundler_gems #{release_path}/vendor/bundler_gems}  
-  end  
+  end
   
   task :bundle_new_release do  
     bundler.symlink_vendor  
-    run("cd #{release_path} && bundle install vendor/bundler_gems && bundle lock")  
-  end  
+    run("cd #{release_path} && bundle install vendor/bundler_gems && bundle lock")
+    sudo "cd ${release_path} && chmod g+w -R .bundle tmp"
+  end
 end  
 after 'deploy:update_code', 'bundler:bundle_new_release'
 
