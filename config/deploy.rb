@@ -46,7 +46,6 @@ namespace :deploy do
 
   desc "Restart Passenger"
   task :restart do
-    sudo "chgrp admins #{deploy_to}/current"
     sudo "touch #{deploy_to}/current/tmp/restart.txt"
   end
 end
