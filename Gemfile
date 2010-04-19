@@ -29,6 +29,8 @@ gem "haml"
 # remove this (and the plugin) for Rails 3
 gem "erubis"
 
+gem "httparty"
+
 # Asset packaging
 #gem "jammit"
 
