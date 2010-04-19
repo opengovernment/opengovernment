@@ -53,4 +53,6 @@ group :test, :cucumber do
    gem "faker"
    gem "machinist"
    gem "ruby-debug"
+   gem "spork"
+   gem "webrat"
 end
