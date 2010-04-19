@@ -110,6 +110,8 @@ module FiftyStates
           attributes[method_name.first(-1)] = arguments.first
         when "?"
           attributes[method_name.first(-1)]
+        when "]"
+          attributes[arguments.first.to_s]
         else
           attributes.has_key?(method_name) ? attributes[method_name] : super
       end
@@ -117,7 +119,7 @@ module FiftyStates
   end
 
   class State < Base
-    def self.find_by_abbrv(abbreviation)
+    def self.find_by_abbreviation(abbreviation)
       response = get("/#{abbreviation}")
       instantiate_record(response)
     end
