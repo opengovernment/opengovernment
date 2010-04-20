@@ -1,0 +1,2 @@
+class LowerChamber < Chamber
+end

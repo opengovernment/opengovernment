@@ -1,12 +1,12 @@
-class District < ActiveRecord::Base
+class District < Place
+  set_table_name 'districts'
+
   belongs_to :state
-  belongs_to :district_type
-  validates_presence_of :state_id
-  validates_presence_of :district_type_id
-  validates_presence_of :name
+  belongs_to :chamber
+  validates_presence_of :state_id, :name
   
   # The geographic SRID used for all Census bureau data
-  SRID = 4269
+  SRID = 4269.freeze
 
   class << self
     def find_by_x_y(lat, lng)

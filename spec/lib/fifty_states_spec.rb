@@ -12,13 +12,13 @@ module FiftyStates
     end
 
     describe State do
-      context "#find_by_abbrv" do
+      context "#find_by_abbreviation" do
         before do
           #TODO: Mock request for State
         end
         it "should find a state by abbreviation" do
           lambda do
-            @state = State.find_by_abbrv('ca')
+            @state = State.find_by_abbreviation('ca')
           end.should_not raise_error
 
           @state.should_not be_nil

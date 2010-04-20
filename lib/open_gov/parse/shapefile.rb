@@ -4,15 +4,7 @@ module OpenGov::Parse::Shapefile
   end
 
   def self.process(shapefile, opts = {})
-
     drop_table = opts[:drop_table] || false
-
-    #add options depending on the type of database
-    if ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::MysqlAdapter)
-      table_options = "TYPE=MyISAM" #for MySQL <= 5.0.16 : only MyISAM tables support geometric types
-    else
-      table_options = ""
-    end
 
     shp_filename = shapefile
     shp_basename = File.basename(shapefile)
@@ -57,27 +49,5 @@ module OpenGov::Parse::Shapefile
     end
 
   end
-
-  private
-  
-  def self.shp_field_type_2_rails(type)
-    case type
-    when 'N' then :integer
-    when 'F' then :float
-    when 'D' then :date
-    else
-      :string
-    end
-  end
-
-  def self.shp_geom_type_2_rails(type)
-    case type
-    when ShpType::POINT then :point
-    when ShpType::POLYLINE then :multi_line_string
-    when ShpType::POLYGON then :multi_polygon
-    when ShpType::MULTIPOINT then :multi_point 
-    end
-  end
-
   
 end

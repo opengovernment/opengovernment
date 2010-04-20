@@ -1,0 +1,24 @@
+txu:
+  name: "Senate"
+  title: "Senator"
+  term_length: 4
+  type: "UpperChamber"
+  legislature: tx
+txl:
+  name: "House of Representatives"
+  title: "Representative"
+  term_length: 2
+  type: "LowerChamber"
+  legislature: tx
+hr:
+  name: "House of Representatives"
+  title: "Representative"
+  term_length: 2
+  type: "LowerChamber"
+  legislature: congress
+s:
+  name: "Senate"
+  title: "Senator"
+  term_length: 6
+  type: "UpperChamber"
+  legislature: congress

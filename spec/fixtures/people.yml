@@ -1,0 +1,63 @@
+kirk:
+  first_name: "Kirk"
+  last_name: "Watson"
+  fiftystates_id: 370
+  votesmart_id: 57991
+  updated_at: "25 Mar 2010 00:10:57"
+dawnna:
+  first_name: "Dawnna"
+  last_name: "Dukes"
+  votesmart_id: 5448
+  nimsp_candidate_id: 99973
+  fiftystates_id: 400
+  updated_at: "25 Mar 2010 00:46:14"
+john:
+  first_name: "John"
+  last_name: "Cornyn"
+  religion: "Church of Christ"
+  birthday: "1952-02-02"
+  gender: "M"
+  votesmart_id: 15375
+  opensecrets_id: "N00024852"
+  bioguide_id: "C001056"
+  metavid_id: "John_Cornyn"
+  youtube_id: "senjohncornyn"
+kay:
+  first_name: "Kay"
+  middle_name: "Bailey"
+  last_name: "Hutchison"
+  votesmart_id: 53349
+  opensecrets_id: "N00005675"
+  bioguide_id: "H001016"
+  metavid_id: "Kay_Hutchison"
+  youtube_id: "SenatorHutchison"
+  gender: "F"
+  birthday: '1943-07-22'
+lloyd:
+  first_name: "Lloyd"
+  last_name: "Doggett"
+  middle_name: "A."
+  birthday: '1946-10-06'
+  gender: "M"
+  religion: "Methodist"
+  votesmart_id: 21689
+  govtrack_id: 400111
+  metavid_id: "Lloyd_Doggett"
+  youtube_id: "doggett"
+  bioguide_id: "D000399"
+garnet:
+  first_name: "Garnet"
+  last_name: "Coleman"
+  middle_name: "F."
+  fiftystates_id: 439
+  nimsp_candidate_id: 99959
+lee:
+  first_name: "Sheila"
+  last_name: "Jackson-Lee"
+  birthday: "1950-01-12"
+  gender: "F"
+  religion: "Seventh Day Adventist"
+  votesmart_id: 21692
+  opensecrets_id: 'N00005818'
+  bioguide_id: 'J000032'
+  metavid_id: "Sheila_Jackson-Lee"

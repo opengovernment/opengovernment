@@ -1,274 +1,279 @@
-AK:
+ak:
   id: 1
   abbrev: AK
   name: Alaska
   fips_code: 2
-AL:
+al:
   id: 2
   abbrev: AL
   name: Alabama
   fips_code: 1
-AR:
+ar:
   id: 3
   abbrev: AR
   name: Arkansas
   fips_code: 5
-AS:
+as:
   id: 4
   abbrev: AS
   name: American Samoa
-AZ:
+az:
   id: 5
   abbrev: AZ
   name: Arizona
   fips_code: 4
-CA:
-  id: 6
+ca:
   abbrev: CA
+  id: 6
   name: California
   fips_code: 6
-CO:
-  id: 7
+  launch_date: 2010-04-01
+co:
   abbrev: CO
+  id: 7
   name: Colorado
   fips_code: 8
-CT:
-  id: 8
+ct:
   abbrev: CT
   name: Connecticut
+  id: 8
   fips_code: 9
-DC:
-  id: 9
+dc:
   abbrev: DC
+  id: 9
   name: District of Columbia
   fips_code: 11
   unicameral: true
-DE:
-  id: 10
+de:
   abbrev: DE
+  id: 10
   name: Delaware
   fips_code: 10
-FL:
-  id: 11
+fl:
   abbrev: FL
+  id: 11
   name: Florida
   fips_code: 12
-GA:
+ga:
   id: 12
   abbrev: GA
   name: Georgia
   fips_code: 13
-GU:
+gu:
   id: 13
   abbrev: GU
   name: Guam
-HI:
+hi:
   id: 14
   abbrev: HI
   name: Hawaii
   fips_code: 15
-IA:
+ia:
   id: 15
   abbrev: IA
   name: Iowa
   fips_code: 19
-ID:
+id:
   id: 16
   abbrev: ID
   name: Idaho
   fips_code: 16
-IL:
+il:
   id: 17
   abbrev: IL
   name: Illinois
   fips_code: 17
-IN:
-  id: 18
+in:
   abbrev: IN
+  id: 18
   name: Indiana
   fips_code: 18
-KS:
-  id: 19
+ks:
   abbrev: KS
   name: Kansas
+  id: 19
   fips_code: 20
-KY:
-  id: 20
+ky:
   abbrev: KY
+  id: 20
   name: Kentucky
   fips_code: 21
-LA:
-  id: 21
+la:
   abbrev: LA
+  id: 21
   name: Louisiana
   fips_code: 22
-MA:
-  id: 22
+  launch_date: 2010-04-01
+ma:
   abbrev: MA
+  id: 22
   name: Massachusetts
   fips_code: 25
-MD:
-  id: 23
+md:
   abbrev: MD
+  id: 23
   name: Maryland
   fips_code: 24
-ME:
-  id: 24
+  launch_date: 2010-04-01
+me:
   abbrev: ME
+  id: 24
   name: Maine
   fips_code: 23
-MI:
-  id: 25
+mi:
   abbrev: MI
+  id: 25
   name: Michigan
   fips_code: 26
-MN:
-  id: 26
+mn:
   abbrev: MN
+  id: 26
   name: Minnesota
   fips_code: 27
-MO:
-  id: 27
+mo:
   abbrev: MO
+  id: 27
   name: Missouri
   fips_code: 29
-MS:
-  id: 28
+ms:
   abbrev: MS
+  id: 28
   name: Mississippi
   fips_code: 28
-MT:
-  id: 29
+mt:
   abbrev: MT
+  id: 29
   name: Montana
   fips_code: 30
-NC:
-  id: 30
+nc:
   abbrev: NC
+  id: 30
   name: North Carolina
   fips_code: 37
-ND:
-  id: 31
+nd:
   abbrev: ND
+  id: 31
   name: North Dakota
   fips_code: 38
-NE:
-  id: 32
+ne:
   abbrev: NE
+  id: 32
   name: Nebraska
   fips_code: 31
   unicameral: true
-NH:
-  id: 33
+nh:
   abbrev: NH
+  id: 33
   name: New Hampshire
   fips_code: 33
-NJ:
-  id: 34
+nj:
   abbrev: NJ
   name: New Jersey
+  id: 34
   fips_code: 34
-NM:
-  id: 35
+nm:
   abbrev: NM
+  id: 35
   name: New Mexico
   fips_code: 35
-NV:
-  id: 36
+nv:
   abbrev: NV
+  id: 36
   name: Nevada
   fips_code: 32
-NY:
-  id: 37
+ny:
   abbrev: NY
+  id: 37
   name: New York
   fips_code: 36
-OH:
-  id: 38
+oh:
   abbrev: OH
+  id: 38
   name: Ohio
   fips_code: 39
-OK:
-  id: 39
+ok:
   abbrev: OK
+  id: 39
   name: Oklahoma
   fips_code: 40
-OR:
-  id: 40
+or:
   abbrev: OR
+  id: 40
   name: Oregon
   fips_code: 41
-PA:
-  id: 41
+pa:
   abbrev: PA
+  id: 41
   name: Pennsylvania
   fips_code: 42
-PR:
-  id: 42
+pr:
   abbrev: PR
+  id: 42
   name: Puerto Rico
   fips_code: 72
-RI:
-  id: 43
+ri:
   abbrev: RI
+  id: 43
   name: Rhode Island
   fips_code: 44
-SC:
-  id: 44
+sc:
   abbrev: SC
+  id: 44
   name: South Carolina
   fips_code: 45
-SD:
-  id: 45
+sd:
   abbrev: SD
+  id: 45
   name: South Dakota
   fips_code: 46
-TN:
-  id: 46
+tn:
   abbrev: TN
+  id: 46
   name: Tennessee
   fips_code: 47
-TX:
-  id: 47
+tx:
   abbrev: TX
+  id: 47
   name: Texas
   fips_code: 48
-UT:
-  id: 48
+  launch_date: 2010-04-01  
+ut:
   abbrev: UT
+  id: 48
   name: Utah
   fips_code: 49
-VA:
-  id: 49
+va:
   abbrev: VA
+  id: 49
   name: Virginia
   fips_code: 51
-VI:
-  id: 50
+vi:
   abbrev: VI
+  id: 50
   name: Virgin Islands
-VT:
-  id: 51
+vt:
   abbrev: VT
+  id: 51
   name: Vermont
   fips_code: 50
-WA:
-  id: 52
+wa:
   abbrev: WA
+  id: 52
   name: Washington
   fips_code: 53
-WI:
-  id: 53
+wi:
   abbrev: WI
+  id: 53
   name: Wisconsin
   fips_code: 55
-WV:
-  id: 54
+  launch_date: 2010-04-01
+wv:
   abbrev: WV
+  id: 54
   name: West Virginia
   fips_code: 54
-WY:
-  id: 55
+wy:
   abbrev: WY
+  id: 55
   name: Wyoming
   fips_code: 56

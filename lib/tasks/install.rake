@@ -52,9 +52,10 @@ namespace :install do
   desc "Download and insert all core data"
   task :data => :environment do
     # Fixtures
-    Rake::Task['load:states'].invoke
+    Rake::Task['load:fixtures'].invoke
+    Rake::Task['load:legislatures'].execute
 
-    # Fetch all exteral data
+    # Fetch all exteral data files
     Rake::Task['fetch:all'].invoke
 
     # Load external data
@@ -80,7 +81,8 @@ end
 
 namespace :load do
   task :all => :setup do
-    Rake::Task['load:states'].execute
+    Rake::Task['load:fixtures'].execute
+    Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].execute
   end
   
@@ -88,32 +90,26 @@ namespace :load do
     Dir.chdir(DATA_DIR)
   end
 
-  task :districts => :setup do
-    include OpenGov::District
-    require 'active_record/fixtures'
-
-    puts "Setting up district types"
-    Dir.chdir(Rails.root)
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'district_types')
-
-    # Force a reload of the DistrictType class, so we get the proper constants
-    Object.class_eval do
-      remove_const("DistrictType") if const_defined?("DistrictType")
-    end
-    load "district_type.rb"
-
-    Dir.chdir(DATA_DIR)
-
-    Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
-      OpenGov::District::import!(shpfile)
-    end
-  end
-
-  task :states => :setup do
+  # These tasks are listed in the order that we need the data to be inserted.
+  task :fixtures => :setup do
     require 'active_record/fixtures'
 
     Dir.chdir(Rails.root)
+    Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
+    Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
   end
+
+  desc "Fetch and load legislatures from FiftyStates"
+  task :legislatures => :setup do
+    OpenGov::Load::Legislatures.import!
+  end
+
+  task :districts => :setup do
+    Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
+      OpenGov::Load::Districts::import!(shpfile)
+    end
+  end
+
 end
 

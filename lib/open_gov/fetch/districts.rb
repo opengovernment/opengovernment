@@ -22,7 +22,7 @@ module OpenGov::Fetch::Districts
     process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
 
     # Get state legislature files, when available
-    State.find(:all, :conditions => "fips_code is not null").each do |state|
+    State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
       {"upper" => AREA_STATE_UPPER, "lower" => AREA_STATE_LOWER}.each do |name, house|
 
         # Unicameral states don't have lower house files.
@@ -31,9 +31,6 @@ module OpenGov::Fetch::Districts
         end
       end
     end
-
-    # Cleanup
-    `rm *.zip`
   end
 
   private
