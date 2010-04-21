@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'spec/spec_helper'
 
 describe Chamber do
   before(:each) do
     @valid_attributes = {
-      
+      :term_length => 2
     }
   end
 

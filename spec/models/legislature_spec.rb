@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'spec/spec_helper'
 
 describe Legislature do
   before(:each) do
     @valid_attributes = {
-      
+      :name => "Treehouse of Representatives"
     }
   end
 

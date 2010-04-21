@@ -48,7 +48,7 @@ describe District do
   end
   
   it "should return a district by number" do
-    districts = District.number('14')
+    districts = District.numbered('14')
     districts.size.should eql(1)
     districts[0].census_sld.should eql('014')
   end
