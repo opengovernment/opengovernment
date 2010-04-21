@@ -24,6 +24,16 @@ module OpenGov::Load::Legislatures
           :term_length => fs_state[field_prefix + "term"]
         )
       end
+
+      fs_state.sessions.each do |s|
+        session = Session.find_or_create_by_legislature_id_and_name(leg.id, s.name)
+        
+        session.update_attributes!(
+          :start_year => s.start_year,
+          :end_year => s.end_year
+        )
+      end
+
     end
   end
 end

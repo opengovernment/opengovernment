@@ -85,7 +85,7 @@ namespace :load do
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].execute
   end
-  
+
   task :setup => :environment do
     Dir.chdir(DATA_DIR)
   end
