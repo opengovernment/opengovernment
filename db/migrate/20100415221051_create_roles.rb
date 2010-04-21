@@ -21,7 +21,7 @@ class CreateRoles < ActiveRecord::Migration
 
     execute "alter table roles
       ADD CONSTRAINT role_date_ck
-      CHECK (end_date >= start_date)"
+      CHECK (end_date >= start_date or end_date is null)"
 
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_person_fk
