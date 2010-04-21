@@ -15,8 +15,7 @@ class GovTrackImporter
         begin
           import_person(person)
         rescue Exception => e
-          puts "Problem importing/updating"
-          puts e.message
+          puts "\nSkipping #{person.attributes['id']}-#{person.attributes['name']}: #{e.message}"
           next
         end
       end
@@ -33,7 +32,7 @@ class GovTrackImporter
     @person.gender = attrs['gender']
 
     date = attrs['birthday']
-    @person.birthday = Date.strptime(date, "%Y-%m-%d") if ((date) && (date != '0000-00-00'))
+    @person.birthday = valid_date?(date) && Date.strptime(date, "%Y-%m-%d")
     @person.religion = attrs['religion']
 
     @person.votesmart_id = attrs['pvsid']
@@ -60,7 +59,7 @@ class GovTrackImporter
 
     role.party = attrs['party']
     role.state = state
-    role.district = state.districts.numbered(attrs['district']).first
+    role.district = state && state.districts.numbered(attrs['district']).first
     role
   end
 
@@ -74,13 +73,17 @@ class GovTrackImporter
     attrs = role_xml.attributes
 
     startdate = attrs['startdate']
-    startdate = Date.strptime(startdate, "%Y-%m-%d") if startdate && (startdate != '0000-00-00')
+    startdate = valid_date?(startdate) && Date.strptime(startdate, "%Y-%m-%d")
     enddate = attrs['enddate']
-    enddate = Date.strptime(enddate, "%Y-%m-%d") if enddate && (enddate != '0000-00-00')
+    enddate = valid_date?(enddate) && Date.strptime(enddate, "%Y-%m-%d")
 
     options = {:person_id => @person.id, :start_date => startdate, :end_date => startdate}
 
     Role.find(:first, :conditions => options) || Role.new(options)
+  end
+
+  def valid_date?(date)
+    Date.parse(date) rescue nil
   end
 end
 

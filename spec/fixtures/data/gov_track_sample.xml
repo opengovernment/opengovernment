@@ -1,0 +1,198 @@
+<?xml version="1.0" ?>
+<people>
+  <person id='400001' lastname='Abercrombie' firstname='Neil' birthday='1938-06-26' gender='M' pvsid='26827'
+          osid='N00007665' bioguideid='A000014' metavidid='Neil_Abercrombie' youtubeid='hawaiirep1'
+          name='Rep. Neil Abercrombie [D, HI-1]' title='Rep.' state='HI' district='1'>
+    <role type='rep' startdate='1985-01-03' enddate='1986-10-18' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='1991-01-03' enddate='1992-10-09' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='1993-01-05' enddate='1994-12-01' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='1995-01-04' enddate='1996-10-04' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='HI' district='1'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='HI' district='1'
+          url='http://www.house.gov/abercrombie'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='HI' district='1'
+          url='http://www.house.gov/abercrombie'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='HI' district='1'
+          url='http://www.house.gov/abercrombie'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-03-01' party='Democrat' state='HI' district='1'
+          url='http://www.house.gov/abercrombie'/>
+  </person>
+  <person id='400002' lastname='Acevedo-Vilá' firstname='Aníbal' birthday='1962-02-13' gender='M' osid='N00009825'
+          bioguideid='A000359' name='Aníbal Acevedo-Vilá'>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='AL' state='PR' district='0'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Popular Democrat' state='PR' district='0'
+          url='http://www.house.gov/acevedo-vila'/>
+  </person>
+  <person id='400003' lastname='Ackerman' firstname='Gary' middlename='L.' birthday='1942-11-19' gender='M'
+          religion='Jewish' pvsid='26970' osid='N00001143' bioguideid='A000022' metavidid='Gary_L._Ackerman'
+          youtubeid='RepAckerman' name='Rep. Gary Ackerman [D, NY-5]' title='Rep.' state='NY' district='5'>
+    <role type='rep' startdate='1983-01-03' enddate='1984-10-12' party='Democrat' state='NY' district='7'/>
+    <role type='rep' startdate='1985-01-03' enddate='1986-10-18' party='Democrat' state='NY' district='7'/>
+    <role type='rep' startdate='1987-01-06' enddate='1988-10-22' party='Democrat' state='NY' district='7'/>
+    <role type='rep' startdate='1989-01-03' enddate='1990-10-28' party='Democrat' state='NY' district='7'/>
+    <role type='rep' startdate='1991-01-03' enddate='1992-10-09' party='Democrat' state='NY' district='7'/>
+    <role type='rep' startdate='1993-01-05' enddate='1994-12-01' party='Democrat' state='NY' district='5'/>
+    <role type='rep' startdate='1995-01-04' enddate='1996-10-04' party='Democrat' state='NY' district='5'/>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Democrat' state='NY' district='5'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='NY' district='5'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='NY' district='5'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='NY' district='5'
+          url='http://www.house.gov/ackerman'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='NY' district='5'
+          url='http://www.house.gov/ackerman'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='NY' district='5'
+          url='http://www.house.gov/ackerman'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Democrat' state='NY' district='5'
+          url='http://ackerman.house.gov/' current='1'/>
+  </person>
+  <person id='400004' lastname='Aderholt' firstname='Robert' birthday='1965-07-22' gender='M' religion='Protestant'
+          pvsid='441' osid='N00003028' bioguideid='A000055' metavidid='Robert_B._Aderholt' youtubeid='RobertAderholt'
+          name='Rep. Robert Aderholt [R, AL-4]' title='Rep.' state='AL' district='4'>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Republican' state='AL' district='4'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Republican' state='AL' district='4'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Republican' state='AL' district='4'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Republican' state='AL' district='4'
+          url='http://www.house.gov/aderholt'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Republican' state='AL' district='4'
+          url='http://www.house.gov/aderholt'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Republican' state='AL' district='4'
+          url='http://aderholt.house.gov'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Republican' state='AL' district='4'
+          url='http://aderholt.house.gov' current='1'/>
+  </person>
+  <person id='400005' lastname='Akin' firstname='W.' middlename='Todd' birthday='1947-07-05' gender='M'
+          religion='Christian' pvsid='9301' osid='N00009677' bioguideid='A000358' metavidid='W._Todd_Akin'
+          youtubeid='RepToddAkin' name='Rep. Todd Akin [R, MO-2]' title='Rep.' state='MO' district='2'>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Republican' state='MO' district='2'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Republican' state='MO' district='2'
+          url='http://www.house.gov/akin'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Republican' state='MO' district='2'
+          url='http://www.house.gov/akin'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Republican' state='MO' district='2'
+          url='http://akin.house.gov'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Republican' state='MO' district='2'
+          url='http://akin.house.gov' current='1'/>
+  </person>
+  <person id='400006' lastname='Alexander' firstname='Rodney' middlename='M.' birthday='1946-12-05' gender='M'
+          pvsid='4545' osid='N00025464' bioguideid='A000361' metavidid='Rodney_Alexander'
+          youtubeid='RepRodneyMAlexander' name='Rep. Rodney Alexander [R, LA-5]' title='Rep.' state='LA' district='5'>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='LA' district='5'
+          url='http://www.house.gov/alexander/'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Republican' state='LA' district='5'
+          url='http://www.house.gov/alexander/'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Republican' state='LA' district='5'
+          url='http://www.house.gov/alexander'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Republican' state='LA' district='5'
+          url='http://alexander.house.gov/' current='1'/>
+  </person>
+  <person id='400007' lastname='Allen' firstname='Thomas' middlename='H.' nickname='Tom' birthday='1945-04-16'
+          gender='M' religion='Protestant' pvsid='380' osid='N00000469' bioguideid='A000357' metavidid='Thomas_H._Allen'
+          name='Thomas Allen'>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Democrat' state='ME' district='1'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='ME' district='1'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='ME' district='1'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='ME' district='1'
+          url='http://tomallen.house.gov'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='ME' district='1'
+          url='http://tomallen.house.gov'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='ME' district='1'
+          url='http://tomallen.house.gov'/>
+  </person>
+  <person id='400008' lastname='Andrews' firstname='Robert' middlename='E.' nickname='Rob' birthday='1957-08-04'
+          gender='M' religion='Episcopalian' pvsid='26949' osid='N00000826' bioguideid='A000210'
+          metavidid='Robert_E._Andrews' name='Rep. Robert Andrews [D, NJ-1]' title='Rep.' state='NJ' district='1'>
+    <role type='rep' startdate='1989-01-03' enddate='1990-10-28' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='1991-01-03' enddate='1992-10-09' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='1993-01-05' enddate='1994-12-01' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='1995-01-04' enddate='1996-10-04' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='NJ' district='1'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='NJ' district='1'
+          url='http://www.house.gov/andrews'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='NJ' district='1'
+          url='http://www.house.gov/andrews'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='NJ' district='1'
+          url='http://www.house.gov/andrews'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Democrat' state='NJ' district='1'
+          url='http://www.house.gov/andrews' current='1'/>
+  </person>
+  <person id='400009' lastname='Baca' firstname='Joe' birthday='1947-01-23' gender='M' pvsid='8039' osid='N00007089'
+          bioguideid='B001234' metavidid='Joe_Baca' name='Rep. Joe Baca [D, CA-43]' title='Rep.' state='CA'
+          district='43'>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='CA' district='42'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='CA' district='42'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='CA' district='43'
+          url='http://www.house.gov/baca'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='CA' district='43'
+          url='http://www.house.gov/baca'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='CA' district='43'
+          url='http://www.house.gov/baca'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Democrat' state='CA' district='43'
+          url='http://www.house.gov/baca' current='1'/>
+  </person>
+  <person id='400010' lastname='Bachus' firstname='Spencer' middlename='Thomas' namemod='III' birthday='1947-12-28'
+          gender='M' religion='Baptist' pvsid='26715' osid='N00008091' bioguideid='B000013' metavidid='Spencer_Bachus'
+          youtubeid='CongressmanBachus' name='Rep. Spencer Bachus [R, AL-6]' title='Rep.' state='AL' district='6'>
+    <role type='rep' startdate='1993-01-05' enddate='1994-12-01' party='Republican' state='AL' district='6'/>
+    <role type='rep' startdate='1995-01-04' enddate='1996-10-04' party='Republican' state='AL' district='6'/>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Republican' state='AL' district='6'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Republican' state='AL' district='6'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Republican' state='AL' district='6'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Republican' state='AL' district='6'
+          url='http://www.house.gov/bachus'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Republican' state='AL' district='6'
+          url='http://www.house.gov/bachus'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Republican' state='AL' district='6'
+          url='http://bachus.house.gov'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Republican' state='AL' district='6'
+          url='http://bachus.house.gov' current='1'/>
+  </person>
+  <person id='400011' lastname='Baird' firstname='Brian' middlename='N.' birthday='1956-03-07' gender='M'
+          religion='Protestant' pvsid='837' osid='N00007936' bioguideid='B001229' metavidid='Brian_Baird'
+          name='Rep. Brian Baird [D, WA-3]' title='Rep.' state='WA' district='3'>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='WA' district='3'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='WA' district='3'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='WA' district='3'
+          url='http://www.house.gov/baird'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='WA' district='3'
+          url='http://www.house.gov/baird'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='WA' district='3'
+          url='http://www.house.gov/baird'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Democrat' state='WA' district='3'
+          url='http://www.baird.house.gov' current='1'/>
+  </person>
+  <person id='400012' lastname='Baker' firstname='Richard' middlename='Hugh' birthday='1948-05-22' gender='M'
+          religion='Methodist' osid='N00005407' bioguideid='B000072' metavidid='Richard_H._Baker' name='Richard Baker'>
+    <role type='rep' startdate='1987-01-06' enddate='1988-10-22' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1989-01-03' enddate='1990-10-28' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1991-01-03' enddate='1992-10-09' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1993-01-05' enddate='1994-12-01' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1995-01-04' enddate='1996-10-04' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1997-01-07' enddate='1998-12-19' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Republican' state='LA' district='6'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Republican' state='LA' district='6'
+          url='http://www.house.gov/baker'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Republican' state='LA' district='6'
+          url='http://www.house.gov/baker'/>
+    <role type='rep' startdate='2007-01-04' enddate='2008-02-02' party='Republican' state='LA' district='6'
+          url='http://baker.house.gov'/>
+  </person>
+  <person id='400013' lastname='Baldwin' firstname='Tammy' birthday='1962-02-11' gender='F' pvsid='3470'
+          osid='N00004367' bioguideid='B001230' metavidid='Tammy_Baldwin' youtubeid='RepTammyBaldwin'
+          name='Rep. Tammy Baldwin [D, WI-2]' title='Rep.' state='WI' district='2'>
+    <role type='rep' startdate='1999-01-06' enddate='2000-12-15' party='Democrat' state='WI' district='2'/>
+    <role type='rep' startdate='2001-01-03' enddate='2002-11-22' party='Democrat' state='WI' district='2'/>
+    <role type='rep' startdate='2003-01-07' enddate='2004-12-09' party='Democrat' state='WI' district='2'
+          url='http://tammybaldwin.house.gov'/>
+    <role type='rep' startdate='2005-01-04' enddate='2006-12-08' party='Democrat' state='WI' district='2'
+          url='http://tammybaldwin.house.gov'/>
+    <role type='rep' startdate='2007-01-04' enddate='2009-01-03' party='Democrat' state='WI' district='2'
+          url='http://tammybaldwin.house.gov'/>
+    <role type='rep' startdate='2009-01-06' enddate='2010-12-31' party='Democrat' state='WI' district='2'
+          url='http://tammybaldwin.house.gov' current='1'/>
+  </person>
+</people>
