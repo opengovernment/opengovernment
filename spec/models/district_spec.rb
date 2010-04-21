@@ -4,8 +4,8 @@ describe District do
   before do    
     @valid_attributes = {
       :name => "District 1",
-      :district_type => DistrictType.find(:first),
-      :state => State.find(:first)
+      :census_district_type => "LL",
+      :state => State.first
     }
     # Using our test data,
     # 3000 French Pl, Austin, TX 78722 should return these districts:
@@ -21,11 +21,6 @@ describe District do
     district.should_not be_valid
   end
   
-  it "should have one district type associated with it" do
-    district = District.create(@valid_attributes.except(:district_type))
-    district.should_not be_valid
-  end
-
   it "should always require a name" do
     # No name
     district = District.create(@valid_attributes.except(:name))
@@ -50,6 +45,12 @@ describe District do
     districts.size.should eql(2)
     districts[1].size.should eql(3)
     districts[1].should eql(@french_pl_districts)
+  end
+  
+  it "should return a district by number" do
+    districts = District.number('14')
+    districts.size.should eql(1)
+    districts[0].census_sld.should eql('014')
   end
 
 end
