@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-
   # Auth for staging environment
   USERNAME, PASSWORD = 'opengov', API_KEYS['og_staging']
 

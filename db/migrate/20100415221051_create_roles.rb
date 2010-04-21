@@ -12,10 +12,6 @@ class CreateRoles < ActiveRecord::Migration
       t.date :end_date
       t.timestamps
     end
-    
-    execute "alter table roles
-      ADD CONSTRAINT role_date_ck
-      CHECK (end_date >= start_date or end_date is null)"
 
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_person_fk

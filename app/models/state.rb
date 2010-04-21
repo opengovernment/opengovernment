@@ -2,6 +2,7 @@ class State < Place
   set_table_name 'states'
 
   has_many :districts
+  has_one :legislature
   named_scope :supported, :conditions => ["launch_date < ?", Time.now]
   named_scope :pending, :conditions => ["launch_date >= ?", Time.now]
   named_scope :unsupported, :conditions => {:launch_date => nil}

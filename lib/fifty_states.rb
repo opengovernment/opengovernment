@@ -1,6 +1,12 @@
 require 'json'
 
 module FiftyStates
+  
+  ROLE_MEMBER = "member"
+  ROLE_COMMITTEE_MEMBER = "committee member"
+  CHAMBER_UPPER = "upper"
+  CHAMBER_LOWER = "lower"
+
   class FiftyStatesError < StandardError
     attr_reader :response
 
