@@ -46,5 +46,6 @@ Haml::Template.options[:format] = :html5
 
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
+CONGRESSES = ['111']
 
 POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.

@@ -65,14 +65,13 @@ module OpenGov::Load::Districts
     #      :census_sld => census_sld,
     #      :census_district_type => census_district_type,
     #      :state => state)
+        d = District.find_or_initialize_by_census_sld_and_state_id(census_sld, state.id)
 
-        d = District.create(
+        d.update_attributes!(
           :name => district_name_for(shape),
           :vintage => vintage,
-          :state => state,
           :chamber => chamber,
           :at_large => AT_LARGE_LSADS.include?(shape.lsad.downcase),
-          :census_sld => census_sld,
           :census_district_type => shape.lsad,
           :geom => shape.the_geom
         )

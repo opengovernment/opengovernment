@@ -3,6 +3,14 @@ module OpenGov::Load::Legislatures
     State.loadable.each do |state|
       import_one(state)
     end
+    
+    # Federal sessions
+    leg = Legislature::CONGRESS
+
+    CONGRESSES.each do |congress|
+      Session.find_or_create_by_legislature_id_and_name(leg, congress)
+    end
+
   end
 
   def self.import_one(state)

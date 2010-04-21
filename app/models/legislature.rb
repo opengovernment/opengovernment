@@ -5,4 +5,5 @@ class Legislature < ActiveRecord::Base
   validates_presence_of :name
 
   CONGRESS = Legislature.find_by_name("United States Congress")
+
 end
