@@ -4,8 +4,8 @@ class District < Place
   belongs_to :state
   belongs_to :chamber
   validates_presence_of :state_id, :name
-  named_scope :number, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
-  
+  named_scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
+
   # The geographic SRID used for all Census bureau data
   SRID = 4269.freeze
 

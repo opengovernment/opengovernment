@@ -30,6 +30,7 @@ gem "haml"
 gem "erubis"
 
 gem "httparty"
+gem "hpricot"
 
 # Asset packaging
 #gem "jammit"

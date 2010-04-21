@@ -13,12 +13,6 @@ class CreateRoles < ActiveRecord::Migration
       t.timestamps
     end
     
-    # At least one of state_id and district_id should be populated.
-    execute "alter table roles add constraint place_xor check(
-      (state_id is not null)::integer +
-      (district_id is not null)::integer = 1
-    );"
-
     execute "alter table roles
       ADD CONSTRAINT role_date_ck
       CHECK (end_date >= start_date or end_date is null)"
@@ -26,7 +20,7 @@ class CreateRoles < ActiveRecord::Migration
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_person_fk
       FOREIGN KEY (person_id) REFERENCES people (id);"
-    
+
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_state_fk
       FOREIGN KEY (state_id) REFERENCES states (id);"
@@ -38,7 +32,7 @@ class CreateRoles < ActiveRecord::Migration
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_chamber_fk
       FOREIGN KEY (chamber_id) REFERENCES chambers (id);"
-    
+
     execute "ALTER TABLE roles
       ADD CONSTRAINT role_session_fk
       FOREIGN KEY (session_id) REFERENCES sessions (id);"

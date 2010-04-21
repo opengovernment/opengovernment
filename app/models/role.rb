@@ -6,7 +6,10 @@ class Role < ActiveRecord::Base
   belongs_to :session
   before_save :assure_dates_in_order
 
-  validates_numericality_of :senate_class, :only_integer => true
+  validates_numericality_of :senate_class, :only_integer => true, :allow_blank => true, :in => [1...3]
+
+  validates_presence_of :state, :if => "district.nil?"
+  validates_presence_of :district, :if => "state.nil?"
 
   def place
     # for a given class, returns the appropriate symbol
@@ -32,7 +35,7 @@ class Role < ActiveRecord::Base
       a || b
     end
   end
-  
+
   def place=(p)
     def reflection_symbol(klass)
       klass.to_s.split("::").last.underscore.to_sym
@@ -44,9 +47,9 @@ class Role < ActiveRecord::Base
 
     self.send reflection_assignment_method(p.class), p
   end
-  
+
   protected
-  
+
   def assure_dates_in_order
     errors.add(:end_date, "can't come before start date") unless
   self.start_date < self.end_date
