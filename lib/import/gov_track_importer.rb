@@ -3,6 +3,14 @@ require 'with_progress'
 
 class GovTrackImporter
   include OpenGov::Helpers
+  HISTORICAL_DATA_URL = "http://www.govtrack.us/data/us/people.xml"
+
+  class << self
+    def fetch_data
+      Dir.chdir(DATA_DIR)
+      `curl -fO #{HISTORICAL_DATA_URL}`
+    end
+  end
 
   def initialize(file)
     @doc = Hpricot(file)
@@ -89,6 +97,8 @@ end
 
 
 if __FILE__ == $0
+  GovTrackImporter.fetch_data
+
   File.open(File.join(DATA_DIR, 'people.xml')) do |file|
     GovTrackImporter.new(file).import
   end
