@@ -4,11 +4,11 @@ hr:
   title: "Representative"
   term_length: 2
   type: "LowerChamber"
-  legislature: congress
+  legislature_id: 1
 s:
   id: 2
   name: "Senate"
   title: "Senator"
   term_length: 6
   type: "UpperChamber"
-  legislature: congress
+  legislature_id: 1

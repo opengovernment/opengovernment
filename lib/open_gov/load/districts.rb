@@ -31,9 +31,10 @@ module OpenGov::Load::Districts
 
     arTable.find(:all).each do |shape|
 
-      state = State.find(:first, :conditions => {:fips_code => shape.state})
+      state = State.find_by_fips_code(shape.state)
+
       if [AREA_STATE_LOWER, AREA_STATE_UPPER].include?(table_type)
-        legislature = Legislature.find_by_state_id(state)
+        legislature = state.legislature
       else
         # It's federal; so it's always congress.
         legislature = Legislature::CONGRESS
@@ -44,9 +45,9 @@ module OpenGov::Load::Districts
         # there are lots of LSADs we don't care about.
         chamber = case table_type
         when AREA_STATE_UPPER then
-          UpperChamber.find_by_legislature_id(legislature)
+          legislature.upper_chamber
         when AREA_STATE_LOWER, AREA_CONGRESSIONAL_DISTRICT then
-          LowerChamber.find_by_legislature_id(legislature)
+          legislature.lower_chamber
         else
           raise "Unsupported table type #{table_type} encountered"
         end
@@ -60,17 +61,12 @@ module OpenGov::Load::Districts
 
         census_sld = shape[:cd] || shape[:sldl] || shape[:sldu]
 
-    #    District.delete_all(
-    #      :vintage => vintage,
-    #      :census_sld => census_sld,
-    #      :census_district_type => census_district_type,
-    #      :state => state)
-        d = District.find_or_initialize_by_census_sld_and_state_id(census_sld, state.id)
+        d = District.find_or_initialize_by_census_sld_and_chamber_id(census_sld, chamber.id)
 
         d.update_attributes!(
           :name => district_name_for(shape),
           :vintage => vintage,
-          :chamber => chamber,
+          :state => state,
           :at_large => AT_LARGE_LSADS.include?(shape.lsad.downcase),
           :census_district_type => shape.lsad,
           :geom => shape.the_geom
