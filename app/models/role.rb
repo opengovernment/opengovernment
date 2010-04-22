@@ -10,9 +10,10 @@ class Role < ActiveRecord::Base
 
   validates_presence_of :state, :if => "district.nil?"
   validates_presence_of :district, :if => "state.nil?"
+  validates_presence_of :session
+
   default_scope :conditions => ["current_date between start_date and end_date"]
-  
-  
+
   def place
     # for a given class, returns the appropriate symbol
     # to pass to the ActiveRecord method reflect_on_association

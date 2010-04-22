@@ -1,0 +1,42 @@
+111:
+  id: 1
+  name: "111th Congress"
+  start_year: 2009
+  end_year: 2010
+  legislature: congress
+110:
+  id: 2
+  name: "110th Congress"
+  start_year: 2007
+  end_year: 2008
+  legislature: congress
+109:
+  id: 3
+  name: "109th Congress"
+  start_year: 2005
+  end_year: 2006
+  legislature: congress
+108:
+  id: 4
+  name: "108th Congress"
+  start_year: 2003
+  end_year: 2004
+  legislature: congress
+107:
+  id: 5
+  name: "107th Congress"
+  start_year: 2001
+  end_year: 2002
+  legislature: congress
+106:
+  id: 6
+  name: "106th Congress"
+  start_year: 1999
+  end_year: 2000
+  legislature: congress
+105:
+  id: 7
+  name: "105th Congress"
+  start_year: 1997
+  end_year: 1999
+  legislature: congress

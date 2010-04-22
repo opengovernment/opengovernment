@@ -27,4 +27,7 @@ describe Role do
     role.save.should be_true
   end
 
+  it "should return distict current roles for a given state" do
+  end
+
 end
