@@ -110,8 +110,6 @@ namespace :load do
   task :people => :setup do
     OpenGov::Load::People.import!
   end
-    
-  end
 
   task :districts => :setup do
     Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
