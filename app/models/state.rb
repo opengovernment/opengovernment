@@ -6,6 +6,8 @@ class State < Place
   named_scope :supported, :conditions => ["launch_date < ?", Time.now]
   named_scope :pending, :conditions => ["launch_date >= ?", Time.now]
   named_scope :unsupported, :conditions => {:launch_date => nil}
+  has_many :senators, :through => :state_roles, :class_name => 'Person', :source => :person
+  has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
 
   # Which states are we importing data for?
   named_scope :loadable, :conditions => {:abbrev => ['CA', 'TX']}

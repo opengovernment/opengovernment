@@ -8,6 +8,7 @@ describe State do
       :unicameral => false,
       :fips_code => 9999
     }
+    @texas = State.find_by_abbrev('TX')
   end
 
   it "should create a new instance given valid attributes" do
@@ -33,6 +34,11 @@ describe State do
   it "should show pending states" do
     state_p = State.create!(@valid_attributes.merge(:launch_date => 2.days.from_now))
     State.pending.should include state_p
+  end
+
+  it "should return senators in the US Congress" do
+    senators = @texas.senators
+    senators.size.should eql(2)
   end
 
 end

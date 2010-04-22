@@ -35,7 +35,7 @@ describe District do
 
   it "should allow us to find the correct districts by lat/long" do
     # 3000 French Pl, Austin, TX 78722
-    districts = District.find_by_x_y(30.286308, -97.719782)
+    districts = District.by_x_y(30.286308, -97.719782)
     districts.size.should eql(3)
     districts.should eql(@french_pl_districts)
   end
@@ -51,6 +51,11 @@ describe District do
     districts = District.numbered('14')
     districts.size.should eql(1)
     districts[0].census_sld.should eql('014')
+  end
+
+  it "should return representatives for a given district" do
+    reps = District.numbered('14')[0].representatives
+    reps.size.should eql(1)
   end
 
 end

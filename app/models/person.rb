@@ -7,4 +7,5 @@ class Person < ActiveRecord::Base
   def full_name
     [first_name, middle_name, last_name].compact.join(' ') + suffix? ? ", #{suffix}" : nil
   end
+
 end
