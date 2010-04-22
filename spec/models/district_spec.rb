@@ -10,6 +10,7 @@ describe District do
     # Using our test data,
     # 3000 French Pl, Austin, TX 78722 should return these districts:
     @french_pl_districts = District.find(:all, :conditions => {:census_sld => ["046", "014", "25"] })
+    @district_14 = District.numbered('14')
   end
 
   it "should create a new instance given valid attributes" do
@@ -48,13 +49,12 @@ describe District do
   end
   
   it "should return a district by number" do
-    districts = District.numbered('14')
-    districts.size.should eql(1)
-    districts[0].census_sld.should eql('014')
+    @district_14.size.should eql(1)
+    @district_14.first.census_sld.should eql('014')
   end
 
   it "should return representatives for a given district" do
-    reps = District.numbered('14')[0].representatives
+    reps = @district_14.first.representatives
     reps.size.should eql(1)
   end
 

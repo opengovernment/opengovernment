@@ -39,7 +39,6 @@ module OpenGov::Load::People
           end
 
           district = chamber.districts.numbered(fs_role.district.to_s).first
-          puts "#{state.abbrev} #{chamber.id} #{fs_role.district}"
 
           session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
 
@@ -48,6 +47,8 @@ module OpenGov::Load::People
           role.update_attributes!(
             :person => person,
             :session => session,
+            :start_date => Date.parse("#{session.start_year}-01-01").to_time,
+            :end_date => Date.parse("#{session.end_year}-12-31").to_time,
             :party => fs_role.party
           )
         end

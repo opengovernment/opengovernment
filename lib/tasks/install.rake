@@ -82,8 +82,13 @@ end
 namespace :load do
   task :all => :setup do
     Rake::Task['load:fixtures'].execute
+    
+    # Add states legislatures & sessions
     Rake::Task['load:legislatures'].execute
+
+    # Federal and state districts
     Rake::Task['load:districts'].execute
+
     Rake::Task['load:people'].execute
   end
 
