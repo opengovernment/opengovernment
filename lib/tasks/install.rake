@@ -84,6 +84,7 @@ namespace :load do
     Rake::Task['load:fixtures'].execute
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].execute
+    Rake::Task['load:people'].execute
   end
 
   task :setup => :environment do
@@ -103,6 +104,13 @@ namespace :load do
   desc "Fetch and load legislatures from FiftyStates"
   task :legislatures => :setup do
     OpenGov::Load::Legislatures.import!
+  end
+
+  desc "Fetch and load people from FiftyStates and GovTrack"
+  task :people => :setup do
+    OpenGov::Load::People.import!
+  end
+    
   end
 
   task :districts => :setup do
