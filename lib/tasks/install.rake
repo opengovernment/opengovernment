@@ -99,6 +99,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
+    Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
   end
 
   desc "Fetch and load legislatures from FiftyStates"
