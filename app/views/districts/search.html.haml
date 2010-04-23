@@ -1,14 +1,13 @@
-<% if defined? @point %>
-   Districts near <%= @point.full_address %>:
-   <% if @point.precision != "address" %>
-      We couldn't find your exact address, but we found your <%= @point.precision %>.
-   <% end %>
-   <% if @districts.size == 0 %>
-      We couldn't find your district.
-   <% end %>
-   <ul><% @districts.each do |district| %>
-      <li><%= district.name %></li>
-   <% end %></ul>
-<% else %>
-   Sorry, we couldn't find your address.
-<% end %>
+- if defined? @point
+  = "Districts near #{@point.full_address}"
+  - if @point.precision != "address"
+    = "We couldn't find your exact address, but we found your #{point.precision}."
+  - if @districts.size == 0
+    = "We couldn't find your district."
+  %ul
+    - @districts.each do |district|
+      %li= district.name
+  - @people.each do |person|
+    = person.full_name
+- else
+  Sorry, we couldn't find your address.
