@@ -17,8 +17,10 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == USERNAME && Digest::MD5.hexdigest(password) == PASSWORD
+    if Rails.env == "staging"
+      authenticate_or_request_with_http_basic do |username, password|
+        username == USERNAME && Digest::MD5.hexdigest(password) == PASSWORD
+      end
     end
   end
 
