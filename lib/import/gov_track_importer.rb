@@ -3,21 +3,30 @@ require 'with_progress'
 
 class GovTrackImporter
   include OpenGov::Helpers
-  HISTORICAL_DATA_URL = "http://www.govtrack.us/data/us/people.xml"
 
   class << self
-    def fetch_data
-      Dir.chdir(DATA_DIR)
-      `curl -fO #{HISTORICAL_DATA_URL}`
+    def fetch_data(data_dir = DATA_DIR)
+      Dir.chdir(data_dir)
+      `curl -fO #{GOV_TRACK_DATA_URL}`
     end
   end
 
-  def initialize(file)
-    @doc = Hpricot(file)
+  def initialize(options = {})
+    options[:data_url] ||= GOV_TRACK_DATA_URL
+    options[:refresh_data] ||= false
+
+    @file_name = File.basename(options[:data_url])
+
+    self.class.fetch_data if options[:refresh_data]
+
+    File.open(File.join(DATA_DIR, @file_name)) do |file|
+      @doc = Hpricot(file)
+    end
+
     @people = @doc.search("//person")
   end
 
-  def import
+  def import!
     with_progress do
       @people.each do |person|
         begin
@@ -40,7 +49,7 @@ class GovTrackImporter
     @person.gender = attrs['gender']
 
     date = attrs['birthday']
-    @person.birthday = valid_date?(date) && Date.strptime(date, "%Y-%m-%d")
+    @person.birthday = valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
     @person.religion = attrs['religion']
 
     @person.votesmart_id = attrs['pvsid']
@@ -81,25 +90,21 @@ class GovTrackImporter
     attrs = role_xml.attributes
 
     startdate = attrs['startdate']
-    startdate = valid_date?(startdate) && Date.strptime(startdate, "%Y-%m-%d")
+    startdate = valid_date!(startdate) && Date.strptime(startdate, "%Y-%m-%d")
     enddate = attrs['enddate']
-    enddate = valid_date?(enddate) && Date.strptime(enddate, "%Y-%m-%d")
+    enddate = valid_date!(enddate) && Date.strptime(enddate, "%Y-%m-%d")
 
     options = {:person_id => @person.id, :start_date => startdate, :end_date => startdate}
 
     Role.find(:first, :conditions => options) || Role.new(options)
   end
 
-  def valid_date?(date)
+  def valid_date!(date)
     Date.parse(date) rescue nil
   end
 end
 
 
 if __FILE__ == $0
-  GovTrackImporter.fetch_data
-
-  File.open(File.join(DATA_DIR, 'people.xml')) do |file|
-    GovTrackImporter.new(file).import
-  end
+  GovTrackImporter.new(:refresh_data => true).import!
 end
