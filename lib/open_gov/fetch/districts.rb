@@ -37,14 +37,11 @@ module OpenGov::Fetch::Districts
 
   def self.process_one(ga, fips_code, area_name)
     census_fn = census_fn_for(ga, fips_code)
-    unless File.exists?(census_fn)
-      puts "Downloading the district shapefile for #{area_name}"
-      `curl -fO #{census_url_for(ga, fips_code)}`
-    end
+    curl_ops = File.exists?(census_fn) ? "-z #{census_fn}" : ''
 
-    unless File.exists?(shpfile_for(census_fn))
-      `unzip #{census_fn}`
-    end
+    puts "Downloading the district shapefile for #{area_name}"
+    `curl #{curl_ops} -fO #{census_url_for(ga, fips_code)}`
+    `unzip -u #{census_fn}`
   end
 
   def self.census_url_for(ga, fips_code)
