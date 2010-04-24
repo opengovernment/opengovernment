@@ -1,18 +1,24 @@
 require 'config/environment'
-require 'with_progress'
 
 class GovTrackImporter
+  GOV_TRACK_PEOPLE_URL = "http://www.govtrack.us/data/us/people.xml"
+  GOV_TRACK_PEOPLE_FILE = 'people.xml'
+
   include OpenGov::Helpers
 
   class << self
     def fetch_data(data_dir = DATA_DIR)
       Dir.chdir(data_dir)
-      `curl -fO #{GOV_TRACK_DATA_URL}`
+
+      # Download only if the server copy is newer
+      curl_ops = File.exists?(GOV_TRACK_PEOPLE_FILE) ? "-z #{GOV_TRACK_PEOPLE_FILE}" : ''
+
+      `curl #{curl_ops} -fO #{GOV_TRACK_PEOPLE_URL}`
     end
   end
 
   def initialize(options = {})
-    options[:data_url] ||= GOV_TRACK_DATA_URL
+    options[:data_url] ||= GOV_TRACK_PEOPLE_URL
     options[:refresh_data] ||= false
 
     @file_name = File.basename(options[:data_url])
@@ -27,14 +33,14 @@ class GovTrackImporter
   end
 
   def import!
-    with_progress do
-      @people.each do |person|
-        begin
-          import_person(person)
-        rescue Exception => e
-          puts "\nSkipping #{person.attributes['id']}-#{person.attributes['name']}: #{e.message}"
-          next
-        end
+    @people.each do |person|
+      print '.'
+      $stdout.flush
+      begin
+        import_person(person)
+      rescue Exception => e
+        puts "\nSkipping #{person.attributes['id']}-#{person.attributes['name']}: #{e.message}"
+        next
       end
     end
   end
@@ -72,11 +78,18 @@ class GovTrackImporter
   def make_role(role_xml)
     role = role_already_exists?(role_xml)
     attrs = role_xml.attributes
-    state = State.find_by_abbrev(attrs['state'])
 
     role.party = attrs['party']
-    role.state = state
-    role.district = state && state.districts.numbered(attrs['district']).first
+
+    if attrs['type'] == 'sen'
+      role.chamber = UpperChamber::US_SENATE
+      role.senate_class = attrs['class']
+      role.state = State.find_by_abbrev(attrs['state'])
+    elsif attrs['type'] == 'rep'
+      role.chamber = LowerChamber::US_HOUSE
+      role.district = LowerChamber::US_HOUSE.districts.numbered(attrs['district']).first
+    end
+
     role
   end
 
