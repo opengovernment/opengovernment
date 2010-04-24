@@ -2,9 +2,18 @@ class DistrictsController < ApplicationController
   before_filter :find_district, :except => :search
 
   def search
-    if @districts = District.find_by_address(params[:q])
-      @point = @districts[0]
-      @districts = @districts[1]
+    @point, @districts = District.find_by_address(params[:q])
+
+    if @point
+      @state = State.find_by_abbrev(@point.state)
+
+      @representatives = {}
+      @districts.each do |district|
+        @representatives[district] = district.legislators.first
+      end
+
+      @senators = @state.senators
+
     end
   end
 
