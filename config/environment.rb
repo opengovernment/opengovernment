@@ -46,7 +46,7 @@ Haml::Template.options[:format] = :html5
 
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
+GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
 
 POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.
 
-GOV_TRACK_DATA_URL = "http://www.govtrack.us/data/us/people.xml"

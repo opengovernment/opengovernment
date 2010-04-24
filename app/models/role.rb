@@ -1,9 +1,15 @@
 class Role < ActiveRecord::Base
   belongs_to :person
   belongs_to :chamber
+
+  # One of state or district is always available, see #place
   belongs_to :state
   belongs_to :district
+  
+  # There is not always an associated session. It's there for Fifty States data but not GovTrack.
+  # And anyway, people don't get elected to sessions--they get elected to chambers.
   belongs_to :session
+  
   before_save :assure_dates_in_order
 
   validates_numericality_of :senate_class, :only_integer => true, :allow_blank => true, :in => [1...3]

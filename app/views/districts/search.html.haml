@@ -1,13 +1,16 @@
 - if defined? @point
   = "Districts near #{@point.full_address}"
   - if @point.precision != "address"
-    = "We couldn't find your exact address, but we found your #{point.precision}."
+    = "We couldn't find your exact address, but we found your #{@point.precision}."
   - if @districts.size == 0
     = "We couldn't find your district."
+  <h2>Your Senators</h2>
   %ul
-    - @districts.each do |district|
-      %li= district.name
-  - @people.each do |person|
-    = person.full_name
+    - @senators.each do |person|
+      %li= person.full_name
+  <h2>Your Representatives</h2>
+  %ul
+    - @representatives.each do |district, person|
+      %li= "#{district.name}: #{person.nil? ? "none" : person.full_name}"
 - else
   Sorry, we couldn't find your address.
