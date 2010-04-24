@@ -61,7 +61,7 @@ module OpenGov::Load::Districts
 
         census_sld = shape[:cd] || shape[:sldl] || shape[:sldu]
 
-        d = District.find_or_initialize_by_census_sld_and_chamber_id(census_sld, chamber.id)
+        d = District.find_or_initialize_by_census_sld_and_chamber_id_and_state_id(census_sld, chamber.id, state.id)
 
         d.update_attributes!(
           :name => district_name_for(shape),

@@ -60,6 +60,7 @@ namespace :install do
 
     # Load external data
     Rake::Task['load:districts'].invoke
+    Rake::Task['load:people'].invoke
   end
 end
 
@@ -80,18 +81,6 @@ namespace :fetch do
 end
 
 namespace :load do
-  task :all => :setup do
-    Rake::Task['load:fixtures'].execute
-    
-    # Add states legislatures & sessions
-    Rake::Task['load:legislatures'].execute
-
-    # Federal and state districts
-    Rake::Task['load:districts'].execute
-
-    Rake::Task['load:people'].execute
-  end
-
   task :setup => :environment do
     Dir.chdir(DATA_DIR)
   end
@@ -105,6 +94,15 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
+    
+    # Force a reload of the DistrictType class, so we get the proper constants
+    ["Legislature", "Chamber"].each do |klass_name|
+      Object.class_eval do
+        remove_const(klass_name) if const_defined?(klass_name)
+      end
+      load klass_name.tableize.singularize + ".rb"
+    end
+
   end
 
   desc "Fetch and load legislatures from FiftyStates"

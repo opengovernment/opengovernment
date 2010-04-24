@@ -33,9 +33,12 @@ class GovTrackImporter
   end
 
   def import!
-    @people.each do |person|
-      print '.'
-      $stdout.flush
+    @people.each_with_index do |person, i|
+      if i % 10 == 0
+        print '.'
+        $stdout.flush
+      end
+
       begin
         import_person(person)
       rescue Exception => e
@@ -43,6 +46,8 @@ class GovTrackImporter
         next
       end
     end
+
+    puts "\nThanks!"
   end
 
   def import_person(person_xml)
