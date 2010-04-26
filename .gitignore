@@ -8,3 +8,4 @@ db/*_structure.rb
 db/*_structure.sql
 public/assets/*
 .bundle/*
+data/*
