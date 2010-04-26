@@ -7,11 +7,11 @@ class Person < ActiveRecord::Base
   has_one :chamber, :through => :current_role
 
   def full_name
-    ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze
+    ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end
 
   def official_name
-    chamber ? [chamber.title, full_name].join(' ').squeeze : full_name
+    chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
 
 end
