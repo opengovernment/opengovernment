@@ -18,6 +18,7 @@ class StatesController < ApplicationController
 
   protected
   def get_state
-    @state = State.find(params[:state])
+    @state = State.find(params[:id])
+    @state || resource_not_found
   end
 end

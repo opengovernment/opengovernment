@@ -8,18 +8,24 @@
     %h2 Your Senators
     %ul
       - @senators.each do |person|
-        %li= person.full_name
+        %li
+          = link_to(person.full_name, person_path(person))
     %h2 Your Representatives
     %ul
       - @representatives.each do |district, person|
-        %li= "#{district.name}: #{person.nil? ? "none" : person.full_name}"
+        %li
+          = "#{district.name}:"
+          - if person.nil?
+            = "none"
+          - else
+            = link_to(person.full_name, person_path(person))
   - else
     %h2
       = "#{@state.name} is not supported yet"
     %p
       = "Please leave you your email and we will keep you posted"
     - form_tag(state_subscriptions_path) do
-      = hidden_field_tag :state, @state.id
+      = hidden_field_tag :id, @state.id
       = text_field_tag :email
       = submit_tag "Submit"
 - else

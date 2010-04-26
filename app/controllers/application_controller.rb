@@ -10,8 +10,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate
 
-  private
+  protected
+  def resource_not_found
+    flash[:error] = "Sorry. We were not able to locate what you were looking for.."
+    redirect_to root_path
+  end
 
+  private
   def authenticate
     if Rails.env == "staging"
       authenticate_or_request_with_http_basic do |username, password|

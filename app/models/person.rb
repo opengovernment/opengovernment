@@ -14,4 +14,7 @@ class Person < ActiveRecord::Base
     chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
 
+  def to_param
+   "#{id}-#{full_name.parameterize}"
+  end
 end

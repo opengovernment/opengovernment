@@ -1,0 +1,17 @@
+%h2
+  = @person.official_name
+
+%h3 Basic Information
+%p
+  %div
+    = "Date of Birth: #{@person.birthday}"
+  %div
+    = "Gender: #{@person.gender}"
+  %div
+    = "Religion: #{@person.religion}"
+
+%h3 Roles
+%p
+  - @person.roles.each do |role|
+    %div
+      = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
