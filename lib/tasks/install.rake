@@ -81,12 +81,9 @@ namespace :fetch do
 end
 
 namespace :load do
-  task :setup => :environment do
-    Dir.chdir(DATA_DIR)
-  end
 
   # These tasks are listed in the order that we need the data to be inserted.
-  task :fixtures => :setup do
+  task :fixtures => :environment do
     require 'active_record/fixtures'
 
     Dir.chdir(Rails.root)
@@ -106,16 +103,16 @@ namespace :load do
   end
 
   desc "Fetch and load legislatures from FiftyStates"
-  task :legislatures => :setup do
+  task :legislatures => :environment do
     OpenGov::Load::Legislatures.import!
   end
 
   desc "Fetch and load people from FiftyStates and GovTrack"
-  task :people => :setup do
+  task :people => :environment do
     OpenGov::Load::People.import!
   end
 
-  task :districts => :setup do
+  task :districts => :environment do
     Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
       OpenGov::Load::Districts::import!(shpfile)
     end
