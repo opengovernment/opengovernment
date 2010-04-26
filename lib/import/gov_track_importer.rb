@@ -112,9 +112,9 @@ class GovTrackImporter
     enddate = attrs['enddate']
     enddate = valid_date!(enddate) && Date.strptime(enddate, "%Y-%m-%d")
 
-    options = {:person_id => @person.id, :start_date => startdate, :end_date => enddate}
+    options = {:person_id => @person.id, :start_date => startdate}
 
-    Role.find(:first, :conditions => options) || Role.new(options)
+    Role.find(:first, :conditions => options) || Role.new(options.merge({ :end_date => enddate }))
   end
 
   def valid_date!(date)
