@@ -43,8 +43,8 @@ module OpenGov::Load::People
           role.update_attributes!(
             :person => person,
             :session => session,
-            :start_date => Date.parse("#{session.start_year}-01-01").to_time,
-            :end_date => Date.parse("#{session.end_year}-12-31").to_time,
+            :start_date => fs_role.start_date ? Date.parse(fs_role.start_date).to_time : Date.parse("#{session.start_year}-01-01").to_time,
+            :end_date => fs_role.end_date ? Date.parse(fs_role.end_date).to_time : Date.parse("#{session.end_year}-12-31").to_time,
             :party => fs_role.party
           )
         end
