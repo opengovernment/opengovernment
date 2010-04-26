@@ -9,10 +9,10 @@ class DistrictsController < ApplicationController
 
       @representatives = {}
       @districts.each do |district|
-        @representatives[district] = district.legislators.first
+        @representatives[district] = district.current_legislators.first
       end
 
-      @senators = @state.senators
+      @senators = @state.current_senators
 
     end
   end

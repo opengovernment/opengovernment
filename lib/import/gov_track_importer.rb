@@ -86,13 +86,15 @@ class GovTrackImporter
 
     role.party = attrs['party']
 
+    state = State.find_by_abbrev(attrs['state'])
+
     if attrs['type'] == 'sen'
       role.chamber = UpperChamber::US_SENATE
       role.senate_class = attrs['class']
-      role.state = State.find_by_abbrev(attrs['state'])
+      role.state = state
     elsif attrs['type'] == 'rep'
       role.chamber = LowerChamber::US_HOUSE
-      role.district = LowerChamber::US_HOUSE.districts.numbered(attrs['district']).first
+      role.district = LowerChamber::US_HOUSE.districts.for_state(state.id).numbered(attrs['district']).first
     end
 
     role

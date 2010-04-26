@@ -36,7 +36,7 @@ describe District do
 
   it "should allow us to find the correct districts by lat/long" do
     # 3000 French Pl, Austin, TX 78722
-    districts = District.by_x_y(30.286308, -97.719782)
+    districts = District.for_x_y(30.286308, -97.719782)
     districts.size.should eql(3)
     districts.should eql(@french_pl_districts)
   end
