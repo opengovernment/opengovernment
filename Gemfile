@@ -1,4 +1,5 @@
 source :gemcutter
+source "http://gems.github.com"
 
 gem 'rails', '2.3.5'
 
@@ -15,6 +16,9 @@ gem "clearance"
 gem "GeoRuby"
 gem "spatial_adapter"
 gem "ym4r"
+
+# Service integration
+gem "netroots-ruby-votesmart", :require => "ruby-votesmart"
 
 # Geocoding
 gem "geokit"
