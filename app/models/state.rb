@@ -17,11 +17,12 @@ class State < Place
   validates_uniqueness_of :fips_code, :allow_nil => true
   validates_presence_of :name, :abbrev
   validates_inclusion_of :unicameral, :in => [true, false]
-
+  has_many :subscriptions
+  
   def to_param
     [id.to_s, abbrev.downcase.parameterize].join('-')
   end
-  
+
   def unsupported?
     launch_date.blank?
   end
@@ -29,7 +30,7 @@ class State < Place
   def supported?
     !unsupported? && (launch_date < Time.now)
   end
-  
+
   def pending?
     !unsupported? && (launch_date >= Time.now)
   end
