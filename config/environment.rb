@@ -36,6 +36,7 @@ Rails::Initializer.run do |config|
 
   # We have more of an interesting schema than :ruby can articulate.
   config.active_record.schema_format = :sql
+  config.active_record.timestamped_migrations = false
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
