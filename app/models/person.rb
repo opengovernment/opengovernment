@@ -3,8 +3,13 @@ class Person < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
 
   has_many :roles, :dependent => :destroy
+  has_many :addresses, :dependent => :destroy
+  
   has_one :current_role, :class_name => 'Role'
   has_one :chamber, :through => :current_role
+  
+  named_scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
+  named_scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
 
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')

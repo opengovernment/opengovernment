@@ -21,7 +21,6 @@ class Role < ActiveRecord::Base
 
   named_scope :current, :conditions => Role::CURRENT
 
-
   def place
     # for a given class, returns the appropriate symbol
     # to pass to the ActiveRecord method reflect_on_association

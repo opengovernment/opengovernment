@@ -1,5 +1,5 @@
 require 'spec/spec_helper'
-require 'lib/import/gov_track_importer'
+require 'lib/gov_track_importer'
 
 describe GovTrackImporter do
   before do

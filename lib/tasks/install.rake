@@ -107,9 +107,11 @@ namespace :load do
     OpenGov::Load::Legislatures.import!
   end
 
-  desc "Fetch and load people from FiftyStates and GovTrack"
+  desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
   task :people => :environment do
     OpenGov::Load::People.import!
+    GovTrackImporter.new(:refresh_data => true).import!
+    OpenGov::Load::Addresses.import!
   end
 
   task :districts => :environment do

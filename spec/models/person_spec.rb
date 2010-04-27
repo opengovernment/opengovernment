@@ -3,8 +3,9 @@ require 'spec/spec_helper'
 describe Person do
   before(:each) do
     @valid_attributes = {
-      :first_name => "Carl",
-      :last_name => "Tashian"
+      :first_name => "Lloyd",
+      :last_name => "Doggett",
+      :suffix => "Jr."
     }
   end
 
@@ -18,9 +19,9 @@ describe Person do
     # 2 Senators, 1 Representative, 1 upper chamber rep, 1 lower chamber rep
   end
 
-
-  it "should return representatives given a lat/long" do
-    
+  it "should return representatives full name" do
+    person = Person.new(@valid_attributes)
+    person.full_name.should eql("Lloyd Doggett, Jr.")
   end
 
 end
