@@ -9,7 +9,10 @@
     = "Gender: #{@person.gender}"
   %div
     = "Religion: #{@person.religion}"
-
+%h3 Addresses
+%p
+  - @person.addresses.each do |address|
+    = render :partial => "shared/address", :locals => {:address => address}
 %h3 Roles
 %p
   - @person.roles.each do |role|

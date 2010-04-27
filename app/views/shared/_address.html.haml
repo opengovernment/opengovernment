@@ -1,0 +1,3 @@
+.address{:id => "address#{address.id}"}
+  %h2= address.votesmart_type
+  = "#{address.line_one}<br />#{address.line_two ? "#{address.line_two}<br />" : ""}#{address.city}, #{address.state.abbrev} #{address.postal_code}".html_safe!
