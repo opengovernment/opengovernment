@@ -1,0 +1,18 @@
+%h2
+  = @state.name
+%p
+  %h4 Senate
+  %p
+    - @state.current_senators.each do |rep|
+      %div
+        = link_to(rep.full_name, person_path(rep))
+
+%p
+  %h4 House of Representatives
+  %p
+    - @state.districts.each do |district|
+      %div
+        - district.current_legislators.each do |rep|
+          %div
+            = "#{link_to(rep.full_name, person_path(rep))}, #{district.name}"
+
