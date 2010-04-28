@@ -8,9 +8,20 @@
    <!--[if IE]>
    <%= javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js' %>
    <![endif]-->
+  <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+  <script type='text/javascript'>
+    $.noConflict();
+  </script>
+
    <style>
      article, aside, dialog, figure, footer, header,
      hgroup, menu, nav, section { display: block; }
+
+     body{
+       margin: 0;
+       padding: 0;
+     }
+     
    </style>
  	<title>OpenGovernment - <%= yield(:title) || "revealing state and local government data" %></title>
 </head>
