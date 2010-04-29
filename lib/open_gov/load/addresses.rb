@@ -47,6 +47,41 @@ module OpenGov::Load::Addresses
       else
         puts "Error retrieving #{person.full_name} (votesmart_id #{person.votesmart_id}): #{office['error']['errorMessage']}"
       end
+      
+      web = VoteSmart::Address.get_office_web_address person.votesmart_id
+
+      if web['error'].blank?
+        # VoteSmart will return an array here unless there's only one address available...
+        addresses = web['webaddress']['address']
+
+        # ... but to simplify things, let's always make an array happen.
+        addresses = [addresses] unless addresses.kind_of?(Array)
+
+        website_count = 0
+
+        addresses.each do |addr|
+          case addr['webAddressTypeId'].to_i
+          when 1 # email
+            person.email = addr['webAddress']
+          when 2 # webmail
+            person.webmail = addr['webAddress']
+          when 3 # website
+            if website_count == 0
+              person.website_one = addr['webAddress']
+            else
+              person.website_two = addr['webAddress']
+            end
+            website_count+=1
+          end
+        end
+
+        person.save
+
+      else
+        puts "Error retrieving #{person.full_name} (votesmart_id #{person.votesmart_id}): #{web['error']['errorMessage']}"
+      end
+      
+      
     end
   end
 

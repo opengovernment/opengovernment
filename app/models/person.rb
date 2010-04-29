@@ -19,6 +19,10 @@ class Person < ActiveRecord::Base
     chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
 
+  def youtube_url
+    youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
+  end
+
   def to_param
    "#{id}-#{full_name.parameterize}"
   end

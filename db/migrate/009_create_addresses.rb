@@ -14,9 +14,16 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :fax_two
       t.timestamps
     end
+
+    execute "ALTER TABLE addresses
+      ADD CONSTRAINT address_person_fk
+      FOREIGN KEY (person_id) REFERENCES people (id);"
+
   end
 
   def self.down
+    execute "ALTER TABLE addresses DROP CONSTRAINT address_person_fk;"
+    
     drop_table :addresses
   end
 end
