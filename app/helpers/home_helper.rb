@@ -15,14 +15,16 @@ module HomeHelper
 
   def interactive_us_map_image_tag
     states = State.all
-    states = states.collect {|s| [s.region_code, s.supported? , s.name]}
+    states = states.inject({}) { |result, s| result[s.region_code] = {:supported => s.supported?, :name => s.to_param}; result }
 
     data = states.to_json
 
     x = <<-STR
+
       <div id='map_canvas'></div>
       <script type='text/javascript' src='http://www.google.com/jsapi'></script>
         <script type='text/javascript'>
+         var data =  #{data} ;
          google.load('visualization', '1', {'packages': ['geomap']});
          google.setOnLoadCallback(drawMap);
 
@@ -33,11 +35,11 @@ module HomeHelper
             data.addColumn('number', 'Abbreviation');
             data.addColumn('string', 'Hover');
 
-            data.setValue(0, 0, 'US-CA');
+            data.setValue(0, 0, 'California');
             data.setValue(0, 1, 300);
             data.setValue(0, 2, 'California');
 
-            data.setValue(1, 0, 'US-FL');
+            data.setValue(1, 0, 'Florida');
             data.setValue(0, 1, 500);
             data.setValue(1, 2, 'Florida');
 
@@ -56,12 +58,8 @@ module HomeHelper
           };
 
           function myHandler(e){
-            console.debug('event raised');
-            jQuery(window.location.href = 'states/' + e['region']);
-            console.debug('where is the selection');
-            console.debug(selection);
+            jQuery(window.location.href = 'states/' + data[e['region']]['name']);
           };
-
 
       </script>
     STR

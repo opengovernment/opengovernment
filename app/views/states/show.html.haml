@@ -14,5 +14,7 @@
       %div
         - district.current_legislators.each do |rep|
           %div
-            = "#{link_to(rep.full_name, person_path(rep))}, #{district.name}"
+            = link_to(rep.full_name, person_path(rep))
+            ,
+            = district.name
 

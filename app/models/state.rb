@@ -22,7 +22,7 @@ class State < Place
   has_many :subscriptions
 
   def to_param
-    [id.to_s, abbrev.downcase.parameterize].join('-')
+    "#{name.parameterize}"
   end
 
   def unsupported?
