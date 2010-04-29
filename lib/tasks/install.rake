@@ -15,7 +15,7 @@ task :install => :environment do
 
   puts "Setting up the #{Rails.env} database"
   Rake::Task['db:migrate'].invoke
-  
+
   # Core internal data
   Rake::Task['install:data'].invoke
 end
@@ -24,11 +24,13 @@ namespace :db do
   namespace :create do
     desc "Install PostGIS tables"
     task :postgis => :environment do
-
       unless ActiveRecord::Base.connection.table_exists?("geometry_columns")
         puts "Installing PostGIS #{POSTGIS_VERSION} tables..."
         if `pg_config` =~ /SHAREDIR = (.*)/
           postgis_dir = File.join($1, 'contrib', "postgis-#{POSTGIS_VERSION}")
+          unless File.exists? postgis_dir
+            postgis_dir = File.join($1, 'contrib')
+          end
         else
           raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
         end
@@ -39,7 +41,7 @@ namespace :db do
         ENV['PGPASSWORD'] = abcs[Rails.env]["password"].to_s if abcs[Rails.env]["password"]
 
         `createlang plpgsql -U "#{abcs[Rails.env]["username"]}" #{abcs[Rails.env]["database"]}`
-        
+
         ['postgis.sql', 'spatial_ref_sys.sql'].each do |fn|
           `psql -U "#{abcs[Rails.env]["username"]}" -f #{File.join(postgis_dir, fn)} #{abcs[Rails.env]["database"]}`
         end
@@ -91,7 +93,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
-    
+
     # Force a reload of the DistrictType class, so we get the proper constants
     ["Legislature", "Chamber"].each do |klass_name|
       Object.class_eval do
@@ -110,12 +112,14 @@ namespace :load do
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
   task :people => :environment do
     OpenGov::Load::People.import!
+    Dir.chdir(Rails.root)
     GovTrackImporter.new(:refresh_data => true).import!
+    Dir.chdir(Rails.root)
     OpenGov::Load::Addresses.import!
   end
 
   task :districts => :environment do
-    Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|        
+    Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|
       OpenGov::Load::Districts::import!(shpfile)
     end
   end

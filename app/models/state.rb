@@ -21,6 +21,11 @@ class State < Place
   validates_inclusion_of :unicameral, :in => [true, false]
   has_many :subscriptions
 
+  class << self
+    def find_by_param(param)
+      find_by_name(param.titleize)
+    end
+  end
   def to_param
     "#{name.parameterize}"
   end
