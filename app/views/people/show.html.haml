@@ -4,29 +4,21 @@
 %h3 Basic Information
 %p
   - unless @person.birthday.blank?
-    %div
-      = "Date of Birth: #{@person.birthday}"
+    %div= "Date of Birth: #{@person.birthday}"
   - unless @person.gender.blank?
-    %div
-      = "Gender: #{@person.gender}"
+    %div= "Gender: #{@person.gender}"
   - unless @person.religion.blank?
-    %div
-      = "Religion: #{@person.religion}"
+    %div= "Religion: #{@person.religion}"
   - unless @person.website_one.blank?
-    %div
-      != "Website: " + link_to(@person.website_one, @person.website_one)
+    %div!= "Website: " + link_to(@person.website_one, @person.website_one)
   - unless @person.website_two.blank?
-    %div
-      != "Website: " + link_to(@person.website_two, @person.website_two)
+    %div!= "Website: " + link_to(@person.website_two, @person.website_two)
   - unless @person.webmail.blank?
-    %div
-      != "Web E-mail: " + link_to(@person.webmail, @person.webmail)
+    %div!= "Web E-mail: " + link_to(@person.webmail, @person.webmail)
   - unless @person.email.blank?
-    %div
-      != "E-mail: " + link_to(@person.email, @person.email)
+    %div!= "E-mail: " + link_to(@person.email, @person.email)
   - unless @person.youtube_id.blank?
-    %div
-      != "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
+    %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 %h3 Addresses
 %p
   - if @person.addresses.size > 0
