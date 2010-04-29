@@ -1,3 +1,5 @@
 .address{:id => "address#{address.id}"}
-  %h2= address.votesmart_type
+  %h2.address_type= address.votesmart_type
   = "#{address.line_one}<br />#{address.line_two ? "#{address.line_two}<br />" : ""}#{address.city}, #{address.state.abbrev} #{address.postal_code}".html_safe!
+  %div.phone= "Phone: #{address.phone_one}" if address.phone_one
+  %div.fax= "FAX: #{address.fax_one}" if address.fax_one
