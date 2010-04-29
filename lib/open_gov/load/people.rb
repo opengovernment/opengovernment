@@ -6,7 +6,7 @@ module OpenGov::Load::People
   end
 
   def self.import_one(state)
-    FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
+    Govkit::FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
       unless person = Person.find_by_fiftystates_id(fs_person.leg_id)
         person = Person.new(:fiftystates_id => fs_person.leg_id)
       end
@@ -25,13 +25,13 @@ module OpenGov::Load::People
 
       fs_person.roles.each do |fs_role|
 
-        if fs_role[:type] == FiftyStates::ROLE_MEMBER
+        if fs_role[:type] == Govkit::FiftyStates::ROLE_MEMBER
           legislature = state.legislature
 
           case fs_role.chamber
-          when FiftyStates::CHAMBER_UPPER
+          when Govkit::FiftyStates::CHAMBER_UPPER
             chamber = legislature.upper_chamber
-          when FiftyStates::CHAMBER_LOWER
+          when Govkit::FiftyStates::CHAMBER_LOWER
             chamber = legislature.lower_chamber
           end
 
