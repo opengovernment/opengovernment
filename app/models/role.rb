@@ -62,7 +62,7 @@ class Role < ActiveRecord::Base
 
   def assure_dates_in_order
     if !self.end_date.blank?
-      errors.add(:end_date, "can't come before start date") unless (self.start_date < self.end_date)
+      false unless (self.start_date < self.end_date)
     end
   end
 end

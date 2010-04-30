@@ -19,6 +19,7 @@
     %div!= "E-mail: " + link_to(@person.email, @person.email)
   - unless @person.youtube_id.blank?
     %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
+
 %h3 Addresses
 %p
   - if @person.addresses.size > 0
@@ -26,6 +27,7 @@
       = render :partial => "shared/address", :locals => {:address => address}
   - else
     %p Sorry, we found no addresses.
+
 %h3 Roles
 %p
   - @person.roles.each do |role|

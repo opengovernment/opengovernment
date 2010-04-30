@@ -36,8 +36,8 @@ describe State do
     State.pending.should include state_p
   end
 
-  it "should return senators in the US Congress" do
-    senators = @texas.senators
+  it "should return current senators in the US Congress" do
+    senators = @texas.current_senators
     senators.size.should eql(2)
   end
 

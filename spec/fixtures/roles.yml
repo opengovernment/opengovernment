@@ -3,6 +3,8 @@ kirk_one:
   session: 81
   district: tx14
   party: "Democrat"
+  start_date: "2009-01-06"
+  end_date: <%= 2.days.from_now %>
 dawnna_one:
   person: dawnna
   session: 81
