@@ -4,6 +4,7 @@ class State < Place
   has_many :districts
   has_many :addresses
   has_one :legislature
+  has_many :bills
 
   named_scope :supported, :conditions => ["launch_date < ?", Time.now]
   named_scope :pending, :conditions => ["launch_date >= ?", Time.now]

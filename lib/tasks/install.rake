@@ -109,6 +109,11 @@ namespace :load do
     OpenGov::Load::Legislatures.import!
   end
 
+  desc "Fetch and load bills from FiftyStates"
+  task :bills => :environment do
+    OpenGov::Load::Bills.import!
+  end
+
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
   task :people => :environment do
     OpenGov::Load::People.import!
