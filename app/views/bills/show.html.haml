@@ -2,7 +2,15 @@
   = "Bill #{@bill.legislature_bill_id}"
 
 %p
-  = @bill.title
+  %div
+    = @bill.title
+%p
+  %div
+    = "State: #{@bill.state.name}"
+  %div
+    = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
+  %div
+    = "Chamber: #{@bill.chamber.name}"
 
 %h4 Sponsors
 
