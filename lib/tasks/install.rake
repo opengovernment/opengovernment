@@ -57,7 +57,7 @@ namespace :install do
     Rake::Task['load:fixtures'].invoke
     Rake::Task['load:legislatures'].execute
 
-    # Fetch all exteral data files
+    # Fetch all external data files
     Rake::Task['fetch:all'].invoke
 
     # Load external data
