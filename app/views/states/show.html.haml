@@ -4,9 +4,12 @@
 %h4 Bills
 
 %p
-  - @state.bills.each do |bill|
-    %div
-      = link_to(bill.title, state_bill_path(@state, bill))
+  - if @state.bills.blank?
+    = "Sorry, we found no bills."
+  - else
+    - @state.bills.each do |bill|
+      %div
+        = link_to(bill.title, state_bill_path(@state, bill))
 
 %h4
   = Legislature::CONGRESS.name
