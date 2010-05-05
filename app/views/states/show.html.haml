@@ -1,6 +1,13 @@
 %h2
   = @state.name
 
+%h4 Bills
+
+%p
+  - @state.bills.each do |bill|
+    %div
+      = link_to(bill.title, state_bill_path(@state, bill))
+
 %h4
   = Legislature::CONGRESS.name
 %p

@@ -11,6 +11,9 @@ class Person < ActiveRecord::Base
   named_scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   named_scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
 
+  has_many :sponsorships, :foreign_key => "sponsor_id"
+  has_many :bills, :through => :sponsorships
+
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end

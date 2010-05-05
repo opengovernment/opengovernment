@@ -1,0 +1,27 @@
+%h4
+  = "Bill #{@bill.legislature_bill_id}"
+
+%p
+  = @bill.title
+
+%h4 Sponsors
+
+%p
+  - @bill.sponsors.each do |sponsor|
+    %div
+      = sponsor.full_name
+
+%h4 Actions
+
+%p
+  - @bill.actions.each do |action|
+    %div
+      = action.actor
+      = action.action
+
+%h4 Versions
+
+%p
+  - @bill.versions.each do |version|
+    %div
+      = link_to(version.name, version.url)

@@ -8,4 +8,14 @@ class Bill < ActiveRecord::Base
 
   has_many :versions
   has_many :actions
+
+  class << self
+    def find_by_param(param)
+      find_by_legislature_bill_id(param.titleize.upcase)
+    end
+  end
+
+  def to_param
+    legislature_bill_id.parameterize
+  end
 end

@@ -27,6 +27,7 @@ class State < Place
       find_by_name(param.titleize)
     end
   end
+
   def to_param
     "#{name.parameterize}"
   end

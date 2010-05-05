@@ -33,3 +33,9 @@
   - @person.roles.each do |role|
     %div
       = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
+
+%h3 Bills
+%p
+  - @person.bills.each do |bill|
+    %div
+      = link_to(bill.title, person_bill_path(@person, bill))
