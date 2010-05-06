@@ -14,6 +14,8 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :bills, :through => :sponsorships
 
+  has_many :rolls, :foreign_key => "leg_id"
+
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end

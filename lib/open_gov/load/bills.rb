@@ -23,14 +23,18 @@ module OpenGov::Load::Bills
         @bill.session = state.legislature.sessions.find_by_name(bill.session)
 
         bill.actions.each do |action|
-          a = @bill.actions.find_or_create_by_actor(action.actor)
-          a.action = action.action
-          a.date = Date.parse(action.date) rescue nil
+          a = @bill.actions.find_or_create_by_actor(
+            :actor => action.actor,
+            :action => action.action,
+            :date => valid_date!(action.date)
+          )
         end
 
         bill.versions.each do |version|
-          v = @bill.versions.find_or_create_by_name(version.name)
-          v.url = version.url
+          v = @bill.versions.find_or_create_by_name(
+            :name => version.name,
+            :url => version.url
+          )
         end
 
         bill.sponsors.each do |sponsor|
@@ -42,9 +46,35 @@ module OpenGov::Load::Bills
           end
         end
 
+        bill.votes.each do |vote|
+          v = @bill.votes.find_or_create_by_legislature_vote_id(
+            :legislature_vote_id => vote.vote_id.to_s,
+            :yes_count => vote.yes_count,
+            :no_count => vote.no_count,
+            :other_count => vote.other_count,
+            :passed => vote.passed,
+            :date => valid_date!(vote.date),
+            :motion => vote.motion,
+            :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
+          )
+
+          fiftystates_vote = Govkit::FiftyStates::Vote.find(vote.vote_id)
+
+          fiftystates_vote.roll.each do |roll|
+            r = v.rolls.find_or_create_by_leg_id(
+              :leg_id => roll.leg_id,
+              :vote_type => roll['type']
+            )
+          end
+        end
+
         @bill.save
         puts "done\n"
       end
     end
+  end
+
+  def self.valid_date!(date)
+    Date.parse(date) rescue nil
   end
 end

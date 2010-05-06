@@ -33,3 +33,22 @@
   - @bill.versions.each do |version|
     %div
       = link_to(version.name, version.url)
+
+%h4 Votes
+
+%h4
+
+%p
+  - @bill.votes.each do |vote|
+    %p
+      = "Motion: #{vote.motion}"
+      %div
+        = "YES count: #{vote.yes_count}"
+      %div
+        = "NO count: #{vote.no_count}"
+      %div
+        = "Other count: #{vote.other_count}"
+      %div
+        = "Passed: #{vote.passed? ? "Yes": "No"}"
+      %div
+        = "Chamber: #{vote.chamber.name}"

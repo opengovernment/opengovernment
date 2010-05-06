@@ -118,7 +118,7 @@ namespace :load do
   task :people => :environment do
     OpenGov::Load::People.import!
     Dir.chdir(Rails.root)
-    GovTrackImporter.new(:refresh_data => true).import!
+    GovTrackImporter.new.import!
     Dir.chdir(Rails.root)
     OpenGov::Load::Addresses.import!
   end

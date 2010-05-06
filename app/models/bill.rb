@@ -8,6 +8,7 @@ class Bill < ActiveRecord::Base
 
   has_many :versions
   has_many :actions
+  has_many :votes
 
   class << self
     def find_by_param(param)
