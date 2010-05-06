@@ -10,6 +10,14 @@ class Bill < ActiveRecord::Base
   has_many :actions
   has_many :votes
 
+  has_many :upper_chamber_votes, :class_name => "Vote", :finder_sql => %q{
+    SELECT * from votes where chamber_id = #{self.state.legislature.upper_chamber.id}
+  }
+
+  has_many :lower_chamber_votes, :class_name => "Vote", :finder_sql => %q{
+    SELECT * from votes where chamber_id = #{self.state.legislature.lower_chamber.id}
+  }
+
   class << self
     def find_by_param(param)
       find_by_legislature_bill_id(param.titleize.upcase)

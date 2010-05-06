@@ -37,9 +37,10 @@
 %h4 Votes
 
 %h4
+  = @bill.state.legislature.upper_chamber.name
 
 %p
-  - @bill.votes.each do |vote|
+  - @bill.upper_chamber_votes.each do |vote|
     %p
       = "Motion: #{vote.motion}"
       %div
@@ -50,5 +51,19 @@
         = "Other count: #{vote.other_count}"
       %div
         = "Passed: #{vote.passed? ? "Yes": "No"}"
+
+%h4
+  = @bill.state.legislature.lower_chamber.name
+
+%p
+  - @bill.lower_chamber_votes.each do |vote|
+    %p
+      = "Motion: #{vote.motion}"
       %div
-        = "Chamber: #{vote.chamber.name}"
+        = "YES count: #{vote.yes_count}"
+      %div
+        = "NO count: #{vote.no_count}"
+      %div
+        = "Other count: #{vote.other_count}"
+      %div
+        = "Passed: #{vote.passed? ? "Yes": "No"}"
