@@ -10,7 +10,7 @@ class BillsController < ApplicationController
 
     if params[:person_id] && params[:id]
       person = Person.find(params[:person_id])
-      @bill = person && person.bills.find_by_param(params[:id])
+      @bill = person && Bill.find_by_param(params[:id]) 
     end
 
     @bill || resource_not_found

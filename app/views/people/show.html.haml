@@ -34,11 +34,27 @@
     %div
       = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
 
-%h3 Bills
+%h3 Bills (Sponsored/Co-Sponsored)
 %p
-  - if @person.bills.empty?
+  - if @person.sponsored_bills.empty?
     = "Sorry, we found no bills."
   - else
-    - @person.bills.each do |bill|
+    - @person.sponsored_bills.each do |bill|
       %div
         = link_to(bill.title, person_bill_path(@person, bill))
+
+%h3 Bills (Voted)
+%p
+  - if @person.voted_bills.empty?
+    = "Sorry, we found no bills."
+  - else
+    - @person.voted_bills.each do |bill|
+      %div
+        = link_to(bill.title, person_bill_path(@person, bill))
+        -#TODO: Clean the finders here
+        %p
+          - @person.votes.find_all_by_bill_id(bill.id).each do |vote|
+            %div
+              = "Motion: #{vote.motion}"
+            %div
+              = "Voted: #{@person.rolls.find_by_vote_id(vote.id).vote_type}"
