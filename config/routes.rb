@@ -41,5 +41,5 @@ ActionController::Routing::Routes.draw do |map|
   map.state_subscriptions "/states/ca/subsrciptions", :controller => 'states', :action => 'subscribe'
 
   Clearance::Routes.draw(map)
-  #Jammit::Routes.draw(map)
+  Jammit::Routes.draw(map)
 end

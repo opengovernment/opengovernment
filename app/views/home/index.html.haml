@@ -3,3 +3,12 @@
   <label for="q">Address</label>
   = text_field_tag :q, params[:q]
   = submit_tag "Find"
+= link_to "find_me", "javascript:findMe();"
+:javascript
+  function findMe() {
+   navigator.geolocation.getCurrentPosition(fillForm);
+  }
+
+  function fillForm(position) {
+    $('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+  }

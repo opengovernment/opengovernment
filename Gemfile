@@ -37,12 +37,7 @@ gem "httparty"
 gem "hpricot"
 
 # Asset packaging
-#gem "jammit"
-
-group :development do
-   # Get TextMate links in development views
-   gem "rails-footnotes"
-end
+gem "jammit"
 
 ## Bundle gems used only in certain environments:
 group :cucumber do
