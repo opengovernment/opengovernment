@@ -83,7 +83,6 @@ namespace :fetch do
 end
 
 namespace :load do
-
   # These tasks are listed in the order that we need the data to be inserted.
   task :fixtures => :environment do
     require 'active_record/fixtures'
@@ -101,7 +100,6 @@ namespace :load do
       end
       load klass_name.tableize.singularize + ".rb"
     end
-
   end
 
   desc "Fetch and load legislatures from FiftyStates"
@@ -111,7 +109,7 @@ namespace :load do
 
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
-    OpenGov::Load::Bills.import!
+    OpenGov::Load::Bills.import!(:remote => false)
   end
 
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
@@ -128,6 +126,4 @@ namespace :load do
       OpenGov::Load::Districts::import!(shpfile)
     end
   end
-
 end
-
