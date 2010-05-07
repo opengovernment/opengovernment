@@ -17,7 +17,7 @@
 %p
   - @bill.sponsors.each do |sponsor|
     %div
-      = sponsor.full_name
+      = link_to(sponsor.full_name, person_path(sponsor))
 
 %h4 Actions
 
