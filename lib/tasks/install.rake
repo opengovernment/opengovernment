@@ -62,6 +62,7 @@ namespace :install do
 
     # Load external data
     Rake::Task['load:districts'].invoke
+
     Rake::Task['load:people'].invoke
     Rake::Task['load:bills'].invoke    
   end
@@ -95,12 +96,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
 
     # Force a reload of the DistrictType class, so we get the proper constants
-    ["Legislature", "Chamber"].each do |klass_name|
-      Object.class_eval do
-        remove_const(klass_name) if const_defined?(klass_name)
-      end
-      load klass_name.tableize.singularize + ".rb"
-    end
+    class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
   end
 
   desc "Fetch and load legislatures from FiftyStates"
@@ -125,6 +121,17 @@ namespace :load do
   task :districts => :environment do
     Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|
       OpenGov::Load::Districts::import!(shpfile)
+    end
+
+    class_refresh("District")
+  end
+  
+  def class_refresh(*class_names)
+    class_names.each do |klass_name|
+      Object.class_eval do
+        remove_const(klass_name) if const_defined?(klass_name)
+      end
+      load klass_name.tableize.singularize + ".rb"
     end
   end
 end
