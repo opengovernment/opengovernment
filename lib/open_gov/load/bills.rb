@@ -85,7 +85,7 @@ module OpenGov::Load::Bills
       fiftystates_vote = Govkit::FiftyStates::Vote.find(vote.vote_id)
 
       fiftystates_vote.respond_to?(:roll) && fiftystates_vote.roll.each do |roll|
-        r = v.rolls.find_or_create_by_leg_id(
+        r = v.roll_calls.find_or_create_by_leg_id(
           :leg_id => roll.leg_id,
           :vote_type => roll['type']
         )

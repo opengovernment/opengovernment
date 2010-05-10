@@ -57,4 +57,4 @@
             %div
               = "Motion: #{vote.motion}"
             %div
-              = "Voted: #{@person.rolls.find_by_vote_id(vote.id).vote_type}"
+              = "Voted: #{@person.roll_calls.find_by_vote_id(vote.id).vote_type}"
