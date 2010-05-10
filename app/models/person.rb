@@ -14,14 +14,14 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :rolls, :foreign_key => "leg_id"
-  has_many :votes, :through => :rolls
+  has_many :roll_calls, :foreign_key => "leg_id"
+  has_many :votes, :through => :roll_calls
 
   has_many :voted_bills, :class_name => 'Bill', :finder_sql => %q{
     SELECT distinct bills.* from bills
     inner join votes on votes.bill_id = bills.id
-    inner join rolls on rolls.vote_id = votes.id
-    where rolls.leg_id = #{self.id}
+    inner join roll_calls on roll_calls.vote_id = votes.id
+    where roll_calls.leg_id = #{self.id}
   }
 
   def full_name
