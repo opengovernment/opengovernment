@@ -1,0 +1,8 @@
+stylesheets:
+  blueprint:
+    - public/stylesheets/blueprint.css
+  basic:
+    - public/stylesheets/html5.css
+    - public/stylesheets/formtastic.css
+    - public/stylesheets/formtastic_changes.css
+    - public/stylesheets/blueprint.css
