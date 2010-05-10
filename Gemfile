@@ -4,7 +4,7 @@ source "http://gems.github.com"
 gem 'rails', '2.3.5'
 
 # ActiveRecord requires a database adapter.
-gem "postgres"
+gem "pg"
 
 # An alternative form builder
 gem "formtastic"
