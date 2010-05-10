@@ -23,7 +23,7 @@ class GovTrackImporter
 
     @file_name = File.basename(options[:data_url])
 
-    self.class.fetch_data if options[:refresh_data]
+    self.class.fetch_data
 
     File.open(File.join(DATA_DIR, @file_name)) do |file|
       @doc = Hpricot(file)
@@ -126,5 +126,5 @@ end
 
 
 if __FILE__ == $0
-  GovTrackImporter.new(:refresh_data => true).import!
+  GovTrackImporter.new.import!
 end

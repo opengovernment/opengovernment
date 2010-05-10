@@ -31,6 +31,7 @@ namespace :deploy do
     run "cp #{deploy_to}/#{shared_dir}/database.yml #{current_release}/config/database.yml"
     run "cp #{deploy_to}/#{shared_dir}/api_keys.yml #{current_release}/config/api_keys.yml"
     run "cp #{deploy_to}/#{shared_dir}/gmaps_api_key.yml #{current_release}/config/gmaps_api_key.yml"
+    run "ln -s #{deploy_to}/#{shared_dir}/data #{current_release}/data"
 #    run "ln -s #{deploy_to}/#{shared_dir}/files/synch_s3_asset_host.yml #{current_release}/config/"
     sudo "chgrp -R apache #{current_release}"
   end
