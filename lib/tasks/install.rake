@@ -63,6 +63,7 @@ namespace :install do
     # Load external data
     Rake::Task['load:districts'].invoke
     Rake::Task['load:people'].invoke
+    Rake::Task['load:bills'].invoke    
   end
 end
 

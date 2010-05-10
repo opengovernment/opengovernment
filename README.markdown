@@ -4,10 +4,12 @@ OpenGovernment is a Ruby on Rails application for aggregating and presenting ope
 Before you start, you will need to download and install the following:
 
   * PostgreSQL 8.4
-  * [PostGIS](http://postgis.refractions.net/) (which requires the [proj4](http://trac.osgeo.org/proj/) and [geos](http://trac.osgeo.org/geos/) libraries) (Mac OS X: install MacPorts and port install postgis)
-  * Rails 2.3.x and Gem Bundler (sudo gem install bundler)
+  * [PostGIS](http://postgis.refractions.net/) (which requires the [proj4](http://trac.osgeo.org/proj/) and [geos](http://trac.osgeo.org/geos/) libraries) (Mac OS X: install MacPorts and run "port install postgis")
+  * Rails 2.3.x and Gem Bundler (run "sudo gem install rails bundler")
 
 # Installation
+  * Get a copy of the code:
+        git clone http://github.com/opengovernment/opengovernment.git
   * Create your database user and give it superuser privileges
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Run the following:
