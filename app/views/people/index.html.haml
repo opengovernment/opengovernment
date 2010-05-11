@@ -1,5 +1,5 @@
 - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
-  %div.legislature
+  .legislature
     %h2= legislature.name
     - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
       %div(id="chamber-#{chamber.id}" class="#{chamber.type.underscore}")
