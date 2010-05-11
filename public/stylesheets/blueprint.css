@@ -26,11 +26,11 @@ a img {border:none;}
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
-h1 {font-size:2em;line-height:1;margin-bottom:0.5em; float: left; padding-right: 20px}
-h1 a{color: #333;}
-h2 {font-size:2em;margin-bottom:0.75em;line-height:1; clear: none;}
-h3 {font-size:16px;line-height:1em;margin:1em 0 0 !important; font-weight: bold;}
-h4 {font-size:1.2em;line-height:1.25;margin-bottom: 0;}
+h1 {font-size:1.5em;line-height:1.9em;margin-bottom:0.5em;padding-right: 20px; float: left;}
+h1 a{color: #333; text-decoration: none; font-weight: bold;}
+h2 {font-size:2em;margin-bottom:0.75em;line-height:1; clear: both;}
+h3 {font-size:16px;line-height:1em;margin:1em 0 0; width: 100%; float: left; font-weight: bold;}
+h4 {font-size:1.2em;line-height:1.25;margin: 1.5em 0 .4em; color: #333; float: left; width: 100%;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
 h6 {font-size:1em;font-weight:bold;}
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
@@ -50,8 +50,9 @@ del {color:#666;}
 pre {margin:1.5em 0;white-space:pre;}
 pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
 li ul, li ol {margin:0;}
-ul, ol {margin:0 1.5em 1.5em 0px;padding-left:1.1em;}
-ul {list-style-type:disc;}
+ul, ol {margin:0 1.5em 1.5em 0px;}
+ul {list-style-type:none;}
+ul li{clear: both; line-height: 1.7em;}
 ol {list-style-type:decimal;}
 dl {margin:0 0 1.5em 0;}
 dl dt {font-weight:bold;}
@@ -267,10 +268,10 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 ///////////////////////////*/
 
 #nav{
-border-bottom: 1px solid #ddd;
-margin: 0 0 25px;
+border-bottom: 1px solid #eee;
+margin: 0 0 35px;
 padding: 0;
-float: left;
+height: 3em;
 width: 960px;
 }
 
@@ -280,6 +281,7 @@ list-style: none;
 margin: 0;
 padding: 0;
 float: right;
+clear: none;
 }
 
 
@@ -288,16 +290,17 @@ float: right;
 display: block;
 margin: 0;
 color: #333;
+line-height: 3em;
 font-weight: bold;
-padding: 5px 15px 7px;
+padding: 0px 15px 0px;
 text-decoration: none;
-border-right: 1px solid #ddd;
+border-right: 1px solid #eee;
 }
 
 
 
 #nav li a:hover{
-background: #eee;
+background: #efefef;
 }
 
 
@@ -309,5 +312,7 @@ border-right: none;
 width: 960px;
 }
 
-
+.lower_chamber{
+margin-right: 0;
+}
 
