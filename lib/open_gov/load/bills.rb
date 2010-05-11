@@ -7,7 +7,7 @@ module OpenGov::Load::Bills
     else
       [81, 811].each do |session|
         ["lower", "upper"].each do |house|
-          data_dir = File.join(FIFTYSTATES_DATA, "tx", session.to_s, house, "bills")
+          data_dir = File.join(FIFTYSTATES_DIR, "api", "tx", session.to_s, house, "bills")
           all_bills = File.join(data_dir, "*")
           Dir.glob(all_bills).each do |file|
             bill = Govkit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
