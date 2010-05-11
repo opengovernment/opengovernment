@@ -1,7 +1,7 @@
 %h2
   = @state.name
 
-%h4 Bills
+%h3 Bills
 
 %p
   - if @state.bills.blank?
@@ -11,7 +11,7 @@
       %div
         = link_to(bill.title, state_bill_path(@state, bill))
 
-%h4
+%h3
   = Legislature::CONGRESS.name
 %p
   %h4
