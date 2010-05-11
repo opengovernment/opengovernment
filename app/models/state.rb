@@ -26,6 +26,13 @@ class State < Place
     def find_by_param(param)
       find_by_name(param.titleize)
     end
+    
+    def find_by_slug(param)
+      find_by_param(param)|| \
+      find_by_name(param.capitalize) || \
+      find_by_abbrev(param.upcase) || \
+      find(param)
+    end
   end
 
   def to_param

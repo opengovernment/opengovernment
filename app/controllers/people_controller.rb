@@ -1,6 +1,20 @@
 class PeopleController < ApplicationController
-  before_filter :find_person
-  
+  before_filter :find_person, :except => [:index]
+
+  # /states/texas/people
+  def index
+    if params[:state_id]
+      @state = State.find_by_slug(params[:state_id])
+      @state || resource_not_found
+    end
+
+    @people = Person.find(:all,
+      :include => {:roles => [:district, {:chamber => :legislature}]},
+      :conditions => ["(current_date between roles.start_date and roles.end_date) and (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?)", @state.id, @state.id],
+      :order => "legislatures.name, chambers.type desc, districts.census_sld")
+  end
+
+  # /people/1
   def show
 
   end

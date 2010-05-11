@@ -9,3 +9,4 @@ db/*_structure.sql
 public/assets/*
 .bundle/*
 data/*
+vendor/bundler_gems/*

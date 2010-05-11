@@ -17,10 +17,7 @@ class StatesController < ApplicationController
   protected
   def get_state
     #TODO: May be we should clean the routes to pass in :state as params
-    @state = State.find_by_param(params[:id])|| \
-              State.find_by_name(params[:id].capitalize) || \
-              State.find_by_abbrev(params[:id].upcase) || \
-              State.find(params[:id])
+    @state = State.find_by_slug(params[:id])
 
     @state || resource_not_found
   end

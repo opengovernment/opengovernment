@@ -11,6 +11,7 @@
       %div
         = link_to(bill.title, state_bill_path(@state, bill))
 
+<<<<<<< HEAD
 %h3
   = Legislature::CONGRESS.name
 %p
@@ -51,3 +52,5 @@
         - district.current_legislators.each do |rep|
           %div
             != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+=======
+>>>>>>> f63c504329efc4d4967d31660dfa57574b8c906c

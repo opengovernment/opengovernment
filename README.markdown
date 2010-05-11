@@ -10,8 +10,12 @@ Before you start, you will need to download and install the following:
 # Installation
   * Get a copy of the code:
         git clone http://github.com/opengovernment/opengovernment.git
-  * Create your database user and give it superuser privileges
+        cd opengovernment
+        git submodule init
+        git submodule update
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
+  * Create your database role and give it superuser privileges:
+        psql# CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB
   * Run the following:
         bundle install
         rake install
