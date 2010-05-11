@@ -1,0 +1,40 @@
+%h4
+  = Legislature::CONGRESS.name
+%p
+  %h4
+    = Legislature::CONGRESS.upper_chamber.name
+  %p
+    - @state.current_senators.each do |rep|
+      %div
+        = link_to(rep.full_name, person_path(rep))
+
+  %h4
+    = Legislature::CONGRESS.lower_chamber.name
+  %p
+    - Legislature::CONGRESS.lower_chamber.districts.for_state(@state).each do |district|
+      %div
+        - district.current_legislators.each do |rep|
+          %div
+            != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+
+%h4
+  = @state.legislature.name
+
+%p
+  %h4
+    = @state.legislature.upper_chamber.name
+  %p
+    - @state.legislature.upper_chamber.districts.each do |district|
+      %div
+        - district.current_legislators.each do |rep|
+          %div
+            != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+
+  %h4
+    = @state.legislature.lower_chamber.name
+  %p
+    - @state.legislature.lower_chamber.districts.each do |district|
+      %div
+        - district.current_legislators.each do |rep|
+          %div
+            != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
