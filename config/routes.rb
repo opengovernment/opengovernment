@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
-  map.resources :districts, :member => { :search => :get }
   map.connect 'search', :controller => 'districts', :action => 'search'
 
   # Sample of regular route:
@@ -31,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :states do |state|
-    state.resources :bills
+    state.resources :bills, :collection => {:search => :get}
     state.resources :people, :only => [:index], :as => 'reps'
   end
   map.resources :people, :except => [:index]

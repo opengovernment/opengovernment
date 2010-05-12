@@ -1,6 +1,10 @@
 class BillsController < ApplicationController
   before_filter :get_bill
 
+  def search
+    
+  end
+
   protected
   def get_bill
     if params[:state_id] && params[:id]

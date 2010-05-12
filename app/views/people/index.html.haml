@@ -1,4 +1,4 @@
-%h2 Texas Representatives
+%h2= "#{@state.name} Representatives"
 - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
 
   .legislature.span-12
