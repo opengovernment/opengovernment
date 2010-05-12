@@ -1,17 +1,22 @@
 module OpenGov::Load::Bills
+  VOTES_DIR = File.join(FIFTYSTATES_DIR, "api", "votes")
+
+  # TODO: The :remote => false option will only really apply to the intial import.
+  # after that, we always want to use import_one(state)
   def self.import!(options = {})
     if options[:remote]
       State.loadable.each do |state|
         import_one(state)
       end
     else
+      state_dir = File.join(FIFTYSTATES_DIR, "api", "tx")
       [81, 811].each do |session|
         ["lower", "upper"].each do |house|
-          data_dir = File.join(FIFTYSTATES_DIR, "api", "tx", session.to_s, house, "bills")
-          all_bills = File.join(data_dir, "*")
+          bills_dir = File.join(state_dir, session.to_s, house, "bills")
+          all_bills = File.join(bills_dir, "*")
           Dir.glob(all_bills).each do |file|
             bill = Govkit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
-            import_bill(bill, State.find_by_abbrev('TX'))
+            import_bill(bill, State.find_by_abbrev('TX'), options)
           end
         end
       end
@@ -20,6 +25,8 @@ module OpenGov::Load::Bills
 
   def self.import_one(state)
     puts "Importing bills for #{state.name} \n"
+    
+    # TODO: This isn't quite right...
     bills = Govkit::FiftyStates::Bill.latest("2010-04-20", state.abbrev.downcase)
 
     if bills.empty?
@@ -36,43 +43,45 @@ module OpenGov::Load::Bills
     end
   end
 
-  def self.import_bill(bill, state)
-    puts "Importing #{bill.bill_id}.."
+  def self.import_bill(bill, state, options)
+    print "Importing #{bill.bill_id}.."
 
     @bill = Bill.find_or_create_by_legislature_bill_id(bill.bill_id)
     @bill.title = bill.title
-    @bill.fiftystates_id = bill.id
+    @bill.fiftystates_id = bill[:id]
     @bill.state = state
     @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
     @bill.session = state.legislature.sessions.find_by_name(bill.session)
 
+    # There is no unique data on a bill's actions that we can key off of, so we
+    # must delete and recreate them all each time.
+    @bill.actions.clear
     bill.actions.each do |action|
-      a = @bill.actions.find_or_create_by_actor(
+      @bill.actions << Action.new(
         :actor => action.actor,
         :action => action.action,
-        :date => valid_date!(action.date)
-      )
+        :date => valid_date!(action.date))
     end
 
     bill.versions.each do |version|
-      v = @bill.versions.find_or_create_by_name(
-        :name => version.name,
-        :url => version.url
+      v = Version.find_or_initialize_by_bill_id_and_name(@bill.id, version.name)
+      v.url = version.url
+      v.save!
+    end
+
+    # Same deal as with actions, above
+    Sponsorship.delete_all(:bill_id => @bill.id)
+    bill.sponsors.each do |sponsor|
+      Sponsorship.create(
+          :bill => @bill,
+          :sponsor => Person.find_by_fiftystates_id(sponsor.leg_id),
+          :kind => sponsor[:type]
       )
     end
 
-    bill.sponsors.each do |sponsor|
-      s = Person.find_by_fiftystates_id(sponsor.leg_id)
-      if @bill.sponsors.include?(s)
-        next
-      else
-        @bill.sponsors << s
-      end
-    end
-
     bill.votes.each do |vote|
-      v = @bill.votes.find_or_create_by_legislature_vote_id(
-        :legislature_vote_id => vote.vote_id.to_s,
+      v = @bill.votes.find_or_initialize_by_legislature_vote_id(vote.vote_id.to_s)
+      v.update_attributes!(
         :yes_count => vote.yes_count,
         :no_count => vote.no_count,
         :other_count => vote.other_count,
@@ -82,17 +91,21 @@ module OpenGov::Load::Bills
         :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
       )
 
-      fiftystates_vote = Govkit::FiftyStates::Vote.find(vote.vote_id)
+      vote_file = File.join(VOTES_DIR, vote.vote_id.to_s)
+      if File.exists?(vote_file) && !options[:remote]
+        roll_call = Govkit::FiftyStates::Vote.parse(JSON.parse(File.read(vote_file)))
+      else
+        roll_call = Govkit::FiftyStates::Vote.find(vote.vote_id)
+      end
 
-      fiftystates_vote.respond_to?(:roll) && fiftystates_vote.roll.each do |roll|
-        r = v.roll_calls.find_or_create_by_leg_id(
-          :leg_id => roll.leg_id,
-          :vote_type => roll['type']
-        )
+      roll_call.respond_to?(:roll) && roll_call.roll.each do |roll|
+        r = v.roll_calls.find_or_initialize_by_leg_id(roll.leg_id)
+        r.vote_type = roll['type']
+        r.save!
       end
     end
 
-    @bill.save
+    @bill.save!
     puts "done\n"
   end
 

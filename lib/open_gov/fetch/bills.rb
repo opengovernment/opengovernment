@@ -1,6 +1,9 @@
 module OpenGov::Fetch::Bills
 
   def self.process
+    # TODO: This is temporary, as we figure out with Sunlight where these bills
+    # will really come from.
+
     FileUtils.mkdir_p(FIFTYSTATES_DIR)
     Dir.chdir(FIFTYSTATES_DIR)
 

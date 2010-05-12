@@ -13,7 +13,7 @@ module OpenGov::Fetch::Districts
   # These are just templates - to be evaluated per-state.
   CENSUS_SHP_URL = 'http://www.census.gov/geo/cob/bdy/#{ga}/#{ga}#{vintage_or_congress}shp/'
   CENSUS_SHP_FN = '#{ga}#{fips_code}_#{vintage}_shp.zip'
-  
+
   def self.process
     FileUtils.mkdir_p(DISTRICTS_DIR)
     Dir.chdir(DISTRICTS_DIR)
