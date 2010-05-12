@@ -64,7 +64,7 @@ namespace :install do
     Rake::Task['load:districts'].invoke
 
     Rake::Task['load:people'].invoke
-    Rake::Task['load:bills'].invoke    
+    Rake::Task['load:bills'].invoke
   end
 end
 
@@ -102,6 +102,11 @@ namespace :load do
   desc "Fetch and load legislatures from FiftyStates"
   task :legislatures => :environment do
     OpenGov::Load::Legislatures.import!
+  end
+
+  desc "Fetch and load addresses from VoteSmart"
+  task :addresses => :environment do
+    OpenGov::Load::Addresses.import!
   end
 
   desc "Fetch and load bills from FiftyStates"
