@@ -1,5 +1,5 @@
-.address{:id => "address#{address.id}"}
-  %h2.address_type= address.votesmart_type
+%li.address{:id => "address#{address.id}"}
+  %h4.address_type= address.votesmart_type
   = "#{address.line_one}<br />#{address.line_two ? "#{address.line_two}<br />" : ""}#{address.city}, #{address.state.abbrev} #{address.postal_code}".html_safe!
   %div.phone= "Phone: #{address.phone_one}" unless address.phone_one.blank?
   %div.fax= "FAX: #{address.fax_one}" unless address.fax_one.blank?

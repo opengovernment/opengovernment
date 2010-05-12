@@ -1,60 +1,65 @@
 %h2
   = @person.official_name
 
-%h3 Basic Information
-%p
-  - unless @person.birthday.blank?
-    %div= "Date of Birth: #{@person.birthday}"
-  - unless @person.gender.blank?
-    %div= "Gender: #{@person.gender}"
-  - unless @person.religion.blank?
-    %div= "Religion: #{@person.religion}"
-  - unless @person.website_one.blank?
-    %div!= "Website: " + link_to(@person.website_one, @person.website_one)
-  - unless @person.website_two.blank?
-    %div!= "Website: " + link_to(@person.website_two, @person.website_two)
-  - unless @person.webmail.blank?
-    %div!= "Web E-mail: " + link_to(@person.webmail, @person.webmail)
-  - unless @person.email.blank?
-    %div!= "E-mail: " + link_to(@person.email, @person.email)
-  - unless @person.youtube_id.blank?
-    %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
+%div.span-6
+  %h3 Basic Information
+  %p
+    - unless @person.birthday.blank?
+      %div= "Date of Birth: #{@person.birthday}"
+    - unless @person.gender.blank?
+      %div= "Gender: #{@person.gender}"
+    - unless @person.religion.blank?
+      %div= "Religion: #{@person.religion}"
+    - unless @person.website_one.blank?
+      %div!= "Website: " + link_to(@person.website_one, @person.website_one)
+    - unless @person.website_two.blank?
+      %div!= "Website: " + link_to(@person.website_two, @person.website_two)
+    - unless @person.webmail.blank?
+      %div!= "Web E-mail: " + link_to(@person.webmail, @person.webmail)
+    - unless @person.email.blank?
+      %div!= "E-mail: " + link_to(@person.email, @person.email)
+    - unless @person.youtube_id.blank?
+      %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
-%h3 Addresses
-%p
-  - if @person.addresses.size > 0
-    - @person.addresses.each do |address|
-      = render :partial => "shared/address", :locals => {:address => address}
-  - else
-    %p Sorry, we found no addresses.
+  %h3 Addresses
+  %p
+    - if @person.addresses.size > 0
+      - @person.addresses.each do |address|
+        = render :partial => "shared/address", :locals => {:address => address}
+    - else
+      %p Sorry, we found no addresses.
 
-%h3 Roles
-%p
-  - @person.roles.each do |role|
-    %div
-      = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
 
-%h3 Bills (Sponsored/Co-Sponsored)
-%p
-  - if @person.sponsored_bills.empty?
-    = "Sorry, we found no bills."
-  - else
-    - @person.sponsored_bills.each do |bill|
+%div.span-6
+  %h3 Roles
+  %p
+    - @person.roles.each do |role|
       %div
-        = link_to(bill.title, person_bill_path(@person, bill))
+        = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
 
-%h3 Bills (Voted)
-%p
-  - if @person.voted_bills.empty?
-    = "Sorry, we found no bills."
-  - else
-    - @person.voted_bills.each do |bill|
-      %div
-        = link_to(bill.title, person_bill_path(@person, bill))
-        -#TODO: Clean the finders here
-        %p
-          - @person.votes.find_all_by_bill_id(bill.id).each do |vote|
-            %div
-              = "Motion: #{vote.motion}"
-            %div
-              = "Voted: #{@person.roll_calls.find_by_vote_id(vote.id).vote_type}"
+%div.span-6
+  %h3 Bills (Sponsored/Co-Sponsored)
+  %p
+    - if @person.sponsored_bills.empty?
+      = "Sorry, we found no bills."
+    - else
+      - @person.sponsored_bills.each do |bill|
+        %div
+          = link_to(bill.title, person_bill_path(@person, bill))
+
+%div.span-6
+  %h3 Bills (Voted)
+  %p
+    - if @person.voted_bills.empty?
+      = "Sorry, we found no bills."
+    - else
+      - @person.voted_bills.each do |bill|
+        %div
+          = link_to(bill.title, person_bill_path(@person, bill))
+          -#TODO: Clean the finders here
+          %p
+            - @person.votes.find_all_by_bill_id(bill.id).each do |vote|
+              %div
+                = "Motion: #{vote.motion}"
+              %div
+                = "Voted: #{@person.roll_calls.find_by_vote_id(vote.id).vote_type}"

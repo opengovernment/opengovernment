@@ -1,9 +1,11 @@
+%h2 Texas Representatives
 - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
-  .legislature
-    %h2= legislature.name
+
+  .legislature.span-12
+    %h3= legislature.name
     - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
-      %div(id="chamber-#{chamber.id}" class="#{chamber.type.underscore}")
-        %h3= chamber.name
+      %div(id="chamber-#{chamber.id}" class="#{chamber.type.underscore} span-6")
+        %h4= chamber.name
         %ul
           - c_reps.each do |rep|
             %li!= link_to(rep.full_name, person_path(rep)) + (rep.roles.first.district.nil? ? "" : ", #{rep.roles.first.district.name}")

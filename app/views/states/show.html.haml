@@ -1,13 +1,63 @@
 %h2
   = @state.name
 
-%h4 Bills
 
-%p
-  - if @state.bills.blank?
-    = "Sorry, we found no bills."
-  - else
-    - @state.bills.each do |bill|
-      %div
-        = link_to(bill.title, state_bill_path(@state, bill))
+.span-18
+    
+  .span-6
 
+    %h3
+      = Legislature::CONGRESS.name
+  
+    %p
+      %h4
+        = Legislature::CONGRESS.upper_chamber.name
+      %p
+        - @state.current_senators.each do |rep|
+          %div
+            = link_to(rep.full_name, person_path(rep))
+  
+      %h4
+        = Legislature::CONGRESS.lower_chamber.name
+      %p
+        - Legislature::CONGRESS.lower_chamber.districts.each do |district|
+          %div
+            - district.current_legislators.each do |rep|
+              %div
+                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+  
+
+  .span-12.last
+    %h3
+      = @state.legislature.name
+ 
+    .span-6
+      %h4
+        = @state.legislature.upper_chamber.name
+      %p
+        - @state.legislature.upper_chamber.districts.each do |district|
+          %div
+            - district.current_legislators.each do |rep|
+              %div
+                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+    .span-6.last
+      %h4
+        = @state.legislature.lower_chamber.name
+      %p
+        - @state.legislature.lower_chamber.districts.each do |district|
+          %div
+            - district.current_legislators.each do |rep|
+              %div
+                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+
+
+.span-6.last
+  %h3 Bills
+
+  %p
+    - if @state.bills.blank?
+      = "Sorry, we found no bills."
+    - else
+      - @state.bills.each do |bill|
+        %div
+          = link_to(bill.title, state_bill_path(@state, bill))
