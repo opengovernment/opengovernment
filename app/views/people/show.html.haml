@@ -38,14 +38,7 @@
         = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
 
 %div.span-6
-  %h3 Bills (Sponsored/Co-Sponsored)
-  %p
-    - if @person.sponsored_bills.empty?
-      = "Sorry, we found no bills."
-    - else
-      - @person.sponsored_bills.each do |bill|
-        %div
-          = link_to(bill.title, person_bill_path(@person, bill))
+  %h3!= link_to(@person.sponsored_bills.count.to_s, sponsored_bills_person_url(@person)) + " Bills (Sponsored/Co-Sponsored)"
 
 %div.span-6
   %h3 Bills (Voted)
@@ -55,7 +48,7 @@
     - else
       - @person.voted_bills.each do |bill|
         %div
-          = link_to(bill.title, person_bill_path(@person, bill))
+          = link_to(bill.title, [@person])
           -#TODO: Clean the finders here
           %p
             - @person.votes.find_all_by_bill_id(bill.id).each do |vote|

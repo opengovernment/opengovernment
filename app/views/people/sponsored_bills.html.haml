@@ -1,0 +1,8 @@
+%p
+  - if @sponsorships.empty?
+    = "#{@person.full_name} has no sponsored bills."
+  - else
+    - @sponsorships.each do |sponsorship|
+      %div
+        = sponsorship.kind
+        = link_to(sponsorship.bill.title, @person)

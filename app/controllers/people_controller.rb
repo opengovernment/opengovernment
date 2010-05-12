@@ -17,6 +17,10 @@ class PeopleController < ApplicationController
       :order => "legislatures.id, chambers.type desc, districts.census_sld")
   end
 
+  def sponsored_bills
+    @sponsorships = Sponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill])
+  end
+
   # /people/1
   def show
 
