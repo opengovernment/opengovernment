@@ -20,11 +20,11 @@ class Bill < ActiveRecord::Base
 
   class << self
     def find_by_param(param)
-      find_by_legislature_bill_id(param.titleize.upcase)
+      find_by_bill_number(param.titleize.upcase)
     end
   end
 
   def to_param
-    legislature_bill_id.parameterize
+    bill_number.parameterize
   end
 end

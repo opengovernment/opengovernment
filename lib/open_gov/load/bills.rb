@@ -36,7 +36,7 @@ module OpenGov::Load::Bills
         begin
           import_bill(bill, state)
         rescue Exception => e
-          puts "Skipping #{bill.legislature_bill_id}"
+          puts "Skipping #{bill.bill_number}"
           puts "Error: #{e.message}"
         end
       end
@@ -46,7 +46,7 @@ module OpenGov::Load::Bills
   def self.import_bill(bill, state, options)
     print "Importing #{bill.bill_id}.."
 
-    @bill = Bill.find_or_create_by_legislature_bill_id(bill.bill_id)
+    @bill = Bill.find_or_create_by_bill_number(bill.bill_id)
     @bill.title = bill.title
     @bill.fiftystates_id = bill[:id]
     @bill.state = state
