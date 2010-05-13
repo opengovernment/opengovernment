@@ -13,10 +13,10 @@ module OpenGov::Load::Addresses
           address.state = State.find_by_abbrev(office.address.state)
           address.postal_code = office.address.zip
           address.votesmart_type = office.address.typeId
-          address.phone_one = office.phone.phone1,
-            address.phone_two = office.phone.phone2,
-            address.fax_one = office.phone.fax1,
-            address.fax_two = office.phone.fax2
+          address.phone_one = office.phone.phone1
+          address.phone_two = office.phone.phone2
+          address.fax_one = office.phone.fax1
+          address.fax_two = office.phone.fax2
           address.save
         end
 
@@ -42,7 +42,7 @@ module OpenGov::Load::Addresses
         puts "Updating #{person.full_name}"
         person.save
       rescue
-        "Problem saving #{person.full_name}..skipping"
+        puts "Problem saving #{person.full_name}..skipping"
       end
     end
   end
