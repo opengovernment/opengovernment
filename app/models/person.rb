@@ -35,7 +35,7 @@ class Person < ActiveRecord::Base
   def youtube_url
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
   end
-  
+
   def current_sponsorship_vitals
     Person.find_by_sql(["
       select * from (
@@ -66,7 +66,7 @@ class Person < ActiveRecord::Base
       where z.sponsor_id = ?
       limit 1", id]).first
   end
-  
+
   def to_param
    "#{id}-#{full_name.parameterize}"
   end
