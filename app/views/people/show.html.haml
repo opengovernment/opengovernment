@@ -38,7 +38,7 @@
         = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
 
 %div.span-6
-  %h3!= link_to(@person.sponsored_bills.count.to_s, sponsored_bills_person_url(@person)) + " Bills (Sponsored/Co-Sponsored)"
+  %h3!= sponsorship_vitals_for(@person)
 
 %div.span-6
   %h3 Bills (Voted)

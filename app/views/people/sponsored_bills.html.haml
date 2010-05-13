@@ -1,4 +1,5 @@
 %p
+  %h2!= @person.full_name + ": " + sponsorship_vitals_for(@person)
   - if @sponsorships.empty?
     = "#{@person.full_name} has no sponsored bills."
   - else
