@@ -1,3 +1,0 @@
-[submodule "vendor/plugins/govkit"]
-	path = vendor/plugins/govkit
-	url = http://github.com/opengovernment/govkit.git
