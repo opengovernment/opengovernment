@@ -3,15 +3,11 @@ class BillsController < ApplicationController
   before_filter :get_bill, :except => [:index]
 
   def index
-    if params[:search]
-      if @state
-        params[:search][:state_id] = @state.id
-      end
-
-      @bills = Bill.search(params[:search]).paginate :page => params[:page], :order => 'created_at DESC'
-    else
-      @bills = Bill.paginate :page => params[:page], :order => 'created_at DESC'
+    if @state
+      params[:state_id] = @state.id
     end
+
+    @bills = Bill.search(params).paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   protected

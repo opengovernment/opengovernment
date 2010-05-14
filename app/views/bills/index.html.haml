@@ -1,8 +1,21 @@
 %h2 Bill search
 = render :partial => 'shared/bill_search_form'
-%ul#bills
-- @bills.each do |bill|
-  %li(id="bill_#{bill.id}")
-    != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
-    = bill.title
-= will_paginate @bills
+- if @bills.empty?
+  %p Sorry, no bills matched.
+- else
+%div.search_results
+  %ul.bills
+    - @bills.each do |bill|
+      %li
+        != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+        = bill.title
+  = will_paginate @bills
+%div.search_sidebar
+  %p.filter Session:
+  %ul
+    - @state.legislature.sessions.each do |s|
+      %li= link_to_unless_current s.name, :overwrite_params => { :session_id => s.id }
+  %p.sort Sort by:
+  %ul
+    %li= link_to_unless_current "Date added", :overwrite_params => { :order => "created_at" }
+    %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "name" }
