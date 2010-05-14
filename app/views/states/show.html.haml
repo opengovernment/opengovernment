@@ -47,10 +47,4 @@
   %h3 Bills
 
   %p
-    - semantic_form_for :bill do |f|
-      - f.inputs do
-        = f.input :title
-        = f.input :chamber, :as => :radio, :collection => @state.chambers.collect { |c| [c.name, c.id] }
-      - f.buttons do
-        = f.commit_button
-
+    = render :partial => 'shared/bill_search_form'

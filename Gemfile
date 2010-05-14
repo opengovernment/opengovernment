@@ -23,6 +23,9 @@ gem "netroots-ruby-votesmart", :require => "ruby-votesmart"
 # Geocoding
 gem "geokit"
 
+# Simple pagination
+gem "will_paginate"
+
 # Place hierarchy
 # gem "ancestry"
 

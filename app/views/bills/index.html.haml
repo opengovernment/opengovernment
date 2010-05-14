@@ -1,7 +1,8 @@
 %h2 Bill search
-  - form_for @search do |f|
-    = f.text_field :title
-    = f.select :chamber, @state.chambers.collect { |c| [c.id, c.name] }
-    = f.submit
-  - @bills.each do |bill|
-    = bill.bill_number + " " + bill.title + " " + bill.chamber
+= render :partial => 'shared/bill_search_form'
+%ul#bills
+- @bills.each do |bill|
+  %li(id="bill_#{bill.id}")
+    != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+    = bill.title
+= will_paginate @bills

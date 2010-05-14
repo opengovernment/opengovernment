@@ -18,9 +18,6 @@
         %li.your_account= link_to 'Your Account', '/'
         %li.about= link_to 'About', '/'
         %li.sign_out= link_to 'Sign Out', '/'
-
-    
-    
     %div#flash
       - flash.each do |key, value|
         %div(id="flash_#{key}")

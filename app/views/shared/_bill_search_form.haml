@@ -1,0 +1,5 @@
+- form_tag state_bills_path(@state), :method => :get do
+  = text_field :search, :q
+  = label_tag :search_session, "Session"
+  = select :search, :session, @state.legislature.sessions.collect { |s| [s.name, s.id] }
+  = submit_tag "Search"
