@@ -33,6 +33,7 @@ gem "haml"
 # remove this (and the plugin) for Rails 3
 gem "erubis"
 
+# Importing & parsing stuff
 gem "httparty"
 gem "hpricot"
 

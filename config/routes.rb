@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :states do |state|
-    state.resources :bills, :collection => {:search => :get}
+    state.resources :bills, :only => [:index, :show], :path_prefix => '/states/:state_id/sessions/:session_id', :name_prefix => ''
     state.resources :people, :only => [:index], :as => 'reps'
   end
   map.resources :people, :except => [:index], :member => {:sponsored_bills => :get}

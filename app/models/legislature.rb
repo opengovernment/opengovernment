@@ -1,6 +1,7 @@
 class Legislature < ActiveRecord::Base
   has_one :upper_chamber
   has_one :lower_chamber
+  has_many :chambers
   belongs_to :state
   validates_uniqueness_of :name
   validates_presence_of :name

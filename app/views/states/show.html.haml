@@ -20,12 +20,9 @@
       %h4
         = Legislature::CONGRESS.lower_chamber.name
       %p
-        - Legislature::CONGRESS.lower_chamber.districts.each do |district|
+        - @federal_lower_chamber_roles.each do |role|
           %div
-            - district.current_legislators.each do |rep|
-              %div
-                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
-  
+            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
   .span-12.last
     %h3
@@ -35,29 +32,25 @@
       %h4
         = @state.legislature.upper_chamber.name
       %p
-        - @state.legislature.upper_chamber.districts.each do |district|
+        - @state_upper_chamber_roles.each do |role|
           %div
-            - district.current_legislators.each do |rep|
-              %div
-                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
+            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
     .span-6.last
       %h4
         = @state.legislature.lower_chamber.name
       %p
-        - @state.legislature.lower_chamber.districts.each do |district|
+        - @state_lower_chamber_roles.each do |role|
           %div
-            - district.current_legislators.each do |rep|
-              %div
-                != link_to(rep.full_name, person_path(rep)) + ", #{district.name}"
-
+            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
 .span-6.last
   %h3 Bills
 
   %p
-    - if @state.bills.blank?
-      = "Sorry, we found no bills."
-    - else
-      - @state.bills.each do |bill|
-        %div
-          = link_to(bill.title, state_bill_path(@state, bill))
+    - semantic_form_for :bill do |f|
+      - f.inputs do
+        = f.input :title
+        = f.input :chamber, :as => :radio, :collection => @state.chambers.collect { |c| [c.name, c.id] }
+      - f.buttons do
+        = f.commit_button
+

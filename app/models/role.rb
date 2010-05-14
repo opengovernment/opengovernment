@@ -20,6 +20,13 @@ class Role < ActiveRecord::Base
   validates_presence_of :district, :if => "state.nil?"
 
   named_scope :current, :conditions => Role::CURRENT
+  named_scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
+  named_scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
+  
+  
+  def self.current_chamber_roles(chamber)
+    current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person]})
+  end
 
   def place
     # for a given class, returns the appropriate symbol

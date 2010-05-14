@@ -10,17 +10,19 @@ class Bill < ActiveRecord::Base
   has_many :actions, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 
-  has_many :upper_chamber_votes, :class_name => "Vote", :finder_sql => %q{
-    SELECT * from votes where chamber_id = #{self.state.legislature.upper_chamber.id}
-  }
-
-  has_many :lower_chamber_votes, :class_name => "Vote", :finder_sql => %q{
-    SELECT * from votes where chamber_id = #{self.state.legislature.lower_chamber.id}
-  }
+  named_scope :titles_like, lambda { |t| { :conditions => ["lower(bill_number) = ? or title like ?", "#{t.downcase}", "%#{t}%"] } }
+  named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } } 
+  named_scope :for_session, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
 
   class << self
-    def find_by_param(param)
-      find_by_bill_number(param.titleize.upcase)
+    def find_by_session_name_and_param(session, param)
+      for_session(session).find_by_bill_number(param.titleize.upcase)
+    end
+
+    def search(params)
+      scope = Bill.scoped({})
+      scope = scope.titles_like(params[:titles_like]) if params[:titles_like]
+      scope = scope.in_chamber(params[:chamber_id]) if params[:chamber_id]
     end
   end
 

@@ -1,6 +1,7 @@
 class Chamber < ActiveRecord::Base
   belongs_to :legislature
   has_many :districts
+  has_many :current_legislators, :through => :districts
   has_one :state, :through => :legislature
   has_many :bills
 

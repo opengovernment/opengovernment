@@ -6,4 +6,4 @@
     - @sponsorships.each do |sponsorship|
       %div
         = sponsorship.kind
-        = link_to(sponsorship.bill.title, @person)
+        = link_to(sponsorship.bill.title, bill_path(sponsorship.bill.state, sponsorship.bill.session, sponsorship.bill))

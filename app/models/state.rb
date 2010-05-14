@@ -5,6 +5,7 @@ class State < Place
   has_many :addresses
   has_one :legislature
   has_many :bills
+  has_many :chambers, :through => :legislature
 
   named_scope :supported, :conditions => ["launch_date < ?", Time.now]
   named_scope :pending, :conditions => ["launch_date >= ?", Time.now]
@@ -23,15 +24,15 @@ class State < Place
   has_many :subscriptions
 
   class << self
-    def find_by_param(param)
-      find_by_name(param.titleize)
+    def find_by_param(param, ops = {})
+      find_by_name(param.titleize, ops)
     end
     
-    def find_by_slug(param)
-      find_by_param(param)|| \
-      find_by_name(param.capitalize) || \
-      find_by_abbrev(param.upcase) || \
-      find(param)
+    def find_by_slug(param, ops = {})
+      find_by_param(param, ops)|| \
+      find_by_name(param.capitalize, ops) || \
+      find_by_abbrev(param.upcase, ops) || \
+      find(param, ops)
     end
   end
 
