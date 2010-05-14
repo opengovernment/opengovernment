@@ -6,7 +6,7 @@ module OpenGov::Load::Legislatures
   end
 
   def self.import_one(state)
-    if fs_state = Govkit::FiftyStates::State.find_by_abbreviation(state.abbrev)
+    if fs_state = GovKit::FiftyStates::State.find_by_abbreviation(state.abbrev)
       leg = Legislature.find_or_create_by_state_id(state.id)
 
       leg.update_attributes!(
@@ -27,7 +27,7 @@ module OpenGov::Load::Legislatures
 
       fs_state.sessions.each do |s|
         session = Session.find_or_create_by_legislature_id_and_name(leg.id, s.name)
-        
+
         session.update_attributes!(
           :start_year => s.start_year,
           :end_year => s.end_year

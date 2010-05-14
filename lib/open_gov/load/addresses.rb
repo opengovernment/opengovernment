@@ -4,8 +4,8 @@ module OpenGov::Load::Addresses
       begin
         Address.delete_all(:person_id => person.id)
 
-        main_office =  Govkit::VoteSmart::Address.find person.votesmart_id
-        offices = main_office.office
+        main_office =  GovKit::VoteSmart::Address.find person.votesmart_id
+        offices = main_office.office.to_a
 
         offices.each do |office|
           address = person.addresses.find_or_initialize_by_line_one(office.address.street)
@@ -20,8 +20,8 @@ module OpenGov::Load::Addresses
           address.save
         end
 
-        web_address = Govkit::VoteSmart::WebAddress.find person.votesmart_id
-        web_addresses = web_address.address
+        web_address = GovKit::VoteSmart::WebAddress.find person.votesmart_id
+        web_addresses = web_address.address.to_a
 
         website_count = 0
         web_addresses.each do |wa|
@@ -41,7 +41,6 @@ module OpenGov::Load::Addresses
         end
         puts "Updating #{person.full_name}"
         person.save
-        break
       rescue
         puts "Problem saving #{person.full_name}..skipping"
       end

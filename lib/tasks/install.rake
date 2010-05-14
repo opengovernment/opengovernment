@@ -65,6 +65,7 @@ namespace :install do
 
     Rake::Task['load:people'].invoke
     Rake::Task['load:bills'].invoke
+    Rake::Task['load:addresses'].invoke
   end
 end
 
@@ -130,7 +131,7 @@ namespace :load do
 
     class_refresh("District")
   end
-  
+
   def class_refresh(*class_names)
     class_names.each do |klass_name|
       Object.class_eval do

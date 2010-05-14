@@ -15,7 +15,7 @@ module OpenGov::Load::Bills
           bills_dir = File.join(state_dir, session.to_s, house, "bills")
           all_bills = File.join(bills_dir, "*")
           Dir.glob(all_bills).each do |file|
-            bill = Govkit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
+            bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
             import_bill(bill, State.find_by_abbrev('TX'), options)
           end
         end
@@ -25,9 +25,9 @@ module OpenGov::Load::Bills
 
   def self.import_one(state)
     puts "Importing bills for #{state.name} \n"
-    
+
     # TODO: This isn't quite right...
-    bills = Govkit::FiftyStates::Bill.latest("2010-04-20", state.abbrev.downcase)
+    bills = GovKit::FiftyStates::Bill.latest("2010-04-20", state.abbrev.downcase)
 
     if bills.empty?
       puts "No bills found \n"
@@ -93,9 +93,9 @@ module OpenGov::Load::Bills
 
       vote_file = File.join(VOTES_DIR, vote.vote_id.to_s)
       if File.exists?(vote_file) && !options[:remote]
-        roll_call = Govkit::FiftyStates::Vote.parse(JSON.parse(File.read(vote_file)))
+        roll_call = GovKit::FiftyStates::Vote.parse(JSON.parse(File.read(vote_file)))
       else
-        roll_call = Govkit::FiftyStates::Vote.find(vote.vote_id)
+        roll_call = GovKit::FiftyStates::Vote.find(vote.vote_id)
       end
 
       roll_call.respond_to?(:roll) && roll_call.roll.each do |roll|

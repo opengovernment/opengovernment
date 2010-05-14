@@ -6,7 +6,7 @@ module OpenGov::Load::People
   end
 
   def self.import_one(state)
-    Govkit::FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
+    GovKit::FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
       unless person = Person.find_by_fiftystates_id(fs_person.leg_id)
         person = Person.new(:fiftystates_id => fs_person.leg_id)
       end
@@ -20,26 +20,26 @@ module OpenGov::Load::People
         :suffix => fs_person.suffix,
         :updated_at => fs_person.updated_at
       )
-      
+
       person.save!
 
       fs_person.roles.each do |fs_role|
 
-        if fs_role[:type] == Govkit::FiftyStates::ROLE_MEMBER
+        if fs_role[:type] == GovKit::FiftyStates::ROLE_MEMBER
           legislature = state.legislature
 
           case fs_role.chamber
-          when Govkit::FiftyStates::CHAMBER_UPPER
+          when GovKit::FiftyStates::CHAMBER_UPPER
             chamber = legislature.upper_chamber
-          when Govkit::FiftyStates::CHAMBER_LOWER
+          when GovKit::FiftyStates::CHAMBER_LOWER
             chamber = legislature.lower_chamber
           end
 
           district = chamber.districts.numbered(fs_role.district.to_s).first
           session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
-          
+
           role = Role.find_or_initialize_by_district_id_and_chamber_id(district.id, chamber.id)
-          
+
           role.update_attributes!(
             :person => person,
             :session => session,
