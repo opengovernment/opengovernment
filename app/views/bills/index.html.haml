@@ -1,0 +1,7 @@
+%h2 Bill search
+  - form_for @search do |f|
+    = f.text_field :title
+    = f.select :chamber, @state.chambers.collect { |c| [c.id, c.name] }
+    = f.submit
+  - @bills.each do |bill|
+    = bill.bill_number + " " + bill.title + " " + bill.chamber
