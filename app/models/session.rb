@@ -3,7 +3,7 @@ class Session < ActiveRecord::Base
   has_many :roles
   has_many :bills
   named_scope :active, :conditions => ["date_part('year', current_timestamp) between start_year and end_year"]
-  validates_uniqueness_of :name, :scope => :legislature
+  validates_uniqueness_of :name, :scope => :legislature_id
 
   def to_param
     name.parameterize
