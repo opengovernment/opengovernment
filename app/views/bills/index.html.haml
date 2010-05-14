@@ -18,4 +18,5 @@
   %p.sort Sort by:
   %ul
     %li= link_to_unless_current "Date added", :overwrite_params => { :order => "created_at" }
-    %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "name" }
+    %li= link_to_unless_current "Bill number", :overwrite_params => { :order => "bill_number" }
+    %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "title" }
