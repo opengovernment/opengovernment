@@ -12,12 +12,14 @@ class Bill < ActiveRecord::Base
 
   named_scope :titles_like, lambda { |t| { :conditions => ["lower(bill_number) = ? or title like ?", "#{t.downcase}", "%#{t}%"] } }
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
-  named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] } }
+  named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
+  named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
+
   named_scope :for_state, lambda { |s| {:conditions => ["bills.state_id = ?", s] } }
 
   class << self
     def find_by_session_name_and_param(session, param)
-      for_session(session).find_by_bill_number(param.titleize.upcase)
+      for_session_named(session).find_by_bill_number(param.titleize.upcase)
     end
 
     def search(params)
