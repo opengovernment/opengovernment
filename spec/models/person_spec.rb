@@ -6,7 +6,7 @@ describe Person do
       :first_name => "Lloyd",
       :last_name => "Doggett",
       :suffix => "Jr.",
-      :youtube_id => "Llyody123"
+      :youtube_id => "Lloydy123"
     }
   end
 
