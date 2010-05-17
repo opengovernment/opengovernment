@@ -80,7 +80,7 @@ module OpenGov::Load::Bills
     end
 
     bill.votes.each do |vote|
-      v = @bill.votes.find_or_initialize_by_legislature_vote_id(vote.vote_id.to_s)
+      v = @bill.votes.find_or_initialize_by_fiftystates_id(vote.vote_id.to_s)
       v.update_attributes!(
         :yes_count => vote.yes_count,
         :no_count => vote.no_count,

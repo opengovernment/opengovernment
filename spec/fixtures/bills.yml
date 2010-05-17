@@ -1,1 +1,45 @@
-
+HB10:
+  created_at: 2010-05-10 23:26:12.03538
+  chamber: txl
+  title: Relating to the regulation of residential mortgage loan originators; providing a penalty.
+  updated_at: 2010-05-12 18:49:36.203056
+  session: 81
+  bill_number: HB 10
+  fiftystates_id: 
+  state: tx
+HB1000:
+  created_at: 2010-05-10 23:26:12.896898
+  chamber: txl
+  title: Relating to the amounts of certain residence homestead exemptions from ad valorem taxation and the adjustment of the amounts of those exemptions applicable to a homestead based on changes in the appraised value of the homestead.
+  updated_at: 2010-05-12 18:49:36.309626
+  session: 81
+  bill_number: HB 1000
+  fiftystates_id: 
+  state: tx
+HB1001:
+  created_at: 2010-05-10 23:26:12.936782
+  chamber: txl
+  title: Relating to limits on the size of public school classes in prekindergarten, kindergarten, and grades one through four.
+  updated_at: 2010-05-12 18:49:36.338261
+  session: 81
+  bill_number: HB 1001
+  fiftystates_id: 
+  state: tx
+HB1002:
+  created_at: 2010-05-10 23:26:12.966621
+  chamber_id: txl
+  title: Relating to access by the members of electric cooperatives to meetings of the boards of directors and certain information of the electric cooperatives.
+  updated_at: 2010-05-12 18:49:36.36844
+  session: 81
+  bill_number: HB 1002
+  fiftystates_id: 
+  state: tx
+HB1003:
+  created_at: 2010-05-10 23:26:13.009824
+  chamber_id: txl
+  title: Relating to notice provided to certain victims or witnesses regarding certain inmates or defendants who are electronically monitored.
+  updated_at: 2010-05-12 18:49:36.563682
+  session: 81
+  bill_number: HB 1003
+  fiftystates_id: 
+  state: tx

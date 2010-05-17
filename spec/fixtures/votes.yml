@@ -1,7 +1,60 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+vote_19031:
+  motion: final passage
+  other_count: "0"
+  created_at: 2010-05-10 23:26:12.164802
+  chamber: txl
+  yes_count: "148"
+  updated_at: 2010-05-10 23:26:12.164802
+  date: 2009-04-27 07:00:00
+  fiftystates_id: "19031"
+  passed: t
+  bill: HB10
+  no_count: "0"
+vote_18129:
+  motion: final passage
+  other_count: "18"
+  created_at: 2010-05-10 23:26:14.504243
+  chamber: txl
+  yes_count: "132"
+  updated_at: 2010-05-10 23:26:14.504243
+  date: 2009-04-29 07:00:00
+  fiftystates_id: "18129"
+  passed: t
+  bill_id: HB1000
+  no_count: "0"
+vote_18090:
+  motion: to third reading
+  other_count: "0"
+  created_at: 2010-05-10 23:26:15.791316
+  chamber: txu
+  yes_count: "0"
+  updated_at: 2010-05-10 23:26:15.791316
+  date: 2009-05-19 07:00:00
+  id: "3"
+  fiftystates_id: "18090"
+  bill_id: HB1001
+  no_count: "0"
+vote_17981:
+  motion: final passage
+  other_count: "0"
+  created_at: 2010-05-10 23:26:16.197522
+  chamber: txl
+  yes_count: "143"
+  updated_at: 2010-05-10 23:26:16.197522
+  date: 2009-05-03 07:00:00
+  fiftystates_id: "17981"
+  passed: t
+  bill_id: HB1001
+  no_count: "0"
+vote_18446:
+  motion: to third reading
+  other_count: "0"
+  created_at: 2010-05-10 23:26:16.995009
+  chamber: txu
+  yes_count: "0"
+  updated_at: 2010-05-10 23:26:16.995009
+  date: 2007-05-21 07:00:00
+  fiftystates_id: "18446"
+  passed: t
+  bill_id: HB1002
+  no_count: "0"
