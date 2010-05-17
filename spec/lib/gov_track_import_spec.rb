@@ -1,4 +1,4 @@
-require 'spec/spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 require 'lib/gov_track_importer'
 
 describe GovTrackImporter do
