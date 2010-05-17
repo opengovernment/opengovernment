@@ -10,12 +10,12 @@ class Bill < ActiveRecord::Base
   has_many :actions, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 
-  named_scope :titles_like, lambda { |t| { :conditions => ["lower(bill_number) = ? or title like ?", "#{t.downcase}", "%#{t}%"] } }
+  named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
   named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
   named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
 
-  named_scope :for_state, lambda { |s| {:conditions => ["bills.state_id = ?", s] } }
+  named_scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s] } }
 
   class << self
     def find_by_session_name_and_param(session, param)
