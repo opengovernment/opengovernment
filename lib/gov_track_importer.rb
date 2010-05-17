@@ -21,6 +21,8 @@ class GovTrackImporter
     options[:data_url] ||= GOV_TRACK_PEOPLE_URL
     options[:refresh_data] ||= false
 
+    puts "Loading people from GovTrack..."
+
     @file_name = File.basename(options[:data_url])
 
     self.class.fetch_data
@@ -33,6 +35,8 @@ class GovTrackImporter
   end
 
   def import!
+    puts "Importing people..."
+
     @people.each_with_index do |person, i|
       if i % 10 == 0
         print '.'
