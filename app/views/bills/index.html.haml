@@ -1,5 +1,5 @@
 %h2 Bill search
-= render :partial => 'shared/bill_search_form'
+= render :partial => 'shared/bill_search_form', :locals => {:state => @state}
 - if @bills.empty?
   %p Sorry, no bills matched.
 - else
