@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec/spec_helper'
 
 describe State do
   before(:each) do
@@ -25,7 +25,7 @@ describe State do
     state_u = State.create!(@valid_attributes)
     State.unsupported.should include state_u
   end
-  
+
   it "should show supported states" do
     state_s = State.create!(@valid_attributes.merge(:launch_date => 2.days.ago))
     State.supported.should include state_s

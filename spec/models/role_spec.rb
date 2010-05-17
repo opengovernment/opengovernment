@@ -14,7 +14,7 @@ describe Role do
   it "should create a new instance given valid attributes" do
     Role.create!(@valid_attributes)
   end
-  
+
   it "should restrict start and end dates appropriately" do
     role = Role.new(@valid_attributes)
     role.save.should be_true
@@ -26,5 +26,4 @@ describe Role do
     role.end_date = nil
     role.save.should be_true
   end
-
 end

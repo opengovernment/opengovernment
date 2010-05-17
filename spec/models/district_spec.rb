@@ -1,7 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec/spec_helper'
 
 describe District do
-  before do    
+  before do
     @valid_attributes = {
       :name => "District 1",
       :census_district_type => "LL",
@@ -21,13 +21,13 @@ describe District do
     district = District.create(@valid_attributes.except(:state))
     district.should_not be_valid
   end
-  
+
   it "should always require a name" do
     # No name
     district = District.create(@valid_attributes.except(:name))
     district.save.should be_false
     district.errors_on(:name).should_not be_empty
-    
+
     # Blank name
     district.name = ""
     district.save.should be_false
@@ -47,7 +47,7 @@ describe District do
     districts[1].size.should eql(3)
     districts[1].should eql(@french_pl_districts)
   end
-  
+
   it "should return a district by number" do
     @district_14.size.should eql(1)
     @district_14.first.census_sld.should eql('014')
