@@ -7,11 +7,11 @@ class Role < ActiveRecord::Base
   # One of state or district is always available, see #place
   belongs_to :state
   belongs_to :district
-  
+
   # There is not always an associated session. It's there for Fifty States data but not GovTrack.
   # And anyway, people don't get elected to sessions--they get elected to chambers.
   belongs_to :session
-  
+
   before_save :assure_dates_in_order
 
   validates_numericality_of :senate_class, :only_integer => true, :allow_blank => true, :in => [1...3]
@@ -22,10 +22,14 @@ class Role < ActiveRecord::Base
   named_scope :current, :conditions => Role::CURRENT
   named_scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
   named_scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
-  
-  
+
+
   def self.current_chamber_roles(chamber)
     current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person]})
+  end
+
+  def current?
+    self.start_date < Date.today && Date.today < self.end_date  
   end
 
   def place

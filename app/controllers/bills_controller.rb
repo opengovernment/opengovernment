@@ -12,7 +12,6 @@ class BillsController < ApplicationController
   end
 
   protected
-
   def get_state
     if params[:state_id]
       @state = State.find_by_name(params[:state_id].capitalize)

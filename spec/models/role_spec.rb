@@ -26,4 +26,8 @@ describe Role do
     role.end_date = nil
     role.save.should be_true
   end
+  
+  it "should have a chamber" do
+    
+  end
 end

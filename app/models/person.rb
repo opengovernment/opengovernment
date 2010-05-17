@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
       select * from (
         select
         -- this is a subquery because we want the max() to look at all rows
-        y.sponsor_id,
+        y.sponsor_id as id,
         y.bill_count,
         y.rank,
         -- we have to do a max() here because you can't do max(row_number() over ..)
@@ -63,7 +63,7 @@ class Person < ActiveRecord::Base
           window w as (partition by s.chamber_id, s.session_id order by s.bill_count desc)
         ) y
       ) z
-      where z.sponsor_id = ?
+      where z.id = ?
       limit 1", id]).first
   end
 
