@@ -1,6 +1,6 @@
 kirk_one:
   person: kirk
-  session: 81
+  session: tx81
   district: tx14
   chamber: txu
   party: "Democrat"
@@ -8,14 +8,14 @@ kirk_one:
   end_date: <%= 2.days.from_now %>
 dawnna_one:
   person: dawnna
-  session: 81
+  session: tx81
   chamber: txl
   district: tx46
 john_one:
   person: john
   party: "Republican"
   senate_class: 2
-  session: 111
+  session: us111
   chamber: s
   state_id: "47"
   start_date: "2009-01-06"
@@ -23,7 +23,7 @@ john_one:
 kay_one:
   person: kay
   party: "Republican"
-  session: 111
+  session: us111
   chamber: s
   state_id: "47"
   senate_class: 1
@@ -34,13 +34,13 @@ lloyd_one:
   party: "Democrat"
   district: tx25
   chamber: hr
-  session: 111
+  session: us111
   start_date: '2009-01-06'
   end_date: '2010-12-31'
 garnet_one:
   person: garnet
   district: tx147
-  session: 81
+  session: tx81
   chamber: txl
 sheila_one:
   person: sheila
@@ -49,4 +49,4 @@ sheila_one:
   party: "Democrat"
   district: tx18
   chamber: hr
-  session: 111
+  session: us111

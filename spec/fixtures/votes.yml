@@ -8,7 +8,7 @@ vote_19031:
   date: 2009-04-27 07:00:00
   fiftystates_id: "19031"
   passed: t
-  bill: HB10
+  bill: hb10
   no_count: "0"
 vote_18129:
   motion: final passage
@@ -20,7 +20,7 @@ vote_18129:
   date: 2009-04-29 07:00:00
   fiftystates_id: "18129"
   passed: t
-  bill_id: HB1000
+  bill: HB1000
   no_count: "0"
 vote_18090:
   motion: to third reading
@@ -32,7 +32,7 @@ vote_18090:
   date: 2009-05-19 07:00:00
   id: "3"
   fiftystates_id: "18090"
-  bill_id: HB1001
+  bill: hb1001
   no_count: "0"
 vote_17981:
   motion: final passage
@@ -44,7 +44,7 @@ vote_17981:
   date: 2009-05-03 07:00:00
   fiftystates_id: "17981"
   passed: t
-  bill_id: HB1001
+  bill: hb1001
   no_count: "0"
 vote_18446:
   motion: to third reading
@@ -56,5 +56,5 @@ vote_18446:
   date: 2007-05-21 07:00:00
   fiftystates_id: "18446"
   passed: t
-  bill_id: HB1002
+  bill: hb1002
   no_count: "0"
