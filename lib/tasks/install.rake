@@ -63,9 +63,9 @@ namespace :install do
     # Load external data
     Rake::Task['load:districts'].invoke
 
+    # Note: People also imports addresses, so we don't invoke load:addresses
     Rake::Task['load:people'].invoke
     Rake::Task['load:bills'].invoke
-    Rake::Task['load:addresses'].invoke
   end
 end
 
