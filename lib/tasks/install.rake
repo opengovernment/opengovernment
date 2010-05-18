@@ -11,16 +11,17 @@ task :install => :environment do
   puts "Creating #{Rails.env} database..."
   Rake::Task['db:create'].invoke
 
-  Rake::Task['db:create:postgis'].invoke
-
   puts "Setting up the #{Rails.env} database"
-  Rake::Task['db:migrate'].invoke
+  Rake::Task['db:create:postgis'].invoke
+  Rake::Task['db:schema:load'].invoke
+  Rake::Task['db:seed'].invoke
 
   # Core internal data
   Rake::Task['install:data'].invoke
 end
 
 namespace :db do
+
   namespace :create do
     desc "Install PostGIS tables"
     task :postgis => :environment do
@@ -35,17 +36,24 @@ namespace :db do
           raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
         end
 
-        abcs = ActiveRecord::Base.configurations
-        ENV['PGHOST']     = abcs[Rails.env]["host"] if abcs[Rails.env]["host"]
-        ENV['PGPORT']     = abcs[Rails.env]["port"].to_s if abcs[Rails.env]["port"]
-        ENV['PGPASSWORD'] = abcs[Rails.env]["password"].to_s if abcs[Rails.env]["password"]
-
-        `createlang plpgsql -U "#{abcs[Rails.env]["username"]}" #{abcs[Rails.env]["database"]}`
-
-        ['postgis.sql', 'spatial_ref_sys.sql'].each do |fn|
-          `psql -U "#{abcs[Rails.env]["username"]}" -f #{File.join(postgis_dir, fn)} #{abcs[Rails.env]["database"]}`
-        end
+        load_pgsql_files(File.join(postgis_dir,'postgis.sql'),
+          File.join(postgis_dir,'spatial_ref_sys.sql'))
+      else
+        puts "Looks like you already have PostGIS installed. No action taken."
       end
+    end
+  end
+  
+  def load_pgsql_files(*fns)
+    abcs = ActiveRecord::Base.configurations
+    ENV['PGHOST']     = abcs[Rails.env]["host"] if abcs[Rails.env]["host"]
+    ENV['PGPORT']     = abcs[Rails.env]["port"].to_s if abcs[Rails.env]["port"]
+    ENV['PGPASSWORD'] = abcs[Rails.env]["password"].to_s if abcs[Rails.env]["password"]
+
+    `createlang plpgsql -U "#{abcs[Rails.env]["username"]}" #{abcs[Rails.env]["database"]}`
+
+    fns.each do |fn|
+      `psql -U "#{abcs[Rails.env]["username"]}" -f #{fn} #{abcs[Rails.env]["database"]}`
     end
   end
 end

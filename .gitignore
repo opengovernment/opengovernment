@@ -3,9 +3,7 @@ Gemfile.lock
 log/*.log
 tmp/**/*
 tmp/*
-db/schema.rb
 db/*_structure.rb
-db/*_structure.sql
 public/assets/*
 .bundle/*
 data/*

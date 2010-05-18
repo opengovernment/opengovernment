@@ -34,8 +34,6 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
 
-  # We have more of an interesting schema than :ruby can articulate.
-  config.active_record.schema_format = :sql
   config.active_record.timestamped_migrations = false
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
