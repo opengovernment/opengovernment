@@ -98,10 +98,14 @@ module OpenGov::Load::Bills
         roll_call = GovKit::FiftyStates::Vote.find(vote.vote_id)
       end
 
-      roll_call.respond_to?(:roll) && roll_call.roll.each do |roll|
-        r = v.roll_calls.find_or_initialize_by_leg_id(roll.leg_id)
-        r.vote_type = roll['type']
-        r.save!
+      if roll_call[:roll]
+        RollCall.delete_all(:vote_id => vote.vote_id)
+        roll_call.roll.each do |roll|
+          v.roll_calls << RollCall.new(
+            :person_id => Person.find_by_fiftystates_id(roll.leg_id).id,
+            :vote_type => roll['type']
+          )
+        end
       end
     end
 

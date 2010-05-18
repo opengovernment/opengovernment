@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 22) do
+ActiveRecord::Schema.define(:version => 23) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 22) do
 
   create_table "roll_calls", :force => true do |t|
     t.integer  "vote_id"
-    t.integer  "leg_id"
+    t.integer  "person_id"
     t.string   "vote_type"
     t.datetime "created_at"
     t.datetime "updated_at"
