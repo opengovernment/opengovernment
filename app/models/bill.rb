@@ -27,7 +27,7 @@ class Bill < ActiveRecord::Base
       scope = scope.titles_like(params[:q]) if params[:q]
       scope = scope.for_session(params[:session_id]) if params[:session_id]
       scope = scope.in_chamber(params[:chamber_id]) if params[:chamber_id]
-      scope = scope.for_state(params[:state_id]) if params[:state_id]
+      scope = scope.for_state(State.find_by_slug(params[:state_id])) if params[:state_id]
     end
   end
 
