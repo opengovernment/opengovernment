@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :roll_calls, :foreign_key => "leg_id"
+  has_many :roll_calls
   has_many :votes, :through => :roll_calls
 
   has_many :voted_bills, :class_name => 'Bill', :finder_sql => %q{
