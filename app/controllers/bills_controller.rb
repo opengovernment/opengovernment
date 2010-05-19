@@ -9,11 +9,6 @@ class BillsController < ApplicationController
   end
 
   protected
-  def get_state
-    if params[:state_id]
-      @state = State.find_by_slug(params[:state_id])
-    end
-  end
 
   def get_bill
     if params[:id]
