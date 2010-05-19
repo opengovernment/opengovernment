@@ -1,5 +1,5 @@
 tx:
   name: "Texas Legislature"
-  state: tx
+  state_id: 47
 congress:
   name: "United States Congress"
