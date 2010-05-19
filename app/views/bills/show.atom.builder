@@ -1,4 +1,4 @@
-atom_feed do |feed|
+atom_feed(:root_url => url_for(:format => nil, :only_path => false)) do |feed|
   feed.title(@bill.title)
   feed.updated(@bill.last_action_at)
 

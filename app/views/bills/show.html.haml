@@ -1,3 +1,6 @@
+- content_for :head do
+  = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Bill Actions"})
+
 %h4
   = "Bill #{@bill.bill_number}"
 
