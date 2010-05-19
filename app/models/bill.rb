@@ -11,7 +11,7 @@ class Bill < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
   
   # How will we allow people to sort bills?
-  SORTABLE_BY = ['title','first_action_at','last_action_at','bill_number'].freeze
+  SORTABLE_BY = ['title','first_action_at desc','last_action_at desc','bill_number'].freeze
 
   named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
