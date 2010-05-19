@@ -3,27 +3,26 @@
     = "Districts near #{@point.full_address}"
     - if @point.precision != "address"
       = "We couldn't find your exact address, but we found your #{@point.precision}."
-    - if @districts.size == 0
-      = "We couldn't find your district."
-    %h2 Your Senators
-    %ul
-      - @senators.each do |person|
-        %li
-          = link_to(person.full_name, person_path(person))
-    %h2 Your Representatives
-    %ul
-      - @representatives.each do |district, person|
-        %li
-          = "#{district.name}:"
-          - if person.nil?
-            = "none"
-          - else
-            = link_to(person.full_name, person_path(person))
+
+    %h2 Your officials
+    - [Legislature::CONGRESS, @state.legislature].each do |leg|
+      %h3= leg.name
+      - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
+        %h4= chamber.name
+        - places_and_reps = chamber.current_legislators_by_point(@point)
+        - if places_and_reps.size > 0
+          - places_and_reps.each do |place, reps|
+            %ul
+            - reps.each do |rep|
+              %li
+                - if place.kind_of?(District)
+                  = "#{place.name}: "
+                = link_to rep.official_name, person_path(rep)
+        - else
+          = "No representatives found."
   - else
-    %h2
-      = "#{@state.name} is not supported yet"
-    %p
-      = "Please leave you your email and we will keep you posted"
+    %h2 #{@state.name} is not supported yet
+    %p Please leave you your email and we will keep you posted
     - form_tag(state_subscriptions_path) do
       = hidden_field_tag :id, @state.id
       = text_field_tag :email
