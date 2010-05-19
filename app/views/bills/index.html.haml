@@ -17,6 +17,7 @@
       %li= link_to_unless_current s.name, :overwrite_params => { :session_id => s.id }
   %p.sort Sort by:
   %ul
-    %li= link_to_unless_current "Date added", :overwrite_params => { :order => "created_at" }
+    %li= link_to_unless_current "Recent actions", :overwrite_params => { :order => "last_action_at" }
+    %li= link_to_unless_current "Date introduced", :overwrite_params => { :order => "first_action_at" }
     %li= link_to_unless_current "Bill number", :overwrite_params => { :order => "bill_number" }
     %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "title" }
