@@ -55,3 +55,6 @@
           = "Other count: #{vote.other_count}"
         %div
           = "Passed: #{vote.passed? ? "Yes": "No"}"
+
+%div.social
+  %p Tweet this bill using the hashtags #{@bill.to_hashtags}

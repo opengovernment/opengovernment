@@ -34,6 +34,10 @@ class Bill < ActiveRecord::Base
     end
   end
 
+  def to_hashtags
+    "##{State.find(state_id).abbrev.downcase}bill ##{bill_number.downcase.gsub(' ', '')}"
+  end
+
   def to_param
     bill_number.parameterize
   end
