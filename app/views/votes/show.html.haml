@@ -1,0 +1,18 @@
+%p
+  = "Motion: #{@vote.motion}"
+  %div
+    = "YES count: #{@vote.yes_count}"
+  %div
+    = "NO count: #{@vote.no_count}"
+  %div
+    = "Other count: #{@vote.other_count}"
+  %div
+    = "Passed: #{@vote.passed? ? "Yes": "No"}"
+
+%p
+  - unless @vote.roll_calls
+    %div Sorry, no roll call is available for this vote.
+  - else
+    %ul.roll_call
+    - @vote.roll_calls.each do |roll_call|
+      %li #{roll_call.vote_type} #{roll_call.person.full_name}

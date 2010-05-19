@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :states do |state|
     state.resources :bills, :only => [:show], :path_prefix => '/states/:state_id/sessions/:session', :name_prefix => ''
+    state.resources :votes, :only => [:show]
     state.resources :bills, :only => [:index]
     state.resources :people, :only => [:index], :as => 'reps'
   end

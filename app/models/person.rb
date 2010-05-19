@@ -17,13 +17,6 @@ class Person < ActiveRecord::Base
   has_many :roll_calls
   has_many :votes, :through => :roll_calls
 
-  has_many :voted_bills, :class_name => 'Bill', :finder_sql => %q{
-    SELECT distinct bills.* from bills
-    inner join votes on votes.bill_id = bills.id
-    inner join roll_calls on roll_calls.vote_id = votes.id
-    where roll_calls.leg_id = #{self.id}
-  }
-
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end

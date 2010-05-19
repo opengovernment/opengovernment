@@ -37,14 +37,18 @@
 %h4 Votes
 
 %p
-  - @bill.votes.each do |vote|
-    %p
-      = "Motion: #{vote.motion}"
-      %div
-        = "YES count: #{vote.yes_count}"
-      %div
-        = "NO count: #{vote.no_count}"
-      %div
-        = "Other count: #{vote.other_count}"
-      %div
-        = "Passed: #{vote.passed? ? "Yes": "No"}"
+  - unless @bill.votes.size > 0
+    %p No votes are available for this bill.
+  - else
+    - @bill.votes.each do |vote|
+      %p
+        %div
+          = link_to "Motion: #{vote.motion}", state_vote_path(@state, vote.id)
+        %div
+          = "YES count: #{vote.yes_count}"
+        %div
+          = "NO count: #{vote.no_count}"
+        %div
+          = "Other count: #{vote.other_count}"
+        %div
+          = "Passed: #{vote.passed? ? "Yes": "No"}"

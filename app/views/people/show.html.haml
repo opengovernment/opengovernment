@@ -34,25 +34,11 @@
   %h3 Roles
   %p
     - @person.roles.each do |role|
-      %div
-        = "#{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})"
+      %div #{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})
 
 %div.span-6
   %h3!= sponsorship_vitals_for(@person)
 
 %div.span-6
-  %h3 Bills (Voted)
-  %p
-    - if @person.voted_bills.empty?
-      = "Sorry, we found no bills."
-    - else
-      - @person.voted_bills.each do |bill|
-        %div
-          = link_to(bill.title, [@person])
-          -#TODO: Clean the finders here
-          %p
-            - @person.votes.find_all_by_bill_id(bill.id).each do |vote|
-              %div
-                = "Motion: #{vote.motion}"
-              %div
-                = "Voted: #{@person.roll_calls.find_by_vote_id(vote.id).vote_type}"
+  %h3 Votes
+  %p not sure what goes here yet.
