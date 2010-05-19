@@ -52,6 +52,8 @@ module OpenGov::Load::Bills
     @bill.state = state
     @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
     @bill.session = state.legislature.sessions.find_by_name(bill.session)
+    @bill.first_action_at = valid_date!(bill.first_action)
+    @bill.last_action_at = valid_date!(bill.last_action)
 
     # There is no unique data on a bill's actions that we can key off of, so we
     # must delete and recreate them all each time.
