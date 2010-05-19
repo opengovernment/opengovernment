@@ -14,13 +14,20 @@ task :install => :environment do
   puts "Setting up the #{Rails.env} database"
   Rake::Task['db:create:postgis'].invoke
   Rake::Task['db:schema:load'].invoke
-  Rake::Task['db:seed'].invoke
+  Rake::Task['db:sqlseed'].invoke
 
   # Core internal data
   Rake::Task['install:data'].invoke
 end
 
 namespace :db do
+  desc "Install db/seeds.sql items"
+  task :sqlseed => :environment do
+    seeds_fn = File.join(Rails.root,'db','seeds.sql')
+    if File.exists?(seeds_fn)
+      load_pgsql_files(seeds_fn)
+    end
+  end
 
   namespace :create do
     desc "Install PostGIS tables"
