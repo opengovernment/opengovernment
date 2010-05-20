@@ -12,13 +12,16 @@
     - unless @person.religion.blank?
       %div= "Religion: #{@person.religion}"
     - unless @person.website_one.blank?
-      %div!= "Website: " + link_to(@person.website_one, @person.website_one)
+      %div
+        = link_to_with_domain("Website", @person.website_one)
     - unless @person.website_two.blank?
-      %div!= "Website: " + link_to(@person.website_two, @person.website_two)
+      %div
+        = link_to_with_domain("Website", @person.website_two)
     - unless @person.webmail.blank?
-      %div!= "Web E-mail: " + link_to(@person.webmail, @person.webmail)
+      %div
+        = link_to_with_domain("Web E-Mail", @person.webmail)
     - unless @person.email.blank?
-      %div!= "E-mail: " + link_to(@person.email, @person.email)
+      %div!= mail_to("E-Mail", @person.email, :encode => "javascript")
     - unless @person.youtube_id.blank?
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
@@ -36,6 +39,12 @@
   %p
     - @person.roles.each do |role|
       %div #{role.state && role.state.name} #{role.chamber.name} (#{role.start_date} to #{role.end_date})
+  %h3 Committees
+  %p
+    - @person.committees.each do |committee|
+      %div
+      = committee.type_fm
+      = link_to(committee.name, state_committee_path(committee.legislature.state, committee))
 
 %div.span-6
   %h3!= sponsorship_vitals_for(@person)

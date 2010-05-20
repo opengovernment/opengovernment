@@ -1,0 +1,15 @@
+- title("#{@state.name} #{@committee.type_fm} #{@committee.name}")
+%h2 #{@state.name} #{@committee.type_fm} #{@committee.name}
+%h3 Basic Info
+%p
+  %ul
+    %li
+      Type:
+      = @committee.type_fm
+    %li
+      Website: 
+      = @committee.url ? link_to_with_domain(@committee.name, @committee.url) : @committee.name
+%h3 Members
+%ul
+  - @committee.members.each do |member|
+    %li= link_to(member.official_name, person_path(member))

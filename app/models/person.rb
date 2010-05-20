@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
+  has_many :committee_memberships, :dependent => :destroy
+  has_many :committees, :through => :committee_memberships
 
   has_one :current_role, :class_name => 'Role'
   has_one :chamber, :through => :current_role
