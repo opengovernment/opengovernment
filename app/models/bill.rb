@@ -13,7 +13,7 @@ class Bill < ActiveRecord::Base
   # How will we allow people to sort bills?
   SORTABLE_BY = ['title','first_action_at desc','last_action_at desc','bill_number'].freeze
 
-  named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
+  named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s"]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t.gsub(/["']/,'')}%"] } }
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
   named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
   named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }

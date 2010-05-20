@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 24) do
+ActiveRecord::Schema.define(:version => 25) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(:version => 24) do
     t.integer "term_length"
   end
 
+  create_table "committees", :force => true do |t|
+    t.string   "name",                             :null => false
+    t.integer  "votesmart_parent_id"
+    t.integer  "votesmart_id"
+    t.string   "votesmart_type_id",   :limit => 1
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "districts", :force => true do |t|
     t.string        "name",                                :null => false
     t.string        "census_sld"
@@ -65,8 +75,8 @@ ActiveRecord::Schema.define(:version => 24) do
     t.boolean       "at_large"
     t.integer       "state_id",                            :null => false
     t.string        "vintage",              :limit => 4
-    t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
     t.integer       "chamber_id"
+    t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
   end
 
   add_index "districts", ["geom"], :name => "index_districts_on_geom", :spatial => true

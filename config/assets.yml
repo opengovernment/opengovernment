@@ -6,3 +6,4 @@ stylesheets:
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
     - public/stylesheets/blueprint.css
+    - public/stylesheets/forms.css

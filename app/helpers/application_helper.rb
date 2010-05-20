@@ -3,4 +3,8 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+
+  def page_title
+     "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
+  end
 end

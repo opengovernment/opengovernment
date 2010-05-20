@@ -8,7 +8,7 @@
     <![endif]-->
     = javascript_include_tag 'jquery-1.4.2.min.js'
     = yield :head
-    %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
+    %title= page_title
   %body
     %div.container
       %div#header   
@@ -19,6 +19,7 @@
           %li.your_account= link_to 'Your Account', '/'
           %li.about= link_to 'About', '/'
           %li.sign_out= link_to 'Sign Out', '/'
+        = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => page_title, :url => current_url}
       %div#flash
         - flash.each do |key, value|
           %div(id="flash_#{key}")

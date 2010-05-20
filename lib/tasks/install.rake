@@ -79,6 +79,7 @@ namespace :install do
     Rake::Task['load:districts'].invoke
 
     # Note: People also imports addresses, so we don't invoke load:addresses
+    Rake::Task['load:committees'].invoke
     Rake::Task['load:people'].invoke
     Rake::Task['load:bills'].invoke
   end
@@ -128,6 +129,11 @@ namespace :load do
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
     OpenGov::Load::Bills.import!(:remote => false)
+  end
+
+  desc "Fetch and load committees from VoteSmart"
+  task :committees => :environment do
+    OpenGov::Load::Committees.import!
   end
 
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"

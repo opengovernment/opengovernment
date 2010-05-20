@@ -6,18 +6,18 @@
 %div.search_results
   %ul.bills
     - @bills.each do |bill|
-      %li
+      %li[bill]
         != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
         = bill.title
   = will_paginate @bills
 %div.search_sidebar
   %p.filter Session:
-  %ul
-    - @state.legislature.sessions.each do |s|
-      %li= link_to_unless_current s.name, :overwrite_params => { :session_id => s.id }
+    %ul.session_filter
+      - @state.legislature.sessions.each do |s|
+        %li= link_to_unless_current s.name, :overwrite_params => { :session_id => s.id }
   %p.sort Sort by:
-  %ul
-    %li= link_to_unless_current "Recent actions", :overwrite_params => { :order => "last_action_at desc" }
-    %li= link_to_unless_current "Date introduced", :overwrite_params => { :order => "first_action_at desc" }
-    %li= link_to_unless_current "Bill number", :overwrite_params => { :order => "bill_number" }
-    %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "title" }
+    %ul
+      %li= link_to_unless_current "Recent actions", :overwrite_params => { :order => "last_action_at desc" }
+      %li= link_to_unless_current "Date introduced", :overwrite_params => { :order => "first_action_at desc" }
+      %li= link_to_unless_current "Bill number", :overwrite_params => { :order => "bill_number" }
+      %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "title" }
