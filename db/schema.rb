@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 25) do
+ActiveRecord::Schema.define(:version => 26) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 25) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "legislature_id",                   :null => false
   end
 
   create_table "districts", :force => true do |t|

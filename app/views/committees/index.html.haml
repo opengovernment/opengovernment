@@ -1,0 +1,9 @@
+- title("#{@state.name} Committees")
+%h2 #{@state.name} Committees
+= will_paginate @committees
+%ul
+  - @committees.each do |committee|
+    %li
+      = committee.type_fm
+      = committee.url ? link_to(committee.name, committee.url) : committee.name
+= will_paginate @committees

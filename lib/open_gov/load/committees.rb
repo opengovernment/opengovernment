@@ -17,6 +17,7 @@ module OpenGov::Load::Committees
       c.update_attributes!(
         :name => committee.name,
         :url => details.contact.url,
+        :legislature_id => state.legislature.id,
         :votesmart_parent_id => (committee.parentId.to_i > 0 ? committee.parentId.to_i : nil),
         :votesmart_type_id => committee.committeetypeId
       )
