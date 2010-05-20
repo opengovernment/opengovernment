@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 26) do
+ActiveRecord::Schema.define(:version => 27) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 26) do
     t.string  "title"
     t.string  "name"
     t.integer "term_length"
+  end
+
+  create_table "committee_memberships", :force => true do |t|
+    t.integer "person_id"
+    t.integer "session_id"
+    t.integer "committee_id"
   end
 
   create_table "committees", :force => true do |t|

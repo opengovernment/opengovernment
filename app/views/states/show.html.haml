@@ -1,6 +1,5 @@
-%h2
-  = @state.name
-
+%h2= @state.name
+%p= link_to("Committees", state_committees_path(@state))
 
 .span-18
     

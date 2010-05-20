@@ -25,9 +25,11 @@ module OpenGov::Load::People
 
       fs_person.roles.each do |fs_role|
 
-        if fs_role[:type] == GovKit::FiftyStates::ROLE_MEMBER
-          legislature = state.legislature
+        legislature = state.legislature
+        session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
 
+        case fs_role[:type]
+        when GovKit::FiftyStates::ROLE_MEMBER:
           case fs_role.chamber
           when GovKit::FiftyStates::CHAMBER_UPPER
             chamber = legislature.upper_chamber
@@ -36,10 +38,8 @@ module OpenGov::Load::People
           end
 
           district = chamber.districts.numbered(fs_role.district.to_s).first
-          session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
 
           role = Role.find_or_initialize_by_district_id_and_chamber_id(district.id, chamber.id)
-
           role.update_attributes!(
             :person => person,
             :session => session,
@@ -47,6 +47,13 @@ module OpenGov::Load::People
             :end_date => fs_role.end_date ? Date.parse(fs_role.end_date).to_time : Date.parse("#{session.end_year}-12-31").to_time,
             :party => fs_role.party
           )
+        when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER:
+          # TODO: This doesn't match properly. We should be getting
+          # votesmart committee ids back and using those instead.
+          if committee = Committee.find_by_name(fs_role.committee)
+            committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)
+          end
+
         end
       end
     end

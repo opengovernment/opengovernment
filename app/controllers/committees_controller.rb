@@ -4,5 +4,9 @@ class CommitteesController < ApplicationController
   def index
     @committees = @state.committees.paginate :page => params[:page], :order => params[:order] || 'name'
   end
+  
+  def show
+    @committee = Committee.find(params[:id])
+  end
 
 end
