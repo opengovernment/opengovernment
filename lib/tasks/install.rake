@@ -50,7 +50,7 @@ namespace :db do
       end
     end
   end
-  
+
   def load_pgsql_files(*fns)
     abcs = ActiveRecord::Base.configurations
     ENV['PGHOST']     = abcs[Rails.env]["host"] if abcs[Rails.env]["host"]
@@ -128,7 +128,7 @@ namespace :load do
 
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
-    OpenGov::Load::Bills.import!(:remote => false)
+    OpenGov::Load::Bills.import!
   end
 
   desc "Fetch and load committees from VoteSmart"

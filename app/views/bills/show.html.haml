@@ -1,50 +1,46 @@
-- content_for :head do
-  = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Bill Actions"})
-- title("#{@state.name} Bill #{@bill.bill_number}")
-%h2
-  = "#{@state.name} Bill #{@bill.bill_number}"
+%div.span-24.last
+  %h4
+    = "Bill #{@bill.bill_number}"
 
-%p
-  %div
-    = @bill.title
-%p
-  %div
-    = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
-  %div
-    = "Chamber: #{@bill.chamber.name}"
-
-%h4 Sponsors
-
-%p
-  - @bill.sponsors.each do |sponsor|
+  %p
     %div
-      = link_to(sponsor.full_name, person_path(sponsor))
-
-%h4 Actions
-
-%p
-  - @bill.actions.each do |action|
+      = @bill.title
+  %p
     %div
-      = action.actor
-      = action.action
-
-%h4 Versions
-
-%p
-  - @bill.versions.each do |version|
+      = "State: #{@bill.state.name}"
     %div
-      = link_to(version.name, version.url)
+      = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
+    %div
+      = "Chamber: #{@bill.chamber.name}"
 
-%h4 Votes
+  %h4 Sponsors
 
-%p
-  - unless @bill.votes.size > 0
-    %p No votes are available for this bill.
-  - else
+  %p
+    - @bill.sponsors.each do |sponsor|
+      %div
+        = link_to(sponsor.full_name, person_path(sponsor))
+
+  %h4 Actions
+
+  %p
+    - @bill.actions.each do |action|
+      %div
+        = action.actor
+        = action.action
+
+  %h4 Versions
+
+  %p
+    - @bill.versions.each do |version|
+      %div
+        = link_to(version.name, version.url)
+
+  %h4 Votes
+
+  %p
     - @bill.votes.each do |vote|
       %p
-        %div
-          = link_to "Motion: #{vote.motion}", state_vote_path(@state, vote.id)
+        = "Motion: #{vote.motion}"
         %div
           = "YES count: #{vote.yes_count}"
         %div
@@ -54,5 +50,28 @@
         %div
           = "Passed: #{vote.passed? ? "Yes": "No"}"
 
-%div.social
-  %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+  %h4 Citations
+
+  %div.span-8
+    %h4 Google News
+    - @bill.citations[:google_news].each do |citation|
+      %span
+        = link_to citation.title, citation.url
+        %p
+          = citation.excerpt.html_safe!
+
+  %div.span-8
+    %h4 Blogs
+    - @bill.citations[:google_blogs].each do |citation|
+      %span
+        = link_to citation.title, citation.url
+        %p
+          = citation.excerpt.html_safe!
+
+  %div.span-8.last
+    %h4 Technorati
+    = @bill.citations[:technorati].each do |citation|
+      %span
+        = link_to citation.title, citation.url
+        %p
+          = citation.excerpt.html_safe!

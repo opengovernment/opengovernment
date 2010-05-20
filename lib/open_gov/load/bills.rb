@@ -10,6 +10,11 @@ module OpenGov::Load::Bills
       end
     else
       state_dir = File.join(FIFTYSTATES_DIR, "api", "tx")
+
+      unless File.exists?(state_dir)
+        raise "Fifty States data is missing"
+      end
+      
       [81, 811].each do |session|
         ["lower", "upper"].each do |house|
           bills_dir = File.join(state_dir, session.to_s, house, "bills")
