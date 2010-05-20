@@ -1,3 +1,4 @@
+- title("Bills sponsored by #{@person.full_name}")
 %p
   %h2!= @person.full_name + ": " + sponsorship_vitals_for(@person)
   - if @sponsorships.empty?

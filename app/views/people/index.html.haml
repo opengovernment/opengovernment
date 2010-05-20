@@ -1,3 +1,4 @@
+- title("#{@state.name} Representatives")
 %h2= "#{@state.name} Representatives"
 
 - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
