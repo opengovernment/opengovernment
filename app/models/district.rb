@@ -14,7 +14,15 @@ class District < Place
   SRID = 4269.freeze
 
   def number
-    census_sld.sub! /\A0+/, ''
+    census_sld.sub /\A0+/, ''
+  end
+
+  def full_name
+    "#{state.name} #{chamber.name} District #{number}"
+  end
+  
+  def description
+    "This is #{state.name}'s #{chamber.name.downcase} District #{number}."
   end
 
   class << self
