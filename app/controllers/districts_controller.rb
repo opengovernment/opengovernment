@@ -1,6 +1,9 @@
 class DistrictsController < ApplicationController
   before_filter :find_district, :except => :search
 
+  # TODO: Remove when public
+  skip_before_filter :authenticate, :only => :show
+
   def search
     @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q])
 
