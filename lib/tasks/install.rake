@@ -128,7 +128,10 @@ namespace :load do
 
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
+    puts "Fetching and loading bills from Fifty States"
     OpenGov::Load::Bills.import!
+    puts "Marking Votesmart Key Votes"
+    OpenGov::Load::KeyVotes.import!
   end
 
   desc "Fetch and load committees from VoteSmart"

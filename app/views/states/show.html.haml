@@ -47,3 +47,13 @@
 
   %p
     = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
+
+  - if @state_key_votes.size > 0
+    %h3 Key Votes
+
+    %p
+      %ul
+        - @state_key_votes.each do |bill|
+          %li
+            != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+            = bill.title

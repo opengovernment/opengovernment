@@ -2,6 +2,7 @@ class StatesController < ApplicationController
   before_filter :get_state
 
   def show
+    @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers})
   end
 
   def subscribe
