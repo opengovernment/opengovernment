@@ -43,10 +43,15 @@ namespace :db do
           raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
         end
 
-        load_pgsql_files(File.join(postgis_dir,'postgis.sql'),
-          File.join(postgis_dir,'spatial_ref_sys.sql'))
+        if File.exists?(File.join(postgis_dir,'postgis.sql'))
+          load_pgsql_files(File.join(postgis_dir,'postgis.sql'),
+            File.join(postgis_dir,'spatial_ref_sys.sql'))
+        else
+          raise "Please install PostGIS before continuing."
+        end  
+
       else
-        puts "Looks like you already have PostGIS installed. No action taken."
+        puts "Looks like you already have PostGIS installed in your database. No action taken."
       end
     end
   end
