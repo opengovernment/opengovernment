@@ -131,6 +131,11 @@ namespace :load do
     OpenGov::Load::Addresses.import!
   end
 
+  desc "Fetch and load citations"
+  task :citations => :environment do
+    OpenGov::Load::Citations.import!
+  end
+
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
     puts "Fetching and loading bills from Fifty States"

@@ -59,6 +59,20 @@ ActiveRecord::Schema.define(:version => 28) do
     t.integer "term_length"
   end
 
+  create_table "citations", :force => true do |t|
+    t.string   "url"
+    t.string   "excerpt",       :limit => 1000
+    t.string   "title"
+    t.string   "source"
+    t.datetime "date"
+    t.float    "weight"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "search_source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "committee_memberships", :force => true do |t|
     t.integer "person_id"
     t.integer "session_id"

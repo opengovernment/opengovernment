@@ -54,24 +54,25 @@
 
   %div.span-8
     %h4 Google News
-    - @bill.citations[:google_news].each do |citation|
+    - @bill.google_news_citations.each do |citation|
       %span
         = link_to citation.title, citation.url
-        %p
-          = citation.excerpt.html_safe!
+        %div
+          = truncate(citation.excerpt, 100)
 
   %div.span-8
     %h4 Blogs
-    - @bill.citations[:google_blogs].each do |citation|
+    - @bill.google_blog_citations.each do |citation|
       %span
         = link_to citation.title, citation.url
-        %p
-          = citation.excerpt.html_safe!
+        %div
+          = truncate(citation.excerpt, 100)
 
   %div.span-8.last
     %h4 Technorati
-    = @bill.citations[:technorati].each do |citation|
+    = @bill.technorati_citations.each do |citation|
       %span
         = link_to citation.title, citation.url
-        %p
-          = citation.excerpt.html_safe!
+        %div
+          = truncate(citation.excerpt, 100)
+

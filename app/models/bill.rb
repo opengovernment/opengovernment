@@ -15,11 +15,14 @@ class Bill < ActiveRecord::Base
   named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
   named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
   named_scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
+  named_scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
-  named_scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s] } }
+  has_many :citations, :as => :owner
+  has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}
+  has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
+  has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
 
-  #TODO: Pass in the bill number (may be like :attributes => [:bill_number])
-  acts_as_citeable :keywords => ["House", "Bill"]
+  acts_as_citeable :keywords => ["Senate", "Bill"], :with => [:bill_number, "state.name"]
 
   class << self
     def find_by_session_name_and_param(session, param)
