@@ -1,7 +1,7 @@
 module OpenGov::Load::Bills
   VOTES_DIR = File.join(FIFTYSTATES_DIR, "api", "votes")
 
-  # TODO: The :remote => false option will only really apply to the intial import.
+  # TODO: The :remote => false option only applies to the intial import.
   # after that, we always want to use import_one(state)
   def self.import!(options = {})
     if options[:remote]
@@ -14,9 +14,10 @@ module OpenGov::Load::Bills
       unless File.exists?(state_dir)
         raise "Fifty States data is missing"
       end
-      
+
+      # TODO: Lookup currently active session
       [81, 811].each do |session|
-        ["lower", "upper"].each do |house|
+        [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
           bills_dir = File.join(state_dir, session.to_s, house, "bills")
           all_bills = File.join(bills_dir, "*")
           Dir.glob(all_bills).each do |file|
@@ -32,7 +33,7 @@ module OpenGov::Load::Bills
     puts "Importing bills for #{state.name} \n"
 
     # TODO: This isn't quite right...
-    bills = GovKit::FiftyStates::Bill.latest("2010-04-20", state.abbrev.downcase)
+    bills = GovKit::FiftyStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
 
     if bills.empty?
       puts "No bills found \n"
