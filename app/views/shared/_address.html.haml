@@ -1,5 +1,22 @@
-%li[address]
-  %h4.address_type= address.votesmart_type
-  = "#{address.line_one}<br />#{address.line_two ? "#{address.line_two}<br />" : ""}#{address.city}, #{address.state.abbrev} #{address.postal_code}".html_safe!
-  %div.phone= "Phone: #{address.phone_one}" unless address.phone_one.blank?
-  %div.fax= "FAX: #{address.fax_one}" unless address.fax_one.blank?
+%li
+  -# We're using hCard format here. See
+  -# http://microformats.org/wiki/hcard
+  %div.vcard[address]
+    %h4
+      %span.type>= address.votesmart_type
+      \:
+    %div.street-address!= address.line_one + (address.line_two ? "<br />#{address.line_two}" : "")
+    %span.locality>= address.city
+    ,
+    %span.region{:title => address.state.name}= address.state.abbrev
+    %span.postal-code= address.postal_code
+    - unless address.phone_one.blank?
+      %div.tel
+        %span.type> Phone
+        \:
+        %span.value #{address.phone_one}
+    - unless address.fax_one.blank?
+      %div.tel
+        %span.type> FAX
+        \:
+        %span.value #{address.fax_one}
