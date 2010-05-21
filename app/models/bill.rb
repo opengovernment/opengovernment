@@ -14,6 +14,7 @@ class Bill < ActiveRecord::Base
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
   named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
   named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
+  named_scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
 
   named_scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s] } }
 
