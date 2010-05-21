@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 28) do
+ActiveRecord::Schema.define(:version => 27) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 28) do
   end
 
   create_table "bills", :force => true do |t|
-    t.string   "title",              :limit => 1000
+    t.string   "title",           :limit => 1000
     t.integer  "state_id"
     t.integer  "session_id"
     t.string   "fiftystates_id"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 28) do
     t.datetime "updated_at"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
-    t.boolean  "votesmart_key_vote",                 :default => false, :null => false
   end
 
   create_table "chambers", :force => true do |t|

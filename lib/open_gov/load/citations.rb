@@ -1,15 +1,14 @@
 module OpenGov::Load::Citations
   def self.import!
     puts "Importing citations for"
-    Bill.all.each do |bill|
+    Bill.with_key_votes.each do |bill|
       puts "#{bill.bill_number}.."
       raw_citations = bill.raw_citations
 
       raw_citations[:google_news].map { |c| make_citation(bill, c, "Google News") }
       raw_citations[:google_blogs].map { |c| make_citation(bill, c, "Google Blogs") }
 
-      bill.save!
-      break
+      bill.save
     end
   end
 
