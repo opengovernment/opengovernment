@@ -14,7 +14,7 @@ module OpenGov::Load::KeyVotes
     bills.bill.each do |bill|
       if og_bill = Bill.find_by_bill_number(bill.billNumber)
         og_bill.update_attributes!(
-          :votesmart_bill_id => bill.billId,
+          :votesmart_id => bill.billId,
           :votesmart_key_vote => true
         )
       end
