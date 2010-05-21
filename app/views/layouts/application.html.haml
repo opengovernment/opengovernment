@@ -11,14 +11,15 @@
     %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
   %body
     %div.container
-      %div#header   
+      %header
         %h1= link_to 'OpenGovernment', '/'
-        %ul#nav
-          %li.home_page= link_to 'Home', '/'
-          %li.your_district= link_to 'Your District', '/'
-          %li.your_account= link_to 'Your Account', '/'
-          %li.about= link_to 'About', '/'
-          %li.sign_out= link_to 'Sign Out', '/'
+        %nav
+          %ul
+            %li.home_page= link_to 'Home', '/'
+            %li.your_district= link_to 'Your District', '/'
+            %li.your_account= link_to 'Your Account', '/'
+            %li.about= link_to 'About', '/'
+            %li.sign_out= link_to 'Sign Out', '/'
         = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
       %div#flash
         - flash.each do |key, value|

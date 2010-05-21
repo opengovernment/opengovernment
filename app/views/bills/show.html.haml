@@ -1,10 +1,7 @@
 %div.span-24.last
-  %h4
-    = "Bill #{@bill.bill_number}"
-
-  %p
-    %div
-      = @bill.title
+  %hgroup
+    %h3= "Bill #{@bill.bill_number}"
+    %h4= @bill.title
   %p
     %div
       = "State: #{@bill.state.name}"

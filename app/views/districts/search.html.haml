@@ -6,20 +6,21 @@
 
     %h2 Your officials
     - [Legislature::CONGRESS, @state.legislature].each do |leg|
-      %h3[leg]= leg.name
-      - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
-        %h4[chamber]= chamber.name
-        - places_and_reps = chamber.current_legislators_by_point(@point)
-        - if places_and_reps.size > 0
-          - places_and_reps.each do |place, reps|
-            %ul
-            - reps.each do |rep|
-              %li
-                - if place.kind_of?(District)
-                  = "#{place.name}: "
-                = link_to rep.official_name, person_path(rep)
-        - else
-          = "No representatives found."
+      %section
+        %h3[leg]= leg.name
+        - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
+          %h4[chamber]= chamber.name
+          - places_and_reps = chamber.current_legislators_by_point(@point)
+          - if places_and_reps.size > 0
+            - places_and_reps.each do |place, reps|
+              %ul
+              - reps.each do |rep|
+                %li
+                  - if place.kind_of?(District)
+                    = "#{place.name}: "
+                  = link_to rep.official_name, person_path(rep)
+          - else
+            = "No representatives found."
   - else
     %h2 #{@state.name} is not supported yet
     %p Please leave you your email and we will keep you posted

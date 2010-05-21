@@ -267,7 +267,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 ///////////////////////////*/
 
-#nav{
+nav ul{
 border-bottom: 1px solid #eee;
 margin: 0 0 35px;
 padding: 0;
@@ -276,7 +276,7 @@ width: 960px;
 }
 
 
-#nav li{
+nav ul li{
 list-style: none;
 margin: 0;
 padding: 0;
@@ -286,7 +286,7 @@ clear: none;
 
 
 
-#nav li a{
+nav ul li a{
 display: block;
 margin: 0;
 color: #333;
@@ -299,12 +299,12 @@ border-right: 1px solid #eee;
 
 
 
-#nav li a:hover{
+nav ul li a:hover{
 background: #efefef;
 }
 
 
-#nav li.home_page a{
+nav ul li.home_page a{
 border-right: none;
 }
 

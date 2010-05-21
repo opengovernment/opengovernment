@@ -11,7 +11,7 @@
         != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
         = bill.title
   = will_paginate @bills
-%div.search_sidebar
+%aside.search_sidebar
   %p.filter
     Session:
     %ul.session_filter
