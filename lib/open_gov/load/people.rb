@@ -48,9 +48,11 @@ module OpenGov::Load::People
             :party => fs_role.party
           )
         when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER:
-          # TODO: This doesn't match properly. We should be getting
-          # votesmart committee ids back and using those instead.
-          if committee = Committee.find_by_name(fs_role.committee)
+          # TODO: This lookup is awkward, and there are actually
+          # committees that Votesmart doesn't have and that fiftystates has,
+          # and we should be adding those when we see them. Their
+          # votesmart_committee_id will be nil.
+          if committee = Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) ||  Committee.find_by_name(fs_role.committee)
             committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)
           end
 
