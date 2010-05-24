@@ -8,4 +8,3 @@ public/assets/*
 .bundle/*
 data/*
 vendor/bundler_gems/*
-vendor/plugins/rspec-rails/*
