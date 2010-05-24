@@ -2,15 +2,13 @@
 %p= link_to("Committees", state_committees_path(@state))
 
 .span-18
-    
   .span-6
-
     %h3
       = Legislature::CONGRESS.name
-  
+
     %p
       %h4
-        = Legislature::CONGRESS.upper_chamber.name
+        = pluralize(@state.current_senators.size, Legislature::CONGRESS.upper_chamber.title)
       %p
         - @state.current_senators.each do |rep|
           %div
@@ -26,17 +24,17 @@
   .span-12.last
     %h3
       = @state.legislature.name
- 
+
     .span-6
       %h4
-        = @state.legislature.upper_chamber.name
+        = pluralize(@state_upper_chamber_roles.size, @state.legislature.upper_chamber.title)
       %p
         - @state_upper_chamber_roles.each do |role|
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
     .span-6.last
       %h4
-        = @state.legislature.lower_chamber.name
+        = pluralize(@state_lower_chamber_roles.size, @state.legislature.lower_chamber.title)
       %p
         - @state_lower_chamber_roles.each do |role|
           %div
