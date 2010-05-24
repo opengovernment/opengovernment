@@ -19,6 +19,13 @@ class Person < ActiveRecord::Base
   has_many :roll_calls
   has_many :votes, :through => :roll_calls
 
+  has_many :citations, :as => :owner
+  has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}
+  has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
+  has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
+
+  acts_as_citeable :keywords => [], :with => [:full_name]
+
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end
