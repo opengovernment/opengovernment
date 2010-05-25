@@ -46,19 +46,9 @@
 
     %p
       - @bill.votes.each do |vote|
-        %p
-          %div
-            = "Motion: #{vote.motion}"
-          %div
-            = "YES count: #{vote.yes_count}"
-          %div
-            = "NO count: #{vote.no_count}"
-          %div
-            = "Other count: #{vote.other_count}"
-          %div
-            = "Passed: #{vote.passed? ? "Yes": "No"}"
-          %div
-            = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
+        = render :partial => 'votes/vote', :locals => {:vote => vote}
+        %div
+          = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
 
   - if @bill.citations.size > 0
     %div.span-24.last

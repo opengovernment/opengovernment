@@ -10,6 +10,7 @@ class Bill < ActiveRecord::Base
   has_many :actions, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 
+  default_scope :order => "first_action_at desc"
   named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
   named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
   named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
@@ -25,9 +26,9 @@ class Bill < ActiveRecord::Base
   acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
   # How will we allow people to sort bills?
-  SORTABLE_BY = {"Title" => 'title',
-      "Date Introduced" => 'first_action_at desc',
-      "Recent Actions" => 'last_action_at desc'}.freeze
+  SORTABLE_BY = {"Date Introduced" => 'first_action_at desc',
+    "Title" => 'title',
+    "Recent Actions" => 'last_action_at desc'}.freeze
 
   class << self
     def find_by_session_name_and_param(session, param)

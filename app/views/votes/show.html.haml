@@ -1,14 +1,4 @@
-%p
-  = "Motion: #{@vote.motion}"
-  %div
-    = "YES count: #{@vote.yes_count}"
-  %div
-    = "NO count: #{@vote.no_count}"
-  %div
-    = "Other count: #{@vote.other_count}"
-  %div
-    = "Passed: #{@vote.passed? ? "Yes": "No"}"
-
+= render :partial => 'votes/vote', :locals => {:vote => @vote}
 %p
   - unless @vote.roll_calls
     %div Sorry, no roll call is available for this vote.
