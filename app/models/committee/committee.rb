@@ -8,12 +8,23 @@ class Committee < ActiveRecord::Base
     [id, name.parameterize].join('-')
   end
 
+  def self.subclass_from_votesmart_type(t)
+    case t
+    when "S":
+      ::UpperCommittee
+    when "H":
+      ::LowerCommittee
+    when "J":
+      ::JointCommittee
+    end
+  end
+
   def type_fm
     case votesmart_type_id
     when 'S':
-      'Senate'
+      legislature.upper_chamber.short_name
     when 'H':
-      'House'
+      legislature.lower_chamber.short_name
     when 'J':
       'Joint'
     end

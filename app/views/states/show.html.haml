@@ -1,5 +1,5 @@
 %h2= @state.name
-%p= link_to("Committees", state_committees_path(@state))
+%p Committees: #{link_to("Upper", upper_state_committees_path(@state))} #{link_to("Lower", lower_state_committees_path(@state))} #{link_to("Joint", joint_state_committees_path(@state))}
 
 .span-18
   .span-6

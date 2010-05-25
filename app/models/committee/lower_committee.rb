@@ -1,0 +1,2 @@
+class LowerCommittee < Committee
+end

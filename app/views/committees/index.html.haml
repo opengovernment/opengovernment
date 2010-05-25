@@ -1,9 +1,11 @@
 - title("#{@state.name} Committees")
-%h2 #{@state.name} Committees
+%h2 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees
 = will_paginate @committees
 %ul
-  - @committees.each do |committee|
-    %li
-      = committee.type_fm
-      = committee.url ? link_to(committee.name, committee.url) : committee.name
+  - if @committees.size > 0
+    - @committees.each do |committee|
+      %li
+        = committee.url ? link_to(committee.name, committee.url) : committee.name
+  - else
+    %p Sorry, we didn't find any committees.
 = will_paginate @committees

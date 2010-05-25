@@ -1,0 +1,2 @@
+class JointCommittee < Committee
+end

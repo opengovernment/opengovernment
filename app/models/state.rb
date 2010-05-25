@@ -4,8 +4,13 @@ class State < Place
   has_many :districts
   has_many :addresses
   has_one :legislature
-  has_many :committees, :through => :legislature
-  has_many :chambers, :through => :legislature
+  with_options :through => :legislature do |hm|
+    hm.has_many :committees
+    hm.has_many :chambers
+    hm.has_many :lower_committees
+    hm.has_many :joint_committees
+    hm.has_many :upper_committees
+  end
   has_many :bills
 
   named_scope :supported, :conditions => ["launch_date < ?", Time.now]

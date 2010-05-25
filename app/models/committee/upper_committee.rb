@@ -1,0 +1,2 @@
+class UpperCommittee < Committee
+end

@@ -4,6 +4,7 @@ class Chamber < ActiveRecord::Base
   has_many :current_legislators, :through => :districts
   has_one :state, :through => :legislature
   has_many :bills
+  has_many :committees, :through => :legislature
 
   # Using the state and districts associated with this chamber,
   # find all current legislators for a given point.
@@ -13,11 +14,20 @@ class Chamber < ActiveRecord::Base
     places.each do |place|
       if place.kind_of?(District) && place.chamber == self
         places_and_people << [place, place.current_legislators]
-      elsif place.kind_of?(State) && self == UpperChamber::US_SENATE
+      elsif place.kind_of?(State) && self == ::UpperChamber::US_SENATE
         places_and_people << [place, place.current_senators]
       end
     end
     places_and_people
+  end
+
+  def short_name
+    case name
+    when "House of Representatives":
+      "House"
+    else
+      name
+    end
   end
 
   validates_uniqueness_of :name, :scope => :legislature_id

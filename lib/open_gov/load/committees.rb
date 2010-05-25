@@ -13,7 +13,7 @@ module OpenGov::Load::Committees
     committees.committee.each do |committee|
       details = GovKit::VoteSmart::Committee.find(committee.committeeId)
 
-      c = Committee.find_or_initialize_by_votesmart_id(committee.committeeId)
+      c = Committee.subclass_from_votesmart_type(committee.committeetypeId).find_or_initialize_by_votesmart_id(committee.committeeId)
       c.update_attributes!(
         :name => committee.name,
         :url => details.contact.url,
