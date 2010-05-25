@@ -7,3 +7,4 @@ stylesheets:
     - public/stylesheets/formtastic_changes.css
     - public/stylesheets/blueprint.css
     - public/stylesheets/forms.css
+    - public/stylesheets/sharing.css
