@@ -5,4 +5,6 @@
   - else
     %ul.roll_call
     - @vote.roll_calls.each do |roll_call|
-      %li #{roll_call.vote_type} #{roll_call.person.full_name}
+      %li
+        = roll_call.vote_type
+        = link_to roll_call.person.full_name, person_path(roll_call.person)
