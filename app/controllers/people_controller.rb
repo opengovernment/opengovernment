@@ -23,7 +23,8 @@ class PeopleController < ApplicationController
 
   # /people/1
   def show
-
+    @latest_votes = @person.votes.latest
+    @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
   end
 
   protected
