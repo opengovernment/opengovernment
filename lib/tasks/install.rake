@@ -87,6 +87,7 @@ namespace :install do
     Rake::Task['load:committees'].invoke
     Rake::Task['load:people'].invoke
     Rake::Task['load:bills'].invoke
+    Rake::Task['load:citations'].invoke
   end
 end
 

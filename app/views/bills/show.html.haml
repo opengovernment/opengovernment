@@ -12,6 +12,8 @@
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
     %div
       = "Chamber: #{@bill.chamber.name}"
+    %div
+      = link_to "RSS Subscribe", {:format => :atom}
 
   %h4 Sponsors
 
