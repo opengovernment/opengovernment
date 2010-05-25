@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
   has_many :committee_memberships, :dependent => :destroy
   has_many :committees, :through => :committee_memberships
 
-  has_one :current_role, :class_name => 'Role'
+  has_one :current_role, :class_name => 'Role', :conditions => Role::CURRENT
   has_one :chamber, :through => :current_role
 
   named_scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
