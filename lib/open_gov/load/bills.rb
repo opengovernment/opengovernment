@@ -12,7 +12,8 @@ module OpenGov::Load::Bills
       state_dir = File.join(FIFTYSTATES_DIR, "api", "tx")
 
       unless File.exists?(state_dir)
-        raise "Fifty States data is missing"
+        puts "Fifty States data is missing; skipping import."
+        return
       end
 
       # TODO: Lookup currently active session

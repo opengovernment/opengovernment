@@ -23,9 +23,8 @@ class Role < ActiveRecord::Base
   named_scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
   named_scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
 
-
   def self.current_chamber_roles(chamber)
-    current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person]})
+    current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person], :order => "people.first_name"})
   end
 
   def current?

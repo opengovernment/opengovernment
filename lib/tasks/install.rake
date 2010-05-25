@@ -93,6 +93,7 @@ end
 namespace :fetch do
   task :all do
     Rake::Task['fetch:districts'].invoke
+    Rake::Task['fetch:bills'].invoke
   end
 
   task :setup => :environment do
@@ -104,6 +105,12 @@ namespace :fetch do
   task :districts => :setup do
     OpenGov::Fetch::Districts.process
   end
+
+  desc "Get the fiftystates files for all active states"
+  task :districts => :setup do
+    OpenGov::Fetch::Bills.process
+  end
+
 end
 
 namespace :load do
