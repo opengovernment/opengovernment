@@ -45,15 +45,17 @@
 
   %p
     = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
-    
+
   %p
     Show all bills by:
-    %div
+    .bill_sort
       - Bill::SORTABLE_BY.each do |name, column|
         = link_to name, state_bills_path(@state, :sort => column)
 
   - if @state_key_votes.size > 0
     %h3 Key Votes
+    .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+    %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
 
     %p
       %ul
