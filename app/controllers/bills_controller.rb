@@ -3,9 +3,9 @@ class BillsController < ApplicationController
   before_filter :get_bill, :except => [:index]
 
   def index
-    params.delete(:order) unless params[:order] && Bill::SORTABLE_BY.include?(params[:order])
+    params.delete(:order) unless params[:order] && Bill::SORTABLE_BY.values.include?(params[:order])
 
-    @bills = Bill.search(params).paginate :page => params[:page], :order => params[:order] || 'created_at DESC'
+    @bills = Bill.search(params).paginate :page => params[:page], :order => params[:order]
     
     respond_to do |format|
       format.html

@@ -20,7 +20,5 @@
   %p.sort
     Sort by:
     %ul
-      %li= link_to_unless_current "Recent actions", :overwrite_params => { :order => "last_action_at desc" }
-      %li= link_to_unless_current "Date introduced", :overwrite_params => { :order => "first_action_at desc" }
-      %li= link_to_unless_current "Bill number", :overwrite_params => { :order => "bill_number" }
-      %li= link_to_unless_current "Alphabetical", :overwrite_params => { :order => "title" }
+      - Bill::SORTABLE_BY.each do |name, column|
+        %li= link_to_unless_current name, :overwrite_params => { :order => column }

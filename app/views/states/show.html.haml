@@ -45,6 +45,12 @@
 
   %p
     = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
+    
+  %p
+    Show all bills by:
+    %div
+      - Bill::SORTABLE_BY.each do |name, column|
+        = link_to name, state_bills_path(@state, :sort => column)
 
   - if @state_key_votes.size > 0
     %h3 Key Votes

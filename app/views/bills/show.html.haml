@@ -61,31 +61,32 @@
             = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
 
   - if @bill.citations.size > 0
-    %h4 Citations
+    %div.span-24.last
+      %h4 Citations
 
-    %div.span-8
-      %h4 Google News
-      - @bill.google_news_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
-            = truncate(citation.excerpt, 100)
+      %div.span-8
+        %h4 Google News
+        - @bill.google_news_citations.each do |citation|
+          %span
+            = link_to citation.title, citation.url
+            %div
+              = truncate(citation.excerpt, 100)
 
-    %div.span-8
-      %h4 Blogs
-      - @bill.google_blog_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
-            = truncate(citation.excerpt, 100)
+      %div.span-8
+        %h4 Blogs
+        - @bill.google_blog_citations.each do |citation|
+          %span
+            = link_to citation.title, citation.url
+            %div
+              = truncate(citation.excerpt, 100)
 
-    %div.span-8.last
-      %h4 Technorati
-      = @bill.technorati_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
-            = truncate(citation.excerpt, 100)
+      %div.span-8.last
+        %h4 Technorati
+        = @bill.technorati_citations.each do |citation|
+          %span
+            = link_to citation.title, citation.url
+            %div
+              = truncate(citation.excerpt, 100)
 
   %div.social
     %p Tweet this bill using the hashtags #{@bill.to_hashtags}
