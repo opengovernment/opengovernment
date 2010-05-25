@@ -20,13 +20,19 @@
       %div
         = link_to(sponsor.full_name, person_path(sponsor))
 
-  %h4 Actions
-
-  %p
-    - @bill.actions.each do |action|
-      %div
-        = action.actor
-        = action.action
+  - if @bill.actions.size > 0
+    %h4 Actions
+    %div.span-24.last
+      %table.bill_actions
+        %tr
+          %th Date
+          %th Chamber
+          %th Action
+        - @bill.actions.each do |action|
+          %tr
+            %td= action.date.to_s(:pretty)
+            %td= action.actor_fm
+            %td= action.action
 
   %h4 Versions
 
