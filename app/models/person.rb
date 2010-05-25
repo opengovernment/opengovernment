@@ -16,8 +16,21 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :roll_calls
-  has_many :votes, :through => :roll_calls
+  has_many :roll_calls do
+    def yes
+      find(:all, :conditions => {:vote_type => 'yes'})
+    end
+
+    def no
+      find(:all, :conditions => {:vote_type => 'no'})
+    end
+
+    def other
+      find(:all, :conditions => {:vote_type => 'other'})
+    end
+  end
+
+  has_many :votes, :through => :roll_calls, :order => "date asc"
 
   has_many :citations, :as => :owner
   has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}

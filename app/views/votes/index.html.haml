@@ -1,0 +1,61 @@
+%h3
+  = @person.official_name
+
+%h4 Votes
+
+%div.span-8
+  %h4 YES
+  - @person.roll_calls.yes.each do |roll_call|
+    - bill = roll_call.vote.bill
+    - vote = roll_call.vote
+    %div
+      %h4
+        = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill, bill.session)
+      %span
+        = "YES count: #{vote.yes_count}, "
+      %span
+        = "NO count: #{vote.no_count}, "
+      %span
+        = "Other count: #{vote.other_count}, "
+      %span
+        = "Passed: #{vote.passed? ? "Yes": "No"}"
+      %div
+        = "Motion: #{vote.motion}"
+
+%div.span-8
+  %h4 NO
+  - @person.roll_calls.no.each do |roll_call|
+    - bill = roll_call.vote.bill
+    - vote = roll_call.vote
+    %div
+      %h4
+        = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill, bill.session)
+      %span
+        = "YES count: #{vote.yes_count}, "
+      %span
+        = "NO count: #{vote.no_count}, "
+      %span
+        = "Other count: #{vote.other_count}, "
+      %span
+        = "Passed: #{vote.passed? ? "Yes": "No"}"
+      %div
+        = "Motion: #{vote.motion}"
+
+%div.span-8
+  %h4 Other
+  - @person.roll_calls.other.each do |roll_call|
+    - bill = roll_call.vote.bill
+    - vote = roll_call.vote
+    %div
+      %h4
+        = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill, bill.session)
+      %span
+        = "YES count: #{vote.yes_count}, "
+      %span
+        = "NO count: #{vote.no_count}, "
+      %span
+        = "Other count: #{vote.other_count}, "
+      %span
+        = "Passed: #{vote.passed? ? "Yes": "No"}"
+      %div
+        = "Motion: #{vote.motion}"

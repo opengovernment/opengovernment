@@ -56,4 +56,9 @@
 
 %div.span-6
   %h3 Votes
-  %p not sure what goes here yet.
+  %div
+    %div
+      = "Voted #{@last_roll_call.vote_type} on [#{@last_vote.bill.bill_number}: #{@last_vote.motion}] at #{@last_vote.date}"
+
+  %p
+    != link_to("View All Votes", person_votes_path(@person))

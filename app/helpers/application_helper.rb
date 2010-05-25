@@ -19,5 +19,4 @@ module ApplicationHelper
     result = link_to(name, url, html_options) + " <span class=\"link_domain\">(" + domain_for(url) + ")</span>"
     result.html_safe!
   end
-
 end
