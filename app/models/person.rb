@@ -30,7 +30,11 @@ class Person < ActiveRecord::Base
     end
   end
 
-  has_many :votes, :through => :roll_calls, :order => "date asc"
+  has_many :votes, :through => :roll_calls, :order => "date desc" do
+    def latest
+      find(:all, :limit => 5)
+    end
+  end
 
   has_many :citations, :as => :owner
   has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}

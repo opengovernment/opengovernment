@@ -58,7 +58,11 @@
   %h3 Votes
   %div
     %div
-      = "Voted #{@last_roll_call.vote_type} on [#{@last_vote.bill.bill_number}: #{@last_vote.motion}] at #{@last_vote.date}"
+      %ul
+        - @latest_roll_calls.each do |roll_call|
+          - vote = roll_call.vote
+          %li
+            = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
 
   %p
     != link_to("View All Votes", person_votes_path(@person))
