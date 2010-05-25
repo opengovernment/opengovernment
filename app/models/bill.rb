@@ -24,6 +24,9 @@ class Bill < ActiveRecord::Base
 
   acts_as_citeable :keywords => ["Senate", "Bill"], :with => [:bill_number, "state.name"]
 
+  # How will we allow people to sort bills?
+  SORTABLE_BY = ['title','first_action_at desc','last_action_at desc','bill_number'].freeze
+
   class << self
     def find_by_session_name_and_param(session, param)
       for_session_named(session).find_by_bill_number(param.titleize.upcase)
@@ -36,6 +39,10 @@ class Bill < ActiveRecord::Base
       scope = scope.in_chamber(params[:chamber_id]) if params[:chamber_id]
       scope = scope.for_state(State.find_by_slug(params[:state_id])) if params[:state_id]
     end
+  end
+
+  def to_hashtags
+    "##{State.find(state_id).abbrev.downcase}bill ##{bill_number.downcase.gsub(' ', '')}"
   end
 
   def to_param
