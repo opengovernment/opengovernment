@@ -39,11 +39,7 @@
   %p
     - @person.roles.each do |role|
       %div
-        #{role.state && role.state.name} #{role.chamber.name} (
-        %time{:datetime => role.start_date}= role.start_date.year
-        to
-        %time{:datetime => role.end_date}= role.end_date.year
-        )
+        #{role.state && role.state.name} #{role.chamber.name} (<time datetime="#{role.start_date}">#{role.start_date.year}</time> to <time datetime="#{role.end_date}">#{role.end_date.year}</time>)
   %h3 Committees
   %p
     - @person.committees.each do |committee|

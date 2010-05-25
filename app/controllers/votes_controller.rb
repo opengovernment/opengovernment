@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   before_filter :find_person, :only => [:index]
 
   def show
-    @vote = Vote.find(params[:id], :include => [:roll_calls])
+    @vote = Vote.find(params[:id], :include => {:roll_calls => :person})
   end
 
   protected
