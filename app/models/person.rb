@@ -20,10 +20,13 @@ class Person < ActiveRecord::Base
   has_many :votes, :through => :roll_calls
 
   has_many :citations, :as => :owner
-  has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}
-  has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
-  has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
 
+  with_options :as => :owner, :class_name => "Citation" do |c|
+    c.has_many :google_news_citations, :conditions => {:search_source => "Google News"}
+    c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
+    c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
+  end
+  
   acts_as_citeable :keywords => [], :with => [:full_name]
 
   def full_name
