@@ -4,6 +4,7 @@
     = @person.official_name
 
   %h4 Votes
+  = will_paginate @roll_calls
   %div.span-24.last
     %table
       %thead
@@ -11,7 +12,7 @@
           %th Bill & Motion
           %th #{@person.first_name}'s vote
       %tbody
-      - @person.roll_calls.each do |roll_call|
+      - @roll_calls.each do |roll_call|
         %tr
           - bill = roll_call.vote.bill
           - vote = roll_call.vote

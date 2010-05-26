@@ -5,6 +5,7 @@
 
     %p.districtsnear
       = "Districts near #{@point.full_address}"
+    %p
       - if @point.precision != "address"
         = "We couldn't find your exact address, but we found your #{@point.precision}."
 
