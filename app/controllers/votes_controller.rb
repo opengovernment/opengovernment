@@ -7,8 +7,9 @@ class VotesController < ApplicationController
   end
   
   def index
-    @person = Person.find(params[:person_id], :include => {:roll_calls => {:vote => :bill}}, :order => "votes.date desc")
+    @person = Person.find(params[:person_id])
     @person || resource_not_found
+    @roll_calls = RollCall.paginate(:conditions => {:person_id => @person.id}, :include => {:vote => :bill}, :order => "votes.date desc", :page => params[:page])
   end
 
 end
