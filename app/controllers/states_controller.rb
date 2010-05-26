@@ -2,10 +2,14 @@ class StatesController < ApplicationController
   before_filter :get_state
 
   def show
-    @state_lower_chamber_roles = Role.current_chamber_roles(@state.legislature.lower_chamber)
-    @state_upper_chamber_roles = Role.current_chamber_roles(@state.legislature.upper_chamber)
-    @federal_lower_chamber_roles = Role.current.for_chamber(Legislature::CONGRESS.lower_chamber).for_state(@state).scoped({:include => [:district, :chamber, :person]})
-    @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers})
+    if @state.supported?
+      @state_lower_chamber_roles = Role.current_chamber_roles(@state.legislature.lower_chamber)
+      @state_upper_chamber_roles = Role.current_chamber_roles(@state.legislature.upper_chamber)
+      @federal_lower_chamber_roles = Role.current.for_chamber(Legislature::CONGRESS.lower_chamber).for_state(@state).scoped({:include => [:district, :chamber, :person]})
+      @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers})
+    else
+      render :template => 'states/unsupported'
+    end
   end
 
   def subscribe
