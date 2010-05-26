@@ -52,7 +52,7 @@ pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1
 li ul, li ol {margin:0;}
 ul, ol {margin:0 1.5em 1.5em 0px;}
 ul {list-style-type:none;}
-ul li{clear: both; line-height: 1.7em;}
+ul li{clear: both; line-height: 1.7em;list-style:none !important;} li{clear: both; line-height: 1.7em;list-style:none !important;}
 ol {list-style-type:decimal;}
 dl {margin:0 0 1.5em 0;}
 dl dt {font-weight:bold;}
@@ -308,14 +308,14 @@ display: block;
 position: absolute;
 top: 37px;
 
-margin: 0;
-padding-top: 4px;
+margin: 0  0 0 -22px;
+padding-top: 20px;
 z-index: 9999999;
 }
 
 
 header aside div h4{
-padding: 2px 0 0;
+padding: 6px 0 4px;
 margin: 0;
 cursor: pointer;
 line-height: 2.4em;
@@ -332,11 +332,22 @@ background: #eee;
 
 /*///////////////////////////
 
-~ Share This
+~ Find YOur Districts
 
 ///////////////////////////*/
 
+.find_yours{
+border-bottom: #ddd 1px solid; 
+padding: 10px 0;
+height: 30px;
+}
+.find_form{
+float: left;
 
+}
+.auto_find{
+float: right;
+}
 
 
 
