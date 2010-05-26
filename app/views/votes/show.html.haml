@@ -1,10 +1,18 @@
-= render :partial => 'votes/vote', :locals => {:vote => @vote}
-%p
-  - unless @vote.roll_calls
-    %div Sorry, no roll call is available for this vote.
-  - else
+%h2
+  %strong= "#{@vote.bill.bill_number}"
+  %span= @vote.bill.title
+
+.full_lined.vote_results
+  = render :partial => 'votes/vote', :locals => {:vote => @vote}
+
+
+- unless @vote.roll_calls
+  %div Sorry, no roll call is available for this vote.
+- else
+  .span-8
     %ul.roll_call
-    - @vote.roll_calls.each do |roll_call|
-      %li
-        = roll_call.vote_type
-        = link_to roll_call.person.full_name, person_path(roll_call.person)
+      - @vote.roll_calls.each do |roll_call|
+        %li
+          = roll_call.vote_type
+          = link_to roll_call.person.full_name, person_path(roll_call.person)
+

@@ -28,7 +28,8 @@ body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Ari
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-size:1.5em;padding-top: 7px;margin-bottom:0.5em;padding-right: 20px; float: left;width:150px;}
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
-h2 {font-size:2em;margin:0 0 10px;line-height:2.5; padding-bottom: 5px; clear: both; border-bottom: 1px solid #ddd;}
+h2 {font-size:2em;margin:0 0 10px;line-height:1.3em; padding: 15px 0; clear: both; border-bottom: 1px solid #ddd;}
+h2 span {font-size:.6em;display: block;}
 h3 {font-size:16px;line-height:1em;margin:1em 0 0; width: 100%; float: left; font-weight: bold;}
 h4 {font-size:1.2em;line-height:1.25;margin: 1.5em 0 .4em; color: #333; float: left; width: 100%;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
@@ -336,10 +337,10 @@ background: #eee;
 
 ///////////////////////////*/
 
-.find_yours{
+.full_lined{
 border-bottom: #ddd 1px solid; 
 padding: 10px 0;
-height: 30px;
+min-height: 30px;
 }
 .find_form{
 float: left;
@@ -350,7 +351,21 @@ float: right;
 }
 
 
+.vote_results div{
+display: inline;
+padding-right: 20px;
+}
 
+
+.roll_call{
+padding: 20px 0 0 ;
+}
+
+.key_votes li{
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+margin-bottom: 10px;
+}
 
 
 
