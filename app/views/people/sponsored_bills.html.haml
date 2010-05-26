@@ -4,6 +4,7 @@
   - if @sponsorships.empty?
     = "#{@person.full_name} has no sponsored bills."
   - else
+    = will_paginate @sponsorships
     - @sponsorships.each do |sponsorship|
       %div
         = sponsorship.kind
