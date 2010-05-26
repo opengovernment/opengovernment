@@ -43,7 +43,7 @@ class Person < ActiveRecord::Base
     c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
     c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
   end
-  
+
   acts_as_citeable :keywords => [], :with => [:full_name]
 
   def full_name
@@ -56,6 +56,29 @@ class Person < ActiveRecord::Base
 
   def youtube_url
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
+  end
+
+  def affiliation
+    return "" unless self.current_role
+
+    district = self.current_role.district_id
+
+    party = case self.current_role.party
+      when "Democrat"
+        "D"
+      when "Republican"
+        "R"
+      when ""
+        ""
+      else
+        "I"
+    end
+
+    if !party.blank? && !district.blank?
+      "#{party}-#{district}"
+    else
+      nil
+    end
   end
 
   def current_sponsorship_vitals
@@ -90,6 +113,6 @@ class Person < ActiveRecord::Base
   end
 
   def to_param
-   "#{id}-#{full_name.parameterize}"
+    "#{id}-#{full_name.parameterize}"
   end
 end
