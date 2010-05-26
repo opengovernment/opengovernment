@@ -1,0 +1,22 @@
+- title("Sorry, #{@state.name} isn't ready yet!")
+
+%h2 OpenGovernment #{@state.name} isn't ready yet!
+.span-14
+  %p Data from the #{@state.name} state legislature is coming soon. You can help make it happen by contacting your elected officials and letting them know that transparency in government matters to you and your community.
+
+  %p
+    %strong Contact your officials with a personal email or phone call
+    &mdash;you could tell them something like this:
+
+  %blockquote
+    %q As a constituent, I want my state government to be transparent and accountable. A necessary component of transparency is open data: making legislative information more accessible, as outlined in the <a href="http://resource.org/8_principles.html">8 Principles of Open Government Data</a>. Then, in the future, I'll be able to track and share what's happening in our state government on the free and open-source website OpenGovernment.org.
+
+.span-10.last
+  %h3 Want updates from OpenGovernment.org?
+  Leave us your e-mail address to stay informed.
+  - form_tag(state_subscriptions_path) do
+    = hidden_field_tag :id, @state.id
+    = text_field_tag :email
+    = submit_tag "Subscribe"
+  
+  %p OpenGovernment.org is free and open-source.

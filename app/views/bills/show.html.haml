@@ -1,84 +1,93 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Bill Actions"})
 
-%div.span-24.last
-  %hgroup
-    %h3= "Bill #{@bill.bill_number}"
-    %h4= @bill.title
+- title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
+
+.span-24.last
+  .span-20
+    %hgroup
+      %h3= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
+      %h4= @bill.title
+  .span-4.last(style="padding-top: 15px;")
+    = rand(100000)
+    total views,<br />
+    = rand(100)
+    in the last 7 days,<br />
+    = rand(1000)
+    in the last month.
+
+.span-24.last
   %p
-    %div
-      = "State: #{@bill.state.name}"
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
     %div
-      = "Chamber: #{@bill.chamber.name}"
-    %div
-      = link_to "RSS Subscribe", {:format => :atom}
+      = link_to "Track via RSS", {:format => :atom}
 
-  %h4 Sponsors
-
-  %p
-    - @bill.sponsors.each do |sponsor|
-      %div
-        = link_to(sponsor.full_name, person_path(sponsor))
-
-  - if @bill.actions.size > 0
-    %h4 Actions
-    %div.span-24.last
-      %table.bill_actions
-        %tr
-          %th Date
-          %th Chamber
-          %th Action
-        - @bill.actions.each do |action|
-          %tr
-            %td= action.date.to_s(:pretty)
-            %td= action.actor_fm
-            %td= action.action
-
-  %h4 Versions
-
-  %p
-    - @bill.versions.each do |version|
-      %div
-        = link_to(version.name, version.url)
-
-  - if @bill.votes.size > 0
-    %h4 Votes
-
+  .span-12
+    %h4 Sponsors
     %p
-      - @bill.votes.each do |vote|
-        = render :partial => 'votes/vote', :locals => {:vote => vote}
+      - @bill.sponsors.each do |sponsor|
         %div
-          = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
+          = link_to(sponsor.full_name, person_path(sponsor))
+  .span-12.last
+    - if @bill.versions.size > 0
+      %h4 Versions
 
-  - if @bill.citations.size > 0
-    %div.span-24.last
-      %h4 Citations
+      %p
+        - @bill.versions.each do |version|
+          %div
+            = link_to(version.name, version.url)
 
-      %div.span-8
-        %h4 Google News
-        - @bill.google_news_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
 
-      %div.span-8
-        %h4 Blogs
-        - @bill.google_blog_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
+  .span-24.last
+    - if @bill.actions.size > 0
+      %h4 Actions
+      .span-24.last
+        %table.bill_actions
+          %tr
+            %th Date
+            %th Chamber
+            %th Action
+          - @bill.actions.each do |action|
+            %tr
+              %td= action.date.to_s(:pretty)
+              %td= action.actor_fm
+              %td= action.action
 
-      %div.span-8.last
-        %h4 Technorati
-        = @bill.technorati_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
+    - if @bill.votes.size > 0
+      %h4 Votes
+      %p
+        - @bill.votes.each do |vote|
+          = render :partial => 'votes/vote', :locals => {:vote => vote}
+          %div
+            = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
 
-  %div.social
-    %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+    - if @bill.citations.size > 0
+      %div.span-24.last
+        %h4 Citations
+        %div.span-8
+          %h4 Google News
+          - @bill.google_news_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
+
+        %div.span-8
+          %h4 Blogs
+          - @bill.google_blog_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
+
+        %div.span-8.last
+          %h4 Technorati
+          = @bill.technorati_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
+
+    %div.social
+      %p Tweet this bill using the hashtags #{@bill.to_hashtags}

@@ -5,14 +5,14 @@
       function initialize() {
         var myLatlng = new google.maps.LatLng(#{@center.y},#{@center.x});
         var myOptions = {
-          zoom: 10,
+          zoom: 8,
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
         var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-        var kmlLayer = new google.maps.KmlLayer('#{url_for({:only_path => false, :format => :kml})}');
+        var kmlLayer = new google.maps.KmlLayer('http://70.36.140.134#{url_for({:format => :kml})}');
         kmlLayer.setMap(map);
       }
 

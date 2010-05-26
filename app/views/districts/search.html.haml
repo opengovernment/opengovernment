@@ -1,6 +1,5 @@
 - if @point
-  - if @state && State.supported.include?(@state)
-    
+  - if @state
     %h2 Your officials
 
     %p.districtsnear
@@ -26,14 +25,7 @@
                   = link_to rep.official_name, person_path(rep)
           - else
             = "No representatives found."
-
-
   - else
-    %h2 #{@state.name} is not supported yet
-    %p Please leave you your email and we will keep you posted
-    - form_tag(state_subscriptions_path) do
-      = hidden_field_tag :id, @state.id
-      = text_field_tag :email
-      = submit_tag "Submit"
+    OpenGovernment is currently limited to the United States. We can't wait to expand further!
 - else
   Sorry, we couldn't find your address.
