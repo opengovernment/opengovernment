@@ -26,7 +26,7 @@
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
   %h3 Addresses
-  %p
+  %ul
     - if @person.addresses.size > 0
       - @person.addresses.each do |address|
         = render :partial => "shared/address", :locals => {:address => address}
