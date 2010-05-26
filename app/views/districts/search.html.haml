@@ -1,10 +1,14 @@
 - if @point
   - if @state && State.supported.include?(@state)
-    = "Districts near #{@point.full_address}"
-    - if @point.precision != "address"
-      = "We couldn't find your exact address, but we found your #{@point.precision}."
-
+    
     %h2 Your officials
+
+    %p.districtsnear
+      = "Districts near #{@point.full_address}"
+      - if @point.precision != "address"
+        = "We couldn't find your exact address, but we found your #{@point.precision}."
+
+
     - [Legislature::CONGRESS, @state.legislature].each do |leg|
       %section
         %h3[leg]= leg.name
@@ -21,6 +25,8 @@
                   = link_to rep.official_name, person_path(rep)
           - else
             = "No representatives found."
+
+
   - else
     %h2 #{@state.name} is not supported yet
     %p Please leave you your email and we will keep you posted

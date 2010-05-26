@@ -26,9 +26,9 @@ a img {border:none;}
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
-h1 {font-size:1.5em;line-height:1.9em;margin-bottom:0.5em;padding-right: 20px; float: left;}
+h1 {font-size:1.5em;padding-top: 7px;margin-bottom:0.5em;padding-right: 20px; float: left;width:150px;}
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
-h2 {font-size:2em;margin-bottom:0.75em;line-height:1; clear: both;}
+h2 {font-size:2em;margin:0 0 10px;line-height:2.5; padding-bottom: 5px; clear: both; border-bottom: 1px solid #ddd;}
 h3 {font-size:16px;line-height:1em;margin:1em 0 0; width: 100%; float: left; font-weight: bold;}
 h4 {font-size:1.2em;line-height:1.25;margin: 1.5em 0 .4em; color: #333; float: left; width: 100%;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
@@ -52,7 +52,7 @@ pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1
 li ul, li ol {margin:0;}
 ul, ol {margin:0 1.5em 1.5em 0px;}
 ul {list-style-type:none;}
-ul li{clear: both; line-height: 1.7em;}
+ul li{clear: both; line-height: 1.7em;list-style:none !important;} li{clear: both; line-height: 1.7em;list-style:none !important;}
 ol {list-style-type:decimal;}
 dl {margin:0 0 1.5em 0;}
 dl dt {font-weight:bold;}
@@ -261,52 +261,6 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 
 
-/*///////////////////////////
-
-~ Nav
-
-///////////////////////////*/
-
-nav ul{
-border-bottom: 1px solid #eee;
-margin: 0 0 35px;
-padding: 0;
-height: 3em;
-width: 960px;
-}
-
-
-nav ul li{
-list-style: none;
-margin: 0;
-padding: 0;
-float: right;
-clear: none;
-}
-
-
-
-nav ul li a{
-display: block;
-margin: 0;
-color: #333;
-line-height: 3em;
-font-weight: bold;
-padding: 0px 15px 0px;
-text-decoration: none;
-border-right: 1px solid #eee;
-}
-
-
-
-nav ul li a:hover{
-background: #efefef;
-}
-
-
-nav ul li.home_page a{
-border-right: none;
-}
 
 #map_canvas, #map_canvas object, #map_canvas embed {
 width: 960px;
@@ -315,4 +269,88 @@ width: 960px;
 .lower_chamber{
 margin-right: 0;
 }
+
+
+
+
+/*///////////////////////////
+
+~ Header
+
+///////////////////////////*/
+
+header{
+border-bottom: 1px solid #ddd;
+height: 45px;
+margin: 0;
+}
+
+
+header aside{
+float:right;
+width:750px;
+padding: 0;
+height: 37px;
+margin: 0;
+}
+
+
+header aside div{
+float: right;
+}
+
+header aside div ul{
+display: none;
+}
+
+header aside div:hover ul{
+display: block;
+position: absolute;
+top: 37px;
+
+margin: 0  0 0 -22px;
+padding-top: 20px;
+z-index: 9999999;
+}
+
+
+header aside div h4{
+padding: 6px 0 4px;
+margin: 0;
+cursor: pointer;
+line-height: 2.4em;
+text-align: center;
+width: 110px;
+}
+
+
+header aside div:hover h4{
+background: #eee;
+}
+
+
+
+/*///////////////////////////
+
+~ Find YOur Districts
+
+///////////////////////////*/
+
+.find_yours{
+border-bottom: #ddd 1px solid; 
+padding: 10px 0;
+height: 30px;
+}
+.find_form{
+float: left;
+
+}
+.auto_find{
+float: right;
+}
+
+
+
+
+
 

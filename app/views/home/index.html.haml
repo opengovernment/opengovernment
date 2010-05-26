@@ -1,14 +1,18 @@
-= interactive_us_map_image_tag
-- form_tag 'search', :method => :get do
-  %label(for="q") Address
-  = text_field_tag :q, params[:q]
-  = submit_tag "Find"
-= link_to "find_me", "javascript:findMe();"
-:javascript
-  function findMe() {
-   navigator.geolocation.getCurrentPosition(fillForm);
-  }
+.find_yours
+  .find_form
+    - form_tag 'search', :method => :get do
+      %label(for="q") Enter your Address or Zip Code to find your districts
+      = text_field_tag :q, params[:q]
+      = submit_tag "Find"
+  .auto_find
+    = link_to "Automatically Find My Location", "javascript:findMe();"
+    :javascript
+      function findMe() {
+       navigator.geolocation.getCurrentPosition(fillForm);
+      }
 
-  function fillForm(position) {
-    $('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
-  }
+      function fillForm(position) {
+        $('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+      }
+
+= interactive_us_map_image_tag
