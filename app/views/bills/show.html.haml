@@ -38,56 +38,56 @@
           %div
             = link_to(version.name, version.url)
 
-  - if @bill.actions.size > 0
-    %h4 Actions
-    %div.span-24.last
-      %table.bill_actions
-        %tr
-          %th Date
-          %th Chamber
-          %th Action
-        - @bill.actions.each do |action|
+
+  .span-24.last
+    - if @bill.actions.size > 0
+      %h4 Actions
+      .span-24.last
+        %table.bill_actions
           %tr
-            %td= action.date.to_s(:pretty)
-            %td= action.actor_fm
-            %td= action.action
+            %th Date
+            %th Chamber
+            %th Action
+          - @bill.actions.each do |action|
+            %tr
+              %td= action.date.to_s(:pretty)
+              %td= action.actor_fm
+              %td= action.action
 
-  - if @bill.votes.size > 0
-    %h4 Votes
+    - if @bill.votes.size > 0
+      %h4 Votes
+      %p
+        - @bill.votes.each do |vote|
+          = render :partial => 'votes/vote', :locals => {:vote => vote}
+          %div
+            = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
 
-    %p
-      - @bill.votes.each do |vote|
-        = render :partial => 'votes/vote', :locals => {:vote => vote}
-        %div
-          = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
+    - if @bill.citations.size > 0
+      %div.span-24.last
+        %h4 Citations
+        %div.span-8
+          %h4 Google News
+          - @bill.google_news_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
 
-  - if @bill.citations.size > 0
-    %div.span-24.last
-      %h4 Citations
+        %div.span-8
+          %h4 Blogs
+          - @bill.google_blog_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
 
-      %div.span-8
-        %h4 Google News
-        - @bill.google_news_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
+        %div.span-8.last
+          %h4 Technorati
+          = @bill.technorati_citations.each do |citation|
+            %span
+              = link_to citation.title, citation.url
+              %div
+                = truncate(citation.excerpt, 100)
 
-      %div.span-8
-        %h4 Blogs
-        - @bill.google_blog_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
-
-      %div.span-8.last
-        %h4 Technorati
-        = @bill.technorati_citations.each do |citation|
-          %span
-            = link_to citation.title, citation.url
-            %div
-              = truncate(citation.excerpt, 100)
-
-  %div.social
-    %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+    %div.social
+      %p Tweet this bill using the hashtags #{@bill.to_hashtags}
