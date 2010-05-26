@@ -3,9 +3,7 @@ xml.kml("xmlns" => KML_NS) do
   xml.tag! "Document" do
     xml.tag! "Style", :id => "myStyle" do
       xml.tag! "PolyStyle" do
-
-        xml.color "#80800000" #format is aabbggrr
-        xml.outline 1
+        xml.color "#60808080" #format is aabbggrr
       end
 
     end

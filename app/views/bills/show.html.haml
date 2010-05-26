@@ -1,26 +1,42 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Bill Actions"})
 
-%div.span-24.last
-  %hgroup
-    %h3= "Bill #{@bill.bill_number}"
-    %h4= @bill.title
+- title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
+
+.span-24.last
+  .span-20
+    %hgroup
+      %h3= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
+      %h4= @bill.title
+  .span-4.last(style="padding-top: 15px;")
+    = rand(100000)
+    total views,<br />
+    = rand(100)
+    in the last 7 days,<br />
+    = rand(1000)
+    in the last month.
+
+.span-24.last
   %p
-    %div
-      = "State: #{@bill.state.name}"
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
     %div
-      = "Chamber: #{@bill.chamber.name}"
-    %div
-      = link_to "RSS Subscribe", {:format => :atom}
+      = link_to "Track via RSS", {:format => :atom}
 
-  %h4 Sponsors
+  .span-12
+    %h4 Sponsors
+    %p
+      - @bill.sponsors.each do |sponsor|
+        %div
+          = link_to(sponsor.full_name, person_path(sponsor))
+  .span-12.last
+    - if @bill.versions.size > 0
+      %h4 Versions
 
-  %p
-    - @bill.sponsors.each do |sponsor|
-      %div
-        = link_to(sponsor.full_name, person_path(sponsor))
+      %p
+        - @bill.versions.each do |version|
+          %div
+            = link_to(version.name, version.url)
 
   - if @bill.actions.size > 0
     %h4 Actions
@@ -35,13 +51,6 @@
             %td= action.date.to_s(:pretty)
             %td= action.actor_fm
             %td= action.action
-
-  %h4 Versions
-
-  %p
-    - @bill.versions.each do |version|
-      %div
-        = link_to(version.name, version.url)
 
   - if @bill.votes.size > 0
     %h4 Votes
