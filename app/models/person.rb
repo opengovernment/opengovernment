@@ -61,8 +61,7 @@ class Person < ActiveRecord::Base
   def affiliation
     return "" unless self.current_role
 
-    district = self.current_role.district.number
-
+    district = self.current_role.district
     party = case self.current_role.party
       when "Democrat"
         "D"
@@ -74,8 +73,8 @@ class Person < ActiveRecord::Base
         "I"
     end
 
-    if !party.blank? && !district.blank?
-      "#{party}-#{district}"
+    if !party.blank? && !district.blank? && !district.number.blank?
+      "(#{party}-#{district.number})"
     else
       nil
     end
