@@ -108,7 +108,7 @@ namespace :fetch do
   end
 
   desc "Get the fiftystates files for all active states"
-  task :districts => :setup do
+  task :bills => :setup do
     OpenGov::Fetch::Bills.process
   end
 
