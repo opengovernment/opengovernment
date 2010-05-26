@@ -1,10 +1,6 @@
-%p
-  = "Motion: #{vote.motion}"
-  %div
-    = "YES count: #{vote.yes_count}"
-  %div
-    = "NO count: #{vote.no_count}"
-  %div
-    = "Other count: #{vote.other_count}"
-  %div
-    = "Passed: #{vote.passed? ? "Yes": "No"}"
+%div= vote.date
+%div= "#{vote.passed? ? "Passed": "Did Not Pass"}"
+%div= "Motion: #{vote.motion}"
+%span= "YES count: #{vote.yes_count}, "
+%span= "NO count: #{vote.no_count}, "
+%span= "Other count: #{vote.other_count}"
