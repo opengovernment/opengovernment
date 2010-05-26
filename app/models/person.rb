@@ -61,7 +61,7 @@ class Person < ActiveRecord::Base
   def affiliation
     return "" unless self.current_role
 
-    district = self.current_role.district_id
+    district = self.current_role.district.number
 
     party = case self.current_role.party
       when "Democrat"
