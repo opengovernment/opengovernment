@@ -1,14 +1,14 @@
 class VotesController < ApplicationController
   before_filter :get_state
-  before_filter :find_person, :only => [:index]
 
   def show
     @vote = Vote.find(params[:id], :include => {:roll_calls => :person})
+    @vote || resource_not_found
   end
-
-  protected
-  def find_person
-    @person = Person.find(params[:person_id])
+  
+  def index
+    @person = Person.find(params[:person_id], :include => {:roll_calls => {:vote => :bill}}, :order => "votes.date desc")
     @person || resource_not_found
   end
+
 end

@@ -1,24 +1,23 @@
-%h3
-  = @person.official_name
 
-%h4 Votes
+%div.span-24.last
+  %h3
+    = @person.official_name
 
-- @person.roll_calls.each do |roll_call|
-  %p.span-24
-    %div.span-20
-      - bill = roll_call.vote.bill
-      - vote = roll_call.vote
-      %div
-        = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill.session, bill)
-      %span
-        = "YES count: #{vote.yes_count}, "
-      %span
-        = "NO count: #{vote.no_count}, "
-      %span
-        = "Other count: #{vote.other_count}, "
-      %span
-        = "Passed: #{vote.passed? ? "Yes": "No"}"
-      %div
-        = "Motion: #{vote.motion}"
-    %p.span-3
-      = roll_call.vote_type.upcase
+  %h4 Votes
+  %div.span-24.last
+    %table
+      %thead
+        %tr
+          %th Bill & Motion
+          %th #{@person.first_name}'s vote
+      %tbody
+      - @person.roll_calls.each do |roll_call|
+        %tr
+          - bill = roll_call.vote.bill
+          - vote = roll_call.vote
+          %td
+            %div
+              = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill.session, bill)
+              = render :partial => "votes/vote", :locals => {:vote => vote}
+          %td
+            = roll_call.vote_type.capitalize
