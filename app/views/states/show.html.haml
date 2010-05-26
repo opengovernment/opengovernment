@@ -1,7 +1,19 @@
 %h2= @state.name
-%p Committees: #{link_to("Upper", upper_state_committees_path(@state))} #{link_to("Lower", lower_state_committees_path(@state))} #{link_to("Joint", joint_state_committees_path(@state))}
 
-.span-18
+.span-18.last
+
+  .span-18.last.full_lined.less_padding
+    .span-4
+      This Bill's Page Views                 
+    .span-3
+      Today - 3,456                 
+    .span-4
+      Past 30 Days - 67,987
+    .span-4.last
+      All-Time - 2,235,232
+
+    
+
   .span-6
     %h3
       = Legislature::CONGRESS.name
@@ -21,7 +33,7 @@
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
-  .span-12.last
+  .span-6
     %h3
       = @state.legislature.name
 
@@ -40,26 +52,41 @@
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
-.span-6.last
-  %h3 Bills
-
-  %p
-    = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
-
-  %p
-    Show all bills by:
-    .bill_sort
-      - Bill::SORTABLE_BY.each do |name, column|
-        = link_to name, state_bills_path(@state, :sort => column)
-
-  - if @state_key_votes.size > 0
-    %h3 Key Votes
-    .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-    %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+  .span-6.last
+    %h3 Bills
 
     %p
-      %ul.key_votes
-        - @state_key_votes.each do |bill|
-          %li
-            != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
-            = bill.title
+      = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
+
+    %p
+      Show all bills by:
+      .bill_sort
+        - Bill::SORTABLE_BY.each do |name, column|
+          = link_to name, state_bills_path(@state, :sort => column)
+
+    - if @state_key_votes.size > 0
+      %h3 Key Votes
+      .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+      %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+
+      %p
+        %ul.key_votes
+          - @state_key_votes.each do |bill|
+            %li
+              != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+              = bill.title
+
+
+%aside.span-6.last
+  %ul.sub_nav
+    %li
+      %a Assembly
+      %ul
+        %li
+          %a Bills
+    %li
+      %a Senate
+    %li
+      %a Committees
+    %li
+      %a The Money Trail

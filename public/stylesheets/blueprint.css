@@ -342,6 +342,7 @@ border-bottom: #ddd 1px solid;
 padding: 10px 0;
 min-height: 30px;
 }
+
 .find_form{
 float: left;
 
@@ -366,6 +367,43 @@ border-bottom: 1px solid #ddd;
 padding-bottom: 10px;
 margin-bottom: 10px;
 }
+
+
+
+aside.span-6.last{
+padding-left: 0px;
+margin-top: -10px;
+border-left: 1px solid #ddd;
+height: 1000px;
+width: 249`px;
+}
+
+.less_padding{
+padding: 0px 0;
+}
+
+
+.sub_nav{
+margin: 0;
+}
+
+.sub_nav li{
+margin: 0;
+}
+
+.sub_nav li a{
+margin: 0;
+padding: 7px 10px;
+display: block;
+border-bottom: 1px solid #ddd;
+}
+
+.sub_nav li ul a{
+margin: 0;
+display: block;
+padding-left: 20px;
+}
+
 
 
 
