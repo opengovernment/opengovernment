@@ -17,6 +17,10 @@ class PeopleController < ApplicationController
       :order => "legislatures.id, chambers.type desc, districts.census_sld")
   end
 
+  def votes
+    @roll_calls = RollCall.paginate(:conditions => {:person_id => @person.id}, :include => {:vote => :bill}, :order => "votes.date desc", :page => params[:page])
+  end
+
   def sponsored_bills
     @sponsorships = Sponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).paginate(:page => params[:page])
   end

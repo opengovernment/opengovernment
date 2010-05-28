@@ -15,9 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :actions, :only => [:show]
 
-  map.resources :people, :except => [:index], :member => {:sponsored_bills => :get} do |rep|
-    rep.resources :votes, :only => [:index, :show]
-  end
+  map.resources :people, :except => [:index], :member => {:sponsored_bills => :get, :votes => :get}
 
   map.resources :districts, :only => [:show]
 

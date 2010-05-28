@@ -52,7 +52,8 @@
             %tr
               %td= action.date.to_s(:pretty)
               %td= action.actor_fm
-              %td= action.action
+              %td= action.action_fm
+              %td= link_to("link", action)
 
     - if @bill.votes.size > 0
       %h4 Votes

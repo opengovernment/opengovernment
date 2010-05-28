@@ -1,3 +1,4 @@
+- title("Vote on #{@vote.bill.bill_number}")
 %h2
   %strong= "#{@vote.bill.bill_number}"
   %span= @vote.bill.title
@@ -5,14 +6,16 @@
 .full_lined.vote_results
   = render :partial => 'votes/vote', :locals => {:vote => @vote}
 
-
 - unless @vote.roll_calls
   %div Sorry, no roll call is available for this vote.
 - else
-  .span-8
-    %ul.roll_call
-      - @vote.roll_calls.each do |roll_call|
-        %li
-          = roll_call.vote_type
-          = link_to roll_call.person.full_name, person_path(roll_call.person)
+  - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
+    .span-8
+      #{vote_type.capitalize} Votes
+      %ul.roll_call
+        - roll_calls.each do |roll_call|
+          %li
+            -# TODO: This triggers a query for every roll call. Should only trigger one query.
+            = roll_call.person.roles.on_date(@vote.date).first.party_color
+            = link_to roll_call.person.full_name, person_path(roll_call.person)
 

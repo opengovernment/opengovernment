@@ -54,13 +54,16 @@
 
 %div.span-6
   %h3 Votes
-  %div
+  - if @latest_roll_calls.size > 0
     %div
-      %ul
-        - @latest_roll_calls.each do |roll_call|
-          - vote = roll_call.vote
-          %li
-            = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+      %div
+        %ul
+          - @latest_roll_calls.each do |roll_call|
+            - vote = roll_call.vote
+            %li
+              = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
 
-  %p
-    != link_to("View All Votes", person_votes_path(@person))
+    %p
+      != link_to("View All Votes", votes_person_path(@person))
+  - else
+    %p We have no voting history for #{@person.full_name}

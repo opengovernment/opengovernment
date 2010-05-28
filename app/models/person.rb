@@ -62,6 +62,8 @@ class Person < ActiveRecord::Base
     return "" unless self.current_role
 
     district = self.current_role.district
+    
+    # TODO: This is very data-dependent; this should be cleaned up or dealt with on import.
     party = case self.current_role.party
       when "Democrat"
         "D"

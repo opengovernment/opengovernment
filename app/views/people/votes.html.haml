@@ -1,0 +1,24 @@
+- title("Votes by #{@person.full_name}")
+.span-24.last
+  %h3 Votes by #{@person.full_name}
+
+  - if @roll_calls.total_entries > 0
+    = will_paginate @roll_calls
+    %div.span-24.last
+      %table
+        %thead
+          %tr
+            %th Bill & Motion
+            %th #{@person.first_name}'s vote
+        %tbody
+        - @roll_calls.each do |roll_call|
+          %tr
+            - bill = roll_call.vote.bill
+            - vote = roll_call.vote
+            %td
+              %div
+                = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill.session, bill)
+                = render :partial => "votes/vote", :locals => {:vote => vote}
+            %td= roll_call.vote_type.capitalize
+  - else
+    %p Sorry, we have no voting history for #{@person.official_name}

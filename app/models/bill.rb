@@ -26,9 +26,11 @@ class Bill < ActiveRecord::Base
   acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
   # How will we allow people to sort bills?
-  SORTABLE_BY = {"Date Introduced" => 'first_action_at desc',
+  SORTABLE_BY = {
+    "Date Introduced" => 'first_action_at desc',
     "Title" => 'title',
-    "Recent Actions" => 'last_action_at desc'}.freeze
+    "Recent Actions" => 'last_action_at desc'
+  }.freeze
 
   class << self
     def find_by_session_name_and_param(session, param)
