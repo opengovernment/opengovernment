@@ -7,7 +7,7 @@ module OpenGov::Load::Contributions
         contributions = GovKit::FollowTheMoney::Contribution.find(person.nimsp_candidate_id)
         contributions ||= []
 
-        puts "Fetched #{contributions.size} businesses from FollowTheMoney"
+        puts "Fetched #{contributions.size} contributions from FollowTheMoney"
 
         puts "Deleting existing contributions.."
 
@@ -16,25 +16,34 @@ module OpenGov::Load::Contributions
         puts "Importing contributions..\n\n"
 
         contributions.each do |contribution|
-          import_contribution(contribution)
+          person.contributions << make_contribution(contribution)
         end
-      rescue
-        puts "Problem parsing ..skipping"
+        person.save
+      rescue Exception => e
+        puts "Skipping: #{e.message}"
       end
     end
   end
 
-  def self.import_contribution(contribution)
+  def self.make_contribution(con)
     begin
-#    business = Business.new
-#    business.business_name = bus.business_name
-#    business.industry_name = bus.industry_name
-#    business.sector_name = bus.sector_name
-#    business.nimsp_industry_code = bus.imsp_industry_code
-#    business.nimsp_sector_code = bus.imsp_sector_code
-#    business.save!
+      contribution = Contribution.new
+      contribution.business_name = con.business_name
+      contribution.contributor_state = con.contributor_state
+      contribution.industry_name = con.industry_name
+      contribution.contributor_occupation = con.contributor_occupation
+      contribution.contributor_employer = con.contributor_employer
+      contribution.amount = con.amount
+      contribution.date = con.date
+      contribution.sector_name = con.sector_name
+      contribution.nimsp_industry_code = con.imsp_industry_code
+      contribution.nimsp_sector_code = con.imsp_sector_code
+      contribution.contributor_city = con.contributor_city
+      contribution.contributor_name = con.contributor_name
+      contribution.contributor_zipcode = con.contributor_zipcode
+      contribution
     rescue
-      "Problem saving #{contribution.business_name}..skipping"
+      "Problem saving #{con.business_name}..skipping"
     end
   end
 end

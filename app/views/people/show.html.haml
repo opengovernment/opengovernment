@@ -2,6 +2,7 @@
 %h2
   = @person.official_name
   = @person.affiliation
+
 %div.span-6
   %h3 Basic Information
   %p
@@ -33,14 +34,13 @@
     - else
       %p Sorry, we found no addresses.
 
-
 %div.span-6
   %h3 Roles
   %p
     - @person.roles.each do |role|
       %div
         #{role.state && role.state.name} #{role.chamber.name} (<time datetime="#{role.start_date}">#{role.start_date.year}</time> to <time datetime="#{role.end_date}">#{role.end_date.year}</time>)
-        
+
   - if @person.committees.size > 0
     %h3 Committees
     %p
@@ -67,3 +67,40 @@
       != link_to("View All Votes", votes_person_path(@person))
   - else
     %p We have no voting history for #{@person.full_name}
+
+%h2
+  Contributions
+%div.span-6
+  %h3
+    Top List
+  - @person.contributions.each do |c|
+    .span-4
+      = c.business_name
+    .span-2.last
+      = c.amount
+%div.span-6
+  %h3
+    By Industry
+  - @person.industry_contributions.each do |c|
+    .span-4
+      = c.industry_name
+    .span-2.last
+      = c.amount
+
+%div.span-6
+  %h3
+    By Sector
+  - @person.sector_contributions.each do |c|
+    .span-4
+      = c.sector_name
+    .span-2.last
+      = c.amount
+
+%div.span-6.last
+  %h3
+    By Business
+  - @person.business_contributions.each do |c|
+    .span-4
+      = c.business_name
+    .span-2.last
+      = c.amount

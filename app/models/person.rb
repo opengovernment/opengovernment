@@ -17,8 +17,15 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :contributions, :foreign_key => "candidate_id"
+  has_many :contributions, :foreign_key => "candidate_id", :order => "amount asc", :limit => 10
 
+  has_many :business_contributions, :foreign_key => "candidate_id",
+           :order => "amount desc, sector_name", :limit => 10, :class_name => "Contribution"
+  has_many :industry_contributions, :foreign_key => "candidate_id",
+           :order => "amount desc, sector_name", :limit => 10, :class_name => "Contribution"
+  has_many :sector_contributions, :foreign_key => "candidate_id",
+           :order => "amount desc, sector_name", :limit => 10, :class_name => "Contribution"
+           
   has_many :roll_calls do
     def yes
       find(:all, :conditions => {:vote_type => 'yes'})
