@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 30) do
+ActiveRecord::Schema.define(:version => 32) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(:version => 30) do
     t.datetime "first_action_at"
     t.datetime "last_action_at"
     t.boolean  "votesmart_key_vote",                 :default => false, :null => false
+    t.integer  "votesmart_id"
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.string   "business_name"
+    t.string   "industry_name"
+    t.string   "sector_name"
+    t.integer  "nimsp_industry_code"
+    t.integer  "nimsp_sector_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "chambers", :force => true do |t|
@@ -91,6 +102,25 @@ ActiveRecord::Schema.define(:version => 30) do
     t.string   "type",                             :default => "Committee", :null => false
   end
 
+  create_table "contributions", :force => true do |t|
+    t.integer  "candidate_id"
+    t.string   "business_name"
+    t.string   "contributor_state"
+    t.string   "industry_name"
+    t.string   "contributor_occupation"
+    t.string   "contributor_employer"
+    t.string   "amount"
+    t.date     "date"
+    t.string   "sector_name"
+    t.integer  "nimsp_industry_code"
+    t.integer  "nimsp_sector_code"
+    t.string   "contributor_city"
+    t.string   "contributor_name"
+    t.string   "contributor_zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "districts", :force => true do |t|
     t.string        "name",                                :null => false
     t.string        "census_sld"
@@ -103,6 +133,16 @@ ActiveRecord::Schema.define(:version => 30) do
   end
 
   add_index "districts", ["geom"], :name => "index_districts_on_geom", :spatial => true
+
+  create_table "industries", :force => true do |t|
+    t.string   "business_name"
+    t.string   "industry_name"
+    t.string   "sector_name"
+    t.integer  "nimsp_industry_code"
+    t.integer  "nimsp_sector_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "legislatures", :force => true do |t|
     t.string  "name"

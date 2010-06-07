@@ -20,5 +20,4 @@ module OpenGov::Load::KeyVotes
       end
     end
   end
-
 end

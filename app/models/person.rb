@@ -11,10 +11,13 @@ class Person < ActiveRecord::Base
   has_one :chamber, :through => :current_role
 
   named_scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
+  named_scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
   named_scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
+
+  has_many :contributions, :foreign_key => "candidate_id"
 
   has_many :roll_calls do
     def yes
@@ -62,7 +65,7 @@ class Person < ActiveRecord::Base
     return "" unless self.current_role
 
     district = self.current_role.district
-    
+
     # TODO: This is very data-dependent; this should be cleaned up or dealt with on import.
     party = case self.current_role.party
       when "Democrat"

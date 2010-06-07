@@ -48,7 +48,7 @@ namespace :db do
             File.join(postgis_dir,'spatial_ref_sys.sql'))
         else
           raise "Please install PostGIS before continuing."
-        end  
+        end
 
       else
         puts "Looks like you already have PostGIS installed in your database. No action taken."
@@ -155,6 +155,16 @@ namespace :load do
   desc "Fetch and load committees from VoteSmart"
   task :committees => :environment do
     OpenGov::Load::Committees.import!
+  end
+
+  desc "Fetch and load businesses from FollowTheMoney"
+  task :businesses => :environment do
+    OpenGov::Load::Businesses.import!
+  end
+
+  desc "Fetch and load contributions from FollowTheMoney"
+  task :contributions => :environment do
+    OpenGov::Load::Contributions.import!
   end
 
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
