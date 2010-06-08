@@ -18,7 +18,7 @@ module OpenGov::Load::Contributions
         contributions.each do |contribution|
           person.contributions << make_contribution(contribution)
         end
-        person.save
+        person.save!
       rescue Exception => e
         puts "Skipping: #{e.message}"
       end
@@ -26,24 +26,23 @@ module OpenGov::Load::Contributions
   end
 
   def self.make_contribution(con)
+    business = Business.find_by_nimsp_sector_code_and_nimsp_industry_code(con.imsp_sector_code, con.imsp_industry_code)
+
     begin
-      contribution = Contribution.new
-      contribution.business_name = con.business_name
-      contribution.contributor_state = con.contributor_state
-      contribution.industry_name = con.industry_name
-      contribution.contributor_occupation = con.contributor_occupation
-      contribution.contributor_employer = con.contributor_employer
-      contribution.amount = con.amount
-      contribution.date = con.date
-      contribution.sector_name = con.sector_name
-      contribution.nimsp_industry_code = con.imsp_industry_code
-      contribution.nimsp_sector_code = con.imsp_sector_code
-      contribution.contributor_city = con.contributor_city
-      contribution.contributor_name = con.contributor_name
-      contribution.contributor_zipcode = con.contributor_zipcode
+      raise "Associate business not found" unless business
+      contribution = business.contributions.build(
+        :contributor_state_id => State.find_by_abbrev(con.contributor_state),
+        :contributor_occupation => con.contributor_occupation,
+        :contributor_employer => con.contributor_employer,
+        :amount => con.amount,
+        :date => con.date,
+        :contributor_city => con.contributor_city,
+        :contributor_name => con.contributor_name,
+        :contributor_zipcode => con.contributor_zipcode
+      )
       contribution
-    rescue
-      "Problem saving #{con.business_name}..skipping"
+    rescue Exception => e
+      puts "Skipping: #{e.message}"
     end
   end
 end

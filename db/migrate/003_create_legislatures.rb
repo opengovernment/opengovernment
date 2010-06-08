@@ -4,8 +4,8 @@ class CreateLegislatures < ActiveRecord::Migration
       t.string :name # maps to fiftystate#legislature_name
       t.references :state
     end
-    
-     execute "ALTER TABLE legislatures
+
+    execute "ALTER TABLE legislatures
       ADD CONSTRAINT legislatures_state_fk
       FOREIGN KEY (state_id) REFERENCES states (id);"
   end

@@ -40,3 +40,7 @@ ALTER TABLE roles
 ALTER TABLE addresses
  ADD CONSTRAINT address_person_fk
  FOREIGN KEY (person_id) REFERENCES people (id);
+
+ALTER TABLE contributions
+ ADD CONSTRAINT contributions_business_id_fk
+ FOREIGN KEY (business_id) REFERENCES businesses (id);
