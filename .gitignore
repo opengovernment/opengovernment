@@ -8,3 +8,4 @@ public/assets/*
 .bundle/*
 data/*
 vendor/bundler_gems/*
+vendor/cache/*
