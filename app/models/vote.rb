@@ -8,4 +8,3 @@ class Vote < ActiveRecord::Base
     roll_calls.group_by(&:vote_type)
   end
 end
-
