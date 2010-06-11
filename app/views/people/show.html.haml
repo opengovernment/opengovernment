@@ -68,40 +68,42 @@
   - else
     %p We have no voting history for #{@person.full_name}
 
-%h2
-  Contributions
-%div.span-6
-  %h3
-    Top List
-  - @person.contributions.each do |c|
-    .span-4
-      = c.business.business_name
-    .span-2.last
-      = number_to_currency(c.amount)
 
-%div.span-6
-  %h3
-    By Industry
-  - @person.industry_contributions.each do |c|
-    .span-4
-      = c.industry_name
-    .span-2.last
-      = number_to_currency(c.amount)
+- if @person.has_contributions?
+  %h2
+    Contributions
+  %div.span-6
+    %h3
+      Top List
+    - @person.contributions.each do |c|
+      .span-4
+        = c.business.business_name
+      .span-2.last
+        = number_to_currency(c.amount)
 
-%div.span-6
-  %h3
-    By Sector
-  - @person.sector_contributions.each do |c|
-    .span-4
-      = c.sector_name
-    .span-2.last
-      = number_to_currency(c.amount)
+  %div.span-6
+    %h3
+      By Industry
+    - @person.industry_contributions.each do |c|
+      .span-4
+        = c.industry_name
+      .span-2.last
+        = number_to_currency(c.amount)
 
-%div.span-6.last
-  %h3
-    By Business
-  - @person.business_contributions.each do |c|
-    .span-4
-      = c.business_name
-    .span-2.last
-      = number_to_currency(c.amount)
+  %div.span-6
+    %h3
+      By Sector
+    - @person.sector_contributions.each do |c|
+      .span-4
+        = c.sector_name
+      .span-2.last
+        = number_to_currency(c.amount)
+
+  %div.span-6.last
+    %h3
+      By Business
+    - @person.business_contributions.each do |c|
+      .span-4
+        = c.business_name
+      .span-2.last
+        = number_to_currency(c.amount)

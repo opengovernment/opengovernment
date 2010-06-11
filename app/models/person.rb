@@ -120,6 +120,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def has_contributions?
+    !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
+  end
+
   def current_sponsorship_vitals
     Person.find_by_sql(["
       select * from (
