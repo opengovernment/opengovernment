@@ -41,6 +41,22 @@ ALTER TABLE addresses
  ADD CONSTRAINT address_person_fk
  FOREIGN KEY (person_id) REFERENCES people (id);
 
+ALTER TABLE votes
+ ADD CONSTRAINT votes_bill_id_fk
+ FOREIGN KEY (bill_id) REFERENCES bills (id);
+
+ALTER TABLE votes
+ ADD CONSTRAINT votes_chamber_id_fk
+ FOREIGN KEY (chamber_id) REFERENCES chambers (id);
+
+ALTER TABLE roll_calls
+ ADD CONSTRAINT roll_calls_vote_id_fk
+ FOREIGN KEY (vote_id) REFERENCES votes (id);
+
+ALTER TABLE roll_calls
+ ADD CONSTRAINT roll_calls_person_id_fk
+ FOREIGN KEY (person_id) REFERENCES people (id);
+
 ALTER TABLE contributions
  ADD CONSTRAINT contributions_business_id_fk
  FOREIGN KEY (business_id) REFERENCES businesses (id);
