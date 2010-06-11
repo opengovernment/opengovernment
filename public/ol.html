@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>OpenLayers Example</title>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    </head>
+    <body>
+      <div style="width:100%; height:100%" id="map"></div>
+      <script defer="defer" type="text/javascript">
+        var map = new OpenLayers.Map('map');
+        var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+            "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+        var twms = new OpenLayers.Layer.WMS( "World Map",
+            "http://world.freemap.in/cgi-bin/mapserv?",
+            { map: '/www/freemap.in/world/map/factbooktrans.map',
+              transparent: 'true', layers: 'factbook'}
+            );
+        map.addLayers([wms, twms]);
+        map.zoomToMaxExtent();
+      </script>
+
+</body>
+</html>
