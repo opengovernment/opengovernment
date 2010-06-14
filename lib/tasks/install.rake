@@ -140,6 +140,11 @@ namespace :load do
     OpenGov::Addresses.import!
   end
 
+  desc "Fetch and load photos from VoteSmart"
+  task :photos => :environment do
+    OpenGov::Photos.import!
+  end
+
   desc "Fetch and load citations"
   task :citations => :environment do
     OpenGov::Citations.import!
