@@ -1,9 +1,18 @@
 - title(@person.official_name)
-%h2
-  = @person.official_name
-  = @person.affiliation
 
-%div.span-6
+%div.span-4
+  %p
+    %div
+      - if @person.votesmart_photo_url
+        = image_tag(@person.votesmart_photo_url)
+      - else
+        = image_tag('missing.png')
+
+%div.span-16.last
+  %h3
+    = @person.official_name
+    = @person.affiliation
+
   %h3 Basic Information
   %p
     - unless @person.birthday.blank?
@@ -26,6 +35,9 @@
     - unless @person.youtube_id.blank?
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
+%hr
+
+%div.span-6
   %h3 Addresses
   %ul
     - if @person.addresses.size > 0
@@ -52,7 +64,7 @@
 %div.span-6
   %h3!= sponsorship_vitals_for(@person)
 
-%div.span-6
+%div.span-6.last
   %h3 Votes
   - if @latest_roll_calls.size > 0
     %div
