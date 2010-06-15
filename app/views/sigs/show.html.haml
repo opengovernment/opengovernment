@@ -11,14 +11,14 @@
 - %w(description contact_name email city address phone_one).each do |attr|
   - attr_value = @sig.send(attr)
   - attr_name = attr.titleize
-  - next unless attr_value
   %div.span-12
     %h4.span-12
       = attr_name
     %div.span-12
-      = attr_value
+      = attr_value.blank? ? "Not available": attr_value
 
 %h4 Ratings
+%hr
 - @sig.ratings.each do |rating|
   %div.span-8
     = link_to(rating.person.full_name, person_path(rating.person))
