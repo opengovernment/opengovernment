@@ -119,3 +119,15 @@
         = c.business_name
       .span-2.last
         = number_to_currency(c.amount)
+
+- unless @person.ratings.blank?
+  %h3 Ratings
+  - @person.ratings.each do |rating|
+    %div.span-8
+      = rating.special_interest_group.issue.name
+    %div.span-8
+      = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+    %div.span-2
+      = rating.timespan
+    %div.span-2
+      = rating.rating

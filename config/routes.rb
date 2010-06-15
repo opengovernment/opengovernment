@@ -13,11 +13,14 @@ ActionController::Routing::Routes.draw do |map|
     state.resources :bills, :only => [:index]
     state.resources :people, :only => [:index], :as => 'reps'
   end
+
   map.resources :actions, :only => [:show]
 
   map.resources :people, :except => [:index], :member => {:sponsored_bills => :get, :votes => :get}
 
   map.resources :districts, :only => [:show]
+
+  map.resources :sigs, :only => [:index, :show]
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   map.root :controller => 'home'

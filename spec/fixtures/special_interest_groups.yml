@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_name: 
+  city: 
+  address: 
+  name: 
+  zip: 
+  state_id: 
+  url: 
+  phone_one: 
+  votesmart_id: 
+  phone_two: 
+  description: 
+  email: MyString
+  fax: MyString
+
+two:
+  contact_name: 
+  city: 
+  address: 
+  name: 
+  zip: 
+  state_id: 
+  url: 
+  phone_one: 
+  votesmart_id: 
+  phone_two: 
+  description: 
+  email: MyString
+  fax: MyString

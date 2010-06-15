@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 
+  votesmart_id: 1
+
+two:
+  name: 
+  votesmart_id: 1
