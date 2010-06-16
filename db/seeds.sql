@@ -49,6 +49,18 @@ ALTER TABLE votes
  ADD CONSTRAINT votes_chamber_id_fk
  FOREIGN KEY (chamber_id) REFERENCES chambers (id);
 
+ALTER TABLE committee_memberships
+  ADD CONSTRAINT committee_membership_person_id_fk
+  FOREIGN KEY (person_id) REFERENCES people (id);
+
+ALTER TABLE committee_memberships
+  ADD CONSTRAINT committee_membership_session_id_fk
+  FOREIGN KEY (session_id) REFERENCES sessions (id);
+
+ALTER TABLE committee_memberships
+  ADD CONSTRAINT committee_membership_committee_id_fk
+  FOREIGN KEY (committee_id) REFERENCES committees (id);
+
 ALTER TABLE roll_calls
  ADD CONSTRAINT roll_calls_vote_id_fk
  FOREIGN KEY (vote_id) REFERENCES votes (id);
