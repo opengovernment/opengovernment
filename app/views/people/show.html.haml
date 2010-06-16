@@ -82,8 +82,9 @@
 
 
 - if @person.has_contributions?
-  %h2
-    Contributions
+  %h3 Contributions
+  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+  %hr
   %div.span-6
     %h3
       Top List
@@ -119,3 +120,17 @@
         = c.business_name
       .span-2.last
         = number_to_currency(c.amount)
+
+- unless @person.ratings.blank?
+  %h3 Ratings
+  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+  %hr
+  - @person.ratings.each do |rating|
+    %div.span-8
+      = rating.special_interest_group.issue.name
+    %div.span-8
+      = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+    %div.span-2
+      = rating.timespan
+    %div.span-2
+      = rating.rating

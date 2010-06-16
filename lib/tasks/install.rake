@@ -102,7 +102,7 @@ namespace :fetch do
   end
 end
 
-desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses), bills, citations"
+desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
   task :all  => :environment do
     Rake::Task['load:fixtures'].execute
@@ -182,6 +182,12 @@ namespace :load do
 
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
+    OpenGov::Photos.import!
+  end
+
+  desc "Fetch and load people ratings VoteSmart"
+  task :ratings => :environment do
+    OpenGov::Ratings.import!
   end
 
   task :districts => :environment do

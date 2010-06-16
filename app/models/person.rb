@@ -18,6 +18,7 @@ class Person < ActiveRecord::Base
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
   has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
+  has_many :ratings, :order => "timespan desc" 
 
   has_many :business_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
