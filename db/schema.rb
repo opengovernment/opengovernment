@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 32) do
+ActiveRecord::Schema.define(:version => 37) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 32) do
     t.datetime "updated_at"
     t.integer  "legislature_id",                                            :null => false
     t.string   "type",                             :default => "Committee", :null => false
+    t.string   "fiftystates_id"
   end
 
   create_table "contributions", :force => true do |t|
@@ -140,16 +141,23 @@ ActiveRecord::Schema.define(:version => 32) do
     t.datetime "updated_at"
   end
 
+  create_table "issues", :force => true do |t|
+    t.string   "name"
+    t.integer  "votesmart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "legislatures", :force => true do |t|
     t.string  "name"
     t.integer "state_id"
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",         :null => false
+    t.string   "first_name",          :null => false
     t.string   "middle_name"
-    t.string   "last_name",          :null => false
-    t.integer  "fiftystates_id"
+    t.string   "last_name",           :null => false
+    t.string   "fiftystates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
     t.integer  "govtrack_id"
@@ -167,6 +175,18 @@ ActiveRecord::Schema.define(:version => 32) do
     t.string   "website_two"
     t.string   "webmail"
     t.string   "email"
+    t.string   "votesmart_photo_url"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "rating"
+    t.integer  "timespan"
+    t.integer  "sig_id"
+    t.integer  "votesmart_id"
+    t.string   "rating_text",  :limit => 4000
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|
@@ -196,6 +216,25 @@ ActiveRecord::Schema.define(:version => 32) do
     t.integer  "start_year"
     t.integer  "end_year"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "special_interest_groups", :force => true do |t|
+    t.integer  "state_id"
+    t.integer  "issue_id"
+    t.string   "name"
+    t.string   "description",  :limit => 4000
+    t.string   "contact_name"
+    t.string   "city"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "url"
+    t.string   "phone_one"
+    t.integer  "votesmart_id"
+    t.string   "phone_two"
+    t.string   "email"
+    t.string   "fax"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

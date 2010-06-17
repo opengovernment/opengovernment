@@ -5,5 +5,6 @@ if defined? GovKit
     config.fiftystates_apikey = API_KEYS['sunlight_labs']
     config.votesmart_apikey = API_KEYS['votesmart']
     config.ftm_apikey = API_KEYS['follow_the_money']
+    config.opencongress_apikey = API_KEYS['opencongress']
   end
 end

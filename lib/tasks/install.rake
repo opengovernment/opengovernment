@@ -1,29 +1,38 @@
 # Configuration
 require 'yaml'
 
-desc "Install OpenGovernment under the current Rails env"
-task :install => :environment do
-  abcs = ActiveRecord::Base.configurations
-  if abcs[Rails.env]["adapter"] != 'postgresql'
-    raise "Sorry, OpenGovernment requires PostgreSQL"
+task :install => ["opengov:install"]
+
+namespace :opengov do
+  desc "Install clean database: prepare database, fetch all data, load data"
+  task :install => :environment do
+    abcs = ActiveRecord::Base.configurations
+
+    unless abcs[Rails.env]["adapter"] == 'postgresql'
+      raise "Sorry, OpenGovernment requires PostgreSQL"
+    end
+
+    Rake::Task['db:prepare'].invoke
+    Rake::Task['fetch:all'].invoke
+    Rake::Task['load:all'].invoke
   end
-
-  puts "Creating #{Rails.env} database..."
-  Rake::Task['db:create'].invoke
-
-  puts "Setting up the #{Rails.env} database"
-  Rake::Task['db:create:postgis'].invoke
-  Rake::Task['db:schema:load'].invoke
-  Rake::Task['db:sqlseed'].invoke
-
-  # Core internal data
-  Rake::Task['install:data'].invoke
 end
 
+desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
+  task :prepare => :environment do
+    puts "Creating #{Rails.env} database..."
+    Rake::Task['db:create'].invoke
+
+    puts "Setting up the #{Rails.env} database"
+    Rake::Task['db:create:postgis'].invoke
+    Rake::Task['db:schema:load'].invoke
+    Rake::Task['db:sqlseed'].invoke
+  end
+
   desc "Install db/seeds.sql items"
   task :sqlseed => :environment do
-    seeds_fn = File.join(Rails.root,'db','seeds.sql')
+    seeds_fn = File.join(Rails.root, 'db', 'seeds.sql')
     if File.exists?(seeds_fn)
       load_pgsql_files(seeds_fn)
     end
@@ -43,9 +52,9 @@ namespace :db do
           raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
         end
 
-        if File.exists?(File.join(postgis_dir,'postgis.sql'))
-          load_pgsql_files(File.join(postgis_dir,'postgis.sql'),
-            File.join(postgis_dir,'spatial_ref_sys.sql'))
+        if File.exists?(File.join(postgis_dir, 'postgis.sql'))
+          load_pgsql_files(File.join(postgis_dir, 'postgis.sql'),
+                           File.join(postgis_dir, 'spatial_ref_sys.sql'))
         else
           raise "Please install PostGIS before continuing."
         end
@@ -70,51 +79,43 @@ namespace :db do
   end
 end
 
-namespace :install do
-  desc "Download and insert all core data"
-  task :data => :environment do
-    # Fixtures
-    Rake::Task['load:fixtures'].invoke
-    Rake::Task['load:legislatures'].execute
-
-    # Fetch all external data files
-    Rake::Task['fetch:all'].invoke
-
-    # Load external data
-    Rake::Task['load:districts'].invoke
-
-    # Note: People also imports addresses, so we don't invoke load:addresses
-    Rake::Task['load:committees'].invoke
-    Rake::Task['load:people'].invoke
-    Rake::Task['load:bills'].invoke
-    Rake::Task['load:citations'].invoke
-  end
-end
-
+desc "Fetch Data: districts, bills"
 namespace :fetch do
-  task :all do
-    Rake::Task['fetch:districts'].invoke
-    Rake::Task['fetch:bills'].invoke
-  end
-
   task :setup => :environment do
     FileUtils.mkdir_p(DATA_DIR)
     Dir.chdir(DATA_DIR)
   end
 
+  task :all do
+    Rake::Task['fetch:districts'].invoke
+    Rake::Task['fetch:bills'].invoke
+  end
+
   desc "Get the district SHP files for Congress and all active states"
   task :districts => :setup do
-    OpenGov::Fetch::Districts.process
+    OpenGov::Districts.fetch
   end
 
   desc "Get the fiftystates files for all active states"
   task :bills => :setup do
-    OpenGov::Fetch::Bills.process
+    OpenGov::Bills.fetch
   end
-
 end
 
+desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
+  task :all  => :environment do
+    Rake::Task['load:fixtures'].execute
+    Rake::Task['load:legislatures'].execute
+    Rake::Task['load:districts'].invoke
+    Rake::Task['load:committees'].invoke
+    Rake::Task['load:people'].invoke
+    Rake::Task['load:bills'].invoke
+    Rake::Task['load:citations'].invoke
+    Rake::Task['load:businesses'].invoke
+    Rake::Task['load:contributions'].invoke
+  end
+
   # These tasks are listed in the order that we need the data to be inserted.
   task :fixtures => :environment do
     require 'active_record/fixtures'
@@ -131,54 +132,67 @@ namespace :load do
 
   desc "Fetch and load legislatures from FiftyStates"
   task :legislatures => :environment do
-    OpenGov::Load::Legislatures.import!
+    OpenGov::Legislatures.import!
   end
 
   desc "Fetch and load addresses from VoteSmart"
   task :addresses => :environment do
-    OpenGov::Load::Addresses.import!
+    OpenGov::Addresses.import!
+  end
+
+  desc "Fetch and load photos from VoteSmart"
+  task :photos => :environment do
+    OpenGov::Photos.import!
   end
 
   desc "Fetch and load citations"
   task :citations => :environment do
-    OpenGov::Load::Citations.import!
+    OpenGov::Citations.import!
   end
 
   desc "Fetch and load bills from FiftyStates"
   task :bills => :environment do
     puts "Fetching and loading bills from Fifty States"
-    OpenGov::Load::Bills.import!
+    OpenGov::Bills.import!
     puts "Marking Votesmart Key Votes"
-    OpenGov::Load::KeyVotes.import!
+    OpenGov::KeyVotes.import!
   end
 
   desc "Fetch and load committees from VoteSmart"
   task :committees => :environment do
-    OpenGov::Load::Committees.import!
+    OpenGov::Committees.import!
   end
 
   desc "Fetch and load businesses from FollowTheMoney"
   task :businesses => :environment do
-    OpenGov::Load::Businesses.import!
+    OpenGov::Businesses.import!
   end
 
   desc "Fetch and load contributions from FollowTheMoney"
   task :contributions => :environment do
-    OpenGov::Load::Contributions.import!
+    OpenGov::Contributions.import!
   end
 
   desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
   task :people => :environment do
-    OpenGov::Load::People.import!
+    OpenGov::People.import!
+
     Dir.chdir(Rails.root)
     GovTrackImporter.new.import!
+
     Dir.chdir(Rails.root)
-    OpenGov::Load::Addresses.import!
+    OpenGov::Addresses.import!
+    OpenGov::Photos.import!
+  end
+
+  desc "Fetch and load people ratings VoteSmart"
+  task :ratings => :environment do
+    OpenGov::Ratings.import!
   end
 
   task :districts => :environment do
     Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|
-      OpenGov::Load::Districts::import!(shpfile)
+      OpenGov::Districts::import!(shpfile)
     end
 
     class_refresh("District")
@@ -193,3 +207,5 @@ namespace :load do
     end
   end
 end
+
+

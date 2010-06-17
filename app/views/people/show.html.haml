@@ -1,9 +1,18 @@
 - title(@person.official_name)
-%h2
-  = @person.official_name
-  = @person.affiliation
 
-%div.span-6
+%div.span-4
+  %p
+    %div
+      - if @person.votesmart_photo_url
+        = image_tag(@person.votesmart_photo_url)
+      - else
+        = image_tag('missing.png')
+
+%div.span-16.last
+  %h3
+    = @person.official_name
+    = @person.affiliation
+
   %h3 Basic Information
   %p
     - unless @person.birthday.blank?
@@ -26,6 +35,9 @@
     - unless @person.youtube_id.blank?
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
+%hr
+
+%div.span-6
   %h3 Addresses
   %ul
     - if @person.addresses.size > 0
@@ -52,7 +64,7 @@
 %div.span-6
   %h3!= sponsorship_vitals_for(@person)
 
-%div.span-6
+%div.span-6.last
   %h3 Votes
   - if @latest_roll_calls.size > 0
     %div
@@ -68,40 +80,57 @@
   - else
     %p We have no voting history for #{@person.full_name}
 
-%h2
-  Contributions
-%div.span-6
-  %h3
-    Top List
-  - @person.contributions.each do |c|
-    .span-4
-      = c.business.business_name
-    .span-2.last
-      = number_to_currency(c.amount)
 
-%div.span-6
-  %h3
-    By Industry
-  - @person.industry_contributions.each do |c|
-    .span-4
-      = c.industry_name
-    .span-2.last
-      = number_to_currency(c.amount)
+- if @person.has_contributions?
+  %h3 Contributions
+  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+  %hr
+  %div.span-6
+    %h3
+      Top List
+    - @person.contributions.each do |c|
+      .span-4
+        = c.business.business_name
+      .span-2.last
+        = number_to_currency(c.amount)
 
-%div.span-6
-  %h3
-    By Sector
-  - @person.sector_contributions.each do |c|
-    .span-4
-      = c.sector_name
-    .span-2.last
-      = number_to_currency(c.amount)
+  %div.span-6
+    %h3
+      By Industry
+    - @person.industry_contributions.each do |c|
+      .span-4
+        = c.industry_name
+      .span-2.last
+        = number_to_currency(c.amount)
 
-%div.span-6.last
-  %h3
-    By Business
-  - @person.business_contributions.each do |c|
-    .span-4
-      = c.business_name
-    .span-2.last
-      = number_to_currency(c.amount)
+  %div.span-6
+    %h3
+      By Sector
+    - @person.sector_contributions.each do |c|
+      .span-4
+        = c.sector_name
+      .span-2.last
+        = number_to_currency(c.amount)
+
+  %div.span-6.last
+    %h3
+      By Business
+    - @person.business_contributions.each do |c|
+      .span-4
+        = c.business_name
+      .span-2.last
+        = number_to_currency(c.amount)
+
+- unless @person.ratings.blank?
+  %h3 Ratings
+  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+  %hr
+  - @person.ratings.each do |rating|
+    %div.span-8
+      = rating.special_interest_group.issue.name
+    %div.span-8
+      = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+    %div.span-2
+      = rating.timespan
+    %div.span-2
+      = rating.rating

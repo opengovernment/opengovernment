@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 
+  timespan: 
+  sig_id: 
+  votesmart_id: 
+  rating_text: MyString
+
+two:
+  rating: 
+  timespan: 
+  sig_id: 
+  votesmart_id: 
+  rating_text: MyString

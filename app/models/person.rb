@@ -18,6 +18,7 @@ class Person < ActiveRecord::Base
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
   has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
+  has_many :ratings, :order => "timespan desc" 
 
   has_many :business_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
@@ -118,6 +119,10 @@ class Person < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def has_contributions?
+    !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
   end
 
   def current_sponsorship_vitals
