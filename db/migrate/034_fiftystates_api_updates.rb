@@ -5,7 +5,7 @@ class FiftystatesApiUpdates < ActiveRecord::Migration
   end
 
   def self.down
-    change_column :people, :fiftystates_id, :integer
+    # change_column :people, :fiftystates_id, :integer
     remove_column :committees, :fiftystates_id
   end
 end
