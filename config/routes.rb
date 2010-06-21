@@ -1,33 +1,71 @@
-ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
-  map.connect 'search', :controller => 'districts', :action => 'search'
+OpenGov::Application.routes.draw do |map|
+  match '/search' => 'districts#search', :as => 'search'
+  match '/states/ca/subscriptions' =>  'states#subscribe', :as => 'state_subscriptions'
 
-  map.namespace :admin do |admin|
-    admin.resources :states
+  namespace :admin do
+    resources :states
   end
 
-  map.resources :states do |state|
-    state.resources :bills, :only => [:show], :path_prefix => '/states/:state_id/sessions/:session', :name_prefix => ''
-    state.resources :votes, :only => [:show]
-    state.resources :committees, :only => [:show], :collection => {:upper => :get, :lower => :get, :joint => :get}
-    state.resources :bills, :only => [:index]
-    state.resources :people, :only => [:index], :as => 'reps'
+  resources :states do
+    resources :bills do
+      member do
+        get :show
+#        , :path_prefix => '/states/:state_id/sessions/:session', :name_prefix => ''
+      end
+    end
+
+    resources :votes do
+      member do
+        get :show
+      end
+    end
+
+    resources :committees do
+      member do
+        get :show
+      end
+#      , :collection => {:upper => :get, :lower => :get, :joint => :get}
+    end
+
+    resources :bills do
+      member do
+        get :index
+      end
+    end
+
+    resources :people do
+      member do
+        get :index, :as => 'reps'
+      end
+    end
   end
 
-  map.resources :actions, :only => [:show]
+  resources :actions do
+    member do
+      get :show
+    end
+  end
 
-  map.resources :people, :except => [:index], :member => {:sponsored_bills => :get, :votes => :get}
+  resources :people do
+    member do
+      get :sponsored_bills
+      get :votes
+    end
+  end
 
-  map.resources :districts, :only => [:show]
+  resources :districts do
+    member do
+      get :show
+    end
+  end
 
-  map.resources :sigs, :only => [:index, :show]
+  resources :sigs do
+    member do
+      get :show
+      get :index
+    end
+  end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => 'home'
-  # See how all your routes lay out with "rake routes"
-
-  map.state_subscriptions "/states/ca/subscriptions", :controller => 'states', :action => 'subscribe'
-
-  Clearance::Routes.draw(map)
-  Jammit::Routes.draw(map)
+  root :to => "home#index"
+#  Clearance::Routes.draw(map)
 end

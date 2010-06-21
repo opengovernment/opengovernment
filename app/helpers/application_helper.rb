@@ -1,4 +1,3 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
@@ -17,6 +16,6 @@ module ApplicationHelper
 
   def link_to_with_domain(name, url, html_options = nil)
     result = link_to(name, url, html_options) + " <span class=\"link_domain\">(" + domain_for(url) + ")</span>"
-    result.html_safe!
+    result.html_safe
   end
 end

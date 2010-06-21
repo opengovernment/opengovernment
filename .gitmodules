@@ -1,6 +1,0 @@
-[submodule "vendor/plugins/govkit"]
-	path = vendor/plugins/govkit
-	url = git://github.com/opengovernment/govkit.git
-[submodule "vendor/plugins/rspec-rails"]
-	path = vendor/plugins/rspec-rails
-	url = git://github.com/dchelimsky/rspec-rails.git

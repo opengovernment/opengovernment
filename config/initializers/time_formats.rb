@@ -1,4 +1,4 @@
-ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
+Time::DATE_FORMATS.merge!(
   :default => '%B %e, %Y',
   :slashed => '%m/%d/%Y',
   :no_year => '%B %e, %a',
@@ -8,7 +8,7 @@ ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
       if d.year == Time.now.year
         d.strftime("%B %e")
       else
-        d.strftime("%B %e, %Y") 
+        d.strftime("%B %e, %Y")
       end
     end
 )

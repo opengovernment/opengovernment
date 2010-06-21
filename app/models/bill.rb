@@ -11,19 +11,19 @@ class Bill < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
   default_scope :order => "first_action_at desc"
-  named_scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
-  named_scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
-  named_scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
-  named_scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
-  named_scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
-  named_scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
+  scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
+  scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
+  scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
+  scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
+  scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
+  scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
   has_many :citations, :as => :owner
   has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}
   has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
   has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
 
-  acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
+#  acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {
