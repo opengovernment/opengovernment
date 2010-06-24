@@ -4,8 +4,6 @@ class GovTrackImporter
   GOV_TRACK_PEOPLE_URL = "http://www.govtrack.us/data/us/people.xml"
   GOV_TRACK_PEOPLE_FILE = 'people.xml'
 
-  include OpenGov::Helpers
-
   class << self
     def fetch_data(data_dir = DATA_DIR)
       Dir.chdir(data_dir)
@@ -120,7 +118,7 @@ class GovTrackImporter
 
     options = {:person_id => @person.id, :start_date => startdate}
 
-    Role.find(:first, :conditions => options) || Role.new(options.merge({ :end_date => enddate }))
+    Role.find(:first, :conditions => options) || Role.new(options.merge({:end_date => enddate}))
   end
 
   def valid_date!(date)

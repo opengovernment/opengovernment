@@ -95,7 +95,7 @@ module OpenGov
         bill.sponsors.each do |sponsor|
           Sponsorship.create(
             :bill => @bill,
-            :sponsor => Person.find_by_fiftystates_id(sponsor.leg_id),
+            :sponsor => Person.find_by_fiftystates_id(sponsor.leg_id.to_s),
             :kind => sponsor[:type]
           )
         end
@@ -123,7 +123,7 @@ module OpenGov
             RollCall.delete_all(:vote_id => vote.vote_id)
             roll_call.roll.each do |roll|
               v.roll_calls << RollCall.new(
-                :person_id => Person.find_by_fiftystates_id(roll.leg_id).id,
+                :person => Person.find_by_fiftystates_id(roll.leg_id.to_s),
                 :vote_type => roll['type']
               )
             end
