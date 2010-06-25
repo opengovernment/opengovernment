@@ -10,15 +10,15 @@ class Person < ActiveRecord::Base
   has_one :current_role, :class_name => 'Role', :conditions => Role::CURRENT
   has_one :chamber, :through => :current_role
 
-  named_scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
-  named_scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
-  named_scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
+  scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
+  scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
+  scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
   has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
-  has_many :ratings, :order => "timespan desc" 
+  has_many :ratings, :order => "timespan desc"
 
   has_many :business_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
@@ -83,7 +83,7 @@ class Person < ActiveRecord::Base
     c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
   end
 
-  acts_as_citeable :keywords => [], :with => [:full_name]
+#  acts_as_citeable :keywords => [], :with => [:full_name]
 
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')

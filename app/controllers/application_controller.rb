@@ -1,11 +1,8 @@
 class ApplicationController < ActionController::Base
   include Clearance::Authentication
-  helper :all
   protect_from_forgery
-
-  filter_parameter_logging :password, :geom
-
-  # Auth for staging environment
+  layout 'application'
+    # Auth for staging environment
   USERNAME, PASSWORD = 'opengov', API_KEYS['og_staging']
 
   before_filter :authenticate

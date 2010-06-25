@@ -19,17 +19,17 @@ class Role < ActiveRecord::Base
   validates_presence_of :state, :if => "district.nil?"
   validates_presence_of :district, :if => "state.nil?"
 
-  named_scope :current, :conditions => Role::CURRENT
-  named_scope :on_date, lambda { |date| { :conditions => ["? between roles.start_date and roles.end_date", date] } }
-  named_scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
-  named_scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
+  scope :current, :conditions => Role::CURRENT
+  scope :on_date, lambda { |date| { :conditions => ["? between roles.start_date and roles.end_date", date] } }
+  scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
+  scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
 
   def self.current_chamber_roles(chamber)
     current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person], :order => "people.first_name"})
   end
 
   def current?
-    self.start_date < Date.today && Date.today < self.end_date  
+    self.start_date < Date.today && Date.today < self.end_date
   end
 
   def party_color

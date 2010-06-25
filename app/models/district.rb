@@ -4,9 +4,9 @@ class District < Place
   belongs_to :state
   belongs_to :chamber
   validates_presence_of :state_id, :name
-  named_scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
-  named_scope :for_x_y, lambda { |lat, lng| { :conditions => ["ST_Contains(geom, ST_GeomFromText('POINT(? ?)', ?))", lng, lat, SRID] } }
-  named_scope :for_state, lambda { |n| { :conditions => ["state_id = ?", n] } }
+  scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
+  scope :for_x_y, lambda { |lat, lng| { :conditions => ["ST_Contains(geom, ST_GeomFromText('POINT(? ?)', ?))", lng, lat, SRID] } }
+  scope :for_state, lambda { |n| { :conditions => ["state_id = ?", n] } }
   has_many :district_roles, :foreign_key => 'district_id', :class_name => 'Role'
   has_many :current_legislators, :through => :district_roles, :class_name => 'Person', :source => :person, :conditions => Role::CURRENT
 
@@ -20,7 +20,7 @@ class District < Place
   def full_name
     "#{state.name} #{chamber.name} District #{number}"
   end
-  
+
   def description
     "This is #{state.name}'s #{chamber.name.downcase} District #{number}."
   end
