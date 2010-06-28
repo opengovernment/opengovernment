@@ -80,9 +80,8 @@
   - else
     %p We have no voting history for #{@person.full_name}
 
-
+%h3 Contributions
 - if @person.has_contributions?
-  %h3 Contributions
   .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
   %hr
   %div.span-6
@@ -121,8 +120,14 @@
       .span-2.last
         = number_to_currency(c.amount)
 
+- else
+  %p.span-24
+    No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
+    %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
+    == .
+
+%h3 Ratings
 - unless @person.ratings.blank?
-  %h3 Ratings
   .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
   %hr
   - @person.ratings.each do |rating|
@@ -134,3 +139,7 @@
       = rating.timespan
     %div.span-2
       = rating.rating
+- else
+  %p.span-24
+    No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
+    %a{:href => 'http://votesmart.org/program_donations_index.php'} here
