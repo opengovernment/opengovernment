@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.beta4'
-#gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # ActiveRecord requires a database adapter.
 gem "pg"
@@ -19,6 +18,9 @@ gem "ym4r"
 
 # Geocoding
 gem "geokit"
+
+# Data import
+# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git'
 
 # Simple pagination
 gem "will_paginate"
