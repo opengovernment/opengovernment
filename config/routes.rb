@@ -9,8 +9,7 @@ OpenGov::Application.routes.draw do |map|
   resources :states do
     resources :bills do
       member do
-        get :show
-#        , :path_prefix => '/states/:state_id/sessions/:session', :name_prefix => ''
+        get :show, :path => '/states/:state_id/sessions/:session'
       end
     end
 
@@ -24,7 +23,11 @@ OpenGov::Application.routes.draw do |map|
       member do
         get :show
       end
-#      , :collection => {:upper => :get, :lower => :get, :joint => :get}
+      collection do
+        get :upper
+        get :lower
+        get :joint
+      end      
     end
 
     resources :bills do
