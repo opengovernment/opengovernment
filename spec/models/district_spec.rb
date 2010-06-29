@@ -57,5 +57,4 @@ describe District do
     reps = @district_14.first.current_legislators
     reps.size.should eql(1)
   end
-
 end

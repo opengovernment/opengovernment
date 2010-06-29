@@ -9,3 +9,4 @@ public/assets/*
 data/*
 vendor/bundler_gems/*
 vendor/cache/*
+.rvmrc

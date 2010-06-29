@@ -7,6 +7,6 @@ module PeopleHelper
       t += "No sponsorship information available"
     end
     t += "</span>"
-    t.html_safe!
+    t.html_safe
   end
 end

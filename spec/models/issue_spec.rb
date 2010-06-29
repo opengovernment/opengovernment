@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Issue do
   before(:each) do
     @valid_attributes = {
-      :name => ,
+      :name => "",
       :votesmart_id => 1
     }
   end

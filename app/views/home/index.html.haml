@@ -15,7 +15,7 @@
     = link_to "Automatically Find My Location", "javascript:findMe();"
     :javascript
       function findMe() {
-       navigator.geolocation.getCurrentPosition(fillForm);
+        navigator.geolocation.getCurrentPosition(fillForm);
       }
 
       function fillForm(position) {

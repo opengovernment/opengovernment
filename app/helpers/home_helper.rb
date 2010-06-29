@@ -64,6 +64,6 @@ module HomeHelper
       </script>
     STR
 
-    x.html_safe!
+    x.html_safe
   end
 end
