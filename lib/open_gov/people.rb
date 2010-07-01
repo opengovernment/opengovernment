@@ -8,9 +8,15 @@ module OpenGov
       end
 
       def import_one(state)
+        # Counters
+        i, n, r = 0, 0, 0
+      
         GovKit::FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
+          i = i + 1
+
           unless person = Person.find_by_fiftystates_id(fs_person.leg_id)
             person = Person.new(:fiftystates_id => fs_person.leg_id)
+            n = n + 1
           end
 
           person.update_attributes!(
@@ -27,7 +33,7 @@ module OpenGov
           person.save!
 
           fs_person.roles.each do |fs_role|
-
+            r = r + 1
             legislature = state.legislature
             session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
 
@@ -63,6 +69,8 @@ module OpenGov
             end
           end
         end
+
+        puts "FiftyStates: Imported #{i} people (#{n} created; #{i-n} updated) with #{r} roles"
       end
     end
   end
