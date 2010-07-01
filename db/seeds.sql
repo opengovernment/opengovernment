@@ -72,3 +72,11 @@ ALTER TABLE roll_calls
 ALTER TABLE contributions
  ADD CONSTRAINT contributions_business_id_fk
  FOREIGN KEY (business_id) REFERENCES businesses (id);
+
+ALTER TABLE bills
+ ADD CONSTRAINT bills_session_id_fk
+ FOREIGN KEY (session_id) REFERENCES sessions (id);
+
+ALTER TABLE bills
+ ADD CONSTRAINT bills_chamber_id_fk
+ FOREIGN KEY (chamber_id) REFERENCES chambers (id);

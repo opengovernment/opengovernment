@@ -159,4 +159,8 @@ class Person < ActiveRecord::Base
   def to_param
     "#{id}-#{full_name.parameterize}"
   end
+
+  def photo_url
+    self.fiftystates_photo_url || self.votesmart_photo_url || 'missing.png'
+  end
 end

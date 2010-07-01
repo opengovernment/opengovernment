@@ -19,8 +19,9 @@ module OpenGov
             :votesmart_id => fs_person.votesmart_id,
             :nimsp_candidate_id => fs_person.nimsp_candidate_id,
             :middle_name => fs_person.middle_name,
-            :suffix => fs_person.suffix,
-            :updated_at => fs_person.updated_at
+            :suffix => fs_person.suffixes,
+            :updated_at => fs_person.updated_at,
+            :fiftystates_photo_url => fs_person.photo_url
           )
 
           person.save!
@@ -30,14 +31,15 @@ module OpenGov
             legislature = state.legislature
             session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
 
-            case fs_role[:type]
+            case fs_role[:chamber]
               when GovKit::FiftyStates::ROLE_MEMBER :
-                case fs_role.chamber
-                  when GovKit::FiftyStates::CHAMBER_UPPER
-                    chamber = legislature.upper_chamber
-                  when GovKit::FiftyStates::CHAMBER_LOWER
-                    chamber = legislature.lower_chamber
-                end
+                chamber =
+                  case fs_role.chamber
+                    when GovKit::FiftyStates::CHAMBER_UPPER
+                      legislature.upper_chamber
+                    when GovKit::FiftyStates::CHAMBER_LOWER
+                      legislature.lower_chamber
+                  end
 
                 district = chamber.districts.numbered(fs_role.district.to_s).first
 

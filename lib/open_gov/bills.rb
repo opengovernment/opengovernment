@@ -67,12 +67,10 @@ module OpenGov
 
         @bill = Bill.find_or_create_by_bill_number(bill.bill_id)
         @bill.title = bill.title
-        @bill.fiftystates_id = bill[:id]
+        @bill.fiftystates_id = bill["_id"]
         @bill.state = state
         @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
         @bill.session = state.legislature.sessions.find_by_name(bill.session)
-        @bill.first_action_at = valid_date!(bill.first_action)
-        @bill.last_action_at = valid_date!(bill.last_action)
 
         # There is no unique data on a bill's actions that we can key off of, so we
         # must delete and recreate them all each time.
@@ -100,9 +98,10 @@ module OpenGov
           )
         end
 
+        @bill.votes.delete_all
+
         bill.votes.each do |vote|
-          v = @bill.votes.find_or_initialize_by_fiftystates_id(vote.vote_id.to_s)
-          v.update_attributes!(
+          v = @bill.votes.build (
             :yes_count => vote.yes_count,
             :no_count => vote.no_count,
             :other_count => vote.other_count,
@@ -112,26 +111,25 @@ module OpenGov
             :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
           )
 
-          vote_file = File.join(VOTES_DIR, vote.vote_id.to_s)
-          if File.exists?(vote_file) && !options[:remote]
-            roll_call = GovKit::FiftyStates::Vote.parse(JSON.parse(File.read(vote_file)))
-          else
-            roll_call = GovKit::FiftyStates::Vote.find(vote.vote_id)
+          v["yes_votes"] && v["yes_votes"].each do |rcall|
+            v.roll_calls.build(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
           end
 
-          if roll_call[:roll]
-            RollCall.delete_all(:vote_id => vote.vote_id)
-            roll_call.roll.each do |roll|
-              v.roll_calls << RollCall.new(
-                :person => Person.find_by_fiftystates_id(roll.leg_id.to_s),
-                :vote_type => roll['type']
-              )
-            end
+          v["no_votes"] && v["no_votes"].each do |rcall|
+            v.roll_calls.build(:vote_type => 'no', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
           end
+
+          v["other_votes"] && v["other_votes"].each do |rcall|
+            v.roll_calls.build(:vote_type => 'other', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+          end
+          v.save!
         end
 
-        @bill.save!
-        puts "done\n"
+        if @bill.save!
+          puts "done\n"
+        else
+          puts "Skipping...#{@bill.errors.full_messages.join(',')}"
+        end
       end
     end
   end

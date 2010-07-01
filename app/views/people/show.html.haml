@@ -3,10 +3,7 @@
 %div.span-4
   %p
     %div
-      - if @person.votesmart_photo_url
-        = image_tag(@person.votesmart_photo_url)
-      - else
-        = image_tag('missing.png')
+      = image_tag(@person.photo_url)
 
 %div.span-16.last
   %h3

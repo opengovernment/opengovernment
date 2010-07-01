@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# This file is auto-generated from the current state of the database. Instead of editing this file,
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 37) do
+ActiveRecord::Schema.define(:version => 39) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(:version => 37) do
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "first_action_at"
-    t.datetime "last_action_at"
     t.boolean  "votesmart_key_vote",                 :default => false, :null => false
     t.integer  "votesmart_id"
   end
@@ -154,9 +152,9 @@ ActiveRecord::Schema.define(:version => 37) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",          :null => false
+    t.string   "first_name",            :null => false
     t.string   "middle_name"
-    t.string   "last_name",           :null => false
+    t.string   "last_name",             :null => false
     t.string   "fiftystates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
@@ -176,6 +174,7 @@ ActiveRecord::Schema.define(:version => 37) do
     t.string   "webmail"
     t.string   "email"
     t.string   "votesmart_photo_url"
+    t.string   "fiftystates_photo_url"
   end
 
   create_table "ratings", :force => true do |t|
