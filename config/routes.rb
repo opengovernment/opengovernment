@@ -5,7 +5,7 @@ OpenGov::Application.routes.draw do |map|
   resources :actions, :only => [:show]
   resources :districts, :only => [:show]
   resources :sigs, :only => [:index, :show]
-  resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session_id/bills'
+  resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session/bills'
 
   resources :people do
     member do

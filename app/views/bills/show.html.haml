@@ -50,7 +50,7 @@
             %th Action
           - @bill.actions.each do |action|
             %tr
-              %td= action.date.to_s(:pretty)
+              %td= action.date && action.date.to_s(:pretty)
               %td= action.actor_fm
               %td= action.action_fm
               %td= link_to("link", action)

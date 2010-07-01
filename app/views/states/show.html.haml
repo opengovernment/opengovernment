@@ -73,7 +73,7 @@
         %ul.key_votes
           - @state_key_votes.each do |bill|
             %li
-              != link_to(bill.bill_number, bill_path(@state.id, bill.session, bill.id)) + " "
+              != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
               = bill.title
 
 

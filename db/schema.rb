@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file,
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 39) do
+ActiveRecord::Schema.define(:version => 38) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(:version => 39) do
     t.datetime "updated_at"
     t.boolean  "votesmart_key_vote",                 :default => false, :null => false
     t.integer  "votesmart_id"
+    t.datetime "first_action_at"
+    t.datetime "last_action_at"
   end
 
   create_table "businesses", :force => true do |t|
