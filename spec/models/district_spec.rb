@@ -9,7 +9,7 @@ describe District do
     }
     # Using our test data,
     # 3000 French Pl, Austin, TX 78722 should return these districts:
-    @french_pl_districts = District.find(:all, :conditions => {:census_sld => ["046", "014", "25"] })
+    @french_pl_districts = District.where(:census_sld => ["046", "014", "25"])
     @district_14 = District.numbered('14')
   end
 
@@ -38,14 +38,14 @@ describe District do
     # 3000 French Pl, Austin, TX 78722
     districts = District.for_x_y(30.286308, -97.719782)
     districts.size.should eql(3)
-    districts.should eql(@french_pl_districts)
+    districts.to_a.should eql(@french_pl_districts.to_a)
   end
 
   it "should allow us to find the correct districts by address" do
     districts = District.find_by_address("3000 French Pl, Austin, TX")
     districts.size.should eql(2)
     districts[1].size.should eql(3)
-    districts[1].should eql(@french_pl_districts)
+    districts[1].to_a.should eql(@french_pl_districts.to_a)
   end
 
   it "should return a district by number" do
