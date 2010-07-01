@@ -23,7 +23,7 @@ class Bill < ActiveRecord::Base
   has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
   has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
 
-#  acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
+  acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {
