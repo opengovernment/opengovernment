@@ -20,7 +20,7 @@ module OpenGov
             :nimsp_candidate_id => fs_person.nimsp_candidate_id,
             :middle_name => fs_person.middle_name,
             :suffix => fs_person.suffixes,
-            :updated_at => fs_person.updated_at,
+            :updated_at => valid_date!(fs_person.updated_at),
             :fiftystates_photo_url => fs_person.photo_url
           )
 
