@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 38) do
+ActiveRecord::Schema.define(:version => 39) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(:version => 38) do
 
   create_table "citations", :force => true do |t|
     t.string   "url"
-    t.string   "excerpt",       :limit => 1000
-    t.string   "title"
+    t.string   "excerpt",       :limit => 4000
+    t.string   "title",         :limit => 1000
     t.string   "source"
     t.datetime "date"
     t.float    "weight"
