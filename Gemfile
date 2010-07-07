@@ -36,6 +36,11 @@ gem "erubis"
 gem "httparty"
 gem "hpricot"
 
+# Indexing and Search
+gem 'thinking-sphinx', :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+  :branch  => 'rails3',
+  :require => 'thinking_sphinx'
+
 # Bundle gems used only in certain environments:
 group :cucumber do
   gem "cucumber-rails"

@@ -1,0 +1,33 @@
+.pagination {
+  background: #F1F1F1;
+  border: 1px solid #E5E5E5;
+  text-align: center;
+  padding: 1em;
+}
+
+.pagination a, .pagination span {
+  padding: .2em .3em;
+}
+
+.pagination span.disabled {
+  color: #AAA;
+}
+
+.pagination span.current {
+  font-weight: bold;
+  background: transparent url('/images/apple-circle.gif') no-repeat 50% 50%;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: black;
+}
+
+.pagination a:hover, .pagination a:focus {
+  text-decoration: underline;
+}
+
+.match{
+  border-bottom: 1px dotted red;
+  padding-bottom: 0.1em;
+}

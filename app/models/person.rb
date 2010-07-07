@@ -85,6 +85,17 @@ class Person < ActiveRecord::Base
 
 #  acts_as_citeable :keywords => [], :with => [:full_name]
 
+  # How will we allow people to sort bills?
+  SORTABLE_BY = {
+    "First Name" => "first_name asc",
+    "Last Name" => "last_name asc"
+  }.freeze
+
+  define_index do
+    indexes first_name, middle_name, last_name, :sortable => true
+    has email
+  end
+
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end

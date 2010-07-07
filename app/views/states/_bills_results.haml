@@ -1,0 +1,25 @@
+%hr.span-24.last
+  - if @bills.empty?
+    %p.span-24.last Sorry, no bills matched.
+  - else
+    %aside.search_sidebar.span-4
+      %p.filter
+        Session:
+        %ul.session_filter
+          - @state.legislature.sessions.each do |s|
+            %li
+              = link_to s.name, search_state_path(@state, params.merge({ :session_id => s.id }))
+      %p.sort
+        Sort by:
+        %ul
+          - Bill::SORTABLE_BY.each do |name, column|
+            %li
+              = link_to name, search_state_path(@state, params.merge({:order => column}))
+
+    %div.search_results.span-20.last
+      %ul.bills
+        - @bills.each do |bill|
+          %li[bill]
+            != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+            != bill.excerpts.title
+      = will_paginate @bills, :class => "pagination"

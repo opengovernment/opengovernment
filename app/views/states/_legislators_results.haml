@@ -1,0 +1,19 @@
+%hr.span-24.last
+  - if @legislators.empty?
+    %p.span-24.last Sorry, no legislators matched.
+  - else
+    %aside.search_sidebar.span-4
+      %p.sort
+        Sort by:
+        %ul
+          - Person::SORTABLE_BY.each do |name, column|
+            %li
+              = link_to name, search_state_path(@state, params.merge({:order => column}))
+
+    %div.search_results.span-20.last
+      %ul.legislators
+        - @legislators.each do |leg|
+          %li[leg]
+            != link_to(leg.full_name, person_path(leg))
+
+      = will_paginate @legislators
