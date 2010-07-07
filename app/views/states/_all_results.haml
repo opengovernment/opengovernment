@@ -12,8 +12,8 @@
       )
 
 - unless @bills.empty?
-  %h3 Bills
   %div.search_results.span-20.last
+    %h3 Bills
     %ul.bills
       - @bills.each do |bill|
         %li[bill]
@@ -22,11 +22,11 @@
     = will_paginate @bills, :class => "pagination"
 
 - unless @legislators.empty?
-  %h3 Legislators
   %aside.search_sidebar.span-4
     %p.sort
 
   %div.search_results.span-20.last
+    %h3 Legislators
     %ul.legislators
       - @legislators.each do |leg|
         %li[leg]
