@@ -12,7 +12,7 @@
       )
 
 - unless @bills.empty?
-
+  %h3 Bills
   %div.search_results.span-20.last
     %ul.bills
       - @bills.each do |bill|
@@ -22,6 +22,7 @@
     = will_paginate @bills, :class => "pagination"
 
 - unless @legislators.empty?
+  %h3 Legislators
   %aside.search_sidebar.span-4
     %p.sort
 
