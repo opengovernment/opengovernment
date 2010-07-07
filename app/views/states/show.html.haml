@@ -1,7 +1,13 @@
-%h2= @state.name
+- title(@state.name)
+
+.span-24.last
+  .span-16
+    %h2
+      = @state.name
+  %p.span-8.last
+    = render :partial => 'search_form'
 
 .span-18.last
-
   .span-18.last.full_lined.less_padding
     .span-4
       This Bill's Page Views
@@ -11,8 +17,6 @@
       Past 30 Days - 67,987
     .span-4.last
       All-Time - 2,235,232
-
-
 
   .span-6
     %h3
@@ -54,10 +58,6 @@
 
   .span-6.last
     %h3 Bills
-
-    %p
-      = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
-
     %p
       Show all bills by:
       .bill_sort

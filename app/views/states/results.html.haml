@@ -1,0 +1,37 @@
+- title("Search")
+
+- case @search_type
+  - when "all"
+    .span-24.last
+      .span-16
+        %h3
+          Search:
+          = @state.name
+        .small.quiet
+          = "Total #{@total_entries} matches."
+      %p.span-8.last
+        = render :partial => 'search_form'
+      = render :partial => "all_results"
+  - when "bills"
+    .span-24.last
+      .span-16
+        %h3
+          Bill Search:
+          = @state.name
+        .small.quiet
+          = "Total #{@total_entries} matches."
+      %p.span-8.last
+        = render :partial => 'search_form'
+      = render :partial => "bills_results"
+  - when "legislators"
+    .span-24.last
+      .span-16
+        %h3
+          Legislator Search:
+          = @state.name
+        .small.quiet
+          = "Total #{@total_entries} matches."
+
+      %p.span-8.last
+        = render :partial => 'search_form'
+      = render :partial => "legislators_results"

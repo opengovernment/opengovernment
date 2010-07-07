@@ -15,6 +15,7 @@ OpenGov::Application.routes.draw do |map|
   end
 
   resources :states do
+    get :search, :on => :member
     resources :votes, :only => [:show]
     resources :bills, :only => [:index]
     resources :people, :only => [:index], :as => 'reps'

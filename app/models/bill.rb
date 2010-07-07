@@ -27,23 +27,29 @@ class Bill < ActiveRecord::Base
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {
-    "Date Introduced" => 'first_action_at desc',
-    "Title" => 'title',
-    "Recent Actions" => 'last_action_at desc'
+    "Date Introduced" => "first_action_at desc",
+    "Title" => "title desc",
+    "Recent Actions" => "last_action_at desc"
   }.freeze
+
+  define_index do
+    indexes title, :sortable => true
+    has bill_number, state_id, session_id, chamber_id, last_action_at, first_action_at
+  end
 
   class << self
     def find_by_session_name_and_param(session, param)
       for_session_named(session).find_by_bill_number(param.titleize.upcase)
     end
 
-    def search(params)
-      scope = Bill.scoped({})
-      scope = scope.titles_like(params[:q]) if params[:q]
-      scope = scope.for_session(params[:session_id]) if params[:session_id]
-      scope = scope.in_chamber(params[:chamber_id]) if params[:chamber_id]
-      scope = scope.for_state(State.find_by_slug(params[:state_id])) if params[:state_id]
-    end
+# TODO: Remove this on next iteration
+#    def search(params)
+#      scope = Bill.scoped({})
+#      scope = scope.titles_like(params[:q]) if params[:q]
+#      scope = scope.for_session(params[:session_id]) if params[:session_id]
+#      scope = scope.in_chamber(params[:chamber_id]) if params[:chamber_id]
+#      scope = scope.for_state(State.find_by_slug(params[:state_id])) if params[:state_id]
+#    end
   end
 
   def to_hashtags

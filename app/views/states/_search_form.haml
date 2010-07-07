@@ -1,0 +1,4 @@
+- form_tag search_state_path(@state), :method => :get do
+  = select_tag :search_type, options_for_select([['Everything', "all"], ['Bills', "bills"],['Legislators', "legislators"]], params[:search_type])
+  = text_field_tag :q, params[:q]
+  = submit_tag "Search"
