@@ -42,8 +42,10 @@ class GovTrackImporter
       end
 
       begin
-        import_person(person)
-      rescue Exception => e
+        Person.transaction do
+          import_person(person)
+        end
+      rescue StandardError => e
         puts "\nSkipping #{person.attributes['id']}-#{person.attributes['name']}: #{e.message}"
         next
       end
@@ -53,32 +55,39 @@ class GovTrackImporter
   end
 
   def import_person(person_xml)
-    @person = person_already_exists?(person_xml)
-    attrs = person_xml.attributes
-    @person.suffix = ''
-    @person.first_name = attrs['firstname']
-    @person.last_name = attrs['lastname']
-    @person.middle_name = attrs['middlename']
-    @person.gender = attrs['gender']
 
-    date = attrs['birthday']
-    @person.birthday = valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
-    @person.religion = attrs['religion']
+    roles = person_xml.search("//role")
+    
+    # We want them to have at least one role that starts within the last 10 years, otherwise don't import them.
+    if roles.any? { |r| valid_date!(r['startdate']) && Date.strptime(r['startdate'], "%Y-%m-%d") > 10.years.ago.to_date }
 
-    @person.votesmart_id = attrs['pvsid']
-    @person.opensecrets_id = attrs['osid']
-    @person.bioguide_id = attrs['bioguideid']
-    @person.youtube_id = attrs['youtubeid']
-    @person.metavid_id = attrs['metavidid']
+      @person = person_already_exists?(person_xml)
+      attrs = person_xml.attributes
+      @person.suffix = ''
+      @person.first_name = attrs['firstname']
+      @person.last_name = attrs['lastname']
+      @person.middle_name = attrs['middlename']
+      @person.gender = attrs['gender']
 
-    if @person.save
-      roles = person_xml.search("//role")
-      roles.each do |role|
-        role = make_role(role)
-        role.save
+      date = attrs['birthday']
+      @person.birthday = valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
+      @person.religion = attrs['religion']
+
+      @person.votesmart_id = attrs['pvsid']
+      @person.opensecrets_id = attrs['osid']
+      @person.bioguide_id = attrs['bioguideid']
+      @person.youtube_id = attrs['youtubeid']
+      @person.metavid_id = attrs['metavidid']
+
+      if @person.save
+        roles.each do |role|
+          role = make_role(role)
+          role.save
+        end
+      else
+        puts "Errors saving the person #{@person.errors.full_messages.join('\n')}"
       end
-    else
-      puts "Errors saving the person #{@person.errors.full_messages.join('\n')}"
+
     end
   end
 

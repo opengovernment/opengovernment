@@ -6,8 +6,8 @@ module OpenGov
           begin
             Address.delete_all(:person_id => person.id)
 
-            main_office =  GovKit::VoteSmart::Address.find person.votesmart_id
-            offices = main_office.office.to_a
+            main_office = GovKit::VoteSmart::Address.find person.votesmart_id
+            offices = [*main_office.office]
 
             offices.each do |office|
               address = person.addresses.find_or_initialize_by_line_one(office.address.street)
