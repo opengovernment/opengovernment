@@ -80,3 +80,11 @@ ALTER TABLE bills
 ALTER TABLE bills
  ADD CONSTRAINT bills_chamber_id_fk
  FOREIGN KEY (chamber_id) REFERENCES chambers (id);
+
+ALTER TABLE versions
+ ADD CONSTRAINT versions_bill_id_fk
+ FOREIGN KEY (bill_id) REFERENCES bills (id);
+
+ALTER TABLE sponsorships
+ ADD CONSTRAINT sponsorships_bill_id_fk
+ FOREIGN KEY (bill_id) REFERENCES bills (id);
