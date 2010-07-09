@@ -95,4 +95,4 @@ CREATE OR REPLACE VIEW v_district_people AS
   from districts d, roles r, people p
   where d.id = r.district_id
   and r.person_id = p.id
-  and current_date between r.start_date and r.end_date
+  and current_date between r.start_date and r.end_date;
