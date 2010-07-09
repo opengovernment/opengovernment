@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 39) do
+ActiveRecord::Schema.define(:version => 40) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -154,9 +154,9 @@ ActiveRecord::Schema.define(:version => 39) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",            :null => false
+    t.string   "first_name",                            :null => false
     t.string   "middle_name"
-    t.string   "last_name",             :null => false
+    t.string   "last_name",                             :null => false
     t.string   "fiftystates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 39) do
     t.string   "email"
     t.string   "votesmart_photo_url"
     t.string   "fiftystates_photo_url"
+    t.string   "bio_data",              :limit => 8000
   end
 
   create_table "ratings", :force => true do |t|

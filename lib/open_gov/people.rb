@@ -59,7 +59,6 @@ module OpenGov
                 if committee = Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) || Committee.find_by_name(fs_role.committee)
                   committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)
                 end
-
             end
           end
         end

@@ -6,7 +6,7 @@ gem 'rails', '3.0.0.beta4'
 gem "pg"
 
 # An alternative form builder
-gem "formtastic"
+gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 
 # Basic authentication
 gem "clearance"
@@ -35,6 +35,7 @@ gem "erubis"
 # Importing & parsing stuff
 gem "httparty"
 gem "hpricot"
+gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git'
 
 # Indexing and Search
 gem 'thinking-sphinx', :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',

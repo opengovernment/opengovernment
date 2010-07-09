@@ -104,6 +104,11 @@ class Person < ActiveRecord::Base
     chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
 
+  def wiki_name
+    normalized_names = [first_name, last_name].map {|name| name.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n, '')}
+    normalized_names.join(' ').gsub(' ', '_')
+  end
+
   def youtube_url
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
   end
