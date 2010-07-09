@@ -34,6 +34,14 @@ module OpenGov
               :start_year => s.start_year,
               :end_year => s.end_year
             )
+            
+            s.sub_sessions.each do |ss|
+              sub_session = Session.find_or_create_by_legislature_id_and_name(leg.id, ss)
+              sub_session.update_attributes!(
+                :start_year => s.start_year,
+                :end_year => s.end_year
+              )
+            end
           end
 
         end

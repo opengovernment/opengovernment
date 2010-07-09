@@ -1,12 +1,18 @@
-%h2= @state.name
+- title(@state.name)
+
+.span-24.last
+  .span-16
+    %h2
+      = @state.name
+  %p.span-8.last
+    = render :partial => 'search_form'
 
 .span-18.last
-
   .span-18.last.full_lined.less_padding
     .span-4
-      This Bill's Page Views                 
+      This Bill's Page Views
     .span-3
-      Today - 3,456                 
+      Today - 3,456
     .span-4
       Past 30 Days - 67,987
     .span-4.last
@@ -37,7 +43,7 @@
         - @state.current_senators.each do |rep|
           %div
             = link_to(rep.full_name, person_path(rep))
-  
+
       %h4
         = Legislature::CONGRESS.lower_chamber.name
       %p
@@ -66,10 +72,6 @@
 
   .span-6.last
     %h3 Bills
-
-    %p
-      = render :partial => 'shared/bill_search_form', :locals => {:state => @state}
-
     %p
       Show all bills by:
       .bill_sort

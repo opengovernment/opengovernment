@@ -18,7 +18,7 @@ class Person < ActiveRecord::Base
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
   has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
-  has_many :ratings, :order => "timespan desc" 
+  has_many :ratings, :order => "timespan desc"
 
   has_many :business_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
@@ -84,6 +84,17 @@ class Person < ActiveRecord::Base
   end
 
 #  acts_as_citeable :keywords => [], :with => [:full_name]
+
+  # How will we allow people to sort bills?
+  SORTABLE_BY = {
+    "First Name" => "first_name asc",
+    "Last Name" => "last_name asc"
+  }.freeze
+
+  define_index do
+    indexes first_name, middle_name, last_name, :sortable => true
+    has email
+  end
 
   def full_name
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
@@ -158,5 +169,9 @@ class Person < ActiveRecord::Base
 
   def to_param
     "#{id}-#{full_name.parameterize}"
+  end
+
+  def photo_url
+    self.fiftystates_photo_url || self.votesmart_photo_url || 'missing.png'
   end
 end

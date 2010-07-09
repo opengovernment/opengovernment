@@ -114,6 +114,7 @@ namespace :load do
     Rake::Task['load:citations'].invoke
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
+    Rake::Task['load:ratings'].invoke
   end
 
   # These tasks are listed in the order that we need the data to be inserted.

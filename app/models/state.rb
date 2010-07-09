@@ -21,7 +21,7 @@ class State < Place
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
 
   # Which states are we importing data for?
-  scope :loadable, :conditions => {:abbrev => ['CA', 'TX']}
+  scope :loadable, :conditions => {:abbrev => ['TX']}
   # this could be:
   # scope :loadable, :conditions => ["launch_date is not null"]
 

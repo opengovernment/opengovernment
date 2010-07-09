@@ -1,0 +1,35 @@
+%hr.span-24.last
+%aside.search_sidebar.span-4
+  %p.filter
+  %p.sort
+    %div
+      Bills (
+      = @bills.size rescue 0
+      )
+    %div
+      People (
+      = @legislators.size rescue 0
+      )
+
+- unless @bills.empty?
+  %div.search_results.span-20.last
+    %h3 Bills
+    %ul.bills
+      - @bills.each do |bill|
+        %li[bill]
+          != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+          != bill.excerpts.title
+    = will_paginate @bills, :class => "pagination"
+
+- unless @legislators.empty?
+  %aside.search_sidebar.span-4
+    %p.sort
+
+  %div.search_results.span-20.last
+    %h3 Legislators
+    %ul.legislators
+      - @legislators.each do |leg|
+        %li[leg]
+          != link_to(leg.full_name, person_path(leg))
+
+    = will_paginate @legislators

@@ -22,6 +22,40 @@ class StatesController < ApplicationController
     end
   end
 
+  def search
+    @query = params[:q]
+    @search_type = params[:search_type]
+    @search_session = params[:session_id]
+    @search_options = {
+      :page => params[:page],
+      :per_page => 15,
+      :order => params[:order]
+    }
+
+    if @search_session
+      @search_options[:with].merge!(:session_id => @search_session)
+    end
+
+    if @query
+      case @search_type
+        when "all"
+          @legislators = Person.search(@query, @search_options)
+          @search_options.merge({:with => {:state_id => @state.id}})
+          @bills = Bill.search(@query, @search_options)
+        when "bills"
+          @search_options.merge({:with => {:state_id => @state.id}})
+          @bills = Bill.search(@query, @search_options)
+          @total_entries = @bills.total_entries
+        when "legislators"
+          @legislators = Person.search(@query, @search_options)
+          @total_entries = @legislators.total_entries
+      end
+      render :template => "states/results.html.haml"
+    else
+      render :nothing => true
+    end
+  end
+
   protected
 
   def get_state

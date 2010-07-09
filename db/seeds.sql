@@ -73,6 +73,14 @@ ALTER TABLE contributions
  ADD CONSTRAINT contributions_business_id_fk
  FOREIGN KEY (business_id) REFERENCES businesses (id);
 
+ALTER TABLE bills
+ ADD CONSTRAINT bills_session_id_fk
+ FOREIGN KEY (session_id) REFERENCES sessions (id);
+
+ALTER TABLE bills
+ ADD CONSTRAINT bills_chamber_id_fk
+ FOREIGN KEY (chamber_id) REFERENCES chambers (id);
+
 CREATE OR REPLACE VIEW v_district_votes AS
   select d.geom as the_geom, rc.vote_id, p.id as person_id, rc.vote_type, r.party, d.state_id, v.chamber_id
   from districts d, roles r, roll_calls rc, people p, votes v

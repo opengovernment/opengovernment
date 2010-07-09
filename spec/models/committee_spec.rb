@@ -3,7 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Committee do
   before(:each) do
     @valid_attributes = {
-      :name => "Appropriations"
+      :name => "Appropriations",
+      :legislature => legislatures(:tx)
     }
   end
 

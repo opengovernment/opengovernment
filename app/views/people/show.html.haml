@@ -3,8 +3,8 @@
 %div.span-4
   %p
     %div
-      - if @person.votesmart_photo_url
-        = image_tag(@person.votesmart_photo_url)
+      - if @person.photo_url
+	= image_tag(@person.photo_url)
       - else
         = image_tag('missing.png')
 
@@ -85,7 +85,8 @@
   .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
   %hr
   %div.span-6
-    %h3 Top List
+    %h3
+      Top List
     - @person.contributions.each do |c|
       .span-4
         = c.business.business_name
@@ -93,7 +94,8 @@
         = number_to_currency(c.amount)
 
   %div.span-6
-    %h3 By Industry
+    %h3
+      By Industry
     - @person.industry_contributions.each do |c|
       .span-4
         = c.industry_name
@@ -101,7 +103,8 @@
         = number_to_currency(c.amount)
 
   %div.span-6
-    %h3 By Sector
+    %h3
+      By Sector
     - @person.sector_contributions.each do |c|
       .span-4
         = c.sector_name
@@ -109,13 +112,19 @@
         = number_to_currency(c.amount)
 
   %div.span-6.last
-    %h3 By Business
+    %h3
+      By Business
     - @person.business_contributions.each do |c|
       .span-4
         = c.business_name
       .span-2.last
         = number_to_currency(c.amount)
 
+- else
+  %p.span-24
+    No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
+    %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
+    == .
 
 %h3 Ratings
 - unless @person.ratings.blank?
@@ -132,6 +141,5 @@
       = rating.rating
 - else
   %p.span-24
-    No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
-    %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
-    == .
+    No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
+    %a{:href => 'http://votesmart.org/program_donations_index.php'} here

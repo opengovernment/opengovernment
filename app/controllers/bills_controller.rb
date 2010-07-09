@@ -1,20 +1,8 @@
 class BillsController < ApplicationController
   before_filter :get_state
-  before_filter :get_bill, :except => [:index]
-
-  def index
-    params.delete(:order) unless params[:order] && Bill::SORTABLE_BY.values.include?(params[:order])
-
-    @bills = Bill.search(params).paginate :page => params[:page], :order => params[:order]
-    
-    respond_to do |format|
-      format.html
-      format.atom
-    end
-  end
+  before_filter :get_bill
 
   protected
-
   def get_bill
     if params[:id]
       @bill = @state && @state.bills.find_by_session_name_and_param(params[:session], params[:id])

@@ -4,9 +4,11 @@ log/*.log
 tmp/**/*
 tmp/*
 db/*_structure.rb
+db/sphinx/*
 public/assets/*
 .bundle/*
 data/*
 vendor/bundler_gems/*
 vendor/cache/*
 .rvmrc
+config/development.sphinx.conf
