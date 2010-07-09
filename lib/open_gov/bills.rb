@@ -34,6 +34,7 @@ module OpenGov
           end
 
           # TODO: Lookup currently active session
+          tx = State.find_by_abbrev('TX')
           [81, 811].each do |session|
             [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
               bills_dir = File.join(state_dir, session.to_s, house, "bills")
@@ -45,7 +46,7 @@ module OpenGov
                 end
                 
                 bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
-                import_bill(bill, State.find_by_abbrev('TX'), options)
+                import_bill(bill, tx, options)
               end
             end
           end
@@ -110,7 +111,7 @@ module OpenGov
           @bill.votes.delete_all
 
           bill.votes.each do |vote|
-            v = @bill.votes.build (
+            v = @bill.votes.create (
               :yes_count => vote.yes_count,
               :no_count => vote.no_count,
               :other_count => vote.other_count,
@@ -119,19 +120,18 @@ module OpenGov
               :motion => vote.motion,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
-
-            v["yes_votes"] && v["yes_votes"].each do |rcall|
-              v.roll_calls.build(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+            
+            vote["yes_votes"] && vote["yes_votes"].each do |rcall|
+              v.roll_calls.create(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
             end
 
-            v["no_votes"] && v["no_votes"].each do |rcall|
-              v.roll_calls.build(:vote_type => 'no', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+            vote["no_votes"] && vote["no_votes"].each do |rcall|
+              v.roll_calls.create(:vote_type => 'no', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
             end
 
-            v["other_votes"] && v["other_votes"].each do |rcall|
-              v.roll_calls.build(:vote_type => 'other', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+            vote["other_votes"] && vote["other_votes"].each do |rcall|
+              v.roll_calls.create(:vote_type => 'other', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
             end
-            v.save!
           end
 
           unless @bill.save!
