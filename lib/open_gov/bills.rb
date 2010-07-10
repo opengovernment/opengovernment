@@ -1,8 +1,17 @@
 module OpenGov
   class Bills < Resources
     VOTES_DIR = File.join(FIFTYSTATES_DIR, "api", "votes")
-
+    
+    @people = {}
+      
     class << self
+      def build_people_hash
+        # Cache all of the ids of people so we don't have to keep looking them up.
+        Person.all(:conditions => "fiftystates_id is not null").each do |p|
+          @people[p.fiftystates_id] = p.id
+        end
+      end
+
       def fetch
         # TODO: This is temporary, as we figure out with Sunlight where these bills
         # will really come from.
@@ -21,6 +30,8 @@ module OpenGov
       # TODO: The :remote => false option only applies to the intial import.
       # after that, we always want to use import_state(state)
       def import!(options = {})
+        build_people_hash
+        
         if options[:remote]
           State.loadable.each do |state|
             import_state(state)
@@ -35,6 +46,7 @@ module OpenGov
 
           # TODO: Lookup currently active session
           tx = State.find_by_abbrev('TX')
+
           [81, 811].each do |session|
             [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
               bills_dir = File.join(state_dir, session.to_s, house, "bills")
@@ -44,7 +56,7 @@ module OpenGov
                   print '.'
                   $stdout.flush
                 end
-                
+
                 bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
                 import_bill(bill, tx, options)
               end
@@ -54,7 +66,7 @@ module OpenGov
       end
 
       def import_state(state)
-        puts "Importing bills for #{state.name} \n"
+        puts "Importing bills for #{state.name}\n"
 
         # TODO: This isn't quite right...
         bills = GovKit::FiftyStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
@@ -103,7 +115,7 @@ module OpenGov
           bill.sponsors.each do |sponsor|
             Sponsorship.create(
               :bill => @bill,
-              :sponsor => Person.find_by_fiftystates_id(sponsor.leg_id.to_s),
+              :sponsor_id => @people[sponsor.leg_id],
               :kind => sponsor[:type]
             )
           end
@@ -122,15 +134,15 @@ module OpenGov
             )
             
             vote["yes_votes"] && vote["yes_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+              v.roll_calls.create(:vote_type => 'yes', :person_id => @people[rcall.leg_id])
             end
 
             vote["no_votes"] && vote["no_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'no', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+              v.roll_calls.create(:vote_type => 'no', :person_id => @people[rcall.leg_id])
             end
 
             vote["other_votes"] && vote["other_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'other', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+              v.roll_calls.create(:vote_type => 'other', :person_id => @people[rcall.leg_id])
             end
           end
 
