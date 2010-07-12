@@ -76,8 +76,6 @@ module OpenGov
                 when GovKit::FiftyStates::CHAMBER_LOWER
                   legislature.lower_chamber
                 end
-<<<<<<< HEAD
-=======
 
               district = chamber.districts.numbered(fs_role.district.to_s).first
 
@@ -85,8 +83,8 @@ module OpenGov
               role.update_attributes!(
                 :person => person,
                 :session => session,
-                :start_date => valid_date!(fs_role.start_date),
-                :end_date => valid_date!(fs_role.end_date),
+                :start_date => valid_date!(fs_role.start_date) || Date.parse("#{session.start_year}-01-01").to_time,
+                :end_date => valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
                 :party => fs_role.party
               )
             when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER :
@@ -94,7 +92,6 @@ module OpenGov
               if committee = (fs_role.votesmart_committee_id? ? Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) : Committee.find_or_create_by_name_and_legislature_id(fs_role.committee, legislature.id))
                 committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)
               end
->>>>>>> 6bca72b858c3acd505fa2bf1b9f82f2ba0bffd03
             end
           end
         end # transaction
