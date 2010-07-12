@@ -2,6 +2,10 @@ module OpenGov
   class Contributions < Resources
     class << self
       def import!
+        puts "Deleting existing contributions.."
+
+        Contribution.delete_all
+
         Person.with_nimsp_candidate_id.each do |person|
           puts "Importing contributions for #{person.full_name}"
 
@@ -14,10 +18,6 @@ module OpenGov
           contributions ||= []
 
           puts "Fetched #{contributions.size} contributions from FollowTheMoney"
-
-          puts "Deleting existing contributions.."
-
-          person.contributions.delete_all
 
           puts "Importing contributions..\n\n"
 

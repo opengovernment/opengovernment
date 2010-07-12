@@ -1,5 +1,8 @@
 module OpenGov
   class Businesses < Resources
+    # TODO: This should be more cleanly separated from contributions --
+    # so we don't have to delete all contributions when we load businesses (the second time)
+    
     class << self
       def fetch
         businesses = GovKit::FollowTheMoney::Business.list
@@ -9,7 +12,8 @@ module OpenGov
 
       def import!
         businesses = fetch
-        puts "Deleting existing buisinesses.."
+        puts "Deleting existing buisinesses and contributions.."        
+        Contribution.delete_all
         Business.delete_all
 
         businesses.each do |business|

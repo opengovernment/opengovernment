@@ -76,7 +76,9 @@ module OpenGov
       def import_bill(bill, state, options)
         Bill.transaction do
           # A bill number alone does not identify a bill; we also need a session ID.
-          @bill = Bill.find_or_create_by_bill_number_and_session_id(bill.bill_id, state.legislature.sessions.find_by_name(bill.session))
+          session = state.legislature.sessions.find_by_name(bill.session)
+          
+          @bill = Bill.find_or_initialize_by_bill_number_and_session_id(bill.bill_id, session.id)
           @bill.title = bill.title
           @bill.fiftystates_id = bill["_id"]
           @bill.state = state
@@ -84,7 +86,13 @@ module OpenGov
 
           # There is no unique data on a bill's actions that we can key off of, so we
           # must delete and recreate them all each time.
-          @bill.actions.clear
+          if @bill.id
+            @bill.actions.delete_all
+            @bill.sponsors.delete_all
+            @bill.versions.delete_all
+            @bill.votes.destroy_all
+          end
+
           bill.actions.each do |action|
             @bill.actions << Action.new(
               :actor => action.actor,
@@ -93,13 +101,12 @@ module OpenGov
           end
 
           bill.versions.each do |version|
-            v = Version.find_or_initialize_by_bill_id_and_name(@bill.id, version.name)
-            v.url = version.url
-            v.save!
+            v = @bill.versions << Version.new(
+              :name => version.name,
+              :url => version.url)
           end
 
           # Same deal as with actions, above
-          Sponsorship.delete_all(:bill_id => @bill.id)
           bill.sponsors.each do |sponsor|
             Sponsorship.create(
               :bill => @bill,
@@ -107,8 +114,6 @@ module OpenGov
               :kind => sponsor[:type]
             )
           end
-
-          @bill.votes.delete_all
 
           bill.votes.each do |vote|
             v = @bill.votes.create (
@@ -120,7 +125,7 @@ module OpenGov
               :motion => vote.motion,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
-            
+                        
             vote["yes_votes"] && vote["yes_votes"].each do |rcall|
               v.roll_calls.create(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
             end

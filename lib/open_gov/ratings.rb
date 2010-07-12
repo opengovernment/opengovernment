@@ -10,10 +10,10 @@ module OpenGov
       def import_issues
         puts "Deleting existing issues"
         Issue.delete_all
-        State.loadable.each do |state|
+        # State.loadable.each do |state|
           begin
-            puts "Importing issues..for #{state.name}"
-            categories = GovKit::VoteSmart::Category.list(state.abbrev)
+            puts "Importing issues.."
+            categories = GovKit::VoteSmart::Category.list()
             categories.each do |kat|
               issue = Issue.find_or_initialize_by_votesmart_id(kat.categoryId)
               issue.name = kat.name
@@ -22,7 +22,7 @@ module OpenGov
           rescue GovKit::ResourceNotFound
             puts "No resource found for #{state.abbrev}"
           end
-        end
+        # end
       end
 
       def import_sigs
