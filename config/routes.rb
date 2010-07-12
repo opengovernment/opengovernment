@@ -31,6 +31,7 @@ OpenGov::Application.routes.draw do |map|
 
   namespace :admin do
     resources :states
+    resources :people
   end
 
   root :to => "home#index"

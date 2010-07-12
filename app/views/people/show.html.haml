@@ -5,7 +5,7 @@
     %div
       = image_tag(@person.photo_url)
 
-%div.span-16.last
+%div.span-10
   %h3
     = @person.official_name
     = @person.affiliation
@@ -32,6 +32,13 @@
     - unless @person.youtube_id.blank?
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
+%div.span-8.last
+  %h3 Bio Data
+  %small.quiet.span
+    From the non-partisan
+    = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}") 
+  %p
+    = @person.bio_data
 %hr
 
 %div.span-6

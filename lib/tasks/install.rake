@@ -184,6 +184,7 @@ namespace :load do
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
     OpenGov::Photos.import!
+    OpenGov::Bios.import!    
   end
 
   desc "Fetch and load people ratings VoteSmart"
