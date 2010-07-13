@@ -12,11 +12,11 @@ describe OpenGov::Resources do
     end
     
     it "should return a date given a date" do
-      OpenGov::Resources::valid_date!(Date.parse("Tue, 12 May 2009")).should == Date.parse("Tue, 12 May 2009")
+      OpenGov::Resources::valid_date!(Date.parse("Tue, 12 May 2009")).should eql(Date.parse("Tue, 12 May 2009"))
     end
 
     it "should return nil if passed nil" do
-      OpenGov::Resources::valid_date!(nil).should == nil
+      OpenGov::Resources::valid_date!(nil).should be_nil
     end
 
     it "should raise a TypeError for an unrecognized type" do
