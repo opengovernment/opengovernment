@@ -1,6 +1,6 @@
 class SpecSuite
   def run
-    Dir["#{File.dirname(__FILE__)}/{models, controllers, views, helpers, webrat}/**/*_spec.rb"].each do |file|
+    Dir["#{File.dirname(__FILE__)}/**/*_spec.rb"].each do |file|
       require file
     end
   end

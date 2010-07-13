@@ -159,7 +159,7 @@ namespace :load do
 
   desc "Fetch and load Wikipedia bios"
   task :bios => :environment do
-    OpenGov::.import!
+    OpenGov::Bios.import!
   end
 
   desc "Load bills from FiftyStates"
