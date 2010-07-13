@@ -22,9 +22,7 @@ Before you install the app, you will need to download and install the following:
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
 
 To prepare the test database, run the following:
-    rake db:test:prepare
-    RAILS_ENV=test rake db:create:postgis
-    RAILS_ENV=test rake spec:db:fixtures:load
+    RAILS_ENV=test rake db:prepare
 
 To run tests:
     script/spec_server &

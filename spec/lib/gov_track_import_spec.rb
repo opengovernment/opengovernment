@@ -10,13 +10,13 @@ describe GovTrackImporter do
   context ".fetch_data" do
     it "should fetch the data to default data directory" do
       GovTrackImporter.fetch_data
-      File.exist?(File.join(DATA_DIR, @data_file)).should be_true
+      File.exist?(File.join(DATA_DIR, @data_file)).should == true
     end
 
     it "should fetch the data to the given directory" do
       directory = Rails.root.join("spec", "fixtures", "data")
       GovTrackImporter.fetch_data(directory)
-      File.exist?(File.join(directory, @data_file)).should be_true
+      File.exist?(File.join(directory, @data_file)).should == true
     end
   end
 
@@ -33,7 +33,7 @@ describe GovTrackImporter do
       end.should change(Person, :count).by(@people.size)
 
       @people.each do |person|
-        Person.find_by_govtrack_id(person.attributes['id']).should_not be_nil
+        Person.find_by_govtrack_id(person.attributes['id']).should_not == nil
       end
     end
   end

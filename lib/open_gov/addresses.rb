@@ -2,8 +2,16 @@ module OpenGov
   class Addresses < Resources
     class << self
       def import!
+        puts "Importing addresses from VoteSmart"
+        s, u = 0, 0
+                
         Person.with_votesmart_id.with_current_role.each do |person|
           begin
+            if u % 10 == 0
+              print '.'
+              $stdout.flush
+            end
+
             Address.delete_all(:person_id => person.id)
 
             main_office = GovKit::VoteSmart::Address.find person.votesmart_id
@@ -41,12 +49,15 @@ module OpenGov
                   website_count+=1
               end
             end
-            puts "Updating #{person.to_param}"
+            # puts "Updating #{person.to_param}"
+            u += 1
             person.save
           rescue GovKit::ResourceNotFound
-            puts "No addresses found for #{person.to_param}"
+            s += 1
+            # puts "No addresses found for #{person.to_param}"
           end
-        end
+        end # Person.each
+        puts "Updated addresses for #{u} people; skipped #{s}."
       end
     end
   end

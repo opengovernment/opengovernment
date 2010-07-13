@@ -105,13 +105,19 @@ end
 desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
   task :all  => :environment do
+    puts "---------- Loading database fixtures"
     Rake::Task['load:fixtures'].execute
+    puts "---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
     Rake::Task['load:committees'].invoke
+    puts '---------- Loading people'
     Rake::Task['load:people'].invoke
+    puts '---------- Loading bills'
     Rake::Task['load:bills'].invoke
+    puts '---------- Loading news & blog citations'
     Rake::Task['load:citations'].invoke
+    puts '---------- Loading PVS contribution and ratings data'
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
     Rake::Task['load:ratings'].invoke
@@ -151,9 +157,14 @@ namespace :load do
     OpenGov::Citations.import!
   end
 
-  desc "Fetch and load bills from FiftyStates"
+  desc "Fetch and load Wikipedia bios"
+  task :bios => :environment do
+    OpenGov::Bios.import!
+  end
+
+  desc "Load bills from FiftyStates"
   task :bills => :environment do
-    puts "Fetching and loading bills from Fifty States"
+    puts "Loading bills from Fifty States"
     OpenGov::Bills.import!
     puts "Marking Votesmart Key Votes"
     OpenGov::KeyVotes.import!
@@ -174,7 +185,7 @@ namespace :load do
     OpenGov::Contributions.import!
   end
 
-  desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
+  desc "Fetch and load people from FiftyStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     OpenGov::People.import!
 

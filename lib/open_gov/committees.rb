@@ -29,7 +29,7 @@ module OpenGov
           )
         end
 
-        puts "Imported #{i} committees"
+        puts "Imported #{i} committees."
       end
 
     end
