@@ -105,13 +105,19 @@ end
 desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
   task :all  => :environment do
+    puts "---------- Loading database fixtures"
     Rake::Task['load:fixtures'].execute
+    puts "---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
     Rake::Task['load:committees'].invoke
+    puts '---------- Loading people'
     Rake::Task['load:people'].invoke
+    puts '---------- Loading bills'
     Rake::Task['load:bills'].invoke
+    puts '---------- Loading news & blog citations'
     Rake::Task['load:citations'].invoke
+    puts '---------- Loading PVS contribution and ratings data'
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
     Rake::Task['load:ratings'].invoke

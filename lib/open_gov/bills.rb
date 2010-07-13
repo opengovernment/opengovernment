@@ -50,6 +50,7 @@ module OpenGov
               end
             end
           end
+          puts "Loaded #{i} bills."
         end
       end
 
@@ -70,6 +71,8 @@ module OpenGov
 
             import_bill(bill, state, {})
           end
+
+          puts "Loaded #{i} bills."
         end
       end
 
