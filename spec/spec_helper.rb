@@ -17,7 +17,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  Rspec.configure do |config|
+  RSpec.configure do |config|
     # == Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
