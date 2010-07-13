@@ -32,18 +32,18 @@ class Role < ActiveRecord::Base
     self.start_date < Date.today && Date.today < self.end_date
   end
 
-  def party_color
+  def party_abbr
     if party.blank?
-      return "unknown"
+      return "ind"
     end
 
     case party
     when "Democrat":
-      "blue"
+      "dem"
     when "Republican":
-      "red"
+      "rep"
     else
-      "grey"
+      "ind"
     end
   end
 

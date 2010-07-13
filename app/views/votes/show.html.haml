@@ -14,8 +14,6 @@
       #{vote_type.capitalize} Votes
       %ul.roll_call
         - roll_calls.each do |roll_call|
-          %li
-            -# TODO: This triggers a query for every roll call. Should only trigger one query.
-            = roll_call.person.roles.on_date(@vote.date).first.party_color
+          -# TODO: This triggers a query for every roll call. Should only trigger one query.
+          %li(class="vote_#{roll_call.person.roles.on_date(@vote.date).first.party_abbr}_#{vote_type}")
             = link_to roll_call.person.full_name, person_path(roll_call.person)
-

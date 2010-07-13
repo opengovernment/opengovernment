@@ -127,17 +127,11 @@ module OpenGov
               :motion => vote.motion,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
-                        
-            vote["yes_votes"] && vote["yes_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'yes', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
-            end
-
-            vote["no_votes"] && vote["no_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'no', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
-            end
-
-            vote["other_votes"] && vote["other_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => 'other', :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s))
+             
+            ['yes', 'no', 'other'].each do |vote_type|   
+              vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
+                v.roll_calls.create(:vote_type => vote_type, :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s)) if rcall.leg_id
+              end
             end
           end
 

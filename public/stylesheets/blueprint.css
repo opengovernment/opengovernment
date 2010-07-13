@@ -360,7 +360,46 @@ padding-right: 20px;
 
 .roll_call{
 padding: 20px 0 0 ;
+list-style: square outside;
 }
+
+
+.roll_call li {
+  padding-left: 14px !important;
+}
+
+/* showing vote color boxes */
+.roll_call .vote_dem_yes {
+  background: url(/images/votes/dem-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_dem_no {
+  background: url(/images/votes/dem-no-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_dem_other {
+  background: url(/images/votes/dem-other-box.gif) no-repeat 0% 50%;
+}
+
+.roll_call .vote_rep_yes {
+  background: url(/images/votes/rep-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_rep_other {
+  background: url(/images/votes/rep-other-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_rep_no {
+  background: url(/images/votes/rep-no-box.gif) no-repeat 0% 50%;
+}
+
+.roll_call .vote_ind_yes {
+  background: url(/images/votes/ind-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_ind_no {
+  background: url(/images/votes/ind-no-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_ind_other {
+  background: url(/images/votes/ind-other-box.gif) no-repeat 0% 50%;
+}
+
+
 
 .key_votes li{
 border-bottom: 1px solid #ddd;
