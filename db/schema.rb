@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 41) do
+ActiveRecord::Schema.define(:version => 43) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(:version => 41) do
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
+  end
+
+  create_table "bills_subjects", :force => true do |t|
+    t.integer  "bill_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "businesses", :force => true do |t|
@@ -256,6 +263,13 @@ ActiveRecord::Schema.define(:version => 41) do
     t.boolean  "unicameral",               :default => false
     t.integer  "fips_code"
     t.datetime "launch_date"
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subscriptions", :force => true do |t|
