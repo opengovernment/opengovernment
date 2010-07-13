@@ -24,6 +24,8 @@ class Bill < ActiveRecord::Base
   has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
 
   acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
+  has_many :bills_subjects
+  has_many :subjects, :through => :bills_subjects
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {

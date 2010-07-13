@@ -44,7 +44,7 @@ module OpenGov
                   print '.'
                   $stdout.flush
                 end
-                
+
                 bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
                 import_bill(bill, tx, options)
               end
@@ -77,7 +77,7 @@ module OpenGov
         Bill.transaction do
           # A bill number alone does not identify a bill; we also need a session ID.
           session = state.legislature.sessions.find_by_name(bill.session)
-          
+
           @bill = Bill.find_or_initialize_by_bill_number_and_session_id(bill.bill_id, session.id)
           @bill.title = bill.title
           @bill.fiftystates_id = bill["_id"]
@@ -91,6 +91,7 @@ module OpenGov
             @bill.sponsors.delete_all
             @bill.versions.delete_all
             @bill.votes.destroy_all
+            @bill.subjects.destroy_all
           end
 
           bill.actions.each do |action|
@@ -117,6 +118,10 @@ module OpenGov
             )
           end
 
+          bill.subjects.each do |subject|
+            @bill.subjects.create(:name => subject)
+          end
+
           bill.votes.each do |vote|
             v = @bill.votes.create (
               :yes_count => vote.yes_count,
@@ -127,8 +132,8 @@ module OpenGov
               :motion => vote.motion,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
-             
-            ['yes', 'no', 'other'].each do |vote_type|   
+
+            ['yes', 'no', 'other'].each do |vote_type|
               vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
                 v.roll_calls.create(:vote_type => vote_type, :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s)) if rcall.leg_id
               end

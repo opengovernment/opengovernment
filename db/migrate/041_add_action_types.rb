@@ -1,4 +1,4 @@
-class AddBillSubjectsAndActionTypes < ActiveRecord::Migration
+class AddActionTypes < ActiveRecord::Migration
   def self.up
     remove_column :actions, :actor_type
     add_column :actions, :action_number, :string
