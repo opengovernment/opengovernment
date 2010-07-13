@@ -151,9 +151,14 @@ namespace :load do
     OpenGov::Citations.import!
   end
 
-  desc "Fetch and load bills from FiftyStates"
+  desc "Fetch and load Wikipedia bios"
+  task :bios => :environment do
+    OpenGov::.import!
+  end
+
+  desc "Load bills from FiftyStates"
   task :bills => :environment do
-    puts "Fetching and loading bills from Fifty States"
+    puts "Loading bills from Fifty States"
     OpenGov::Bills.import!
     puts "Marking Votesmart Key Votes"
     OpenGov::KeyVotes.import!
@@ -174,7 +179,7 @@ namespace :load do
     OpenGov::Contributions.import!
   end
 
-  desc "Fetch and load people from FiftyStates, GovTrack and VoteSmart"
+  desc "Fetch and load people from FiftyStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     OpenGov::People.import!
 
