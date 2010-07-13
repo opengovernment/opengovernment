@@ -97,6 +97,8 @@ module OpenGov
             @bill.actions << Action.new(
               :actor => action.actor,
               :action => action.action,
+              :kind => action[:type].first,
+              :action_number => action.action_number,
               :date => valid_date!(action.date))
           end
 

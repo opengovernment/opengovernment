@@ -10,4 +10,6 @@ describe Action do
   it "should create a new instance given valid attributes" do
     Action.create!(@valid_attributes)
   end
+
+  it ""
 end

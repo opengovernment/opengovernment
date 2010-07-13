@@ -5,7 +5,8 @@
   action: Signed in Senate-Art III Sec 49a Tx. Const.
   date: 2009-07-01 07:00:00
   id: "187020"
-  actor_type: 
+  kind: "other"
+  action_number: "S1"
   bill: HB10
 2:
   created_at: 2010-05-12 19:46:34.241088
@@ -13,8 +14,9 @@
   actor: lower
   action: Senate passage reported
   date: 2009-07-01 07:00:00
+  kind: "other"
+  action_number: "H1"
   id: "187023"
-  actor_type: 
   bill: HB10
 3:
   created_at: 2010-05-12 19:46:34.225959
@@ -22,17 +24,19 @@
   actor: executive
   action: Sent to the Governor
   date: 2009-07-07 07:00:00
+  action_number: "H2"
+  kind: "other"
   id: "187018"
-  actor_type: 
   bill: HB10
 4:
   created_at: 2010-05-12 19:46:34.228793
   updated_at: 2010-05-12 19:46:34.228793
   actor: executive
   action: Sent to the Comptroller
+  action_number: "H3"
+  kind: "other"
   date: 2009-07-06 07:00:00
   id: "187019"
-  actor_type: 
   bill: HB10
 5:
   created_at: 2010-05-12 19:46:34.234419
@@ -40,35 +44,39 @@
   actor: lower
   action: Signed in the House
   date: 2009-07-01 07:00:00
+  kind: "other"
+  action_number: "H4"
   id: "187021"
-  actor_type: 
   bill: HB10
 6:
   created_at: 2010-05-12 19:46:34.237764
   updated_at: 2010-05-12 19:46:34.237764
   actor: lower
-  action: Reported enrolled
+  action: Introduced
+  kind: "bill:introduced"
+  action_number: "H0"
   date: 2009-07-01 07:00:00
   id: "187022"
-  actor_type: 
   bill: HB10
 7:
   created_at: 2010-05-12 19:46:34.218392
   updated_at: 2010-05-12 19:46:34.218392
   actor: executive
   action: Effective immediately
+  action_number: "H6"
+  kind: "other"
   date: 2009-07-09 07:00:00
   id: "187016"
-  actor_type: 
   bill: HB10
 8:
   created_at: 2010-05-12 19:46:34.222959
   updated_at: 2010-05-12 19:46:34.222959
   actor: executive
   action: Signed by the Governor
+  action_number: "H7"
   date: 2009-07-09 07:00:00
   id: "187017"
-  actor_type: 
+  kind: "other"
   bill: HB10
 9:
   created_at: 2010-05-12 19:46:34.247489
@@ -76,15 +84,18 @@
   actor: upper
   action: Passed
   date: 2009-07-01 07:00:00
+  kind: "bill:passed"
+  action_number: "H8"
   id: "187025"
-  actor_type: 
+  kind: "other"
   bill: HB10
 10:
   created_at: 2010-05-12 19:46:34.244421
   updated_at: 2010-05-12 19:46:34.244421
-  actor: upper
+  actor: lower
   action: Record vote
   date: 2009-07-01 07:00:00
+  action_number: "H10"
   id: "187024"
-  actor_type: 
+  kind: "other"
   bill: HB10
