@@ -3,12 +3,15 @@ module OpenGov
     def self.valid_date!(date)
       return nil unless date
 
-      case date.class.to_s
-      when 'Float', 'Integer'
+      if [Float, Integer].any? { |x| date.kind_of?(x) }
         Time.at(date).to_date 
-      when 'String'
-        Date.parse(date)
-      when 'Date'
+      elsif date.kind_of?(String)
+        begin
+          return Date.parse(date)
+        rescue ArgumentError
+          return Chronic.parse(date)
+        end
+      elsif date.kind_of?(Date)
         date
       else
         raise TypeError, "We only know about floats, integers, and strings"

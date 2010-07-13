@@ -21,6 +21,7 @@ gem "geokit"
 
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git'
+gem "chronic" # Complex date string parsing
 
 # Simple pagination
 gem "will_paginate"
