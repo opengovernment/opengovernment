@@ -36,13 +36,13 @@
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
-            <Fill>
-              <CssParameter name="fill">#405695</CssParameter>
-            </Fill>
-            <Stroke>
+              <Fill>
+                <CssParameter name="fill">#405695</CssParameter>
+              </Fill>
+              <Stroke>
                 <CssParameter name="stroke">#ffffff</CssParameter>
                 <CssParameter name="stroke-width">0.5</CssParameter>
-            </Stroke>
+              </Stroke>
           </PolygonSymbolizer>
         </Rule>
         
@@ -60,22 +60,28 @@
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
+              <Fill>
+                <CssParameter name="fill">#7a9ec6</CssParameter>
+              </Fill>
+          </PolygonSymbolizer>
+          <PolygonSymbolizer>
             <Fill>
               <GraphicFill>
                 <Graphic>
-                  <ExternalGraphic>
-                    <OnlineResource
-                      xlink:type="simple"
-                      xlink:href="http://localhost:3000/images/geoserver/dem-no.png" />
-                    <Format>image/png</Format>
-                  </ExternalGraphic>
-                <Size>10</Size>
+                  <Mark>
+                    <WellKnownName>shape://slash</WellKnownName>
+                    <Stroke>
+                      <CssParameter name="stroke">#bbcbe1</CssParameter>
+                      <CssParameter name="stroke-width">1</CssParameter>
+                    </Stroke>
+                  </Mark>
+                  <Size>4</Size>
                 </Graphic>
               </GraphicFill>
             </Fill>
             <Stroke>
-              <CssParameter name="stroke">#ffffff</CssParameter>
-              <CssParameter name="stroke-width">0.5</CssParameter>
+                <CssParameter name="stroke">#ffffff</CssParameter>
+                <CssParameter name="stroke-width">0.5</CssParameter>
             </Stroke>
           </PolygonSymbolizer>
         </Rule>
@@ -100,7 +106,8 @@
             <Stroke>
               <CssParameter name="stroke">#ffffff</CssParameter>
               <CssParameter name="stroke-width">0.5</CssParameter>
-            </Stroke>          </PolygonSymbolizer>
+            </Stroke>
+          </PolygonSymbolizer>
         </Rule>
 
         <Rule>
@@ -141,22 +148,28 @@
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
+              <Fill>
+                <CssParameter name="fill">#d99186</CssParameter>
+              </Fill>
+          </PolygonSymbolizer>
+          <PolygonSymbolizer>
             <Fill>
               <GraphicFill>
                 <Graphic>
-                  <ExternalGraphic>
-                    <OnlineResource
-                      xlink:type="simple"
-                      xlink:href="http://localhost:3000/images/geoserver/rep-no.png" />
-                    <Format>image/png</Format>
-                  </ExternalGraphic>
-                <Size>10</Size>
+                  <Mark>
+                    <WellKnownName>shape://slash</WellKnownName>
+                    <Stroke>
+                      <CssParameter name="stroke">#ebc6bf</CssParameter>
+                      <CssParameter name="stroke-width">1</CssParameter>
+                    </Stroke>
+                  </Mark>
+                  <Size>4</Size>
                 </Graphic>
               </GraphicFill>
             </Fill>
             <Stroke>
-              <CssParameter name="stroke">#ffffff</CssParameter>
-              <CssParameter name="stroke-width">0.5</CssParameter>
+                <CssParameter name="stroke">#ffffff</CssParameter>
+                <CssParameter name="stroke-width">0.5</CssParameter>
             </Stroke>
           </PolygonSymbolizer>
         </Rule>

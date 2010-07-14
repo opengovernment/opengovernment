@@ -11,18 +11,6 @@
 
         <Rule>
           <Title>Polygon</Title>
-          <ogc:Filter>
-            <ogc:And>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>state_id</ogc:PropertyName>
-                <ogc:Literal>47</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>chamber_id</ogc:PropertyName>
-                <ogc:Literal>3</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </ogc:And>
-          </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
               <CssParameter name="fill">#cccccccc</CssParameter>
@@ -36,20 +24,10 @@
 
        <Rule>
           <ogc:Filter>
-            <ogc:And>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democrat</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>state_id</ogc:PropertyName>
-                <ogc:Literal>47</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>chamber_id</ogc:PropertyName>
-                <ogc:Literal>3</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </ogc:And>
+          <ogc:PropertyIsEqualTo>
+            <ogc:PropertyName>party</ogc:PropertyName>
+            <ogc:Literal>Democrat</ogc:Literal>
+          </ogc:PropertyIsEqualTo>
           </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
@@ -64,20 +42,10 @@
         
         <Rule>
           <ogc:Filter>
-            <ogc:And>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
                 <ogc:Literal>Republican</ogc:Literal>
               </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>state_id</ogc:PropertyName>
-                <ogc:Literal>47</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>chamber_id</ogc:PropertyName>
-                <ogc:Literal>3</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
-            </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
