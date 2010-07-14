@@ -1,0 +1,160 @@
+<html>
+<head>
+<script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <style type="text/css">
+	        .olControlSLDSelectPointActive {
+	            cursor: pointer;
+	        }
+	    </style>
+<script defer="defer" type="text/javascript">
+  var map, options, layer, wfs, control;
+
+  function init() {
+    var bbox = new OpenLayers.Bounds(-106.645646, 25.837377, -93.5164072637683, 36.500704)
+    var url = "http://localhost:8080/geoserver/";
+    
+    // create a map with non-default options in an element with id "map2"
+    options = {
+      maxExtent: bbox,
+      controls: [
+        new OpenLayers.Control.ZoomPanel(),
+        new OpenLayers.Control.Navigation({documentDrag: true}),
+        new OpenLayers.Control.KeyboardDefaults()
+      ]
+    };
+    map = new OpenLayers.Map('map', options);
+
+    layer = new OpenLayers.Layer.WMS("Texas", 
+      url + "wms",
+        {service: "WMS",
+        request: "GetMap",
+        version: "1.1.1",
+        format: "image/gif",
+        layers: 'cite:v_district_people',
+        bbox: bbox.toBBOX(),
+        SLD: 'http://localhost:3000/people.xml'},
+      {maxResolution: "auto",
+      numZoomLevels: 3,
+      singleTile: true} 
+    );
+/*
+    wfs = new OpenLayers.Layer.Vector("WFS", {
+        // strategies: [new OpenLayers.Strategy.BBOX()],
+        protocol: new OpenLayers.Protocol.WFS({
+            url:  url + "wfs",
+            featureType: "v_district_people",
+            featureNS: "http://www.openplans.org/topp",
+            request: "GetFeature",
+            typeName: 'cite:v_district_people'
+        //    maxFeatures: '1',
+        //    sortBy=property''
+        //    bbox=a1,b1,a2,b2
+        //    cql_filter=INTERSECT(the_geom,%20POINT%20(-74.817265%2040.5296504))
+        }),
+        hover: true
+    //    multipleKey: "shiftKey",
+    //    toggleKey: "ctrlKey"
+    });
+
+   wfs = new OpenLayers.Layer.Vector("WFS", {
+        strategies: [new OpenLayers.Strategy.BBOX()],
+        filter: [new OpenLayers.Filter.Comparison({
+            type: OpenLayers.Filter.Comparison.EQUAL_TO,
+            property: 'state_id',
+            value: '47'
+        }),
+        new OpenLayers.Filter.Comparison({
+            type: OpenLayers.Filter.Comparison.EQUAL_TO,
+            property: 'chamber_id',
+            value: '3'
+        })], // undocumented!
+        protocol: new OpenLayers.Protocol.WFS({
+            url:  url + "wfs",
+            featureType: "v_district_people",
+            featureNS: "cite"
+        }),
+        hover: true
+    });
+
+*/
+    control = new OpenLayers.Control.GetFeature({
+                    strategies: [new OpenLayers.Strategy.BBOX()],
+                    protocol: new OpenLayers.Protocol.WFS({
+                        url:  url + "wfs",
+                        featureType: "v_district_people",
+                        featureNS: "cite",
+                        request: "GetFeature",
+                        filter: new OpenLayers.Filter.Comparison({
+                                type: OpenLayers.Filter.Comparison.EQUAL_TO,
+                                property: 'state_id',
+                                value: '47'
+                            })
+                    //    typeName: 'cite:v_district_people',
+                    //    maxFeatures: '1',
+                    //    sortBy=property''
+                    //    bbox=a1,b1,a2,b2
+                    }),
+                  //  box: true,
+                    hover: true,
+                    multipleKey: "shiftKey",
+                    toggleKey: "ctrlKey"
+                });
+    hover = new OpenLayers.Layer.Vector("Hover");
+
+    map.addLayers([layer]);
+    map.setCenter(bbox.getCenterLonLat());
+
+/*    control.events.register("featureselected", this, function(e) {
+        select.addFeatures([e.feature]);
+    });
+    control.events.register("featureunselected", this, function(e) {
+        select.removeFeatures([e.feature]);
+    }); */
+    control.events.register("hoverfeature", this, function(e) {
+        hover.addFeatures([e.feature]);
+    });
+    control.events.register("outfeature", this, function(e) {
+        hover.removeFeatures([e.feature]);
+    });
+    map.addControl(control);
+    control.activate();
+
+/*
+    select = new OpenLayers.Layer.Vector("Selection", {styleMap: 
+        new OpenLayers.Style(OpenLayers.Feature.Vector.style["select"])
+    });
+    hover = new OpenLayers.Layer.Vector("Hover");
+
+    control = new OpenLayers.Control.GetFeature({
+        protocol: OpenLayers.Protocol.WFS.fromWMSLayer(layer),
+        box: true,
+        hover: true,
+        multipleKey: "shiftKey",
+        toggleKey: "ctrlKey"
+    });
+    control.events.register("featureselected", this, function(e) {
+        select.addFeatures([e.feature]);
+    });
+    control.events.register("featureunselected", this, function(e) {
+        select.removeFeatures([e.feature]);
+    });
+    control.events.register("hoverfeature", this, function(e) {
+        hover.addFeatures([e.feature]);
+    });
+    control.events.register("outfeature", this, function(e) {
+        hover.removeFeatures([e.feature]);
+    });
+    map.addControl(control);
+    control.activate();
+*/
+
+  }
+</script>
+
+</head>
+<body onload="init()">
+<h1>Test</h1>
+<div id="map"></div>
+
+</body>
+</html>

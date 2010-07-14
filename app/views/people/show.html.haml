@@ -3,7 +3,10 @@
 %div.span-4
   %p
     %div
-      = image_tag(@person.photo_url)
+      - if @person.photo_url
+	= image_tag(@person.photo_url)
+      - else
+        = image_tag('missing.png')
 
 %div.span-10
   %h3

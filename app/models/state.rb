@@ -45,6 +45,19 @@ class State < Place
   def to_param
     "#{name.parameterize}"
   end
+  
+  def bbox
+    # We get a result back that looks something like this:
+    # => "BOX(-106.645646 25.837377,-93.5164072637683 36.500704)"
+    # So we need to simply turn this into a bounding box array and return that.
+
+    if bbox_text = District.first(:select => "st_extent(geom) as geo", :group => "state_id", :conditions => {:state_id => id}).geo
+      if md = bbox_text.match(%r{BOX\(([^\)]*)\)})
+        return md[1].split(/,| /).collect {|x| x.to_f}
+      end
+    end
+    nil
+  end
 
   def unsupported?
     launch_date.blank?

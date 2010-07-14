@@ -18,6 +18,20 @@
     .span-4.last
       All-Time - 2,235,232
 
+
+  .span-18.last
+    .span-9
+      = @state.legislature.name
+      = @state.legislature.upper_chamber.name
+      %br
+      %img(src="http://localhost:8080/geoserver/wms?service=WMS&request=GetMap&version=1.1.1&layers=cite:v_district_people&bbox=#{@state.bbox.join(",")}&cql_filter=state_id+=+#{@state.id}+and+chamber_id+=+#{@state.legislature.upper_chamber.id}&width=300&height=300&format=image/png&SLD=http%3A%2F%2Flocalhost%3A3000%2Fpeople.xml" width="300" height="300")
+    .span-9.last
+      = @state.legislature.name
+      = @state.legislature.lower_chamber.name
+      %br
+      %img(src="http://localhost:8080/geoserver/wms?service=WMS&request=GetMap&version=1.1.1&layers=cite:v_district_people&bbox=#{@state.bbox.join(",")}&cql_filter=state_id+=+#{@state.id}+and+chamber_id+=+#{@state.legislature.lower_chamber.id}&width=300&height=300&format=image/png&SLD=http%3A%2F%2Flocalhost%3A3000%2Fpeople.xml" width="300" height="300")
+
+
   .span-6
     %h3
       = Legislature::CONGRESS.name

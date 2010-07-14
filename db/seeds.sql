@@ -88,3 +88,19 @@ ALTER TABLE versions
 ALTER TABLE sponsorships
  ADD CONSTRAINT sponsorships_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
+
+CREATE OR REPLACE VIEW v_district_votes AS
+  select d.geom as the_geom, rc.vote_id, p.id as person_id, rc.vote_type, r.party, d.state_id, v.chamber_id
+  from districts d, roles r, roll_calls rc, people p, votes v
+  where d.id = r.district_id
+  and rc.person_id = p.id
+  and r.person_id = p.id
+  and v.id = rc.vote_id
+  and v.date between r.start_date and r.end_date;
+
+CREATE OR REPLACE VIEW v_district_people AS
+  select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
+  from districts d, roles r, people p
+  where d.id = r.district_id
+  and r.person_id = p.id
+  and current_date between r.start_date and r.end_date;
