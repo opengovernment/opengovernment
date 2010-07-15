@@ -23,6 +23,7 @@
         </Rule> -->
 
        <Rule>
+         <Name>Democrats: Yes</Name>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -47,6 +48,7 @@
         </Rule>
         
         <Rule>
+          <Title>Democrats: No</Title>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -87,6 +89,7 @@
         </Rule>
 
         <Rule>
+          <Title>Democrats: Other</Title>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -101,7 +104,7 @@
           </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#ff6060</CssParameter>
+              <CssParameter name="fill">#dddddd</CssParameter>
             </Fill>
             <Stroke>
               <CssParameter name="stroke">#ffffff</CssParameter>
@@ -111,6 +114,7 @@
         </Rule>
 
         <Rule>
+          <Title>Republicans: Yes</Title>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -135,6 +139,7 @@
         </Rule>
 
         <Rule>
+          <Title>Republicans: No</Title>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -175,6 +180,7 @@
         </Rule>
 
         <Rule>
+          <Title>Republicans: Other</Title>
           <ogc:Filter>
             <ogc:And>
               <ogc:PropertyIsEqualTo>
@@ -189,7 +195,7 @@
           </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#cccccc</CssParameter>
+              <CssParameter name="fill">#dddddd</CssParameter>
             </Fill>
             <Stroke>
               <CssParameter name="stroke">#ffffff</CssParameter>
@@ -197,20 +203,110 @@
             </Stroke>
           </PolygonSymbolizer>
         </Rule>
-<!--
 
         <Rule>
+          <Title>Other: Yes</Title>
           <ogc:Filter>
-            <ogc:PropertyIsEqualTo>
-              <ogc:PropertyName>vote_type</ogc:PropertyName>
-              <ogc:Literal>other</ogc:Literal>
-            </ogc:PropertyIsEqualTo>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>vote_type</ogc:PropertyName>
+                <ogc:Literal>yes</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Republican</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+            </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
- 
+            <Fill>
+              <CssParameter name="fill">#666666</CssParameter>
+            </Fill>
+            <Stroke>
+              <CssParameter name="stroke">#ffffff</CssParameter>
+              <CssParameter name="stroke-width">0.5</CssParameter>
+            </Stroke>
           </PolygonSymbolizer>
         </Rule>
-        -->
+
+        <Rule>
+          <Title>Other: No</Title>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>vote_type</ogc:PropertyName>
+                <ogc:Literal>no</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Republican</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+          <PolygonSymbolizer>
+              <Fill>
+                <CssParameter name="fill">#999999</CssParameter>
+              </Fill>
+          </PolygonSymbolizer>
+          <PolygonSymbolizer>
+            <Fill>
+              <GraphicFill>
+                <Graphic>
+                  <Mark>
+                    <WellKnownName>shape://slash</WellKnownName>
+                    <Stroke>
+                      <CssParameter name="stroke">#ebc6bf</CssParameter>
+                      <CssParameter name="stroke-width">1</CssParameter>
+                    </Stroke>
+                  </Mark>
+                  <Size>4</Size>
+                </Graphic>
+              </GraphicFill>
+            </Fill>
+            <Stroke>
+                <CssParameter name="stroke">#ffffff</CssParameter>
+                <CssParameter name="stroke-width">0.5</CssParameter>
+            </Stroke>
+          </PolygonSymbolizer>
+        </Rule>
+
+        <Rule>
+          <Title>Other: Other</Title>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>vote_type</ogc:PropertyName>
+                <ogc:Literal>other</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Republican</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democrat</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+          <PolygonSymbolizer>
+            <Fill>
+              <CssParameter name="fill">#dddddd</CssParameter>
+            </Fill>
+            <Stroke>
+              <CssParameter name="stroke">#ffffff</CssParameter>
+              <CssParameter name="stroke-width">0.5</CssParameter>
+            </Stroke>
+          </PolygonSymbolizer>
+        </Rule>
+
       </FeatureTypeStyle>
     </UserStyle>
   </NamedLayer>
