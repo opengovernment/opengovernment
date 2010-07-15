@@ -16,7 +16,11 @@ module OpenGov
       else
         raise TypeError, "We only know about floats, integers, and strings"
       end
-
     end
+    
+    def self.scale(i, from, to)
+      sprintf("%.1f", (((i || 0).to_f / from) * to)).to_f
+    end
+    
   end
 end
