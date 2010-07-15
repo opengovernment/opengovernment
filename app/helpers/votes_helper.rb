@@ -9,7 +9,7 @@ module VotesHelper
       &chm=#{u markers}).gsub(/\n\s+/,'')
 
   CHART_WIDTH = 300
-  CHART_HEIGHT = 120
+  CHART_HEIGHT = 100
   
   # If a given bar is more than 100 pixels long, it's safe to show the label.
   LABEL_MIN_WIDTH = 80
@@ -77,10 +77,28 @@ module VotesHelper
         end
       end
 
-      img = '<img src="' + eval('"' + CHART_URL + '"') + %Q{" width="#{CHART_WIDTH}" height="#{CHART_HEIGHT}" class="vote_chart" id="vote_#{vote_id}_chart">}
-      return img.html_safe
+      return image_tag(eval('"' + CHART_URL + '"'), :width => CHART_WIDTH, :height => CHART_HEIGHT, :class => 'vote_chart')
     else
       "Sorry, not enough data to display a chart"
     end
+  end
+  
+  MAP_URL = %q(http://localhost:8080/geoserver/wms?
+    service=WMS
+    &request=GetMap
+    &version=1.1.1
+    &layers=cite:v_district_votes
+    &bbox=#{state.bbox.join(",")}
+    &cql_filter=vote_id+=+#{vote_id}+and+chamber_id+=+#{chamber_id}
+    &width=#{MAP_WIDTH}
+    &height=#{MAP_HEIGHT}
+    &format=image/png
+    &SLD=#{u('http://localhost:3000/votes.xml')}).gsub(/\n\s+/,'')
+
+  MAP_WIDTH = 300
+  MAP_HEIGHT = 300
+
+  def vote_map_img(state, chamber_id, vote_id)
+    return image_tag(eval('"' + MAP_URL + '"'), :width => MAP_WIDTH, :height => MAP_HEIGHT, :class => 'vote_map', :alt => "Geography of the vote")
   end
 end

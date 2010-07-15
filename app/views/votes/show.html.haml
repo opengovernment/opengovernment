@@ -1,25 +1,27 @@
 - title("Vote on #{@vote.bill.bill_number}")
 %h2
-  %strong= "#{@vote.bill.bill_number}"
+  %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
   %span= @vote.bill.title
+  %span= @vote.date
   %span= "Vote in the " + @vote.chamber.name
- 
-%img(src="http://localhost:8080/geoserver/wms?service=WMS&request=GetMap&version=1.1.1&layers=cite:v_district_votes&bbox=#{@state.bbox.join(",")}&cql_filter=state_id+=+#{@state.id}+and+vote_id+=+#{@vote.id}+and+chamber_id+=+#{@vote.chamber_id}&width=200&height=200&format=image/png&SLD=http%3A%2F%2Flocalhost%3A3000%2Fvotes.xml")
 
-%table.vote_results
-  %tr.yes
-    %th Yes
-    %td #{@vote.yes_count}
-    %td(rowspan=3)= vote_chart_img(@vote.id)
-  %tr
-    %th No
-    %td #{@vote.no_count}
-  %tr
-    %th Other
-    %td #{@vote.other_count}
-
-.full_lined.vote_results
-  = render :partial => 'votes/vote', :locals => {:vote => @vote}
+.span-8
+  = vote_map_img(@state, @vote.chamber_id, @vote.id)
+.span-16.last
+  %table.vote_results
+    %tr
+      %th.first.label Yes
+      %td.first.label!= @vote.passed? ? '&radic;' : ''
+      %td.first.label= @vote.yes_count
+      %td(rowspan=3 class="vote_chart")= vote_chart_img(@vote.id)
+    %tr
+      %th.label No
+      %td.label!= @vote.passed? ? '' : '&radic;'
+      %td.label= @vote.no_count
+    %tr
+      %th.last.label Other
+      %td.last.label
+      %td.last.label #{@vote.other_count}
 
 - unless @vote.roll_calls
   %div Sorry, no roll call is available for this vote.
