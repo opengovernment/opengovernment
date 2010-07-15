@@ -102,16 +102,7 @@ module VotesHelper
     return image_tag(eval('"' + MAP_URL + '"'), :width => MAP_WIDTH, :height => MAP_HEIGHT, :class => 'vote_map', :alt => "Geography of the vote")
   end
   
-  LEGEND_URL = %q(http://localhost:8080/geoserver/wms?
-    REQUEST=GetLegendGraphic
-    &VERSION=1.0.0
-    &FORMAT=image/png
-    &WIDTH=20
-    &HEIGHT=20
-    &LAYER=cite:v_district_votes
-    &SLD=#{u('http://localhost:3000/votes.xml')}).gsub(/\n\s+/,'')
-
   def vote_legend_img
-    return image_tag(eval('"' + LEGEND_URL + '"'), :class => 'vote_legend')
+    return image_tag('votes/map_legend.png', :class => 'vote_legend')
   end
 end
