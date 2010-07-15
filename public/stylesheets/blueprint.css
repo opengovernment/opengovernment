@@ -399,7 +399,15 @@ list-style: square outside;
   background: url(/images/votes/ind-other-box.gif) no-repeat 0% 50%;
 }
 
+table.vote_results td,table.vote_results th {
+  height: 30px;
+}
 
+table.vote_results tr.yes td,
+table.vote_results tr.yes th
+{
+  padding-top: 30px !important;
+}
 
 .key_votes li{
 border-bottom: 1px solid #ddd;
