@@ -21,12 +21,16 @@ end
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
   task :prepare => :environment do
-    puts "Creating #{Rails.env} database..."
+    puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
-    puts "Setting up the #{Rails.env} database"
+    puts "\n---------- Setting up the #{Rails.env} database."
     Rake::Task['db:create:postgis'].invoke
-    Rake::Task['db:schema:load'].invoke
+
+    unless ActiveRecord::Base.connection.table_exists?("schema_migrations")
+        Rake::Task['db:schema:load'].invoke
+    end
+
     Rake::Task['db:sqlseed'].invoke
   end
 
@@ -42,7 +46,7 @@ namespace :db do
     desc "Install PostGIS tables"
     task :postgis => :environment do
       unless ActiveRecord::Base.connection.table_exists?("geometry_columns")
-        puts "Installing PostGIS #{POSTGIS_VERSION} tables..."
+        puts "\n---------- Installing PostGIS #{POSTGIS_VERSION} tables"
         if `pg_config` =~ /SHAREDIR = (.*)/
           postgis_dir = File.join($1, 'contrib', "postgis-#{POSTGIS_VERSION}")
           unless File.exists? postgis_dir
@@ -105,19 +109,19 @@ end
 desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
   task :all  => :environment do
-    puts "---------- Loading database fixtures"
+    puts "\n---------- Loading database fixtures"
     Rake::Task['load:fixtures'].execute
-    puts "---------- Loading legislatures and districts"
+    puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
     Rake::Task['load:committees'].invoke
-    puts '---------- Loading people'
+    puts "\n---------- Loading people"
     Rake::Task['load:people'].invoke
-    puts '---------- Loading bills'
+    puts "\n---------- Loading bills"
     Rake::Task['load:bills'].invoke
-    puts '---------- Loading news & blog citations'
+    puts "\n---------- Loading news & blog citations"
     Rake::Task['load:citations'].invoke
-    puts '---------- Loading PVS contribution and ratings data'
+    puts "\n---------- Loading PVS contribution and ratings data"
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
     Rake::Task['load:ratings'].invoke

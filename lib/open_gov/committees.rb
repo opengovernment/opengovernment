@@ -9,7 +9,7 @@ module OpenGov
 
       def import_one(state)
         committees = GovKit::VoteSmart::Committee.find_by_type_and_state(nil, state.abbrev)
-        puts "Loading #{state.name} committees from VoteSmart..."
+        puts "---------- Loading #{state.name} committees from VoteSmart."
         i = 0
 
         # This should be an array of Committee objects.

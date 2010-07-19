@@ -64,7 +64,7 @@ module OpenGov
 
           fs_person.roles.each do |fs_role|
             legislature = state.legislature
-            session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.session)
+            session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.term)
 
             case fs_role[:type]
             when GovKit::FiftyStates::ROLE_MEMBER :
