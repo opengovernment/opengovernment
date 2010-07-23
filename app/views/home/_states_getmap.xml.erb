@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
+  <NamedLayer>
+    <Name>topp:states</Name>
+    <UserStyle>
+      <Name>OpenGovernment</Name>
+      <Title>Available states on OpenGovernment</Title>
+      <Abstract>Shows and links to the states that are active on OpenGovernment.org</Abstract>
+      <FeatureTypeStyle>
+         <Rule>
+           <Name>State not ready</Name>
+            <PolygonSymbolizer>
+                <Fill>
+                  <CssParameter name="fill"><%= HomeController::DEFAULT_STATE_COLOR %></CssParameter>
+                </Fill>
+                <Stroke>
+                  <CssParameter name="stroke">#ffffff</CssParameter>
+                  <CssParameter name="stroke-width">0.5</CssParameter>
+                </Stroke>
+            </PolygonSymbolizer>
+          </Rule>
+
+          <Rule>
+             <Name>Loadable State</Name>
+             <ogc:Filter>
+               <ogc:And>
+               <% State.loadable.each do |state| %>
+                 <ogc:PropertyIsEqualTo>
+                   <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
+                   <ogc:Literal><%= state.abbrev %></ogc:Literal>
+                 </ogc:PropertyIsEqualTo>
+                <% end %>
+                </ogc:And>
+             </ogc:Filter>
+             <PolygonSymbolizer>
+                 <Fill>
+                   <CssParameter name="fill"><%= HomeController::SUPPORTED_STATE_COLOR %></CssParameter>
+                 </Fill>
+                 <Stroke>
+                   <CssParameter name="stroke">#ffffff</CssParameter>
+                   <CssParameter name="stroke-width">0.5</CssParameter>
+                 </Stroke>
+             </PolygonSymbolizer>
+         </Rule>
+         <Rule>
+         	<Name>title</Name>
+         	<TextSymbolizer>
+         		<Label><PropertyName>STATE_NAME</PropertyName></Label>
+         	</TextSymbolizer>
+         </Rule>
+
+         <% State.loadable.each do |state| %>
+         <Rule>
+         	<Name>href</Name>
+         	<ogc:Filter>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
+                  <ogc:Literal><%= state.abbrev %></ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+            </ogc:Filter>
+         	<TextSymbolizer>
+         		<Label><%= state_url(state) %></Label>
+         	</TextSymbolizer>
+         </Rule>
+         <% end %>
+
+         <Rule>
+           <Title>Boundary</Title>
+           <LineSymbolizer>
+             <Stroke>
+               <CssParameter name="stroke-width">0.2</CssParameter>
+               <CssParameter name="stroke">#ffffff</CssParameter>
+             </Stroke>
+           </LineSymbolizer>
+           <TextSymbolizer>
+             <Label>
+               <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
+             </Label>
+             <Font>
+               <CssParameter name="font-family">Arial</CssParameter>
+               <CssParameter name="font-style">Normal</CssParameter>
+               <CssParameter name="font-size">12</CssParameter>
+             </Font>
+             <LabelPlacement>
+               <PointPlacement>
+                 <AnchorPoint>
+                   <AnchorPointX>0.5</AnchorPointX>
+                   <AnchorPointY>0.5</AnchorPointY>
+                 </AnchorPoint>
+               </PointPlacement>
+             </LabelPlacement>
+           </TextSymbolizer>
+         </Rule>
+     </FeatureTypeStyle>
+    </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>
