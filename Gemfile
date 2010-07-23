@@ -5,6 +5,9 @@ gem 'rails', '3.0.0.beta4'
 # ActiveRecord requires a database adapter.
 gem "pg"
 
+# Deployment
+gem "capistrano"
+
 # An alternative form builder
 gem "formtastic", :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 
@@ -38,10 +41,10 @@ gem "httparty"
 gem "hpricot"
 gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git'
 
-# async http requires
-gem 'addressable', :require => 'addressable/uri'
-gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
-gem 'em-http-request', :require => 'em-http'
+# async http requires (Ruby 1.9 only!)
+# gem 'addressable', :require => 'addressable/uri'
+# gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
+# gem 'em-http-request', :require => 'em-http'
 
 # Indexing and Search
 gem 'thinking-sphinx', :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
