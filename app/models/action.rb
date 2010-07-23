@@ -7,32 +7,32 @@ class Action < ActiveRecord::Base
   
   def actor_fm
     case actor
-    when "lower":
+    when "lower"
       bill.state.legislature.lower_chamber.name
-    when "upper":
+    when "upper"
       bill.state.legislature.upper_chamber.name
-    when "executive":
+    when "executive"
       "executive branch"
     end
   end
   
   def action_fm
     case action.downcase
-    when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^amendment/, /^remarks/:
+    when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^amendment/, /^remarks/
       "had its " + action.downcase
-    when "point of order":
+    when "point of order"
       "had a point of order raised"
-    when /point of order(.*)/:
+    when /point of order(.*)/
       "had a point of order#{$1}"
-    when /^(co-)?author/, /^motion/:
+    when /^(co-)?author/, /^motion/
       "had a " + action.downcase
-    when /testimony taken in(.*)$/:
+    when /testimony taken in(.*)$/
       "testimony was taken in #{$1}"
-   when /grants/, /appoints/, /requests/, /refuses/, /adopts/:
+   when /grants/, /appoints/, /requests/, /refuses/, /adopts/
       action.downcase
-    when /^read\s+([^\s]+)\s+time/:
+    when /^read\s+([^\s]+)\s+time/
       "was read for the #{$1} time"
-    when "record vote":
+    when "record vote"
       "had its vote recorded"
     else
       "was " + action.downcase

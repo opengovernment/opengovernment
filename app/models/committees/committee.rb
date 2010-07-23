@@ -10,22 +10,22 @@ class Committee < ActiveRecord::Base
 
   def self.subclass_from_votesmart_type(t)
     case t
-    when "S":
+    when "S"
       ::UpperCommittee
-    when "H":
+    when "H"
       ::LowerCommittee
-    when "J":
+    when "J"
       ::JointCommittee
     end
   end
 
   def type_fm
     case votesmart_type_id
-    when 'S':
+    when 'S'
       legislature.upper_chamber.short_name
-    when 'H':
+    when 'H'
       legislature.lower_chamber.short_name
-    when 'J':
+    when 'J'
       'Joint'
     end
   end

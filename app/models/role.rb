@@ -38,9 +38,9 @@ class Role < ActiveRecord::Base
     end
 
     case party
-    when "Democrat":
+    when "Democrat"
       "dem"
-    when "Republican":
+    when "Republican"
       "rep"
     else
       "ind"
