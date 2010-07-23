@@ -38,12 +38,18 @@ gem "httparty"
 gem "hpricot"
 gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git'
 
+# async http requires
+gem 'addressable', :require => 'addressable/uri'
+gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
+gem 'em-http-request', :require => 'em-http'
+
 # Indexing and Search
 gem 'thinking-sphinx', :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
   :branch  => 'rails3',
   :require => 'thinking_sphinx'
 
 # Bundle gems used only in certain environments:
+
 group :cucumber do
   gem "cucumber-rails"
   gem "database_cleaner"
@@ -53,13 +59,15 @@ end
 
 group :test, :cucumber do
   # Bundle gems for certain environments:
-  gem "rspec-rails", :git => "git://github.com/rspec/rspec-rails.git"
-  gem "rspec", :git => "git://github.com/rspec/rspec.git"
-  gem "rspec-core", :git => "git://github.com/rspec/rspec-core.git"
-  gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
-  gem "rspec-mocks", :git => "git://github.com/rspec/rspec-mocks.git"
+  gem "rspec-rails", ">= 2.0.0.beta.18"
+  gem "rspec", ">= 2.0.0.beta.18"
+  gem "rspec-core", ">= 2.0.0.beta.18"
+  gem "rspec-expectations", ">= 2.0.0.beta.18"
+  gem "rspec-mocks", ">= 2.0.0.beta.18"
+  gem "autotest"
+  gem "autotest-rails"
   gem "machinist"
-  gem "ruby-debug"
-  gem "spork"
+  gem "linecache19"
+  gem "ruby-debug19"
   gem "webrat"
 end

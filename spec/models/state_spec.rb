@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe State do
+  fixtures :states
+  
   before(:each) do
     @valid_attributes = {
       :name => "Connecticut",

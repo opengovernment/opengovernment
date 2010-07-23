@@ -1,4 +1,4 @@
-require 'config/environment'
+require File.dirname(__FILE__) + '/../config/environment'
 
 class GovTrackImporter
   GOV_TRACK_PEOPLE_URL = "http://www.govtrack.us/data/us/people.xml"

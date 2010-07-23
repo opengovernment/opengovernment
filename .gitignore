@@ -12,3 +12,4 @@ vendor/bundler_gems/*
 vendor/cache/*
 .rvmrc
 config/development.sphinx.conf
+spec/fixtures/data/people.xml

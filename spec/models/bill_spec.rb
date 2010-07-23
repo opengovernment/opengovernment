@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Bill do
+  fixtures :states, :chambers, :sessions, :bills
+
   context "new" do
     before(:each) do
       @valid_attributes = {

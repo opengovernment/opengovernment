@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Person do
+  fixtures :people
+
   before do
     @john = people(:john)
   end

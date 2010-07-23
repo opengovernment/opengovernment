@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require 'lib/open_gov'
+require Rails.root + 'lib/open_gov'
 
 describe OpenGov::Resources do
   context ".valid_date!" do
@@ -20,7 +20,7 @@ describe OpenGov::Resources do
     end
 
     it "should raise a TypeError for an unrecognized type" do
-      OpenGov::Resources::valid_date!(Object.new).should raise_error(TypeError)
+      lambda { OpenGov::Resources::valid_date!(Object.new) }.should raise_error(TypeError)
     end
   end
 
