@@ -53,3 +53,5 @@ DISTRICTS_DIR = File.join(DATA_DIR, "districts")
 GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
 FIFTYSTATES_DIR = File.join(DATA_DIR, "fiftystates")
 POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.
+
+require 'acts_as_taggable_on'
