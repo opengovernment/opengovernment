@@ -27,7 +27,37 @@
   text-decoration: underline;
 }
 
-.match{
+.match {
   border-bottom: 1px dotted red;
   padding-bottom: 0.1em;
 }
+
+/*
+  Tag cloud
+*/
+
+.css1 {
+  font-size: 1.0em;
+}
+
+.css2 {
+  font-size: 1.2em;
+}
+
+.css3 {
+  font-size: 1.4em;
+}
+
+.css4 {
+  font-size: 1.6em;
+}
+
+#issues a{
+  text-decoration: none;
+  margin: 0.5em 0.2em
+}
+
+#issues a:hover{
+  text-decoration: underline;
+}
+

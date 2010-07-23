@@ -1,0 +1,9 @@
+%h2 Issues
+.span-6
+.span-12
+  %div#issues
+    = render :partial => "list.html.haml"
+.span-6.last
+  = form_tag(admin_issues_path, :remote => true, :id => "new_issue_form") do
+    = text_field_tag :name
+    = submit_tag "Add new tag"

@@ -2,27 +2,27 @@ module OpenGov
   class Ratings < Resources
     class << self
       def import!
-        import_issues
+        import_categories
         import_sigs
         import_ratings
       end
 
-      def import_issues
-        puts "Deleting existing issues"
-        Issue.delete_all
-        # State.loadable.each do |state|
+      def import_categories
+        puts "Deleting existing categories"
+        Category.delete_all
+        State.loadable.each do |state|
           begin
-            puts "Importing issues.."
-            categories = GovKit::VoteSmart::Category.list()
+            puts "Importing categories.."
+            categories = GovKit::VoteSmart::Category.list(state.abbrev)
             categories.each do |kat|
-              issue = Issue.find_or_initialize_by_votesmart_id(kat.categoryId)
-              issue.name = kat.name
-              issue.save!
+              category = Category.find_or_initialize_by_votesmart_id(kat.categoryId)
+              category.name = kat.name
+              category.save!
             end
           rescue GovKit::ResourceNotFound
             puts "No resource found for #{state.abbrev}"
           end
-        # end
+        end
       end
 
       def import_sigs
@@ -31,8 +31,8 @@ module OpenGov
 
         State.loadable.each do |state|
           puts "Importing Special Interest groups for .. #{state.name} "
-          Issue.all.each do |issue|
-            partial_sigs = GovKit::VoteSmart::SIG.list(issue.votesmart_id, state.abbrev).to_a
+          Category.all.each do |category|
+            partial_sigs = GovKit::VoteSmart::SIG.list(category.votesmart_id, state.abbrev).to_a
 
             partial_sigs && partial_sigs.each do |partial_sig|
               puts "Fetching SIG for ID: #{partial_sig.sigId}"
@@ -42,7 +42,7 @@ module OpenGov
                 sig.name = remote_sig.name
                 sig.address = remote_sig.address
                 sig.description = remote_sig.description
-                sig.issue_id = issue.id
+                sig.category_id = category.id
                 sig.contact_name = remote_sig.contactName
                 sig.city = remote_sig.city
                 sig.address = remote_sig.address

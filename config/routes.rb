@@ -8,6 +8,7 @@ OpenGov::Application.routes.draw do |map|
   resources :districts, :only => [:show]
   resources :sigs, :only => [:index, :show]
   resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session/bills'
+  resources :issues, :only => [:index, :show]
 
   resources :people do
     member do
@@ -34,6 +35,7 @@ OpenGov::Application.routes.draw do |map|
   namespace :admin do
     resources :states
     resources :people
+    resources :issues, :only => [:create, :index]
   end
 
   root :to => "home#index"

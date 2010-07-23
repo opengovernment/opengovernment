@@ -1,0 +1,4 @@
+var hook = $("#issues");
+hook.html("<%= escape_javascript(render(:partial => "list.html.haml"))%>");
+hook.effect("highlight", {}, 3000);
+$("#new_issue_form").get(0).reset();

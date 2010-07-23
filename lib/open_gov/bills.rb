@@ -1,9 +1,9 @@
 module OpenGov
   class Bills < Resources
     VOTES_DIR = File.join(FIFTYSTATES_DIR, "api", "votes")
-    
+
     @people = {}
-      
+
     class << self
       def build_people_hash
         # Cache all of the ids of people so we don't have to keep looking them up.
@@ -31,7 +31,7 @@ module OpenGov
       # after that, we always want to use import_state(state)
       def import!(options = {})
         build_people_hash
-        
+
         if options[:remote]
           State.loadable.each do |state|
             import_state(state)
@@ -62,12 +62,11 @@ module OpenGov
               end
             end
           end
-          puts "Loaded #{i} bills."
         end
       end
 
       def import_state(state)
-        puts "Importing bills for #{state.name}\n"
+        puts "Importing bills for #{state.name} \n"
 
         # TODO: This isn't quite right...
         bills = GovKit::FiftyStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
@@ -80,18 +79,17 @@ module OpenGov
               print '.'
               $stdout.flush
             end
-
             import_bill(bill, state, {})
           end
-
-          puts "Loaded #{i} bills."
         end
       end
 
       def import_bill(bill, state, options)
         Bill.transaction do
           # A bill number alone does not identify a bill; we also need a session ID.
-          @bill = Bill.find_or_create_by_bill_number_and_session_id(bill.bill_id, state.legislature.sessions.find_by_name(bill.session))
+          session = state.legislature.sessions.find_by_name(bill.session)
+
+          @bill = Bill.find_or_initialize_by_bill_number_and_session_id(bill.bill_id, session.id)
           @bill.title = bill.title
           @bill.fiftystates_id = bill["_id"]
           @bill.state = state
@@ -99,7 +97,14 @@ module OpenGov
 
           # There is no unique data on a bill's actions that we can key off of, so we
           # must delete and recreate them all each time.
-          @bill.actions.clear
+          if @bill.id
+            @bill.actions.delete_all
+            @bill.sponsors.delete_all
+            @bill.versions.delete_all
+            @bill.votes.destroy_all
+            @bill.subjects.destroy_all
+          end
+
           bill.actions.each do |action|
             @bill.actions << Action.new(
               :actor => action.actor,
@@ -127,7 +132,6 @@ module OpenGov
           bill.subjects.each do |subject|
             @bill.subjects.create(:name => subject)
           end
-          @bill.votes.delete_all
 
           bill.votes.each do |vote|
             v = @bill.votes.create (

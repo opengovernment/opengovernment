@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 43) do
+ActiveRecord::Schema.define(:version => 45) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(:version => 43) do
     t.string   "sector_name"
     t.integer  "nimsp_industry_code"
     t.integer  "nimsp_sector_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "votesmart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,13 +156,6 @@ ActiveRecord::Schema.define(:version => 43) do
     t.datetime "updated_at"
   end
 
-  create_table "issues", :force => true do |t|
-    t.string   "name"
-    t.integer  "votesmart_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "legislatures", :force => true do |t|
     t.string  "name"
     t.integer "state_id"
@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(:version => 43) do
 
   create_table "special_interest_groups", :force => true do |t|
     t.integer  "state_id"
-    t.integer  "issue_id"
+    t.integer  "category_id"
     t.string   "name"
     t.string   "description",  :limit => 4000
     t.string   "contact_name"
@@ -277,6 +277,23 @@ ActiveRecord::Schema.define(:version => 43) do
     t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
   end
 
   create_table "users", :force => true do |t|
