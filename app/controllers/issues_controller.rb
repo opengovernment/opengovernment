@@ -2,7 +2,7 @@ class IssuesController < ApplicationController
   before_filter :get_issue, :only => [:show]
 
   def index
-    @issues = Subject.tag_counts_on(:issues)
+    @issues = ActsAsTaggableOn::Tag.all
   end
 
   def show
@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
 
   protected
   def get_issue
-    @issue = ActsAsTaggableOn::Tag.find(params[:id])
+    @issue = ActsAsTaggableOn::Tag.find_by_param(params[:id])
     @issue || resource_not_found
   end
 end
