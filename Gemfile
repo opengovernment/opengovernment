@@ -33,6 +33,9 @@ gem 'haml', :git => 'git://github.com/nex3/haml.git', :tag => '3.0.0.beta.3'
 # remove this (and the plugin) for Rails 3
 gem "erubis"
 
+#Tagging
+gem "acts-as-taggable-on", :git => 'git://github.com/mbleigh/acts-as-taggable-on.git'
+
 # Importing & parsing stuff
 gem "httparty"
 gem "hpricot"

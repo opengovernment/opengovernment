@@ -4,7 +4,7 @@
   %p
     %div
       - if @person.photo_url
-	= image_tag(@person.photo_url)
+        = image_tag(@person.photo_url)
       - else
         = image_tag('missing.png')
 
@@ -39,7 +39,7 @@
   %h3 Bio Data
   %small.quiet.span
     From the non-partisan
-    = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}") 
+    = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
   %p
     = @person.bio_data
 %hr
@@ -139,7 +139,7 @@
   %hr
   - @person.ratings.each do |rating|
     %div.span-8
-      = rating.special_interest_group.issue.name
+      = rating.special_interest_group.category.name
     %div.span-8
       = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
     %div.span-2

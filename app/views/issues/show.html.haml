@@ -1,0 +1,14 @@
+%h2
+  = @issue.name.titleize
+
+%h3 Bills
+- @bills.each do |bill|
+  %li
+    != link_to(bill.bill_number, bill_path(bill.state, bill.session, bill)) + " "
+    = bill.title
+
+
+%h3 Special Interest Groups
+- @sigs.each do |sig|
+  %li
+    != link_to(sig.name, sig_path(sig)) + " "

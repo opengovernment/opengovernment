@@ -136,7 +136,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
-
+l
     # Force a reload of the DistrictType class, so we get the proper constants
     class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
   end
@@ -199,7 +199,7 @@ namespace :load do
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
     OpenGov::Photos.import!
-    OpenGov::Bios.import!    
+    OpenGov::Bios.import!
   end
 
   desc "Fetch and load people ratings VoteSmart"

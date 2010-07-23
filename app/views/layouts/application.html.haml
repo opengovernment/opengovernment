@@ -12,7 +12,11 @@
     <!--[if lt IE 9]>
     %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
     <![endif]-->
-    = javascript_include_tag 'jquery-1.4.2.min.js'
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+    = javascript_include_tag "jquery.rails.js"
+
+    = csrf_meta_tag
     = yield :head
     %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
   %body
