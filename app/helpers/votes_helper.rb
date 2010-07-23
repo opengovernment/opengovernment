@@ -6,7 +6,7 @@ module VotesHelper
       &chco=405695,B43030,999999
       &chds=0,#{total_votes},0,#{total_votes},0,#{total_votes}
       &chd=t:#{data_table}
-      &chm=#{u markers}).gsub(/\n\s+/,'')
+      &chm=#{CGI::escape markers}).gsub(/\n\s+/,'')
 
   CHART_WIDTH = 300
   CHART_HEIGHT = 100
@@ -82,7 +82,7 @@ module VotesHelper
       "Sorry, not enough data to display a chart"
     end
   end
-  
+
   MAP_URL = %q(http://localhost:8080/geoserver/wms?
     service=WMS
     &request=GetMap
@@ -93,7 +93,7 @@ module VotesHelper
     &width=#{MAP_WIDTH}
     &height=#{MAP_HEIGHT}
     &format=image/png
-    &SLD=#{u('http://localhost:3000/votes.xml')}).gsub(/\n\s+/,'')
+    &SLD=#{CGI::escape('http://localhost:3000/votes.xml')}).gsub(/\n\s+/,'')
 
   MAP_WIDTH = 300
   MAP_HEIGHT = 300
@@ -101,7 +101,7 @@ module VotesHelper
   def vote_map_img(state, chamber_id, vote_id)
     return image_tag(eval('"' + MAP_URL + '"'), :width => MAP_WIDTH, :height => MAP_HEIGHT, :class => 'vote_map', :alt => "Geography of the vote")
   end
-  
+
   def vote_legend_img
     return image_tag('votes/map_legend.png', :class => 'vote_legend')
   end
