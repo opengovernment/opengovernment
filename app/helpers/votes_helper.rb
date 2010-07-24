@@ -49,7 +49,7 @@ module VotesHelper
       votes_needed_to_pass = total_votes / 2
 
       # Where are we going to place the "votes needed to pass" label?
-      votes_needed_y_ratio = OpenGov::Resources::scale(votes_needed_to_pass, total_votes, CHART_WIDTH) / CHART_WIDTH
+      votes_needed_y_ratio = OpenGov::Integer::scale(votes_needed_to_pass, total_votes, CHART_WIDTH) / CHART_WIDTH
 
       # Pull out all the arrays of values, and put them into the Google Charts table format
       # This will give us three data series (one for each party), with three values each.
