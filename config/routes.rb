@@ -1,6 +1,8 @@
 OpenGov::Application.routes.draw do |map|
   match '/search' => 'districts#search', :as => 'search'
   match '/states/ca/subscriptions' =>  'states#subscribe', :as => 'state_subscriptions'
+  
+  match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => { :format => "html"}
 
   resources :actions, :only => [:show]
   resources :districts, :only => [:show]

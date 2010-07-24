@@ -195,7 +195,7 @@
           </ogc:Filter>
           <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#dddddd</CssParameter>
+              <CssParameter name="fill">#ffffff</CssParameter>
             </Fill>
             <Stroke>
               <CssParameter name="stroke">#ffffff</CssParameter>

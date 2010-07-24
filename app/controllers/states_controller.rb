@@ -1,5 +1,6 @@
 class StatesController < ApplicationController
-  before_filter :get_state
+  before_filter :get_state, :except => [:sld]
+
 
   def show
     if @state.supported?
