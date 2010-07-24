@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   # Note, please maintain this aspect ratio
   MAP_WIDTH = 550
   MAP_HEIGHT = 250
-  MAP_POST_URL = %q(http://localhost:8080/geoserver/wms?
+  MAP_POST_URL = %q(#{GEOSERVER_BASE_URL}/wms?
     service=WMS
     &request=GetMap
     &version=1.1.1
@@ -16,8 +16,8 @@ class HomeController < ApplicationController
     &width=#{w}
     &height=#{h}
     &format=#{f}
-    &sld=#{CGI::escape('http://localhost:3000/us_map.xml')}).gsub(/\n\s+/,'')
-  
+    &sld=#{CGI::escape(url_for(:controller => 'home', :action => 'us_map', :format => :xml, :only_path => false))}).gsub(/\n\s+/,'')
+
   def us_map
     respond_to do |format|
       format.xml do

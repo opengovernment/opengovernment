@@ -16,6 +16,10 @@ OpenGov::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  HOST = "localhost"
+  
+  HOST = 'localhost'
+  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
+
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+
 end

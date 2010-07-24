@@ -68,7 +68,7 @@ namespace :bundler do
 
   task :bundle_new_release do
     bundler.symlink_vendor
-    run("cd #{release_path} && bundle install vendor/bundler_gems && bundle lock")
+    run("cd #{release_path} && bundle install vendor/bundler_gems --without test cucumber && bundle lock")
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end
