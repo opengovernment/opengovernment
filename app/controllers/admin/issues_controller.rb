@@ -1,6 +1,8 @@
 class Admin::IssuesController < ApplicationController
   def index
     @issues = ActsAsTaggableOn::Tag.all
+    @subjects = Subject.all.paginate(:page => params[:page], :order => params[:order])
+    @categories = Category.all.paginate(:page => params[:page], :order => params[:order])
   end
 
   def create
