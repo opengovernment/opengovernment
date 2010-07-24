@@ -7,3 +7,18 @@
   = form_tag(admin_issues_path, :remote => true, :id => "new_issue_form") do
     = text_field_tag :name
     = submit_tag "Add new tag"
+
+.span-24
+  .span-12
+    %h2 Bills / Subjects
+    - @subjects.each do |subject|
+      .span24
+        = subject.name.titleize
+
+    = will_paginate @subjects
+  .span-12.last
+    %h2 Categories (from votesmart)
+    - @categories.each do |kat|
+      .span24
+        = kat.name
+    = will_paginate @categories
