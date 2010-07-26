@@ -1,4 +1,4 @@
-require 'spec/spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe SigsHelper do
   #Delete this example and add some real ones or delete this file
