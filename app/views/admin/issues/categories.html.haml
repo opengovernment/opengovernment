@@ -8,8 +8,8 @@
     .span-12.last
       %h2 Issues
       %div#tags
-        = hidden_field_tag :tag, nil, :id => "tag"
         = render :partial => "tags.html.haml"
+      = hidden_field_tag :tag, nil, :id => "tag"
   %p
     = form_tag(admin_issues_path, :remote => true, :id => "new_tag_form") do
       = text_field_tag :name
