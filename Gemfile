@@ -1,6 +1,9 @@
+# TODO: When Rails 3 comes out, remove most of the :gits and other references to
+# prerelease gems that are here for Rails 3 compatibility right now.
+
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '~> 3.0.0.rc'
 
 # ActiveRecord requires a database adapter.
 gem "pg"
@@ -27,7 +30,7 @@ gem "geokit"
 gem "chronic" # Complex date string parsing
 
 # Simple pagination
-gem "will_paginate"
+gem "will_paginate", "~> 3.0.pre2"
 
 # HAML!
 gem 'haml', :git => 'git://github.com/nex3/haml.git', :tag => '3.0.0.beta.3'
@@ -50,9 +53,7 @@ gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git
 # gem 'em-http-request', :require => 'em-http'
 
 # Indexing and Search
-gem 'thinking-sphinx', :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-  :branch  => 'rails3',
-  :require => 'thinking_sphinx'
+gem 'thinking-sphinx', '~> 2.0.0.rc1', :require => 'thinking_sphinx'
 
 # Bundle gems used only in certain environments:
 
