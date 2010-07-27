@@ -1,0 +1,16 @@
+.span-24
+  = form_tag(admin_update_issues_path, :remote => true, :id => "tagging_form") do
+    .span-12
+      %h2 Bills / Subjects
+      %div#taggings
+        = render :partial => "taggings.html.haml"
+      = hidden_field_tag :tagging_type, "subject"
+    .span-12.last
+      %h2 Issues
+      %div#tags
+        = hidden_field_tag :tag, nil, :id => "tag"
+        = render :partial => "tags.html.haml"
+  %p
+    = form_tag(admin_issues_path, :remote => true, :id => "new_tag_form") do
+      = text_field_tag :name
+      = submit_tag "Add new tag"

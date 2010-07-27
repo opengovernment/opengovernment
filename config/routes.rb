@@ -1,7 +1,7 @@
 OpenGov::Application.routes.draw do |map|
   match '/search' => 'districts#search', :as => 'search'
   match '/states/ca/subscriptions' =>  'states#subscribe', :as => 'state_subscriptions'
-  
+
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => { :format => "html"}
 
   resources :actions, :only => [:show]
@@ -35,7 +35,13 @@ OpenGov::Application.routes.draw do |map|
   namespace :admin do
     resources :states
     resources :people
-    resources :issues, :only => [:create, :index]
+    resources :issues, :only => [:create, :index] do
+      collection do
+        get :bills
+        get :categories
+      end
+    end
+    match '/issues/update' =>  'issues#update', :as => 'update_issues'
   end
 
   root :to => "home#index"
