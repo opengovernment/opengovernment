@@ -5,6 +5,7 @@ class State < Place
   has_many :addresses
   has_one :legislature
   with_options :through => :legislature do |hm|
+    hm.has_many :sessions
     hm.has_many :committees
     hm.has_many :chambers
     hm.has_many :lower_committees
@@ -21,9 +22,9 @@ class State < Place
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
 
   # Which states are we importing data for?
-  scope :loadable, :conditions => {:abbrev => ['TX']}
+  scope :loadable, :conditions => {:abbrev => ['TX', 'CA']}
   # this could be:
-  # scope :loadable, :conditions => ["launch_date is not null"]
+  #scope :loadable, :conditions => ["launch_date is not null"]
 
   validates_uniqueness_of :fips_code, :allow_nil => true
   validates_presence_of :name, :abbrev

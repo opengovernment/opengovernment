@@ -13,18 +13,17 @@ module OpenGov
       end
 
       def fetch
-        # TODO: This is temporary, as we figure out with Sunlight where these bills
-        # will really come from.
-
         FileUtils.mkdir_p(FIFTYSTATES_DIR)
         Dir.chdir(FIFTYSTATES_DIR)
+        
+        State.loadable.each do |state|
+          fiftystates_fn = "#{state.abbrev.downcase}.zip"
+          curl_ops = File.exists?(fiftystates_fn) ? "-z #{fiftystates_fn}" : ''
 
-        fiftystates_fn = 'tx.zip'
-        curl_ops = File.exists?(fiftystates_fn) ? "-z #{fiftystates_fn}" : ''
-
-        puts "Downloading the bills for Texas"
-        `curl #{curl_ops} -fO http://fiftystates-dev.sunlightlabs.com/data/tx.zip`
-        `unzip -u #{fiftystates_fn}`
+          puts "---------- Downloading the bills for #{state.name}"
+          `curl #{curl_ops} -fO http://fiftystates-dev.sunlightlabs.com/data/#{fiftystates_fn}`
+          `unzip -u #{fiftystates_fn}`
+        end
       end
 
       # TODO: The :remote => false option only applies to the intial import.
@@ -32,33 +31,31 @@ module OpenGov
       def import!(options = {})
         build_people_hash
 
-        if options[:remote]
-          State.loadable.each do |state|
+        State.loadable.each do |state|
+          if options[:remote]
             import_state(state)
-          end
-        else
-          state_dir = File.join(FIFTYSTATES_DIR, "api", "tx")
+          else
+            state_dir = File.join(FIFTYSTATES_DIR, "api", state.abbrev.downcase)
 
-          unless File.exists?(state_dir)
-            puts "Local Fifty States data is missing; fetching remotely instead."
-            import!(:remote => true)
-          end
+            unless File.exists?(state_dir)
+              puts "Local Fifty States data for #{state.name} is missing; fetching remotely instead."
+              import!(:remote => true)
+            end
 
-          # TODO: Lookup currently active session
-          tx = State.find_by_abbrev('TX')
+            # TODO: Lookup currently active session
+            state.sessions.each do |session|
+              [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
+                bills_dir = File.join(state_dir, session.name, house, "bills")
+                all_bills = File.join(bills_dir, "*")
+                Dir.glob(all_bills).each_with_index do |file, i|
+                  if i % 10 == 0
+                    print '.'
+                    $stdout.flush
+                  end
 
-          [81, 811].each do |session|
-            [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
-              bills_dir = File.join(state_dir, session.to_s, house, "bills")
-              all_bills = File.join(bills_dir, "*")
-              Dir.glob(all_bills).each_with_index do |file, i|
-                if i % 10 == 0
-                  print '.'
-                  $stdout.flush
+                  bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
+                  import_bill(bill, state, options)
                 end
-
-                bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
-                import_bill(bill, tx, options)
               end
             end
           end
@@ -134,7 +131,7 @@ module OpenGov
           end
 
           bill.votes.each do |vote|
-            v = @bill.votes.create (
+            v = @bill.votes.create(
               :yes_count => vote.yes_count,
               :no_count => vote.no_count,
               :other_count => vote.other_count,

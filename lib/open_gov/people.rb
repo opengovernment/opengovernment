@@ -44,7 +44,7 @@ module OpenGov
 
       def import_one(fs_person, state)
         Person.transaction do
-        
+
           unless person = Person.find_by_fiftystates_id(fs_person.leg_id)
             person = Person.new(:fiftystates_id => fs_person.leg_id)
           end
@@ -67,7 +67,7 @@ module OpenGov
             session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.term)
 
             case fs_role[:type]
-            when GovKit::FiftyStates::ROLE_MEMBER :
+            when GovKit::FiftyStates::ROLE_MEMBER
 
               chamber =
                 case fs_role.chamber
@@ -87,7 +87,7 @@ module OpenGov
                 :end_date => valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
                 :party => fs_role.party
               )
-            when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER :
+            when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER
               # Their votesmart_committee_id may be nil
               if committee = (fs_role.votesmart_committee_id? ? Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) : Committee.find_or_create_by_name_and_legislature_id(fs_role.committee, legislature.id))
                 committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)

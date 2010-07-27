@@ -141,7 +141,7 @@ module OpenGov
         census_fn = census_fn_for(ga, fips_code)
         curl_ops = File.exists?(census_fn) ? "-z #{census_fn}" : ''
 
-        puts "Downloading the district shapefile for #{area_name}"
+        puts "---------- Downloading the district shapefile for #{area_name}"
         `curl #{curl_ops} -fO #{census_url_for(ga, fips_code)}`
         `unzip -u #{census_fn}`
       end

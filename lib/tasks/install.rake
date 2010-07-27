@@ -31,7 +31,11 @@ namespace :db do
         Rake::Task['db:schema:load'].invoke
     end
 
+    puts "\n---------- Loading seed data file"
     Rake::Task['db:sqlseed'].invoke
+    
+    puts "\n---------- Loading database fixtures"
+    Rake::Task['load:fixtures'].execute
   end
 
   desc "Install db/seeds.sql items"
@@ -109,8 +113,7 @@ end
 desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
 namespace :load do
   task :all  => :environment do
-    puts "\n---------- Loading database fixtures"
-    Rake::Task['load:fixtures'].execute
+    # We don't load fixtures here anymore-- we load them earlier so we can use them to fetch the right districts and bills.
     puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
@@ -136,7 +139,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
-l
+
     # Force a reload of the DistrictType class, so we get the proper constants
     class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
   end
