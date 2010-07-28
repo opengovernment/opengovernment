@@ -52,12 +52,19 @@
   font-size: 1.6em;
 }
 
-#issues a{
+#tags a{
   text-decoration: none;
   margin: 0.5em 0.2em
 }
 
-#issues a:hover{
+#tags a:hover{
   text-decoration: underline;
 }
 
+.right{
+  float: right;
+}
+
+.red{
+  color: red;
+}
