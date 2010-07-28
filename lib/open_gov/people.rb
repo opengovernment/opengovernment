@@ -56,8 +56,8 @@ module OpenGov
             :nimsp_candidate_id => fs_person.nimsp_candidate_id,
             :middle_name => fs_person.middle_name,
             :suffix => fs_person.suffixes,
-            :updated_at => valid_date!(fs_person.updated_at),
-            :fiftystates_photo_url => fs_person.photo_url
+            :updated_at => Date.valid_date!(fs_person.updated_at),
+            :fiftystates_photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
           )
 
           person.save!
@@ -83,8 +83,8 @@ module OpenGov
               role.update_attributes!(
                 :person => person,
                 :session => session,
-                :start_date => valid_date!(fs_role.start_date) || Date.parse("#{session.start_year}-01-01").to_time,
-                :end_date => valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
+                :start_date => Date.valid_date!(fs_role.start_date) || Date.parse("#{session.start_year}-01-01").to_time,
+                :end_date => Date.valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
                 :party => fs_role.party
               )
             when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER

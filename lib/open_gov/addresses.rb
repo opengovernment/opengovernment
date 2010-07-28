@@ -31,7 +31,7 @@ module OpenGov
             end
 
             web_address = GovKit::VoteSmart::WebAddress.find person.votesmart_id
-            web_addresses = web_address.address.to_a
+            web_addresses = [*web_address.address]
 
             website_count = 0
             web_addresses.each do |wa|

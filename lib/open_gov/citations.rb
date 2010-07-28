@@ -15,7 +15,7 @@ module OpenGov
       end
 
       def make_citation(owner, citation, source)
-        c = owner.citations.find_or_initialize_by_source_and_date(citation.source, valid_date!(citation.date))
+        c = owner.citations.find_or_initialize_by_source_and_date(citation.source, Date.valid_date!(citation.date))
         c.url = citation.url
         c.weight = citation.weight
         c.excerpt = citation.excerpt

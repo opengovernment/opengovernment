@@ -59,7 +59,7 @@ class GovTrackImporter
     roles = person_xml.search("//role")
     
     # We want them to have at least one role that starts within the last 10 years, otherwise don't import them.
-    if roles.any? { |r| valid_date!(r['startdate']) && Date.strptime(r['startdate'], "%Y-%m-%d") > 10.years.ago.to_date }
+    if roles.any? { |r| Date.valid_date!(r['startdate']) && Date.strptime(r['startdate'], "%Y-%m-%d") > 10.years.ago.to_date }
 
       @person = person_already_exists?(person_xml)
       attrs = person_xml.attributes
@@ -70,7 +70,7 @@ class GovTrackImporter
       @person.gender = attrs['gender']
 
       date = attrs['birthday']
-      @person.birthday = valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
+      @person.birthday = Date.valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
       @person.religion = attrs['religion']
 
       @person.votesmart_id = attrs['pvsid']
@@ -121,18 +121,15 @@ class GovTrackImporter
     attrs = role_xml.attributes
 
     startdate = attrs['startdate']
-    startdate = valid_date!(startdate) && Date.strptime(startdate, "%Y-%m-%d")
+    startdate = Date.valid_date!(startdate) && Date.strptime(startdate, "%Y-%m-%d")
     enddate = attrs['enddate']
-    enddate = valid_date!(enddate) && Date.strptime(enddate, "%Y-%m-%d")
+    enddate = Date.valid_date!(enddate) && Date.strptime(enddate, "%Y-%m-%d")
 
     options = {:person_id => @person.id, :start_date => startdate}
 
     Role.find(:first, :conditions => options) || Role.new(options.merge({:end_date => enddate}))
   end
 
-  def valid_date!(date)
-    Date.parse(date) rescue nil
-  end
 end
 
 

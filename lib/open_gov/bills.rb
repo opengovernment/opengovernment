@@ -108,7 +108,7 @@ module OpenGov
               :action => action.action,
               :kind => action[:type].first,
               :action_number => action.action_number,
-              :date => valid_date!(action.date))
+              :date => Date.valid_date!(action.date))
           end
 
           bill.versions.each do |version|

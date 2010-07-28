@@ -35,7 +35,7 @@ module OpenGov
           :contributor_occupation => con.contributor_occupation,
           :contributor_employer => con.contributor_employer,
           :amount => con.amount,
-          :date => valid_date!(con.date),
+          :date => Date.valid_date!(con.date),
           :contributor_city => con.contributor_city,
           :contributor_name => con.contributor_name,
           :contributor_zipcode => con.contributor_zipcode
