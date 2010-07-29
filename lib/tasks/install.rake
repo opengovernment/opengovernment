@@ -144,7 +144,7 @@ namespace :load do
     class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
   end
 
-  desc "Fetch and load legislatures from FiftyStates"
+  desc "Fetch and load legislatures from Open State data"
   task :legislatures => :environment do
     OpenGov::Legislatures.import!
   end
@@ -169,9 +169,9 @@ namespace :load do
     OpenGov::Bios.import!
   end
 
-  desc "Load bills from FiftyStates"
+  desc "Load bills from Open State data"
   task :bills => :environment do
-    puts "Loading bills from Fifty States"
+    puts "Loading bills from Open State data"
     OpenGov::Bills.import!
     puts "Marking Votesmart Key Votes"
     OpenGov::KeyVotes.import!

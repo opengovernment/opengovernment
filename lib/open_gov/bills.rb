@@ -38,11 +38,11 @@ module OpenGov
             state_dir = File.join(FIFTYSTATES_DIR, "api", state.abbrev.downcase)
 
             unless File.exists?(state_dir)
-              puts "Local Fifty States data for #{state.name} is missing; fetching remotely instead."
-              import!(:remote => true)
+              puts "Local Open State API data for #{state.name} is missing."
+              return import!(:remote => true)
             end
 
-            # TODO: Lookup currently active session
+            puts "\nLoading local Open State data for #{state.name}."
             state.sessions.each do |session|
               [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
                 bills_dir = File.join(state_dir, session.name, house, "bills")
@@ -63,7 +63,7 @@ module OpenGov
       end
 
       def import_state(state)
-        puts "Importing bills for #{state.name} \n"
+        puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
         # TODO: This isn't quite right...
         bills = GovKit::FiftyStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
@@ -106,8 +106,8 @@ module OpenGov
             @bill.actions << Action.new(
               :actor => action.actor,
               :action => action.action,
-              :kind => action[:type].first,
-              :action_number => action.action_number,
+              :kind => action[:type] && action[:type].first,
+              :action_number => action[:action_number],
               :date => Date.valid_date!(action.date))
           end
 
@@ -126,8 +126,10 @@ module OpenGov
             )
           end
 
-          bill.subjects.each do |subject|
-            @bill.subjects.create(:name => subject)
+          if bill.subjects?
+            bill.subjects.each do |subject|
+              @bill.subjects.create(:name => subject)
+            end
           end
 
           bill.votes.each do |vote|
@@ -136,7 +138,7 @@ module OpenGov
               :no_count => vote.no_count,
               :other_count => vote.other_count,
               :passed => vote.passed,
-              :date => valid_date!(vote.date),
+              :date => Date.valid_date!(vote.date),
               :motion => vote.motion,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )

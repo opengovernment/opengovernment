@@ -57,7 +57,7 @@ module OpenGov
             # puts "No addresses found for #{person.to_param}"
           end
         end # Person.each
-        puts "Updated addresses for #{u} people; skipped #{s}."
+        puts "\nUpdated addresses for #{u} people; skipped #{s}."
       end
     end
   end
