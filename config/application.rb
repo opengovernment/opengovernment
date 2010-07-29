@@ -13,7 +13,7 @@ module OpenGov
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-    config.load_paths += %W(#{config.root}/lib #{config.root}/app/models/committees #{config.root}/app/models/chambers)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/models/committees #{config.root}/app/models/chambers)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
@@ -51,7 +51,7 @@ API_KEYS = YAML::load(File.open(File.join(File.dirname(__FILE__), 'api_keys.yml'
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
 GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
-FIFTYSTATES_DIR = File.join(DATA_DIR, "fiftystates")
+OPENSTATES_DIR = File.join(DATA_DIR, "openstates")
 POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.
 
 require 'acts_as_taggable_on'

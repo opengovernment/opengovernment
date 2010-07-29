@@ -8,7 +8,7 @@ class Role < ActiveRecord::Base
   belongs_to :state
   belongs_to :district
 
-  # There is not always an associated session. It's there for Fifty States data but not GovTrack.
+  # There is not always an associated session. It's there for Open States data but not GovTrack.
   # And anyway, people don't get elected to sessions--they get elected to chambers.
   belongs_to :session
 

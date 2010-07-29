@@ -1,7 +1,7 @@
 kirk:
   first_name: "Kirk"
   last_name: "Watson"
-  fiftystates_id: 370
+  openstates_id: 370
   votesmart_id: 57991
   updated_at: "25 Mar 2010 00:10:57"
 dawnna:
@@ -9,7 +9,7 @@ dawnna:
   last_name: "Dukes"
   votesmart_id: 5448
   nimsp_candidate_id: 99973
-  fiftystates_id: 400
+  openstates_id: 400
   updated_at: "25 Mar 2010 00:46:14"
 john:
   first_name: "John"
@@ -49,7 +49,7 @@ garnet:
   first_name: "Garnet"
   last_name: "Coleman"
   middle_name: "F."
-  fiftystates_id: 439
+  openstates_id: 439
   nimsp_candidate_id: 99959
 lee:
   first_name: "Sheila"

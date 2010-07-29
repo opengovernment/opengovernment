@@ -5,7 +5,7 @@ hb10:
   updated_at: 2010-05-12 18:49:36.203056
   session: tx81
   bill_number: HB 10
-  fiftystates_id: 
+  openstates_id:
   state_id: 47
 hb1000:
   created_at: 2010-05-10 23:26:12.896898
@@ -14,7 +14,7 @@ hb1000:
   updated_at: 2010-05-12 18:49:36.309626
   session: tx81
   bill_number: HB 1000
-  fiftystates_id: 
+  openstates_id:
   state_id: 47
 hb1001:
   created_at: 2010-05-10 23:26:12.936782
@@ -23,7 +23,7 @@ hb1001:
   updated_at: 2010-05-12 18:49:36.338261
   session: tx81
   bill_number: HB 1001
-  fiftystates_id: 
+  openstates_id:
   state_id: 47
 hb1002:
   created_at: 2010-05-10 23:26:12.966621
@@ -32,7 +32,7 @@ hb1002:
   updated_at: 2010-05-12 18:49:36.36844
   session: tx81
   bill_number: HB 1002
-  fiftystates_id: 
+  openstates_id:
   state_id: 47
 hb1003:
   created_at: 2010-05-10 23:26:13.009824
@@ -41,5 +41,5 @@ hb1003:
   updated_at: 2010-05-12 18:49:36.563682
   session: tx81
   bill_number: HB 1003
-  fiftystates_id: 
+  openstates_id: 
   state_id: 47
