@@ -24,6 +24,19 @@ Before you install the app, you will need to download and install the following:
         rake install
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
 
+  Sphinx
+  Mac OS X:
+   Download and install sphinx using instructions here. You can local your pg_sql include directory using
+        pg_config --pkgincludedir
+
+   http://freelancing-god.github.com/ts/en/installing_sphinx.html
+
+   Thinking Sphinx:
+
+   bundle install, installs the thinking sphinx gem thats a wrapper around your system sphinx daemon.
+
+   Once you have that setup "rake -T | grep ts" to look at all the available commands.
+
 To prepare the test database, run the following:
     RAILS_ENV=test rake db:prepare
 
