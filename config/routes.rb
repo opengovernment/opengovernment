@@ -1,11 +1,12 @@
 OpenGov::Application.routes.draw do |map|
   match '/search' => 'districts#search', :as => 'search'
-  match '/states/ca/subscriptions' =>  'states#subscribe', :as => 'state_subscriptions'
-
-  match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => { :format => "html"}
+  match '/states/ca/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
+  match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
   resources :districts, :only => [:show]
   resources :sigs, :only => [:index, :show]
+  resources :issues, :only => [:index, :show]
+
   resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session/bills' do
     member do
       get :major_actions
@@ -14,7 +15,6 @@ OpenGov::Application.routes.draw do |map|
       resources :actions, :only => [:show]
     end
   end
-  resources :issues, :only => [:index, :show]
 
   resources :people, :only => [:show, :index] do
     member do

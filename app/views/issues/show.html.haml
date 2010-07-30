@@ -1,12 +1,34 @@
+- content_for :head do
+  = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Recent Activity: #{@issue.name}"})
+
+- title @issue.name
+
 %h2
   = @issue.name.titleize
+= link_to "Track via RSS", {:format => :atom}
+
+.span-24
+  %h3
+    Major Actions
+  %table.bill_actions
+    %tr
+      %th Bill
+      %th Date
+      %th Chamber
+      %th Action
+    - @actions.each do |action|
+      %tr
+        %td= action.bill.bill_number
+        %td= action.date && action.date.to_s(:pretty)
+        %td= action.actor_fm
+        %td= action.action_fm
+        %td= link_to("link", action)
 
 %h3 Bills
 - @bills.each do |bill|
   %li
     != link_to(bill.bill_number, bill_path(bill.state, bill.session, bill)) + " "
     = bill.title
-
 
 %h3 Special Interest Groups
 - @sigs.each do |sig|

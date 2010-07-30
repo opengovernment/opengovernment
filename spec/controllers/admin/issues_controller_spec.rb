@@ -1,5 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe Admin::IssuesController do
-
+module Admin
+  describe IssuesController do
+    it ""
+  end
 end

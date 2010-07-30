@@ -16,7 +16,8 @@ OpenGov::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  
+  config.active_support.deprecation = :stderr
+
   HOST = 'localhost'
   GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 

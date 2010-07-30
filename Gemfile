@@ -53,7 +53,9 @@ gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git
 #gem 'em-http-request', :git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 
 # Indexing and Search
-gem 'thinking-sphinx', '~> 2.0.0.rc1', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', :git => 'git://github.com/freelancing-god/thinking-sphinx.git',
+     :require => 'thinking_sphinx',
+     :branch => 'rails3'
 
 # Bundle gems used only in certain environments:
 
