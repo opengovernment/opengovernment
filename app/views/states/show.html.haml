@@ -21,13 +21,13 @@
 
   .span-18.last
     .span-9
-      = @state.legislature.name
+      = @state.name
       = @state.legislature.upper_chamber.name
       %br
     = leg_map_img(@state, @state.legislature.upper_chamber)
 
     .span-9.last
-      = @state.legislature.name
+      = @state.name
       = @state.legislature.lower_chamber.name
       %br
     = leg_map_img(@state, @state.legislature.lower_chamber)

@@ -72,7 +72,7 @@
             %span
               = link_to citation.title, citation.url
               %div
-                = truncate(citation.excerpt, 100)
+                = citation.excerpt
 
         %div.span-8
           %h4 Blogs
@@ -80,7 +80,7 @@
             %span
               = link_to citation.title, citation.url
               %div
-                = truncate(citation.excerpt, 100)
+                = citation.excerpt
 
         %div.span-8.last
           %h4 Technorati
@@ -88,7 +88,7 @@
             %span
               = link_to citation.title, citation.url
               %div
-                = truncate(citation.excerpt, 100)
+                = citation.excerpt
 
     %div.social
       %p Tweet this bill using the hashtags #{@bill.to_hashtags}

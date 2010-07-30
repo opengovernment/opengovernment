@@ -14,7 +14,7 @@ module StatesHelper
 
   def leg_map_img(state, chamber)
     sld_url = request ? "#{request.protocol}#{request.host_with_port}/people.xml" : "http://localhost:3000/people.xml"
-    image_tag(eval('"' + STATE_MAP_URL + '"'), :width => 300, :height => 300)
+    image_tag(eval('"' + STATE_MAP_URL + '"'), :alt => "#{state.name} #{chamber.name}", :width => 300, :height => 300)
   end
 
 end

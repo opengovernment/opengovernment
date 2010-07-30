@@ -6,6 +6,10 @@ class Chamber < ActiveRecord::Base
   has_many :bills
   has_many :committees, :through => :legislature
 
+  def self.federal
+    [LowerChamber.US_HOUSE, UpperChamber.US_SENATE]
+  end
+
   # Using the state and districts associated with this chamber,
   # find all current legislators for a given point.
   def current_legislators_by_point(point)
