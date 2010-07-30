@@ -8,7 +8,7 @@ Before you install the app, you will need to download and install the following:
   * Rails 3
   * Ruby 1.9.2 recommended (install via [RVM](http://rvm.beginrescueend.com/))
   * [GeoServer](http://geoserver.org/display/GEOS/Welcome), if you want to see vote maps
-  * [Sphinx](http://www.sphinxsearch.com/), if you want to use search (OS X: "port install sphinx +postgres84")
+  * [Sphinx](http://www.sphinxsearch.com/), if you want to use search (OS X: "port install sphinx +postgresql84")
 
 # Installation
   * Get a copy of the code:
