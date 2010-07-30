@@ -51,7 +51,7 @@ API_KEYS = YAML::load(File.open(File.join(File.dirname(__FILE__), 'api_keys.yml'
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
 GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
-FIFTYSTATES_DIR = File.join(DATA_DIR, "fiftystates")
+OPENSTATES_DIR = File.join(DATA_DIR, "openstates")
 POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.
 
 require 'acts_as_taggable_on'

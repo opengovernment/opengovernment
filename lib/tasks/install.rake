@@ -33,7 +33,7 @@ namespace :db do
 
     puts "\n---------- Loading seed data file"
     Rake::Task['db:sqlseed'].invoke
-    
+
     puts "\n---------- Loading database fixtures"
     Rake::Task['load:fixtures'].execute
   end
@@ -104,7 +104,7 @@ namespace :fetch do
     OpenGov::Districts.fetch
   end
 
-  desc "Get the fiftystates files for all active states"
+  desc "Get the openstates files for all active states"
   task :bills => :setup do
     OpenGov::Bills.fetch # Note: This also fetches state legislator data
   end
@@ -192,7 +192,7 @@ namespace :load do
     OpenGov::Contributions.import!
   end
 
-  desc "Fetch and load people from FiftyStates, GovTrack, VoteSmart, and Wikipedia"
+  desc "Fetch and load people from OpenStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     OpenGov::People.import!
 

@@ -4,8 +4,8 @@ task :sync => :environment do
 end
 
 namespace :sync do
-  desc "Fifty States API data"
-  task :fiftystates => :environment do
+  desc "Open States API data"
+  task :openstates => :environment do
     OpenGov::Fetch::States.process
   end
 end

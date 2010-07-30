@@ -8,7 +8,7 @@ module OpenGov
       end
 
       def import_one(state)
-        if fs_state = GovKit::FiftyStates::State.find_by_abbreviation(state.abbrev)
+        if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
           leg = Legislature.find_or_create_by_state_id(state.id)
 
           leg.update_attributes!(
@@ -28,14 +28,14 @@ module OpenGov
           end
 
           fs_state.terms.each do |t|
-            
+
             session = Session.find_or_create_by_legislature_id_and_name(leg.id, t.name)
 
             session.update_attributes!(
               :start_year => t.start_year,
               :end_year => t.end_year
             )
-            
+
             t.sessions.each do |s|
               sub_session = Session.find_or_create_by_legislature_id_and_name(leg.id, s)
               sub_session.update_attributes!(

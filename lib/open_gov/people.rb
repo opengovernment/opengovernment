@@ -7,10 +7,10 @@ module OpenGov
             import_state(state)
           end
         else
-          leg_dir = File.join(FIFTYSTATES_DIR, "api", "legislators")
+          leg_dir = File.join(OPENSTATES_DIR, "api", "legislators")
 
           unless File.exists?(leg_dir)
-            puts "Local Fifty States data is missing; fetching remotely instead."
+            puts "Local Open States data is missing; fetching remotely instead."
             return import!(:remote => true)
           end
 
@@ -20,13 +20,13 @@ module OpenGov
 
             Dir.glob(state_legs).each do |file|
               i = i + 1
-              leg = GovKit::FiftyStates::Legislator.parse(JSON.parse(File.read(file)))
+              leg = GovKit::OpenStates::Legislator.parse(JSON.parse(File.read(file)))
               import_one(leg, state)
             end
 
-            puts "FiftyStates: Imported #{i} people from local data"
+            puts "OpenStates: Imported #{i} people from local data"
           end
-          
+
         end
       end
 
@@ -34,19 +34,19 @@ module OpenGov
         # Counters
         i = 0
 
-        GovKit::FiftyStates::Legislator.search(:state => state.abbrev).each do |fs_person|
+        GovKit::OpenStates::Legislator.search(:state => state.abbrev).each do |fs_person|
           i = i + 1
           import_one(fs_person, state)
         end
 
-        puts "FiftyStates: Imported #{i} people from remote data"
+        puts "OpenStates: Imported #{i} people from remote data"
       end
 
       def import_one(fs_person, state)
         Person.transaction do
 
-          unless person = Person.find_by_fiftystates_id(fs_person.leg_id)
-            person = Person.new(:fiftystates_id => fs_person.leg_id)
+          unless person = Person.find_by_openstates_id(fs_person.leg_id)
+            person = Person.new(:openstates_id => fs_person.leg_id)
           end
 
           person.update_attributes!(
@@ -57,7 +57,7 @@ module OpenGov
             :middle_name => fs_person.middle_name,
             :suffix => fs_person.suffixes,
             :updated_at => Date.valid_date!(fs_person.updated_at),
-            :fiftystates_photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
+            :openstates_photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
           )
 
           person.save!
@@ -67,13 +67,13 @@ module OpenGov
             session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.term)
 
             case fs_role[:type]
-            when GovKit::FiftyStates::ROLE_MEMBER
+            when GovKit::OpenStates::ROLE_MEMBER
 
               chamber =
                 case fs_role.chamber
-                when GovKit::FiftyStates::CHAMBER_UPPER
+                when GovKit::OpenStates::CHAMBER_UPPER
                   legislature.upper_chamber
-                when GovKit::FiftyStates::CHAMBER_LOWER
+                when GovKit::OpenStates::CHAMBER_LOWER
                   legislature.lower_chamber
                 end
 
@@ -87,7 +87,7 @@ module OpenGov
                 :end_date => Date.valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
                 :party => fs_role.party
               )
-            when GovKit::FiftyStates::ROLE_COMMITTEE_MEMBER
+            when GovKit::OpenStates::ROLE_COMMITTEE_MEMBER
               # Their votesmart_committee_id may be nil
               if committee = (fs_role.votesmart_committee_id? ? Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) : Committee.find_or_create_by_name_and_legislature_id(fs_role.committee, legislature.id))
                 committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)

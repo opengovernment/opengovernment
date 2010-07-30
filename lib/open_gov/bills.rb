@@ -1,28 +1,28 @@
 module OpenGov
   class Bills < Resources
-    VOTES_DIR = File.join(FIFTYSTATES_DIR, "api", "votes")
+    VOTES_DIR = File.join(OPENSTATES_DIR, "api", "votes")
 
     @people = {}
 
     class << self
       def build_people_hash
         # Cache all of the ids of people so we don't have to keep looking them up.
-        Person.all(:conditions => "fiftystates_id is not null").each do |p|
-          @people[p.fiftystates_id] = p.id
+        Person.all(:conditions => "openstates_id is not null").each do |p|
+          @people[p.openstates_id] = p.id
         end
       end
 
       def fetch
-        FileUtils.mkdir_p(FIFTYSTATES_DIR)
-        Dir.chdir(FIFTYSTATES_DIR)
-        
+        FileUtils.mkdir_p(OPENSTATES_DIR)
+        Dir.chdir(OPENSTATES_DIR)
+
         State.loadable.each do |state|
-          fiftystates_fn = "#{state.abbrev.downcase}.zip"
-          curl_ops = File.exists?(fiftystates_fn) ? "-z #{fiftystates_fn}" : ''
+          openstates_fn = "#{state.abbrev.downcase}.zip"
+          curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''
 
           puts "---------- Downloading the bills for #{state.name}"
-          `curl #{curl_ops} -fO http://fiftystates-dev.sunlightlabs.com/data/#{fiftystates_fn}`
-          `unzip -u #{fiftystates_fn}`
+          `curl #{curl_ops} -fO http://fiftystates-dev.sunlightlabs.com/data/#{openstates_fn}`
+          `unzip -u #{openstates_fn}`
         end
       end
 
@@ -35,7 +35,7 @@ module OpenGov
           if options[:remote]
             import_state(state)
           else
-            state_dir = File.join(FIFTYSTATES_DIR, "api", state.abbrev.downcase)
+            state_dir = File.join(OPENSTATES_DIR, "api", state.abbrev.downcase)
 
             unless File.exists?(state_dir)
               puts "Local Open State API data for #{state.name} is missing."
@@ -44,7 +44,7 @@ module OpenGov
 
             puts "\nLoading local Open State data for #{state.name}."
             state.sessions.each do |session|
-              [GovKit::FiftyStates::CHAMBER_LOWER, GovKit::FiftyStates::CHAMBER_UPPER].each do |house|
+              [GovKit::OpenStates::CHAMBER_LOWER, GovKit::OpenStates::CHAMBER_UPPER].each do |house|
                 bills_dir = File.join(state_dir, session.name, house, "bills")
                 all_bills = File.join(bills_dir, "*")
                 Dir.glob(all_bills).each_with_index do |file, i|
@@ -53,7 +53,7 @@ module OpenGov
                     $stdout.flush
                   end
 
-                  bill = GovKit::FiftyStates::Bill.parse(JSON.parse(File.read(file)))
+                  bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
                   import_bill(bill, state, options)
                 end
               end
@@ -66,7 +66,7 @@ module OpenGov
         puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
         # TODO: This isn't quite right...
-        bills = GovKit::FiftyStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
+        bills = GovKit::OpenStates::Bill.latest(Bill.maximum(:updated_at).to_date, state.abbrev.downcase)
 
         if bills.empty?
           puts "No bills found \n"
@@ -88,7 +88,7 @@ module OpenGov
 
           @bill = Bill.find_or_initialize_by_bill_number_and_session_id(bill.bill_id, session.id)
           @bill.title = bill.title
-          @bill.fiftystates_id = bill["_id"]
+          @bill.openstates_id = bill["_id"]
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
@@ -145,7 +145,7 @@ module OpenGov
 
             ['yes', 'no', 'other'].each do |vote_type|
               vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
-                v.roll_calls.create(:vote_type => vote_type, :person => Person.find_by_fiftystates_id(rcall.leg_id.to_s)) if rcall.leg_id
+                v.roll_calls.create(:vote_type => vote_type, :person => Person.find_by_openstates_id(rcall.leg_id.to_s)) if rcall.leg_id
               end
             end
           end

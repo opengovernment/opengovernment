@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 46) do
+ActiveRecord::Schema.define(:version => 47) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -43,15 +43,15 @@ ActiveRecord::Schema.define(:version => 46) do
     t.text     "title"
     t.integer  "state_id"
     t.integer  "session_id"
-    t.string   "fiftystates_id"
+    t.string   "openstates_id"
     t.string   "bill_number"
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "votesmart_key_vote", :default => false, :null => false
-    t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
+    t.boolean  "votesmart_key_vote", :default => false, :null => false
+    t.integer  "votesmart_id"
   end
 
   create_table "bills_subjects", :force => true do |t|
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 46) do
     t.datetime "updated_at"
     t.integer  "legislature_id",                                            :null => false
     t.string   "type",                             :default => "Committee", :null => false
-    t.string   "fiftystates_id"
+    t.string   "openstates_id"
   end
 
   create_table "contributions", :force => true do |t|
@@ -141,21 +141,11 @@ ActiveRecord::Schema.define(:version => 46) do
     t.boolean       "at_large"
     t.integer       "state_id",                            :null => false
     t.string        "vintage",              :limit => 4
-    t.integer       "chamber_id"
     t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
+    t.integer       "chamber_id"
   end
 
   add_index "districts", ["geom"], :name => "index_districts_on_geom", :spatial => true
-
-  create_table "industries", :force => true do |t|
-    t.string   "business_name"
-    t.string   "industry_name"
-    t.string   "sector_name"
-    t.integer  "nimsp_industry_code"
-    t.integer  "nimsp_sector_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "legislatures", :force => true do |t|
     t.string  "name"
@@ -163,10 +153,10 @@ ActiveRecord::Schema.define(:version => 46) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",                            :null => false
+    t.string   "first_name",                           :null => false
     t.string   "middle_name"
-    t.string   "last_name",                             :null => false
-    t.string   "fiftystates_id"
+    t.string   "last_name",                            :null => false
+    t.string   "openstates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
     t.integer  "govtrack_id"
@@ -185,8 +175,8 @@ ActiveRecord::Schema.define(:version => 46) do
     t.string   "webmail"
     t.string   "email"
     t.string   "votesmart_photo_url"
-    t.string   "fiftystates_photo_url"
-    t.string   "bio_data",              :limit => 8000
+    t.string   "openstates_photo_url"
+    t.string   "bio_data",             :limit => 8000
   end
 
   create_table "ratings", :force => true do |t|
@@ -328,7 +318,7 @@ ActiveRecord::Schema.define(:version => 46) do
     t.datetime "date"
     t.boolean  "passed"
     t.integer  "chamber_id"
-    t.string   "fiftystates_id"
+    t.string   "openstates_id"
     t.string   "motion"
     t.datetime "created_at"
     t.datetime "updated_at"
