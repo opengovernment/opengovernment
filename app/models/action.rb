@@ -16,6 +16,10 @@ class Action < ActiveRecord::Base
     end
   end
   
+  def major?
+    !kind.blank? && kind != "other"
+  end
+  
   def action_fm
     case action.downcase
     when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^amendment/, /^remarks/

@@ -1,5 +1,5 @@
 - content_for :head do
-  = auto_discovery_link_tag(:atom, {:action => 'actions', :format => :atom}, {:title => "All Actions"})
+  = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "All Actions"})
   = auto_discovery_link_tag(:atom, {:action => 'major_actions', :format => :atom}, {:title => "Major Actions"})
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
@@ -22,7 +22,9 @@
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
     %div
-      = link_to "Track via RSS", {:format => :atom}
+      Track via RSS:
+      = link_to "All actions", {:format => :atom}
+      = link_to "Major actions", {:action => 'major_actions', :format => :atom}
 
   .span-12
     %h4 Sponsors
@@ -50,7 +52,7 @@
             %th Chamber
             %th Action
           - @bill.actions.each do |action|
-            %tr
+            %tr{:class => (action.major? ? "major" : "")}
               %td= action.date && action.date.to_s(:pretty)
               %td= action.actor_fm
               %td= action.action_fm
@@ -62,7 +64,7 @@
         - @bill.votes.each do |vote|
           = render :partial => 'votes/vote', :locals => {:vote => vote}
           %div
-            = link_to "Full roll call data &rarr;", state_vote_url(@state, vote)
+            = link_to "Full roll call data &rarr;".html_safe, state_vote_url(@state, vote)
 
     - if @bill.citations.size > 0
       %div.span-24.last

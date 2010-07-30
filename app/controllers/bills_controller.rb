@@ -1,12 +1,14 @@
 class BillsController < ApplicationController
   before_filter :get_state
-  before_filter :get_bill
+  before_filter :get_bill, :except => [:index]
 
-  def actions
-    @actions = @bill.actions
-
+  def show
     respond_to do |format|
-      format.atom { render :template => 'bills/actions' }
+      format.atom do 
+        @actions = @bill.actions
+        render :template => 'shared/actions'
+      end
+      format.html
     end
   end
 
@@ -14,7 +16,7 @@ class BillsController < ApplicationController
     @actions = @bill.major_actions
 
     respond_to do |format|
-      format.atom { render :template => 'bills/actions' }
+      format.atom { render :template => 'shared/actions' }
     end
   end
 

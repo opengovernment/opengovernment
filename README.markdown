@@ -23,6 +23,8 @@ Before you install the app, you will need to download and install the following:
         bundle install
         rake install
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
+  * To start the server:
+        rails server
 
   Sphinx
   Mac OS X:
@@ -33,7 +35,7 @@ Before you install the app, you will need to download and install the following:
 
    Thinking Sphinx:
 
-   bundle install, installs the thinking sphinx gem thats a wrapper around your system sphinx daemon.
+   bundle install, installs the ThinkingSphinx gem thats a wrapper around your system sphinx daemon.
 
    Once you have that setup "rake -T | grep ts" to look at all the available commands.
 

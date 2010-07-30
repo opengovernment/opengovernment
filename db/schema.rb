@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(:version => 47) do
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "first_action_at"
-    t.datetime "last_action_at"
     t.boolean  "votesmart_key_vote", :default => false, :null => false
     t.integer  "votesmart_id"
+    t.datetime "first_action_at"
+    t.datetime "last_action_at"
   end
 
   create_table "bills_subjects", :force => true do |t|
@@ -141,11 +141,21 @@ ActiveRecord::Schema.define(:version => 47) do
     t.boolean       "at_large"
     t.integer       "state_id",                            :null => false
     t.string        "vintage",              :limit => 4
-    t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
     t.integer       "chamber_id"
+    t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
   end
 
   add_index "districts", ["geom"], :name => "index_districts_on_geom", :spatial => true
+
+  create_table "industries", :force => true do |t|
+    t.string   "business_name"
+    t.string   "industry_name"
+    t.string   "sector_name"
+    t.integer  "nimsp_industry_code"
+    t.integer  "nimsp_sector_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "legislatures", :force => true do |t|
     t.string  "name"

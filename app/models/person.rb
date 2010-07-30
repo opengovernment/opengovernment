@@ -177,6 +177,6 @@ class Person < ActiveRecord::Base
   end
 
   def photo_url
-    self._photo_url || self.votesmart_photo_url || 'missing.png'
+    self.openstates_photo_url || self.votesmart_photo_url || 'missing.png'
   end
 end

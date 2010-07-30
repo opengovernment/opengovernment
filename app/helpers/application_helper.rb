@@ -15,7 +15,9 @@ module ApplicationHelper
   end
 
   def link_to_with_domain(name, url, html_options = nil)
-    result = link_to(name, url, html_options) + " <span class=\"link_domain\">(" + domain_for(url) + ")</span>"
-    result.html_safe
+    result = link_to(name, url, html_options) \
+      + " <span class=\"link_domain\">(".html_safe \
+      + domain_for(url) \
+      + ")</span>".html_safe
   end
 end
