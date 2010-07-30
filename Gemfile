@@ -33,7 +33,7 @@ gem "chronic" # Complex date string parsing
 gem "will_paginate", "~> 3.0.pre2"
 
 # HAML!
-gem 'haml', :git => 'git://github.com/nex3/haml.git', :tag => '3.0.0.beta.3'
+gem 'haml', :git => 'git://github.com/nex3/haml.git'
 
 # Required for rails_xss plugin, which turns on XSS protection by default;
 # remove this (and the plugin) for Rails 3
@@ -48,9 +48,9 @@ gem "hpricot"
 gem 'hpricot_scrub', :git => 'git://github.com/UnderpantsGnome/hpricot_scrub.git'
 
 # async http requires (Ruby 1.9 only!)
-# gem 'addressable', :require => 'addressable/uri'
-# gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
-# gem 'em-http-request', :require => 'em-http'
+#gem 'addressable', :require => 'addressable/uri'
+#gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
+#gem 'em-http-request', :git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 
 # Indexing and Search
 gem 'thinking-sphinx', '~> 2.0.0.rc1', :require => 'thinking_sphinx'

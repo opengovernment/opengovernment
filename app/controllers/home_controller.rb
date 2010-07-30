@@ -32,8 +32,8 @@ class HomeController < ApplicationController
           f = "text/html"
           w = HomeController::MAP_WIDTH
           h = HomeController::MAP_HEIGHT
-          http = EM::HttpRequest.new(eval('"' + HomeController::MAP_POST_URL + '"')).get
-          states_map_tag = http.response
+          http = Net::HTTP::Get.new(eval('"' + HomeController::MAP_POST_URL + '"'))
+          states_map_tag = http.body
           Rails.cache.write("states_map_tag", states_map_tag)
         end
 
@@ -54,13 +54,6 @@ class HomeController < ApplicationController
         send_data(states_map_png)
       end
     end
-    
-  end
-
-  def index
-    # going meta, query yourself, on the same thin server!
-    http = EM::HttpRequest.new("http://www.google.com/").get
-    render :text => http.response
   end
 
 end
