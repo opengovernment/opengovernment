@@ -4,25 +4,26 @@ OpenGov::Application.routes.draw do |map|
 
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => { :format => "html"}
 
-  resources :actions, :only => [:show]
   resources :districts, :only => [:show]
   resources :sigs, :only => [:index, :show]
   resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session/bills' do
     member do
-      get :actions
       get :major_actions
+    end
+    shallow do
+      resources :actions, :only => [:show]
     end
   end
   resources :issues, :only => [:index, :show]
 
-  resources :people do
+  resources :people, :only => [:show, :index] do
     member do
       get :sponsored_bills
       get :votes
     end
   end
 
-  resources :states do
+  resources :states, :only => [:show] do
     get :search, :on => :member
     resources :votes, :only => [:show]
     resources :bills, :only => [:index]
