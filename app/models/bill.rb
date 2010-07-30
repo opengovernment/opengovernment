@@ -8,6 +8,7 @@ class Bill < ActiveRecord::Base
 
   has_many :versions, :dependent => :destroy
   has_many :actions, :dependent => :destroy
+  has_many :major_actions, :class_name => 'Action', :conditions => ["kind <> 'other' and kind is not null"]
   has_many :votes, :dependent => :destroy
 
   default_scope :order => "first_action_at desc"
