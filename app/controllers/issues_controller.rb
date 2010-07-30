@@ -6,10 +6,8 @@ class IssuesController < ApplicationController
   end
 
   def show
-    subjects = Subject.tagged_with(@issue.name)
-    @bills = subjects.collect(&:bills).flatten.uniq
-
-    @actions = @bills.collect(&:actions).flatten.sort_by(&:date).reverse
+    @actions = Action.find_by_sql(["select * from v_tagged_bill_actions
+        where kind <> 'other' and kind is not null and tag_name = ? order by date desc", @issue.name])
 
     categories = Category.tagged_with(@issue.name)
     @sigs = categories.collect(&:special_interest_groups).flatten
