@@ -6,11 +6,9 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @actions = Action.find_by_sql(["select * from v_tagged_bill_actions
-        where kind <> 'other' and kind is not null and tag_name = ? order by date desc", @issue.name])
-
-    categories = Category.tagged_with(@issue.name)
-    @sigs = categories.collect(&:special_interest_groups).flatten
+    @actions = Action.find_all_by_issue(@issue)
+    @bills = Bill.find_all_by_issue(@issue)
+    @sigs = SpecialInterestGroup.find_all_by_issue(@issue)
 
     respond_to do |format|
       format.atom
