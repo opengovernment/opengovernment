@@ -41,10 +41,10 @@ class StatesController < ApplicationController
         when "all"
           @legislators = Person.search(@query, @search_options)
           @search_options.merge({:with => {:state_id => @state.id}})
-          @bills = Bill.search(@query, @search_options)
+          @bills = @state.bills.search(@query, @search_options)
         when "bills"
           @search_options.merge({:with => {:state_id => @state.id}})
-          @bills = Bill.search(@query, @search_options)
+          @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries
         when "legislators"
           @legislators = Person.search(@query, @search_options)
