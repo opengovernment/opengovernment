@@ -61,14 +61,14 @@ namespace :bundler do
   end
 
   task :symlink_vendor do
-    run %Q{ rm -fr   #{release_path}/vendor/bundler_gems}
+    run %Q{ rm -fr   #{release_path}/vendor/bundle}
     run %Q{ mkdir -p #{shared_path}/bundler_gems}
-    run %Q{ ln -nfs  #{shared_path}/bundler_gems #{release_path}/vendor/bundler_gems}
+    run %Q{ ln -nfs  #{shared_path}/bundler_gems #{release_path}/vendor/bundle}
   end
 
   task :bundle_new_release do
     bundler.symlink_vendor
-    run("cd #{release_path} && bundle install vendor/bundler_gems --without test cucumber && bundle lock")
+    run("cd #{release_path} && bundle install --deployment")
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end
