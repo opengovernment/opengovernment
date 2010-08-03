@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
     # Auth for staging environment
   USERNAME, PASSWORD = 'opengov', API_KEYS['og_staging']
 
-  before_filter :authenticate
-
   protected
   def resource_not_found
     flash[:error] = "Sorry. We were not able to locate what you were looking for.."

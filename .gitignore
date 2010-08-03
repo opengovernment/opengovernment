@@ -1,5 +1,4 @@
 **.DS_Store
-Gemfile.lock
 log/*.log
 log/*.pid
 tmp/**/*

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :authenticate, :only => :index
+
   DEFAULT_STATE_COLOR = '#DDDDDD'
   SUPPORTED_STATE_COLOR = '#FF0000'
   PENDING_STATE_COLOR = '#00FF00'
@@ -25,33 +27,30 @@ class HomeController < ApplicationController
       end
 
       format.html do
-        Rails.cache.delete("states_map_tag")
 
-        states_map_tag = Rails.cache.read("states_map_tag")
-        if states_map_tag.nil?
-          f = "text/html"
-          w = HomeController::MAP_WIDTH
-          h = HomeController::MAP_HEIGHT
-          http = Net::HTTP::Get.new(eval('"' + HomeController::MAP_POST_URL + '"'))
-          states_map_tag = http.body
-          Rails.cache.write("states_map_tag", states_map_tag)
-        end
-
-        render(:text => %Q{<img src="/us_map.png" width="#{HomeController::MAP_WIDTH}" height="#{HomeController::MAP_HEIGHT}" alt="USA" usemap="#states" />} + states_map_tag)
       end
 
       format.png do
+
         Rails.cache.delete("states_map_png")
         states_map_png = Rails.cache.read("states_map_png")
         if states_map_png.nil?
           f = "image/png"
           w = MAP_WIDTH
           h = MAP_HEIGHT
-          http = EM::HttpRequest.new(eval('"' + MAP_POST_URL + '"')).get
-          states_map_png = http.response
-          Rails.cache.write("states_map_png", states_map_png)
+          uri = URI.parse(eval('"' + MAP_POST_URL + '"'))
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.open_timeout = 5 # in seconds
+          http.read_timeout = 5 # in seconds
+
+          # The request.
+          req = Net::HTTP::Get.new(uri.request_uri)
+          res = http.request(req)
+
+          states_map_png = res.body
+          # Rails.cache.write("states_map_png", states_map_png)
+          send_data(states_map_png)
         end
-        send_data(states_map_png)
       end
     end
   end
