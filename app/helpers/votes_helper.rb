@@ -10,7 +10,7 @@ module VotesHelper
 
   CHART_WIDTH = 300
   CHART_HEIGHT = 100
-  
+
   # If a given bar is more than 100 pixels long, it's safe to show the label.
   LABEL_MIN_WIDTH = 80
 
