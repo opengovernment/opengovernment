@@ -4,9 +4,9 @@ module StatesHelper
     service=WMS
     &request=GetMap
     &version=1.1.1
-    &layers=cite:v_district_people
+    &layers=topp:states,cite:v_district_people
     &bbox=#{state.bbox.join(",")}
-    &cql_filter=state_id+=+#{state.id}+and+chamber_id+=+#{chamber.id}
+    &cql_filter=STATE_ABBR='#{state.abbrev}';chamber_id+=+#{chamber.id}
     &width=300
     &height=300
     &format=image/png

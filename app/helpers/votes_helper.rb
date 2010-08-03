@@ -87,18 +87,19 @@ module VotesHelper
     service=WMS
     &request=GetMap
     &version=1.1.1
-    &layers=cite:v_district_votes
+    &layers=topp:states,cite:v_district_votes
     &bbox=#{state.bbox.join(",")}
-    &cql_filter=vote_id+=+#{vote_id}+and+chamber_id+=+#{chamber_id}
+    &cql_filter=STATE_ABBR='#{state.abbrev}';vote_id+=+#{vote_id}+and+chamber_id+=+#{chamber_id}
     &width=#{MAP_WIDTH}
     &height=#{MAP_HEIGHT}
     &format=image/png
-    &SLD=#{CGI::escape('http://localhost:3000/votes.xml')}).gsub(/\n\s+/,'')
+    &SLD=#{CGI::escape(sld_url)}).gsub(/\n\s+/,'')
 
   MAP_WIDTH = 300
   MAP_HEIGHT = 300
 
   def vote_map_img(state, chamber_id, vote_id)
+    sld_url = request ? "#{request.protocol}#{request.host_with_port}/votes.xml" : "http://localhost:3000/votes.xml"
     return image_tag(eval('"' + MAP_URL + '"'), :width => MAP_WIDTH, :height => MAP_HEIGHT, :class => 'vote_map', :alt => "Geography of the vote")
   end
 
