@@ -67,8 +67,8 @@ namespace :bundler do
   end
 
   task :bundle_new_release do
-    bundler.symlink_vendor
-    run("cd #{release_path} && bundle install --production")
+#    bundler.symlink_vendor
+    run("cd #{release_path} && bundle install --production --without test cucumber")
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end
