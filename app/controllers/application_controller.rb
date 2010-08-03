@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Clearance::Authentication
+#  include Clearance::Authentication
   protect_from_forgery
   layout 'application'
     # Auth for staging environment
