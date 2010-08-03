@@ -33,7 +33,7 @@ gem "chronic" # Complex date string parsing
 gem "will_paginate", "~> 3.0.pre2"
 
 # HAML!
-gem 'haml', :git => 'http://github.com/nex3/haml.git'
+gem 'haml', '3.0.0.rc.5'
 
 # Required for rails_xss plugin, which turns on XSS protection by default;
 # remove this (and the plugin) for Rails 3

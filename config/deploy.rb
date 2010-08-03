@@ -68,7 +68,7 @@ namespace :bundler do
 
   task :bundle_new_release do
     bundler.symlink_vendor
-    run("cd #{release_path} && bundle install --deployment")
+    run("cd #{release_path} && bundle install --production")
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end
