@@ -9,8 +9,8 @@ module HomeHelper
         h = HomeController::MAP_HEIGHT
         uri = URI.parse(eval('"' + HomeController::MAP_POST_URL + '"'))
         http = Net::HTTP.new(uri.host, uri.port)
-        http.open_timeout = 2 # in seconds
-        http.read_timeout = 2 # in seconds
+        http.open_timeout = 4 # in seconds
+        http.read_timeout = 4 # in seconds
 
         # The request.
         req = Net::HTTP::Get.new(uri.request_uri)
@@ -20,7 +20,7 @@ module HomeHelper
         Rails.cache.write('states_map_tag', states_map_tag)
       end
 
-      render(:text => %Q{<img src="/us_map.png" width="#{HomeController::MAP_WIDTH}" height="#{HomeController::MAP_HEIGHT}" alt="USA" usemap="#states" />} + states_map_tag)
+      %Q{<img src="/us_map.png" width="#{HomeController::MAP_WIDTH}" height="#{HomeController::MAP_HEIGHT}" alt="USA" usemap="#states" />}.html_safe + states_map_tag.html_safe
     end
   end
 end
