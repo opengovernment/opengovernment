@@ -10,6 +10,7 @@ atom_feed(:root_url => url_for(:format => nil, :only_path => false)) do |feed|
 
       entry.author do |author|
         author.name("OpenGovernment")
+        author.uri("http://opengovernment.org")        
       end
     end
   end
