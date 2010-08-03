@@ -71,24 +71,16 @@
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
   .span-6.last
-    %h3 Bills
+    %h3 Key Votes
+    .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+    %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+
     %p
-      Show all bills by:
-      .bill_sort
-        - Bill::SORTABLE_BY.each do |name, column|
-          = link_to name, state_bills_path(@state, :sort => column)
-
-    - if @state_key_votes.size > 0
-      %h3 Key Votes
-      .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-      %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
-
-      %p
-        %ul.key_votes
-          - @state_key_votes.each do |bill|
-            %li
-              != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
-              = bill.title
+      %ul.key_votes
+        - @state_key_votes.each do |bill|
+          %li
+            != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+            = bill.title
 
 
 %aside.span-6.last
@@ -97,7 +89,7 @@
       %a Assembly
       %ul
         %li
-          %a Bills
+          = link_to "Bills", search_state_path(:search_type => "bills")
     %li
       %a Senate
     %li

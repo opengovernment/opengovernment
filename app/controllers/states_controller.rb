@@ -1,7 +1,6 @@
 class StatesController < ApplicationController
   before_filter :get_state, :except => [:sld]
 
-
   def show
     if @state.supported?
       @state_lower_chamber_roles = Role.current_chamber_roles(@state.legislature.lower_chamber)
@@ -24,8 +23,8 @@ class StatesController < ApplicationController
   end
 
   def search
-    @query = params[:q]
-    @search_type = params[:search_type]
+    @query = params[:q] || ""
+    @search_type = params[:search_type] || "all"
     @search_session = params[:session_id]
     @search_options = {
       :page => params[:page],
@@ -42,10 +41,10 @@ class StatesController < ApplicationController
         when "all"
           @legislators = Person.search(@query, @search_options)
           @search_options.merge({:with => {:state_id => @state.id}})
-          @bills = Bill.search(@query, @search_options)
+          @bills = @state.bills.search(@query, @search_options)
         when "bills"
           @search_options.merge({:with => {:state_id => @state.id}})
-          @bills = Bill.search(@query, @search_options)
+          @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries
         when "legislators"
           @legislators = Person.search(@query, @search_options)

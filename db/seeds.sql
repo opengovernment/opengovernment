@@ -105,22 +105,21 @@ CREATE OR REPLACE VIEW v_district_people AS
   and r.person_id = p.id
   and current_date between r.start_date and r.end_date;
 
-CREATE OR REPLACE VIEW v_tagged_bill_actions AS
-  select t.name as tag_name,
-    a.*,
-    b.state_id
-  from
-    tags t,
-    taggings tt,
-    bills b,
-    bills_subjects bs,
-    subjects s,
-    actions a
-  where
-    b.id = a.bill_id and
-    s.id = bs.subject_id and
-    bs.bill_id = b.id and
-    tt.taggable_type = 'Subject' and
-    tt.taggable_id = s.id and
-    tt.context = 'issues' and
-    t.id = tt.tag_id;
+CREATE OR REPLACE VIEW v_tagged_bills AS
+  select distinct t.name as tag_name, b.*
+  from tags t, taggings tt, bills b, bills_subjects bs, subjects s
+  where s.id = bs.subject_id and bs.bill_id = b.id and
+  tt.taggable_type = 'Subject' and tt.taggable_id = s.id and
+  tt.context = 'issues' and t.id = tt.tag_id;
+
+CREATE OR REPLACE VIEW v_tagged_actions AS
+  select distinct a.*, tag_name
+  from v_tagged_bills as tgb, actions a
+  where tgb.id = a.bill_id;
+
+CREATE OR REPLACE VIEW v_tagged_sigs AS
+  select distinct t.name as tag_name, sig.*
+  from tags t, taggings tt, special_interest_groups sig, categories c
+  where c.id = sig.category_id and
+  tt.taggable_type = 'Category' and tt.taggable_id = c.id and
+  tt.context = 'issues' and t.id = tt.tag_id;

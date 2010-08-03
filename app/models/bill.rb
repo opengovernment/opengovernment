@@ -12,10 +12,10 @@ class Bill < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
   default_scope :order => "first_action_at desc"
-  scope :titles_like, lambda { |t| { :conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/,'').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"] } }
-  scope :in_chamber, lambda { |c| { :conditions => ["chamber_id = ?", c] } }
-  scope :for_session, lambda { |s| { :conditions => ["session_id = ?", s], :joins => [:session] }  }
-  scope :for_session_named, lambda { |s| { :conditions => ["sessions.name = ?", s], :joins => [:session] } }
+  scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
+  scope :in_chamber, lambda { |c| {:conditions => ["chamber_id = ?", c]} }
+  scope :for_session, lambda { |s| {:conditions => ["session_id = ?", s], :joins => [:session]} }
+  scope :for_session_named, lambda { |s| {:conditions => ["sessions.name = ?", s], :joins => [:session]} }
   scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
@@ -43,6 +43,11 @@ class Bill < ActiveRecord::Base
   class << self
     def find_by_session_name_and_param(session, param)
       for_session_named(session).find_by_bill_number(param.titleize.upcase)
+    end
+
+    def find_all_by_issue(issue)
+      find_by_sql(["select * from v_tagged_bills
+                where tag_name = ? order by last_action_at desc", issue.name])
     end
 
 # TODO: Remove this on next iteration
