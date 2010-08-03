@@ -20,12 +20,6 @@ GIT
   specs:
     acts-as-taggable-on (2.0.6)
 
-GIT
-  remote: http://github.com/nex3/haml.git
-  revision: 9b1df3b
-  specs:
-    haml (3.1.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -192,7 +186,6 @@ DEPENDENCIES
   erubis
   factory_girl
   geokit
-  haml!
   hpricot
   hpricot_scrub!
   httparty
