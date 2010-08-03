@@ -15,6 +15,16 @@ GIT
       riddle (>= 1.0.10)
 
 GIT
+  remote: http://github.com/justinfrench/formtastic.git
+  revision: 7b5ed06
+  branch: rails3
+  specs:
+    formtastic (1.0.0.rc)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
+
+GIT
   remote: http://github.com/mbleigh/acts-as-taggable-on.git
   revision: 3d707c2
   specs:
@@ -67,6 +77,7 @@ GEM
       net-ssh-gateway (>= 1.0.0)
     chronic (0.2.3)
       hoe (>= 1.2.1)
+    clearance (0.8.8)
     columnize (0.3.1)
     crack (0.1.8)
     cucumber (0.8.5)
@@ -181,10 +192,12 @@ DEPENDENCIES
   autotest-rails
   capistrano
   chronic
+  clearance
   cucumber-rails
   database_cleaner
   erubis
   factory_girl
+  formtastic!
   geokit
   hpricot
   hpricot_scrub!

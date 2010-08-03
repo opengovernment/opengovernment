@@ -12,10 +12,10 @@ gem "pg"
 gem "capistrano"
 
 # An alternative form builder
-# gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
+gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 
 # Basic authentication
-# gem "clearance"
+gem "clearance"
 
 # GIS functionality
 gem "GeoRuby"
