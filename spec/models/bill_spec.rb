@@ -1,8 +1,5 @@
-require File.dirname(__FILE__) + '/../spec_helper'
-
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Bill do
-  fixtures :states, :chambers, :sessions, :bills
-
   context "new" do
     before(:each) do
       @valid_attributes = {
@@ -23,7 +20,7 @@ describe Bill do
       @tx81 = sessions(:tx81)
       @hb1000 = bills(:hb1000)
     end
-    
+
     describe ".titles_like" do
       it "should return bills with a given title" do
         Bill.titles_like("prekindergarten").size.should eql(1)

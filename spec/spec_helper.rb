@@ -10,15 +10,15 @@ require 'rspec/autorun'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 require 'webrat'
-require "webrat/integrations/rspec-rails"
-require "webrat/selenium"
+require "webrat/core/matchers"
+
+Webrat.configure do |config|
+  config.mode = :rack
+end
 
 RSpec.configure do |config|
   config.mock_with :rspec
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = false
-end
-
-Webrat.configure do |config|
-  config.mode = :rails
+  config.use_transactional_fixtures = true
+  config.global_fixtures = :all
 end

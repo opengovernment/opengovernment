@@ -214,6 +214,6 @@ DEPENDENCIES
   ruby-debug19
   spatial_adapter
   thinking-sphinx!
-  webrat
+  webrat (~> 0.7.2.beta1)
   will_paginate (~> 3.0.pre2)
   ym4r

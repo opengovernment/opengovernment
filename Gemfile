@@ -62,7 +62,6 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 group :cucumber do
   gem "cucumber-rails"
   gem "database_cleaner"
-  gem "webrat"
   gem "factory_girl"
 end
 
@@ -78,5 +77,5 @@ group :test, :cucumber do
   gem "machinist"
   gem "linecache19"
   gem "ruby-debug19"
-  gem "webrat"
+  gem "webrat", "~> 0.7.2.beta1"
 end

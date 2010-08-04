@@ -1,5 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
-
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Role do
   before(:each) do
     @valid_attributes = {
@@ -26,8 +25,8 @@ describe Role do
     role.end_date = nil
     role.save.should be_true
   end
-  
+
   it "should have a chamber" do
-    
+
   end
 end

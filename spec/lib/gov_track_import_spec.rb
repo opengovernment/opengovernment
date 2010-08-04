@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 require Rails.root + 'lib/gov_track_importer'
 
 describe GovTrackImporter do

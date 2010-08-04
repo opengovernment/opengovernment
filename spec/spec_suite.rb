@@ -1,7 +1,7 @@
 class SpecSuite
   def run
     Dir["#{File.dirname(__FILE__)}/**/*_spec.rb"].each do |file|
-      require file
+      require File.expand_path(file)
     end
   end
 end
