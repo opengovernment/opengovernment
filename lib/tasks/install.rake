@@ -1,6 +1,18 @@
 # Configuration
 require 'yaml'
 
+# Some helper methods so that we can remove a task preloaded by another .rake file.
+Rake::TaskManager.class_eval do
+  def remove_task(task_name)
+    @tasks.delete(task_name.to_s)
+  end
+end
+
+def remove_task(task_name)
+  Rake.application.remove_task(task_name)
+end
+
+
 task :install => ["opengov:install"]
 
 namespace :opengov do
@@ -35,8 +47,16 @@ end
 
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
-  task :prepare => :environment do
+  namespace :test do
+    remove_task :"db:test:prepare"
+    desc "Noop"
+    task :prepare do
+      puts "Run RAILS_ENV=test db:drop db:prepare instead."
+    end
+  end
 
+  desc "Prepare the database: load schema, load sql seeds, load postgis tables"
+  task :prepare => :environment do
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
