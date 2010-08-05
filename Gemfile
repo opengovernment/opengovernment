@@ -67,11 +67,11 @@ end
 
 group :test, :cucumber do
   # Bundle gems for certain environments:
-  gem "rspec-rails", ">= 2.0.0.beta.18"
-  gem "rspec", ">= 2.0.0.beta.18"
-  gem "rspec-core", ">= 2.0.0.beta.18"
-  gem "rspec-expectations", ">= 2.0.0.beta.18"
-  gem "rspec-mocks", ">= 2.0.0.beta.18"
+  gem "rspec-rails", ">= 2.0.0.beta.19"
+  gem "rspec", ">= 2.0.0.beta.19"
+  gem "rspec-core", ">= 2.0.0.beta.19"
+  gem "rspec-expectations", ">= 2.0.0.beta.19"
+  gem "rspec-mocks", ">= 2.0.0.beta.19"
   gem "autotest"
   gem "autotest-rails"
   gem "machinist"
