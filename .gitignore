@@ -13,3 +13,4 @@ vendor/cache/*
 .rvmrc
 config/development.sphinx.conf
 spec/fixtures/data/people.xml
+webrat.log

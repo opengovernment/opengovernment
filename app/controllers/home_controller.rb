@@ -19,7 +19,7 @@ class HomeController < ApplicationController
     &height=#{h}
     &format=#{f}
     &sld=#{CGI::escape(url_for(:controller => 'home', :action => 'us_map', :format => :xml, :only_path => false))}).gsub(/\n\s+/,'')
-
+    
   def us_map
     respond_to do |format|
       format.xml do
