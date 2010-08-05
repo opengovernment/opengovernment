@@ -1,9 +1,35 @@
 # Configuration
 require 'yaml'
 
+# Some helper methods so that we can remove a task preloaded by another .rake file.
+Rake::TaskManager.class_eval do
+  def remove_task(task_name)
+    @tasks.delete(task_name.to_s)
+  end
+end
+
+def remove_task(task_name)
+  Rake.application.remove_task(task_name)
+end
+
+
 task :install => ["opengov:install"]
 
 namespace :opengov do
+  task :prepare do
+    if ENV['SHARED_CONFIG_DIR']
+      # All files in our external config dir will be symlinked to the local config dir if they don't already
+      # exist in that dir. This is mainly used for continuous integration.
+      config_dir = File.join(Rails.root, 'config')
+      all_files = File.join(ENV['SHARED_CONFIG_DIR'], "*")
+      Dir.glob(all_files).each_with_index do |file, i|
+        unless File.exists?(File.join(config_dir, File.basename(file)))
+          system "ln -s #{file} #{File.join(config_dir, File.basename(file))}"
+        end
+      end
+    end
+  end
+  
   desc "Install clean database: prepare database, fetch all data, load data"
   task :install => :environment do
     abcs = ActiveRecord::Base.configurations
@@ -16,16 +42,20 @@ namespace :opengov do
     Rake::Task['fetch:all'].invoke
     Rake::Task['load:all'].invoke
   end
-  
-  desc "Just run bundle:install -- used by the CI server"
-  task :bundle do
-    puts `bundle install`
-  end
 
 end
 
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
+  namespace :test do
+    remove_task :"db:test:prepare"
+    desc "Noop"
+    task :prepare do
+      puts "Run RAILS_ENV=test db:drop db:prepare instead."
+    end
+  end
+
+  desc "Prepare the database: load schema, load sql seeds, load postgis tables"
   task :prepare => :environment do
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
