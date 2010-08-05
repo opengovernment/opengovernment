@@ -4,6 +4,20 @@ require 'yaml'
 task :install => ["opengov:install"]
 
 namespace :opengov do
+  task :prepare do
+    if ENV['SHARED_CONFIG_DIR']
+      # All files in our external config dir will be symlinked to the local config dir if they don't already
+      # exist in that dir. This is mainly used for continuous integration.
+      config_dir = File.join(Rails.root, 'config')
+      all_files = File.join(ENV['SHARED_CONFIG_DIR'], "*")
+      Dir.glob(all_files).each_with_index do |file, i|
+        unless File.exists?(File.join(config_dir, File.basename(file)))
+          system "ln -s #{file} #{File.join(config_dir, File.basename(file))}"
+        end
+      end
+    end
+  end
+  
   desc "Install clean database: prepare database, fetch all data, load data"
   task :install => :environment do
     abcs = ActiveRecord::Base.configurations
@@ -22,6 +36,7 @@ end
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
   task :prepare => :environment do
+
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
