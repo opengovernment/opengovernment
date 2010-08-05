@@ -47,10 +47,7 @@ module OpenGov
   end
 end
 
-if Rails.env != "test"
-  API_KEYS = YAML::load(File.open(File.join(File.dirname(__FILE__), 'api_keys.yml')))
-end
-
+API_KEYS = YAML::load(File.open(File.join(File.dirname(__FILE__), 'api_keys.yml')))
 DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
 GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
