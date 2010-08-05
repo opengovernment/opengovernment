@@ -28,7 +28,10 @@ end
 
 Rake.application.instance_variable_get('@tasks').delete('default')
 
-spec_prereq = Rails.root.join('config', 'database.yml').exist? ? "db:test:prepare" : :noop
+# We are not using the regular spec prereq of db:test:prepare. We use
+# db:prepare instead, because it will load PostGIS, seeds.sql, etc.
+#spec_prereq = Rails.root.join('config', 'database.yml').exist? ? "db:test:prepare" : :noop
+spec_prereq = :noop
 task :noop do
 end
 

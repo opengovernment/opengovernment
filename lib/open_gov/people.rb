@@ -59,7 +59,6 @@ module OpenGov
             :updated_at => Date.valid_date!(fs_person.updated_at),
             :openstates_photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
           )
-http://localhost:8080/geoserver/wms?service=WMS&request=GetMap&version=1.1.1&layers=cite:v_district_people&bbox=-124.409591,32.534156,-114.134426538824,42.009518&cql_filter=state_id+=+6+and+chamber_id+=+3&width=300&height=300&format=image/png&SLD=http%3A%2F%2Flocalhost%3A3000%2Fpeople.xml
 
           person.save!
 

@@ -16,6 +16,12 @@ namespace :opengov do
     Rake::Task['fetch:all'].invoke
     Rake::Task['load:all'].invoke
   end
+  
+  desc "Just run bundle:install -- used by the CI server"
+  task :bundle do
+    puts `bundle install`
+  end
+
 end
 
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
