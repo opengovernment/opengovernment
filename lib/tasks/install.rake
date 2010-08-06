@@ -17,6 +17,8 @@ task :install => ["opengov:install"]
 
 namespace :opengov do
   task :prepare do
+    puts "Ruby lib:"
+    p ENV['RUBYLIB']
     if ENV['SHARED_CONFIG_DIR']
       # All files in our external config dir will be symlinked to the local config dir if they don't already
       # exist in that dir. This is mainly used for continuous integration.
@@ -47,7 +49,10 @@ end
 
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
+
   namespace :test do
+    # TODO: This is a big tricksy. I'd rather find a smoother way to get the CI
+    # server not to run db:test:prepare when trying to run tests.
     remove_task :"db:test:prepare"
     desc "Noop"
     task :prepare do
