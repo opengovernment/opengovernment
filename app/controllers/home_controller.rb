@@ -26,13 +26,7 @@ class HomeController < ApplicationController
         render(:partial => "states_getmap.xml")
       end
 
-      format.html do
-
-      end
-
       format.png do
-
-        Rails.cache.delete("states_map_png")
         states_map_png = Rails.cache.read("states_map_png")
         if states_map_png.nil?
           f = "image/png"
@@ -48,7 +42,7 @@ class HomeController < ApplicationController
           res = http.request(req)
 
           states_map_png = res.body
-          # Rails.cache.write("states_map_png", states_map_png)
+          Rails.cache.write("states_map_png", states_map_png)
           send_data(states_map_png)
         end
       end
