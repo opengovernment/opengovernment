@@ -83,7 +83,7 @@ module VotesHelper
     end
   end
 
-  MAP_URL = %q(http://localhost:8080/geoserver/wms?
+  MAP_URL = %q(#{GEOSERVER_BASE_URL}/wms?
     service=WMS
     &request=GetMap
     &version=1.1.1
