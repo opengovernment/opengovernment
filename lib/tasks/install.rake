@@ -17,11 +17,9 @@ task :install => ["opengov:install"]
 
 namespace :opengov do
   task :prepare do
-    puts "Ruby lib:"
-    p ENV['RUBYLIB']
     if ENV['SHARED_CONFIG_DIR']
       # All files in our external config dir will be symlinked to the local config dir if they don't already
-      # exist in that dir. This is mainly used for continuous integration.
+      # exist in that dir. This is mainly used for TeamCity CI.
       config_dir = File.join(Rails.root, 'config')
       all_files = File.join(ENV['SHARED_CONFIG_DIR'], "*")
       Dir.glob(all_files).each_with_index do |file, i|
