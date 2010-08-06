@@ -22,5 +22,4 @@ OpenGov::Application.configure do
   GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
-
 end

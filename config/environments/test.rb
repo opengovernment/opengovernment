@@ -25,6 +25,8 @@ OpenGov::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.active_support.deprecation = :stderr
+  HOST = 'localhost'
+  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
