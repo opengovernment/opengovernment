@@ -1,7 +1,6 @@
 module HomeHelper
   def interactive_us_map
     unless ['development', 'test'].include?(Rails.env)
-      Rails.cache.delete('states_map_tag')
       states_map_tag = Rails.cache.read('states_map_tag')
       if states_map_tag.nil?
         f = "text/html"
