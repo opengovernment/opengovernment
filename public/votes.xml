@@ -12,7 +12,7 @@
           <Title>Polygon</Title>
          <PolygonSymbolizer>
             <Fill>
-              <CssParameter name="fill">#999999</CssParameter>
+              <CssParameter name="fill">#dddddd</CssParameter>
             </Fill>
             <Stroke>
               <CssParameter name="stroke">#ffffff</CssParameter>
