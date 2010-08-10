@@ -11,7 +11,7 @@ class DistrictsController < ApplicationController
       @state = State.find_by_abbrev(@point.state)
       redirect_to state_path(@state) unless @state.nil? || @state.supported?
     end
-    
+
   end
 
   def show

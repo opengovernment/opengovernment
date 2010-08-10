@@ -3,10 +3,13 @@ class StatesController < ApplicationController
 
   def show
     if @state.supported?
-      @state_lower_chamber_roles = Role.current_chamber_roles(@state.legislature.lower_chamber)
-      @state_upper_chamber_roles = Role.current_chamber_roles(@state.legislature.upper_chamber)
+      @legislature = @state.legislature
+      @most_recent_session = Session.most_recent(@legislature).first
+      @state_lower_chamber_roles = @most_recent_session.roles.find_all_by_chamber_id(@legislature.lower_chamber)
+      @state_upper_chamber_roles = @most_recent_session.roles.find_all_by_chamber_id(@legislature.upper_chamber)
+
       @federal_lower_chamber_roles = Role.current.for_chamber(Legislature::CONGRESS.lower_chamber).for_state(@state).scoped({:include => [:district, :chamber, :person]})
-      @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers})
+      @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @legislature.chambers})
     else
       render :template => 'states/unsupported'
     end
