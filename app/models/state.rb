@@ -4,6 +4,7 @@ class State < Place
   has_many :districts
   has_many :addresses
   has_one :legislature
+
   with_options :through => :legislature do |hm|
     hm.has_many :sessions
     hm.has_many :committees
@@ -12,6 +13,7 @@ class State < Place
     hm.has_many :joint_committees
     hm.has_many :upper_committees
   end
+
   has_many :bills
   has_many :special_interest_groups
 
@@ -46,7 +48,7 @@ class State < Place
   def to_param
     "#{name.parameterize}"
   end
-  
+
   def bbox
     # We get a result back that looks something like this:
     # => "BOX(-106.645646 25.837377,-93.5164072637683 36.500704)"

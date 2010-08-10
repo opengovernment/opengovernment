@@ -4,6 +4,8 @@ class Session < ActiveRecord::Base
   has_many :bills
   scope :active, :conditions => ["date_part('year', current_timestamp) between start_year and end_year"]
   validates_uniqueness_of :name, :scope => :legislature_id
+  
+  has_many :sub_sessions, :class_name => 'Session', :foreign_key => 'parent_id', :dependent => :destroy
 
   def to_param
     name.parameterize

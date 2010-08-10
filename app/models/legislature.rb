@@ -10,7 +10,8 @@ class Legislature < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
 
-  has_many :sessions
+  has_many :sessions, :conditions => {:parent_id => nil} 
+
   CONGRESS = Legislature.find_by_name("United States Congress")
   MAJOR_PARTIES = ["Democrat", "Republican"]
 end

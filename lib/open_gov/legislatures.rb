@@ -28,19 +28,22 @@ module OpenGov
           end
 
           fs_state.terms.each do |t|
+            @session = Session.find_or_create_by_legislature_id_and_name(leg.id, t.name)
 
-            session = Session.find_or_create_by_legislature_id_and_name(leg.id, t.name)
-
-            session.update_attributes!(
+            @session.update_attributes!(
               :start_year => t.start_year,
               :end_year => t.end_year
             )
 
+            @session.sub_sessions.delete_all
+
             t.sessions.each do |s|
+              next if s == @session.name
               sub_session = Session.find_or_create_by_legislature_id_and_name(leg.id, s)
               sub_session.update_attributes!(
                 :start_year => t.start_year,
-                :end_year => t.end_year
+                :end_year => t.end_year,
+                :parent_id => @session.id
               )
             end
           end
