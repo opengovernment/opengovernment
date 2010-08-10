@@ -95,15 +95,22 @@ CREATE OR REPLACE VIEW v_district_votes AS
   where d.id = r.district_id
   and rc.person_id = p.id
   and r.person_id = p.id
-  and v.id = rc.vote_id
-  and v.date between r.start_date and r.end_date;
+  and v.id = rc.vote_id;
+
+CREATE OR REPLACE VIEW v_most_recent_sessions AS
+  select recent.* from
+    (select *, row_number() over (partition by legislature_id order by end_year desc) as rnum
+    from sessions s
+    where parent_id is null
+    and exists (select id from roles r where r.session_id = s.id)) recent
+  where recent.rnum = 1;
 
 CREATE OR REPLACE VIEW v_district_people AS
   select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
-  from districts d, roles r, people p
+  from districts d, roles r, people p, v_most_recent_sessions s
   where d.id = r.district_id
   and r.person_id = p.id
-  and current_date between r.start_date and r.end_date;
+  and s.id = r.session_id;
 
 CREATE OR REPLACE VIEW v_tagged_bills AS
   select distinct t.name as tag_name, b.*
