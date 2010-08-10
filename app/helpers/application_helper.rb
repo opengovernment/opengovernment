@@ -1,7 +1,15 @@
 module ApplicationHelper
 
+  # Page title
   def title(page_title)
     content_for(:title) { page_title }
+  end
+
+  # Javascript hooks -- eg. document ready events. or other page-level
+  # javascript that can't be accomplished via rails-ujs.
+  # <script> tags should not be passed in with the js.
+  def js_hook(js)
+    content_for(:js_hook) { js }
   end
 
   # Given a full or short URL, return only the domain
