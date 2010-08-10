@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %meta(charset="utf-8")
+    = csrf_meta_tag
+    = stylesheet_link_tag "formtastic"
+    = stylesheet_link_tag "formtastic_changes"
+    = stylesheet_link_tag "blueprint"
+    = stylesheet_link_tag "forms"
+    = stylesheet_link_tag "sharing"
+    = stylesheet_link_tag "application"
+
+    <!--[if lt IE 9]>
+    %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+    <![endif]-->
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+    = javascript_include_tag "jquery.rails.js"
+    = javascript_include_tag "application"
+
+    - if content_for? :js_hook
+      %script(type="text/javascript")
+        = yield :js_hook
+
+    = yield :head
+    %title= "OG Admin - " + (yield(:title) || "revealing state and local government data")
+  %body
+    %div.container
+      %header
+        %h1= link_to 'OG Admin', admin_root_path
+      %div#flash
+        - flash.each do |key, value|
+          %div(id="flash_#{key}")
+            =h value
+      = yield

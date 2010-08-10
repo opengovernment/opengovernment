@@ -39,8 +39,9 @@ OpenGov::Application.routes.draw do |map|
   end
 
   namespace :admin do
+    root :to => "admin#index"
     resources :states
-    resources :people
+    resources :people, :only => [:edit, :update]
     resources :issues, :only => [:create, :index] do
       collection do
         get :bills
