@@ -20,9 +20,10 @@ class State < Place
   scope :supported, :conditions => ["launch_date < ?", Time.now]
   scope :pending, :conditions => ["launch_date >= ?", Time.now]
   scope :unsupported, :conditions => {:launch_date => nil}
+  
   has_many :current_senators, :through => :state_roles, :class_name => 'Person', :source => :person, :conditions => Role::CURRENT
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
-
+  
   # Which states are we importing data for?
   scope :loadable, :conditions => {:abbrev => ['TX', 'CA', 'LA']}
   # this could be:
