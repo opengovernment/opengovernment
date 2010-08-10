@@ -2,11 +2,17 @@ class Admin::IssuesController < ApplicationController
   def bills
     @tags = ActsAsTaggableOn::Tag.all
     @taggings = Subject.all.paginate(:page => params[:page], :order => params[:order])
+    @title = "Bill Subjects"
+    @tagging_type = "subject"
+    render :template => 'admin/issues/tag'
   end
 
   def categories
     @tags = ActsAsTaggableOn::Tag.all
     @taggings = Category.all.paginate(:page => params[:page], :order => params[:order])
+    @title = "VoteSmart Categories"
+    @tagging_type = "category"
+    render :template => 'admin/issues/tag'
   end
 
   def create

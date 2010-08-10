@@ -1,11 +1,20 @@
-- js_hook(render(:partial => 'tagging_form.js'))
+:ruby
+  js_hook(%q|
+    $(document).ready(function() {
+    var hidden_field = $('input#tag');
+    $('#tags a').live('click', function(event) {
+      hidden_field.val($(this).html());
+      $('#tagging_form').submit();
+      event.preventDefault();
+    });
+  );|)
 .span-24
   = form_tag(admin_update_issues_path, :remote => true, :id => "tagging_form") do
     .span-12
-      %h2 VoteSmart Categories
+      %h2= @title
       %div#taggings
         = render :partial => "taggings.html.haml"
-      = hidden_field_tag :tagging_type, "category"
+      = hidden_field_tag :tagging_type, @tagging_type
     .span-12.last
       %h2 Issues
       %div#tags
