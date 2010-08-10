@@ -128,7 +128,8 @@ module OpenGov
 
           if bill.subjects?
             bill.subjects.each do |subject|
-              @bill.subjects.create(:name => subject)
+              s = Subject.find_or_create_by_name(subject)
+              @bill.subjects << s
             end
           end
 
