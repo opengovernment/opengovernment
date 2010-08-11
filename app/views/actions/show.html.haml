@@ -1,4 +1,4 @@
 - title("Action on #{@action.bill.title}")
-%h2!= "#{@action.bill.state.name} bill #{link_to(@action.bill.bill_number, bill_path(@action.bill.state, @action.bill.session, @action.bill))} " + @action.action_fm + "."
+%h2!= "#{@action.bill.state.name} bill #{link_to(@action.bill.bill_number, bill_path(@action.bill.session, @action.bill))} " + @action.action_fm + "."
 %h3= "by the #{@action.actor_fm}"
 %p= @action.date.to_s(:pretty)

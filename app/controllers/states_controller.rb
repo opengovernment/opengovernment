@@ -1,6 +1,6 @@
 class StatesController < ApplicationController
-  before_filter :get_state, :except => [:sld]
-
+  before_filter :get_state
+  
   def show
     if @state.supported?
       @legislature = @state.legislature
@@ -62,8 +62,7 @@ class StatesController < ApplicationController
   protected
 
   def get_state
-    #TODO: May be we should clean the routes to pass in :state as params
-    @state = State.find_by_slug(params[:id], :include => {:legislature => {:upper_chamber => :districts, :lower_chamber => :districts}})
+    @state = State.find_by_slug(request.subdomain, :include => {:legislature => {:upper_chamber => :districts, :lower_chamber => :districts}})
 
     @state || resource_not_found
   end

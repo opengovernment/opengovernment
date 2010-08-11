@@ -1,9 +1,6 @@
 class DistrictsController < ApplicationController
   before_filter :find_district, :except => :search
 
-  # TODO: Remove when public
-  skip_before_filter :authenticate, :only => :show
-
   def search
     @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q])
 
@@ -12,16 +9,6 @@ class DistrictsController < ApplicationController
       redirect_to state_path(@state) unless @state.nil? || @state.supported?
     end
 
-  end
-
-  def show
-    respond_to do |format|
-      format.html do
-        @center = @district.geom.envelope.center
-        render :layout => false
-      end
-      format.kml
-    end
   end
 
   def find_district

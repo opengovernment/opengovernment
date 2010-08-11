@@ -17,7 +17,7 @@
             - vote = roll_call.vote
             %td
               %div
-                = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.state, bill.session, bill)
+                = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.session, bill)
                 = render :partial => "votes/vote", :locals => {:vote => vote}
             %td= roll_call.vote_type.capitalize
   - else

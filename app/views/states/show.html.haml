@@ -79,7 +79,7 @@
       %ul.key_votes
         - @state_key_votes.each do |bill|
           %li
-            != link_to(bill.bill_number, bill_path(@state, bill.session, bill)) + " "
+            != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
             = bill.title
 
 
@@ -89,7 +89,7 @@
       %a Assembly
       %ul
         %li
-          = link_to "Bills", search_state_path(:search_type => "bills")
+          = link_to "Bills", state_search_path(:search_type => "bills")
     %li
       %a Senate
     %li

@@ -27,7 +27,7 @@
 %h3 Bills
 - @bills.each do |bill|
   %li
-    != link_to(bill.bill_number, bill_path(bill.state, bill.session, bill)) + " "
+    != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
     = bill.title
 
 %h3 Special Interest Groups

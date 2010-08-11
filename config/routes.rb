@@ -1,30 +1,31 @@
 OpenGov::Application.routes.draw do |map|
   match '/search' => 'districts#search', :as => 'search'
-  match '/states/ca/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
-  resources :districts, :only => [:show]
-  resources :sigs, :only => [:index, :show]
-  resources :issues, :only => [:index, :show]
+  constraints(Subdomain) do  
+    match '/' => 'states#show'
+    match '/search' => 'states#search', :as => 'state_search'
+    match '/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
 
-  resources :bills, :only => [:show], :path => '/states/:state_id/sessions/:session/bills' do
-    member do
-      get :major_actions
+    resources :people, :only => [:show, :index] do
+      member do
+        get :sponsored_bills
+        get :votes
+      end
     end
-    shallow do
-      resources :actions, :only => [:show]
-    end
-  end
 
-  resources :people, :only => [:show, :index] do
-    member do
-      get :sponsored_bills
-      get :votes
-    end
-  end
+    resources :sigs, :only => [:index, :show]
+    resources :issues, :only => [:index, :show]
 
-  resources :states, :only => [:show] do
-    get :search, :on => :member
+    resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
+      member do
+        get :major_actions
+      end
+      shallow do
+        resources :actions, :only => [:show]
+      end
+    end
+
     resources :votes, :only => [:show]
     resources :bills, :only => [:index]
     resources :people, :only => [:index], :as => 'reps'
