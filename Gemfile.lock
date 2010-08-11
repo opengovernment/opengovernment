@@ -30,6 +30,12 @@ GIT
   specs:
     acts-as-taggable-on (2.0.6)
 
+GIT
+  remote: http://github.com/nex3/haml.git
+  revision: 652d560
+  specs:
+    haml (3.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -201,6 +207,7 @@ DEPENDENCIES
   factory_girl
   formtastic!
   geokit
+  haml!
   hpricot
   hpricot_scrub!
   httparty
