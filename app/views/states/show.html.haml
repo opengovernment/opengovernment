@@ -1,14 +1,30 @@
 - title(@state.name)
 
 .span-24.last
-  .span-16
-    %h2
-      = @state.name
+  %h2
+    = @state.name
   %p.span-8.last
     = render :partial => 'search_form'
 
-.span-18.last
-  .span-18.last.full_lined.less_padding
+
+%aside.span-6
+  %ul.sub_nav
+    %li
+      %a Assembly
+      %ul
+        %li
+          = link_to "Bills", state_search_path(:search_type => "bills")
+    %li
+      %a Senate
+    %li
+      %a Committees
+    %li
+      %a The Money Trail
+
+
+
+.span-18
+  .span-18.last.full_lined
     .span-4
       This Bill's Page Views
     .span-3
@@ -83,16 +99,3 @@
             = bill.title
 
 
-%aside.span-6.last
-  %ul.sub_nav
-    %li
-      %a Assembly
-      %ul
-        %li
-          = link_to "Bills", state_search_path(:search_type => "bills")
-    %li
-      %a Senate
-    %li
-      %a Committees
-    %li
-      %a The Money Trail

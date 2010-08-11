@@ -9,6 +9,11 @@
     = stylesheet_link_tag "forms"
     = stylesheet_link_tag "sharing"
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "type"
+    = stylesheet_link_tag "html5"
+    = stylesheet_link_tag "layout"
+    = stylesheet_link_tag "breadcrumb"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold'
 
     <!--[if lt IE 9]>
     %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
@@ -42,3 +47,5 @@
             =h value
       %div.content
         = yield
+      %div.footer
+        = render :partial => 'layouts/footer'
