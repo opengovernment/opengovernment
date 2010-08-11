@@ -26,10 +26,10 @@ gem "ym4r"
 gem "geokit"
 
 # Breadcrumbs
-gem "breadcrumbs_on_rails"
+# gem "breadcrumbs_on_rails", :git => 'git://github.com/opengovernment/breadcrumbs_on_rails.git' (SUBMODULE)
 
 # Data import
-# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git'
+# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 gem "chronic" # Complex date string parsing
 
 # Simple pagination
