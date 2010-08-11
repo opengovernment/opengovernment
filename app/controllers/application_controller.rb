@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  include BreadcrumbsOnRails::ControllerMixin
   include Clearance::Authentication
   protect_from_forgery
   layout 'application'
