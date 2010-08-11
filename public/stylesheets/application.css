@@ -1,3 +1,7 @@
+
+
+
+
 body{
 margin: 0;
 padding: 0;
@@ -91,45 +95,6 @@ background: url(/images/bg.gif);
 
 #flash #flash_error{
   color: red;
-}
-
-.breadcrumb{
-border: 1px solid #ddd;
--moz-border-radius: 4px;
-height: 47px;
-padding: 0;
-clear: both;
-margin: 0px 0;
-}
-
-.breadcrumb li{
-float: left;
-line-height: 3em;
-list-style: none;
-position: relative;
-}
-
-.breadcrumb li a{
-float: left;
-line-height: 3em;
-list-style: none;
-padding: 0 18px 0 15px;
-text-decoration: none;
-color: #333; 
-margin: 0;
-position: relative;
-}
-
-.breadcrumb li a:hover{
-background: #eef;
-}
-
-
-
-.breadcrumb li:after {
-    content: url(/images/crumb_right.gif);
-position: absolute;
-top: -1px;
 }
 
 

@@ -1,0 +1,56 @@
+
+.breadcrumb{
+border: 1px solid #ddd;
+-moz-border-radius: 4px;
+height: 47px;
+padding: 0;
+clear: both;
+width: 100%;
+letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
+float: left;
+margin: 15px 0;
+}
+
+.breadcrumb li{
+float: left;
+line-height: 3em;
+list-style: none;
+clear: none;
+position: relative;
+z-index: 100;
+}
+
+
+.breadcrumb .barbara-boxer{
+z-index: 90;
+left: -30px;
+}
+
+.breadcrumb li a{
+float: left;
+height: 30px;
+list-style: none;
+padding: 17px 35px 0 15px;
+text-decoration: none;
+color: #333; 
+line-height: 1em;
+background: url(/images/crumb_right.gif) right 0 no-repeat;
+margin: 0;
+position: relative;
+}
+
+
+.breadcrumb .barbara-boxer a{
+padding-left: 60px;
+}
+
+
+.breadcrumb li:hover{
+z-index: 120;
+}
+
+
+.breadcrumb li a:hover{
+background: #eef url(/images/crumb_right.gif) right 0 no-repeat;
+}
+

@@ -1,4 +1,25 @@
-article, aside, dialog, figure, footer, header,
-hgroup, menu, nav, section { display: block; }
+html {font-size:100.01%;}
+
+
+
+body{
+  margin: 0;
+  padding: 0;
+  background: url(/images/bg.gif);
+  font-size:75%;
+  color:#222;
+  font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
+
+article, 
+aside, 
+dialog, 
+figure, 
+footer, 
+header,
+hgroup, 
+menu, 
+nav, 
+section { display: block; }
 
 
