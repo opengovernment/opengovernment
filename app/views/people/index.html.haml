@@ -5,7 +5,7 @@
   .legislature.span-12
     %h3= legislature.name
     - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
-      %div[chamber].span-6
+      %div.span-6[chamber]
         %h4= chamber.name
         %ul
           - c_reps.each do |rep|

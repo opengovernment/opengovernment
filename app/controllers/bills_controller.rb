@@ -4,6 +4,7 @@ class BillsController < ApplicationController
 
   def show
     respond_to do |format|
+      format.js
       format.atom do
         @actions = @bill.actions
         render :template => 'shared/actions'

@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
-  include BreadcrumbsOnRails::ControllerMixin
+ # include BreadcrumbsOnRails::ControllerMixin
   include Clearance::Authentication
+  include UrlHelper
+ # helper_method :current_place
+
   protect_from_forgery
   layout 'application'
     # Auth for staging environment
@@ -13,9 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_state
-    if params[:state_id]
-      @state = State.find_by_slug(params[:state_id])
-    end
+    @state = State.find_by_slug(request.subdomain)
+    @state || resource_not_found
   end
 
   private

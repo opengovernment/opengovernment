@@ -43,15 +43,15 @@
 
 
   .span-24.last
-    - if @bill.actions.size > 0
-      %h4 Actions
+    - if @bill.major_actions.size > 0
+      %h4 Major Actions | #{link_to "All Actions", url_for, :remote => true}
       .span-24.last
         %table.bill_actions
           %tr
             %th Date
             %th Chamber
             %th Action
-          - @bill.actions.each do |action|
+          - @bill.major_actions.each do |action|
             %tr{:class => (action.major? ? "major" : "")}
               %td= action.date && action.date.to_s(:pretty)
               %td= action.actor_fm

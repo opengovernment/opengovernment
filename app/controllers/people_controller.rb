@@ -1,14 +1,10 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :except => [:index]
+  before_filter :get_state, :only => [:index]
   add_breadcrumb "people", :people_path
 
   # /states/texas/people
   def index
-    if params[:state_id]
-      @state = State.find_by_slug(params[:state_id])
-      @state || resource_not_found
-    end
-
     # TODO: The order by legislatures.id relies on congress being id = 1
     # that's fragile; later on we should have a "scope" for legislatures perhaps:
     # federal, state, county, municipal, etc.
@@ -39,4 +35,5 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person || resource_not_found
   end
+  
 end
