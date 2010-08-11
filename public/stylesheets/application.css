@@ -38,6 +38,13 @@
   padding-bottom: 0.1em;
 }
 
+/* Text meant only for screen readers */
+
+.screen-reader-text {
+	position: absolute;
+	left: -9000em;
+}
+
 /*
   Tag cloud
 */
