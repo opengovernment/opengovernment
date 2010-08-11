@@ -74,7 +74,6 @@ GEM
     autotest (4.3.2)
     autotest-rails (4.1.0)
       ZenTest
-    breadcrumbs_on_rails (1.0.1)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -197,7 +196,6 @@ DEPENDENCIES
   acts-as-taggable-on!
   autotest
   autotest-rails
-  breadcrumbs_on_rails
   capistrano
   chronic
   clearance
