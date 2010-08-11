@@ -25,6 +25,9 @@ gem "ym4r"
 # Geocoding
 gem "geokit"
 
+# Breadcrumbs
+gem "breadcrumbs_on_rails"
+
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git'
 gem "chronic" # Complex date string parsing

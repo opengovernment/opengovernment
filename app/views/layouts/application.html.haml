@@ -28,10 +28,17 @@
     %div.container
       %header
         %h1= link_to 'OpenGovernment', root_path
+        %nav
+          %div.skip-link.screen-reader-text
+            %a(href="#content" title="Skip to content") Skip to content
+          %ul.breadcrumb
+            -# code for state dropdown goes here
+            = raw render_breadcrumbs :tag => :li, :separator => ''
         %aside
           = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
       %div#flash
         - flash.each do |key, value|
           %div(id="flash_#{key}")
             =h value
-      = yield
+      %div.content
+        = yield
