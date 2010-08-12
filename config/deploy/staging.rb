@@ -4,6 +4,10 @@ set :branch, "master"
 role :web, "dev.opencongress.org"
 role :app, "dev.opencongress.org"
 role :db,  "dev.opencongress.org", :primary => true
+set :environment_database, 'og_staging'
+set :environment_dbhost, 'localhost'
+set :staging_database, 'og_staging'
+set :staging_dbhost, 'localhost'
 
 namespace :deploy do
   desc "Hook up staging symlinks"
