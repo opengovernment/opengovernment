@@ -15,13 +15,15 @@ margin: 15px 0 0;
 float: left;
 line-height: 3em;
 list-style: none;
+background: url(/images/crumb_right.gif) right 0 no-repeat;
+
 clear: none;
 position: relative;
 z-index: 100;
 }
 
 
-.breadcrumb .barbara-boxer{
+.breadcrumb .person{
 z-index: 90;
 left: -30px;
 }
@@ -34,15 +36,20 @@ padding: 17px 35px 0 15px;
 text-decoration: none;
 color: #333; 
 line-height: 1em;
-background: url(/images/crumb_right.gif) right 0 no-repeat;
 margin: 0;
 position: relative;
 }
 
 
-.breadcrumb .barbara-boxer a{
-padding-left: 60px;
+.breadcrumb .person a{
+padding-left: 70px;
 }
+
+.breadcrumb .person.m a{
+
+background: url(/images/male.gif) 50px center no-repeat;
+}
+
 
 
 .breadcrumb li:hover{
