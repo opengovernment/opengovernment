@@ -26,7 +26,7 @@ Before you install the app, you will need to download and install the following:
   * Once the install is complete, start the server:
         rails server
 
-To access the site, you'll find the lvh.me domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, http://tx.lvh.me:3000, you should see the Texas OpenGovernment subsite.
+OpenGovernment uses subdomains, so to access the site you'll find the lvh.me domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, http://tx.lvh.me:3000, you should see the Texas OpenGovernment subsite.
 
 # Sphinx installation
 Mac OS X: If you use MacPorts:
