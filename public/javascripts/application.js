@@ -1,9 +1,8 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function(){  
-    $("ul.state-select").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)  
   
-    $("nav ul.breadcrumb li span").click(function() { //When trigger is clicked...  
+    $("nav ul.breadcrumb li.topnav").hover(function() { //When trigger is clicked...  
   
         //Following events are applied to the subnav itself (moving subnav up and down)  
         $(this).parent().find("ul.state-select").slideDown('fast').show(); //Drop down the subnav on click  
