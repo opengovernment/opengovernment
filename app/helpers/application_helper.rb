@@ -29,4 +29,8 @@ module ApplicationHelper
       + domain_for(url) \
       + ")</span>".html_safe
   end
+  
+  def state_select
+    ""
+  end
 end

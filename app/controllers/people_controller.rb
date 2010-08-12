@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :except => [:index]
   before_filter :get_state, :only => [:index]
-  add_breadcrumb "people", :people_path, :class => 'people'
+  add_breadcrumb "People", :people_path, :class => 'people'
 
   # /states/texas/people
   def index

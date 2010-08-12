@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
  # include BreadcrumbsOnRails::ControllerMixin
   include Clearance::Authentication
   include UrlHelper
- # helper_method :current_place
+  helper_method :current_place, :current_place_name
 
   protect_from_forgery
   layout 'application'
-    # Auth for staging environment
+  # Auth for staging environment
   USERNAME, PASSWORD = 'opengov', API_KEYS['og_staging']
 
   protected
@@ -21,6 +21,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def current_place
+    @state || State.find_by_slug(request.subdomain) || nil
+  end
+
+  def current_place_name
+    @state.try(:name) || State.find_by_slug(request.subdomain).try(:name)
+  end
+
   def authenticate
     if Rails.env == "staging"
       authenticate_or_request_with_http_basic do |username, password|
