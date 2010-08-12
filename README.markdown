@@ -8,7 +8,7 @@ Before you install the app, you will need to download and install the following:
   * Rails 3
   * Ruby 1.9.2 recommended (install via [RVM](http://rvm.beginrescueend.com/))
   * [GeoServer](http://geoserver.org/display/GEOS/Welcome), if you want to see vote maps
-  * [Sphinx](http://www.sphinxsearch.com/), if you want to use search (OS X: "port install sphinx +postgresql84")
+  * [Sphinx](http://www.sphinxsearch.com/), if you want to use search.
 
 # Installation
   * Get a copy of the code:
@@ -22,23 +22,25 @@ Before you install the app, you will need to download and install the following:
   * Run the following:
         bundle install
         rake install
-  * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
-  * To start the server:
+  * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets. It typically takes at least an hour. You can always install the test database fixtures if you don't want to wait for the full install.
+  * Once the install is complete, start the server:
         rails server
 
-  Sphinx
-  Mac OS X:
-   Download and install sphinx using instructions here. You can local your pg_sql include directory using
-        pg_config --pkgincludedir
+To access the site, you'll find the lvh.me domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, http://tx.lvh.me:3000, you should see the Texas OpenGovernment subsite.
 
-   http://freelancing-god.github.com/ts/en/installing_sphinx.html
+# Sphinx installation
+Mac OS X: If you use MacPorts:
+    port install sphinx +postgresql84
+should do the trick!
 
-   Thinking Sphinx:
+Otherwise, download and install sphinx using [instructions here](http://freelancing-god.github.com/ts/en/installing_sphinx.html). You can locate your pg_sql include directory using
+    pg_config --pkgincludedir
 
-   bundle install, installs the ThinkingSphinx gem thats a wrapper around your system sphinx daemon.
+# Thinking Sphinx installation
+You should already have the thinkingsphinx gem installed via the bundle.
+Run "rake -T | grep ts" to look at all the available commands.
 
-   Once you have that setup "rake -T | grep ts" to look at all the available commands.
-
+# Tests
 To prepare the test database, run the following:
     RAILS_ENV=test rake db:prepare
 
