@@ -9,22 +9,29 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  font-size:1.5em;
-  padding-top: 20px;
-  margin-bottom:0.5em;
   font-family: "Droid Sans Bold", Arial; 
-  padding-right: 20px; 
-  float: left;
-  width:150px;
-  font-size: 14px;
-  font-style: italic;
 font-weight: bold;
-  }
+font-size: 18px;
+border-bottom: 1px solid #ddd;
+margin: 0;
+padding: 20px 0;  
+}
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
 h2 {font-size:2em;margin:0 0 0px;line-height:1.3em; padding: 15px 0; clear: both; border-bottom: 1px solid #ddd;}
 h2 span {font-size:.6em;display: block;}
-h3 {padding: 20px 0;border-bottom: 1px solid #ddd;font-size:16px;line-height:1em;margin: 0; width: 100%; float: left; font-weight: bold;}
+
+h3 {
+padding: 20px 0;
+border-bottom: 1px solid #ddd;
+font-size:16px;
+line-height:1em;
+margin: 0 0 15px; 
+width: 100%; 
+float: left; 
+font-weight: bold;
+}
+
 h4 {font-size:1.2em;line-height:1.25;margin: 1.5em 0 .4em; color: #333; float: left; width: 100%;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
 h6 {font-size:1em;font-weight:bold;}
