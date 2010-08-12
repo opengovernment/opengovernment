@@ -2,21 +2,38 @@
 ul.breadcrumb li ul.state-select {  
      list-style: none;  
      position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
-     left: 0; top: 35px;  
-     background: #333;  
+     left: -1px;  
+     background: #fff;  
      margin: 0; padding: 0;  
      display: none;  
      float: left;  
-     width: 170px;  
-     border: 1px solid #111;  
+     width: 172px;  
+top: 47px;
+border: 1px solid #ddd;
+border-top: 0;
+
 }
 
-ul.breadcrumb li span { /*--Drop down trigger styles--*/  
-    width: 17px;  
-    height: 35px;  
-    float: left;  
-    background: url(subnav_btn.gif) no-repeat center top;  
-}  
+
+ul.breadcrumb li ul.state-select li {  
+     list-style: none;  
+     width: 170px;  
+background: none !important;
+}
+
+ul.breadcrumb li ul.state-select li a{  
+     list-style: none;  
+     width: 122px;  
+background: none !important;
+border-top: 1px solid #ddd;
+}
+
+ul.breadcrumb li ul.state-select li a:hover{  
+background: #fbfbfc !important;
+}
+
+
+
 ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
 
 
@@ -37,17 +54,34 @@ float: left;
 line-height: 3em;
 list-style: none;
 background: url(/images/crumb_right.gif) right 0 no-repeat;
-
+-moz-border-radius-topleft: 4px;
 clear: none;
 position: relative;
 z-index: 100;
 }
 
+.breadcrumb li a span{
+padding: 0 0 0 15px;
+}
+
+
 
 .breadcrumb .person{
 z-index: 90;
-left: -30px;
+margin-left: -30px;
 }
+
+.breadcrumb .first{
+z-index: 95;
+margin-left: -30px;
+}
+
+
+.breadcrumb .first a{
+padding-left: 45px;
+}
+
+
 
 .breadcrumb li a{
 float: left;
@@ -63,11 +97,11 @@ position: relative;
 
 
 .breadcrumb .person a{
-padding-left: 70px;
+padding-left: 45px;
 }
 
-.breadcrumb .person.gender-male a{
-background: url(/images/male.gif) 50px center no-repeat;
+.breadcrumb .person.gender-male a span{
+background: url(/images/male.gif) left 1px no-repeat;
 }
 
 
@@ -89,6 +123,15 @@ font-weight: bold !important;
 padding-right: 9px;
 font-family: "Droid Sans Bold", Arial;
 }
+
+
+
+
+
+.topnav:hover a:hover{
+background: none !important;
+}
+
 
 
 
