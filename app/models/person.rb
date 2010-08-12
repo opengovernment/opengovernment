@@ -112,7 +112,7 @@ class Person < ActiveRecord::Base
   end
 
   def gender_class
-    gender_fm.parameterize
+    "gender-" + gender_fm.parameterize
   end
 
   def official_name
