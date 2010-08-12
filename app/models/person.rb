@@ -107,14 +107,14 @@ class Person < ActiveRecord::Base
     when "F"
       "Female"
     else
-      "Other"
+      "Unknown"
     end
   end
 
   def gender_class
     "gender-" + gender_fm.parameterize
   end
-
+ 
   def official_name
     chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
