@@ -1,3 +1,24 @@
+/* State selector menu */
+ul.breadcrumb li ul.state-select {  
+     list-style: none;  
+     position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+     left: 0; top: 35px;  
+     background: #333;  
+     margin: 0; padding: 0;  
+     display: none;  
+     float: left;  
+     width: 170px;  
+     border: 1px solid #111;  
+}
+
+ul.breadcrumb li span { /*--Drop down trigger styles--*/  
+    width: 17px;  
+    height: 35px;  
+    float: left;  
+    background: url(subnav_btn.gif) no-repeat center top;  
+}  
+ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
+
 
 .breadcrumb{
 border: 1px solid #ddd;
