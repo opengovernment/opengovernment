@@ -66,8 +66,7 @@ position: relative;
 padding-left: 70px;
 }
 
-.breadcrumb .person.m a{
-
+.breadcrumb .person.gender-male a{
 background: url(/images/male.gif) 50px center no-repeat;
 }
 
@@ -75,10 +74,13 @@ background: url(/images/male.gif) 50px center no-repeat;
 
 .breadcrumb li:hover{
 z-index: 120;
+background: #fbfbfc url(/images/crumb_right.gif) right -49px no-repeat;
 }
 
 
 .breadcrumb li a:hover{
-background: #eef url(/images/crumb_right.gif) right 0 no-repeat;
+background: url(/images/crumb_right.gif) left -99px no-repeat !important;
 }
+
+
 

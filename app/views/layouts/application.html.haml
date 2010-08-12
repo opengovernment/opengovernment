@@ -42,7 +42,9 @@
             %a(href="#content" title="Skip to content") Skip to content
           %ul.breadcrumb
             %li.topnav
-              %a{:href => root_path} OpenGovernment #{current_place_name}
+              %a{:href => root_path} 
+                %strong OpenGovernment 
+                = current_place_name
               %ul.state-select
                 - State.loadable.each do |state|
                   %li= link_to state.name, state_url(state)
