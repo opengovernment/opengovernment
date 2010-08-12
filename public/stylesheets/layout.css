@@ -92,6 +92,24 @@ background: #eee;
 box-shadow:inset 0 0 10px #000000;
 }
 
+#account{
+float: left;
+padding: 21px 0 0;
+}
+
+
+#account p{
+margin: 0;
+padding: 0;
+}
+
+
+#account a{
+margin: 0;
+padding: 0 20px 0 0;
+}
+
+
 
 
 /*///////////////////////////
@@ -100,7 +118,10 @@ box-shadow:inset 0 0 10px #000000;
 
 ///////////////////////////*/
 
-
+.content{
+padding-top: 25px;
+clear: both;
+}
 
 
 
