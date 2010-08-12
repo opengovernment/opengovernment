@@ -46,7 +46,7 @@
               %a{:href => root_path} OpenGovernment #{current_place_name}
               %ul.state-select
                 - State.loadable.each do |state|
-                  %li= link_to state.name, url_for(:subdomain => state.abbrev.downcase)
+                  %li= link_to state.name, state_url(state)
             = raw render_breadcrumbs :tag => :li, :separator => ''
         %aside
           = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
