@@ -30,7 +30,7 @@ module ApplicationHelper
       + ")</span>".html_safe
   end
   
-  def state_select
-    ""
+  def state_url(subdomain)
+    url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
   end
 end
