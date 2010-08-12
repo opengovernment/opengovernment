@@ -24,7 +24,7 @@ class PeopleController < ApplicationController
 
   # /people/1
   def show
-    add_breadcrumb @person.full_name, person_path(@person), :class => 'person'
+    add_breadcrumb @person.full_name, person_path(@person), :class => "person #{@person.gender.parameterize}"
 
     @latest_votes = @person.votes.latest
     @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)

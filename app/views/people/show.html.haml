@@ -13,12 +13,11 @@
     = @person.official_name
     = @person.affiliation
 
-  %h3 Basic Information
   %p
     - unless @person.birthday.blank?
-      %div= "Date of Birth: #{@person.birthday}"
+      %div= "Born #{@person.birthday}"
     - unless @person.gender.blank?
-      %div= "Gender: #{@person.gender}"
+      %div{:class => @person.gender} Gender: #{@person.gender}
     - unless @person.religion.blank?
       %div= "Religion: #{@person.religion}"
     - unless @person.website_one.blank?
