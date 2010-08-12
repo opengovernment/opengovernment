@@ -100,6 +100,21 @@ class Person < ActiveRecord::Base
     ([first_name, middle_name, last_name].join(' ') + (suffix? ? ", #{suffix}" : "")).squeeze(' ')
   end
 
+  def gender_fm
+    case gender
+    when "M"
+      "Male"
+    when "F"
+      "Female"
+    else
+      "Other"
+    end
+  end
+
+  def gender_class
+    gender_fm.parameterize
+  end
+
   def official_name
     chamber ? [chamber.title, full_name].join(' ').squeeze(' ') : full_name
   end
