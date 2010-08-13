@@ -27,11 +27,19 @@
 - unless @vote.roll_calls
   %div Sorry, no roll call is available for this vote.
 - else
-  - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-    .span-8
-      #{vote_type.capitalize} Votes
-      %ul.roll_call
-        - roll_calls.each do |roll_call|
-          -# TODO: This triggers a query for every roll call. Should only trigger one query.
-          %li(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")
-            = link_to roll_call.person.full_name, person_path(roll_call.person)
+  - vt = ''
+  - @vote.roll_calls_by_vote_type.each do |rc|
+    :erb
+      <% if rc.vote_type != vt %>
+        <% if vt != '' %>
+                </div></ul>
+        <% end
+        vt = rc.vote_type %>
+        <div class="span-8"><%= vt.capitalize %> Votes
+        <ul class="roll_call">
+          <li class="vote_<%= "#{rc.roles.first.party_abbr}_#{vt}" %>"><%= link_to rc.person.full_name, person_path(rc.person) %>
+      <% else %>
+          <li class="vote_<%= "#{rc.roles.first.party_abbr}_#{vt}" %>"><%= link_to rc.person.full_name, person_path(rc.person) %>
+      <% end %>
+  :erb
+    </div></ul>
