@@ -6,19 +6,6 @@ GIT
       hpricot (>= 0.8.1)
 
 GIT
-  remote: http://github.com/capistrano/capistrano.git
-  revision: 7c8678d
-  specs:
-
-GIT
-  remote: http://github.com/engineyard/eycap.git
-  revision: b3cf7a6
-  specs:
-    eycap (0.5.6)
-      capistrano (>= 2.2.0)
-      hoe (>= 1.5.1)
-
-GIT
   remote: http://github.com/freelancing-god/thinking-sphinx.git
   revision: 5fe4a03
   branch: rails3
@@ -205,14 +192,13 @@ DEPENDENCIES
   acts-as-taggable-on!
   autotest
   autotest-rails
-  capistrano!
+  capistrano
   capistrano-ext
   chronic
   clearance
   cucumber-rails
   database_cleaner
   erubis
-  eycap!
   factory_girl
   formtastic!
   geokit
