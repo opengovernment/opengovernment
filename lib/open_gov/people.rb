@@ -79,12 +79,12 @@ module OpenGov
 
               district = chamber.districts.numbered(fs_role.district.to_s).first
 
-              role = Role.find_or_initialize_by_district_id_and_chamber_id(district.id, chamber.id)
+              role = Role.find_or_initialize_by_person_id_and_session_id(person.id, session.id)
               role.update_attributes!(
-                :person => person,
-                :session => session,
-                :start_date => Date.valid_date!(fs_role.start_date) || Date.parse("#{session.start_year}-01-01").to_time,
-                :end_date => Date.valid_date!(fs_role.end_date) || Date.parse("#{session.end_year}-12-31").to_time,
+                :district_id => district.id,
+                :chamber_id => chamber.id,
+                :start_date => Date.valid_date!(fs_role.start_date),
+                :end_date => Date.valid_date!(fs_role.end_date),
                 :party => fs_role.party
               )
             when GovKit::OpenStates::ROLE_COMMITTEE_MEMBER

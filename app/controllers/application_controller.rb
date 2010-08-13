@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_place
-    @state || State.find_by_slug(request.subdomain) || nil
+    @state || State.find_by_slug(request.subdomain)
   end
 
   def current_place_name

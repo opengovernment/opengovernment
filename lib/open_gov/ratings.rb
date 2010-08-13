@@ -77,11 +77,10 @@ module OpenGov
         State.loadable.each do |state|
           puts "Importing Ratings for .. #{state.name}"
 
-          Person.with_votesmart_id.with_current_role.each do |person|
-            next if person.state != state
+          state.people.each do |person|
 
             puts "Importing Ratings for .. #{person.full_name} (#{person.votesmart_id})"
-            state.special_interest_groups..each do |sig|
+            state.special_interest_groups.each do |sig|
               remote_ratings = [*GovKit::VoteSmart::Rating.find(person.votesmart_id, sig.votesmart_id)]
               if remote_ratings.size == 1 && remote_ratings[0][0] == 'error'
                 puts "Error with #{person.full_name} (#{person.votesmart_id}) ratings in sig #{sig.votesmart_id}: #{remote_ratings[0][1]["errorMessage"]}; skipping"

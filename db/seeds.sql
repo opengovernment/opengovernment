@@ -89,14 +89,18 @@ ALTER TABLE sponsorships
  ADD CONSTRAINT sponsorships_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
 
-CREATE OR REPLACE VIEW v_district_votes AS
-  select d.geom as the_geom, rc.vote_id, p.id as person_id, rc.vote_type, r.party, d.state_id, v.chamber_id
-  from districts d, roles r, roll_calls rc, people p, votes v
-  where d.id = r.district_id
-  and rc.person_id = p.id
-  and r.person_id = p.id
-  and v.id = rc.vote_id;
+ALTER TABLE roles ADD CONSTRAINT person_session_unique UNIQUE (person_id, session_id);
 
+CREATE OR REPLACE VIEW v_roll_call_roles AS
+select rc.vote_id, p.id as person_id, rc.vote_type, r.party, r.id as role_id, r.district_id, v.chamber_id
+from
+  roll_calls rc
+  INNER JOIN people p ON (rc.person_id = p.id)
+  INNER JOIN votes v ON (rc.vote_id = v.id)
+  INNER JOIN bills b ON (b.id = v.bill_id)
+  LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id = r.session_id);
+
+-- For each legislature, this grabs the most recent session for which there are roles
 CREATE OR REPLACE VIEW v_most_recent_sessions AS
   select recent.* from
     (select *, row_number() over (partition by legislature_id order by end_year desc) as rnum
@@ -105,12 +109,14 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
     and exists (select id from roles r where r.session_id = s.id)) recent
   where recent.rnum = 1;
 
-CREATE OR REPLACE VIEW v_district_people AS
-  select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
-  from districts d, roles r, people p, v_most_recent_sessions s
-  where d.id = r.district_id
-  and r.person_id = p.id
-  and s.id = r.session_id;
+CREATE OR REPLACE VIEW v_most_recent_roles AS
+  SELECT r.person_id, r.district_id, r.chamber_id, r.session_id, r.senate_class, r.party, r.start_date, r.end_date,
+  r.created_at, r.updated_at, coalesce(r.state_id, d.state_id) as state_id
+  FROM
+    (select *, row_number() over (partition by person_id order by end_date desc) as rnum
+    from roles ro) r
+    left outer join districts d on (d.id = r.district_id)
+  where r.rnum = 1;
 
 CREATE OR REPLACE VIEW v_tagged_bills AS
   select distinct t.name as tag_name, b.*
@@ -130,3 +136,21 @@ CREATE OR REPLACE VIEW v_tagged_sigs AS
   where c.id = sig.category_id and
   tt.taggable_type = 'Category' and tt.taggable_id = c.id and
   tt.context = 'issues' and t.id = tt.tag_id;
+
+-- Used for geoserver district maps.
+-- Restricted by session_id, this view should alwyas show only
+-- the people in that session who represent geographic districts (not senators)
+CREATE OR REPLACE VIEW v_district_people AS
+  select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
+  from districts d, roles r, people p
+  where d.id = r.district_id
+  and r.person_id = p.id
+  and s.id = r.session_id;
+
+-- Used for geoserver vote maps
+CREATE OR REPLACE VIEW v_district_votes AS
+  select d.geom as the_geom, d.state_id
+  from districts d, v_roll_call_roles r
+  where d.id = r.district_id;
+
+
