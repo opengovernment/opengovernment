@@ -77,8 +77,7 @@ module OpenGov
         State.loadable.each do |state|
           puts "Importing Ratings for .. #{state.name}"
 
-          state.people.each do |person|
-
+          state.people.with_votesmart_id.each do |person|
             puts "Importing Ratings for .. #{person.full_name} (#{person.votesmart_id})"
             state.special_interest_groups.each do |sig|
               remote_ratings = [*GovKit::VoteSmart::Rating.find(person.votesmart_id, sig.votesmart_id)]
