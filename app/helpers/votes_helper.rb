@@ -5,6 +5,7 @@ module VotesHelper
       &cht=bhs
       &chco=405695,B43030,999999
       &chds=0,#{total_votes},0,#{total_votes},0,#{total_votes}
+      &chf=bg,s,65432100
       &chd=t:#{data_table}
       &chm=#{CGI::escape markers}).gsub(/\n\s+/,'')
 
@@ -87,6 +88,7 @@ module VotesHelper
     service=WMS
     &request=GetMap
     &version=1.1.1
+    &transparent=true
     &layers=topp:states,cite:v_district_votes
     &bbox=#{state.bbox.join(",")}
     &cql_filter=STATE_ABBR='#{state.abbrev}';vote_id+=+#{vote_id}

@@ -4,6 +4,7 @@ module StatesHelper
     service=WMS
     &request=GetMap
     &version=1.1.1
+    &transparent=true
     &layers=topp:states,cite:v_district_people
     &bbox=#{state.bbox.join(",")}
     &cql_filter=STATE_ABBR='#{state.abbrev}';chamber_id+=+#{chamber.id}
