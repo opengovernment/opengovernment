@@ -1,6 +1,7 @@
 -- Any executes from migrations must go in here, or they
 -- will not be run when someone installs the app.
 
+-- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
 ADD CONSTRAINT districts_state_fk
 FOREIGN KEY (state_id) REFERENCES states (id);
@@ -89,10 +90,16 @@ ALTER TABLE sponsorships
  ADD CONSTRAINT sponsorships_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
 
+
+-- UNIQUE CONSTRAINTS --
 ALTER TABLE roles ADD CONSTRAINT person_session_unique UNIQUE (person_id, session_id);
 
+-- INDEXES --
+CREATE INDEX roll_calls_vote_id_and_type_idx ON roll_calls (vote_id, vote_type);
+
+-- VIEWS --
 CREATE OR REPLACE VIEW v_roll_call_roles AS
-select rc.vote_id, p.id as person_id, rc.vote_type, r.party, r.id as role_id, r.district_id, v.chamber_id
+select rc.id as roll_call_id, rc.vote_id, p.id as person_id, rc.vote_type, r.party, r.id as role_id, r.district_id, v.chamber_id, b.session_id
 from
   roll_calls rc
   INNER JOIN people p ON (rc.person_id = p.id)
@@ -142,15 +149,13 @@ CREATE OR REPLACE VIEW v_tagged_sigs AS
 -- the people in that session who represent geographic districts (not senators)
 CREATE OR REPLACE VIEW v_district_people AS
   select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
-  from districts d, roles r, people p
+  from districts d, roles r, people p, sessions s
   where d.id = r.district_id
   and r.person_id = p.id
   and s.id = r.session_id;
 
 -- Used for geoserver vote maps
 CREATE OR REPLACE VIEW v_district_votes AS
-  select d.geom as the_geom, d.state_id
+  select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
   from districts d, v_roll_call_roles r
   where d.id = r.district_id;
-
-

@@ -57,7 +57,7 @@
   %p
     - @person.roles.each do |role|
       %div
-        #{role.state && role.state.name} #{role.chamber.name} (<time datetime="#{role.start_date}">#{role.start_date.year}</time> to <time datetime="#{role.end_date}">#{role.end_date.year}</time>)
+        #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
 
   - if @person.committees.size > 0
     %h3 Committees

@@ -64,7 +64,7 @@
         - @bill.votes.each do |vote|
           = render :partial => 'votes/vote', :locals => {:vote => vote}
           %div
-            = link_to "Full roll call data &rarr;".html_safe, state_vote_url(@state, vote)
+            = link_to "Full roll call data &rarr;".html_safe, vote_url(vote)
 
     - if @bill.citations.size > 0
       %div.span-24.last

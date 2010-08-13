@@ -6,7 +6,7 @@
   %span= "Vote in the " + @vote.chamber.name
 
 .span-8
-  = vote_map_img(@state, @vote.chamber_id, @vote.id)
+  = vote_map_img(@state, @vote.id)
   = vote_legend_img
 .span-16.last
   %table.vote_results
@@ -33,5 +33,5 @@
       %ul.roll_call
         - roll_calls.each do |roll_call|
           -# TODO: This triggers a query for every roll call. Should only trigger one query.
-          %li(class="vote_#{roll_call.person.roles.on_date(@vote.date).first.party_abbr}_#{vote_type}")
+          %li(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")
             = link_to roll_call.person.full_name, person_path(roll_call.person)
