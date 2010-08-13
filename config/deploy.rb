@@ -4,7 +4,6 @@
 #
 # Use cap deploy to deploy to production; cap staging deploy to deploy to dev.
 #
-require 'eycap/recipes'
 require 'capistrano/ext/multistage'
 
 set :stages, %w(staging production)
@@ -71,28 +70,6 @@ namespace :bundler do
 #    bundler.symlink_vendor
     run("cd #{release_path} && bundle install --production --without test cucumber")
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
-  end
-end
-
-namespace :db do
-  desc "EYCAP OVERRIDE: Backup your MySQL or PostgreSQL database to shared_path+/db_backups"
-  task :dump, :roles => :db, :only => {:primary => true} do
-    backup_name unless exists?(:backup_file)
-    on_rollback { run "rm -f #{backup_file}" }
-    run("cat #{shared_path}/config/database.yml") { |channel, stream, data| @environment_info = YAML.load(data)[rails_env] }
-    dbuser = @environment_info['username']
-    dbpass = @environment_info['password']
-    if @environment_info['adapter'] == 'mysql'
-      dbhost = @environment_info['host']
-      dbhost = environment_dbhost.sub('-master', '') + '-replica' if dbhost != 'localhost' # added for Solo offering, which uses localhost
-      run "mysqldump --add-drop-table -u #{dbuser} -h #{dbhost} -p #{environment_database} | gzip -c > #{backup_file}.gz" do |ch, stream, out |
-         ch.send_data "#{dbpass}\n" if out=~ /^Enter password:/
-      end
-    else
-      run "pg_dump -W -c -U #{dbuser} -h #{environment_dbhost} #{environment_database} | gzip -c > #{backup_file}.gz" do |ch, stream, out |
-         ch.send_data "#{dbpass}\n" if out=~ /^Password:/
-      end
-    end
   end
 end
 

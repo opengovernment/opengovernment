@@ -9,9 +9,8 @@ gem 'rails', '3.0.0.rc'
 gem "pg"
 
 # Deployment
-gem "capistrano", :git => 'http://github.com/capistrano/capistrano.git'
+gem "capistrano"
 gem "capistrano-ext"
-gem 'eycap', :git => 'http://github.com/engineyard/eycap.git'
 
 # An alternative form builder
 gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
