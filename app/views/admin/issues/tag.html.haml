@@ -1,13 +1,14 @@
 :ruby
   js_hook(%q|
     $(document).ready(function() {
-    var hidden_field = $('input#tag');
-    $('#tags a').live('click', function(event) {
-      hidden_field.val($(this).html());
-      $('#tagging_form').submit();
-      event.preventDefault();
+      var hidden_field = $('input#tag');
+      $('#tags a').live('click', function(event) {
+        hidden_field.val($(this).html());
+        $('#tagging_form').submit();
+        event.preventDefault();
+      });
     });
-  );|)
+  |)
 .span-24
   = form_tag(admin_update_issues_path, :remote => true, :id => "tagging_form") do
     .span-12
