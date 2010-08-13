@@ -1,6 +1,7 @@
 # Configuration
 require 'yaml'
 
+
 # Some helper methods so that we can remove a task preloaded by another .rake file.
 Rake::TaskManager.class_eval do
   def remove_task(task_name)
@@ -10,6 +11,34 @@ end
 
 def remove_task(task_name)
   Rake.application.remove_task(task_name)
+end
+
+# For loading specific states:
+# Either yield a nil if no states were specified, or yield each state individually.
+def with_states
+
+  unless ENV['LOAD_STATES']
+    yield nil
+    return
+  end
+
+  ENV['LOAD_STATES'].split(',').each do |state_abbrev|
+    if state = State.find_by_abbrev(state_abbrev.upcase)
+      yield state
+    else
+      puts "Could not find state #{state_abbrev}; skipping."
+    end
+  end
+end
+
+# Reload a given class file.
+def class_refresh(*class_names)
+  class_names.each do |klass_name|
+    Object.class_eval do
+      remove_const(klass_name) if const_defined?(klass_name)
+    end
+    load klass_name.tableize.singularize + ".rb"
+  end
 end
 
 
@@ -29,7 +58,7 @@ namespace :opengov do
       end
     end
   end
-  
+
   desc "Install clean database: prepare database, fetch all data, load data"
   task :install => :environment do
     abcs = ActiveRecord::Base.configurations
@@ -54,7 +83,7 @@ namespace :db do
     remove_task :"db:test:prepare"
     desc "Noop"
     task :prepare do
-      puts "Run RAILS_ENV=test db:drop db:prepare instead."
+      puts "Run RAILS_ENV=test rake db:drop db:prepare instead."
     end
   end
 
@@ -135,17 +164,23 @@ namespace :fetch do
 
   task :all do
     Rake::Task['fetch:districts'].invoke
-    Rake::Task['fetch:bills'].invoke
+    Rake::Task['fetch:openstates'].invoke
   end
 
   desc "Get the district SHP files for Congress and all active states"
   task :districts => :setup do
-    OpenGov::Districts.fetch
+    with_states do |state|
+      state ? OpenGov::Districts.fetch_one(state) : OpenGov::Districts.fetch!
+    end
   end
 
   desc "Get the openstates files for all active states"
-  task :bills => :setup do
-    OpenGov::Bills.fetch # Note: This also fetches state legislator data
+  task :openstates => :setup do
+    # Download the bills & legislator data from OpenStates.
+    
+    with_states do |state|
+      state ? OpenGov::OpenStates.fetch_one(state) : OpenGov::OpenStates.fetch!
+    end
   end
 end
 
@@ -153,6 +188,7 @@ desc "Load all data: fixtures, legislatures, districs, committess, people(includ
 namespace :load do
   task :all  => :environment do
     # We don't load fixtures here anymore-- we load them earlier so we can use them to fetch the right districts and bills.
+    
     puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
@@ -185,27 +221,14 @@ namespace :load do
 
   desc "Fetch and load legislatures from Open State data"
   task :legislatures => :environment do
-    OpenGov::Legislatures.import!
-  end
-
-  desc "Fetch and load addresses from VoteSmart"
-  task :addresses => :environment do
-    OpenGov::Addresses.import!
-  end
-
-  desc "Fetch and load photos from VoteSmart"
-  task :photos => :environment do
-    OpenGov::Photos.import!
+    with_states do |state|
+        state ? OpenGov::Legislatures.import_one(state) : OpenGov::Legislatures.import!
+    end
   end
 
   desc "Fetch and load citations"
   task :citations => :environment do
     OpenGov::Citations.import!
-  end
-
-  desc "Fetch and load Wikipedia bios"
-  task :bios => :environment do
-    OpenGov::Bios.import!
   end
 
   desc "Load bills from Open State data"
@@ -233,11 +256,14 @@ namespace :load do
 
   desc "Fetch and load people from OpenStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
-    OpenGov::People.import!
+    with_states do |state|
+        state ? OpenGov::People.import_one(state) : OpenGov::People.import!
+    end
 
     Dir.chdir(Rails.root)
     GovTrackImporter.new.import!
 
+    # These methods all act on all people with votesmart ids
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
     OpenGov::Photos.import!
@@ -257,14 +283,5 @@ namespace :load do
     class_refresh("District")
   end
 
-  def class_refresh(*class_names)
-    class_names.each do |klass_name|
-      Object.class_eval do
-        remove_const(klass_name) if const_defined?(klass_name)
-      end
-      load klass_name.tableize.singularize + ".rb"
-    end
-  end
 end
-
 

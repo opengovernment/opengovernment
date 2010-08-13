@@ -4,7 +4,7 @@ module OpenGov
       def import!
         puts "Importing addresses from VoteSmart"
         s, u = 0, 0
-                
+
         Person.with_votesmart_id.with_current_role.each do |person|
           begin
             if u % 10 == 0

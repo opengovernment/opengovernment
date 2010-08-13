@@ -8,6 +8,7 @@ module OpenGov
       end
 
       def import_one(state)
+        puts "Creating legislature & sessions for #{state.abbrev}"
         if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
           leg = Legislature.find_or_create_by_state_id(state.id)
 

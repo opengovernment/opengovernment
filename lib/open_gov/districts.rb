@@ -21,26 +21,33 @@ module OpenGov
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
     class << self
-      def fetch
+      def fetch!
+        fetch_us_congress
+        
+        # Get state legislature files, when available
+        State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
+          fetch_one(state)
+        end
+      end
+      
+      def fetch_one(state)
         FileUtils.mkdir_p(DISTRICTS_DIR)
         Dir.chdir(DISTRICTS_DIR)
 
-        # Get the federal data.
-        process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
+        {"upper" => AREA_STATE_UPPER, "lower" => AREA_STATE_LOWER}.each do |name, house|
 
-        # Get state legislature files, when available
-        State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
-          {"upper" => AREA_STATE_UPPER, "lower" => AREA_STATE_LOWER}.each do |name, house|
-
-            # Unicameral states don't have lower house files.
-            unless state.unicameral == true && house == AREA_STATE_LOWER
-              process_one(house, state.fips_code, "#{state.name} #{name} house")
-            end
+          # Unicameral states don't have lower house files.
+          unless state.unicameral == true && house == AREA_STATE_LOWER
+            process_one(house, state.fips_code, "#{state.name} #{name} house")
           end
         end
       end
 
-
+      def fetch_us_congress
+        # Get the federal data.
+        process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
+      end
+      
       def import!(shpfile)
         puts "Inserting shapefile #{File.basename(shpfile)}"
         OpenGov::Shapefile.process(shpfile, :drop_table => true)

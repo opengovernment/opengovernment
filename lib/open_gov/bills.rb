@@ -12,20 +12,6 @@ module OpenGov
         end
       end
 
-      def fetch
-        FileUtils.mkdir_p(OPENSTATES_DIR)
-        Dir.chdir(OPENSTATES_DIR)
-
-        State.loadable.each do |state|
-          openstates_fn = "#{state.abbrev.downcase}.zip"
-          curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''
-
-          puts "---------- Downloading the bills for #{state.name}"
-          `curl #{curl_ops} -fO http://fiftystates-dev.sunlightlabs.com/data/#{openstates_fn}`
-          `unzip -u #{openstates_fn}`
-        end
-      end
-
       # TODO: The :remote => false option only applies to the intial import.
       # after that, we always want to use import_state(state)
       def import!(options = {})

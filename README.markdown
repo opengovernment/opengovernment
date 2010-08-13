@@ -22,6 +22,7 @@ Before you install the app, you will need to download and install the following:
   * Run the following:
         bundle install
         rake install
+  * You can provide a comma-separated list of states in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the tasks/fixtures/states.yml file.
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets. It typically takes at least an hour. You can always install the test database fixtures if you don't want to wait for the full install.
   * Once the install is complete, start the server:
         rails server
