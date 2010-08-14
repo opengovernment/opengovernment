@@ -128,30 +128,6 @@ class Person < ActiveRecord::Base
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
   end
 
-  def affiliation
-    return "" unless self.current_role
-
-    district = self.current_role.district
-
-    # TODO: This is very data-dependent; this should be cleaned up or dealt with on import.
-    party = case self.current_role.party
-      when "Democrat"
-        "D"
-      when "Republican"
-        "R"
-      when ""
-        ""
-      else
-        "I"
-    end
-
-    if !party.blank? && !district.blank? && !district.number.blank?
-      "(#{party}-#{district.number})"
-    else
-      nil
-    end
-  end
-
   def has_contributions?
     !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
   end

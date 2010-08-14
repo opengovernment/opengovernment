@@ -32,6 +32,8 @@ class Role < ActiveRecord::Base
     self.start_date < Date.today && Date.today < self.end_date
   end
 
+
+
   def party_abbr
     if party.blank?
       return "ind"
@@ -44,6 +46,31 @@ class Role < ActiveRecord::Base
       "rep"
     else
       "ind"
+    end
+  end
+  
+  def party_fm
+    case party
+      when "Democrat"
+        "D"
+      when "Republican"
+        "R"
+      when ""
+        ""
+      else
+        "I"
+    end
+  end
+
+  def district_fm
+    district.try(:number)
+  end
+
+  def affiliation_fm
+    if !party_fm.blank?
+      "#{party_fm}#{district.try(:number).try(:insert, 0, '-')}"
+    else
+      nil
     end
   end
 

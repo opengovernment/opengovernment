@@ -1,9 +1,14 @@
 class VotesController < ApplicationController
   before_filter :get_state
+  before_filter :get_vote
+  add_breadcrumb "Bills", :bills_path, :class => 'bills'
 
   def show
-    @vote = Vote.find(params[:id])
-    @vote || resource_not_found
+    add_breadcrumb "#{@vote.bill.bill_number}: #{@vote.motion}", bill_path(@vote.bill), :class => "vote #{@vote.outcome_class}"
   end
-  
+
+  def get_vote
+    @vote = Vote.find(params[:id], :include => [:bill])
+    @vote || resource_not_found
+  end  
 end

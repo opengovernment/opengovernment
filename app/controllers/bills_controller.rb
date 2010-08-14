@@ -1,7 +1,8 @@
 class BillsController < ApplicationController
   before_filter :get_state
   before_filter :get_bill, :except => [:index]
-
+  add_breadcrumb "Bills", :bills_path, :class => 'bills'
+  
   def show
     respond_to do |format|
       format.js
