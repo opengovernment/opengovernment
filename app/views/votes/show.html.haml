@@ -29,8 +29,15 @@
 - else
   - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
     .span-8
-      #{vote_type.capitalize} Votes
-      %ul.roll_call
-        - roll_calls.each do |roll_call|
-          %li(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")
-            = link_to roll_call.person.full_name, person_path(roll_call.person)
+      %table.roll_call
+        %thead
+          %tr
+            %th #{vote_type.capitalize} Votes
+            %th District
+            %th Party
+        %tbody
+          - roll_calls.each do |roll_call|
+            %tr
+              %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
+              %td= roll_call.roles.first.district_fm
+              %td= roll_call.roles.first.party_fm

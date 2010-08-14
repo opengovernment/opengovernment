@@ -15,6 +15,7 @@ class HomeController < ApplicationController
     &version=1.1.1
     &layers=topp:states
     &bbox=-130,24,-66,50
+    &transparent=true
     &width=#{w}
     &height=#{h}
     &format=#{f}
