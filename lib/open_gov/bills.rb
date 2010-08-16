@@ -15,40 +15,44 @@ module OpenGov
       # TODO: The :remote => false option only applies to the intial import.
       # after that, we always want to use import_state(state)
       def import!(options = {})
+        State.loadable.each do |state|
+          import_one(state, options)
+        end
+      end
+
+      def import_one(state, options = {})
         build_people_hash
 
-        State.loadable.each do |state|
-          if options[:remote]
-            import_state(state)
-          else
-            state_dir = File.join(OPENSTATES_DIR, "api", state.abbrev.downcase)
+        if options[:remote]
+          import_remote(state)
+        else
+          state_dir = File.join(OPENSTATES_DIR, "api", state.abbrev.downcase)
 
-            unless File.exists?(state_dir)
-              puts "Local Open State API data for #{state.name} is missing."
-              return import!(:remote => true)
-            end
+          unless File.exists?(state_dir)
+            puts "Local Open State API data for #{state.name} is missing."
+            return import_one(state, :remote => true)
+          end
 
-            puts "\nLoading local Open State data for #{state.name}."
-            state.sessions.each do |session|
-              [GovKit::OpenStates::CHAMBER_LOWER, GovKit::OpenStates::CHAMBER_UPPER].each do |house|
-                bills_dir = File.join(state_dir, session.name, house, "bills")
-                all_bills = File.join(bills_dir, "*")
-                Dir.glob(all_bills).each_with_index do |file, i|
-                  if i % 10 == 0
-                    print '.'
-                    $stdout.flush
-                  end
-
-                  bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
-                  import_bill(bill, state, options)
+          puts "\nLoading local Open State data for #{state.name}."
+          state.sessions.each do |session|
+            [GovKit::OpenStates::CHAMBER_LOWER, GovKit::OpenStates::CHAMBER_UPPER].each do |house|
+              bills_dir = File.join(state_dir, session.name, house, "bills")
+              all_bills = File.join(bills_dir, "*")
+              Dir.glob(all_bills).each_with_index do |file, i|
+                if i % 10 == 0
+                  print '.'
+                  $stdout.flush
                 end
+
+                bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
+                import_bill(bill, state, options)
               end
             end
           end
         end
       end
 
-      def import_state(state)
+      def import_remote(state)
         puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
         # TODO: This isn't quite right...

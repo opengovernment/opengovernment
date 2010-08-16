@@ -8,17 +8,17 @@
       %table
         %thead
           %tr
-            %th Bill & Motion
             %th #{@person.first_name}'s vote
+            %th Bill & Motion
         %tbody
         - @roll_calls.each do |roll_call|
           %tr
             - bill = roll_call.vote.bill
             - vote = roll_call.vote
             %td
+              %strong= roll_call.vote_type.capitalize
+            %td
               %div
-                = link_to "#{bill.bill_number}: #{bill.title}", bill_path(bill.session, bill)
-                = render :partial => "votes/vote", :locals => {:vote => vote}
-            %td= roll_call.vote_type.capitalize
+                = render :partial => "shared/vote", :locals => {:vote => vote, :bill => bill}
   - else
     %p Sorry, we have no voting history for #{@person.official_name}

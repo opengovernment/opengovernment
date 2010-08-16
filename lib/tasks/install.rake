@@ -234,9 +234,15 @@ namespace :load do
   desc "Load bills from Open State data"
   task :bills => :environment do
     puts "Loading bills from Open State data"
-    OpenGov::Bills.import!
-    puts "Marking Votesmart Key Votes"
-    OpenGov::KeyVotes.import!
+    with_states do |state|
+        if state 
+          OpenGov::Bills.import_one(state)
+          OpenGov::KeyVotes.import_one(state)
+        else
+          OpenGov::Bills.import!
+          OpenGov::KeyVotes.import!
+        end
+    end
   end
 
   desc "Fetch and load committees from VoteSmart"

@@ -8,7 +8,9 @@ module OpenGov
       end
 
       # Import all key votes for a given State
-      def import_one(state)
+      def import_one(state)  
+        puts "Marking Votesmart Key Votes for #{state.name}"
+        
         # TODO: Figure out a better way to fetch the current session's bills
         bills = GovKit::VoteSmart::Bill.find_by_year_and_state(2009, state.abbrev)
 

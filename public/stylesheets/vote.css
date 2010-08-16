@@ -41,15 +41,78 @@
   background: url(/images/votes/ind-other-box.gif) no-repeat 0% 50%;
 }
 
-table.vote_results {
+/* Vote summary -- shared/_vote */
+.vote_summary {
+  display: block;
+  float: left;
+  width: 700px;
+}
+
+.vote_summary h4 {
+  line-height: 16px;
+  margin: 0;
+}
+
+.bill_title {
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.vote_date {
+  font-size: 10px;
+  line-height: 14px;
+  color: #888888;
+}
+
+/* The summary / small version of the vote chart */
+.vote_chart_small table {
+  width: 150px;
+  margin-bottom: 0;
+}
+
+.vote_chart_small table td.vote_chart {
+  width: 80px; /* See votes_helper thumbnail-size chart width */
+}
+
+.vote_chart_small table td,
+.vote_chart_small table th {
+  height: 13px;
+  vertical-align: middle;
+  text-align: right;
+  font-weight: normal;
+  line-height: 13px;
+  padding: 0;
+}
+
+.vote_chart_small table td.first,
+.vote_chart_small table th.first
+{
+  padding-top: 0px !important;
+}
+
+.vote_chart_small table td.last,
+.vote_chart_small table th.last {
+  padding-bottom: 5px !important;
+}
+
+.vote_chart_small table .label {
+  padding-right: 2px;
+  font-size: 11px;
+}
+
+
+
+/* Big vote chart -- votes/show */
+.vote_chart table {
   width: 450px;
 }
 
-table.vote_results td.vote_chart {
-  width: 300px; /* Same as VotesHelper::CHART_WIDTH */
+.vote_chart table td.vote_chart {
+  width: 300px; /* See votes_helper full-size chart width */
 }
 
-table.vote_results td,table.vote_results th {
+.vote_chart table td,
+.vote_chart table th {
   height: 24px;
   vertical-align: middle;
   text-align: right;
@@ -57,19 +120,20 @@ table.vote_results td,table.vote_results th {
   padding: 0;
 }
 
-table.vote_results td.first,
-table.vote_results th.first
+.vote_chart table td.first,
+.vote_chart table th.first
 {
   padding-top: 26px !important;
 }
 
-table.vote_results td.last,
-table.vote_results th.last {
+.vote_chart table td.last,
+.vote_chart table th.last {
   padding-bottom: 9px !important;
 }
 
-table.vote_results .label {
+.vote_chart table .label {
   padding-right: 2px;
   font-size: 16px;
   font-weight: bold;
 }
+

@@ -5,7 +5,7 @@ module OpenGov
     class << self
       def import!(options = {})
         State.loadable.each do |state|
-          import_state(state, options)
+          import_one(state, options)
         end
       end
 

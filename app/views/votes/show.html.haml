@@ -8,13 +8,13 @@
 .span-8
   = vote_map_img(@state, @vote.id)
   = vote_legend_img
-.span-16.last
-  %table.vote_results
+.span-16.last.vote_chart
+  %table
     %tr
       %th.first.label Yes
       %td.first.label!= @vote.passed? ? '&radic;' : ''
       %td.first.label= @vote.yes_count
-      %td(rowspan=3 class="vote_chart")= vote_chart_img(@vote.id)
+      %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote.id)
     %tr
       %th.label No
       %td.label!= @vote.passed? ? '' : '&radic;'

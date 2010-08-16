@@ -1,7 +1,7 @@
 module VotesHelper
   CHART_URL = %q(http://chart.apis.google.com/chart?
-      chbh=20
-      &chs=#{CHART_WIDTH}x#{CHART_HEIGHT}
+      chbh=#{bar_height}
+      &chs=#{width}x#{height}
       &cht=bhs
       &chco=405695,B43030,999999
       &chds=0,#{total_votes},0,#{total_votes},0,#{total_votes}
@@ -9,13 +9,19 @@ module VotesHelper
       &chd=t:#{data_table}
       &chm=#{CGI::escape markers}).gsub(/\n\s+/,'')
 
-  CHART_WIDTH = 300
-  CHART_HEIGHT = 100
-
   # If a given bar is more than 100 pixels long, it's safe to show the label.
   LABEL_MIN_WIDTH = 80
 
-  def vote_chart_img(vote_id)
+  def vote_chart_image_tag(vote_id, size = :full)
+
+    if size == :full
+      height, width = 100, 300
+      bar_height = 20
+    elsif size == :thumb
+      height, width = 40, 80
+      bar_height = 8
+    end
+
     vote_types = ['yes', 'no', 'other']
     parties = [Legislature::MAJOR_PARTIES, nil].flatten
 
@@ -45,24 +51,31 @@ module VotesHelper
 
     if total_votes > 0
       logger.debug "Total votes: #{total_votes}"
-      # TODO: This doesn't work in all circumstances, but for now we will go with
-      # 1/2 of all members present and voting.
-      votes_needed_to_pass = total_votes / 2
 
-      # Where are we going to place the "votes needed to pass" label?
-      votes_needed_y_ratio = Integer.scale(votes_needed_to_pass, total_votes, CHART_WIDTH) / CHART_WIDTH
+
+      if size == :full
+        # TODO: This doesn't work in all circumstances, but for now we will go with
+        # 1/2 of all members present and voting.
+        votes_needed_to_pass = total_votes / 2
+
+        # Where are we going to place the "votes needed to pass" label?
+        votes_needed_y_ratio = Integer.scale(votes_needed_to_pass, total_votes, width) / width
+
+        # Google's marker format -- see Chart API docs for chm=
+        markers = "@f#{votes_needed_to_pass} needed to pass,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
+      else
+        # Don't show votes needed to pass on smaller charts.
+        markers = ""
+      end
 
       # Pull out all the arrays of values, and put them into the Google Charts table format
       # This will give us three data series (one for each party), with three values each.
       data_table = counts_only.collect {|x| x.join(',') }.join('|')
 
-      # Google's marker format -- see Chart API docs for chm=
-      markers = "@f#{votes_needed_to_pass} needed to pass,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
-
       # Here we're figuring out which of the values it's safe to apply a label to.
       # The label will be "32 Democrats", for example.
       # But we only want to label a bar if it's long enough to fit the text.
-      pixels_per_vote = CHART_WIDTH / total_votes
+      pixels_per_vote = width / total_votes
       party_name = ''
       votes.each_with_index do |h, i|
         if i % 2 == 0
@@ -78,7 +91,7 @@ module VotesHelper
         end
       end
 
-      return image_tag(eval('"' + CHART_URL + '"'), :width => CHART_WIDTH, :height => CHART_HEIGHT, :class => 'vote_chart')
+      return image_tag(eval('"' + CHART_URL + '"'), :width => width, :height => height, :class => 'vote_chart')
     else
       "Sorry, not enough data to display a chart"
     end
