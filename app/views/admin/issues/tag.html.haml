@@ -1,18 +1,37 @@
 :ruby
-  js_hook(%q|
-    $(document).ready(function() {
-      var hidden_field = $('input#tag');
-      $('#tags a').live('click', function(event) {
-        hidden_field.val($(this).html());
-        $('#tagging_form').submit();
-        event.preventDefault();
+  javascript do
+    (%q|
+      $(document).ready(function() {
+          var hidden_field = $('input#tag');
+          $('#tags a').live('click', function(event) {
+            hidden_field.val($(this).html());
+            $('#tagging_form').submit();
+            event.preventDefault();
+          });
+
+          var select_all_hook = $('a#select_all');
+          select_all_hook.live('click', function(event) {
+            $("div#taggings input:checkbox").attr('checked', 'checked');
+            event.preventDefault();
+          });
+
+          var select_none_hook = $('a#select_none');
+          select_none_hook.live('click', function(event) {
+            $("div#taggings input:checkbox").attr('checked', '');
+            event.preventDefault();
+          });
+
       });
-    });
-  |)
+    |)
+  end
+
 .span-24
   = form_tag(admin_update_issues_path, :remote => true, :id => "tagging_form") do
     .span-12
-      %h2= @title
+      %h2
+        = @title
+      = link_to "All", '#', :id => 'select_all'
+      = link_to "None", '#', :id => 'select_none'
       %div#taggings
         = render :partial => "taggings.html.haml"
       = hidden_field_tag :tagging_type, @tagging_type
