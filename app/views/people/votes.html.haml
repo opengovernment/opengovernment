@@ -30,15 +30,15 @@
               %br
               %span.vote_date= vote.date
             %td.vote_stats
-              %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_pct.to_s
+              %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
               &ndash;
-              %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_pct.to_s
+              %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
               &ndash;
-              %span= vote.other_pct.to_s
+              %span= vote.other_frac.round
             %td.vote_bar
-              %span{:class => "vote-yes-block", :style => "width: #{vote.yes_pct.to_s}%;"} &nbsp;
-              %span{:class => "vote-no-block", :style => "width: #{vote.no_pct.to_s}%;"} &nbsp;
-              %span{:class => "vote-other-block", :style => "width: #{vote.other_pct.to_s}%;"} &nbsp;
+              %span{:class => "vote-yes-block", :style => "width: #{vote.yes_frac.to_s}%;"} &nbsp;
+              %span{:class => "vote-no-block", :style => "width: #{vote.no_frac.to_s}%;"} &nbsp;
+              %span{:class => "vote-other-block", :style => "width: #{vote.other_frac.to_s}%;"} &nbsp;
 
   - else
     %p Sorry, we have no voting history for #{@person.official_name}

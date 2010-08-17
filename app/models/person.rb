@@ -138,25 +138,28 @@ class Person < ActiveRecord::Base
         select
         -- this is a subquery because we want the max() to look at all rows
         y.sponsor_id as id,
+        y.session_id,
         y.bill_count,
         y.rank,
         -- we have to do a max() here because you can't do max(row_number() over ..)
-        max(y.rnum) over (partition by y.chamber_id) as total_sponsors
+        max(y.rnum) over (partition by y.session_id) as total_sponsors
         from (
-          select s.sponsor_id, s.chamber_id, s.bill_count, s.session_id,
+          select s.sponsor_id, s.bill_count, s.session_id,
           -- rank may have duplicates (3 people with rank #3),
           -- row_number does not.
           row_number() over w as rnum,
           rank() over w as rank
           from
-            (select r.chamber_id, r.session_id, s0.sponsor_id,
+            (select b.session_id, s0.sponsor_id,
             -- we're doing this subquery for the bill_count.
             count(*) as bill_count
-            from sponsorships s0
-            inner join roles r on s0.sponsor_id = r.person_id
-            where (current_date between r.start_date and r.end_date)
-            group by r.chamber_id, s0.sponsor_id, r.session_id) s
-          window w as (partition by s.chamber_id, s.session_id order by s.bill_count desc)
+            from sponsorships s0,
+            bills b,
+            v_most_recent_sessions s1
+            where s0.bill_id = b.id
+            and s1.id = b.session_id
+            group by s0.sponsor_id, b.session_id) s
+          window w as (partition by s.session_id order by s.bill_count desc)
         ) y
       ) z
       where z.id = ?
