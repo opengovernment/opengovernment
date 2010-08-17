@@ -105,8 +105,7 @@ background: url(/images/male.gif) left 1px no-repeat;
 }
 
 
-
-.breadcrumb li:hover{
+.breadcrumb li:hover, .breadcrumb a.subhover{
 z-index: 120;
 background: #fbfbfc url(/images/crumb_right.gif) right -49px no-repeat;
 }

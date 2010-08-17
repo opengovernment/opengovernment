@@ -14,10 +14,10 @@
       %br
       %span.vote_date= vote.date
     %td
-      = vote.yes_pct.to_s
+      = vote.yes_frac.round
       &ndash;
-      = vote.no_pct.to_s
+      = vote.no_frac.round
       &ndash;
-      = vote.other_pct.to_s
+      = vote.other_frac.round
     %td
     
