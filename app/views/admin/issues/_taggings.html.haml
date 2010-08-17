@@ -1,8 +1,0 @@
-- @taggings.each do |tagging|
-  .span12
-    = check_box_tag "taggings[]", tagging.id
-    = tagging.name.titleize
-    .span-12{:class => 'red'}
-      = tagging.issue_list.to_sentence
-
-= will_paginate @taggings

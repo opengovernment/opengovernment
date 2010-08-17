@@ -1,17 +1,17 @@
 class Admin::IssuesController < Admin::ApplicationController
   def bills
     @tags = ActsAsTaggableOn::Tag.all
-    @taggings = Subject.all.paginate(:page => params[:page], :order => params[:order])
+    @taggables = Subject.all.paginate(:page => params[:page], :order => params[:order])
     @title = "Bill Subjects"
-    @tagging_type = "subject"
+    @taggable_type = "subject"
     render :template => 'admin/issues/tag'
   end
 
   def categories
     @tags = ActsAsTaggableOn::Tag.all
-    @taggings = Category.all.paginate(:page => params[:page], :order => params[:order])
+    @taggables = Category.all.paginate(:page => params[:page], :order => params[:order])
     @title = "VoteSmart Categories"
-    @tagging_type = "category"
+    @taggable_type = "category"
     render :template => 'admin/issues/tag'
   end
 
@@ -20,42 +20,5 @@ class Admin::IssuesController < Admin::ApplicationController
     @tags = ActsAsTaggableOn::Tag.all
 
     respond_to { |format| format.js }
-  end
-
-  def destory
-    @issues = Subject.tag_counts_on(:issues) * 2
-    respond_to { |format| format.js }
-  end
-
-  def update
-    @tagging_type = params[:tagging_type]
-    unless params[:taggings].blank?
-      case @tagging_type
-        when "subject"
-          @subjects = params[:taggings].collect { |s| Subject.find(s) }
-          @subjects.map do |subject|
-            subject.issue_list << params[:tag]
-            subject.save
-          end
-        when "category"
-          @categories = params[:taggings].collect { |s| Category.find(s) }
-          @categories.map do |kat|
-            kat.issue_list << params[:tag]
-            kat.save
-          end
-      end
-    end
-
-    @taggings =
-      case @tagging_type
-        when "category"
-          Category.all.paginate(:page => params[:page], :order => params[:order])
-        when "subject"
-          Subject.all.paginate(:page => params[:page], :order => params[:order])
-      end
-
-    respond_to do |format|
-      format.js
-    end
   end
 end
