@@ -21,4 +21,11 @@ class Admin::IssuesController < Admin::ApplicationController
 
     respond_to { |format| format.js }
   end
+
+  def destroy
+    @tag = ActsAsTaggableOn::Tag.find(params[:id])
+    @tag.destroy
+    @tags = ActsAsTaggableOn::Tag.all
+    respond_to { |format| format.js }
+  end
 end

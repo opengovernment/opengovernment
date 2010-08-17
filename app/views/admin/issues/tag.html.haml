@@ -3,7 +3,7 @@
     (%q|
       $(document).ready(function() {
           var hidden_field = $('input#tag');
-          $('#tags a').live('click', function(event) {
+          $('#tags a.tagger').live('click', function(event) {
             hidden_field.val($(this).html());
             $('#tagging_form').submit();
             event.preventDefault();
