@@ -4,21 +4,18 @@ class BillsController < ApplicationController
   add_breadcrumb "Bills", :bills_path, :class => 'bills'
   
   def show
+    if params[:actions] && params[:actions] == "all"
+      @actions = @bill.actions
+    else
+      @actions = @bill.major_actions
+    end
+
     respond_to do |format|
       format.js
       format.atom do
-        @actions = @bill.actions
         render :template => 'shared/actions'
       end
       format.html
-    end
-  end
-
-  def major_actions
-    @actions = @bill.major_actions
-
-    respond_to do |format|
-      format.atom { render :template => 'shared/actions' }
     end
   end
 

@@ -42,64 +42,53 @@
 }
 
 /* Vote summary -- shared/_vote */
-.vote_summary {
+.vote-summary {
   display: block;
   float: left;
   width: 700px;
 }
 
-.vote_summary h4 {
+.vote-summary h4 {
   line-height: 16px;
   margin: 0;
 }
 
-.bill_title {
+.vote-summary .bill_title {
   font-size: 11px;
   line-height: 15px;
 }
 
-.vote_date {
+.vote-summary .summary-line {
   font-size: 10px;
   line-height: 14px;
   color: #888888;
 }
 
-/* The summary / small version of the vote chart */
-.vote_chart_small table {
-  width: 150px;
-  margin-bottom: 0;
+.vote-summary .vote-passed,
+.vote-summary .vote-failed {
+  font-weight: bold;
 }
 
-.vote_chart_small table td.vote_chart {
-  width: 80px; /* See votes_helper thumbnail-size chart width */
+.vote-bar {
+  width: 50px;
 }
 
-.vote_chart_small table td,
-.vote_chart_small table th {
-  height: 13px;
-  vertical-align: middle;
-  text-align: right;
-  font-weight: normal;
-  line-height: 13px;
-  padding: 0;
+.vote-yes-block, .vote-no-block, .vote-other-block {
+  display: block;
+  float: left;
 }
 
-.vote_chart_small table td.first,
-.vote_chart_small table th.first
-{
-  padding-top: 0px !important;
+.vote-bar .vote-yes-block {
+  background-color: #4d89f9;
 }
 
-.vote_chart_small table td.last,
-.vote_chart_small table th.last {
-  padding-bottom: 5px !important;
+.vote-bar .vote-no-block {
+  background-color: #c6d9fd;
 }
 
-.vote_chart_small table .label {
-  padding-right: 2px;
-  font-size: 11px;
+.vote-bar .vote-other-block {
+  background-color: #cccccc;
 }
-
 
 
 /* Big vote chart -- votes/show */

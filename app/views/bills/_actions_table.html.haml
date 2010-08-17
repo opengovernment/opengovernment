@@ -1,0 +1,11 @@
+%table.bill_actions
+  %tr
+    %th Date
+    %th Chamber
+    %th Action
+  - actions.each do |action|
+    %tr{:class => (action.major? ? "major" : "")}
+      %td= action.date && action.date.to_s(:pretty)
+      %td= action.actor_fm
+      %td= action.action_fm
+      %td= link_to("link", action)

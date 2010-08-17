@@ -11,4 +11,13 @@ class Vote < ActiveRecord::Base
   def outcome_class
     passed ? "vote-passed" : "vote-failed"
   end
+  
+  def total_count
+    yes_count + no_count + other_count
+  end
+
+  # yes_frac / no_frac / other_frac
+  [:yes, :no, :other].each do |type|
+    define_method("#{type}_frac") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }
+  end
 end

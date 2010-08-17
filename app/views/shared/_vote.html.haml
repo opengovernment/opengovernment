@@ -1,25 +1,23 @@
--# Accepts a vote and a bill, returns a vote summary.
+-# Accepts a vote and (optionally) a bill and person, returns a vote summary.
 -# If no bill is passed in, show the motion without the bill number and title.
-.vote_summary
-  - if defined?(bill)
-    %h4= link_to("#{bill.bill_number}: #{vote.motion}", vote_path(vote))
-    %span.bill_title= bill.title
-  - else
-    %h4= link_to("#{vote.motion}", vote_path(vote))
-  %br
-  %span.vote_date= vote.date
-.vote_chart_small
-  %table.vote_results
-    %tr
-      %th.first.label Yes
-      %td.first.label!= vote.passed? ? '&radic;' : ''
-      %td.first.label= vote.yes_count
-      %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(vote, :thumb)
-    %tr
-      %th.label No
-      %td.label!= vote.passed? ? '' : '&radic;'
-      %td.label= vote.no_count
-    %tr
-      %th.last.label Other
-      %td.last.label
-      %td.last.label= vote.other_count
+-# If a person is passed in, show the person's vote as a column.
+  %tr
+    %td
+      - if defined?(bill)
+        %h4
+          = link_to(bill.bill_number, bill_path(bill.session, bill))
+          = ': '
+          = link_to(vote.motion, vote_path(vote))
+        %span.bill_title= bill.title
+      - else
+        %h4= link_to("#{vote.motion}", vote_path(vote))
+      %br
+      %span.vote_date= vote.date
+    %td
+      = vote.yes_pct.to_s
+      &ndash;
+      = vote.no_pct.to_s
+      &ndash;
+      = vote.other_pct.to_s
+    %td
+    

@@ -23,8 +23,8 @@
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
     %div
       Track via RSS:
-      = link_to "All actions", {:format => :atom}
-      = link_to "Major actions", {:action => 'major_actions', :format => :atom}
+      = link_to "All actions", {:actions => 'all', :format => :atom}
+      = link_to "Major actions", {:actions => 'major', :format => :atom}
 
   .span-12
     %h4 Sponsors
@@ -44,25 +44,36 @@
 
   .span-24.last
     - if @bill.major_actions.size > 0
-      %h4 Major Actions | #{link_to "All Actions", url_for, :remote => true}
+      %h4 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
       .span-24.last
-        %table.bill_actions
-          %tr
-            %th Date
-            %th Chamber
-            %th Action
-          - @bill.major_actions.each do |action|
-            %tr{:class => (action.major? ? "major" : "")}
-              %td= action.date && action.date.to_s(:pretty)
-              %td= action.actor_fm
-              %td= action.action_fm
-              %td= link_to("link", action)
+        #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
     - if @bill.votes.size > 0
       %h4 Votes
-      %ul.votes
+      %table.vote-summary
+        %thead
+          %tr
+            %th Motion
+            %th(colspan=2) Outcome (%)
         - @bill.votes.each do |vote|
-          %li= render :partial => 'shared/vote', :locals => {:vote => vote}
+          %tbody
+            %td
+              %h4= link_to("#{vote.motion}", vote_path(vote))
+              %br
+              .summary-line
+                %span.voters= vote.total_count
+                people voted on
+                %span.vote_date= vote.date
+            %td.vote-stats
+              %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
+              &ndash;
+              %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
+              &ndash;
+              %span= vote.other_frac.round
+            %td.vote-bar
+              %span{:class => "vote-yes-block", :style => "width: #{number_with_precision(vote.yes_frac)}%;"} &nbsp;
+              %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
+              %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
 
     - if @bill.citations.size > 0
       %div.span-24.last
