@@ -3,7 +3,7 @@
 
 $(document).ready(function(){  
   
-    $("nav ul.breadcrumb li.topnav a").click(function() { //When trigger is clicked...  
+    $("a#dropdown").click(function() { //When trigger is clicked...  
         //Following events are applied to the subnav itself (moving subnav up and down)  
         var t = $(this).data("destroyHandle");
         if (t) {
