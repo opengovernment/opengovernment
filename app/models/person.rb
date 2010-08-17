@@ -7,12 +7,12 @@ class Person < ActiveRecord::Base
   has_many :committee_memberships, :dependent => :destroy
   has_many :committees, :through => :committee_memberships
 
-  has_one :current_role, :class_name => 'Role', :conditions => Role::CURRENT
-  has_one :chamber, :through => :current_role
+  has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
+  has_one :chamber, :through => :current_roles
 
   scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
-  scope :with_current_role, :include => :roles, :conditions => Role::CURRENT
+  scope :with_current_role, :include => :current_roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
@@ -113,6 +113,10 @@ class Person < ActiveRecord::Base
 
   def gender_class
     "gender-" + gender_fm.parameterize
+  end
+ 
+  def current_role
+    current_roles.try(:first)
   end
  
   def official_name

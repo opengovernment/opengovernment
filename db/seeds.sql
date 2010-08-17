@@ -117,8 +117,7 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
   where recent.rnum = 1;
 
 CREATE OR REPLACE VIEW v_most_recent_roles AS
-  SELECT r.person_id, r.district_id, r.chamber_id, r.session_id, r.senate_class, r.party, r.start_date, r.end_date,
-  r.created_at, r.updated_at, coalesce(r.state_id, d.state_id) as state_id
+  SELECT r.id as role_id, r.person_id, r.district_id, r.chamber_id, r.session_id, r.senate_class, r.party, r.start_date, r.end_date, r.created_at, r.updated_at, coalesce(r.state_id, d.state_id) as state_id
   FROM
     (select *, row_number() over (partition by person_id order by end_date desc) as rnum
     from roles ro) r

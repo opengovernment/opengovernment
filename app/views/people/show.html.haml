@@ -11,7 +11,7 @@
 %div.span-10
   %h1
     = @person.official_name
-    = @person.current_role.try(:affiliation)
+    = "(#{@person.current_role.try(:affiliation_fm)})"
 
   %p
     - unless @person.birthday.blank?

@@ -1,7 +1,7 @@
 class Chamber < ActiveRecord::Base
   belongs_to :legislature
   has_many :districts
-  has_many :current_legislators, :through => :districts
+  has_many :legislators, :through => :districts
   has_one :state, :through => :legislature
   has_many :bills
   has_many :committees, :through => :legislature
@@ -19,7 +19,7 @@ class Chamber < ActiveRecord::Base
       if place.kind_of?(District) && place.chamber == self
         places_and_people << [place, place.current_legislators]
       elsif place.kind_of?(State) && self == ::UpperChamber::US_SENATE
-        places_and_people << [place, place.current_senators]
+        places_and_people << [place, place.senators]
       end
     end
     places_and_people

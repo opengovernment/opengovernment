@@ -1,5 +1,4 @@
 class Role < ActiveRecord::Base
-  CURRENT = ["current_date between roles.start_date and roles.end_date"].freeze
 
   belongs_to :person
   belongs_to :chamber
@@ -19,7 +18,6 @@ class Role < ActiveRecord::Base
   validates_presence_of :state, :if => "district.nil?"
   validates_presence_of :district, :if => "state.nil?"
 
-  scope :current, :conditions => Role::CURRENT
   scope :on_date, lambda { |date| { :conditions => ["? between roles.start_date and roles.end_date", date] } }
   scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
   scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }

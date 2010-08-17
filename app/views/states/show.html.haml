@@ -53,9 +53,9 @@
 
     %p
       %h4
-        = pluralize(@state.current_senators.size, Legislature::CONGRESS.upper_chamber.title)
+        = pluralize(@state.senators.size, Legislature::CONGRESS.upper_chamber.title)
       %p
-        - @state.current_senators.each do |rep|
+        - @state.senators.each do |rep|
           %div
             = link_to(rep.full_name, person_path(rep))
 
