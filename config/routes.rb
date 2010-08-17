@@ -2,7 +2,7 @@ OpenGov::Application.routes.draw do |map|
   match '/search' => 'districts#search', :as => 'search'
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
-  constraints(Subdomain) do  
+  constraints(Subdomain) do
     match '/' => 'states#show'
     match '/search' => 'states#search', :as => 'state_search'
     match '/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
@@ -49,7 +49,7 @@ OpenGov::Application.routes.draw do |map|
         get :categories
       end
     end
-    match '/issues/update' =>  'issues#update', :as => 'update_issues'
+    resources :taggings, :only => [:create, :destroy]
   end
 
   root :to => "home#index"

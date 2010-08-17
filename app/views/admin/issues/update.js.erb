@@ -1,4 +1,0 @@
-var hook = $("#taggings");
-hook.html("<%= escape_javascript(render(:partial => "taggings.html.haml"))%>");
-hook.effect("highlight", {}, 3000);
-$("#tagging_form").get(0).reset();
