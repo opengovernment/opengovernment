@@ -1,4 +1,4 @@
 var hook = $("#tags");
 hook.html("<%= escape_javascript(render(:partial => "tags.html.haml"))%>");
-hook.effect("highlight", {}, 3000);
+hook.effect("highlight", {}, 500);
 $("#new_tag_form").get(0).reset();

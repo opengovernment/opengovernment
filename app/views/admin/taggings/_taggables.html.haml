@@ -7,6 +7,6 @@
         - tagging = taggable.taggings.find_by_tag_id(tag.id)
         %span
           %span
-            = link_to "x", admin_tagging_path(tagging, :taggable_type => @taggable_type), :remote => true, :method => :delete
+            = link_to(image_tag('delete.png'), admin_tagging_path(tagging, :taggable_type => @taggable_type), :remote => true, :method => :delete)
           = tag.name
 = will_paginate @taggables

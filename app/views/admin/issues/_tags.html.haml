@@ -1,2 +1,5 @@
 - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-  = link_to tag.name, "#", :class => css_class
+  %div
+    = link_to(image_tag('delete.png'), admin_issue_path(tag.id), :method => :delete, :remote => true, :confirm => "Are you sure? All the taggings would be removed too.")
+    = link_to(tag.name, "#", :class => [css_class, 'tagger'])
+
