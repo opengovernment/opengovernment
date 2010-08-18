@@ -28,4 +28,11 @@ class Admin::IssuesController < Admin::ApplicationController
     @tags = ActsAsTaggableOn::Tag.all
     respond_to { |format| format.js }
   end
+
+  def update
+    @tag = ActsAsTaggableOn::Tag.find(params[:id])
+    @tag.update_attributes(:name => params[:name])
+    @tags = ActsAsTaggableOn::Tag.all
+    respond_to { |format| format.js }
+  end
 end
