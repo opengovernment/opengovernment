@@ -1,0 +1,3 @@
+var tags = $("#tags");
+tags.html("<%= escape_javascript(render(:partial => "tags.html.haml"))%>");
+tags.effect("highlight", {}, 500);
