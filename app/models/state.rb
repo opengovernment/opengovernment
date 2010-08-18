@@ -17,19 +17,22 @@ class State < Place
   has_many :bills
   has_many :special_interest_groups
 
-  scope :supported, :conditions => ["launch_date < ?", Time.now]
-  scope :pending, :conditions => ["launch_date >= ?", Time.now]
+  scope :supported, :conditions => ['launch_date < ?', Time.now]
+  scope :pending, :conditions => ['launch_date >= ?', Time.now]
   scope :unsupported, :conditions => {:launch_date => nil}
 
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
 
-  has_and_belongs_to_many :senators, :join_table => "v_most_recent_roles", :conditions => 'district_id is null', :class_name => 'Person'
+  has_and_belongs_to_many :senators, :join_table => 'v_most_recent_roles', :conditions => 'district_id is null', :class_name => 'Person'
+
+  has_and_belongs_to_many :us_rep_roles, :join_table => 'v_most_recent_roles', :conditions => ['v_most_recent_roles.chamber_id = ?', LowerChamber::US_HOUSE], :class_name => 'Role', :include => [:person]
+
   has_and_belongs_to_many :people, :join_table => "v_most_recent_roles"
 
   # Which states are we importing data for?
   scope :loadable, :conditions => {:abbrev => ['TX', 'CA', 'LA']}
   # this could be:
-  #scope :loadable, :conditions => ["launch_date is not null"]
+  #scope :loadable, :conditions => ['launch_date is not null']
 
   validates_uniqueness_of :fips_code, :allow_nil => true
   validates_presence_of :name, :abbrev
@@ -57,7 +60,7 @@ class State < Place
     # => "BOX(-106.645646 25.837377,-93.5164072637683 36.500704)"
     # So we need to simply turn this into a bounding box array and return that.
 
-    if bbox_text = District.first(:select => "st_extent(geom) as geo", :group => "state_id", :conditions => {:state_id => id}).geo
+    if bbox_text = District.first(:select => 'st_extent(geom) as geo', :group => 'state_id', :conditions => {:state_id => id}).geo
       if md = bbox_text.match(%r{BOX\(([^\)]*)\)})
         return md[1].split(/,| /).collect {|x| x.to_f}
       end

@@ -1,6 +1,20 @@
 -- Any executes from migrations must go in here, or they
 -- will not be run when someone installs the app.
 
+-- FUNCTIONS --
+CREATE OR REPLACE FUNCTION beginning_of(year integer) RETURNS date AS $$
+BEGIN
+  RETURN to_date('1 Jan ' || year, 'DD Mon YYYY');
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION end_of(year integer) RETURNS date AS $$
+BEGIN
+  RETURN to_date('31 Dec ' || year, 'DD Mon YYYY');
+END;
+$$ LANGUAGE plpgsql;
+
+
 -- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
 ADD CONSTRAINT districts_state_fk
@@ -120,10 +134,23 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
 
 DROP VIEW v_most_recent_roles;
 CREATE OR REPLACE VIEW v_most_recent_roles AS
-  SELECT r.id as role_id, r.person_id, r.district_id, r.chamber_id, r.session_id, r.senate_class, r.party, r.start_date, r.end_date, r.created_at, r.updated_at, coalesce(r.state_id, d.state_id) as state_id
+  SELECT
+    r.id as role_id,
+    r.person_id,
+    r.district_id,
+    r.chamber_id,
+    r.session_id,
+    r.senate_class,
+    r.party,
+    r.created_at,
+    r.updated_at,
+    coalesce(r.start_date, beginning_of(s.start_year)) as start_date,
+    coalesce(r.end_date, end_of(s.end_year)) as end_date,
+    coalesce(r.state_id, d.state_id) as state_id
   FROM
     (select *, row_number() over (partition by person_id order by end_date desc) as rnum
     from roles ro) r
+    left outer join sessions s on (r.session_id = s.id)
     left outer join districts d on (d.id = r.district_id)
   where r.rnum = 1;
 

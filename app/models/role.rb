@@ -15,22 +15,25 @@ class Role < ActiveRecord::Base
 
   validates_numericality_of :senate_class, :only_integer => true, :allow_blank => true, :in => [1...3]
 
-  validates_presence_of :state, :if => "district.nil?"
-  validates_presence_of :district, :if => "state.nil?"
+  validates_presence_of :state, :if => 'district.nil?'
+  validates_presence_of :district, :if => 'state.nil?'
 
-  scope :on_date, lambda { |date| { :conditions => ["? between roles.start_date and roles.end_date", date] } }
+  scope :on_date, lambda { |date| {
+          :select => 'roles.*',
+          :joins => 'inner join v_most_recent_roles vr on vr.role_id = roles.id',
+          :conditions => ['? between vr.start_date and vr.end_date', date]
+        } }
   scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
-  scope :for_state, lambda { |s| { :conditions => ["district_id in (select id from districts where state_id = ?) or state_id = ?", s, s] } }
+  scope :for_state, lambda { |s| { :conditions => ['roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?', s, s] } }
+  scope :current, on_date(Date.today)
 
   def self.current_chamber_roles(chamber)
-    current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person], :order => "people.first_name"})
+    current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person], :order => 'people.first_name'})
   end
 
   def current?
-    self.start_date < Date.today && Date.today < self.end_date
+    Role.count_by_sql('select count(*) from v_most_recent_roles where role_id = ?', id)
   end
-
-
 
   def party_abbr
     if party.blank?

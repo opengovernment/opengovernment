@@ -6,9 +6,9 @@ class District < Place
   validates_presence_of :state_id, :name
   scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
   scope :for_x_y, lambda { |lat, lng| { :conditions => ["ST_Contains(geom, ST_GeomFromText('POINT(? ?)', ?))", lng, lat, SRID] } }
-  scope :for_state, lambda { |n| { :conditions => ["state_id = ?", n] } }
+  scope :for_state, lambda { |n| { :conditions => ['state_id = ?', n] } }
 
-  has_and_belongs_to_many :roles, :join_table => "v_most_recent_roles"
+  has_and_belongs_to_many :roles, :join_table => 'v_most_recent_roles'
   has_many :legislators, :through => :roles, :class_name => 'Person', :source => :person
 
   # The geographic SRID used for all Census bureau data

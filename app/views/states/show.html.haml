@@ -62,7 +62,7 @@
       %h4
         = Legislature::CONGRESS.lower_chamber.name
       %p
-        - @federal_lower_chamber_roles.each do |role|
+        - @state.us_rep_roles.order("people.last_name").each do |role|
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
