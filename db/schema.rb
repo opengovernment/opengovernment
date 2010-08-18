@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 48) do
+ActiveRecord::Schema.define(:version => 49) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
     t.datetime "date"
     t.string   "actor"
-    t.string   "action"
+    t.text     "action"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "action_number"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cd99_110", :primary_key => "gid", :force => true do |t|
+    t.string        "state",      :limit => 2
+    t.string        "cd",         :limit => 2
+    t.string        "lsad",       :limit => 2
+    t.string        "name",       :limit => 90
+    t.string        "lsad_trans", :limit => 50
+    t.multi_polygon "the_geom",   :limit => nil, :srid => 4269
+  end
+
+  add_index "cd99_110", ["the_geom"], :name => "cd99_110_the_geom_gist", :spatial => true
 
   create_table "chambers", :force => true do |t|
     t.integer "legislature_id"
@@ -214,6 +225,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["person_id", "session_id"], :name => "person_session_unique", :unique => true
+
   create_table "roll_calls", :force => true do |t|
     t.integer  "vote_id"
     t.integer  "person_id"
@@ -221,6 +234,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "roll_calls", ["vote_id", "vote_type"], :name => "roll_calls_vote_id_and_type_idx"
 
   create_table "sessions", :force => true do |t|
     t.integer  "legislature_id"
