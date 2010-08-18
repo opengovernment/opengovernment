@@ -145,12 +145,6 @@ float: right;
 }
 
 
-.key_votes li{
-border-bottom: 1px solid #ddd;
-padding-bottom: 10px;
-margin-bottom: 10px;
-line-height: 1.4em;
-}
 
 
 
@@ -173,7 +167,7 @@ margin: 0;
 
 .sub_nav li a{
 margin: 0;
-padding: 7px 10px;
+padding: 8px 0px;
 display: block;
 border-bottom: 1px solid #ddd;
 }
@@ -181,7 +175,7 @@ border-bottom: 1px solid #ddd;
 .sub_nav li ul a{
 margin: 0;
 display: block;
-padding-left: 20px;
+padding-left: 10px;
 }
 
 
@@ -191,9 +185,7 @@ clear: both;
 
 
 .search{
-position: absolute;
-right: 0;
-bordeR: 1px solid;
+
 }
 
 
@@ -211,14 +203,53 @@ display: block;
 
 
 .addresses li{
-float: left;
 clear: none;
-width: 220px;
-margin-right: 20px;
+font-size: 11px;
 }
 
 .summary{
 font-size: 18px;
 padding: 20px 0;
 }
+
+
+
+.district_map img{
+width: 90%;
+height: 90%;
+}
+
+
+
+
+/*///////////////////////////
+
+~ Search
+
+///////////////////////////*/
+
+
+.search{
+padding-top: 25px;
+}
+
+
+.search #search_type{
+float: left;
+}
+
+
+.search .field{
+float: left;
+}
+
+
+
+
+
+
+
+
+
+
 

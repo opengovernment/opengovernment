@@ -1,22 +1,19 @@
-%li
+%li.grid_3.alpha
   -# We're using hCard format here. See
   -# http://microformats.org/wiki/hcard
   %div.vcard[address]
     %h3
       %span.type>= address.votesmart_type
-      \:
     %div.street-address!= address.line_one + (address.line_two ? "<br />#{address.line_two}" : "")
     %span.locality>= address.city
     ,
     %span.region{:title => address.state.name}= address.state.abbrev
     %span.postal-code= address.postal_code
     - unless address.phone_one.blank?
-      %div.tel
-        %span.type> Phone
-        \:
-        %span.value #{address.phone_one}
+      %div
+        %span.grid_1.alpha.type> Phone
+        %span.grid_2.omega.value #{address.phone_one}
     - unless address.fax_one.blank?
-      %div.tel
-        %span.type> FAX
-        \:
-        %span.value #{address.fax_one}
+      %div
+        %span.grid_1.alpha.type> FAX
+        %span.grid_2.omega.value #{address.fax_one}

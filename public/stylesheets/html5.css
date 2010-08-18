@@ -26,8 +26,7 @@ section { display: block; }
 
 hr {
 border:none;
-border-bottom: 1px solid #c3d3e4;
-border-top: 1px solid #c3d3e4;
+border-bottom: 2px solid #c3d3e4;
 color:#ddd;
 clear:both;
 float:none;
@@ -41,9 +40,31 @@ margin: 0 0 10px;
 }
 
 
+hr.push_top {
+padding: 30px 0 0px;
+}
+
+
+
 
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 header{
 margin: 0 10px !important;
+}
+
+
+
+ul.lined li{
+border-bottom: 1px solid #ddd;
+padding-bottom: 5px;
+margin-bottom: 5px;
+line-height: 1.3em;
+}
+
+
+ul.lined.key_votes li{
+padding-bottom: 10px;
+margin-bottom: 10px;
+
 }
