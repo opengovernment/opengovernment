@@ -43,7 +43,7 @@ OpenGov::Application.routes.draw do |map|
     root :to => "admin#index"
     resources :states
     resources :people, :only => [:edit, :update]
-    resources :issues, :only => [:create, :index, :destroy] do
+    resources :issues, :only => [:create, :index, :destroy, :update] do
       collection do
         get :bills
         get :categories

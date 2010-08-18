@@ -9,6 +9,22 @@
             event.preventDefault();
           });
 
+          var renamer = $('#tags #tag a.renamer');
+          renamer.live('click', function(event) {
+            var renamer_siblings = $(this).siblings('#tag a.tagger');
+            var tag = $(renamer_siblings[0]).html();
+            var tag_id = $(renamer_siblings[0]).attr("data-content");
+            var newtag = prompt('Rename to', tag);
+            if(newtag != tag && newtag != '' && newtag != null){
+              $.ajax({
+                url: "/admin/issues/" + tag_id,
+                type: 'PUT',
+                data: "name=" + newtag
+              });
+            }
+            event.preventDefault();
+          });
+
           var select_all_hook = $('a#select_all');
           select_all_hook.live('click', function(event) {
             $("div#taggables input:checkbox").attr('checked', 'checked');

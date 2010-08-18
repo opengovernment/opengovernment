@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 48) do
+ActiveRecord::Schema.define(:version => 49) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
     t.datetime "date"
     t.string   "actor"
-    t.string   "action"
+    t.string   "action",        :limit => 2000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "action_number"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 48) do
   end
 
   create_table "bills", :force => true do |t|
-    t.text     "title"
+    t.string   "title",              :limit => 8000
     t.integer  "state_id"
     t.integer  "session_id"
     t.string   "openstates_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 48) do
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "votesmart_key_vote", :default => false, :null => false
+    t.boolean  "votesmart_key_vote",                 :default => false, :null => false
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
@@ -180,9 +180,9 @@ ActiveRecord::Schema.define(:version => 48) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "website_one"
-    t.string   "website_two"
-    t.string   "webmail"
+    t.string   "website_one",          :limit => 2000
+    t.string   "website_two",          :limit => 2000
+    t.string   "webmail",              :limit => 2000
     t.string   "email"
     t.string   "votesmart_photo_url"
     t.string   "openstates_photo_url"
@@ -214,6 +214,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["person_id", "session_id"], :name => "person_session_unique", :unique => true
+
   create_table "roll_calls", :force => true do |t|
     t.integer  "vote_id"
     t.integer  "person_id"
@@ -221,6 +223,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "roll_calls", ["vote_id", "vote_type"], :name => "roll_calls_vote_id_and_type_idx"
 
   create_table "sessions", :force => true do |t|
     t.integer  "legislature_id"
