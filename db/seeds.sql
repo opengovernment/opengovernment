@@ -112,6 +112,7 @@ ALTER TABLE roles ADD CONSTRAINT person_session_unique UNIQUE (person_id, sessio
 CREATE INDEX roll_calls_vote_id_and_type_idx ON roll_calls (vote_id, vote_type);
 
 -- VIEWS --
+DROP VIEW v_district_votes;
 DROP VIEW v_roll_call_roles;
 CREATE OR REPLACE VIEW v_roll_call_roles AS
 select rc.id as roll_call_id, rc.vote_id, p.id as person_id, rc.vote_type, r.party, r.id as role_id, r.district_id, v.chamber_id, b.session_id
@@ -121,6 +122,13 @@ from
   INNER JOIN votes v ON (rc.vote_id = v.id)
   INNER JOIN bills b ON (b.id = v.bill_id)
   LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id = r.session_id);
+
+
+-- Used for geoserver vote maps
+CREATE OR REPLACE VIEW v_district_votes AS
+  select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
+  from districts d, v_roll_call_roles r
+  where d.id = r.district_id;
 
 -- For each legislature, this grabs the most recent session for which there are roles
 DROP VIEW v_most_recent_sessions;
@@ -187,9 +195,3 @@ CREATE OR REPLACE VIEW v_district_people AS
   and r.person_id = p.id
   and s.id = r.session_id;
 
--- Used for geoserver vote maps
-DROP VIEW v_district_votes;
-CREATE OR REPLACE VIEW v_district_votes AS
-  select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
-  from districts d, v_roll_call_roles r
-  where d.id = r.district_id;
