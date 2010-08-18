@@ -1,12 +1,13 @@
 - title("#{@state.name} Representatives")
-%h2= "#{@state.name} Representatives"
-
+.grid_16
+  %h1= "#{@state.name} Representatives"
+  %hr
 - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
-  .legislature.span-12
-    %h3= legislature.name
+  .legislature.grid_8
+    %h2= legislature.name
     - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
-      %div.span-6[chamber]
-        %h4= chamber.name
+      %div.grid_4.alpha[chamber]
+        %h3= chamber.name
         %ul
           - c_reps.each do |rep|
             %li!= link_to(rep.full_name, person_path(rep)) + (rep.roles.first.district.nil? ? "" : ", #{rep.roles.first.district.name}")

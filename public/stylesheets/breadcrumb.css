@@ -85,9 +85,9 @@ padding-left: 45px;
 
 .breadcrumb li a{
 float: left;
-height: 30px;
+height: 29px;
 list-style: none;
-padding: 17px 35px 0 15px;
+padding: 18px 35px 0 15px;
 text-decoration: none;
 color: #333; 
 line-height: 1em;
@@ -101,7 +101,7 @@ padding-left: 45px;
 }
 
 .breadcrumb .person.gender-male a span{
-background: url(/images/male.gif) left 1px no-repeat;
+background: url(/images/male.gif) left 2px no-repeat;
 }
 
 

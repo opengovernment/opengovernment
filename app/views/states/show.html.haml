@@ -1,12 +1,12 @@
 - title(@state.name)
 
-.span-24.last
+.grid_16
   %h1
     = @state.name
   = render :partial => 'search_form'
 
 
-%aside.span-6
+%aside.grid_6
   %ul.sub_nav
     %li
       %a Assembly
@@ -22,32 +22,32 @@
 
 
 
-.span-18
-  .span-18.last.full_lined
-    .span-4
+.grid_18
+  .grid_18.last.full_lined
+    .grid_4
       This Bill's Page Views
-    .span-3
+    .grid_3
       Today - 3,456
-    .span-4
+    .grid_4
       Past 30 Days - 67,987
-    .span-4.last
+    .grid_4.last
       All-Time - 2,235,232
 
 
-  .span-18.last
-    .span-9
+  .grid_18.last
+    .grid_9
       = @state.name
       = @state.legislature.upper_chamber.name
       %br
     = leg_map_img(@state, @state.legislature.upper_chamber)
 
-    .span-9.last
+    .grid_9.last
       = @state.name
       = @state.legislature.lower_chamber.name
       %br
     = leg_map_img(@state, @state.legislature.lower_chamber)
 
-  .span-6
+  .grid_6
     %h3
       = Legislature::CONGRESS.name
 
@@ -66,18 +66,18 @@
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
-  .span-6
+  .grid_6
     %h3
       = @state.legislature.name
 
-    .span-6
+    .grid_6
       %h4
         = pluralize(@state_upper_chamber_roles.size, @state.legislature.upper_chamber.title)
       %p
         - @state_upper_chamber_roles.each do |role|
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-    .span-6.last
+    .grid_6.last
       %h4
         = pluralize(@state_lower_chamber_roles.size, @state.legislature.lower_chamber.title)
       %p
@@ -85,7 +85,7 @@
           %div
             != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
-  .span-6.last
+  .grid_6.last
     %h3 Key Votes
     .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
     %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?

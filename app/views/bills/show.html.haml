@@ -4,37 +4,45 @@
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 
-.span-24.last
-  .span-20
-    %hgroup
-      %h3= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
-      %h4= @bill.title
-  .span-4.last(style="padding-top: 15px;")
-    = rand(100000)
-    total views,<br />
-    = rand(100)
-    in the last 7 days,<br />
-    = rand(1000)
-    in the last month.
+.grid_16
+  %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
 
-.span-24.last
+  %hr
+
+
+.grid_16.views
+  = rand(100000)
+  total views&nbsp;&nbsp;
+  = rand(100)
+  in the last 7 days&nbsp;&nbsp;
+  = rand(1000)
+  in the last month.
+
+%hr.grid_16
+
+
+  
+%p.grid_16.summary= @bill.title
+
+
+
+.grid_16
   %p
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
-    %div
       Track via RSS:
       = link_to "All actions", {:actions => 'all', :format => :atom}
       = link_to "Major actions", {:actions => 'major', :format => :atom}
 
-  .span-12
-    %h4 Sponsors
+  .grid_8.alpha
+    %h2 Sponsors
     %p
       - @bill.sponsors.each do |sponsor|
         %div
           = link_to(sponsor.full_name, person_path(sponsor))
-  .span-12.last
+  .grid_8.omega
     - if @bill.versions.size > 0
-      %h4 Versions
+      %h2 Versions
 
       %p
         - @bill.versions.each do |version|
@@ -42,65 +50,65 @@
             = link_to(version.name, version.url)
 
 
-  .span-24.last
-    - if @bill.major_actions.size > 0
-      %h4 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
-      .span-24.last
-        #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+.grid_16.alpha
+  - if @bill.major_actions.size > 0
+    %h2 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
+    .grid_24.last
+      #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
-    - if @bill.votes.size > 0
-      %h4 Votes
-      %table.vote-summary
-        %thead
-          %tr
-            %th Motion
-            %th(colspan=2) Outcome (%)
-        - @bill.votes.each do |vote|
-          %tbody
-            %td
-              %h4= link_to("#{vote.motion}", vote_path(vote))
-              %br
-              .summary-line
-                %span.voters= vote.total_count
-                people voted on
-                %span.vote_date= vote.date
-            %td.vote-stats
-              %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
-              &ndash;
-              %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
-              &ndash;
-              %span= vote.other_frac.round
-            %td.vote-bar
-              %span{:class => "vote-yes-block", :style => "width: #{number_with_precision(vote.yes_frac)}%;"} &nbsp;
-              %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
-              %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
+  - if @bill.votes.size > 0
+    %h2 Votes
+    %table.vote-summary
+      %thead
+        %tr
+          %th Motion
+          %th(colspan=2) Outcome (%)
+      - @bill.votes.each do |vote|
+        %tbody
+          %td
+            %h4= link_to("#{vote.motion}", vote_path(vote))
+            %br
+            .summary-line
+              %span.voters= vote.total_count
+              people voted on
+              %span.vote_date= vote.date
+          %td.vote-stats
+            %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
+            &ndash;
+            %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
+            &ndash;
+            %span= vote.other_frac.round
+          %td.vote-bar
+            %span{:class => "vote-yes-block", :style => "width: #{number_with_precision(vote.yes_frac)}%;"} &nbsp;
+            %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
+            %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
 
-    - if @bill.citations.size > 0
-      %div.span-24.last
-        %h4 Citations
-        %div.span-8
-          %h4 Google News
-          - @bill.google_news_citations.each do |citation|
-            %span
-              = link_to citation.title, citation.url
-              %div
-                = citation.excerpt
+- if @bill.citations.size > 0
+  %div.grid_16
+    %h2 Citations
+    %div.grid_6.alpha
+      %h3 Google News
+      - @bill.google_news_citations.each do |citation|
+        %span
+          = link_to citation.title, citation.url
+          %div
+            = citation.excerpt
 
-        %div.span-8
-          %h4 Blogs
-          - @bill.google_blog_citations.each do |citation|
-            %span
-              = link_to citation.title, citation.url
-              %div
-                = citation.excerpt
+    %div.grid_6
+      %h3 Blogs
+      - @bill.google_blog_citations.each do |citation|
+        %span
+          = link_to citation.title, citation.url
+          %div
+            = citation.excerpt
 
-        %div.span-8.last
-          %h4 Technorati
-          = @bill.technorati_citations.each do |citation|
-            %span
-              = link_to citation.title, citation.url
-              %div
-                = citation.excerpt
+    %div.grid_4.omega
+      %h3 Technorati
+      = @bill.technorati_citations.each do |citation|
+        %span
+          = link_to citation.title, citation.url
+          %div
+            = citation.excerpt
 
-    %div.social
-      %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+%div.social
+  %p Tweet this bill using the hashtags #{@bill.to_hashtags}

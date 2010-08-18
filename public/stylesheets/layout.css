@@ -38,7 +38,7 @@ height: 37px;
 margin: 0;
 position: absolute;
 right: 0;
-top: 57px;
+top: 54px;
 
 }
 
@@ -197,6 +197,28 @@ bordeR: 1px solid;
 }
 
 
+/*///////////////////////////
+
+~ Views
+
+///////////////////////////*/
+
+.views{
+font-size: 11px;
+padding: 10px 0;
+display: block;
+}
 
 
+.addresses li{
+float: left;
+clear: none;
+width: 220px;
+margin-right: 20px;
+}
+
+.summary{
+font-size: 18px;
+padding: 20px 0;
+}
 

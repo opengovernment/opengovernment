@@ -1,18 +1,18 @@
 - title(@person.official_name)
 
-%div.span-4
-  %p
-    %div
-      - if @person.photo_url
-        = image_tag(@person.photo_url)
-      - else
-        = image_tag('missing.png')
-
-%div.span-10
+.grid_16
   %h1
     = @person.official_name
     = "(#{@person.current_role.try(:affiliation_fm)})"
+  %hr.push_bottom
 
+.grid_3
+  - if @person.photo_url
+    = image_tag(@person.photo_url)
+  - else
+    = image_tag('missing.png')
+
+.grid_4
   %p
     - unless @person.birthday.blank?
       %div= "Born #{@person.birthday}"
@@ -34,118 +34,126 @@
     - unless @person.youtube_id.blank?
       %div!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
-%div.span-8.last
+.grid_9
   %h3 Bio Data
   %small.quiet.span
     From the non-partisan
     = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
   %p
     = @person.bio_data
-%hr
 
-%div.span-6
-  %h3 Addresses
-  %ul
+
+
+.grid_16
+  %h2 Addresses
+  %ul.addresses
     - if @person.addresses.size > 0
       - @person.addresses.each do |address|
         = render :partial => "shared/address", :locals => {:address => address}
     - else
       %p Sorry, we found no addresses.
 
-%div.span-6
-  %h3 Roles
-  %p
-    - @person.roles.each do |role|
-      %div
-        #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
-
-  - if @person.committees.size > 0
-    %h3 Committees
+.grid_16
+  
+  .grid_4.alpha
+    %h2 Roles
     %p
-      - @person.committees.each do |committee|
+      - @person.roles.each do |role|
         %div
-        = committee.type_fm
-        = link_to(committee.name, committee_path(committee))
-
-%div.span-6
-  %h3!= sponsorship_vitals_for(@person)
-
-%div.span-6.last
-  %h3 Votes
-  - if @latest_roll_calls.size > 0
-    %div
+          #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
+    - if @person.committees.size > 0
+      %h2 Committees
+      %p
+        - @person.committees.each do |committee|
+          %div
+          = committee.type_fm
+          = link_to(committee.name, committee_path(committee))
+  .grid_4
+    %h2 Votes
+    - if @latest_roll_calls.size > 0
       %div
-        %ul
-          - @latest_roll_calls.each do |roll_call|
-            - vote = roll_call.vote
-            %li
-              = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+        %div
+          %ul
+            - @latest_roll_calls.each do |roll_call|
+              - vote = roll_call.vote
+              %li
+                = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+  
+      %p
+        != link_to("View All Votes", votes_person_path(@person))
+    - else
+      %p We have no voting history for #{@person.full_name}
 
-    %p
-      != link_to("View All Votes", votes_person_path(@person))
+
+  
+  .grid_8.omega
+    %h2!= sponsorship_vitals_for(@person)
+  
+  
+
+
+.grid_16
+  %h2 Contributions
+  - if @person.has_contributions?
+    .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+    %hr
+    %div.grid_6
+      %h3
+        Top List
+      - @person.contributions.each do |c|
+        .grid_4
+          = c.business.business_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+  
+    %div.grid_6
+      %h3
+        By Industry
+      - @person.industry_contributions.each do |c|
+        .grid_4
+          = c.industry_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+  
+    %div.grid_6
+      %h3
+        By Sector
+      - @person.sector_contributions.each do |c|
+        .grid_4
+          = c.sector_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+  
+    %div.grid_6.last
+      %h3
+        By Business
+      - @person.business_contributions.each do |c|
+        .grid_4
+          = c.business_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+  
   - else
-    %p We have no voting history for #{@person.full_name}
+    .grid_16.alpha
+      No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
+      %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
+      == .
 
-%h3 Contributions
-- if @person.has_contributions?
-  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
-  %hr
-  %div.span-6
-    %h3
-      Top List
-    - @person.contributions.each do |c|
-      .span-4
-        = c.business.business_name
-      .span-2.last
-        = number_to_currency(c.amount)
-
-  %div.span-6
-    %h3
-      By Industry
-    - @person.industry_contributions.each do |c|
-      .span-4
-        = c.industry_name
-      .span-2.last
-        = number_to_currency(c.amount)
-
-  %div.span-6
-    %h3
-      By Sector
-    - @person.sector_contributions.each do |c|
-      .span-4
-        = c.sector_name
-      .span-2.last
-        = number_to_currency(c.amount)
-
-  %div.span-6.last
-    %h3
-      By Business
-    - @person.business_contributions.each do |c|
-      .span-4
-        = c.business_name
-      .span-2.last
-        = number_to_currency(c.amount)
-
-- else
-  %p.span-24
-    No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
-    %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
-    == .
-
-%h3 Ratings
-- unless @person.ratings.blank?
-  .small.quiet.span-24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
-  %hr
-  - @person.ratings.each do |rating|
-    %div.span-8
-      = rating.special_interest_group.category.name
-    %div.span-8
-      = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
-    %div.span-2
-      = rating.timespan
-    %div.span-2
-      = rating.rating
-- else
-  %p.span-24
-    No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
-    %a{:href => 'http://votesmart.org/program_donations_index.php'} here
+.grid_16
+  %h2 Ratings
+  - unless @person.ratings.blank?
+    .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+    %hr
+    - @person.ratings.each do |rating|
+      %div.grid_8
+        = rating.special_interest_group.category.name
+      %div.grid_8
+        = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+      %div.grid_2
+        = rating.timespan
+      %div.grid_2
+        = rating.rating
+  - else
+    %p.grid_24
+      No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
+      %a{:href => 'http://votesmart.org/program_donations_index.php'} here

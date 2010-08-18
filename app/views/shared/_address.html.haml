@@ -2,7 +2,7 @@
   -# We're using hCard format here. See
   -# http://microformats.org/wiki/hcard
   %div.vcard[address]
-    %h4
+    %h3
       %span.type>= address.votesmart_type
       \:
     %div.street-address!= address.line_one + (address.line_two ? "<br />#{address.line_two}" : "")
