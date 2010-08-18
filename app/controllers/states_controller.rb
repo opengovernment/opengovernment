@@ -5,8 +5,8 @@ class StatesController < ApplicationController
     if @state.supported?
       @legislature = @state.legislature
       @most_recent_session = Session.most_recent(@legislature).first
-      @state_lower_chamber_roles = @most_recent_session.roles.find_all_by_chamber_id(@legislature.lower_chamber)
-      @state_upper_chamber_roles = @most_recent_session.roles.find_all_by_chamber_id(@legislature.upper_chamber)
+      @state_lower_chamber_roles = @most_recent_session.roles.for_chamber(@legislature.lower_chamber).by_last_name
+      @state_upper_chamber_roles = @most_recent_session.roles.for_chamber(@legislature.upper_chamber).by_last_name
       @federal_lower_chamber_roles = @state.us_rep_roles.order("people.last_name")
 
       @state_key_votes = Bill.all(:conditions => {:votesmart_key_vote => true, :chamber_id => @legislature.chambers})

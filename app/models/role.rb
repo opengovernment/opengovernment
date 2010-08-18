@@ -26,6 +26,7 @@ class Role < ActiveRecord::Base
   scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
   scope :for_state, lambda { |s| { :conditions => ['roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?', s, s] } }
   scope :current, on_date(Date.today)
+  scope :by_last_name, joins(:person).order('people.last_name')
 
   def self.current_chamber_roles(chamber)
     current.for_chamber(chamber).scoped({:include => [:district, :chamber, :person], :order => 'people.first_name'})
