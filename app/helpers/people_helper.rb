@@ -14,9 +14,9 @@ module PeopleHelper
     return '' if start_date.blank? && end_date.blank?
     
     tag = time_tag(start_date, start_date.try(:year)) + "&ndash;".html_safe + time_tag(end_date, end_date.try(:year))
-    '(' + tag + ')'
+    raw '(' + tag + ')'
   end
-  
+
   def time_tag(time, content)
     content_tag(:time, content, :datetime => time) unless time.blank?
   end

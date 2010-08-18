@@ -53,7 +53,7 @@ describe District do
   end
 
   it "should return currently active legislators for a given district" do
-    reps = @district_14.first.current_legislators
+    reps = @district_14.first.legislators
     reps.size.should eql(1)
   end
 end

@@ -35,8 +35,8 @@ class HomeController < ApplicationController
           h = MAP_HEIGHT
           uri = URI.parse(eval('"' + MAP_POST_URL + '"'))
           http = Net::HTTP.new(uri.host, uri.port)
-          http.open_timeout = 5 # in seconds
-          http.read_timeout = 5 # in seconds
+          http.open_timeout = 15 # in seconds
+          http.read_timeout = 15 # in seconds
 
           # The request.
           req = Net::HTTP::Get.new(uri.request_uri)

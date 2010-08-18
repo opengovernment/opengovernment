@@ -1,6 +1,20 @@
 -- Any executes from migrations must go in here, or they
 -- will not be run when someone installs the app.
 
+-- FUNCTIONS --
+CREATE OR REPLACE FUNCTION beginning_of(year integer) RETURNS date AS $$
+BEGIN
+  RETURN to_date('1 Jan ' || year, 'DD Mon YYYY');
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION end_of(year integer) RETURNS date AS $$
+BEGIN
+  RETURN to_date('31 Dec ' || year, 'DD Mon YYYY');
+END;
+$$ LANGUAGE plpgsql;
+
+
 -- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
 ADD CONSTRAINT districts_state_fk
@@ -98,6 +112,8 @@ ALTER TABLE roles ADD CONSTRAINT person_session_unique UNIQUE (person_id, sessio
 CREATE INDEX roll_calls_vote_id_and_type_idx ON roll_calls (vote_id, vote_type);
 
 -- VIEWS --
+DROP VIEW v_district_votes;
+DROP VIEW v_roll_call_roles;
 CREATE OR REPLACE VIEW v_roll_call_roles AS
 select rc.id as roll_call_id, rc.vote_id, p.id as person_id, rc.vote_type, r.party, r.id as role_id, r.district_id, v.chamber_id, b.session_id
 from
@@ -107,7 +123,15 @@ from
   INNER JOIN bills b ON (b.id = v.bill_id)
   LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id = r.session_id);
 
+
+-- Used for geoserver vote maps
+CREATE OR REPLACE VIEW v_district_votes AS
+  select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
+  from districts d, v_roll_call_roles r
+  where d.id = r.district_id;
+
 -- For each legislature, this grabs the most recent session for which there are roles
+DROP VIEW v_most_recent_sessions;
 CREATE OR REPLACE VIEW v_most_recent_sessions AS
   select recent.* from
     (select *, row_number() over (partition by legislature_id order by end_year desc) as rnum
@@ -116,15 +140,30 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
     and exists (select id from roles r where r.session_id = s.id)) recent
   where recent.rnum = 1;
 
+DROP VIEW v_most_recent_roles;
 CREATE OR REPLACE VIEW v_most_recent_roles AS
-  SELECT r.person_id, r.district_id, r.chamber_id, r.session_id, r.senate_class, r.party, r.start_date, r.end_date,
-  r.created_at, r.updated_at, coalesce(r.state_id, d.state_id) as state_id
+  SELECT
+    r.id as role_id,
+    r.person_id,
+    r.district_id,
+    r.chamber_id,
+    r.session_id,
+    r.senate_class,
+    r.party,
+    r.created_at,
+    r.updated_at,
+    coalesce(r.start_date, beginning_of(s.start_year)) as start_date,
+    coalesce(r.end_date, end_of(s.end_year)) as end_date,
+    coalesce(r.state_id, d.state_id) as state_id
   FROM
     (select *, row_number() over (partition by person_id order by end_date desc) as rnum
     from roles ro) r
+    left outer join sessions s on (r.session_id = s.id)
     left outer join districts d on (d.id = r.district_id)
   where r.rnum = 1;
 
+DROP VIEW v_tagged_actions;
+DROP VIEW v_tagged_bills;
 CREATE OR REPLACE VIEW v_tagged_bills AS
   select distinct t.name as tag_name, b.*
   from tags t, taggings tt, bills b, bills_subjects bs, subjects s
@@ -137,6 +176,7 @@ CREATE OR REPLACE VIEW v_tagged_actions AS
   from v_tagged_bills as tgb, actions a
   where tgb.id = a.bill_id;
 
+DROP VIEW v_tagged_sigs;
 CREATE OR REPLACE VIEW v_tagged_sigs AS
   select distinct t.name as tag_name, sig.*
   from tags t, taggings tt, special_interest_groups sig, categories c
@@ -147,6 +187,7 @@ CREATE OR REPLACE VIEW v_tagged_sigs AS
 -- Used for geoserver district maps.
 -- Restricted by session_id, this view should alwyas show only
 -- the people in that session who represent geographic districts (not senators)
+DROP VIEW v_district_people;
 CREATE OR REPLACE VIEW v_district_people AS
   select d.geom as the_geom, p.id as person_id, r.party, d.state_id, r.chamber_id
   from districts d, roles r, people p, sessions s
@@ -154,8 +195,3 @@ CREATE OR REPLACE VIEW v_district_people AS
   and r.person_id = p.id
   and s.id = r.session_id;
 
--- Used for geoserver vote maps
-CREATE OR REPLACE VIEW v_district_votes AS
-  select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
-  from districts d, v_roll_call_roles r
-  where d.id = r.district_id;
