@@ -1,4 +1,9 @@
 
+a{
+color: #215357 !important;
+}
+
+
 /* typography.css */
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,19 +18,20 @@ font-family: "Droid Sans", Arial;
 font-size: 23px;
 margin: 0;
 padding: 30px 0;  
+clear:both;
 }
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
 
 
 h2 {
-margin:0 0 0px;
+margin:0 0 10px;
 font-size: 18px;
 line-height:1.3em;
  padding: 15px 0 5px;
 font-weight: bold;
  clear: both; 
-border-bottom: 2px solid #999;
+border-bottom: 1px solid #d5e1ee;
 }
 
 
@@ -33,8 +39,8 @@ h2 span {font-size:.6em;display: block;}
 
 
 h3 {
-padding: 20px 0 5px;
-border-bottom: 1px solid #ddd;
+padding: 0px 0 10px;
+border-bottom: 1px solid #d5e1ee;
 font-size:14px;
 line-height:1em;
 margin: 0 0 10px; 
@@ -44,7 +50,16 @@ float: left;
 
 
 
-h4 {font-size:1.2em;line-height:1.25;margin: 1.5em 0 .4em; color: #333; float: left; width: 100%;}
+h4 {
+font-size:1.2em;
+line-height:1.25;
+margin: 0 0 10px; 
+color: #333; 
+float: left; 
+width: 100%;
+}
+
+
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
 h6 {font-size:1em;font-weight:bold;}
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}

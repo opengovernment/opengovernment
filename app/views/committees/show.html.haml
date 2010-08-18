@@ -1,15 +1,22 @@
 - title("#{@state.name} #{@committee.type_fm} #{@committee.name}")
-%h2 #{@state.name} #{@committee.type_fm} #{@committee.name} committee
-%h3 Basic Info
-%p
-  %ul
-    %li
-      Type:
-      = @committee.type_fm
-    %li
-      Website: 
-      = @committee.url ? link_to_with_domain(@committee.name, @committee.url) : @committee.name
-%h3 Members
-%ul
-  - @committee.members.each do |member|
-    %li= link_to(member.official_name, person_path(member))
+.grid_16
+  %h1 #{@state.name} #{@committee.type_fm} #{@committee.name} committee
+
+  %hr
+
+  .grid_8.alpha
+    %h2 Basic Info
+    %p
+      %ul
+        %li
+          Type:
+          = @committee.type_fm
+        %li
+          Website: 
+          = @committee.url ? link_to_with_domain(@committee.name, @committee.url) : @committee.name
+
+  .grid_8.omega
+    %h2 Members
+    %ul
+      - @committee.members.each do |member|
+        %li= link_to(member.official_name, person_path(member))

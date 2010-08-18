@@ -6,15 +6,25 @@
 
 .grid_16
   %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
-  .grid_3.omega.views
-    = rand(100000)
-    total views,<br />
-    = rand(100)
-    in the last 7 days,<br />
-    = rand(1000)
-    in the last month.
+
   %hr
-  %p= @bill.title
+
+
+.grid_16.views
+  = rand(100000)
+  total views&nbsp;&nbsp;
+  = rand(100)
+  in the last 7 days&nbsp;&nbsp;
+  = rand(1000)
+  in the last month.
+
+%hr.grid_16
+
+
+  
+%p.grid_16.summary= @bill.title
+
+
 
 .grid_16
   %p
