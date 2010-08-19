@@ -38,8 +38,7 @@ height: 37px;
 margin: 0;
 position: absolute;
 right: 0;
-top: 54px;
-
+top: 64px;
 }
 
 
@@ -69,10 +68,10 @@ float: right;
 
 
 header aside div h4{
-padding: 5px 2px;
+padding: 5px 6px;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
-margin: 8px;
+margin: 8px 0 8px 0;
 float: right;
 cursor: pointer;
 font-size: 13px;
@@ -93,7 +92,6 @@ box-shadow:inset 0 0 10px #000000;
 }
 
 #account{
-float: left;
 padding: 21px 0 0;
 }
 
@@ -185,7 +183,7 @@ clear: both;
 
 
 .search{
-
+margin-top: -4px;
 }
 
 
@@ -217,9 +215,7 @@ padding: 20px 0;
 
 
 .district_map img{
-width: 90%;
 padding-bottom: 20px;
-height: 90%;
 }
 
 
@@ -233,7 +229,7 @@ height: 90%;
 
 
 .search{
-padding-top: 23px;
+
 }
 
 
@@ -269,7 +265,7 @@ opacity: 1;
 
 .search .search_button{
 margin: 0;
-padding: 0;
+padding: 0 !important;
 float: right;
 }
 
