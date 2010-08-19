@@ -21,9 +21,10 @@ ul.breadcrumb li ul.state-select li {
 }
 
 ul.breadcrumb li ul.state-select li a {  
+  float: left;
   margin: 0;
   width: 122px;
-  padding-left: 10px;
+  padding-left: 9px;
   background: none !important;
 }
 
@@ -133,6 +134,7 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
 .topnav a strong{
   font-weight: bold !important;
   padding-right: 9px;
+  padding-left: 9px;
   font-family: "Droid Sans Bold", Arial;
 }
 
