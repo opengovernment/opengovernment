@@ -1,5 +1,4 @@
 OpenGov::Application.routes.draw do |map|
-  match '/search' => 'districts#search', :as => 'search'
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
   constraints(Subdomain) do
@@ -51,6 +50,7 @@ OpenGov::Application.routes.draw do |map|
     end
     resources :taggings, :only => [:create, :destroy]
   end
+  match '/search' => 'districts#search', :as => 'search'
 
   root :to => "home#index"
 #  Clearance::Routes.draw(map)

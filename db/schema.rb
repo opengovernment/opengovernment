@@ -214,6 +214,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["person_id", "session_id"], :name => "person_session_unique", :unique => true
+
   create_table "roll_calls", :force => true do |t|
     t.integer  "vote_id"
     t.integer  "person_id"
@@ -221,6 +223,8 @@ ActiveRecord::Schema.define(:version => 48) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "roll_calls", ["vote_id", "vote_type"], :name => "roll_calls_vote_id_and_type_idx"
 
   create_table "sessions", :force => true do |t|
     t.integer  "legislature_id"

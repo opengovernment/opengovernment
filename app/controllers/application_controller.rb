@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_state
-    @state = State.find_by_slug(request.subdomain)
+    @state = State.find_by_slug(request.subdomain, :include => {:legislature => {:upper_chamber => :districts, :lower_chamber => :districts}})
     @state || resource_not_found
   end
 

@@ -1,6 +1,6 @@
 class StatesController < ApplicationController
   before_filter :get_state
-  
+
   def show
     if @state.supported?
       @legislature = @state.legislature
@@ -57,13 +57,5 @@ class StatesController < ApplicationController
     else
       render :nothing => true
     end
-  end
-
-  protected
-
-  def get_state
-    @state = State.find_by_slug(request.subdomain, :include => {:legislature => {:upper_chamber => :districts, :lower_chamber => :districts}})
-
-    @state || resource_not_found
   end
 end
