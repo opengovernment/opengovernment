@@ -53,18 +53,29 @@ header{
 margin: 0 10px !important;
 }
 
-
+ul.lined{
+margin: 0;
+padding: 0;
+}
 
 ul.lined li{
 border-bottom: 1px solid #ddd;
 padding-bottom: 5px;
-margin-bottom: 5px;
+margin: 0 0 5px 0;
 line-height: 1.3em;
 }
 
 
-ul.lined.key_votes li{
+ul.lined.and_spaced li{
 padding-bottom: 10px;
 margin-bottom: 10px;
 
 }
+
+ul.lined.and_spaced.with_titles li a{
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+

@@ -11,44 +11,45 @@
 
 
 .grid_16.views
-  = rand(100000)
-  total views&nbsp;&nbsp;
-  = rand(100)
-  in the last 7 days&nbsp;&nbsp;
-  = rand(1000)
-  in the last month.
-
-%hr.grid_16
-
-
-  
-%p.grid_16.summary= @bill.title
-
-
-
-.grid_16
-  %p
+  .grid_8.alpha
+    = rand(100000)
+    total views&nbsp;&nbsp;
+    = rand(100)
+    in the last 7 days&nbsp;&nbsp;
+    = rand(1000)
+    in the last month.
+  .grid_8.omega
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
       Track via RSS:
       = link_to "All actions", {:actions => 'all', :format => :atom}
       = link_to "Major actions", {:actions => 'major', :format => :atom}
 
+%hr.grid_16
+
+  
+%p.grid_16.summary= @bill.title
+
+%hr.grid_16.push_top
+
+
+.grid_16
   .grid_8.alpha
     %h2 Sponsors
-    %p
+    %ul.lined
       - @bill.sponsors.each do |sponsor|
-        %div
+        %li
           = link_to(sponsor.full_name, person_path(sponsor))
   .grid_8.omega
     - if @bill.versions.size > 0
       %h2 Versions
 
-      %p
+      %ul.lined
         - @bill.versions.each do |version|
-          %div
+          %li
             = link_to(version.name, version.url)
 
+%hr.grid_16.push_top
 
 .grid_16.alpha
   - if @bill.major_actions.size > 0
@@ -83,31 +84,34 @@
             %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
             %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
 
+
+
+
 - if @bill.citations.size > 0
   %div.grid_16
     %h2 Citations
     %div.grid_6.alpha
       %h3 Google News
-      - @bill.google_news_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
+      %ul.lined.and_spaced.with_titles
+        - @bill.google_news_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
             = citation.excerpt
 
     %div.grid_6
       %h3 Blogs
-      - @bill.google_blog_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
+      %ul.lined.and_spaced.with_titles
+        - @bill.google_blog_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
             = citation.excerpt
 
     %div.grid_4.omega
       %h3 Technorati
-      = @bill.technorati_citations.each do |citation|
-        %span
-          = link_to citation.title, citation.url
-          %div
+      %ul.lined.and_spaced.with_titles
+        = @bill.technorati_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
             = citation.excerpt
 
 %div.social

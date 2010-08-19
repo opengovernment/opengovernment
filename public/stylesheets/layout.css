@@ -197,8 +197,9 @@ clear: both;
 
 .views{
 font-size: 11px;
-padding: 10px 0;
+padding: 10px 0 10px 22px;
 display: block;
+background: url(/images/sprites.png) left -165px no-repeat;
 }
 
 
@@ -209,6 +210,7 @@ font-size: 11px;
 
 .summary{
 font-size: 18px;
+line-height: 1.4em;
 padding: 20px 0;
 }
 
@@ -216,6 +218,7 @@ padding: 20px 0;
 
 .district_map img{
 width: 90%;
+padding-bottom: 20px;
 height: 90%;
 }
 
@@ -230,17 +233,62 @@ height: 90%;
 
 
 .search{
-padding-top: 25px;
+padding-top: 23px;
 }
 
 
 .search #search_type{
 float: left;
+margin-right: 15px;
 }
 
 
 .search .field{
+border: 0;
+padding: 0px;
+opacity: .3;
+width: 160px;
+-moz-box-shadow:inset 0 1px 1px #000000;
+box-shadow:inset 0 0 10px #000000;
+-webkit-box-shadow:inset 0 0 10px #000000;
 float: left;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+background: -moz-linear-gradient(top,  #ddd,  #fff); /* for firefox 3.6+ */
+}
+
+
+.search .field input#q{
+border: 0;
+padding: 8px;
+background: 0;
+opacity: 1;
+}
+
+
+.search .search_button{
+margin: 0;
+padding: 0;
+float: right;
+}
+
+.search .search_button input{
+padding: 5px 10px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+margin: 0px 8px;
+text-transform: uppercase;
+float: right;
+cursor: pointer;
+font-size: 11px;
+text-align: center;
+border: 1px solid #aaa;
+border-top: 1px solid #ccc;
+border-bottom: 1px solid #999;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
 }
 
 
@@ -248,8 +296,40 @@ float: left;
 
 
 
+/*///////////////////////////
+
+~ Genders
+
+///////////////////////////*/
+
+
+.gender-unknown{
+padding-left: 20px;
+background: url(/images/sprites.png) left -30px no-repeat;
+}
+
+.gender-male{
+padding-left: 20px;
+background: url(/images/sprites.png) left 2px no-repeat;
+}
+
+
+.gender-female{
+padding-left: 20px;
+background: url(/images/sprites.png) left -61px no-repeat;
+}
 
 
 
 
+.key_votes a{
+padding-left: 15px;
+background: url(/images/sprites.png) left -149px no-repeat;
+}
 
+
+
+
+.details{
+padding-top: 30px;
+}

@@ -47,7 +47,7 @@
               %a{:href => root_path}
                 %strong OpenGovernment
                 = current_place_name
-              %a#dropdown{:href => '#'} V
+              %a#dropdown{:href => '#'}
               %ul.state-select
                 - State.loadable.each do |state|
                   %li= link_to state.name, state_url(state)

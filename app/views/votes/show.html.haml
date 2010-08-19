@@ -1,43 +1,65 @@
 - title("Vote on #{@vote.bill.bill_number}")
-%h2
-  %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
-  %span= @vote.bill.title
-  %span= @vote.date
-  %span= "Vote in the " + @vote.chamber.name
 
-.span-8
-  = vote_map_img(@state, @vote.id)
-  = vote_legend_img
-.span-16.last.vote_chart
-  %table
-    %tr
-      %th.first.label Yes
-      %td.first.label!= @vote.passed? ? '&radic;' : ''
-      %td.first.label= @vote.yes_count
-      %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote.id)
-    %tr
-      %th.label No
-      %td.label!= @vote.passed? ? '' : '&radic;'
-      %td.label= @vote.no_count
-    %tr
-      %th.last.label Other
-      %td.last.label
-      %td.last.label #{@vote.other_count}
 
-- unless @vote.roll_calls
-  %div Sorry, no roll call is available for this vote.
-- else
-  - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-    .span-8
-      %table.roll_call
-        %thead
-          %tr
-            %th #{vote_type.capitalize} Votes
-            %th District
-            %th Party
-        %tbody
-          - roll_calls.each do |roll_call|
+
+.grid_16
+
+  %h1
+    %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
+  %hr
+
+  .grid_3.alpha.details
+    %span= @vote.date
+    %br
+    %span= "Vote in the " + @vote.chamber.name
+
+  .grid_13.summary.alpha
+    %p= @vote.bill.title
+
+  %hr.push_bottom
+
+
+  
+
+  .grid_6
+    = vote_map_img(@state, @vote.id)
+
+  .grid_7.vote_chart.omega
+    = vote_legend_img
+    %table
+      %tr
+        %th.first.label Yes
+        %td.first.label!= @vote.passed? ? '&radic;' : ''
+        %td.first.label= @vote.yes_count
+        %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote.id)
+      %tr
+        %th.label No
+        %td.label!= @vote.passed? ? '' : '&radic;'
+        %td.label= @vote.no_count
+      %tr
+        %th.last.label Other
+        %td.last.label
+        %td.last.label #{@vote.other_count}
+  
+
+
+
+  
+  - unless @vote.roll_calls
+    %grid_16.alpha Sorry, no roll call is available for this vote.
+  - else
+    - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
+      .grid_16
+        %table.roll_call
+          %thead
             %tr
-              %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
-              %td= roll_call.roles.first.district_fm
-              %td= roll_call.roles.first.party_fm
+              %th #{vote_type.capitalize} Votes
+              %th District
+              %th Party
+          %tbody
+            - roll_calls.each do |roll_call|
+              %tr
+                %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
+                %td= roll_call.roles.first.district_fm
+                %td= roll_call.roles.first.party_fm
+
