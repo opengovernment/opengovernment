@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :except => [:index]
-  before_filter :get_state, :only => [:index]
+  before_filter :get_state
   add_breadcrumb "People", :people_path, :class => 'people'
 
   # /states/texas/people
@@ -8,9 +8,9 @@ class PeopleController < ApplicationController
     # TODO: The order by legislatures.id relies on congress being id = 1
     # that's fragile; later on we should have a "scope" for legislatures perhaps:
     # federal, state, county, municipal, etc.
-    @people = Person.find(:all,
+    @people = Person.with_current_role.find(:all,
       :include => {:roles => [:district, {:chamber => :legislature}]},
-      :conditions => ["(current_date between roles.start_date and roles.end_date) and (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?)", @state.id, @state.id],
+      :conditions => ["v_most_recent_roles.state_id = ?", @state.id],
       :order => "legislatures.id, chambers.type desc, districts.census_sld")
   end
 

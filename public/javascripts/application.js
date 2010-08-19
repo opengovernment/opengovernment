@@ -1,8 +1,8 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+/* Upgrade a text field to a search element, if supported. */
 
-$(document).ready(function(){  
-  
+$(document).ready(function(){ 
+
+    /* Breadcrumb dropdown menu */
     $("a#dropdown").click(function() { //When trigger is clicked...  
         //Following events are applied to the subnav itself (moving subnav up and down)  
         var t = $(this).data("destroyHandle");
@@ -32,11 +32,4 @@ $(document).ready(function(){
         return false;
       })
 
-  /* .hover(function() {},
-      function() {
-        $(this).parent().find("ul.state-select").delay(1000).hide(); //When the mouse hovers out of the subnav, move it back up  
-        $(this).removeClass("subhover"); //On hover out, remove class "subhover"
-        return false;
-      });
-     */ 
 });

@@ -26,10 +26,11 @@ h1 a{color: #333; text-decoration: none; font-weight: bold;}
 
 h2 {
 margin:0 0 10px;
-font-size: 18px;
+font-size: 16px;
 line-height:1.3em;
- padding: 15px 0 5px;
-font-weight: bold;
+ padding: 10px 0;
+color: #36676f;
+text-transform: uppercase;
  clear: both; 
 border-bottom: 1px solid #d5e1ee;
 }

@@ -1,18 +1,17 @@
 - title(@state.name)
 
 .grid_16
-  %h1
+  %h1.grid_9.alpha
     = @state.name
-  = render :partial => 'search_form'
+  %hr
 
 
-%aside.grid_6
+%aside.grid_4
   %ul.sub_nav
     %li
       %a Assembly
-      %ul
-        %li
-          = link_to "Bills", state_search_path(:search_type => "bills")
+    %li
+      %a Bill
     %li
       %a Senate
     %li
@@ -20,81 +19,79 @@
     %li
       %a The Money Trail
 
+.grid_12
+  .grid_13.views.alpha
+    This Bill's Page Views&nbsp;&nbsp;&nbsp;
+    Today - 3,456&nbsp;&nbsp;&nbsp;
+    Past 30 Days - 67,987&nbsp;&nbsp;&nbsp;
+    All-Time - 2,235,232&nbsp;&nbsp;&nbsp;
+  %hr
+
+.grid_8
+  %h2
+    = @state.legislature.name
 
 
-.grid_18
-  .grid_18.last.full_lined
-    .grid_4
-      This Bill's Page Views
-    .grid_3
-      Today - 3,456
-    .grid_4
-      Past 30 Days - 67,987
-    .grid_4.last
-      All-Time - 2,235,232
+
+  .grid_4.alpha
+    %h3= @state.legislature.upper_chamber.name
+    .district_map
+      = leg_map_img(@state, @state.legislature.upper_chamber)
+
+    %h4
+      = pluralize(@state_upper_chamber_roles.size, @state.legislature.upper_chamber.title)
+    %ul.lined
+      - @state_upper_chamber_roles.each do |role|
+        %li
+          != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
 
-  .grid_18.last
-    .grid_9
-      = @state.name
-      = @state.legislature.upper_chamber.name
-      %br
-    = leg_map_img(@state, @state.legislature.upper_chamber)
+  .grid_4.omega
+    %h3= @state.legislature.lower_chamber.name
+    .district_map
+      = leg_map_img(@state, @state.legislature.lower_chamber)
 
-    .grid_9.last
-      = @state.name
-      = @state.legislature.lower_chamber.name
-      %br
-    = leg_map_img(@state, @state.legislature.lower_chamber)
+    %h4
+      = pluralize(@state_lower_chamber_roles.size, @state.legislature.lower_chamber.title)
+    %ul.lined
+      - @state_lower_chamber_roles.each do |role|
+        %li
+          != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
-  .grid_6
-    %h3
+  %hr.push_top
+
+  .grid_8
+    %h2
       = Legislature::CONGRESS.name
 
-    %p
-      %h4
+    .grid_4.alpha
+      %h3
         = pluralize(@state.senators.size, Legislature::CONGRESS.upper_chamber.title)
-      %p
+      %ul.lined
         - @state.senators.each do |rep|
-          %div
-            = link_to(rep.full_name, person_path(rep))
-
-      %h4
-        = Legislature::CONGRESS.lower_chamber.name
-      %p
-        - @state.us_rep_roles.order("people.last_name").each do |role|
-          %div
-            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-
-  .grid_6
-    %h3
-      = @state.legislature.name
-
-    .grid_6
-      %h4
-        = pluralize(@state_upper_chamber_roles.size, @state.legislature.upper_chamber.title)
-      %p
-        - @state_upper_chamber_roles.each do |role|
-          %div
-            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-    .grid_6.last
-      %h4
-        = pluralize(@state_lower_chamber_roles.size, @state.legislature.lower_chamber.title)
-      %p
-        - @state_lower_chamber_roles.each do |role|
-          %div
-            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-
-  .grid_6.last
-    %h3 Key Votes
-    .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-    %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
-
-    %p
-      %ul.key_votes
-        - @state_key_votes.each do |bill|
           %li
-            != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-            = bill.title
+            = link_to(rep.full_name, person_path(rep))
+    .grid_4.omega
+      %h3
+        = Legislature::CONGRESS.lower_chamber.name
+      %ul.lined
+        - @state.us_rep_roles.order("people.last_name").each do |role|
+          %li
+            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
+
+
+
+
+.grid_4.omega
+  %h2 Key Votes
+  .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+  %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+
+  %p
+    %ul.lined.and_spaced
+      - @state_key_votes.each do |bill|
+        %li
+          != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
+          = bill.title
 
 

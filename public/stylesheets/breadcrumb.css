@@ -38,8 +38,8 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
 
 
 .breadcrumb{
-border: 1px solid #ddd;
--moz-border-radius: 4px;
+border-top: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
 height: 47px;
 padding: 0;
 clear: both;
@@ -100,8 +100,28 @@ position: relative;
 padding-left: 45px;
 }
 
+
+.breadcrumb .person a span{
+padding-left: 22px;
+}
+
+.breadcrumb .people a span{
+padding-left: 22px;
+background: url(/images/sprites.png) left -30px no-repeat;
+}
+
 .breadcrumb .person.gender-male a span{
 background: url(/images/male.gif) left 2px no-repeat;
+}
+
+
+.breadcrumb .person.gender-unknown a span{
+background: url(/images/sprites.png) left -30px no-repeat;
+}
+
+.breadcrumb .bills a span{
+padding-left: 22px;
+background: url(/images/sprites.png) left -122px no-repeat;
 }
 
 
@@ -116,6 +136,11 @@ background: url(/images/crumb_right.gif) left -99px no-repeat !important;
 }
 
 
+.topnav a{
+padding-left: 0 !important;
+}
+
+
 
 .topnav a strong{
 font-weight: bold !important;
@@ -125,12 +150,17 @@ font-family: "Droid Sans Bold", Arial;
 
 
 
-
-
 .topnav:hover a:hover{
 background: none !important;
 }
 
 
+#dropdown{
+background: url(/images/sprites.png) left -254px no-repeat;
+}
+
+#dropdown:hover{
+background: #fff url(/images/sprites.png) left -254px no-repeat;
+}
 
 

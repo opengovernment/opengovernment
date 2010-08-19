@@ -26,8 +26,7 @@ section { display: block; }
 
 hr {
 border:none;
-border-bottom: 1px solid #c3d3e4;
-border-top: 1px solid #c3d3e4;
+border-bottom: 2px solid #c3d3e4;
 color:#ddd;
 clear:both;
 float:none;
@@ -41,9 +40,42 @@ margin: 0 0 10px;
 }
 
 
+hr.push_top {
+padding: 30px 0 0px;
+}
+
+
+
 
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 header{
 margin: 0 10px !important;
 }
+
+ul.lined{
+margin: 0;
+padding: 0;
+}
+
+ul.lined li{
+border-bottom: 1px solid #ddd;
+padding-bottom: 5px;
+margin: 0 0 5px 0;
+line-height: 1.3em;
+}
+
+
+ul.lined.and_spaced li{
+padding-bottom: 10px;
+margin-bottom: 10px;
+
+}
+
+ul.lined.and_spaced.with_titles li a{
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+

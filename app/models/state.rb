@@ -30,7 +30,7 @@ class State < Place
   has_and_belongs_to_many :people, :join_table => "v_most_recent_roles"
 
   # Which states are we importing data for?
-  scope :loadable, :conditions => {:abbrev => ['TX', 'CA', 'LA']}
+  scope :loadable, :conditions => {:abbrev => ['TX', 'CA', 'LA', 'MD', 'WI']}
   # this could be:
   #scope :loadable, :conditions => ['launch_date is not null']
 
