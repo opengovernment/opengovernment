@@ -1,44 +1,45 @@
 - title("Votes by #{@person.full_name}")
-.span-24.last
-  %h3 Votes by #{@person.full_name}
+
+.grid_16
+  %h1 Votes by #{@person.full_name}
+  %hr
 
   - if @roll_calls.total_entries > 0
     = will_paginate @roll_calls
-    %div.span-24.last
-      %table.vote_summary
-        %thead
-          %tr
-            %th #{@person.first_name}'s vote
-            %th Bill & Motion
-            %th(colspan=2) Outcome (%)
-        %tbody
-        - @roll_calls.each do |roll_call|
-          %tr
-            - bill = roll_call.vote.bill
-            - vote = roll_call.vote
-            %td
-              %strong= roll_call.vote_type.capitalize
-            %td
-              - if defined?(bill)
-                %h4
-                  = link_to(bill.bill_number, bill_path(bill.session, bill))
-                  = ': '
-                  = link_to(vote.motion, vote_path(vote))
-                %span.bill_title= bill.title
-              - else
-                %h4= link_to("#{vote.motion}", vote_path(vote))
-              %br
-              %span.vote_date= vote.date
-            %td.vote_stats
-              %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
-              &ndash;
-              %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
-              &ndash;
-              %span= vote.other_frac.round
-            %td.vote_bar
-              %span{:class => "vote-yes-block", :style => "width: #{vote.yes_frac.to_s}%;"} &nbsp;
-              %span{:class => "vote-no-block", :style => "width: #{vote.no_frac.to_s}%;"} &nbsp;
-              %span{:class => "vote-other-block", :style => "width: #{vote.other_frac.to_s}%;"} &nbsp;
+    %table.vote_summary
+      %thead
+        %tr
+          %th #{@person.first_name}'s vote
+          %th Bill & Motion
+          %th(colspan=2) Outcome (%)
+      %tbody
+      - @roll_calls.each do |roll_call|
+        %tr
+          - bill = roll_call.vote.bill
+          - vote = roll_call.vote
+          %td
+            %strong= roll_call.vote_type.capitalize
+          %td
+            - if defined?(bill)
+              %h4
+                = link_to(bill.bill_number, bill_path(bill.session, bill))
+                = ': '
+                = link_to(vote.motion, vote_path(vote))
+              %span.bill_title= bill.title
+            - else
+              %h4= link_to("#{vote.motion}", vote_path(vote))
+            %br
+            %span.vote_date= vote.date
+          %td.vote_stats
+            %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
+            &ndash;
+            %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
+            &ndash;
+            %span= vote.other_frac.round
+          %td.vote_bar
+            %span{:class => "vote-yes-block", :style => "width: #{vote.yes_frac.to_s}%;"} &nbsp;
+            %span{:class => "vote-no-block", :style => "width: #{vote.no_frac.to_s}%;"} &nbsp;
+            %span{:class => "vote-other-block", :style => "width: #{vote.other_frac.to_s}%;"} &nbsp;
 
   - else
     %p Sorry, we have no voting history for #{@person.official_name}
