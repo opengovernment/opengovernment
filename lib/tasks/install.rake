@@ -273,6 +273,7 @@ namespace :load do
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
     OpenGov::Photos.import!
+    puts "---------- Importing bios from VoteSmart."
     OpenGov::Bios.import!
   end
 

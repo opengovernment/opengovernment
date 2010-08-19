@@ -62,7 +62,7 @@ module VotesHelper
         votes_needed_y_ratio = Integer.scale(votes_needed_to_pass, total_votes, width) / width
 
         # Google's marker format -- see Chart API docs for chm=
-        markers = "@f#{votes_needed_to_pass} needed to pass,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
+        markers = "@f#{votes_needed_to_pass} needed to pass*,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
       else
         # Don't show votes needed to pass on smaller charts.
         markers = ""
