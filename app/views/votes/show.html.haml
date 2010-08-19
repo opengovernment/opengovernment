@@ -1,5 +1,19 @@
 - title("Vote on #{@vote.bill.bill_number}")
+:ruby
+  javascript do
+    (%q|
+    $(document).ready(function() {
+      $("#votes_needed_dialog").dialog({
+                  autoOpen: false
+              });
+      $('#votes_needed_why').click(function() {  
+                          $('#votes_needed_dialog').dialog('open');  
+                      });
 
+
+    });
+  |)
+  end
 
 
 .grid_16
@@ -38,7 +52,10 @@
         %th.last.label Other
         %td.last.label
         %td.last.label #{@vote.other_count}
-    
+      %caption(align='bottom')= "* Not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
+
+  #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
+  
   - unless @vote.roll_calls
     %grid_16.alpha Sorry, no roll call is available for this vote.
   - else
