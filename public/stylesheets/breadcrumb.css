@@ -1,166 +1,149 @@
 /* State selector menu */
 ul.breadcrumb li ul.state-select {  
-     list-style: none;  
-     position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
-     left: -1px;  
-     background: #fff;  
-     margin: 0; padding: 0;  
-     display: none;  
-     float: left;  
-     width: 172px;  
-top: 47px;
-border: 1px solid #ddd;
-border-top: 0;
-
+  list-style: none;  
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+  left: -1px;  
+  background: #fff;  
+  margin: 0;
+  padding: 0;  
+  display: none;  
+  float: left;
+  width: 156px;  
+  top: 47px;
+  border: 1px solid #ddd;
+  border-top: 0;
 }
-
 
 ul.breadcrumb li ul.state-select li {  
-     list-style: none;  
-     width: 170px;  
-background: none !important;
+  list-style: none;
+  background: none !important;
+  border-top: 1px solid #ddd;
 }
 
-ul.breadcrumb li ul.state-select li a{  
-     list-style: none;  
-     width: 122px;  
-background: none !important;
-border-top: 1px solid #ddd;
+ul.breadcrumb li ul.state-select li a {  
+  margin: 0;
+  width: 122px;
+  padding-left: 10px;
+  background: none !important;
 }
 
 ul.breadcrumb li ul.state-select li a:hover{  
-background: #fbfbfc !important;
+  background: #f9f9f9 !important;
 }
-
-
 
 ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
 
-
 .breadcrumb{
-border-top: 1px solid #ddd;
-border-bottom: 1px solid #ddd;
-height: 47px;
-padding: 0;
-clear: both;
-width: 100%;
-letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
-float: left;
-margin: 15px 0 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 47px;
+  padding: 0;
+  clear: both;
+  width: 100%;
+  letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
+  float: left;
+  margin: 15px 0 0;
 }
 
 .breadcrumb li{
-float: left;
-line-height: 3em;
-list-style: none;
-background: url(/images/crumb_right.gif) right 0 no-repeat;
--moz-border-radius-topleft: 4px;
-clear: none;
-position: relative;
-z-index: 100;
+  float: left;
+  line-height: 3em;
+  list-style: none;
+  background: url(/images/crumb_right.gif) right 0 no-repeat;
+  -moz-border-radius-topleft: 4px;
+  clear: none;
+  position: relative;
+  z-index: 100;
 }
 
 .breadcrumb li a span{
-padding: 0 0 0 15px;
+  padding: 0 0 0 15px;
 }
 
-
-
 .breadcrumb .person{
-z-index: 90;
-margin-left: -30px;
+  z-index: 90;
+  margin-left: -30px;
 }
 
 .breadcrumb .first{
-z-index: 95;
-margin-left: -30px;
+  z-index: 95;
+  margin-left: -30px;
 }
-
 
 .breadcrumb .first a{
-padding-left: 45px;
+  padding-left: 45px;
 }
-
-
 
 .breadcrumb li a{
-float: left;
-height: 29px;
-list-style: none;
-padding: 18px 35px 0 15px;
-text-decoration: none;
-color: #333; 
-line-height: 1em;
-margin: 0;
-position: relative;
+  float: left;
+  height: 29px;
+  list-style: none;
+  padding: 18px 35px 0 15px;
+  text-decoration: none;
+  color: #333; 
+  line-height: 1em;
+  margin: 0;
+  position: relative;
 }
-
 
 .breadcrumb .person a{
-padding-left: 45px;
+  padding-left: 45px;
 }
 
-
 .breadcrumb .person a span{
-padding-left: 22px;
+  padding-left: 22px;
 }
 
 .breadcrumb .people a span{
-padding-left: 22px;
-background: url(/images/sprites.png) left -30px no-repeat;
+  padding-left: 22px;
+  background: url(/images/sprites.png) left -30px no-repeat;
 }
 
 .breadcrumb .person.gender-male a span{
-background: url(/images/male.gif) left 2px no-repeat;
+  background: url(/images/male.gif) left 2px no-repeat;
 }
 
 
 .breadcrumb .person.gender-unknown a span{
-background: url(/images/sprites.png) left -30px no-repeat;
+  background: url(/images/sprites.png) left -30px no-repeat;
 }
 
 .breadcrumb .bills a span{
-padding-left: 22px;
-background: url(/images/sprites.png) left -122px no-repeat;
+  padding-left: 22px;
+  background: url(/images/sprites.png) left -122px no-repeat;
 }
 
 
 .breadcrumb li:hover, .breadcrumb a.subhover{
-z-index: 120;
-background: #fbfbfc url(/images/crumb_right.gif) right -49px no-repeat;
+  z-index: 120;
+  background: #fbfbfc url(/images/crumb_right.gif) right -49px no-repeat;
 }
 
 
 .breadcrumb li a:hover{
-background: url(/images/crumb_right.gif) left -99px no-repeat !important;
+  background: url(/images/crumb_right.gif) left -99px no-repeat !important;
 }
 
 
 .topnav a{
-padding-left: 0 !important;
+  padding-left: 0 !important;
 }
-
 
 
 .topnav a strong{
-font-weight: bold !important;
-padding-right: 9px;
-font-family: "Droid Sans Bold", Arial;
+  font-weight: bold !important;
+  padding-right: 9px;
+  font-family: "Droid Sans Bold", Arial;
 }
-
-
 
 .topnav:hover a:hover{
-background: none !important;
+  background: none !important;
 }
 
-
 #dropdown{
-background: url(/images/sprites.png) left -254px no-repeat;
+  background: url(/images/sprites.png) left -254px no-repeat;
 }
 
 #dropdown:hover{
-background: #fff url(/images/sprites.png) left -254px no-repeat;
+  background: #fff url(/images/sprites.png) left -254px no-repeat;
 }
-
-
