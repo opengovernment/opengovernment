@@ -102,7 +102,10 @@ background: url(/images/bg.gif);
 margin-right: 0;
 }
 
-
+nav.footer ul li {
+  display: inline;
+  padding-right: 10px;
+}
 
 
 
