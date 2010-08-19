@@ -16,7 +16,7 @@ OpenGov::Application.routes.draw do |map|
     resources :sigs, :only => [:index, :show]
     resources :issues, :only => [:index, :show]
 
-    match '/bills', :to => redirect("/search?search_type=bills")
+    match '/bills', :to => redirect("/search?search_type=bills"), :as => 'bills'
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :major_actions
@@ -27,7 +27,6 @@ OpenGov::Application.routes.draw do |map|
     end
 
     resources :votes, :only => [:show]
-    resources :bills, :only => [:index]
     resources :people, :only => [:index], :as => 'reps'
 
     resources :committees, :only => [:show] do
