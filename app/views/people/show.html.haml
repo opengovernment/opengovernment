@@ -12,15 +12,12 @@
   %ul.sub_nav
     %li
       %a Overview
-      %ul
-        %li
-          = link_to "Bills", state_search_path(:search_type => "bills")
     %li
-      %a Senate
+      = link_to "Sponsored Bills", sponsored_bills_person_path(@person)
     %li
-      %a Committees
+      = link_to "Votes", votes_person_path(@person)
     %li
-      %a The Money Trail
+      %a Contributions
 
 .grid_12
   .grid_13.views.alpha
