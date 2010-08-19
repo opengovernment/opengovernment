@@ -19,8 +19,6 @@
   %hr.push_bottom
 
 
-  
-
   .grid_6
     = vote_map_img(@state, @vote.id)
 
@@ -40,26 +38,23 @@
         %th.last.label Other
         %td.last.label
         %td.last.label #{@vote.other_count}
-  
-
-
-
-  
+    
   - unless @vote.roll_calls
     %grid_16.alpha Sorry, no roll call is available for this vote.
   - else
-    - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-      .grid_16
-        %table.roll_call
-          %thead
-            %tr
-              %th #{vote_type.capitalize} Votes
-              %th District
-              %th Party
-          %tbody
-            - roll_calls.each do |roll_call|
+    .grid_16
+      - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
+        .grid_5
+          %table.roll_call
+            %thead
               %tr
-                %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
-                %td= roll_call.roles.first.district_fm
-                %td= roll_call.roles.first.party_fm
+                %th #{vote_type.capitalize} Votes
+                %th District
+                %th Party
+            %tbody
+              - roll_calls.each do |roll_call|
+                %tr
+                  %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
+                  %td= roll_call.roles.first.district_fm
+                  %td= roll_call.roles.first.party_fm
 
