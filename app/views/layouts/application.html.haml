@@ -39,6 +39,9 @@
             Hello,
             %a.account(href="#content" title="Username") Morgan.
             %a.help(href="#content" title="Help Center") Help
+          - if current_place
+            .omega.search
+              = render :partial => 'shared/search_form'
         %nav
           %div.skip-link.screen-reader-text
             %a(href="#content" title="Skip to content") Skip to content

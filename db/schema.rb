@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 49) do
     t.integer  "bill_id"
     t.datetime "date"
     t.string   "actor"
-    t.string   "action",        :limit => 2000
+    t.string   "action",        :limit => 10000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "action_number"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 49) do
   end
 
   create_table "bills", :force => true do |t|
-    t.string   "title",              :limit => 8000
+    t.string   "title",              :limit => 64000
     t.integer  "state_id"
     t.integer  "session_id"
     t.string   "openstates_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 49) do
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "votesmart_key_vote",                 :default => false, :null => false
+    t.boolean  "votesmart_key_vote",                  :default => false, :null => false
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
