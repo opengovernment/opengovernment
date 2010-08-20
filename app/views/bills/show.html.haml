@@ -6,41 +6,38 @@
 
 .grid_16
   %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
-
   %hr
 
+%aside.grid_4
+  #left_nav
+    = render_navigation(:level => 3)
 
-.grid_16.views
-  .grid_8.alpha
+.grid_12
+  .grid_13.views.alpha
     = rand(100000)
     total views&nbsp;&nbsp;
     = rand(100)
     in the last 7 days&nbsp;&nbsp;
     = rand(1000)
     in the last month.
-  .grid_8.omega
-    %div
-      = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
-      Track via RSS:
-      = link_to "All actions", {:actions => 'all', :format => :atom}
-      = link_to "Major actions", {:actions => 'major', :format => :atom}
 
-%hr.grid_16
-
-  
-%p.grid_16.summary= @bill.title
-
-%hr.grid_16.push_top
-
-
-.grid_16
-  .grid_8.alpha
+.grid_12
+  %hr
+  %p.grid_12.summary
+    = @bill.title
+  %p
+    = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
+    Track via RSS:
+    = link_to "All actions", {:actions => 'all', :format => :atom}
+    = link_to "Major actions", {:actions => 'major', :format => :atom}
+  %hr.grid_12
+  .grid_6.alpha
     %h2 Sponsors
     %ul.lined
       - @bill.sponsors.each do |sponsor|
         %li
           = link_to(sponsor.full_name, person_path(sponsor))
-  .grid_8.omega
+  .grid_6.omega
     - if @bill.versions.size > 0
       %h2 Versions
 
@@ -48,13 +45,11 @@
         - @bill.versions.each do |version|
           %li
             = link_to(version.name, version.url)
+  %hr.grid_12
 
-%hr.grid_16.push_top
-
-.grid_16.alpha
   - if @bill.major_actions.size > 0
     %h2 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
-    .grid_24.last
+    .grid_12
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
   - if @bill.votes.size > 0
@@ -62,8 +57,13 @@
     %table.vote-summary
       %thead
         %tr
-          %th Motion
-          %th(colspan=2) Outcome (%)
+          %th(rowspan=2) Motion
+          %th(colspan=3) Votes
+          %th(rowspan=2) Outcome
+        %tr
+          %th Yes
+          %th No
+          %th Other
       - @bill.votes.each do |vote|
         %tbody
           %td
@@ -73,24 +73,17 @@
               %span.voters= vote.total_count
               people voted on
               %span.vote_date= vote.date
-          %td.vote-stats
-            %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
-            &ndash;
-            %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
-            &ndash;
-            %span= vote.other_frac.round
+          %td{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_count.round
+          %td{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_count.round
+          %td= vote.other_count.round
           %td.vote-bar
             %span{:class => "vote-yes-block", :style => "width: #{number_with_precision(vote.yes_frac)}%;"} &nbsp;
             %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
             %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
 
-
-
-
-- if @bill.citations.size > 0
-  %div.grid_16
+  - if @bill.citations.size > 0
     %h2 Citations
-    %div.grid_6.alpha
+    %div.grid_4.alpha
       %h3 Google News
       %ul.lined.and_spaced.with_titles
         - @bill.google_news_citations.each do |citation|
@@ -98,7 +91,7 @@
             = link_to citation.title, citation.url
             = citation.excerpt
 
-    %div.grid_6
+    %div.grid_4
       %h3 Blogs
       %ul.lined.and_spaced.with_titles
         - @bill.google_blog_citations.each do |citation|
@@ -114,5 +107,5 @@
             = link_to citation.title, citation.url
             = citation.excerpt
 
-%div.social
-  %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+  %div.social
+    %p Tweet this bill using the hashtags #{@bill.to_hashtags}

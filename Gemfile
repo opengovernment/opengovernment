@@ -28,6 +28,7 @@ gem "geokit"
 
 # Breadcrumbs
 # gem "breadcrumbs_on_rails", :git => 'git://github.com/opengovernment/breadcrumbs_on_rails.git' (SUBMODULE)
+gem "simple-navigation"
 
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)

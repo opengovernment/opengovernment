@@ -55,7 +55,7 @@
               %ul.state-select
                 - State.loadable.each do |state|
                   %li= link_to state.name, state_url(state)
-            = raw render_breadcrumbs :tag => :li, :separator => ''
+            = render_navigation(:renderer => SimpleNavigation::Renderer::Bread)
         %aside
           = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
       %div#flash

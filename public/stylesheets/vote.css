@@ -64,8 +64,7 @@
   color: #888888;
 }
 
-.vote-summary .vote-passed,
-.vote-summary .vote-failed {
+.vote-passed, .vote-failed {
   font-weight: bold;
 }
 

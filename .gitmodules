@@ -5,6 +5,3 @@
 	path = vendor/plugins/haml
 	url = http://github.com/nex3/haml.git
 
-[submodule "vendor/plugins/breadcrumbs_on_rails"]
-	path = vendor/plugins/breadcrumbs_on_rails
-	url = http://github.com/opengovernment/breadcrumbs_on_rails.git

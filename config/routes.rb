@@ -23,10 +23,10 @@ OpenGov::Application.routes.draw do |map|
       end
       shallow do
         resources :actions, :only => [:show]
+        resources :votes, :only => [:show]
       end
     end
 
-    resources :votes, :only => [:show]
     resources :people, :only => [:index], :as => 'reps'
 
     resources :committees, :only => [:show] do

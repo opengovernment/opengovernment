@@ -144,8 +144,6 @@ float: right;
 
 
 
-
-
 aside.span-6.last{
 
 }
@@ -155,22 +153,22 @@ padding: 0px 0;
 }
 
 
-.sub_nav{
+#left_nav ul {
 margin: 0;
 }
 
-.sub_nav li{
+#sub_nav ul li{
 margin: 0;
 }
 
-.sub_nav li a{
+#left_nav ul li a{
 margin: 0;
 padding: 8px 0px;
 display: block;
 border-bottom: 1px solid #ddd;
 }
 
-.sub_nav li ul a{
+#left_nav ul li ul a{
 margin: 0;
 display: block;
 padding-left: 10px;

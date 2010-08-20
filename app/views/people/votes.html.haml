@@ -9,9 +9,13 @@
     %table.vote_summary
       %thead
         %tr
-          %th #{@person.first_name}'s vote
-          %th Bill & Motion
-          %th(colspan=2) Outcome (%)
+          %th(rowspan=2) #{@person.first_name}'s vote
+          %th(rowspan=2) Bill & Motion
+          %th(colspan=3) Votes
+        %tr
+          %th Yes
+          %th No
+          %th Other
       %tbody
       - @roll_calls.each do |roll_call|
         %tr
@@ -30,16 +34,9 @@
               %h4= link_to("#{vote.motion}", vote_path(vote))
             %br
             %span.vote_date= vote.date
-          %td.vote_stats
-            %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
-            &ndash;
-            %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
-            &ndash;
-            %span= vote.other_frac.round
-          %td.vote_bar
-            %span{:class => "vote-yes-block", :style => "width: #{vote.yes_frac.to_s}%;"} &nbsp;
-            %span{:class => "vote-no-block", :style => "width: #{vote.no_frac.to_s}%;"} &nbsp;
-            %span{:class => "vote-other-block", :style => "width: #{vote.other_frac.to_s}%;"} &nbsp;
+          %td{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_count.round
+          %td{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_count.round
+          %td= vote.other_count.round
 
   - else
     %p Sorry, we have no voting history for #{@person.official_name}

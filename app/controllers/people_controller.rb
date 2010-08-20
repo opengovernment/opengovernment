@@ -1,7 +1,6 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :except => [:index]
   before_filter :get_state
-  add_breadcrumb "People", :people_path, :class => 'people'
 
   # /states/texas/people
   def index
@@ -24,7 +23,7 @@ class PeopleController < ApplicationController
 
   # /people/1
   def show
-    add_breadcrumb @person.full_name, person_path(@person), :class => "person #{@person.gender_class}"
+   # add_breadcrumb @person.full_name, person_path(@person), :class => "person #{@person.gender_class}"
 
     @latest_votes = @person.votes.latest
     @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
