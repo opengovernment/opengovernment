@@ -3,7 +3,15 @@ class Committee < ActiveRecord::Base
   belongs_to :legislature
   has_many :committee_memberships
   has_many :members, :through => :committee_memberships, :source => :person
-  
+
+  define_index do
+    indexes name, :sortable => true
+  end
+
+  SORTABLE_BY = {
+    "Name" => "name desc",
+  }.freeze
+
   def to_param
     [id, name.parameterize].join('-')
   end

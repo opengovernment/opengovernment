@@ -10,7 +10,6 @@
         .small.quiet
           = "Total #{@total_entries} matches."
       %p.span-8.last
-        = render :partial => 'shared/search_form'
       = render :partial => "all_results"
   - when "bills"
     .span-24.last
@@ -21,7 +20,6 @@
         .small.quiet
           = "Total #{@total_entries} matches."
       %p.span-8.last
-        = render :partial => 'shared/search_form'
       = render :partial => "bills_results"
   - when "legislators"
     .span-24.last
@@ -33,5 +31,15 @@
           = "Total #{@total_entries} matches."
 
       %p.span-8.last
-        = render :partial => 'shared/search_form'
       = render :partial => "legislators_results"
+  - when "committees"
+    .span-24.last
+      .span-16
+        %h3
+          Committe Search:
+          = @state.name
+        .small.quiet
+          = "Total #{@total_entries} matches."
+
+      %p.span-8.last
+      = render :partial => "committees_results"

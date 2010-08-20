@@ -1,0 +1,25 @@
+%hr.span-24.last
+  - if @committees.empty?
+    %p.span-24.last Sorry, no committees matched.
+  - else
+    %aside.search_sidebar.span-4
+      %p.filter
+        Chamber:
+        %ul.chamber_filter
+          - ["upper", "lower", "joint"].each do |type|
+            %li
+              = link_to type, state_search_path(params.merge({ :committee_type => type }))
+      %p.sort
+        Sort by:
+        %ul
+          - Committee::SORTABLE_BY.each do |name, column|
+            %li
+              = link_to name, state_search_path(params.merge({:order => column}))
+
+    %div.search_results.span-20.last
+      %ul.committees
+        - @committees.each do |committee|
+          %li[committee]
+            != link_to(committee.name, committee_path(committee))
+
+      = will_paginate @committees

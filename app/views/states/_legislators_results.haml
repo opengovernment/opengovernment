@@ -8,7 +8,7 @@
         %ul
           - Person::SORTABLE_BY.each do |name, column|
             %li
-              = link_to name, search_state_path(@state, params.merge({:order => column}))
+              = link_to name, state_search_path(params.merge({:order => column}))
 
     %div.search_results.span-20.last
       %ul.legislators

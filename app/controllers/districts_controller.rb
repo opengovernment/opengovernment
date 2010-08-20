@@ -6,7 +6,12 @@ class DistrictsController < ApplicationController
 
     if @point
       @state = State.find_by_abbrev(@point.state)
-      redirect_to state_path(@state) unless @state.nil? || @state.supported?
+
+      if @state && @state.supported?
+        
+      else
+        render :template => "shared/unsupported"
+      end
     end
 
   end
