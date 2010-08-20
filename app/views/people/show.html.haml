@@ -10,14 +10,6 @@
   #left_nav
     = render_navigation(:level => 3)
 
-.grid_12
-  .grid_13.views.alpha
-    This Person's Page Views&nbsp;&nbsp;&nbsp;
-    Today - 3,456&nbsp;&nbsp;&nbsp;
-    Past 30 Days - 67,987&nbsp;&nbsp;&nbsp;
-    All-Time - 2,235,232&nbsp;&nbsp;&nbsp;
-  %hr
-
 .grid_12  
   .grid_6.alpha
     %h2 General Info
@@ -49,14 +41,34 @@
       - unless @person.youtube_id.blank?
         %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
   
-  .grid_6.omega
+  .grid_4
     %h2 Bio
     %small.quiet.span
       From the non-partisan
       = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
     %p
       = @person.bio_data
-  
+
+  .grid_2.omega
+    .views
+      This Person's Page Views&nbsp;&nbsp;&nbsp;
+      Today - 3,456&nbsp;&nbsp;&nbsp;
+      Past 30 Days - 67,987&nbsp;&nbsp;&nbsp;
+      All-Time - 2,235,232&nbsp;&nbsp;&nbsp;
+    .track
+      Track this representative via RSS or e-mail
+    .discuss
+      Citizen Discussion Forum
+    .contact
+      Write this representative
+    .support
+      = link_to 'I support', '#'
+      /
+      = link_to 'I oppose', '#'
+      this representative!
+    .wiki
+      Follow #{@person.full_name}'s campaign on RaceTracker
+
   %hr.push_top
   
   .grid_12.alpha
