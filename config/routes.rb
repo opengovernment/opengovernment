@@ -50,8 +50,12 @@ OpenGov::Application.routes.draw do |map|
     end
     resources :taggings, :only => [:create, :destroy]
   end
+
   match '/search' => 'districts#search', :as => 'search'
 
+  match "/tracking.gif" => TrackingApp
+
   root :to => "home#index"
+
 #  Clearance::Routes.draw(map)
 end

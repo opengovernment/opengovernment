@@ -12,6 +12,15 @@ module ApplicationHelper
     content_for(:js_hook) { yield }
   end
 
+  def track(object)
+    javascript do
+      %Q|
+      Tracker.req.object_id = #{object.id};
+      Tracker.req.object_type = '#{object.class}';
+     |
+    end
+  end
+
   # Given a full or short URL, return only the domain
   # and TLD. Examples:
   #   http://www.opencongress.org => opencongress.org

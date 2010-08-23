@@ -7,6 +7,8 @@ gem 'rails', '3.0.0.rc'
 
 # ActiveRecord requires a database adapter.
 gem "pg"
+gem "mongo_mapper"
+gem "bson_ext"
 
 # Deployment
 gem "capistrano"
