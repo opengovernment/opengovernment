@@ -25,6 +25,10 @@ class Vote < ActiveRecord::Base
   def needed_to_pass_frac
     0.5
   end
+  
+  def needed_to_pass_pct
+    needed_to_pass_frac * 100
+  end
 
   def needed_to_pass
     ((yes_count + no_count + other_count) * needed_to_pass_frac).round
@@ -32,6 +36,6 @@ class Vote < ActiveRecord::Base
   
   # yes_frac / no_frac / other_frac
   [:yes, :no, :other].each do |type|
-    define_method("#{type}_frac") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }
+    define_method("#{type}_pct") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }
   end
 end
