@@ -58,13 +58,13 @@
   line-height: 15px;
 }
 
-.vote-summary .summary-line {
+.vote-summary-line {
   font-size: 10px;
   line-height: 14px;
   color: #888888;
 }
 
-.vote-passed span, .vote-failed span {
+td.vote-passed span, td.vote-failed span {
   font-weight: bold;
   border: 3px solid yellow;
   background-color: yellow;
