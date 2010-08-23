@@ -64,17 +64,32 @@
   color: #888888;
 }
 
-.vote-passed, .vote-failed {
+.vote-passed span, .vote-failed span {
   font-weight: bold;
+  border: 3px solid yellow;
+  background-color: yellow;
 }
 
-.vote-bar {
+td.vote-bar {
   width: 50px;
+  padding-top: 0;
+}
+
+td.vote-needed-bar {
+  width: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .vote-yes-block, .vote-no-block, .vote-other-block {
   display: block;
   float: left;
+}
+
+.vote-needed {
+  display: block;
+  line-height: 5px;
+  border-right: 2px solid #666;
 }
 
 .vote-bar .vote-yes-block {

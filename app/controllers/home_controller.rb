@@ -2,9 +2,10 @@ class HomeController < ApplicationController
   before_filter :authenticate, :only => :index
 
   DEFAULT_STATE_COLOR = '#DDDDDD'
-  SUPPORTED_STATE_COLOR = '#FF0000'
-  PENDING_STATE_COLOR = '#00FF00'
-  MAP_BG_COLOR = '#EAF7FE'
+  SUPPORTED_STATE_COLOR = '#FCFBE6'
+  STATE_BORDER_COLOR = '#608BBF'
+#  PENDING_STATE_COLOR = '#00FF00'
+#  MAP_BG_COLOR = '#EAF7FE'
 
   # Note, please maintain this aspect ratio
   MAP_WIDTH = 800

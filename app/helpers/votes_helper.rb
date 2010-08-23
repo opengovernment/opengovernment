@@ -12,7 +12,7 @@ module VotesHelper
   # If a given bar is more than 100 pixels long, it's safe to show the label.
   LABEL_MIN_WIDTH = 80
 
-  def vote_chart_image_tag(vote_id, size = :full)
+  def vote_chart_image_tag(vote, size = :full)
 
     if size == :full
       height, width = 100, 300
@@ -34,9 +34,9 @@ module VotesHelper
       vote_types.each do |vote_type|
         if party.nil?
           # Sadly, all other parties get lumped together
-          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party not in (?) and vote_type = ?", vote_id, Legislature::MAJOR_PARTIES, vote_type]) + Vote.count_by_sql(["select v.#{vote_type}_count - (select count(*) from v_district_votes dv where dv.vote_id = ? and dv.vote_type = ?) as missing_votes from votes v where v.id = ?", vote_id, vote_type, vote_id])
+          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party not in (?) and vote_type = ?", vote.id, Legislature::MAJOR_PARTIES, vote_type]) + Vote.count_by_sql(["select v.#{vote_type}_count - (select count(*) from v_district_votes dv where dv.vote_id = ? and dv.vote_type = ?) as missing_votes from votes v where v.id = ?", vote.id, vote_type, vote.id])
         else
-          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party = ? and vote_type = ?", vote_id, party, vote_type])
+          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party = ? and vote_type = ?", vote.id, party, vote_type])
         end 
       end
       votes << party_name
@@ -52,17 +52,12 @@ module VotesHelper
     if total_votes > 0
       logger.debug "Total votes: #{total_votes}"
 
-
       if size == :full
-        # TODO: This doesn't work in all circumstances, but for now we will go with
-        # 1/2 of all members present and voting.
-        votes_needed_to_pass = total_votes / 2
-
         # Where are we going to place the "votes needed to pass" label?
-        votes_needed_y_ratio = Integer.scale(votes_needed_to_pass, total_votes, width) / width
+        votes_needed_y_ratio = Integer.scale(vote.needed_to_pass, total_votes, width) / width
 
         # Google's marker format -- see Chart API docs for chm=
-        markers = "@f#{votes_needed_to_pass} needed to pass*,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
+        markers = "@f#{vote.needed_to_pass} needed to pass*,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
       else
         # Don't show votes needed to pass on smaller charts.
         markers = ""

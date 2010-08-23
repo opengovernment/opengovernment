@@ -16,8 +16,26 @@ class Vote < ActiveRecord::Base
     yes_count + no_count + other_count
   end
 
+  # These two methods provide a naive algorithm that assumes every motion requires a majority
+  # of members present and voting to pass.
+  #
+  # "Majority of those present and voting" should be the default, but we need to look for
+  # exceptions like urgency measures. This information may be best stored at the state or chamber level.
+  #
+  def needed_to_pass_frac
+    0.5
+  end
+  
+  def needed_to_pass_pct
+    needed_to_pass_frac * 100
+  end
+
+  def needed_to_pass
+    ((yes_count + no_count + other_count) * needed_to_pass_frac).round
+  end
+  
   # yes_frac / no_frac / other_frac
   [:yes, :no, :other].each do |type|
-    define_method("#{type}_frac") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }
+    define_method("#{type}_pct") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }
   end
 end

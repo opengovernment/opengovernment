@@ -63,30 +63,36 @@
     %table.vote-summary
       %thead
         %tr
-          %th Motion
-          %th(colspan=2) Outcome (%)
-      - @bill.votes.each do |vote|
-        %tbody
-          %td
-            %h4= link_to("#{vote.motion}", vote_path(vote))
-            %br
-            .summary-line
-              %span.voters= vote.total_count
-              people voted on
-              %span.vote_date= vote.date
-          %td.vote-stats
-            %span{:class => vote.passed? ? 'vote-passed' : ''}= vote.yes_frac.round
-            &ndash;
-            %span{:class => vote.passed? ? '' : 'vote-failed'}= vote.no_frac.round
-            &ndash;
-            %span= vote.other_frac.round
-          %td.vote-bar
-            %span{:class => "vote-yes-block", :style => "width: #{number_with_precision(vote.yes_frac)}%;"} &nbsp;
-            %span{:class => "vote-no-block", :style => "width: #{number_with_precision(vote.no_frac)}%;"} &nbsp;
-            %span{:class => "vote-other-block", :style => "width: #{number_with_precision(vote.other_frac)}%;"} &nbsp;
-
-
-
+          %th(rowspan=2) Motion
+          %th(colspan=3) Votes
+          %th(rowspan=2) Outcome
+        %tr
+          %th Yes
+          %th No
+          %th Other
+      %tbody
+        - @bill.votes.each do |vote|
+          %tr
+            %td(rowspan=2)
+              %h4= link_to("#{vote.motion}", vote_path(vote))
+              %br
+              .summary-line
+                %span.voters= vote.total_count
+                people voted on
+                %span.vote_date= vote.date
+            %td{:rowspan => 2, :class => vote.passed? ? 'vote-passed' : ''}
+              %span= vote.yes_count.round
+            %td{:rowspan => 2, :class => vote.passed? ? '' : 'vote-failed'}
+              %span= vote.no_count.round
+            %td(rowspan=2)
+              %span= vote.other_count.round
+            %td{:colspan => 3, :class => 'vote-needed-bar'}
+              %span{:class => 'vote-needed', :style => "width: #{number_with_precision(vote.needed_to_pass_pct)}%;"} &nbsp;
+          %tr
+            %td.vote-bar
+              %span{:class => 'vote-yes-block', :style => "width: #{number_with_precision(vote.yes_pct)}%;"} &nbsp;
+              %span{:class => 'vote-no-block', :style => "width: #{number_with_precision(vote.no_pct)}%;"} &nbsp;
+              %span{:class => 'vote-other-block', :style => "width: #{number_with_precision(vote.other_pct)}%;"} &nbsp;
 
 - if @bill.citations.size > 0
   %div.grid_16

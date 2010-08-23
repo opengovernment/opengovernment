@@ -16,7 +16,7 @@
                   <CssParameter name="fill"><%= HomeController::DEFAULT_STATE_COLOR %></CssParameter>
                 </Fill>
                 <Stroke>
-                  <CssParameter name="stroke">#ffffff</CssParameter>
+                  <CssParameter name="stroke"><%= HomeController::STATE_BORDER_COLOR %></CssParameter>
                   <CssParameter name="stroke-width">0.5</CssParameter>
                 </Stroke>
             </PolygonSymbolizer>
@@ -25,21 +25,21 @@
           <Rule>
              <Name>Loadable State</Name>
              <ogc:Filter>
-               <ogc:And>
+               <ogc:Or>
                <% State.loadable.each do |state| %>
                  <ogc:PropertyIsEqualTo>
                    <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
                    <ogc:Literal><%= state.abbrev %></ogc:Literal>
                  </ogc:PropertyIsEqualTo>
                 <% end %>
-                </ogc:And>
+                </ogc:Or>
              </ogc:Filter>
              <PolygonSymbolizer>
                  <Fill>
                    <CssParameter name="fill"><%= HomeController::SUPPORTED_STATE_COLOR %></CssParameter>
                  </Fill>
                  <Stroke>
-                   <CssParameter name="stroke">#608BBF</CssParameter>
+                   <CssParameter name="stroke"><%= HomeController::STATE_BORDER_COLOR %></CssParameter>
                    <CssParameter name="stroke-width">0.5</CssParameter>
                  </Stroke>
              </PolygonSymbolizer>
@@ -67,17 +67,14 @@
          <% end %>
 
          <Rule>
-           <Title>Boundary</Title>
-           <LineSymbolizer>
-             <Stroke>
-               <CssParameter name="stroke-width">0.2</CssParameter>
-               <CssParameter name="stroke">#ffffff</CssParameter>
-             </Stroke>
-           </LineSymbolizer>
+           <Title>Labels</Title>
            <TextSymbolizer>
              <Label>
                <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
              </Label>
+             <Fill>
+                <CssParameter name="fill">#666666</CssParameter>
+             </Fill>
              <Font>
                <CssParameter name="font-family">Arial</CssParameter>
                <CssParameter name="font-style">Normal</CssParameter>
