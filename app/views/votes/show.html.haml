@@ -43,7 +43,7 @@
         %th.first.label Yes
         %td.first.label!= @vote.passed? ? '&radic;' : ''
         %td.first.label= @vote.yes_count
-        %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote.id)
+        %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
       %tr
         %th.label No
         %td.label!= @vote.passed? ? '' : '&radic;'
