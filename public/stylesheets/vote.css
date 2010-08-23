@@ -66,8 +66,8 @@
 
 .vote-passed span, .vote-failed span {
   font-weight: bold;
-  border: 3px solid #ddd;
-  background-color: #ddd;
+  border: 3px solid yellow;
+  background-color: yellow;
 }
 
 td.vote-bar {
