@@ -26,7 +26,9 @@
             %td(rowspan=2)
               %strong= roll_call.vote_type.capitalize
             %td(rowspan=2)
-              %h4= link_to("#{vote.motion}", vote_path(vote))
+              %h4
+                = link_to(bill.bill_number, bill_path(bill.session, bill)) + ': '
+                = link_to(vote.motion, vote_path(vote))
               %br
               .vote-summary-line
                 %span.voters= vote.total_count
@@ -45,6 +47,8 @@
               %span{:class => 'vote-yes-block', :style => "width: #{number_with_precision(vote.yes_pct)}%;"} &nbsp;
               %span{:class => 'vote-no-block', :style => "width: #{number_with_precision(vote.no_pct)}%;"} &nbsp;
               %span{:class => 'vote-other-block', :style => "width: #{number_with_precision(vote.other_pct)}%;"} &nbsp;
+
+    = will_paginate @roll_calls
 
   - else
     %p Sorry, we have no voting history for #{@person.official_name}
