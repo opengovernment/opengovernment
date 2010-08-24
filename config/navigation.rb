@@ -60,11 +60,12 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
     primary.item :issues, 'Issues', issues_path
-    primary.item :votes, 'Votes', '#' do |v|
+    primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |v|
       if !@vote.nil?
-        v.item :vote, 'Vote', vote_path(@vote), :class => "vote #{@vote.outcome_class}"
+        v.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
       end
     end
+    primary.item :money_trail, 'Money Trail', '#'
 
     
     # Add an item which has a sub navigation (same params, but with block)

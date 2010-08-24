@@ -8,11 +8,19 @@ class Session < ActiveRecord::Base
   scope :most_recent, lambda { |legislature_id| complete.where(["legislature_id = ?", legislature_id]).order("end_year desc").limit(1) }
 
   validates_uniqueness_of :name, :scope => :legislature_id
-  
+
   has_many :sub_sessions, :class_name => 'Session', :foreign_key => 'parent_id', :dependent => :destroy
 
   def to_param
     name.parameterize
   end
 
+  def special_number
+    if parent_id?
+      [/\d+ (\d+)[stndh]+ extraordinary session/, /\d+ special session (\d+)/].each do |re|
+        return $1.to_i if name.downcase =~ re
+      end
+      return nil
+    end
+  end
 end
