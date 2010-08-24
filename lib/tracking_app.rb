@@ -5,9 +5,15 @@ class TrackingApp
 
   def self.call(env)
     gif_data = open('public/images/tracking.gif', 'rb') { |io| io.read }
-    puts env.inspect
     req = Rack::Request.new(env)
-    self.store(req)
+
+    begin
+      MongoMapper.connection
+      self.store(req)
+    rescue Mongo::ConnectionFailure => e
+      Rails.logger.debug("Mongodb: #{e.message}")
+    end
+
     [200, {'Content-type' => 'image/gif'}, [gif_data]]
   end
 
@@ -15,10 +21,10 @@ class TrackingApp
     page = Page.find_by_url(request.params['u'])
 
     page ||= Page.new({
-                      :og_object_id => request.params['object_id'],
-                      :og_object_type => request.params['object_type'],
-                      :url => request.params['u']
-                    })
+                        :og_object_id => request.params['object_id'],
+                        :og_object_type => request.params['object_type'],
+                        :url => request.params['u']
+                      })
 
 
     page.views << View.create({:user_id => request.params['user']})
