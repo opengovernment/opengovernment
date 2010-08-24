@@ -123,7 +123,6 @@ from
   INNER JOIN bills b ON (b.id = v.bill_id)
   LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id = r.session_id);
 
-
 -- Used for geoserver vote maps
 CREATE OR REPLACE VIEW v_district_votes AS
   select d.geom as the_geom, d.state_id, r.vote_id, r.party, r.vote_type, r.chamber_id, r.session_id
@@ -152,6 +151,7 @@ CREATE OR REPLACE VIEW v_most_recent_roles AS
     r.party,
     r.created_at,
     r.updated_at,
+    -- session years are inclusive on both ends
     coalesce(r.start_date, beginning_of(s.start_year)) as start_date,
     coalesce(r.end_date, end_of(s.end_year)) as end_date,
     coalesce(r.state_id, d.state_id) as state_id
