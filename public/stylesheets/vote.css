@@ -65,13 +65,22 @@
 }
 
 td.vote-passed span, td.vote-failed span {
-  font-weight: bold;
-  border: 3px solid yellow;
-  background-color: yellow;
+  border: 3px solid #333 !important;
 }
 
+
+th.vote-motion{
+width: 360px;
+}
+
+
+th.vote-votes{
+width: 90px;
+}
+
+
 td.vote-bar {
-  width: 50px;
+  width: 280px;
   padding-top: 0;
 }
 
@@ -79,6 +88,7 @@ td.vote-needed-bar {
   width: 50px;
   padding-top: 0;
   padding-bottom: 0;
+vertical-align: bottom;
 }
 
 .vote-yes-block, .vote-no-block, .vote-other-block {
@@ -86,22 +96,66 @@ td.vote-needed-bar {
   float: left;
 }
 
+
+td.votes{
+vertical-align: middle;
+
+}
+
+
+
+.votes span.total-votes{
+background: #fff;
+padding: 2px 5px;
+border: 3px solid #fff; 
+}
+
+
+.votes span.other-votes{
+background: #ccc;
+padding: 2px 5px;
+border: 3px solid #ccc; 
+}
+
+
+.votes span.vote-yes{
+background: #b6ddb3;
+padding: 2px 5px;
+border: 3px solid #b6ddb3; 
+}
+
+.votes span.vote-no{
+background: #ddb3b3;
+padding: 2px 5px;
+border: 3px solid #ddb3b3; 
+}
+
+
+
+
 .vote-needed {
   display: block;
-  line-height: 5px;
+padding: 0 !important;
+  line-height: 10px;
   border-right: 2px solid #666;
+
 }
 
 .vote-bar .vote-yes-block {
-  background-color: #4d89f9;
+background: #b6ddb3;
+-moz-border-radius-topleft: 8px;
+-moz-border-radius-bottomleft: 8px;
 }
 
 .vote-bar .vote-no-block {
-  background-color: #c6d9fd;
+background: #ddb3b3;
+
 }
 
 .vote-bar .vote-other-block {
-  background-color: #cccccc;
+-moz-border-radius-topright: 8px;
+-moz-border-radius-bottomright: 8px;
+background: #ccc;
 }
 
 

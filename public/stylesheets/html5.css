@@ -46,7 +46,6 @@ padding: 30px 0 0px;
 
 
 
-
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 header{
@@ -77,5 +76,36 @@ display: block;
 margin-bottom: 5px;
 font-weight: bold;
 }
+
+
+/*////////////////////////////////////////////////////
+
+Tables
+
+////////////////////////////////////////////////////*/
+
+
+thead th{
+text-align: left;
+}
+
+
+th{
+padding: 0px 0px 10px 0px;
+border-bottom: 1px solid #ddd;
+}
+
+
+td{
+min-width: 70px;
+padding: 10px 0;
+}
+
+
+table, td, th, tr{
+margin: 0;
+}
+
+
 
 

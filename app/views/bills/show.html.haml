@@ -52,7 +52,7 @@
 
 %hr.grid_16.push_top
 
-.grid_16.alpha
+.grid_16
   - if @bill.major_actions.size > 0
     %h2 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
     .grid_24.last
@@ -60,16 +60,16 @@
 
   - if @bill.votes.size > 0
     %h2 Votes
-    %table.vote-summary
+    %table.vote-summary.grid_16.alpha
       %thead
         %tr
-          %th(rowspan=2) Motion
-          %th(colspan=3) Votes
-          %th(rowspan=2) Outcome
-        %tr
-          %th Yes
-          %th No
-          %th Other
+          %th.vote-motion Motion
+          %th.vote-votes Total Votes
+          %th.centered Yes
+          %th.centered No
+          %th.centered Other
+          %th Outcome
+
       %tbody
         - @bill.votes.each do |vote|
           %tr
@@ -80,12 +80,14 @@
                 %span.voters= vote.total_count
                 people voted on
                 %span.vote_date= vote.date
-            %td{:rowspan => 2, :class => vote.passed? ? 'vote-passed' : ''}
-              %span= vote.yes_count.round
-            %td{:rowspan => 2, :class => vote.passed? ? '' : 'vote-failed'}
-              %span= vote.no_count.round
-            %td(rowspan=2)
-              %span= vote.other_count.round
+            %td.votes{:rowspan => 2} 
+              %span.total-votes.rounded total
+            %td.votes.centered{:rowspan => 2, :class => vote.passed? ? 'vote-passed' : ''}
+              %span.vote-yes.rounded= vote.yes_count.round
+            %td.votes.centered{:rowspan => 2, :class => vote.passed? ? '' : 'vote-failed'}
+              %span.vote-no.rounded= vote.no_count.round
+            %td.votes.centered(rowspan=2)
+              %span.other-votes.rounded= vote.other_count.round
             %td{:colspan => 3, :class => 'vote-needed-bar'}
               %span{:class => 'vote-needed', :style => "width: #{number_with_precision(vote.needed_to_pass_pct)}%;"} &nbsp;
           %tr
@@ -93,6 +95,10 @@
               %span{:class => 'vote-yes-block', :style => "width: #{number_with_precision(vote.yes_pct)}%;"} &nbsp;
               %span{:class => 'vote-no-block', :style => "width: #{number_with_precision(vote.no_pct)}%;"} &nbsp;
               %span{:class => 'vote-other-block', :style => "width: #{number_with_precision(vote.other_pct)}%;"} &nbsp;
+
+
+%hr.grid_16.push_top
+
 
 - if @bill.citations.size > 0
   %div.grid_16
