@@ -1,0 +1,13 @@
+%hr.span-24.last
+  - if @contributions.empty?
+    %p.span-24.last Sorry, no contributions matched.
+  - else
+    %aside.search_sidebar.span-4
+
+    %div.search_results.span-20.last
+      %ul.committees
+        - @contributions.each do |contribution|
+          %li[contribution]
+            != contribution.contributor_name
+
+      = will_paginate @contributions

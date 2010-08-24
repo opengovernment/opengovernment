@@ -50,11 +50,12 @@ class StatesController < ApplicationController
     end
 
     if @query
-
       case @search_type
         when "all"
           @legislators = Person.search(@query, @search_options)
           @bills = @state.bills.search(@query, @search_options)
+          @contributions = Contribution.search(@query, @search_options)
+          @committees = @committee_type.search(@query, @search_options)
         when "bills"
           @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries
@@ -75,7 +76,7 @@ class StatesController < ApplicationController
   end
 
   protected
-  
+
   def committee_type
 
   end
