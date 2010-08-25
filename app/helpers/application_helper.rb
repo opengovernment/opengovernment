@@ -42,4 +42,12 @@ module ApplicationHelper
   def state_url(subdomain)
     url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
   end
+  
+  def person_photo_for(person)
+    if person.photo_url
+      image_tag(person.photo_url)
+    else
+      image_tag('missing.png')
+    end
+  end
 end

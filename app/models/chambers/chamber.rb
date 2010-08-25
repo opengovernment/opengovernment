@@ -6,7 +6,9 @@ class Chamber < ActiveRecord::Base
   has_many :bills
   has_many :committees, :through => :legislature
 
-  has_and_belongs_to_many :people, :join_table => "v_most_recent_roles" do
+  default_scope :order => "case when chambers.type = 'UpperChamber' then 0 else 1 end"
+
+  has_and_belongs_to_many :people, :join_table => 'v_most_recent_roles' do
     def democrats
       where("v_most_recent_roles.party in ('D', 'Democrat')")
     end

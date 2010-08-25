@@ -4,10 +4,6 @@ class PeopleController < ApplicationController
 
   # /states/texas/people
   def index
-    # TODO: The order by legislatures.id relies on congress being id = 1
-    # that's fragile; later on we should have a "scope" for legislatures perhaps:
-    # federal, state, county, municipal, etc.
-    @people = @state.people
   end
 
   def votes

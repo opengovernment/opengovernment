@@ -223,11 +223,11 @@ DEPENDENCIES
   mongo_mapper
   pg
   rails (= 3.0.0.rc2)
-  rspec (>= 2.0.0.beta.19)
-  rspec-core (>= 2.0.0.beta.19)
-  rspec-expectations (>= 2.0.0.beta.19)
-  rspec-mocks (>= 2.0.0.beta.19)
-  rspec-rails (>= 2.0.0.beta.19)
+  rspec (>= 2.0.0.beta.20)
+  rspec-core (>= 2.0.0.beta.20)
+  rspec-expectations (>= 2.0.0.beta.20)
+  rspec-mocks (>= 2.0.0.beta.20)
+  rspec-rails (>= 2.0.0.beta.20)
   ruby-debug19
   simple-navigation
   spatial_adapter
