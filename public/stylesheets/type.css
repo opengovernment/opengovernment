@@ -3,14 +3,6 @@ a{
 color: #215357 !important;
 }
 
-@font-face {
-  font-family: MyHelvetica;
-  src: local("HelveticaNeueLTPro-Lt"),
-  local("HelveticaNeueLTPro-Lt"),
-  url(/images/HelveticaNeueLTPro-Lt.otf);
-  font-weight: normal;
-}
-
 
 
 
