@@ -1,6 +1,6 @@
 .full_lined
   .find_form
-    = form_tag('search', :method => :get) do
+    = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get) do
       %label(for="q") Enter your Address or Zip Code to find your districts
       = text_field_tag :q, params[:q]
       = submit_tag "Find"
