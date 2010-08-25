@@ -28,25 +28,25 @@ class HomeController < ApplicationController
         render(:partial => "states_getmap.xml")
       end
 
-      format.png do
-        states_map_png = Rails.cache.read("states_map_png")
-        if states_map_png.nil?
-          f = "image/png"
-          w = MAP_WIDTH
-          h = MAP_HEIGHT
-          uri = URI.parse(eval('"' + MAP_POST_URL + '"'))
-          http = Net::HTTP.new(uri.host, uri.port)
-          http.open_timeout = 15 # in seconds
-          http.read_timeout = 15 # in seconds
-
-          # The request.
-          req = Net::HTTP::Get.new(uri.request_uri)
-          res = http.request(req)
-
-          states_map_png = res.body
-          Rails.cache.write("states_map_png", states_map_png)
-          send_data(states_map_png)
-        end
+      # format.png do
+      #    states_map_png = Rails.cache.read("states_map_png")
+      #    if states_map_png.nil?
+      #      f = "image/png"
+      #      w = MAP_WIDTH
+      #      h = MAP_HEIGHT
+      #      uri = URI.parse(eval('"' + MAP_POST_URL + '"'))
+      #      http = Net::HTTP.new(uri.host, uri.port)
+      #      http.open_timeout = 15 # in seconds
+      #      http.read_timeout = 15 # in seconds
+      # 
+      #      # The request.
+      #      req = Net::HTTP::Get.new(uri.request_uri)
+      #      res = http.request(req)
+      # 
+      #      states_map_png = res.body
+      #      Rails.cache.write("states_map_png", states_map_png)
+      #      send_data(states_map_png)
+      #    end
       end
     end
   end

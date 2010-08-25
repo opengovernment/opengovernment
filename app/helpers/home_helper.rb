@@ -10,8 +10,8 @@ module HomeHelper
         f = "text/html"
         map_uri = URI.parse(eval('"' + HomeController::MAP_POST_URL + '"'))
         http = Net::HTTP.new(map_uri.host, map_uri.port)
-        http.open_timeout = 5 # in seconds
-        http.read_timeout = 5 # in seconds
+        http.open_timeout = 15 # in seconds
+        http.read_timeout = 15 # in seconds
 
         # The request.
         req = Net::HTTP::Get.new(map_uri.request_uri)
