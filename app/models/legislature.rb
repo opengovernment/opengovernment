@@ -3,6 +3,8 @@ class Legislature < ActiveRecord::Base
   has_one :lower_chamber
   has_many :chambers
   has_many :committees
+  has_many :primary_committees, :class_name => 'Committee', :conditions => 'committees.votesmart_parent_id is null'
+  has_many :sub_committees, :class_name => 'Committee', :conditions => 'committees.votesmart_parent_id is not null'
   has_many :lower_committees
   has_many :upper_committees
   has_many :joint_committees

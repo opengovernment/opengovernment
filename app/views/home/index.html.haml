@@ -5,21 +5,6 @@
 
   %p For questions or to get involved, #{link_to 'get in touch', 'http://support.opencongress.org/anonymous_requests/new'}.
 
-.full_lined
-  .find_form
-    = form_tag('search', :method => :get) do
-      %label(for="q") Enter your Address or Zip Code to find your districts
-      = text_field_tag :q, params[:q]
-      = submit_tag "Find"
-  .auto_find
-    = link_to "Automatically Find My Location", "javascript:findMe();"
-    :javascript
-      function findMe() {
-        navigator.geolocation.getCurrentPosition(fillForm);
-      }
-
-      function fillForm(position) {
-        $('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
-      }
+= render :partial => 'shared/find_my_rep_form'
 
 = interactive_us_map

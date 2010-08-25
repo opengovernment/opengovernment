@@ -6,6 +6,18 @@ class Chamber < ActiveRecord::Base
   has_many :bills
   has_many :committees, :through => :legislature
 
+  has_and_belongs_to_many :people, :join_table => "v_most_recent_roles" do
+    def democrats
+      where("v_most_recent_roles.party in ('D', 'Democrat')")
+    end
+    def republicans
+      where("v_most_recent_roles.party in ('R', 'Republican')")
+    end
+    def other
+      where("v_most_recent_roles.party not in ('Democrat', 'Republican', 'D', 'R')")
+    end
+  end
+
   def self.federal
     [LowerChamber.US_HOUSE, UpperChamber.US_SENATE]
   end
