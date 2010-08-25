@@ -43,3 +43,14 @@
 
       %p.span-8.last
       = render :partial => "committees_results"
+  - when "contributions"
+    .span-24.last
+      .span-16
+        %h3
+          Contributions Search:
+          = @state.name
+        .small.quiet
+          = "Total #{@total_entries} matches."
+
+      %p.span-8.last
+      = render :partial => "contributions_results"
