@@ -1,6 +1,6 @@
 %li[bill]
   != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-  != bill.excerpts.title
+  != bill.title
 
   Status:
   = bill.actions.first.kind

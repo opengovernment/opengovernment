@@ -49,8 +49,4 @@
       %p
         %ul.lined.and_spaced
           - @state_key_votes.each do |bill|
-            %li
-              != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-              = bill.title
-    
-    
+            = render :partial => 'shared/bill', :locals => {:bill => bill}
