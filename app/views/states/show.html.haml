@@ -10,38 +10,47 @@
   = render_navigation(:level => 1)
   %p.donate= link_to 'Help Us Open Gov!', '/help/donate'
 
-.grid_8
-  %h2= @state.legislature.name
-  = @state.legislature.primary_committees.count
-  committees and 
-  = @state.legislature.sub_committees.count
-  sub-committees.
+.grid_12  
+  .grid_12.alpha
+    = render :partial => 'shared/find_my_rep_form'
 
-  - @state.chambers.each do |chamber|
-    %h3= chamber.name
-    = pluralize(chamber.people.count, chamber.title)
-    .grid_4.alpha
-      %h3= pluralize(chamber.people.democrats.count, 'Democrat')
-      %h3= pluralize(chamber.people.republicans.count, 'Republican')
-      %h3= pluralize(chamber.people.other.count, 'Other')
-    .district_map
-      = leg_map_img(@state, chamber)
+  %hr
 
-
-  %hr.push_top
-
-= render :partial => 'shared/find_my_rep_form'
-
-.grid_4.omega
-  %h2 Key Votes
-  .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-  %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
-
-  %p
-    %ul.lined.and_spaced
-      - @state_key_votes.each do |bill|
-        %li
-          != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-          = bill.title
-
-
+  .grid_12.alpha
+    %h2= @state.legislature.name
+    .committees_count
+      = @state.legislature.primary_committees.count
+      committees and 
+      = @state.legislature.sub_committees.count
+      sub-committees.
+  
+    - @state.chambers.each do |chamber|
+      .grid_6.alpha
+        %h3
+          =chamber.name
+          - surround '(', ')' do
+            = chamber.people.count
+        %ul.lined
+          %li= pluralize(chamber.people.democrats.count, 'Democrat')
+          %li= pluralize(chamber.people.republicans.count, 'Republican')
+          %li= pluralize(chamber.people.other.count, 'Other')
+        .grid_6.alpha.district_map
+          = leg_map_img(@state, chamber)
+  
+  
+    %hr.push_top
+  
+  
+    .grid_12.alpha
+      %h2 Key Votes
+      .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+      %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+    
+      %p
+        %ul.lined.and_spaced
+          - @state_key_votes.each do |bill|
+            %li
+              != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
+              = bill.title
+    
+    

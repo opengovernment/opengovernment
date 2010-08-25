@@ -3,6 +3,16 @@ a{
 color: #215357 !important;
 }
 
+@font-face {
+  font-family: MyHelvetica;
+  src: local("HelveticaNeueLTPro-Lt"),
+  local("HelveticaNeueLTPro-Lt"),
+  url(/images/HelveticaNeueLTPro-Lt.otf);
+  font-weight: normal;
+}
+
+
+
 
 /* typography.css */
 
@@ -30,6 +40,7 @@ font-size: 16px;
 line-height:1.3em;
  padding: 10px 0;
 color: #36676f;
+font-weight: bold;
 text-transform: uppercase;
  clear: both; 
 border-bottom: 1px solid #d5e1ee;
@@ -47,15 +58,17 @@ line-height:1em;
 margin: 0 0 10px; 
 width: 100%; 
 float: left; 
+font-weight: bold;
 }
 
 
 
 h4 {
-font-size:1.2em;
+font-size:12px;
 line-height:1.25;
 margin: 0 0 10px; 
 color: #333; 
+font-weight: bold;
 float: left; 
 width: 100%;
 }

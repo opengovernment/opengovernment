@@ -342,3 +342,12 @@ background: url(/images/sprites.png) left -149px no-repeat;
 .details{
 padding-top: 30px;
 }
+
+
+.committees_count{
+float: right;
+margin-top: -40px;
+}
+
+
+
