@@ -6,71 +6,31 @@
   %hr
 
 
-%aside.grid_4#left_nav
+%nav.grid_4#left_nav
   = render_navigation(:level => 1)
-
-.grid_12
-  .grid_13.views.alpha
-    This Bill's Page Views&nbsp;&nbsp;&nbsp;
-    Today - 3,456&nbsp;&nbsp;&nbsp;
-    Past 30 Days - 67,987&nbsp;&nbsp;&nbsp;
-    All-Time - 2,235,232&nbsp;&nbsp;&nbsp;
-  %hr
+  %p.donate= link_to 'Help Us Open Gov!', '/help/donate'
 
 .grid_8
-  %h2
-    = @state.legislature.name
+  %h2= @state.legislature.name
+  = @state.legislature.primary_committees.count
+  committees and 
+  = @state.legislature.sub_committees.count
+  sub-committees.
 
-
-
-  .grid_4.alpha
-    %h3= @state.legislature.upper_chamber.name
+  - @state.chambers.each do |chamber|
+    %h3= chamber.name
+    = pluralize(chamber.people.count, chamber.title)
+    .grid_4.alpha
+      %h3= pluralize(chamber.people.democrats.count, 'Democrat')
+      %h3= pluralize(chamber.people.republicans.count, 'Republican')
+      %h3= pluralize(chamber.people.other.count, 'Other')
     .district_map
-      = leg_map_img(@state, @state.legislature.upper_chamber)
+      = leg_map_img(@state, chamber)
 
-    %h4
-      = pluralize(@state_upper_chamber_roles.size, @state.legislature.upper_chamber.title)
-    %ul.lined
-      - @state_upper_chamber_roles.each do |role|
-        %li
-          != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-
-
-  .grid_4.omega
-    %h3= @state.legislature.lower_chamber.name
-    .district_map
-      = leg_map_img(@state, @state.legislature.lower_chamber)
-
-    %h4
-      = pluralize(@state_lower_chamber_roles.size, @state.legislature.lower_chamber.title)
-    %ul.lined
-      - @state_lower_chamber_roles.each do |role|
-        %li
-          != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
 
   %hr.push_top
 
-  .grid_8
-    %h2
-      = Legislature::CONGRESS.name
-
-    .grid_4.alpha
-      %h3
-        = pluralize(@state.senators.size, Legislature::CONGRESS.upper_chamber.title)
-      %ul.lined
-        - @state.senators.each do |rep|
-          %li
-            = link_to(rep.full_name, person_path(rep))
-    .grid_4.omega
-      %h3
-        = Legislature::CONGRESS.lower_chamber.name
-      %ul.lined
-        - @state.us_rep_roles.order("people.last_name").each do |role|
-          %li
-            != link_to(role.person.full_name, person_path(role.person)) + ", #{role.district.name}"
-
-
-
+= render :partial => 'shared/find_my_rep_form'
 
 .grid_4.omega
   %h2 Key Votes

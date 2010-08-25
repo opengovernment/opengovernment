@@ -3,7 +3,8 @@
 .grid_16
   %h1
     = @person.official_name
-    = "(#{@person.current_role.try(:affiliation_fm)})"
+    - surround '(', ')' do
+      = @person.current_role.try(:affiliation_fm)
   %hr
 
 %aside.grid_4
@@ -106,7 +107,7 @@
               - @latest_roll_calls.each do |roll_call|
                 - vote = roll_call.vote
                 %li
-                  = "Voted #{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+                  = "#{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
     
         %p
           != link_to("View All Votes", votes_person_path(@person))

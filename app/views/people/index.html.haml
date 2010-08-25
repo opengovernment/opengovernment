@@ -2,12 +2,12 @@
 .grid_16
   %h1= "#{@state.name} Representatives"
   %hr
-- @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
-  .legislature.grid_8
-    %h2= legislature.name
-    - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
-      %div.grid_4.alpha[chamber]
-        %h3= chamber.name
-        %ul.lined
-          - c_reps.each do |rep|
-            %li!= link_to(rep.full_name, person_path(rep), :class => rep.gender_class) + (rep.current_role ? ", #{rep.current_role.affiliation_fm}" : "")
+  - @people.group_by { |p| p.roles.first.chamber.legislature }.each do |legislature, reps|
+    .legislature.grid_8
+      %h2= legislature.name
+      - reps.group_by { |r| r.roles.first.chamber }.each do |chamber, c_reps|
+        %div.grid_4.alpha[chamber]
+          %h3= chamber.name
+          %ul.lined
+            - c_reps.each do |rep|
+              %li!= link_to(rep.full_name, person_path(rep), :class => rep.gender_class) + (rep.current_role ? ", #{rep.current_role.affiliation_fm}" : "")
