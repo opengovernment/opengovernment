@@ -1,16 +1,49 @@
 .find_box
   .find_form
-    = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get) do
-      %label(for="q") Enter your Address or Zip Code to find your districts
-      = text_field_tag :q, params[:q]
-      = submit_tag "Find"
-  .auto_find
-    = link_to "Automatically Find My Location", "javascript:findMe();"
-    :javascript
+    = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get, :id => 'find_my_rep') do
+      %label(for='q') Enter your Address or Zip Code to find your districts
+      = text_field_tag :q, params[:q], :autocomplete => 'off'
+      = submit_tag 'Find'
+  .auto_find(style='display: none;')
+    = link_to 'Current Location', 'javascript:findMe();'
+  .finding(style='display: none;')
+    spinner...
+  :javascript  
+    if (navigator.geolocation) {
       function findMe() {
-        navigator.geolocation.getCurrentPosition(fillForm);
+          $('.finding').show();
+          navigator.geolocation.getCurrentPosition(fillForm);
       }
 
       function fillForm(position) {
-        $('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+        $('.finding').hide();
+        $('#find_my_rep').find('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+        $('#find_my_rep').submit();
       }
+
+      var mouse_on_q = false;
+      $(document).ready(function(){ 
+        $('#find_my_rep').find('input#q').focus(function() {
+          $('.auto_find').show();
+          mouse_on_q = true;
+        });
+
+        $('#find_my_rep').find('input#q').blur(function() {
+          mouse_on_q = false;
+        });
+      
+        $('.auto_find').hover(function() {
+          mouse_on_q = true;
+        }, function() {
+          mouse_on_q = false;
+        });
+
+        // Close the menu when someone clicks outside of it.
+        $('body').mouseup(function(){ 
+            if(! mouse_on_q) {
+              $('.auto_find').hide();
+            }
+        });
+
+      });
+    }

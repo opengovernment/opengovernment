@@ -7,11 +7,7 @@ class PeopleController < ApplicationController
     # TODO: The order by legislatures.id relies on congress being id = 1
     # that's fragile; later on we should have a "scope" for legislatures perhaps:
     # federal, state, county, municipal, etc.
-    @people = Person.all(:conditions => ["v_most_recent_roles.state_id = ?", @state.id], :include => 'v_most_recent_roles')
-    @people = Person.with_current_role.find(:all,
-      :include => {:roles => [:district, {:chamber => :legislature}]},
-      :conditions => ["v_most_recent_roles.state_id = ?", @state.id],
-      :order => "legislatures.id, chambers.type desc, districts.census_sld")
+    @people = @state.people
   end
 
   def votes
