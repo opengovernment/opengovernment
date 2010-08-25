@@ -7,4 +7,4 @@
       %h3= chamber.name
       %ul.lined
         - chamber.people.each do |rep|
-          %li!= link_to(rep.full_name, person_path(rep), :class => rep.gender_class) + (rep.current_role ? ", #{rep.current_role.affiliation_fm}" : "")
+          = render :partial => 'shared/person', :locals => {:person => rep}

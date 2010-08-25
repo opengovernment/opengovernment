@@ -39,6 +39,9 @@ gem "chronic" # Complex date string parsing
 # Simple pagination
 gem "will_paginate", "~> 3.0.pre2"
 
+# Attachments
+gem "paperclip"
+
 # HAML!
 # gem 'haml', :git => 'http://github.com/nex3/haml.git' (SUBMODULE)
 

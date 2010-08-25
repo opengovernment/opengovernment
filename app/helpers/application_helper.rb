@@ -43,11 +43,18 @@ module ApplicationHelper
     url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
   end
   
-  def person_photo_for(person)
-    if person.photo_url
-      image_tag(person.photo_url)
+  def photo_for(person, size = :full)
+    ops = case size
+    when :thumb
+      {:width => 50, :height => 50}
     else
-      image_tag('missing.png')
+      {:width => 110, :height => 110}
+    end
+
+    if person.photo_url
+      image_tag(person.photo_url, ops)
+    else
+      image_tag('missing.png', ops)
     end
   end
 end

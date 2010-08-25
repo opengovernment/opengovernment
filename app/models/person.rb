@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
+  has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
@@ -174,7 +175,4 @@ class Person < ActiveRecord::Base
     "#{id}-#{full_name.parameterize}"
   end
 
-  def photo_url
-    self.openstates_photo_url || self.votesmart_photo_url || 'missing.png'
-  end
 end
