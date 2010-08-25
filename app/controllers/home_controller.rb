@@ -47,7 +47,7 @@ class HomeController < ApplicationController
       #      Rails.cache.write("states_map_png", states_map_png)
       #      send_data(states_map_png)
       #    end
-      end
+      #end
     end
   end
 
