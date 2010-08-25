@@ -16,9 +16,7 @@
     %h3 Bills
     %ul.bills
       - @bills.each do |bill|
-        %li[bill]
-          != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-          != bill.excerpts.title
+        = render :partial => 'shared/bill', :locals => {:bill => bill}
     = will_paginate @bills, :class => "pagination"
 
 - unless @legislators.empty?

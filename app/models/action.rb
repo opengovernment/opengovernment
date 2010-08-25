@@ -1,5 +1,6 @@
 class Action < ActiveRecord::Base
   belongs_to :bill
+  default_scope :order => 'actions.date desc'
 
   class << self
     def find_all_by_issue(issue)
