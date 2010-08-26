@@ -55,7 +55,6 @@ SimpleNavigation::Configuration.run do |navigation|
           p.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           p.item :votes, 'Votes', votes_person_path(@person)
           p.item :money_trail, 'Money Trail', '#'
-          p.item :community_forum, 'Community Forum', '#'
         end
       end
     end
@@ -67,7 +66,6 @@ SimpleNavigation::Configuration.run do |navigation|
     end
     primary.item :money_trail, 'Money Trail', '#'
 
-    
     # Add an item which has a sub navigation (same params, but with block)
     #primary.item :key_2, 'name', url, options do |sub_nav|
       # Add an item to the sub navigation (same params again)

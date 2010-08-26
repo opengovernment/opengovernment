@@ -71,9 +71,9 @@ class Person < ActiveRecord::Base
     end
   end
 
-  has_many :votes, :through => :roll_calls, :order => "date desc" do
-    def latest
-      find(:all, :limit => 5)
+  has_many :votes, :through => :roll_calls do
+    def latest(n = 5)
+      limit(n)
     end
   end
 

@@ -26,10 +26,13 @@ module OpenGov
       
       # Load photos from the URLs in our db, and add them as attachments to
       # the person.
-      def sync
+      def sync!
         puts "Resizing, cropping, and attaching photos to people"
         Person.with_photo_url.each do |p|
-          
+          # Net::URI.get(p.photo_url)
+          # put the data in a local file
+          # p.photo = File
+          # p.save
         end
       end
       

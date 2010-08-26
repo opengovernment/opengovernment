@@ -17,9 +17,17 @@ class PeopleController < ApplicationController
   # /people/1
   def show
    # add_breadcrumb @person.full_name, person_path(@person), :class => "person #{@person.gender_class}"
-
-    @latest_votes = @person.votes.latest
-    @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
+   respond_to do |format|
+     format.js
+     format.atom do
+       
+       render :template => 'shared/actions'
+     end
+     format.html do
+       @latest_votes = @person.votes.latest
+       @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
+     end
+   end
   end
 
   protected
