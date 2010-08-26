@@ -1,9 +1,9 @@
 atom_feed(:root_url => url_for(:format => nil, :only_path => false)) do |feed|
   feed.title("Votes by #{@person.official_name}")
-  feed.updated(@person.votes.latest.date)
+  feed.updated(@person.votes.first.try(:date))
 
-  for action in @actions
-    feed.entry(action) do |entry|
+  for vote in @person.votes.latest(20)
+    feed.entry(vote) do |entry|
       entry.title(action.action)
       entry.content(action.description, :type => 'html')
       entry.updated(action.date)

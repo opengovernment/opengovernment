@@ -81,7 +81,7 @@
                 people voted on
                 %span.vote_date= vote.date
             %td.votes{:rowspan => 2} 
-              %span.total-votes.rounded total
+              %span.total-votes.rounded= vote.total_count
             %td.votes.centered{:rowspan => 2, :class => vote.passed? ? 'vote-passed' : ''}
               %span.vote-yes.rounded= vote.yes_count.round
             %td.votes.centered{:rowspan => 2, :class => vote.passed? ? '' : 'vote-failed'}
