@@ -401,13 +401,58 @@ background: url(/images/sprites.png) left -202px no-repeat;
 
 
 .auto_find{
-border: 1px solid;
 position: absolute;
-right: 0;
-top: 34px;
+right: 81px;
+top: -13px;
 display: block;
-padding: 6px 0 6px 15px;
+background: #fff;
+border-bottom: 0;
+
+  border-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-radius: 4px;
+
+
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #cfe7e9,  #aeccce); /* for firefox 3.6+ */
+
+border: 1px solid #38575d;
+border-top: 1px solid #69949c;
+border-bottom: 0;
+  border-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-radius: 4px;
+
 }
+
+
+
+.auto_find a{
+display: block;
+padding: 7px 0 6px 25px;
+background: #fff;
+width: 248px;
+font-size: 11px;
+text-shadow: #d5ebef 0px 1px 0px;
+
+background: url(/images/sprites.png) 10px -218px no-repeat;
+
+font-weight: bold;
+text-transform: uppercase;
+
+}
+
+
+.auto_find a:hover{
+text-decoration: none;
+}
+
+
+
 
 #find_my_rep{
 padding: 0px;
@@ -424,6 +469,42 @@ padding: 7px 20px 0 20px;
 float: left;
 }
 
+
+.finding{
+position: absolute;
+width: 18px;
+height: 18px;
+right: 83px;
+top: 21px;
+background: url(/images/location_spinner.gif) no-repeat;
+}
+
+
+
+/*///////////////////////////
+
+~ Donate
+
+///////////////////////////*/
+
+
+
+
+
+p.donate{
+padding-top: 10px;
+}
+
+p.donate a{
+display: block;
+padding: 10px 0 10px 10px;
+font-weight: bold;
+background: #fff;
+margin-left: -10px;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
 
 
 
