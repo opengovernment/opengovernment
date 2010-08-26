@@ -28,6 +28,10 @@ describe Session do
     # Uppercase/lowercase
     session.name = '20092010 Special SESSION 6'
     session.special_number.should eql(6)
+    
+    # Year + sN
+    session.name = '2007s1'
+    session.special_number.should eql(1)
   end
 
 end

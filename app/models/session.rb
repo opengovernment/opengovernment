@@ -3,9 +3,12 @@ class Session < ActiveRecord::Base
   has_many :roles
   has_many :bills
 
-  scope :active, :conditions => ["date_part('year', current_timestamp) between start_year and end_year"]
-  scope :complete, :conditions => ["id in (select distinct session_id from roles)"]
-  scope :most_recent, lambda { |legislature_id| complete.where(["legislature_id = ?", legislature_id]).order("end_year desc").limit(1) }
+  scope :active, :conditions => ["date_part('year', current_timestamp) between sessions.start_year and sessions.end_year"]
+  scope :for_year, lambda { |year| where('? between sessions.start_year and sessions.end_year', year) }
+
+  scope :complete, :conditions => ['sessions.id in (select distinct session_id from roles)']
+  scope :most_recent, lambda { |legislature_id| complete.where(["legislature_id = ?", legislature_id]).order('sessions.end_year desc').limit(1) }
+  scope :major, :conditions => ['sessions.parent_id is null']
 
   validates_uniqueness_of :name, :scope => :legislature_id
 
@@ -17,7 +20,9 @@ class Session < ActiveRecord::Base
 
   def special_number
     if parent_id?
-      [/\d+ (\d+)[stndh]+ extraordinary session/, /\d+ special session (\d+)/].each do |re|
+      [/\d+ (\d+)[stndh]+ extraordinary session/,
+      /\d+ special session (\d+)/,
+      /^\d{4}s(\d+)$/].each do |re|
         return $1.to_i if name.downcase =~ re
       end
       return nil
