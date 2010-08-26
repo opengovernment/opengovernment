@@ -51,9 +51,14 @@ module ApplicationHelper
       {:width => 110, :height => 110}
     end
 
-    if person.photo_url
-      image_tag(person.photo_url, ops)
+    if person.photo?
+      # The local photo
+      image_tag(person.photo.url(size), ops)
+    elsif person.photo_url(size)
+      # The remote photo, as a backup
+      image_tag(person.photo_url(size), ops)
     else
+      # No photo.
       image_tag('missing.png', ops)
     end
   end

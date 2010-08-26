@@ -13,6 +13,7 @@ class Person < ActiveRecord::Base
 
   scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
+  scope :with_photo_url, :conditions => ["openstates_photo_url is not null"]
   scope :with_current_role, :include => :current_roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
@@ -135,6 +136,10 @@ class Person < ActiveRecord::Base
 
   def has_contributions?
     !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
+  end
+
+  def photo_url(size = :full)
+    openstates_photo_url || votesmart_photo_url
   end
 
   def current_sponsorship_vitals
