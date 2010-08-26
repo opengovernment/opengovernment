@@ -33,7 +33,8 @@
         %ul.lined
           %li= pluralize(chamber.people.democrats.count, 'Democrat')
           %li= pluralize(chamber.people.republicans.count, 'Republican')
-          %li= pluralize(chamber.people.other.count, 'Other')
+          - if chamber.people.other.count > 0
+            %li= pluralize(chamber.people.other.count, 'Other')
         .grid_6.alpha.district_map
           = leg_map_img(@state, chamber)
   
