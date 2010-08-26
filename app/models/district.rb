@@ -4,9 +4,15 @@ class District < Place
   belongs_to :state
   belongs_to :chamber
   validates_presence_of :state_id, :name
+
   scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
   scope :for_x_y, lambda { |lat, lng| { :conditions => ["ST_Contains(geom, ST_GeomFromText('POINT(? ?)', ?))", lng, lat, SRID] } }
   scope :for_state, lambda { |n| { :conditions => ['state_id = ?', n] } }
+  
+  # This will force a numeric sort on the district number!
+  scope :by_number, :order => %q{CASE WHEN census_sld < 'A' 
+         THEN lpad(census_sld, 3, '0')
+         ELSE census_sld END}
 
   has_and_belongs_to_many :roles, :join_table => 'v_most_recent_roles'
   has_many :legislators, :through => :roles, :class_name => 'Person', :source => :person

@@ -15,12 +15,14 @@ class Action < ActiveRecord::Base
 
   def actor_fm
     case actor
-      when "lower"
+      when /^lower/
         bill.state.legislature.lower_chamber.name
-      when "upper"
+      when /^upper/
         bill.state.legislature.upper_chamber.name
-      when "executive"
+      when 'executive', 'governor'
         "executive branch"
+      else
+        actor
     end
   end
 
