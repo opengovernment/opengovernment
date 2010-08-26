@@ -44,9 +44,9 @@
             Hello,
             %a.account(href="#content" title="Username") Morgan.
             %a.help(href="#content" title="Help Center") Help
-          - if current_place
-            .grid_10.omega.search
-              = render :partial => 'shared/search_form'
+        - if current_place
+          .grid_10.omega.search
+            = render :partial => 'shared/search_form'
 
         %aside
           = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}

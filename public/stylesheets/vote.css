@@ -4,10 +4,28 @@
   padding-right: 20px;
 }
 
+/* Full Roll Call */
+.roll_call caption {
+  background: transparent;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.roll_call th {
+  font-weight: normal;
+  padding-bottom: 3px;
+  padding-top: 5px;
+}
+
+.roll_call td {
+  padding: 3px 5px 3px 0;
+}
 
 /* Make room for the party icon */
 .roll_call td.person {
   padding-left: 14px !important;
+  font-size: 12px;
 }
 
 /* showing vote color boxes */
@@ -168,6 +186,11 @@ background: #ccc;
   width: 300px; /* See votes_helper full-size chart width */
 }
 
+.vote_chart table caption {
+  background: transparent;
+  font-size: 10px;
+}
+
 .vote_chart table td,
 .vote_chart table th {
   height: 24px;
@@ -175,6 +198,7 @@ background: #ccc;
   text-align: right;
   line-height: 24px;
   padding: 0;
+  border: 0;
 }
 
 .vote_chart table td.first,
