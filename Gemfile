@@ -39,6 +39,9 @@ gem "chronic" # Complex date string parsing
 # Simple pagination
 gem "will_paginate", "~> 3.0.pre2"
 
+# Attachments
+gem "paperclip"
+
 # HAML!
 # gem 'haml', :git => 'http://github.com/nex3/haml.git' (SUBMODULE)
 
@@ -74,11 +77,11 @@ end
 group :test, :cucumber do
   # Bundle gems for certain environments:
   gem "webrat", "~> 0.7.2.beta1"
-  gem "rspec", ">= 2.0.0.beta.19"
-  gem "rspec-core", ">= 2.0.0.beta.19", :require => 'rspec/core'
-  gem "rspec-expectations", ">= 2.0.0.beta.19", :require => 'rspec/expectations'
-  gem "rspec-mocks", ">= 2.0.0.beta.19", :require => 'rspec/mocks'
-  gem "rspec-rails", ">= 2.0.0.beta.19", :require => 'rspec/rails'
+  gem "rspec", ">= 2.0.0.beta.20"
+  gem "rspec-core", ">= 2.0.0.beta.20", :require => 'rspec/core'
+  gem "rspec-expectations", ">= 2.0.0.beta.20", :require => 'rspec/expectations'
+  gem "rspec-mocks", ">= 2.0.0.beta.20", :require => 'rspec/mocks'
+  gem "rspec-rails", ">= 2.0.0.beta.20", :require => 'rspec/rails'
   gem "autotest"
   gem "autotest-rails"
   gem "machinist"

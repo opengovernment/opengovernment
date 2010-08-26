@@ -24,10 +24,7 @@
     %h2 General Info
 
     .grid_2.alpha
-      - if @person.photo_url
-        = image_tag(@person.photo_url)
-      - else
-        = image_tag('missing.png')
+      = photo_for(@person)
 
     %ul.grid_4.omega
       - unless @person.birthday.blank?

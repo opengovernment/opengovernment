@@ -133,6 +133,9 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
+    paperclip (2.3.3)
+      activerecord
+      activesupport
     pg (0.9.0)
     plucky (0.3.4)
       mongo (~> 1.0.7)
@@ -221,13 +224,14 @@ DEPENDENCIES
   linecache19
   machinist
   mongo_mapper
+  paperclip
   pg
   rails (= 3.0.0.rc2)
-  rspec (>= 2.0.0.beta.19)
-  rspec-core (>= 2.0.0.beta.19)
-  rspec-expectations (>= 2.0.0.beta.19)
-  rspec-mocks (>= 2.0.0.beta.19)
-  rspec-rails (>= 2.0.0.beta.19)
+  rspec (>= 2.0.0.beta.20)
+  rspec-core (>= 2.0.0.beta.20)
+  rspec-expectations (>= 2.0.0.beta.20)
+  rspec-mocks (>= 2.0.0.beta.20)
+  rspec-rails (>= 2.0.0.beta.20)
   ruby-debug19
   simple-navigation
   spatial_adapter

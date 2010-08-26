@@ -42,4 +42,24 @@ module ApplicationHelper
   def state_url(subdomain)
     url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
   end
+  
+  def photo_for(person, size = :full)
+    ops = case size
+    when :thumb
+      {:width => 50, :height => 50}
+    else
+      {:width => 110, :height => 110}
+    end
+
+    if person.photo?
+      # The local photo
+      image_tag(person.photo.url(size), ops)
+    elsif person.photo_url(size)
+      # The remote photo, as a backup
+      image_tag(person.photo_url(size), ops)
+    else
+      # No photo.
+      image_tag('missing.png', ops)
+    end
+  end
 end

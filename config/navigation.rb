@@ -55,7 +55,7 @@ SimpleNavigation::Configuration.run do |navigation|
           p.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           p.item :votes, 'Votes', votes_person_path(@person)
           p.item :money_trail, 'Money Trail', '#'
-          p.item :videos, 'Videos', '#'
+          p.item :community_forum, 'Community Forum', '#'
         end
       end
     end

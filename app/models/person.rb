@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
+  has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
@@ -12,6 +13,7 @@ class Person < ActiveRecord::Base
 
   scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
+  scope :with_photo_url, :conditions => ["openstates_photo_url is not null"]
   scope :with_current_role, :include => :current_roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
@@ -136,6 +138,10 @@ class Person < ActiveRecord::Base
     !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
   end
 
+  def photo_url(size = :full)
+    openstates_photo_url || votesmart_photo_url
+  end
+
   def current_sponsorship_vitals
     Person.find_by_sql(["
       select * from (
@@ -174,7 +180,4 @@ class Person < ActiveRecord::Base
     "#{id}-#{full_name.parameterize}"
   end
 
-  def photo_url
-    self.openstates_photo_url || self.votesmart_photo_url || 'missing.png'
-  end
 end
