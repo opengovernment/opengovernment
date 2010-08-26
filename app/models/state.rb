@@ -32,7 +32,6 @@ class State < Place
   # this could be:
   #scope :loadable, :conditions => ['launch_date is not null']
 
-
   validates_uniqueness_of :fips_code, :allow_nil => true
   validates_presence_of :name, :abbrev
   validates_inclusion_of :unicameral, :in => [true, false]
