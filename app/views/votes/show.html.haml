@@ -34,10 +34,12 @@
 
 
   .grid_6
+    %h2 Geography of the Vote
+    = vote_legend_img
     = vote_map_img(@state, @vote.id)
 
   .grid_7.vote_chart.omega
-    = vote_legend_img
+    %h2 Vote Breakdown
     %table
       %tr
         %th.first.label Yes
@@ -55,7 +57,8 @@
       %caption(align='bottom')= "* Not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
 
   #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
-  
+
+  %h2 Full Roll Call
   - unless @vote.roll_calls
     %grid_16.alpha Sorry, no roll call is available for this vote.
   - else
@@ -63,9 +66,10 @@
       - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
         .grid_5
           %table.roll_call
+            %caption(align='top') #{vote_type.capitalize} Votes
             %thead
               %tr
-                %th #{vote_type.capitalize} Votes
+                %th Name
                 %th District
                 %th Party
             %tbody
