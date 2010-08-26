@@ -96,7 +96,7 @@ namespace :db do
     Rake::Task['db:create:postgis'].invoke
 
     unless ActiveRecord::Base.connection.table_exists?("schema_migrations")
-        Rake::Task['db:schema:load'].invoke
+      Rake::Task['db:schema:load'].invoke
     end
 
     puts "\n---------- Loading seed data file"
@@ -114,6 +114,7 @@ namespace :db do
     end
   end
 
+  #TODO: Remove duplication between create, drop postgis tasks
   namespace :create do
     desc "Install PostGIS tables"
     task :postgis => :environment do
@@ -137,6 +138,32 @@ namespace :db do
 
       else
         puts "Looks like you already have PostGIS installed in your database. No action taken."
+      end
+    end
+  end
+
+  namespace :drop do
+    desc "Drop postgis tables"
+    task :postgis => :environment do
+      if ActiveRecord::Base.connection.table_exists?("geometry_columns")
+        puts "\n---------- Uninstalling PostGIS #{POSTGIS_VERSION} tables"
+        if `pg_config` =~ /SHAREDIR = (.*)/
+          postgis_dir = File.join($1, 'contrib', "postgis-#{POSTGIS_VERSION}")
+          unless File.exists? postgis_dir
+            postgis_dir = File.join($1, 'contrib')
+          end
+        else
+          raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
+        end
+
+        if File.exists?(File.join(postgis_dir, 'uninstall_postgis.sql'))
+          load_pgsql_files(File.join(postgis_dir, 'uninstall_postgis.sql'))
+        else
+          raise "Please install PostGIS before continuing."
+        end
+
+      else
+        puts "Looks like you do not have PostGIS installed in your database. No action taken."
       end
     end
   end
@@ -177,7 +204,7 @@ namespace :fetch do
   desc "Get the openstates files for all active states"
   task :openstates => :setup do
     # Download the bills & legislator data from OpenStates.
-    
+
     with_states do |state|
       state ? OpenGov::OpenStates.fetch_one(state) : OpenGov::OpenStates.fetch!
     end
@@ -188,7 +215,7 @@ desc "Load all data: fixtures, legislatures, districs, committess, people(includ
 namespace :load do
   task :all  => :environment do
     # We don't load fixtures here anymore-- we load them earlier so we can use them to fetch the right districts and bills.
-    
+
     puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
@@ -222,7 +249,7 @@ namespace :load do
   desc "Fetch and load legislatures from Open State data"
   task :legislatures => :environment do
     with_states do |state|
-        state ? OpenGov::Legislatures.import_one(state) : OpenGov::Legislatures.import!
+      state ? OpenGov::Legislatures.import_one(state) : OpenGov::Legislatures.import!
     end
   end
 
@@ -235,13 +262,13 @@ namespace :load do
   task :bills => :environment do
     puts "Loading bills from Open State data"
     with_states do |state|
-        if state 
-          OpenGov::Bills.import_one(state)
-          OpenGov::KeyVotes.import_one(state)
-        else
-          OpenGov::Bills.import!
-          OpenGov::KeyVotes.import!
-        end
+      if state
+        OpenGov::Bills.import_one(state)
+        OpenGov::KeyVotes.import_one(state)
+      else
+        OpenGov::Bills.import!
+        OpenGov::KeyVotes.import!
+      end
     end
   end
 
@@ -263,7 +290,7 @@ namespace :load do
   desc "Fetch and load people from OpenStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     with_states do |state|
-        state ? OpenGov::People.import_one(state) : OpenGov::People.import!
+      state ? OpenGov::People.import_one(state) : OpenGov::People.import!
     end
 
     Dir.chdir(Rails.root)
