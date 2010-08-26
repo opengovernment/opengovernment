@@ -3,7 +3,8 @@
     = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get, :id => 'find_my_rep') do
       %label(for='q') Enter your Address or Zip Code to find your districts
       = text_field_tag :q, params[:q], :autocomplete => 'off'
-      = submit_tag 'Find'
+      .search_button
+        = submit_tag 'Find'
   .auto_find(style='display: none;')
     = link_to 'Current Location', 'javascript:findMe();'
   .finding(style='display: none;')
@@ -47,3 +48,4 @@
 
       });
     }
+  .div.clearfix

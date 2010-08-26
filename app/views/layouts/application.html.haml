@@ -36,35 +36,49 @@
     %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
   %body
     %div.container_16
+      %div.skip-link.screen-reader-text
+        %a(href="#content" title="Skip to content") Skip to content
       %header
-        #account.grid_16.alpha.omega
-          .grid_9.alpha
+        #account.grid_6.alpha
+          .grid_6.alpha.omega
             Hello,
             %a.account(href="#content" title="Username") Morgan.
             %a.help(href="#content" title="Help Center") Help
           - if current_place
-            .grid_7.omega.search
-              = render :partial => 'shared/search_form'
-        %nav
-          %div.skip-link.screen-reader-text
-            %a(href="#content" title="Skip to content") Skip to content
-          %ul.breadcrumb
-            %li.topnav
-              %a{:href => root_path}
-                %strong OpenGovernment
-                = current_place_name
-              %a#dropdown{:href => '#'}
-              %ul.state-select
-                - State.loadable.each do |state|
-                  %li= link_to state.name, state_url(state)
-            = render_navigation(:renderer => SimpleNavigation::Renderer::Bread)
+        .grid_10.omega.search
+          = render :partial => 'shared/search_form'
+
         %aside
           = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+
+
+    %div.container_16.bread
+      %ul.breadcrumb
+        %li.topnav
+          %a{:href => root_path}
+            %strong OpenGovernment
+            = current_place_name
+          %a#dropdown{:href => '#'}
+          %ul.state-select
+            - State.loadable.each do |state|
+              %li= link_to state.name, state_url(state)
+        = render_navigation(:renderer => SimpleNavigation::Renderer::Bread)
+  
+  
+    %div.container_16
       %div#flash
         - flash.each do |key, value|
           %div(id="flash_#{key}")
             =h value
       %div.content
         = yield
+      %br
+      .clearfix
+
+
+    .clearfix
+
+    %div.container_16
       %div.footer
         = render :partial => 'layouts/footer'
+      .clearfix

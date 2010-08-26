@@ -70,17 +70,17 @@ td.vote-passed span, td.vote-failed span {
 
 
 th.vote-motion{
-width: 360px;
+width: 490px;
 }
 
 
 th.vote-votes{
-width: 90px;
+width: 80px;
 }
 
 
 td.vote-bar {
-  width: 280px;
+  width: 150px;
   padding-top: 0;
 }
 

@@ -1,3 +1,11 @@
+
+
+.bread{
+height: 46px;
+}
+
+
+
 /* State selector menu */
 ul.breadcrumb li ul.state-select {  
   list-style: none;  
@@ -8,7 +16,7 @@ ul.breadcrumb li ul.state-select {
   padding: 0;  
   display: none;  
   float: left;
-  width: 156px;  
+  width: 230px;  
   top: 47px;
   border: 1px solid #ddd;
   border-top: 0;
@@ -18,14 +26,16 @@ ul.breadcrumb li ul.state-select li {
   list-style: none;
   background: none !important;
   border-top: 1px solid #ddd;
+margin: 0 !important;
+float: left;
 }
 
 ul.breadcrumb li ul.state-select li a {  
   float: left;
   margin: 0;
-  width: 122px;
-  padding-left: 9px;
+  padding-left: 25px;
   background: none !important;
+  width: 170px;  
 }
 
 ul.breadcrumb li ul.state-select li a:hover{  
@@ -35,15 +45,14 @@ ul.breadcrumb li ul.state-select li a:hover{
 ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
 
 .breadcrumb{
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   height: 47px;
   padding: 0;
   clear: both;
-  width: 100%;
+  width: 992px;
   letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
   float: left;
-  margin: 15px 0 0;
+  margin: -1px 0 0 -16px;
+background: url(/images/white_trans.png);
 }
 
 .breadcrumb li{
@@ -61,7 +70,8 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
   padding: 0 0 0 15px;
 }
 
-.breadcrumb .person{
+.breadcrumb .person,
+.breadcrumb .bill{
   z-index: 90;
   margin-left: -30px;
 }
@@ -87,7 +97,8 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
   position: relative;
 }
 
-.breadcrumb .person a{
+.breadcrumb .person a,
+.breadcrumb .bill a{
   padding-left: 45px;
 }
 
@@ -99,6 +110,13 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
   padding-left: 22px;
   background: url(/images/sprites.png) left -30px no-repeat;
 }
+
+.breadcrumb .bill a span{
+  padding-left: 22px;
+  background: url(/images/sprites.png) left -149px no-repeat;
+}
+
+
 
 .breadcrumb .person.gender-male a span{
   background: url(/images/male.gif) left 2px no-repeat;
@@ -117,7 +135,7 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
 
 .breadcrumb li:hover, .breadcrumb a.subhover{
   z-index: 120;
-  background: #fbfbfc url(/images/crumb_right.gif) right -49px no-repeat;
+  background: #fbfbfc url(/images/crumb_right.gif) right 0px no-repeat;
 }
 
 
@@ -127,7 +145,7 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
 
 
 .topnav a{
-  padding-left: 0 !important;
+
 }
 
 
@@ -147,5 +165,11 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
 }
 
 #dropdown:hover{
-  background: #fff url(/images/sprites.png) left -254px no-repeat;
+  background: url(/images/sprites.png) left -254px no-repeat !important;
 }
+
+
+
+
+
+
