@@ -23,7 +23,7 @@ def with_states
   end
 
   ENV['LOAD_STATES'].split(',').each do |state_abbrev|
-    if state = State.find_by_abbrev(state_abbrev.upcase)
+    if state = State.find_by_abbrev(state_abbrev.strip.upcase)
       yield state
     else
       puts "Could not find state #{state_abbrev}; skipping."
