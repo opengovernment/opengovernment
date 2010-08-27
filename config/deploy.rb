@@ -4,6 +4,7 @@
 #
 # Use cap deploy to deploy to production; cap staging deploy to deploy to dev.
 #
+require 'eycap/recipes'
 require 'capistrano/ext/multistage'
 
 set :stages, %w(staging production)
@@ -72,6 +73,52 @@ namespace :bundler do
     sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
   end
 end
+
+namespace :db do
+  desc "EYCAP OVERRIDE: Backup your MySQL or PostgreSQL database to shared_path+/db_backups"
+  task :dump, :roles => :db, :only => {:primary => true} do
+    backup_name unless exists?(:backup_file)
+    on_rollback { run "rm -f #{backup_file}" }
+    run("cat #{shared_path}/config/database.yml") { |channel, stream, data| @environment_info = YAML.load(data)[rails_env] }
+    
+    dbuser = @environment_info['username']
+    dbpass = @environment_info['password']
+    if @environment_info['adapter'] == 'mysql'
+      dbhost = @environment_info['host']
+      dbhost = environment_dbhost.sub('-master', '') + '-replica' if dbhost != 'localhost' # added for Solo offering, which uses localhost
+      run "mysqldump --add-drop-table -u #{dbuser} -h #{dbhost} -p #{environment_database} | gzip -c > #{backup_file}.gz" do |ch, stream, out |
+         ch.send_data "#{dbpass}\n" if out=~ /^Enter password:/
+      end
+    else
+      run "pg_dump -W -Fc -U #{dbuser} -h #{environment_dbhost} #{environment_database} | gzip -c > #{backup_file}.gz" do |ch, stream, out |
+         ch.send_data "#{dbpass}\n" if out=~ /^Password:/
+      end
+    end
+  end
+
+  desc "EYCAP OVERRIDE: Sync your production database to your local workstation"
+  task :clone_to_local, :roles => :db, :only => {:primary => true} do
+    # Find PostGIS
+    if `pg_config` =~ /SHAREDIR = (.*)/
+      postgis_dir = Dir.glob(File.join($1, 'contrib', 'postgis-*')).last || File.join($1, 'contrib')
+      raise "Could not find PostGIS" unless File.exists? postgis_dir
+    else
+      raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
+    end
+
+    backup_name unless exists?(:backup_file)
+    dump
+
+    get "#{backup_file}.gz", "/tmp/#{application}.sql.gz"
+    development_info = YAML.load_file("config/database.yml")['development']
+    run_str = "gunzip /tmp/#{application}.sql.gz && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} /tmp/#{application}.sql"
+
+    # puts "I would run #{run_str}"
+    %x!#{run_str}!
+    run "rm -f #{backup_file}.gz"
+  end
+end
+
 
 namespace :sphinx do
   desc "Generate the Sphinx configuration file"

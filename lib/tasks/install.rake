@@ -119,12 +119,11 @@ namespace :db do
     desc "Install PostGIS tables"
     task :postgis => :environment do
       unless ActiveRecord::Base.connection.table_exists?("geometry_columns")
-        puts "\n---------- Installing PostGIS #{POSTGIS_VERSION} tables"
+        puts "\n---------- Installing PostGIS tables"
+        # Find PostGIS
         if `pg_config` =~ /SHAREDIR = (.*)/
-          postgis_dir = File.join($1, 'contrib', "postgis-#{POSTGIS_VERSION}")
-          unless File.exists? postgis_dir
-            postgis_dir = File.join($1, 'contrib')
-          end
+          postgis_dir = Dir.glob(File.join($1, 'contrib', 'postgis-*')).last || File.join($1, 'contrib')
+          raise "Could not find PostGIS" unless File.exists? postgis_dir
         else
           raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
         end
@@ -138,32 +137,6 @@ namespace :db do
 
       else
         puts "Looks like you already have PostGIS installed in your database. No action taken."
-      end
-    end
-  end
-
-  namespace :drop do
-    desc "Drop postgis tables"
-    task :postgis => :environment do
-      if ActiveRecord::Base.connection.table_exists?("geometry_columns")
-        puts "\n---------- Uninstalling PostGIS #{POSTGIS_VERSION} tables"
-        if `pg_config` =~ /SHAREDIR = (.*)/
-          postgis_dir = File.join($1, 'contrib', "postgis-#{POSTGIS_VERSION}")
-          unless File.exists? postgis_dir
-            postgis_dir = File.join($1, 'contrib')
-          end
-        else
-          raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
-        end
-
-        if File.exists?(File.join(postgis_dir, 'uninstall_postgis.sql'))
-          load_pgsql_files(File.join(postgis_dir, 'uninstall_postgis.sql'))
-        else
-          raise "Please install PostGIS before continuing."
-        end
-
-      else
-        puts "Looks like you do not have PostGIS installed in your database. No action taken."
       end
     end
   end
