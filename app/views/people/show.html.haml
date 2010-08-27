@@ -1,6 +1,7 @@
 - title(@person.official_name)
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Votes by #{@person.official_name}"})
+  = track(@person)
 
 .grid_16
   %h1
@@ -13,14 +14,8 @@
   #left_nav
     = render_navigation(:level => 3)
 
-.grid_12  
-
-  .views
-    This Person's Page Views&nbsp;&nbsp;&nbsp;
-    Today - 3,456&nbsp;&nbsp;&nbsp;
-    Past 30 Days - 67,987&nbsp;&nbsp;&nbsp;
-    All-Time - 2,235,232&nbsp;&nbsp;&nbsp;
-
+.grid_12
+  = render :partial => 'shared/view_counts', :locals => {:page => @person}
 
   .grid_6.alpha
     %h2 General Info
@@ -48,7 +43,7 @@
         %li!= mail_to("E-Mail", @person.email, :encode => "javascript")
       - unless @person.youtube_id.blank?
         %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
-  
+
   .grid_4
     %h2 Bio
     %small.quiet.span
@@ -73,7 +68,7 @@
       Follow #{@person.full_name.possessive} campaign on RaceTracker
 
   %hr.push_top
-  
+
   .grid_12.alpha
     %h2 Addresses
     %ul.addresses
@@ -82,7 +77,7 @@
           = render :partial => "shared/address", :locals => {:address => address}
       - else
         %p Sorry, we found no addresses.
-  
+
 
   %hr.push_top
 
@@ -110,20 +105,20 @@
                 - vote = roll_call.vote
                 %li
                   = "#{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
-    
+
         %p
           != link_to("View All Votes", votes_person_path(@person))
       - else
         %p We have no voting history for #{@person.full_name}
-  
-  
-    
+
+
+
     .grid_4.omega
       %h2!= sponsorship_vitals_for(@person)
-    
-    
+
+
   %hr.push_top
-  
+
   .grid_12.alpha
     %h2 Contributions
     - if @person.has_contributions?
@@ -136,7 +131,7 @@
             = c.business.business_name
           .grid_2.last
             = number_to_currency(c.amount)
-    
+
       %div.grid_3
         %h3
           By Industry
@@ -145,7 +140,7 @@
             = c.industry_name
           .grid_2.last
             = number_to_currency(c.amount)
-    
+
       %div.grid_3
         %h3
           By Sector
@@ -154,7 +149,7 @@
             = c.sector_name
           .grid_2.last
             = number_to_currency(c.amount)
-    
+
       %div.grid_3.omega
         %h3
           By Business
@@ -163,7 +158,7 @@
             = c.business_name
           .grid_2.last
             = number_to_currency(c.amount)
-    
+
     - else
       .grid_12.alpha
         No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit

@@ -15,12 +15,15 @@ module ApplicationHelper
   def track(object)
     javascript do
       %Q|
-      Tracker.req.object_id = #{object.id};
-      Tracker.req.object_type = '#{object.class}';
-     |
+          $(document).ready(function() {
+            Tracker.req.object_id = #{object.id};
+            Tracker.req.object_type = '#{object.class}';
+            Tracker.track();
+          });
+        |
     end
   end
-
+  
   # Given a full or short URL, return only the domain
   # and TLD. Examples:
   #   http://www.opencongress.org => opencongress.org
@@ -42,7 +45,7 @@ module ApplicationHelper
   def state_url(subdomain)
     url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
   end
-  
+
   def photo_for(person, size = :full)
     ops = case size
     when :thumb

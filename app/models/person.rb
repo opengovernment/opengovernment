@@ -1,4 +1,6 @@
 class Person < ActiveRecord::Base
+  include Trackable
+
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
   has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
@@ -116,11 +118,11 @@ class Person < ActiveRecord::Base
   def gender_class
     "gender-" + gender_fm.parameterize
   end
- 
+
   def current_role
     current_roles.try(:first)
   end
- 
+
   def official_name
     [chamber.try(:title), first_name, middle_name, last_name, suffix].join(' ').squeeze(' ')
   end

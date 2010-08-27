@@ -2,9 +2,12 @@
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Recent Activity: #{@issue.name}"})
 
 - title @issue.name
+= track(@issue)
 
 %h2
   = @issue.name.titleize
+= render :partial => 'shared/view_counts', :locals => {:page => @issue}
+
 = link_to "Track via RSS", {:format => :atom}
 
 .span-24

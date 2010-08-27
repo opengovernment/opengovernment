@@ -11,14 +11,10 @@
   %hr
 
 
-.grid_16.views
+.grid_16
   .grid_8.alpha
-    = rand(100000)
-    total views&nbsp;&nbsp;
-    = rand(100)
-    in the last 7 days&nbsp;&nbsp;
-    = rand(1000)
-    in the last month.
+    = render :partial => 'shared/view_counts', :locals => {:page => @bill}
+
   .grid_8.omega
     %div
       = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
@@ -80,7 +76,7 @@
                 %span.voters= vote.total_count
                 people voted on
                 %span.vote_date= vote.date
-            %td.votes{:rowspan => 2} 
+            %td.votes{:rowspan => 2}
               %span.total-votes.rounded= vote.total_count
             %td.votes.centered{:rowspan => 2, :class => vote.passed? ? 'vote-passed' : ''}
               %span.vote-yes.rounded= vote.yes_count.round

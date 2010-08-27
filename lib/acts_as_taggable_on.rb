@@ -1,8 +1,13 @@
+require 'trackable'
+
 module ActsAsTaggableOn
   class Tag < ::ActiveRecord::Base
+    include Trackable
+
     def to_param
       name.parameterize
     end
+
     def self.find_by_param(param, ops = {})
       find_by_name(param.titleize.downcase, ops)
     end

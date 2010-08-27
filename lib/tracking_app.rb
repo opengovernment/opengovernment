@@ -27,7 +27,7 @@ class TrackingApp
                       })
 
 
-    page.views << View.create({:user_id => request.params['user']})
+    page.views << View.new({:user_id => request.params['user'], :created_at => Time.now})
     page.save
   end
 end
