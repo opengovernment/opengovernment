@@ -1,9 +1,15 @@
 module Trackable
   def page
-    Page.where({:og_object_id => self.id.to_s, :og_object_type => self.class.to_s}).first
+    Page.by_object(self.id.to_s, self.class.to_s).first
   end
 
   def views(since=nil)
-    page.nil? ? 0 : page.views.size
+    return 0 unless page
+
+    if since
+      page.views.since(since).count
+    else
+      page.views.count
+    end
   end
 end
