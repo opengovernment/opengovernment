@@ -52,7 +52,6 @@ DATA_DIR = Rails.root.join("data")
 DISTRICTS_DIR = File.join(DATA_DIR, "districts")
 GOVTRACK_DIR = File.join(DATA_DIR, "govtrack")
 OPENSTATES_DIR = File.join(DATA_DIR, "openstates")
-POSTGIS_VERSION = '1.5' # The version of PostGIS we are using.
 
 require 'acts_as_taggable_on'
 require 'extensions'
