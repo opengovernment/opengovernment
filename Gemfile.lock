@@ -135,7 +135,6 @@ GEM
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (2.13.0.beta6)
     nokogiri (1.4.3.1)
     paperclip (2.3.3)
       activerecord
@@ -229,7 +228,6 @@ DEPENDENCIES
   linecache19
   machinist
   mongo_mapper
-  newrelic_rpm (= 2.13.0.beta6)
   paperclip
   pg
   rails (= 3.0.0.rc2)

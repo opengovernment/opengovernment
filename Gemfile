@@ -10,8 +10,6 @@ gem "pg"
 gem "mongo_mapper"
 gem "bson_ext"
 
-gem "newrelic_rpm", "2.13.0.beta6"
-
 # Deployment
 gem "capistrano"
 gem "capistrano-ext"
