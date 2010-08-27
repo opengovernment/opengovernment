@@ -29,6 +29,9 @@ module OpenGov
           rescue GovKit::ResourceNotFound
             s += 1
             # puts "No bio found for #{person.to_param}"
+          rescue Timeout::Error
+            s += 1
+            puts "Timed out while fetching #{person.wiki_name}"
           end
         end # Person.each
         puts "Fetched #{f} bios, updated #{u} people, skipped #{s} bios"
