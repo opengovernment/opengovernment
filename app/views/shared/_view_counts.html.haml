@@ -1,8 +1,7 @@
 %span.views
-  - today = Date.today
   = page.views
   total views&nbsp;&nbsp;
-  = page.views(today.beginning_of_week)
+  = page.views(1.week.ago.utc)
   in the last 7 days&nbsp;&nbsp;
-  = page.views(today.beginning_of_month)
+  = page.views(1.month.ago.utc)
   in the last month.
