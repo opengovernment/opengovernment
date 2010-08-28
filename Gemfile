@@ -13,6 +13,7 @@ gem "bson_ext"
 # Deployment
 gem "capistrano"
 gem "capistrano-ext"
+gem "eycap"
 
 # An alternative form builder
 gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'

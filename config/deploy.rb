@@ -113,7 +113,6 @@ namespace :db do
     development_info = YAML.load_file("config/database.yml")['development']
     run_str = "gunzip /tmp/#{application}.sql.gz && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} /tmp/#{application}.sql"
 
-    # puts "I would run #{run_str}"
     %x!#{run_str}!
     run "rm -f #{backup_file}.gz"
   end

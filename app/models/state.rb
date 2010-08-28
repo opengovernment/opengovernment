@@ -28,7 +28,7 @@ class State < Place
   has_and_belongs_to_many :us_rep_roles, :join_table => 'v_most_recent_roles', :conditions => ['v_most_recent_roles.chamber_id = ?', LowerChamber::US_HOUSE], :class_name => 'Role', :include => [:person]
 
   # Which states are we importing data for?
-  scope :loadable, :conditions => {:abbrev => ['TX']}
+  scope :loadable, :conditions => {:abbrev => ['TX', 'LA', 'CA', 'MD', 'WI']}
   # this could be:
   #scope :loadable, :conditions => ['launch_date is not null']
 
