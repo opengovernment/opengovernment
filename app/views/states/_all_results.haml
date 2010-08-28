@@ -1,33 +1,34 @@
-%hr.span-24.last
-%aside.search_sidebar.span-4
-  %p.filter
-  %p.sort
-    %div
-      Bills (
-      = @bills.size rescue 0
-      )
-    %div
-      People (
-      = @legislators.size rescue 0
-      )
+%hr.grid_16
+  %nav.grid_4#left_nav
+    %p.filter
+    %ul
+      %li
+        Bills (
+        = @bills.size rescue 0
+        )
+      %li
+        People (
+        = @legislators.size rescue 0
+        )
 
-- unless @bills.empty?
-  %div.search_results.span-20.last
-    %h3 Bills
-    %ul.bills
-      - @bills.each do |bill|
-        = render :partial => 'shared/bill', :locals => {:bill => bill}
-    = will_paginate @bills, :class => "pagination"
+  .grid_12
+    - unless @bills.empty?
+      %div.search_results.span-20.last
+        %h3 Bills
+        %ul.bills
+          - @bills.each do |bill|
+            = render :partial => 'shared/bill', :locals => {:bill => bill}
+        = will_paginate @bills, :class => "pagination"
 
-- unless @legislators.empty?
-  %aside.search_sidebar.span-4
-    %p.sort
+    - unless @legislators.empty?
+      %aside.search_sidebar.span-4
+        %p.sort
 
-  %div.search_results.span-20.last
-    %h3 Legislators
-    %ul.legislators
-      - @legislators.each do |leg|
-        %li[leg]
-          != link_to(leg.full_name, person_path(leg))
+      %div.search_results.span-20.last
+        %h3 Legislators
+        %ul.legislators
+          - @legislators.each do |leg|
+            %li[leg]
+              != link_to(leg.full_name, person_path(leg))
 
-    = will_paginate @legislators
+        = will_paginate @legislators

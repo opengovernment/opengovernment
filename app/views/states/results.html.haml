@@ -2,55 +2,41 @@
 
 - case @search_type
   - when "all"
-    .span-24.last
-      .span-16
-        %h3
-          Search:
-          = @state.name
-        .small.quiet
-          = "Total #{@total_entries} matches."
-      %p.span-8.last
-      = render :partial => "all_results"
+    %h3.grid_16
+      Search:
+      = @state.name
+    .small.quiet
+      = "Total #{@total_entries} matches."
+    = render :partial => "all_results"
+
   - when "bills"
-    .span-24.last
-      .span-16
-        %h3
-          Bill Search:
-          = @state.name
-        .small.quiet
-          = "Total #{@total_entries} matches."
-      %p.span-8.last
+    %h3.grid_16
+      Bill Search:
+      = @state.name
+    .small.quiet
+      = "Total #{@total_entries} matches."
       = render :partial => "bills_results"
+
   - when "legislators"
-    .span-24.last
-      .span-16
-        %h3
-          Legislator Search:
-          = @state.name
-        .small.quiet
-          = "Total #{@total_entries} matches."
+    %h3.grid_16
+      Legislator Search:
+      = @state.name
+    .small.quiet
+      = "Total #{@total_entries} matches."
+    = render :partial => "legislators_results"
 
-      %p.span-8.last
-      = render :partial => "legislators_results"
   - when "committees"
-    .span-24.last
-      .span-16
-        %h3
-          Committe Search:
-          = @state.name
-        .small.quiet
-          = "Total #{@total_entries} matches."
+    %h3.grid_16
+      Committe Search:
+      = @state.name
+    .small.quiet
+      = "Total #{@total_entries} matches."
+    = render :partial => "committees_results"
 
-      %p.span-8.last
-      = render :partial => "committees_results"
   - when "contributions"
-    .span-24.last
-      .span-16
-        %h3
-          Contributions Search:
-          = @state.name
-        .small.quiet
-          = "Total #{@total_entries} matches."
-
-      %p.span-8.last
-      = render :partial => "contributions_results"
+    %h3.grid_16
+      Contributions Search:
+      = @state.name
+    .small.quiet
+      = "Total #{@total_entries} matches."
+    = render :partial => "contributions_results"

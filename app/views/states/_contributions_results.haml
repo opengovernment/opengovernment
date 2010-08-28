@@ -1,10 +1,9 @@
-%hr.span-24.last
+%hr.grid_16
   - if @contributions.empty?
-    %p.span-24.last Sorry, no contributions matched.
+    %p Sorry, no contributions matched.
   - else
-    %aside.search_sidebar.span-4
-
-    %div.search_results.span-20.last
+    %nav.grid_4#left_nav    
+    %div.search_results.grid_12
       %ul.committees
         - @contributions.each do |contribution|
           %li[contribution]
