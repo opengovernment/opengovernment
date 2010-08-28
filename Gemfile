@@ -13,7 +13,6 @@ gem "bson_ext"
 # Deployment
 gem "capistrano"
 gem "capistrano-ext"
-gem "eycap"
 
 # An alternative form builder
 gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
@@ -21,16 +20,12 @@ gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :bran
 # Basic authentication
 gem "clearance"
 
-# GIS functionality
+# GIS & Geocoding
 gem "GeoRuby"
 gem "spatial_adapter"
-gem "ym4r"
-
-# Geocoding
 gem "geokit"
 
 # Breadcrumbs
-# gem "breadcrumbs_on_rails", :git => 'git://github.com/opengovernment/breadcrumbs_on_rails.git' (SUBMODULE)
 gem "simple-navigation"
 
 # Data import
@@ -40,15 +35,12 @@ gem "chronic" # Complex date string parsing
 # Simple pagination
 gem "will_paginate", "~> 3.0.pre2"
 
-# Attachments
+# Attachments & assets
 gem "paperclip"
+gem "jammit"
 
 # HAML!
 # gem 'haml', :git => 'http://github.com/nex3/haml.git' (SUBMODULE)
-
-# Required for rails_xss plugin, which turns on XSS protection by default;
-# remove this (and the plugin) for Rails 3
-gem "erubis"
 
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
@@ -57,11 +49,6 @@ gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-o
 gem "httparty"
 gem "hpricot"
 gem 'hpricot_scrub', :git => 'http://github.com/UnderpantsGnome/hpricot_scrub.git'
-
-# async http requires (Ruby 1.9 only!)
-#gem 'addressable', :require => 'addressable/uri'
-#gem 'em-synchrony', :require => ['em-synchrony', 'em-synchrony/em-http']
-#gem 'em-http-request', :git => 'http://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 
 # Indexing and Search
 gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphinx.git',
