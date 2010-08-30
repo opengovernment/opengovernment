@@ -1,7 +1,4 @@
 [submodule "vendor/plugins/govkit"]
 	path = vendor/plugins/govkit
 	url = http://github.com/opengovernment/govkit.git
-[submodule "vendor/plugins/haml"]
-	path = vendor/plugins/haml
-	url = http://github.com/nex3/haml.git
 

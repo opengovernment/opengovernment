@@ -3,7 +3,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc2'
+gem 'rails', '>= 3.0.0'
 
 # ActiveRecord requires a database adapter.
 gem "pg"
@@ -40,7 +40,7 @@ gem "paperclip"
 gem "jammit"
 
 # HAML!
-# gem 'haml', :git => 'http://github.com/nex3/haml.git' (SUBMODULE)
+gem 'haml', '>= 3.0.18'
 
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
