@@ -3,46 +3,46 @@ s_HB10_1:
   sponsor: kirk
   created_at: 2010-05-12 19:46:34.458788
   updated_at: 2010-05-12 19:46:34.458788
-  bill: HB10
+  bill: hb10
 s_HB10_2:
   kind: author
   sponsor: john
   created_at: 2010-05-12 19:46:34.455393
   updated_at: 2010-05-12 19:46:34.455393
-  bill: HB10
+  bill: hb10
 s_HB10_3:
   kind: author
   sponsor: kay
   created_at: 2010-05-12 19:46:34.461877
   updated_at: 2010-05-12 19:46:34.461877
-  bill: HB10
+  bill: hb10
 s_HB1000_1:
   kind: author
   sponsor: kirk
   created_at: 2010-05-12 19:28:52.085759
   updated_at: 2010-05-12 19:28:52.085759
-  bill: HB1000
+  bill: hb1000
 s_HB1001_1:
   kind: author
   sponsor: dawnna
   created_at: 2010-05-12 19:28:52.16441
   updated_at: 2010-05-12 19:28:52.16441
-  bill: HB1001
+  bill: hb1001
 s_HB1002_1:
   kind: author
   sponsor: dawnna
   created_at: 2010-05-12 19:28:52.216043
   updated_at: 2010-05-12 19:28:52.216043
-  bill: HB1002
+  bill: hb1002
 s_HB1003_1:
   kind: author
   sponsor: dawnna
   created_at: 2010-05-12 19:28:52.247642
   updated_at: 2010-05-12 19:28:52.247642
-  bill: HB1003
+  bill: hb1003
 s_HB1003_2:
   kind: author
   sponsor: john
   created_at: 2010-05-12 19:28:52.501028
   updated_at: 2010-05-12 19:28:52.501028
-  bill: HB1003
+  bill: hb1003

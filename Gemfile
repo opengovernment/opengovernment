@@ -57,9 +57,12 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 
 # Bundle gems used only in certain environments:
 group :cucumber do
-  gem "cucumber-rails"
-  gem "database_cleaner"
-  gem "factory_girl"
+   gem 'capybara'
+   gem 'database_cleaner'
+   gem 'cucumber-rails'
+   gem 'cucumber'
+   gem 'spork'
+   gem 'launchy'    # So you can do Then show me the page
 end
 
 group :test, :cucumber do
@@ -72,7 +75,8 @@ group :test, :cucumber do
   gem "rspec-rails", ">= 2.0.0.beta.20", :require => 'rspec/rails'
   gem "autotest"
   gem "autotest-rails"
+  gem "factory_girl"
   gem "machinist"
   gem "linecache19"
-  gem "ruby-debug19"
+  gem "ruby-debug19"  
 end

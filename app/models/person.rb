@@ -87,7 +87,7 @@ class Person < ActiveRecord::Base
     c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
   end
 
-#  acts_as_citeable :keywords => [], :with => [:full_name]
+  # acts_as_citeable :keywords => [], :with => [:full_name]
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {

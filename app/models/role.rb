@@ -33,7 +33,7 @@ class Role < ActiveRecord::Base
   end
 
   def current?
-    Role.count_by_sql('select count(*) from v_most_recent_roles where role_id = ? and current_date between start_date and end_date', id)
+    Role.count_by_sql(['select count(*) from v_most_recent_roles where role_id = ? and current_date between start_date and end_date', id])
   end
 
   def party_abbr
