@@ -13,7 +13,6 @@
     %div.search_results.grid_12
       %ul.legislators
         - @legislators.each do |leg|
-          %li[leg]
-            != link_to(leg.full_name, person_path(leg))
+          = render :partial => 'shared/person', :locals => {:person => leg}
 
       = will_paginate @legislators
