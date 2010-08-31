@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 51) do
+ActiveRecord::Schema.define(:version => 52) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -270,11 +270,12 @@ ActiveRecord::Schema.define(:version => 51) do
   end
 
   create_table "states", :force => true do |t|
-    t.string   "name",                                        :null => false
-    t.string   "abbrev",      :limit => 2,                    :null => false
-    t.boolean  "unicameral",               :default => false
+    t.string   "name",                                         :null => false
+    t.string   "abbrev",       :limit => 2,                    :null => false
+    t.boolean  "unicameral",                :default => false
     t.integer  "fips_code"
     t.datetime "launch_date"
+    t.string   "official_url"
   end
 
   create_table "subjects", :force => true do |t|
