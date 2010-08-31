@@ -5,7 +5,8 @@ describe State do
       :name => "Connecticut",
       :abbrev => "CT",
       :unicameral => false,
-      :fips_code => 9999
+      :fips_code => 9999,
+      :official_url => 'http://www.connecticut.com/'
     }
     @texas = State.find_by_abbrev('TX')
   end

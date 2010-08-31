@@ -1,14 +1,14 @@
-1:
+a1:
   created_at: 2010-05-12 19:46:34.231591
   updated_at: 2010-05-12 19:46:34.231591
   actor: upper
   action: Signed in Senate-Art III Sec 49a Tx. Const.
   date: 2009-07-01 07:00:00
   id: "187020"
-  kind: "other"
+  kind: "bill:signed"
   action_number: "S1"
   bill: HB10
-2:
+a2:
   created_at: 2010-05-12 19:46:34.241088
   updated_at: 2010-05-12 19:46:34.241088
   actor: lower
@@ -18,17 +18,17 @@
   action_number: "H1"
   id: "187023"
   bill: HB10
-3:
+a3:
   created_at: 2010-05-12 19:46:34.225959
   updated_at: 2010-05-12 19:46:34.225959
   actor: executive
   action: Sent to the Governor
   date: 2009-07-07 07:00:00
   action_number: "H2"
-  kind: "other"
+  kind: "governor:received"
   id: "187018"
   bill: HB10
-4:
+a4:
   created_at: 2010-05-12 19:46:34.228793
   updated_at: 2010-05-12 19:46:34.228793
   actor: executive
@@ -38,17 +38,17 @@
   date: 2009-07-06 07:00:00
   id: "187019"
   bill: HB10
-5:
+a5:
   created_at: 2010-05-12 19:46:34.234419
   updated_at: 2010-05-12 19:46:34.234419
   actor: lower
   action: Signed in the House
   date: 2009-07-01 07:00:00
-  kind: "other"
+  kind: "bill:signed"
   action_number: "H4"
   id: "187021"
   bill: HB10
-6:
+a6:
   created_at: 2010-05-12 19:46:34.237764
   updated_at: 2010-05-12 19:46:34.237764
   actor: lower
@@ -58,7 +58,7 @@
   date: 2009-07-01 07:00:00
   id: "187022"
   bill: HB10
-7:
+a7:
   created_at: 2010-05-12 19:46:34.218392
   updated_at: 2010-05-12 19:46:34.218392
   actor: executive
@@ -68,7 +68,7 @@
   date: 2009-07-09 07:00:00
   id: "187016"
   bill: HB10
-8:
+a8:
   created_at: 2010-05-12 19:46:34.222959
   updated_at: 2010-05-12 19:46:34.222959
   actor: executive
@@ -76,9 +76,9 @@
   action_number: "H7"
   date: 2009-07-09 07:00:00
   id: "187017"
-  kind: "other"
+  kind: "governor:signed"
   bill: HB10
-9:
+a9:
   created_at: 2010-05-12 19:46:34.247489
   updated_at: 2010-05-12 19:46:34.247489
   actor: upper
@@ -89,7 +89,7 @@
   id: "187025"
   kind: "other"
   bill: HB10
-10:
+a10:
   created_at: 2010-05-12 19:46:34.244421
   updated_at: 2010-05-12 19:46:34.244421
   actor: lower

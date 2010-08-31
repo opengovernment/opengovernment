@@ -1,0 +1,8 @@
+one:
+  taggable_type: Subject
+  taggable_id: 2
+  tag_id: 1
+two:
+  taggable_type: Subject
+  taggable_id: 3
+  tag_id: 1

@@ -1,0 +1,9 @@
+appropriations:
+  id: 1
+  name: Appropriations
+education:
+  id: 2
+  name: Education
+student:
+  id: 3
+  name: Student/Tuition
