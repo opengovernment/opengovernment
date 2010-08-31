@@ -1,4 +1,4 @@
-OpenGov::Application.routes.draw do |map|
+OpenGov::Application.routes.draw do
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
   constraints(Subdomain) do

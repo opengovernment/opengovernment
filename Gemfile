@@ -57,7 +57,7 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 
 # Bundle gems used only in certain environments:
 group :cucumber do
-   gem 'capybara'
+#   gem 'capybara'
    gem 'database_cleaner'
    gem 'cucumber-rails'
    gem 'cucumber'
