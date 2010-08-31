@@ -6,31 +6,33 @@
 - track(@bill)
 
 .grid_16
-  %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
-
+  %hgroup
+    %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
+    %h3
+      Session: #{raw @bill.session.name_fm}
   %hr
 
 
-.grid_16
+%nav.grid_4
+  #left_nav
+    = render_navigation(:level => 3)
+    
+.grid_12
   .grid_8.alpha
     = render :partial => 'shared/view_counts', :locals => {:page => @bill}
 
   .grid_8.omega
     %div
-      = "Session: #{@bill.session.start_year} - #{@bill.session.end_year}"
       Track via RSS:
       = link_to "All actions", {:actions => 'all', :format => :atom}
       = link_to "Major actions", {:actions => 'major', :format => :atom}
 
-%hr.grid_16
+  %hr
 
+  %p.grid_12.summary= @bill.title
 
-%p.grid_16.summary= @bill.title
+  %hr.push_top
 
-%hr.grid_16.push_top
-
-
-.grid_16
   .grid_8.alpha
     %h2 Sponsors
     %ul.lined
@@ -46,12 +48,11 @@
           %li
             = link_to(version.name, version.url)
 
-%hr.grid_16.push_top
+  %hr.push_top
 
-.grid_16
   - if @bill.major_actions.size > 0
     %h2 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
-    .grid_24.last
+    .grid_12.last
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
   - if @bill.votes.size > 0
@@ -93,35 +94,35 @@
               %span{:class => 'vote-other-block', :style => "width: #{number_with_precision(vote.other_pct)}%;"} &nbsp;
 
 
-%hr.grid_16.push_top
+  %hr
 
 
-- if @bill.citations.size > 0
-  %div.grid_16
-    %h2 Citations
-    %div.grid_6.alpha
-      %h3 Google News
-      %ul.lined.and_spaced.with_titles
-        - @bill.google_news_citations.each do |citation|
-          %li
-            = link_to citation.title, citation.url
-            = citation.excerpt
+  - if @bill.citations.size > 0
+    %div.grid_12
+      %h2 Citations
+      %div.grid_4.alpha
+        %h3 Google News
+        %ul.lined.and_spaced.with_titles
+          - @bill.google_news_citations.each do |citation|
+            %li
+              = link_to citation.title, citation.url
+              = citation.excerpt
 
-    %div.grid_6
-      %h3 Blogs
-      %ul.lined.and_spaced.with_titles
-        - @bill.google_blog_citations.each do |citation|
-          %li
-            = link_to citation.title, citation.url
-            = citation.excerpt
+      %div.grid_4
+        %h3 Blogs
+        %ul.lined.and_spaced.with_titles
+          - @bill.google_blog_citations.each do |citation|
+            %li
+              = link_to citation.title, citation.url
+              = citation.excerpt
 
-    %div.grid_4.omega
-      %h3 Technorati
-      %ul.lined.and_spaced.with_titles
-        = @bill.technorati_citations.each do |citation|
-          %li
-            = link_to citation.title, citation.url
-            = citation.excerpt
+      %div.grid_4.omega
+        %h3 Technorati
+        %ul.lined.and_spaced.with_titles
+          = @bill.technorati_citations.each do |citation|
+            %li
+              = link_to citation.title, citation.url
+              = citation.excerpt
 
-%div.social
-  %p Tweet this bill using the hashtags #{@bill.to_hashtags}
+  %div.social
+    %p Tweet this bill using the hashtags #{@bill.to_hashtags}

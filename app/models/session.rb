@@ -17,6 +17,10 @@ class Session < ActiveRecord::Base
   def to_param
     name.parameterize
   end
+  
+  def name_fm
+    "#{name}" + "(#{start_year} &ndash; #{end_year})"
+  end
 
   def special_number
     if parent_id?

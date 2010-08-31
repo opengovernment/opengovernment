@@ -44,6 +44,10 @@ SimpleNavigation::Configuration.run do |navigation|
       if !@bill.nil?
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |b|
           b.item :overview, 'Overview', bill_path(@bill.session, @bill)
+          b.item :votes, 'Votes', '#'
+          b.item :citations, 'News & Blog Coverage', '#'
+          b.item :tweets, 'Social Media Coverage', '#'
+          b.item :video, 'Video', '#', :class => 'inactive'
           b.item :money_trail, 'Money Trail', '#', :class => 'inactive'
         end
       end
