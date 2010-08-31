@@ -101,7 +101,7 @@ class Person < ActiveRecord::Base
   end
 
   def full_name
-    [first_name, last_name].join(' ')
+    [first_name, last_name].join(' ').squeeze(' ').strip + (suffix? ? ', ' + suffix : '')
   end
 
   def gender_fm
@@ -124,7 +124,7 @@ class Person < ActiveRecord::Base
   end
 
   def official_name
-    [chamber.try(:title), first_name, middle_name, last_name, suffix].join(' ').squeeze(' ')
+    [chamber.try(:title), first_name, middle_name, last_name, suffix].join(' ').squeeze(' ').strip
   end
 
   def wiki_name

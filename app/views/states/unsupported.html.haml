@@ -14,9 +14,10 @@
 .span-10.last
   %h3 Want updates from OpenGovernment.org?
   Leave us your e-mail address to stay informed.
-  - form_tag(state_subscriptions_path) do
-    = hidden_field_tag :id, @state.id
-    = text_field_tag :email
-    = submit_tag "Subscribe"
+  = form_tag(state_subscriptions_path)
+  = hidden_field_tag :id, @state.id
+  = text_field_tag :email
+  = submit_tag "Subscribe"
+  </form>
   
   %p OpenGovernment.org is free and open-source.

@@ -44,8 +44,8 @@
       %h2 Key Votes
       .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
       %a(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
-    
+
       %p
         %ul.lined.and_spaced
-          - @state_key_votes.each do |bill|
+          = @state_key_votes.each do |bill|
             = render :partial => 'shared/bill', :locals => {:bill => bill}

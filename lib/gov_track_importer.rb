@@ -2,38 +2,38 @@ require File.dirname(__FILE__) + '/../config/environment'
 
 class GovTrackImporter
   GOV_TRACK_PEOPLE_URL = "http://www.govtrack.us/data/us/people.xml"
-  GOV_TRACK_PEOPLE_FILE = 'people.xml'
-
-  class << self
-    def fetch_data(data_dir = DATA_DIR)
-      Dir.chdir(data_dir)
-
-      # Download only if the server copy is newer
-      curl_ops = File.exists?(GOV_TRACK_PEOPLE_FILE) ? "-z #{GOV_TRACK_PEOPLE_FILE}" : ''
-
-      `curl #{curl_ops} -fO #{GOV_TRACK_PEOPLE_URL}`
-    end
-  end
+  attr_reader :file_name, :data_url, :data_dir
 
   def initialize(options = {})
-    options[:data_url] ||= GOV_TRACK_PEOPLE_URL
-    options[:refresh_data] ||= false
+    @data_url = options[:data_url] || GOV_TRACK_PEOPLE_URL
+    @file_name = File.basename(@data_url)
+    @refresh_data = options[:refresh_data] || false
+    @data_dir = options[:data_dir] || DATA_DIR
+  end
 
+  def fetch_data
+    Dir.chdir(@data_dir)
+
+    # Download only if the server copy is newer
+    curl_ops = File.exists?(@file_name) ? "-z #{@file_name}" : ''
+
+    `curl #{curl_ops} -fO #{@data_url}`
+  end
+
+  def import!
     puts "\n---------- Loading people from GovTrack."
+    fetch_data
+    import
+  end
 
-    @file_name = File.basename(options[:data_url])
+  def import
+    print "\nImporting people."
 
-    self.class.fetch_data
-
-    File.open(File.join(DATA_DIR, @file_name)) do |file|
+    File.open(File.join(@data_dir, @file_name)) do |file|
       @doc = Hpricot(file)
     end
 
     @people = @doc.search("//person")
-  end
-
-  def import!
-    print "\nImporting people."
 
     @people.each_with_index do |person, i|
       if i % 10 == 0
