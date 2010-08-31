@@ -35,7 +35,7 @@ class State < Place
   validates_uniqueness_of :fips_code, :allow_nil => true
   validates_presence_of :name, :abbrev
   validates_inclusion_of :unicameral, :in => [true, false]
-  validates_format_of :official_url, :with => URI::regexp(%w(http))
+  validates_format_of :official_url, :with => URI::regexp(%w(http)), :allow_nil => true
   
   has_many :subscriptions
 
