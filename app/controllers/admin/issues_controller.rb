@@ -1,4 +1,4 @@
-class Admin::IssuesController < Admin::ApplicationController
+class Admin::IssuesController < Admin::AdminController
   def bills
     @tags = ActsAsTaggableOn::Tag.all
     @taggables = Subject.all.paginate(:page => params[:page], :order => params[:order])

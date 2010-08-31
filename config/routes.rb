@@ -39,7 +39,7 @@ OpenGov::Application.routes.draw do
   end
 
   namespace :admin do
-    root :to => "admin#index"
+    root :to => "home#index"
     resources :states
     resources :people, :only => [:edit, :update]
     resources :issues, :only => [:create, :index, :destroy, :update] do

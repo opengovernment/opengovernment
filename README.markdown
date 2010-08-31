@@ -54,8 +54,7 @@ After starting the server, you'll want to sign in and add a new Store for OpenGo
 You'll want to add two new Layers to the `og` Store as well. You'll only need to set the name and title on these--all other settings can remain default. The layers should be called `v_district_people` and `v_district_votes`.
 
 # Tests
-To prepare the test database, run the following:
-    RAILS_ENV=test rake db:prepare
+To prepare the test database: `RAILS_ENV=test rake db:prepare`.
+Then, to run all tests: `rake`.
 
-To run tests:
-    bundle exec autotest
+You can use autotest or spork. To fire up the spork-based drb server, run `script/spec_server`

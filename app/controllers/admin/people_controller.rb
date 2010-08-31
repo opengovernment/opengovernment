@@ -1,4 +1,4 @@
-class Admin::PeopleController < Admin::ApplicationController
+class Admin::PeopleController < Admin::AdminController
   before_filter :find_person, :only => [:edit, :update]
 
   def update

@@ -75,7 +75,7 @@ group :test, :cucumber do
   gem "rspec-rails", ">= 2.0.0.beta.20", :require => 'rspec/rails'
   gem "autotest"
   gem "autotest-rails"
-  gem "factory_girl"
+  gem "factory_girl_rails"
   gem "machinist"
   gem "linecache19"
   gem "ruby-debug19"  

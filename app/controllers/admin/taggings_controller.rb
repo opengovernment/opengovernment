@@ -1,4 +1,4 @@
-class Admin::TaggingsController < ApplicationController
+class Admin::TaggingsController < Admin::AdminController
   def destroy
     @taggable_type = params[:taggable_type]
     @taggables = taggables_for(@taggable_type)

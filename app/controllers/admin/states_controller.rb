@@ -1,4 +1,4 @@
-class Admin::StatesController < Admin::ApplicationController
+class Admin::StatesController < Admin::AdminController
   def index
     @s_supported = State.supported
     @s_unsupported = State.unsupported
