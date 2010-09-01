@@ -14,7 +14,7 @@
 %nav.grid_4
   #left_nav
     = render_navigation(:level => 3)
-    
+
 .grid_12
   .grid_12.alpha
     = render :partial => 'shared/view_counts', :locals => {:page => @bill}
@@ -43,6 +43,19 @@
             = link_to(s.sponsor.full_name, person_path(s.sponsor))
           = s.kind_fm
   .grid_6.omega
+
+
+  %aside.grid_2.omega
+    .track
+      Track this bill via RSS or e-mail
+    .discuss
+      Discussion Forum
+    .support
+      = link_to 'I support', '#'
+      /
+      = link_to 'I oppose', '#'
+      this bill!
+
     - if @bill.versions.size > 0
       %h2 Versions
 
