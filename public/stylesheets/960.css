@@ -11,16 +11,20 @@
 .container_12,
 .container_16 {
   width: 960px;
-  background: url(/images/white_trans.png);
+  background: #fff;
   padding: 0 15px;
   margin: 20px auto 0;
   border: 1px solid #fff;
-  -moz-box-shadow: 0px 1px 2px #aaa;
-  -webkit-box-shadow: 0px 1px 2px #aaa;
-  box-shadow: 0px 1px 2px #aaa;
+  -moz-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  -webkit-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+
   }
 
 

@@ -16,27 +16,28 @@ background: url(/images/bg.gif);
 
 /* Pagination */
 .pagination {
-  background: #F1F1F1;
   border: none;
   text-align: center;
-  padding: 0;
+  padding: 3px;
 clear: both;
-border-radius: 4px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
-margin-bottom: 25px;
-  background: url(/images/white_trans.png);
-  -moz-box-shadow: 0px 1px 2px #aaa;
-  -webkit-box-shadow: 0px 1px 2px #aaa;
-  box-shadow: 0px 1px 2px #aaa;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-min-height: 35px;
-}
+border-radius: 55px;
+-moz-border-radius: 55px;
+-webkit-border-radius:55px;
+margin: 15px 0 25px;
+ 
+-moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  
 
-.pagination a, .pagination span {
-  padding: .2em .3em;
+-webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f5', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#f7fbfb)); /* for webkit browsers */
+
+
+background: -moz-linear-gradient(top,  #f4f5f5,  #f7fbfb); /* for firefox 3.6+ */
+
+
+min-height: 22px;
 }
 
 .pagination span.disabled {
@@ -54,7 +55,7 @@ min-height: 35px;
 }
 
 .pagination a:hover, .pagination a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .match {
@@ -73,12 +74,15 @@ min-height: 35px;
 
 .pagination em {
 float: left;
-  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-  box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
+  -moz-box-shadow:0px 0px 1px #888;
+  -webkit-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
 cursor: default;
 }
 
@@ -97,29 +101,55 @@ cursor: default;
 .pagination a,
 .pagination span,
 .pagination .gap {
-padding: 10px 18px;
+padding: 3px 17px;
+font-size: 11px;
+margin-right: 2px;
 }
 
 .pagination a:hover{
-background: ;
 
-  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-  box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
-
+  -moz-box-shadow: 0px 1px 1px #555, 0px 0px 1px #888;
+  -webkit-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
 }
 
 a.next_page{
 float: right;
-padding: 10px 15px;
+padding: 3px 15px;
+margin-right: 0px;
+
+-moz-border-radius-topright:     18px !important;
+-moz-border-radius-bottomright:    18px !important;
+-moz-border-radius-topleft:     5px !important;
+-moz-border-radius-bottomleft:    5px !important;
+
+-webkit-border-radius-top-right: 18px;
+-webkit-border-radius-bottom-right: 18px;
+-webkit-border-radius-top-left: 5px;
+-webkit-border-radius-bottom-left: 5px;
 }
 
 
-.previous_page{
+
+a.previous_page{
 float: left;
+padding: 3px 15px;
+-moz-border-radius-topleft:     18px !important;
+-moz-border-radius-bottomleft:    18px !important;
+-moz-border-radius-topright:     5px !important;
+-moz-border-radius-bottomright:    5px !important;
+
+-webkit-border-radius-top-left: 18px;
+-webkit-border-radius-bottom-left: 18px;
+
+-webkit-border-radius-top-right: 5px;
+-webkit-border-radius-bottom-right: 5px;
 }
 
 

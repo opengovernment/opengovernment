@@ -18,9 +18,13 @@
 
     .grid_12
       %h2 Bills
+      = will_paginate @bills, :class => "pagination"
 
       %div.search_results
         %ul.bills.bills.lined.and_spaced
           - @bills.each do |bill|
             = render :partial => 'shared/bill', :locals => {:bill => bill}
-        = will_paginate @bills, :class => "pagination"
+
+      .clearfix
+    
+      = will_paginate @bills, :class => "pagination"
