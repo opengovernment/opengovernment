@@ -1,0 +1,30 @@
+%nav.grid_4
+  #left_nav
+    = render_navigation(:level => 3)
+
+- if @bill.citations.size > 0
+  %div.grid_12
+    %h2 Citations
+    %div.grid_4.alpha
+      %h3 Google News
+      %ul.lined.and_spaced.with_titles
+        - @bill.google_news_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
+            = citation.excerpt
+
+    %div.grid_4
+      %h3 Blogs
+      %ul.lined.and_spaced.with_titles
+        - @bill.google_blog_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
+            = citation.excerpt
+
+    %div.grid_4.omega
+      %h3 Technorati
+      %ul.lined.and_spaced.with_titles
+        = @bill.technorati_citations.each do |citation|
+          %li
+            = link_to citation.title, citation.url
+            = citation.excerpt

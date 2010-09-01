@@ -20,6 +20,7 @@ OpenGov::Application.routes.draw do
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :major_actions
+        get :news
       end
       shallow do
         resources :actions, :only => [:show]

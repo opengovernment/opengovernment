@@ -36,9 +36,11 @@
   .grid_8.alpha
     %h2 Sponsors
     %ul.lined
-      - @bill.sponsors.each do |sponsor|
+      - @bill.sponsorships.includes(:sponsor).order("people.last_name").each do |s|
         %li
-          = link_to(sponsor.full_name, person_path(sponsor))
+          - surround '',',' do
+            = link_to(s.sponsor.full_name, person_path(s.sponsor))
+          = s.kind_fm
   .grid_8.omega
     - if @bill.versions.size > 0
       %h2 Versions
@@ -95,34 +97,6 @@
 
 
   %hr
-
-
-  - if @bill.citations.size > 0
-    %div.grid_12
-      %h2 Citations
-      %div.grid_4.alpha
-        %h3 Google News
-        %ul.lined.and_spaced.with_titles
-          - @bill.google_news_citations.each do |citation|
-            %li
-              = link_to citation.title, citation.url
-              = citation.excerpt
-
-      %div.grid_4
-        %h3 Blogs
-        %ul.lined.and_spaced.with_titles
-          - @bill.google_blog_citations.each do |citation|
-            %li
-              = link_to citation.title, citation.url
-              = citation.excerpt
-
-      %div.grid_4.omega
-        %h3 Technorati
-        %ul.lined.and_spaced.with_titles
-          = @bill.technorati_citations.each do |citation|
-            %li
-              = link_to citation.title, citation.url
-              = citation.excerpt
 
   %div.social
     %p Tweet this bill using the hashtags #{@bill.to_hashtags}
