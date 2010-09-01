@@ -24,24 +24,24 @@
       = photo_for(@person)
 
     %ul.grid_4.omega
-      - unless @person.birthday.blank?
+      - if @person.birthday?
         %li= "Born #{@person.birthday}"
-      - unless @person.gender.blank?
+      - if @person.gender?
         %li{:class => @person.gender} Gender: #{@person.gender}
-      - unless @person.religion.blank?
+      - if @person.religion?
         %li= "Religion: #{@person.religion}"
-      - unless @person.website_one.blank?
+      - if @person.website_one?
         %li
           = link_to_with_domain("Website", @person.website_one)
-      - unless @person.website_two.blank?
+      - if @person.website_two?
         %li
           = link_to_with_domain("Website", @person.website_two)
-      - unless @person.webmail.blank?
+      - if @person.webmail?
         %li
           = link_to_with_domain("Web E-Mail", @person.webmail)
-      - unless @person.email.blank?
+      - if @person.email?
         %li!= mail_to("E-Mail", @person.email, :encode => "javascript")
-      - unless @person.youtube_id.blank?
+      - if @person.youtube_id?
         %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
   .grid_4
@@ -170,7 +170,7 @@
 
   .grid_12.alpha
     %h2 Ratings
-    - unless @person.ratings.blank?
+    - if @person.ratings?
       .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
       %hr
       - @person.ratings.each do |rating|
