@@ -59,9 +59,6 @@ namespace :opengov do
         end
       end
     end
-
-    # Now install bundles as needed...
-    system 'bundle install'
   end
 
   desc "Install clean database: prepare database, fetch all data, load data"
