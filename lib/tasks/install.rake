@@ -46,6 +46,8 @@ task :install => ["opengov:install"]
 
 namespace :opengov do
   task :prepare do
+    # Get ready to run tests -- on the CI server
+
     if ENV['SHARED_CONFIG_DIR']
       # All files in our external config dir will be symlinked to the local config dir if they don't already
       # exist in that dir. This is mainly used for TeamCity CI.
@@ -57,6 +59,9 @@ namespace :opengov do
         end
       end
     end
+
+    # Now install bundles as needed...
+    system 'bundle install'
   end
 
   desc "Install clean database: prepare database, fetch all data, load data"
