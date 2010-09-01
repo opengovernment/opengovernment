@@ -3,7 +3,7 @@
 
 begin
   require File.expand_path('../config/application', __FILE__)
-  rescue Bundler::PathError=>e
+  rescue Bundler::PathError, Bundler::GitError => e
     # Fall back on doing an unlocked resolve at runtime.
     if (!system("bundle install"))
         puts $?
