@@ -17,6 +17,11 @@
     = stylesheet_link_tag "layout"
     = stylesheet_link_tag "breadcrumb"
     = stylesheet_link_tag "vote"
+    <!--[if !IE]>-->
+    <link type="text/css" rel="stylesheet" media="only screen and (max-width: 480px)" href="/stylesheets/iphone.css">
+    <!--<![endif]-->
+   
+
 
     <!--[if lt IE 9]>
     %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
@@ -39,13 +44,13 @@
       %div.skip-link.screen-reader-text
         %a(href="#content" title="Skip to content") Skip to content
       %header
-        #account.grid_6.alpha
-          .grid_6.alpha.omega
+        #account.grid_9.alpha
+          .grid_8.alpha.omega
             Hello,
             %a.account(href="#content" title="Username") Morgan.
             %a.help(href="#content" title="Help Center") Help
         - if current_place
-          .grid_10.omega.search
+          .grid_7.omega.search
             = render :partial => 'shared/search_form'
 
         %aside

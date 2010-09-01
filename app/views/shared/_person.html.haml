@@ -1,3 +1,9 @@
 %li
-  != link_to(person.full_name, person_path(person), :class => person.gender_class) + (person.current_role ? ", #{person.current_role.affiliation_fm}" : "")
-  != photo_for(person, :thumb)
+  %a.person{:href=>person_path(person)}  
+
+    %span{:class => "person_name #{person.gender_class}"}
+      != person.full_name   
+
+    .pop
+      %span.small_thumbnail.rounded
+        != photo_for(person, :thumb)  

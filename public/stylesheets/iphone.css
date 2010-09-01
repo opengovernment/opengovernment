@@ -1,0 +1,86 @@
+
+.container_16{
+	width: 400px !important;
+}
+
+.grid_16,
+.grid_8{
+	width: 380px !important;
+}
+
+
+header{
+height: 126px;
+}
+
+.search{
+margin: 10px 0 0 0;
+width: 380px !important;
+}
+
+
+
+.search #q{
+width: 120px !important;
+height: 30px;
+}
+
+
+
+
+.search .search_button input{
+font-size: 16px;
+width: 120px;
+overflow: hidden;
+padding: 10px 20px;
+}
+
+
+
+.breadcrumb{
+	width: 400px !important;
+}
+
+
+header aside{
+top: 234px;
+
+}
+
+
+
+/*///////////////////////////
+
+~ People Main Page
+
+///////////////////////////*/
+
+
+a.person{
+display: block;
+min-height: 50px;
+padding: 10px 0;
+
+}
+
+
+a.person:hover{
+text-decoration: none;
+background: #fff;
+}
+
+
+a.person .small_thumbnail{
+float: right;
+
+}
+
+
+
+a.person .person_name{
+float: left;
+line-height: 1em;
+font-size: 18px;
+margin-top: 17px;
+}
+

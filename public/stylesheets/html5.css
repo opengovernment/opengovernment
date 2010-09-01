@@ -4,7 +4,7 @@ html {font-size:100.01%;}
 
 body{
   margin: 0;
-  padding: 0;
+  padding: 0 0 40px;
   background: url(/images/bg.gif);
   font-size:12px;
   color:#222;
@@ -54,14 +54,14 @@ margin: 0 10px !important;
 
 ul.lined{
 margin: 0;
-padding: 0;
+padding:0;
 }
 
 ul.lined li{
 border-bottom: 1px solid #ddd;
-padding-bottom: 5px;
-margin: 0 0 5px 0;
-line-height: 1.3em;
+margin: 0 0 5px;
+padding: 0px 0 5px;
+line-height: 1.4em;
 }
 
 

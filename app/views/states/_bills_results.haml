@@ -11,14 +11,16 @@
               = link_to s.name, state_search_path(params.merge({ :session_id => s.id }))
       %p.sort
         %h3 Sort by:
-        %ul
+        %ul.bills
           - Bill::SORTABLE_BY.each do |name, column|
             %li
               = link_to name, state_search_path(params.merge({:order => column}))
 
     .grid_12
+      %h2 Bills
+
       %div.search_results
-        %ul.bills
+        %ul.bills.bills.lined.and_spaced
           - @bills.each do |bill|
             = render :partial => 'shared/bill', :locals => {:bill => bill}
         = will_paginate @bills, :class => "pagination"

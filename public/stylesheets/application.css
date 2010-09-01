@@ -17,9 +17,22 @@ background: url(/images/bg.gif);
 /* Pagination */
 .pagination {
   background: #F1F1F1;
-  border: 1px solid #E5E5E5;
+  border: none;
   text-align: center;
-  padding: 1em;
+  padding: 0;
+clear: both;
+border-radius: 4px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+margin-bottom: 25px;
+  background: url(/images/white_trans.png);
+  -moz-box-shadow: 0px 1px 2px #aaa;
+  -webkit-box-shadow: 0px 1px 2px #aaa;
+  box-shadow: 0px 1px 2px #aaa;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+min-height: 35px;
 }
 
 .pagination a, .pagination span {
@@ -54,6 +67,64 @@ background: url(/images/bg.gif);
 .screen-reader-text {
 	position: absolute;
 	left: -9000em;
+}
+
+
+
+.pagination em {
+float: left;
+  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+  box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
+cursor: default;
+}
+
+
+.pagination a {
+float: left;
+}
+
+
+.pagination .gap {
+float: left;
+cursor: default;
+}
+
+.pagination em,
+.pagination a,
+.pagination span,
+.pagination .gap {
+padding: 10px 18px;
+}
+
+.pagination a:hover{
+background: ;
+
+  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+  box-shadow:inset 0px 0px 1px #ccc, inset 0px -1px 2px #777, inset 0px -5px 9px #eee, 0px 1px 1px #fff;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
+
+}
+
+a.next_page{
+float: right;
+padding: 10px 15px;
+}
+
+
+.previous_page{
+float: left;
+}
+
+
+.disabled{
+cursor: default !important;
 }
 
 /*

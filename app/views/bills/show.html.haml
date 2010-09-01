@@ -6,11 +6,9 @@
 - track(@bill)
 
 .grid_16
-  %hgroup
-    %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
-    %h3
-      Session: #{raw @bill.session.name_fm}
-  %hr
+  %h1.grid_13.alpha= "#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}"
+
+%hr.grid_16
 
 
 %nav.grid_4
@@ -18,22 +16,25 @@
     = render_navigation(:level => 3)
     
 .grid_12
-  .grid_8.alpha
+  .grid_12.alpha
     = render :partial => 'shared/view_counts', :locals => {:page => @bill}
-
-  .grid_8.omega
-    %div
-      Track via RSS:
-      = link_to "All actions", {:actions => 'all', :format => :atom}
-      = link_to "Major actions", {:actions => 'major', :format => :atom}
 
   %hr
 
-  %p.grid_12.summary= @bill.title
+  .grid_12.full_lined.alpha
+    .grid_6.alpha
+      Track via RSS:
+      = link_to "All actions", {:actions => 'all', :format => :atom}
+      = link_to "Major actions", {:actions => 'major', :format => :atom}
+    .grid_6.omega
+      Session: #{raw @bill.session.name_fm}
 
-  %hr.push_top
 
-  .grid_8.alpha
+  %p.grid_12.alpha.summary= @bill.title
+
+  %hr
+
+  .grid_6.alpha
     %h2 Sponsors
     %ul.lined
       - @bill.sponsorships.includes(:sponsor).order("people.last_name").each do |s|
@@ -41,7 +42,7 @@
           - surround '',',' do
             = link_to(s.sponsor.full_name, person_path(s.sponsor))
           = s.kind_fm
-  .grid_8.omega
+  .grid_6.omega
     - if @bill.versions.size > 0
       %h2 Versions
 
@@ -59,7 +60,7 @@
 
   - if @bill.votes.size > 0
     %h2 Votes
-    %table.vote-summary.grid_16.alpha
+    %table.vote-summary.grid_12.alpha
       %thead
         %tr
           %th.vote-motion Motion

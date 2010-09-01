@@ -3,19 +3,24 @@
     %p.filter
     %ul
       %li
-        Bills (
-        = @bills.size rescue 0
-        )
+        %a
+          Bills (
+          = @bills.size rescue 0
+          )
+
       %li
-        People (
-        = @legislators.size rescue 0
-        )
+        %a
+          People (
+          = @legislators.size rescue 0
+          )
 
   .grid_12
+    
+    %h2 Search Results
     - unless @bills.empty?
       %div.search_results.span-20.last
-        %h3 Bills
-        %ul.bills
+        %h2 Bills
+        %ul.bills.lined.and_spaced
           - @bills.each do |bill|
             = render :partial => 'shared/bill', :locals => {:bill => bill}
         = will_paginate @bills, :class => "pagination"
@@ -25,10 +30,13 @@
         %p.sort
 
       %div.search_results.span-20.last
-        %h3 Legislators
+        %h2 Legislators
         %ul.legislators
           - @legislators.each do |leg|
             %li[leg]
               != link_to(leg.full_name, person_path(leg))
 
-        = will_paginate @legislators
+      
+      .clearfix
+
+      = will_paginate @legislators

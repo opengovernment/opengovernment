@@ -1,21 +1,23 @@
-%li[bill]
-  != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
-  != bill.title
+%li.grid_12[bill]
+  .grid_8.alpha
+    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => 'bill_link')
+    %span.bill_title
+      != bill.title
 
-  Status:
-  = bill.actions.first.kind
-  
-  - if bill.votesmart_key_vote?
-    This is a Votesmart Key Vote!
-
-  .introduced
-    Introduced:
-    != bill.actions.minimum(:date)
-
-  .recent_action
-    Most recent action:
-    != bill.actions.maximum(:date)
+  .grid_4.bill_status.omega 
+    = bill.actions.first.kind
     
-  .recent_vote
-    != bill.votes.count
-    votes have occurred on this bill
+    - if bill.votesmart_key_vote?
+      This is a Votesmart Key Vote!
+    
+    .introduced
+      Introduced:
+      != bill.actions.minimum(:date)
+    
+    .recent_action
+      Most recent action:
+      != bill.actions.maximum(:date)
+      
+    .recent_vote
+      != bill.votes.count
+      votes have occurred on this bill

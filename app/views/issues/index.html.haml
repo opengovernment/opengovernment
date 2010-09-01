@@ -1,3 +1,5 @@
-%h2 Issues
-- tag_cloud(@issues, %w(css1 css2 css3 css4)) do |issue, css_class|
-  = link_to issue.name, issue_path(issue),:class => css_class
+.grid_16
+  %h1 Issues
+  %hr
+  - tag_cloud(@issues, %w(css1 css2 css3 css4)) do |issue, css_class|
+    = link_to issue.name, issue_path(issue),:class => css_class

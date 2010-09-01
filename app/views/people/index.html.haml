@@ -1,10 +1,13 @@
 - title("#{@state.name} Representatives")
-.grid_16
-  %h1= "#{@state.name} Representatives"
-  %hr
-  - @state.chambers.each do |chamber|
-    %div.grid_4.alpha[chamber]
-      %h3= chamber.name
-      %ul.lined
-        - chamber.people.each do |rep|
-          = render :partial => 'shared/person', :locals => {:person => rep}
+
+%h1.grid_16
+  = "#{@state.name} Representatives"
+
+%hr.grid_16
+
+- @state.chambers.each do |chamber|
+  %div.grid_8[chamber]
+    %h2= chamber.name
+    %ul.lined
+      - chamber.people.each do |rep|
+        = render :partial => 'shared/person', :locals => {:person => rep}
