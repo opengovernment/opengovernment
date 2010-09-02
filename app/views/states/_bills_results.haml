@@ -22,8 +22,7 @@
 
       %div.search_results
         %ul.bills.bills.lined.and_spaced
-          - @bills.each do |bill|
-            = render :partial => 'shared/bill', :locals => {:bill => bill}
+          = render :partial => 'shared/bill', :collection => @bills
 
       .clearfix
     

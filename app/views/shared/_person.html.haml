@@ -2,8 +2,9 @@
   %a.person{:href=>person_path(person)}  
 
     %span{:class => "person_name #{person.gender_class}"}
-      != person.full_name   
+      != person.full_name
 
     .pop
       %span.small_thumbnail.rounded
         != photo_for(person, :thumb)  
+  %span.person_district= person.district_name
