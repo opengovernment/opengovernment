@@ -1,6 +1,6 @@
 class IncreaseExcerptLimitOnCitations < ActiveRecord::Migration
   def self.up
-    change_column :citations, :excerpt, :string, :limit => 4000
+    change_column :citations, :excerpt, :string, :limit => 8000
     change_column :citations, :title, :string, :limit => 1000
   end
 

@@ -145,6 +145,11 @@ CREATE OR REPLACE VIEW v_most_recent_roles AS
     r.id as role_id,
     r.person_id,
     r.district_id,
+    d.name as district_name,
+    -- This is a simple order by for district numbers.
+    CASE WHEN census_sld < 'A' 
+           THEN lpad(census_sld, 3, '0')
+           ELSE census_sld END as district_order,
     r.chamber_id,
     r.session_id,
     r.senate_class,
