@@ -1,9 +1,14 @@
 class Person < ActiveRecord::Base
   include Trackable
+  has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
+  acts_as_citeable :with => [:official_name]
 
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
-  has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
+
+  [:website_one, :website_two, :votesmart_photo_url, :openstates_photo_url, :webmail].each do |prop|
+    validates_format_of prop, :with => URI::regexp(%w(http https)), :allow_nil => true
+  end
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
@@ -12,11 +17,6 @@ class Person < ActiveRecord::Base
 
   has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
   has_one :chamber, :through => :current_roles
-
-  scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
-  scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
-  scope :with_photo_url, :conditions => ["openstates_photo_url is not null"]
-  scope :with_current_role, :include => :current_roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
@@ -87,7 +87,10 @@ class Person < ActiveRecord::Base
     c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
   end
 
-  # acts_as_citeable :keywords => [], :with => [:full_name]
+  scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
+  scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
+  scope :with_photo_url, :conditions => ["openstates_photo_url is not null"]
+  scope :with_current_role, :include => :current_roles
 
   # How will we allow people to sort bills?
   SORTABLE_BY = {

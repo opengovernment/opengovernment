@@ -2,6 +2,11 @@ module OpenGov
   class Citations < Resources
     class << self
       def import!
+        import_bills
+        import_people
+      end
+              
+      def import_bills
         puts "Importing citations for bills.."
         Bill.with_key_votes.each do |bill|
           puts "#{bill.bill_number}.."
@@ -11,6 +16,16 @@ module OpenGov
           raw_citations[:google_blogs].map { |c| make_citation(bill, c, "Google Blogs") }
 
           bill.save!
+        end
+      end
+
+      def import_people
+        puts "Importing citations for people..."
+        Person.with_current_role.each do |person|
+          puts "#{person.full_name}..."
+          raw_citations = person.raw_citations
+          raw_citations[:google_news].map { |c| make_citation(person, c, "Google News") }
+          raw_citations[:google_blogs].map { |c| make_citation(person, c, "Google Blogs") }
         end
       end
 
