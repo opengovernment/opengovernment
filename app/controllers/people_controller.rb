@@ -4,6 +4,14 @@ class PeopleController < ApplicationController
 
   # /states/texas/people
   def index
+    @sort = case params[:sort]
+    when 'last_name'
+      'last_name'
+    when 'district'
+      'district_order'
+    else
+      'last_name'
+    end
   end
 
   def votes
@@ -16,12 +24,11 @@ class PeopleController < ApplicationController
 
   # /people/1
   def show
-   # add_breadcrumb @person.full_name, person_path(@person), :class => "person #{@person.gender_class}"
    respond_to do |format|
      format.js
      format.atom do
-       
-       render :template => 'shared/actions'
+       @roll_calls = RollCall.all(:conditions => {:person_id => @person.id}, :include => {:vote => :bill}, :order => "votes.date desc", :limit => 20)
+       render :template => 'people/votes'
      end
      format.html do
        @latest_votes = @person.votes.latest

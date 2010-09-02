@@ -73,8 +73,7 @@
     %h2 Addresses
     %ul.addresses
       - if @person.addresses.size > 0
-        - @person.addresses.each do |address|
-          = render :partial => "shared/address", :locals => {:address => address}
+        = render :partial => "shared/address", :collection => @person.addresses
       - else
         %p Sorry, we found no addresses.
 
@@ -170,7 +169,7 @@
 
   .grid_12.alpha
     %h2 Ratings
-    - if @person.ratings?
+    - if @person.ratings
       .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
       %hr
       - @person.ratings.each do |rating|
