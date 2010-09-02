@@ -8,6 +8,7 @@ OpenGov::Application.routes.draw do
 
     resources :people, :only => [:show, :index] do
       member do
+        get :news
         get :sponsored_bills
         get :votes
       end
@@ -28,7 +29,6 @@ OpenGov::Application.routes.draw do
       end
     end
 
-    resources :people, :only => [:index], :as => 'reps'
 
     resources :committees, :only => [:show] do
       collection do

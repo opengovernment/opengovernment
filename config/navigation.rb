@@ -42,30 +42,31 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.item :bills, 'Bills', bills_path, :class => 'bills' do |bill|
       if !@bill.nil?
-        bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |b|
-          b.item :overview, 'Overview', bill_path(@bill.session, @bill)
-          b.item :votes, 'Votes', '#'
-          b.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
-          b.item :tweets, 'Social Media Coverage', '#'
-          b.item :video, 'Video', '#', :class => 'inactive'
-          b.item :money_trail, 'Money Trail', '#', :class => 'inactive'
+        bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
+          m.item :overview, 'Overview', bill_path(@bill.session, @bill)
+          m.item :votes, 'Votes', '#'
+          m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
+          m.item :tweets, 'Social Media Coverage', '#'
+          m.item :video, 'Video', '#', :class => 'inactive'
+          m.item :money_trail, 'Money Trail', '#', :class => 'inactive'
         end
       end
     end
     primary.item :people, 'People', people_path, :class => 'people' do |person|
       if !@person.nil?
-        person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |p|
-          p.item :overview, 'Overview', person_path(@person)
-          p.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
-          p.item :votes, 'Votes', votes_person_path(@person)
-          p.item :money_trail, 'Money Trail', '#'
+        person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
+          m.item :overview, 'Overview', person_path(@person)
+          m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
+          m.item :citations, 'News & Blog Coverage', news_person_path(@person)
+          m.item :votes, 'Votes', votes_person_path(@person)
+          m.item :money_trail, 'Money Trail', '#'
         end
       end
     end
     primary.item :issues, 'Issues', issues_path
-    primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |v|
+    primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |m|
       if !@vote.nil?
-        v.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
+        m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
       end
     end
     primary.item :money_trail, 'Money Trail', '#'
