@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    @import "/stylesheets/reset.css";
+    @import "/stylesheets/960.css";
+    @import "/stylesheets/application.css";
+    @import "/stylesheets/html5.css";
+    @import "/stylesheets/type.css";
+    @import "/stylesheets/layout.css";
+
+    .container_16{
+      width: 600px;
+}
   </style>
 </head>
 
 <body>
+
+<div class="fourohfour">422</div>
+
+<div class="container_16 centered">  
+
   <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
-  </div>
+    <h1 class="bold">Whoa! Whoa! Whoa!</h1>
+    <hr />
+    <h2>The change you wanted was rejected.</h2>
+    <br />
+    <p class="tip">TIP: Maybe you tried to change something you didn't have access to.</p>
+  
+  
+
+
+<div class="clear"></div>
+</div>
 </body>
 </html>

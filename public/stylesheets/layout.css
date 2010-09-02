@@ -27,6 +27,36 @@ display: none;
 color: #999;
 }
 
+.bold{
+font-weight: bold;
+}
+
+
+.tip{
+background: #c3d3e4;
+padding: 30px 0;
+font-style: italic;
+font-weight: bold;
+color: #4c647a;
+font-size: 14px;
+border-radius: 2px;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+-moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  
+margin: 0 0 15px;
+
+-webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f5', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#f7fbfb)); /* for webkit browsers */
+
+
+background: -moz-linear-gradient(top,  #f4f5f5,  #f7fbfb); /* for firefox 3.6+ */
+
+}
+
+
 /*///////////////////////////
 
 ~ Container
@@ -620,7 +650,25 @@ padding: 10px 25px 10px 0;
 
 
 
+/*///////////////////////////
 
+~ 404
+
+///////////////////////////*/
+
+.fourohfour{
+font-size: 300px;
+display: block;
+width: 900px;
+text-align: center;
+margin: 100px auto -20px;
+padding-top: 100px;
+font-weight: bold;
+overflow: hidden;
+height: 70px;
+color: #c3d3e4;
+text-shadow: 10px 10px 0px #6e8499;
+}
 
 
 
