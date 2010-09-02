@@ -1,4 +1,4 @@
-Scenario: Available States
+Feature: Available States
    In order to manage the launches of OpenGovernment states
    As an administrator
    I want to see and modify an accurate list of current, pending, and unsupported states in OpenGovernment
