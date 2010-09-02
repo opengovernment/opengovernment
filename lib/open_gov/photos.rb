@@ -28,14 +28,12 @@ module OpenGov
       # the person.
       def sync!
         puts "Resizing, cropping, and attaching photos to people"
-        Person.with_photo_url.each do |p|
-          # Net::URI.get(p.photo_url)
-          # put the data in a local file
-          # p.photo = File
-          # p.save
+        Person.with_openstates_photo_url.where("photo_file_name is null").each do |p|          
+          p.photo_url = p.openstates_photo_url
+          p.save
+          sleep 0.1
         end
       end
-      
     end
   end
 end

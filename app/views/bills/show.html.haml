@@ -56,7 +56,7 @@
       = link_to 'I oppose', '#'
       this bill!
 
-    - if @bill.versions.size > 0
+    - if @bill.versions.count > 0
       %h2 Versions
 
       %ul.lined
@@ -66,12 +66,12 @@
 
   %hr.push_top
 
-  - if @bill.major_actions.size > 0
+  - if @bill.major_actions.count > 0
     %h2 #{link_to "Major Actions", url_for(:actions => 'major'), :remote => true} | #{link_to "All Actions", url_for(:actions => 'all'), :remote => true}
     .grid_12.last
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
-  - if @bill.votes.size > 0
+  - if @bill.votes.count > 0
     %h2 Votes
     %table.vote-summary.grid_12.alpha
       %thead

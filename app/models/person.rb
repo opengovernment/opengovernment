@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Person < ActiveRecord::Base
   include Trackable
   has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
@@ -6,9 +8,16 @@ class Person < ActiveRecord::Base
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
 
-  [:website_one, :website_two, :votesmart_photo_url, :openstates_photo_url, :webmail].each do |prop|
+  [:website_one, :website_two, :webmail].each do |prop|
     validates_format_of prop, :with => URI::regexp(%w(http https)), :allow_nil => true
   end
+
+  # We could ask for a photo URL on a form this way, if we wanted.
+  # Right now this is used by OpenStates::Photos::sync! to
+  # download photos for each person.
+  attr_accessor :photo_url
+  before_validation :download_remote_image, :if => :photo_url_provided?
+  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
@@ -89,7 +98,7 @@ class Person < ActiveRecord::Base
 
   scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
-  scope :with_photo_url, :conditions => ["openstates_photo_url is not null"]
+  scope :with_openstates_photo_url, :conditions => ["openstates_photo_url is not null"]
   scope :with_current_role, :include => :current_roles
 
   # How will we allow people to sort bills?
@@ -184,5 +193,23 @@ class Person < ActiveRecord::Base
   def to_param
     "#{id}-#{full_name.parameterize}"
   end
+
+  private
+
+    def photo_url_provided?
+      !self.photo_url.blank?
+    end
+
+    def download_remote_image
+      self.photo = do_download_remote_image
+      self.openstates_photo_url = photo_url
+    end
+
+    def do_download_remote_image
+      io = open(URI.parse(photo_url))
+      def io.original_filename; base_uri.path.split('/').last; end
+      io.original_filename.blank? ? nil : io
+    rescue # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+    end
 
 end
