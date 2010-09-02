@@ -18,6 +18,9 @@ class Chamber < ActiveRecord::Base
     def other
       where("v_most_recent_roles.party not in ('Democrat', 'Republican', 'D', 'R')")
     end
+    def including_district_names
+      select('people.*, v_most_recent_roles.district_name')
+    end
   end
 
   def self.federal
