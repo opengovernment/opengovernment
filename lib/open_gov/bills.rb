@@ -76,9 +76,10 @@ module OpenGov
           # A bill number alone does not identify a bill; we also need a session ID.
           session = state.legislature.sessions.find_by_name(bill.session)
 
-          @bill = Bill.find_or_initialize_by_bill_number_and_session_id(bill.bill_id, session.id)
+          @bill = Bill.find_or_initialize_by_openstates_id(bill["_id"])
           @bill.title = bill.title
-          @bill.openstates_id = bill["_id"]
+          @bill.bill_number = bill.bill_id
+          @bill.session_id = session.id
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
@@ -109,11 +110,15 @@ module OpenGov
 
           # Same deal as with actions, above
           bill.sponsors.each do |sponsor|
-            Sponsorship.create(
-              :bill => @bill,
-              :sponsor_id => @people[sponsor.leg_id],
-              :kind => sponsor[:type]
-            )
+            if sponsor[:leg_id]
+              Sponsorship.create(
+                :bill => @bill,
+                :sponsor_id => @people[sponsor.leg_id],
+                :kind => sponsor[:type]
+              )
+            elsif sponsor[:name]
+              # TODO: Do the right thing here - need a column for this.
+            end
           end
 
           if bill.subjects?
