@@ -14,8 +14,13 @@ class Bill < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
   default_scope :order => "first_action_at desc"
-  scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
-  scope :with_type_and_number, lambda { |t, n| {:conditions => ["upper(bill_number) in (?, ?)", t.upcase + n.to_s, t.upcase + ' ' + n.to_s]}}
+  scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
+
+  # upper_and_stripped() is an indexed function on the bills table
+  # that makes it easy to query consistently.
+  scope :with_type_and_number, lambda { |t, n| {:conditions => ["upper_and_stripped(bill_number) = ?", (t.upcase + n.to_s).gsub(/[-\.\s]/, '')]}}
+  scope :with_number, lambda { |n| with_type_and_number(n, '') } 
+
   scope :in_chamber, lambda { |c| {:conditions => ["chamber_id = ?", c]} }
   scope :for_session, lambda { |s| {:conditions => ["session_id = ?", s], :joins => [:session]} }
   scope :for_session_named, lambda { |s| {:conditions => ["upper(sessions.name) = upper(?)", s], :joins => [:session]} }
