@@ -13,24 +13,26 @@ module ApplicationHelper
   end
 
   def track(object)
-    javascript do
-      %Q|
-          $(document).ready(function() {
-            Tracker.req.object_id = #{object.id};
-            Tracker.req.object_type = '#{object.class}';
-            Tracker.track();
-          });
-        |
+    if MongoMapper.connected?
+      javascript do
+        %Q|
+            $(document).ready(function() {
+              Tracker.req.object_id = #{object.id};
+              Tracker.req.object_type = '#{object.class}';
+              Tracker.track();
+            });
+          |
+      end
     end
   end
 
   def photo_for(person, size = :full)
     ops = case size
-    when :thumb
-      {:width => 50, :height => 50}
-    else
-      {:width => 110, :height => 110}
-    end
+      when :thumb
+        {:width => 50, :height => 50}
+      else
+        {:width => 110, :height => 110}
+          end
 
     if person.photo?
       # The local photo
