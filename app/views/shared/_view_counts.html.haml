@@ -1,7 +1,10 @@
 %span.views
-  = page.views
-  total views&nbsp;&nbsp;
-  = page.views(1.week.ago.utc)
-  in the last 7 days&nbsp;&nbsp;
-  = page.views(1.month.ago.utc)
-  in the last month.
+  - if MongoMapper.connected?
+    = page.views
+    total views&nbsp;&nbsp;
+    = page.views(1.week.ago.utc)
+    in the last 7 days&nbsp;&nbsp;
+    = page.views(1.month.ago.utc)
+    in the last month.
+  - else
+    View counts currently not available. Please check later.

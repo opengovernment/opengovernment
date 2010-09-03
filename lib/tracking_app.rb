@@ -7,12 +7,7 @@ class TrackingApp
     gif_data = open('public/images/tracking.gif', 'rb') { |io| io.read }
     req = Rack::Request.new(env)
 
-    begin
-      MongoMapper.connection
-      self.store(req)
-    rescue Mongo::ConnectionFailure => e
-      Rails.logger.debug("Mongodb: #{e.message}")
-    end
+    self.store(req)
 
     [200, {'Content-type' => 'image/gif'}, [gif_data]]
   end
