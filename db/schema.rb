@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 53) do
+ActiveRecord::Schema.define(:version => 54) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 53) do
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
+    t.string   "kind"
   end
 
   create_table "bills_subjects", :force => true do |t|
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(:version => 53) do
   end
 
   create_table "citations", :force => true do |t|
-    t.string   "url",           :limit => 8000
+    t.string   "url",           :limit => 2000
     t.string   "excerpt",       :limit => 4000
     t.string   "title",         :limit => 1000
     t.string   "source"
@@ -267,6 +268,7 @@ ActiveRecord::Schema.define(:version => 53) do
     t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sponsor_name"
   end
 
   create_table "states", :force => true do |t|
@@ -344,6 +346,7 @@ ActiveRecord::Schema.define(:version => 53) do
     t.string   "motion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "kind"
   end
 
 end

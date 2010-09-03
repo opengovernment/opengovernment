@@ -7,6 +7,7 @@ vote_19031:
   updated_at: 2010-05-10 23:26:12.164802
   date: 2009-04-27 07:00:00
   openstates_id: "19031"
+  kind: "passage"
   passed: t
   bill: hb10
   no_count: "0"
@@ -20,6 +21,7 @@ vote_18129:
   date: 2009-04-29 07:00:00
   openstates_id: "18129"
   passed: t
+  kind: "passage"
   bill: HB1000
   no_count: "0"
 vote_18090:
@@ -28,6 +30,7 @@ vote_18090:
   created_at: 2010-05-10 23:26:15.791316
   chamber: txu
   yes_count: "0"
+  kind: "reading:3"
   updated_at: 2010-05-10 23:26:15.791316
   date: 2009-05-19 07:00:00
   id: "3"
@@ -35,10 +38,11 @@ vote_18090:
   bill: hb1001
   no_count: "0"
 vote_17981:
-  motion: final passage
+  motion: vote on amendment...
   other_count: "0"
   created_at: 2010-05-10 23:26:16.197522
   chamber: txl
+  kind: "amendment"
   yes_count: "143"
   updated_at: 2010-05-10 23:26:16.197522
   date: 2009-05-03 07:00:00
@@ -47,10 +51,11 @@ vote_17981:
   bill: hb1001
   no_count: "0"
 vote_18446:
-  motion: to third reading
+  motion: veto override
   other_count: "0"
   created_at: 2010-05-10 23:26:16.995009
   chamber: txu
+  kind: "veto_override"
   yes_count: "0"
   updated_at: 2010-05-10 23:26:16.995009
   date: 2007-05-21 07:00:00

@@ -80,6 +80,7 @@ module OpenGov
           @bill.title = bill.title
           @bill.bill_number = bill.bill_id
           @bill.session_id = session.id
+          @bill.kind = bill.kind
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
@@ -110,15 +111,12 @@ module OpenGov
 
           # Same deal as with actions, above
           bill.sponsors.each do |sponsor|
-            if sponsor[:leg_id]
-              Sponsorship.create(
-                :bill => @bill,
-                :sponsor_id => @people[sponsor.leg_id],
-                :kind => sponsor[:type]
-              )
-            elsif sponsor[:name]
-              # TODO: Do the right thing here - need a column for this.
-            end
+            Sponsorship.create(
+              :bill => @bill,
+              :sponsor_id => @people[sponsor.leg_id],
+              :sponsor_name => sponsor[:name]
+              :kind => sponsor[:type]
+            )
           end
 
           if bill.subjects?
@@ -136,6 +134,7 @@ module OpenGov
               :passed => vote.passed,
               :date => Date.valid_date!(vote.date),
               :motion => vote.motion,
+              :kind => vote.type,
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
 

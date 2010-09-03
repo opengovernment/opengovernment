@@ -24,7 +24,7 @@ s_HB1000_1:
   bill: hb1000
 s_HB1001_1:
   kind: author
-  sponsor: dawnna
+  sponsor_name: Committee on Commerce
   created_at: 2010-05-12 19:28:52.16441
   updated_at: 2010-05-12 19:28:52.16441
   bill: hb1001
