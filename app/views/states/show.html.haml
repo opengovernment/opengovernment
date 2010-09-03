@@ -47,5 +47,4 @@
 
       %p
         %ul.lined.and_spaced
-          = @state_key_votes.each do |bill|
-            = render :partial => 'shared/bill', :locals => {:bill => bill}
+          = render :partial => 'shared/bill', :collection => @state_key_votes
