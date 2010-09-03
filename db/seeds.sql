@@ -14,6 +14,11 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION upper_and_stripped(item varchar) RETURNS varchar as $$
+begin
+  RETURN upper(regexp_replace(item, E'[\\s|\\.]*', '', 'g'));
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
 
 -- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
@@ -200,3 +205,8 @@ CREATE OR REPLACE VIEW v_district_people AS
   and r.person_id = p.id
   and s.id = r.session_id;
 
+-- Given that bill numbers can come into the system
+-- as "AB 2818" or "H.R.1282", this index allows us to do bill number
+-- lookups in a consistent fashion.
+drop index bill_number_idx;
+create index bill_number_idx on bills (upper_and_stripped(bill_number));

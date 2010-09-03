@@ -27,6 +27,15 @@ class StatesController < ApplicationController
     @search_type = params[:search_type] || "all"
     @committee_type = params[:committee_type] || "all"
 
+    # We might be able to stop right here and redirect to a bill.
+    if ['all', 'bills'].include? @search_type
+      if @bills = Bill.for_state(@state).with_number(@query)
+        if @bills.size == 1
+          return redirect_to bill_path(@bills.first.session, @bills.first)
+        end
+      end
+    end
+
     @search_session = params[:session_id]
     @search_options = {
       :page => params[:page],
@@ -53,7 +62,7 @@ class StatesController < ApplicationController
           @bills = @state.bills.search(@query, @search_options)
           @contributions = Contribution.search(@query, @search_options)
           @committees = @committee_type.search(@query, @search_options)
-        when "bills"
+        when "bills"          
           @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries
         when "legislators"
