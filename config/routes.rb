@@ -17,7 +17,7 @@ OpenGov::Application.routes.draw do
     resources :sigs, :only => [:index, :show]
     resources :issues, :only => [:index, :show]
 
-    match '/bills', :to => redirect("/search?search_type=bills"), :as => 'bills'
+    match '/bills', :to => 'bills#index', :as => 'bills'
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :major_actions

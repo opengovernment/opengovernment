@@ -9,10 +9,11 @@
   Sort by
   = link_to "Name", url_for(:sort => 'name')
   = link_to "District", url_for(:sort => 'district')
+  = link_to "Public Interest", url_for(:sort => 'citations')
 
 #people
   - @state.chambers.each do |chamber|
     %div.grid_8[chamber]
       %h2= chamber.name
       %ul.lined
-        = render :partial => 'shared/person', :collection => chamber.people.including_district_names.order(@sort)
+        = render :partial => 'shared/person', :collection => @facets.for(:chamber_id => chamber.id)

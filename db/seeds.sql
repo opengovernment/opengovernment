@@ -20,6 +20,24 @@ begin
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
 
+CREATE OR REPLACE FUNCTION current_district_name_for(p_id integer) RETURNS varchar AS $$
+DECLARE
+  name VARCHAR;
+BEGIN
+  select district_name into name from v_most_recent_roles where person_id = p_id limit 1;
+  RETURN name;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION current_district_order_for(p_id integer) RETURNS varchar AS $$
+DECLARE
+  num VARCHAR;
+BEGIN
+  select district_order into num from v_most_recent_roles where person_id = p_id limit 1;
+  RETURN num;
+END;
+$$ LANGUAGE plpgsql;
+
 -- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
 ADD CONSTRAINT districts_state_fk

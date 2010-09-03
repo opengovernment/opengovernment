@@ -4,14 +4,18 @@ class PeopleController < ApplicationController
 
   # /states/texas/people
   def index
-    @sort = case params[:sort]
+    @order = case params[:sort]
     when 'last_name'
-      'last_name'
+      'last_name asc'
     when 'district'
-      'district_order'
+      'district_order asc'
+    when 'citations'
+      'citations_count desc'
     else
-      'last_name'
+      'last_name asc'
     end
+
+  @facets = Person.facets :with => { :chamber_id => @state.chamber_ids }, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
   end
 
   def votes

@@ -32,8 +32,10 @@ class Action < ActiveRecord::Base
 
   def action_fm
     case action.downcase
-      when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^amendment/, /^remarks/
+      when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^remarks/
         "had its " + action.downcase
+      when /^amendment/
+        "had " + action.downcase
       when "point of order"
         "had a point of order raised"
       when /point of order(.*)/

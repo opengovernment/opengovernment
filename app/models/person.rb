@@ -110,6 +110,13 @@ class Person < ActiveRecord::Base
   define_index do
     indexes first_name, middle_name, last_name, :sortable => true
     has email
+
+    # Trigger the join on citations before indexing the count
+    has citations(:id), :as => :citations_ids
+    has "COUNT(citations.id)", :as => :citations_count, :type => :integer
+
+    has chamber(:id), :as => :chamber_id, :facet => true
+    has "current_district_order_for(people.id)", :as => :district_order, :type => :string
   end
 
   def full_name
@@ -133,6 +140,10 @@ class Person < ActiveRecord::Base
 
   def current_role
     current_roles.try(:first)
+  end
+
+  def current_district_name
+    Person.find_by_sql(["select current_district_name_for(?) as name", id]).try(:first).try(:name)
   end
 
   def official_name

@@ -9,6 +9,8 @@ class State < Place
     hm.has_many :sessions
     hm.has_many :committees
     hm.has_many :chambers
+    hm.has_one :upper_chamber
+    hm.has_one :lower_chamber
     hm.has_many :lower_committees
     hm.has_many :joint_committees
     hm.has_many :upper_committees
