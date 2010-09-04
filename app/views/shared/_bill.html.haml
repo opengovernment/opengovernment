@@ -13,11 +13,11 @@
     
     .introduced
       Introduced:
-      != bill.actions.minimum(:date)
+      != bill.first_action_at
     
     .recent_action
       Most recent action:
-      != bill.actions.maximum(:date)
+      != bill.last_action_at
       
     .recent_vote
       != bill.votes.count

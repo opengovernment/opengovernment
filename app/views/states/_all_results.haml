@@ -4,15 +4,16 @@
     %ul
       %li
         %a
-          Bills (
-          = @bills.size rescue 0
-          )
+          Bills
+          - surround '(',')' do
+            = @bills.total_entries rescue 0
+
 
       %li
         %a
-          People (
-          = @legislators.size rescue 0
-          )
+          People 
+          - surround '(',')' do
+            = @legislators.total_entries rescue 0
 
   .grid_12
     
