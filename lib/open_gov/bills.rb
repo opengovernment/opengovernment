@@ -95,12 +95,20 @@ module OpenGov
           end
 
           bill.actions.each do |action|
+            action_date = Date.valid_date!(action.date)
+            
+            @bill.first_action_at ||= action_date
+            @bill.first_action_at = action_date if @bill.first_action_at > action_date
+
+            @bill.last_action_at ||= action_date
+            @bill.last_action_at = action_date if @bill.last_action_at < action_date
+
             @bill.actions << Action.new(
               :actor => action.actor,
               :action => action.action,
               :kind => action[:type] && action[:type].first,
               :action_number => action[:action_number],
-              :date => Date.valid_date!(action.date))
+              :date => action_date)
           end
 
           bill.versions.each do |version|

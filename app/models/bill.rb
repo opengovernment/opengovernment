@@ -5,15 +5,18 @@ class Bill < ActiveRecord::Base
   belongs_to :session
   belongs_to :chamber
 
-  has_many :sponsorships, :dependent => :destroy
+  with_options :dependent => :destroy do |hm|
+    hm.has_many :sponsorships
+    hm.has_many :versions
+    hm.has_many :actions
+  end
   has_many :sponsors, :through  => :sponsorships
 
-  has_many :versions, :dependent => :destroy
-  has_many :actions, :dependent => :destroy
   has_many :major_actions, :class_name => 'Action', :conditions => ["kind <> 'other' and kind is not null"]
   has_many :votes, :dependent => :destroy
 
   default_scope :order => "first_action_at desc"
+
   scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
 
   # upper_and_stripped() is an indexed function on the bills table
@@ -28,9 +31,12 @@ class Bill < ActiveRecord::Base
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
   has_many :citations, :as => :owner
-  has_many :google_news_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google News"}
-  has_many :google_blog_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Google Blogs"}
-  has_many :technorati_citations, :as => :owner, :class_name => "Citation", :conditions => {:search_source => "Technorati"}
+  
+  with_options :as => :owner, :class_name => "Citation" do |c|
+    c.has_many :google_news_citations, :conditions => {:search_source => "Google News"}
+    c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
+    c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
+  end
 
   acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
@@ -47,6 +53,10 @@ class Bill < ActiveRecord::Base
   define_index do
     indexes title, :sortable => true
     has bill_number, state_id, session_id, chamber_id, last_action_at, first_action_at
+
+    # Trigger the join on citations before indexing the count
+    has citations(:id), :as => :citations_ids
+    has "COUNT(citations.id)", :as => :citations_count, :type => :integer
   end
 
   class << self
