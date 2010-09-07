@@ -1,0 +1,3 @@
+%h2= @chamber.name
+%ul.lined
+  = render :partial => 'shared/person', :collection => @facets.for(:chamber_id => @chamber.id)

@@ -1,21 +1,23 @@
 class PeopleController < ApplicationController
-  before_filter :find_person, :except => [:index]
+  before_filter :find_person, :except => [:index, :upper, :lower]
   before_filter :get_state
 
   # /states/texas/people
   def index
-    @order = case params[:sort]
-    when 'last_name'
-      'last_name asc'
-    when 'district'
-      'district_order asc'
-    when 'citations'
-      'citations_count desc'
-    else
-      'last_name asc'
-    end
+    @chamber = @state.upper_chamber
+    poeple_in_chamber(params[:sort])
+  end
 
-  @facets = Person.facets :with => { :chamber_id => @state.chamber_ids }, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
+  def upper
+    @chamber = @state.upper_chamber
+    poeple_in_chamber(params[:sort])
+    render :template => 'people/index'
+  end
+
+  def lower
+    @chamber = @state.lower_chamber
+    poeple_in_chamber(params[:sort])
+    render :template => 'people/index'
   end
 
   def votes
@@ -42,9 +44,30 @@ class PeopleController < ApplicationController
   end
 
   protected
+
   def find_person
     @person = Person.find(params[:id])
     @person || resource_not_found
   end
   
+  private
+
+  def poeple_in_chamber(sort)
+    # This sets up variables for the view
+
+    @order = case sort
+    when 'last_name'
+      'last_name asc'
+    when 'district'
+      'district_order asc'
+    when 'citations'
+      'citations_count desc'
+    else
+      'last_name asc'
+    end
+
+    @facets = Person.facets :with => { :chamber_id => @chamber.id }, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
+  end
+  
+
 end

@@ -7,13 +7,14 @@
 
 .sort
   Sort by
-  = link_to "Name", url_for(:sort => 'name')
-  = link_to "District", url_for(:sort => 'district')
-  = link_to "Public Interest", url_for(:sort => 'citations')
+  = link_to "Name", url_for(:sort => 'name'), :remote => true
+  = link_to "District", url_for(:sort => 'district'), :remote => true
+  = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
 
 #people
-  - @state.chambers.each do |chamber|
-    %div.grid_8[chamber]
-      %h2= chamber.name
-      %ul.lined
-        = render :partial => 'shared/person', :collection => @facets.for(:chamber_id => chamber.id)
+  = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort])
+  = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort])
+
+  .grid_16
+    #chamber
+      = render :partial => 'chamber'
