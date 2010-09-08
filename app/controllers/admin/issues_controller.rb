@@ -16,7 +16,7 @@ class Admin::IssuesController < Admin::AdminController
   end
 
   def create
-    new_tag = ActsAsTaggableOn::Tag.create(:name => params[:name])
+    new_tag = ActsAsTaggableOn::Tag.create(:name => params[:name].titleize)
     @tags = ActsAsTaggableOn::Tag.all
 
     respond_to { |format| format.js }
@@ -31,7 +31,7 @@ class Admin::IssuesController < Admin::AdminController
 
   def update
     @tag = ActsAsTaggableOn::Tag.find(params[:id])
-    @tag.update_attributes(:name => params[:name])
+    @tag.update_attributes(:name => params[:name].titleize)
     @tags = ActsAsTaggableOn::Tag.all
     respond_to { |format| format.js }
   end

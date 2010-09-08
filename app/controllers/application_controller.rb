@@ -16,17 +16,16 @@ class ApplicationController < ActionController::Base
   end
 
   def get_state
-    @state = State.find_by_slug(request.subdomain)
+    @state = lookup_state(request.subdomain)
     @state || resource_not_found
   end
 
-  private
   def current_place
-    @state ||= State.find_by_slug(request.subdomain)
+    @state ||= lookup_state(request.subdomain)
   end
 
   def current_place_name
-    @state.try(:name) || State.find_by_slug(request.subdomain).try(:name)
+    @state.try(:name) || current_place.try(:name)
   end
 
   def authenticate
@@ -35,5 +34,10 @@ class ApplicationController < ActionController::Base
         username == USERNAME && Digest::MD5.hexdigest(password) == PASSWORD
       end
     end
+  end
+  
+  private
+  def lookup_state(subdomain)
+    return State.find_by_slug(subdomain) || State.find_by_slug(subdomain.sub(/\..*$/,''))
   end
 end

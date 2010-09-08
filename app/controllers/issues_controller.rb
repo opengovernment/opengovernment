@@ -2,7 +2,22 @@ class IssuesController < ApplicationController
   before_filter :get_issue, :only => [:show]
 
   def index
-    @issues = ActsAsTaggableOn::Tag.all
+    respond_to do |format|
+      @issues = ActsAsTaggableOn::Tag.all
+      format.js do
+        @issues = case params[:sort]
+          when "name"
+            ActsAsTaggableOn::Tag.order("name asc")
+          when "bills"
+            ActsAsTaggableOn::Tag.order("name asc")
+          when "views"
+            ActsAsTaggableOn::Tag.find(Page.most_viewed('Issue').collect(&:og_object_id))
+          else
+            @issues
+        end
+      end
+      format.html
+    end
   end
 
   def show

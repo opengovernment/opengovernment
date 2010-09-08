@@ -221,6 +221,7 @@ namespace :load do
     Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
     Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
+    Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
 
     # Force a reload of the DistrictType class, so we get the proper constants
     class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
