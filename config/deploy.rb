@@ -5,6 +5,7 @@
 # Use cap deploy to deploy to production; cap staging deploy to deploy to dev.
 #
 require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
 
 set :stages, %w(staging production)
 set :default_stage, "staging"
@@ -51,29 +52,6 @@ namespace :deploy do
     run "touch #{deploy_to}/current/tmp/restart.txt"
   end
 end
-
-namespace :bundler do
-  %w(install update uninstall).each do |cmd|
-    task cmd, :except => {:no_release => true} do
-      opts = cmd == 'uninstall' ? '--all' : '--source=http://gemcutter.org --no-rdoc --no-ri'
-      run("sudo gem #{cmd} bundler #{opts}")
-    end
-  end
-
-  task :symlink_vendor do
-    run %Q{ rm -fr   #{release_path}/vendor/bundle}
-    run %Q{ mkdir -p #{shared_path}/bundler_gems}
-    run %Q{ ln -nfs  #{shared_path}/bundler_gems #{release_path}/vendor/bundle}
-  end
-
-  task :bundle_new_release do
-#    bundler.symlink_vendor
-    run("cd #{release_path} && bundle install --production --without test cucumber")
-    sudo "chmod g+w -R #{release_path}/.bundle #{release_path}/tmp"
-  end
-end
-
-after 'deploy:update_code', 'bundler:bundle_new_release'
 
 # Deploy hooks...
 
