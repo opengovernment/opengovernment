@@ -1,5 +1,12 @@
 .grid_16
   %h1 Issues
-  %hr
-  - tag_cloud(@issues, %w(css1 css2 css3 css4)) do |issue, css_class|
-    = link_to issue.name, issue_path(issue),:class => css_class
+
+.grid-16
+  .sort
+    Sort by
+    = link_to "Name", url_for(:sort => 'name'), :remote => true
+    = link_to "Most Viewed", url_for(:sort => 'views'), :remote => true
+    = link_to "Most Used", url_for(:sort => 'bills'), :remote => true
+
+#issues
+  = render(:partial => 'shared/issue', :collection => @issues)
