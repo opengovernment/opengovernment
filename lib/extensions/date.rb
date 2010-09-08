@@ -16,4 +16,5 @@ class Date
       raise TypeError, "We only know about floats, integers, and strings"
     end
   end
+  
 end
