@@ -1,5 +1,7 @@
 .share_buttons
-  %h4= message
+  %h4
+    %span= message
+    .arrow
   %ul.share
     %li.twitter
       %a{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter

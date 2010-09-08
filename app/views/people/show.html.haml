@@ -4,6 +4,32 @@
   = track(@person)
 
 .grid_16
+  %aside.take_action
+    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+    .track_buttons
+      %h4 
+        %span Track
+        .arrow
+      %ul
+        %li.rss RSS
+        %li.email Email Alerts
+
+    .write_buttons
+      %h4 
+        %span Write
+        .arrow
+      %ul
+        %li.email Email
+        %li.twitter Twitter
+        %li.email Facebook
+
+    .support_buttons
+      %a.support
+        %span I Support this Representative!
+      %a.oppose
+        %span I Oppose this Representative!
+           
+
   %h1
     = @person.official_name
     - surround '(', ')' do
@@ -14,8 +40,18 @@
   #left_nav
     = render_navigation(:level => 3)
 
+  %ul.user
+    %li.discuss
+      Discussion Forum
+  
+    %li.wiki
+      Follow #{@person.full_name.possessive} campaign on RaceTracker
+
+
 .grid_12
   = render :partial => 'shared/view_counts', :locals => {:page => @person}
+
+  %hr
 
   .grid_6.alpha
     %h2 General Info
@@ -52,21 +88,7 @@
     %p
       = @person.bio_data
 
-  %aside.grid_2.omega
-    .track
-      Track this representative via RSS or e-mail
-    .discuss
-      Discussion Forum
-    .contact
-      Write this representative
-    .support
-      = link_to 'I support', '#'
-      /
-      = link_to 'I oppose', '#'
-      this representative!
-    .wiki
-      Follow #{@person.full_name.possessive} campaign on RaceTracker
-
+ 
   %hr.push_top
 
   .grid_12.alpha

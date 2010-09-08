@@ -60,10 +60,7 @@
           .grid_7.omega.search
             = render :partial => 'shared/search_form'
 
-        %aside
-          = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
-
-
+     
     %div.container_16.bread
       %ul.breadcrumb
         %li.topnav
