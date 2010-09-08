@@ -3,21 +3,27 @@ class BillsController < ApplicationController
   before_filter :get_bill, :except => [:index]
 
   def index
+    @state_bills = Bill.for_state(@state).unscoped
+
     respond_to do |format|
       format.js do
+
         @bills = case params[:sort]
           when "actions"
-            Bill.unscoped.for_state(@state).order("last_action_at desc").limit(10)
+            @state_bills.order("last_action_at desc").limit(10)
           when "recent"
-            Bill.for_state(@state).limit(10)
+            @state_bills.limit(10)
           when "citations"
-            Bill.search(:order => 'citations_count desc', :per_page => 10)
+            @state_bills.search(:order => 'citations_count desc', :per_page => 10)
           when "views"
-            Bill.find(Page.most_viewed('Bill').collect(&:og_object_id))
+            @state_bills.find(Page.most_viewed('Bill').collect(&:og_object_id))
+          when "keyvotes"
+            legislature = @state.legislature
+            @state_bills.find(:all, :conditions => {:votesmart_key_vote => true, :chamber_id => legislature.chambers})
         end
       end
       format.html do
-        @bills = Bill.unscoped.for_state(@state).order("last_action_at desc").limit(10)
+        @bills = @state_bills.order("last_action_at desc").limit(10)
       end
     end
   end
