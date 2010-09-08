@@ -15,3 +15,4 @@ config/development.sphinx.conf
 config/sphinx.yml
 spec/fixtures/data/people.xml
 webrat.log
+rerun.txt
