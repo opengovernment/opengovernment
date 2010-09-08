@@ -12,8 +12,8 @@
   = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
 
 #people
-  = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort])
-  = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort])
+  = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort]), :class => (@current_tab == :upper ? 'active' : '')
+  = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort]), :class => (@current_tab == :lower ? 'active' : '')
 
   .grid_16
     #chamber
