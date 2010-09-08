@@ -38,6 +38,6 @@ class ApplicationController < ActionController::Base
   
   private
   def lookup_state(subdomain)
-    return State.find_by_slug(subdomain) || State.find_by_slug(subdomain.sub(/\..*$/,'')
+    return State.find_by_slug(subdomain) || State.find_by_slug(subdomain.sub(/\..*$/,''))
   end
 end
