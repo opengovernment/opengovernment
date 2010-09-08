@@ -8,6 +8,7 @@ db/sphinx/*
 public/assets/*
 .bundle/*
 data/*
+vendor/bundle/*
 vendor/bundler_gems/*
 vendor/cache/*
 .rvmrc
