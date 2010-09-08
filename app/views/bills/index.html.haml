@@ -5,17 +5,13 @@
 
 %hr.grid_16
 
-#bills_actions
-  %h2 Recent actions
-  %ul.lined
-    = render :partial => 'shared/bill', :collection => Bill.unscoped.for_state(@state).order("last_action_at desc").limit(10)
+.sort
+  Sort by
+  = link_to "Recent Actions", url_for(:sort => 'actions'), :remote => true
+  = link_to "Recent Bills", url_for(:sort => 'recent'), :remote => true
+  = link_to "Most In The News", url_for(:sort => 'citations'), :remote => true
+  = link_to "Most Viewed", url_for(:sort => 'views'), :remote => true
+  = link_to "Key Votes", url_for(:sort => 'keyvotes'), :remote => true
 
-#bills_introduced
-  %h2 Recent Bills Introduced
-  %ul.lined
-    = render :partial => 'shared/bill', :collection => Bill.for_state(@state).limit(10)
-
-#bills_most_cited
-  %h2 Most in the news
-  %ul.lined
-    = render :partial => 'shared/bill', :collection => Bill.search(:order => 'citations_count desc', :per_page => 10)
+#bills
+  = render :partial => 'shared/bill', :collection => @bills

@@ -10,8 +10,8 @@ class Bill < ActiveRecord::Base
     hm.has_many :versions
     hm.has_many :actions
   end
-  has_many :sponsors, :through  => :sponsorships
 
+  has_many :sponsors, :through  => :sponsorships
   has_many :major_actions, :class_name => 'Action', :conditions => ["kind <> 'other' and kind is not null"]
   has_many :votes, :dependent => :destroy
 
@@ -22,16 +22,15 @@ class Bill < ActiveRecord::Base
   # upper_and_stripped() is an indexed function on the bills table
   # that makes it easy to query consistently.
   scope :with_type_and_number, lambda { |t, n| {:conditions => ["upper_and_stripped(bill_number) = ?", (t.upcase + n.to_s).gsub(/[-\.\s]/, '')]}}
-  scope :with_number, lambda { |n| with_type_and_number(n, '') } 
+  scope :with_number, lambda { |n| with_type_and_number(n, '') }
 
   scope :in_chamber, lambda { |c| {:conditions => ["chamber_id = ?", c]} }
   scope :for_session, lambda { |s| {:conditions => ["session_id = ?", s], :joins => [:session]} }
   scope :for_session_named, lambda { |s| {:conditions => ["upper(sessions.name) = upper(?)", s], :joins => [:session]} }
   scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
-
   has_many :citations, :as => :owner
-  
+
   with_options :as => :owner, :class_name => "Citation" do |c|
     c.has_many :google_news_citations, :conditions => {:search_source => "Google News"}
     c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
