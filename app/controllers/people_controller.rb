@@ -5,17 +5,21 @@ class PeopleController < ApplicationController
   # /states/texas/people
   def index
     @chamber = @state.upper_chamber
+    @current_tab = :upper
     poeple_in_chamber(params[:sort])
+    @people = @facets.for(:chamber_id => @chamber.id)
   end
 
   def upper
     @chamber = @state.upper_chamber
+    @current_tab = :upper
     poeple_in_chamber(params[:sort])
     render :template => 'people/index'
   end
 
   def lower
     @chamber = @state.lower_chamber
+    @current_tab = :lower
     poeple_in_chamber(params[:sort])
     render :template => 'people/index'
   end

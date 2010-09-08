@@ -5,13 +5,26 @@
 
 %hr.grid_16
 
+
 .sort
-  Sort by
-  = link_to "Recent Actions", url_for(:sort => 'actions'), :remote => true
-  = link_to "Recent Bills", url_for(:sort => 'recent'), :remote => true
-  = link_to "Most In The News", url_for(:sort => 'citations'), :remote => true
-  = link_to "Most Viewed", url_for(:sort => 'views'), :remote => true
-  = link_to "Key Votes", url_for(:sort => 'keyvotes'), :remote => true
+  %span.sort_label Sort by Name
+  .arrow   
+  %ul
+    %li
+      = link_to "Recent Actions", url_for(:sort => 'actions'), :remote => true
+    %li
+      = link_to "Recent Bills", url_for(:sort => 'recent'), :remote => true
+    %li
+      = link_to "Most In The News", url_for(:sort => 'citations'), :remote => true
+    %li
+      = link_to "Most Viewed", url_for(:sort => 'views'), :remote => true
+    %li
+      = link_to "Key Votes", url_for(:sort => 'keyvotes'), :remote => true
+
+
 
 #bills
   = render :partial => 'shared/bill', :collection => @bills
+
+
+

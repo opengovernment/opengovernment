@@ -28,6 +28,9 @@ gem "geokit"
 # Breadcrumbs
 gem "simple-navigation"
 
+# Static pages
+gem "high_voltage"
+
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 gem "chronic" # Complex date string parsing

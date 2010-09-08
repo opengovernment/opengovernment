@@ -80,7 +80,18 @@
           %div(id="flash_#{key}")
             =h value
       %div.content
-        = yield
+        .grid_16
+          - if yield(:title)
+            %h1.grid_13.alpha= yield(:title)
+
+        %hr.grid_16
+
+        %nav.grid_4.alpha
+          #left_nav
+            = render_navigation(:level => 2)
+
+        .grid_12.omega
+          = yield
       %br
       .clearfix
 
@@ -91,3 +102,4 @@
       %div.footer
         = render :partial => 'layouts/footer'
       .clearfix
+

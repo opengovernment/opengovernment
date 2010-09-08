@@ -5,16 +5,29 @@
 
 %hr.grid_16
 
-.sort
-  Sort by
-  = link_to "Name", url_for(:sort => 'name'), :remote => true
-  = link_to "District", url_for(:sort => 'district'), :remote => true
-  = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
+.grid_16
+  .sort
+    %span.sort_label Sort by Name
+    .arrow   
+    %ul
+      %li
+        = link_to "Name", url_for(:sort => 'name'), :remote => true
+      %li 
+        = link_to "District", url_for(:sort => 'district'), :remote => true
+      %li 
+        = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
+    
+      
+  %ul.tabs
+ 
+    %li
+      = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort]), :class => (@current_tab == :upper ? 'active' : '')
+    %li.divider &#124;  
+    %li
+      = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort]), :class => (@current_tab == :lower ? 'active' : '')
 
-#people
-  = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort])
-  = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort])
+%hr.grid_16
 
-  .grid_16
-    #chamber
-      = render :partial => 'chamber'
+.grid_16
+  #chamber
+    = render :partial => 'chamber'

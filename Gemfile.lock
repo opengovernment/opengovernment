@@ -106,6 +106,7 @@ GEM
     gherkin (2.1.5)
       trollop (~> 1.16.2)
     haml (3.0.18)
+    high_voltage (0.9.1)
     highline (1.6.1)
     hoe (2.6.1)
       rake (>= 0.8.7)
@@ -232,6 +233,7 @@ DEPENDENCIES
   formtastic!
   geokit
   haml (>= 3.0.18)
+  high_voltage
   hpricot
   hpricot_scrub!
   httparty

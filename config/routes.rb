@@ -57,9 +57,11 @@ OpenGov::Application.routes.draw do
 
   match '/search' => 'districts#search', :as => 'search'
 
-  match "/tracking.gif" => TrackingApp
+  # Track traffic on a given page
+  match '/tracking.gif' => TrackingApp
 
   root :to => "home#index"
 
-#  Clearance::Routes.draw(map)
+  resources :pages, :only => :show
+
 end

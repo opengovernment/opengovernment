@@ -70,6 +70,11 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
     primary.item :money_trail, 'Money Trail', '#'
+    primary.item :pages, 'Pages', '#' do |m|
+      m.item :about, 'About OpenGovernment.org', page_path("about")
+      m.item :policy, 'Privacy Policy', page_path("privacy")
+    end
+
 
     # Add an item which has a sub navigation (same params, but with block)
     #primary.item :key_2, 'name', url, options do |sub_nav|

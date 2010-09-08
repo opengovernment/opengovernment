@@ -1,10 +1,11 @@
-%li
-  %a.person{:href=>person_path(person)}  
+%li.person
+  %a{:href=>person_path(person)}  
+
+    %span.small_thumbnail
+      != photo_for(person, :thumb) 
 
     %span{:class => "person_name #{person.gender_class}"}
       != person.full_name
 
-    .pop
-      %span.small_thumbnail.rounded
-        != photo_for(person, :thumb)  
-  %span.person_district= person.district_name
+ 
+    %span.person_district= person.district_name
