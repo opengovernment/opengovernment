@@ -21,6 +21,3 @@ development:
 test: &TEST
   database: og_test
   <<: *DEFAULTS
-
-cucumber:
-  <<: *TEST
