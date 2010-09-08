@@ -39,7 +39,10 @@ ul.breadcrumb li ul.state-select li a {
 }
 
 ul.breadcrumb li ul.state-select li a:hover{  
-  background: #f9f9f9 !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+
 }
 
 ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
@@ -52,7 +55,10 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
   letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
   float: left;
   margin: -1px 0 0 -16px;
-background: url(/images/white_trans.png);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+
 }
 
 .breadcrumb li{
@@ -135,7 +141,7 @@ background: url(/images/white_trans.png);
 
 .breadcrumb li:hover, .breadcrumb a.subhover{
   z-index: 120;
-  background: #fbfbfc url(/images/crumb_right.gif) right 0px no-repeat;
+  background: #fbfdfe url(/images/crumb_right.gif) right 0px no-repeat;
 }
 
 

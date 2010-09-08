@@ -1,0 +1,4 @@
+%aside.take_action
+  = render :partial => 'shared/share_tools', :locals => {:message => "Share this", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+    .track
+    Track this representative via RSS or e-mail
