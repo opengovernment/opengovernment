@@ -2,7 +2,7 @@ require 'open-uri'
 
 class Person < ActiveRecord::Base
   include Trackable
-  has_attached_file :photo, :styles => { :full => "110x110>", :thumb => "50x50#" }
+  has_attached_file :photo, :styles => {:full => "110x110>", :thumb => "50x50#"}
   acts_as_citeable :with => [:official_name]
 
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
@@ -125,12 +125,12 @@ class Person < ActiveRecord::Base
 
   def gender_fm
     case gender
-    when "M"
-      "Male"
-    when "F"
-      "Female"
-    else
-      "Unknown"
+      when "M"
+        "Male"
+      when "F"
+        "Female"
+      else
+        "Unknown"
     end
   end
 
@@ -151,7 +151,7 @@ class Person < ActiveRecord::Base
   end
 
   def wiki_name
-    normalized_names = [first_name, last_name].map {|name| name.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n, '')}
+    normalized_names = [first_name, last_name].map { |name| name.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n, '') }
     normalized_names.join(' ').gsub(' ', '_')
   end
 
@@ -207,20 +207,26 @@ class Person < ActiveRecord::Base
 
   private
 
-    def photo_url_provided?
-      !self.photo_url.blank?
+  def photo_url_provided?
+    !self.photo_url.blank?
+  end
+
+  def download_remote_image
+    self.photo = do_download_remote_image
+    self.openstates_photo_url = photo_url
+  end
+
+  def do_download_remote_image
+    return nil unless photo_url
+
+    uri = URI.parse(photo_url)
+
+    uri.open do |f|
+      f.base_uri.path.split('/').blank? ? nil : f.read
     end
 
-    def download_remote_image
-      self.photo = do_download_remote_image
-      self.openstates_photo_url = photo_url
-    end
-
-    def do_download_remote_image
-      io = open(URI.parse(photo_url))
-      def io.original_filename; base_uri.path.split('/').last; end
-      io.original_filename.blank? ? nil : io
-    rescue # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
-    end
+  rescue
+    # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+  end
 
 end
