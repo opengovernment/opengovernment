@@ -22,7 +22,15 @@ OpenGov::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  HOST = 'staging.opengovernment.org'
+  # You can pass an alternative hostname in via
+  # Passenger eg.
+  #   <VirtualHost ...>
+  #      SetEnv HOST test.dev.opengovernment.org
+  #   </VirtualHost>
+  #
+  HOST = ENV['HOST'] || 'staging.opengovernment.org'
+  HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
+
   GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 
   config.action_mailer.default_url_options = { :host => HOST }  
