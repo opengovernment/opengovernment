@@ -49,7 +49,7 @@ class Role < ActiveRecord::Base
       "ind"
     end
   end
-  
+
   def party_fm
     case party
       when "Democrat"
@@ -115,8 +115,12 @@ class Role < ActiveRecord::Base
   protected
 
   def assure_dates_in_order
-    if !self.end_date.blank?
-      false unless (self.start_date < self.end_date)
+    return unless self.start_date && self.end_date
+
+    if self.start_date < self.end_date
+      return true
+    else
+      return false
     end
   end
 end
