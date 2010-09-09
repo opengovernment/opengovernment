@@ -8,20 +8,12 @@ require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
 set :stages, %w(staging production)
-set :default_stage, "staging"
+set :default_stage, "production"
 set :user, "cappy"
 set :runner, "cappy"
 
-#
-# These may be overridden by deploy/staging.rb:
-#
-set :application, "opengovernment"
-set :deploy_to, "/u/apps/opengovernment"
-set :rake, "/opt/rubye/bin/rake"
-
 default_run_options[:pty] = true
 set :repository, "git://github.com/opengovernment/opengovernment.git"
-set :branch, "master"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
@@ -29,8 +21,8 @@ set :git_enable_submodules, 1
 namespace :deploy do
   desc "Link the shared/ files"
   task :link_shared do
-    run "cp #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
-    run "cp #{deploy_to}/#{shared_dir}/config/api_keys.yml #{current_release}/config/api_keys.yml"
+    run "ln -s #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
+    run "ln -s #{deploy_to}/#{shared_dir}/config/api_keys.yml #{current_release}/config/api_keys.yml"
     run "ln -s #{deploy_to}/#{shared_dir}/robots.txt #{current_release}/public/robots.txt"
     run "ln -s #{deploy_to}/#{shared_dir}/data #{current_release}/data"
 #    sudo "chgrp -R apache #{current_release}"

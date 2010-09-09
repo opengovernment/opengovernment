@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 54) do
+ActiveRecord::Schema.define(:version => 55) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -57,13 +57,22 @@ ActiveRecord::Schema.define(:version => 54) do
     t.string   "kind"
   end
 
-  add_index "bills", [nil], :name => "bill_number_idx"
+#  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
     t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.string   "name"
+    t.integer  "nimsp_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+    t.string   "ancestry"
   end
 
   create_table "categories", :force => true do |t|
@@ -82,7 +91,7 @@ ActiveRecord::Schema.define(:version => 54) do
   end
 
   create_table "citations", :force => true do |t|
-    t.string   "url",           :limit => 2000
+    t.string   "url",           :limit => 8000
     t.string   "excerpt",       :limit => 4000
     t.string   "title",         :limit => 1000
     t.string   "source"
@@ -112,6 +121,21 @@ ActiveRecord::Schema.define(:version => 54) do
     t.integer  "legislature_id",                                            :null => false
     t.string   "type",                             :default => "Committee", :null => false
     t.string   "openstates_id"
+  end
+
+  create_table "contributions", :force => true do |t|
+    t.integer  "candidate_id"
+    t.integer  "business_id"
+    t.integer  "contributor_state_id"
+    t.string   "contributor_occupation"
+    t.string   "contributor_employer"
+    t.integer  "amount"
+    t.date     "date"
+    t.string   "contributor_city"
+    t.string   "contributor_name"
+    t.string   "contributor_zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "districts", :force => true do |t|
