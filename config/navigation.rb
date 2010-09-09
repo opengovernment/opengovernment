@@ -73,6 +73,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :pages, 'Pages', '#' do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")
+      m.item :help, 'Help', page_path("help")
     end
 
 
