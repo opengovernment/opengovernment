@@ -68,13 +68,11 @@ border-bottom: 1px solid #eee;
 margin: 0 0 5px;
 padding: 0px 0 5px;
 line-height: 1.4em;
+
 }
-
-
 ul.lined li:first-letter{
 text-transform: uppercase;
 }
-
 
 ul.lined.and_spaced li{
 padding-bottom: 10px;

@@ -1,13 +1,24 @@
+.share_buttons p{
+font-weight: normal;
+font-size: 11px;
+padding: 0 10px;
+}
+
+
+
 /* Styles for sharing buttons */
 
 ul.share {
   list-style: none !important;
+padding: 4px;
+margin: 15px 0 15px 15px !important;
+height: 20px;
 }
 
 ul.share li {
-  display: block;
   float: left;
   clear: none;
+margin-right: 7px;
 }
 
 ul.share li a {
@@ -27,7 +38,6 @@ ul.share li a {
 }
 
 .share .twitter {
-  margin: 0 !important;
 }
 
 .share .twitter a {

@@ -10,10 +10,10 @@
   %aside.take_action
     = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
     .hov.track_buttons
-      %h4 
+      %h4.button
         %span Track
         .arrow
-      .drop
+      .drop.button
         %ul
           %li.rss 
             = link_to "All actions", {:actions => 'all', :format => :atom}
@@ -21,28 +21,28 @@
           %li.email Email Alerts
 
     .hov.write_buttons
-      %h4 
+      %h4.button
         %span Write
         .arrow
-      .drop
+      .drop.button
         %ul
           %li.email Email
           %li.twitter Twitter
           %li.email Facebook
 
     .support_buttons
-      %a.support
+      %a.support.button
         %span I Support this Representative!
-      %a.oppose
+      %a.oppose.button
         %span I Oppose this Representative!
            
 
 
   %h1
     %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name}"
+      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
     %span
-      = "Bill #{@bill.bill_number}"
+      = "#{@bill.bill_number}"
 
 %hr.grid_16
 
@@ -100,7 +100,7 @@
         - @bill.votes.each do |vote|
           %tr
 
-            %td.vote_date= vote.date
+            %td.vote_date= vote.date.to_html
 
             %td.vote-motion
               %h4= link_to("#{vote.motion}", vote_path(vote))

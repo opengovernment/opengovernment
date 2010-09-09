@@ -19,9 +19,9 @@ h1 {
 font-family: "Droid Sans", Arial; 
 font-size: 23px;
 margin: 0;
-padding: 30px 0;  
+padding: 28px 0px;  
 position: relative;
-
+line-height: 1.5em;
 }
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}

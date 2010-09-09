@@ -6,27 +6,31 @@
 .grid_16
   %aside.take_action
     = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
-    .track_buttons
-      %h4 
+    .hov.track_buttons
+      %h4.button
         %span Track
         .arrow
-      %ul
-        %li.rss RSS
-        %li.email Email Alerts
+      .drop.button
+        %ul
+          %li.rss 
+            = link_to "All actions", {:actions => 'all', :format => :atom}
+            = link_to "Major actions", {:actions => 'major', :format => :atom}
+          %li.email Email Alerts
 
-    .write_buttons
-      %h4 
+    .hov.write_buttons
+      %h4.button
         %span Write
         .arrow
-      %ul
-        %li.email Email
-        %li.twitter Twitter
-        %li.email Facebook
+      .drop.button
+        %ul
+          %li.email Email
+          %li.twitter Twitter
+          %li.email Facebook
 
     .support_buttons
-      %a.support
+      %a.support.button
         %span I Support this Representative!
-      %a.oppose
+      %a.oppose.button
         %span I Oppose this Representative!
            
 
@@ -80,7 +84,7 @@
       - if @person.youtube_id?
         %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
-  .grid_4
+  .grid_6
     %h2 Bio
     %small.quiet.span
       From the non-partisan
@@ -103,6 +107,7 @@
   %hr.push_top
 
   .grid_12.alpha
+
     .grid_4.alpha
       %h2 Roles
       %p
@@ -110,13 +115,16 @@
           %div
             #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
       - if @person.committees.size > 0
-        %h2 Committees
-        %p
-          - @person.committees.each do |committee|
-            %div
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee))
+
     .grid_4
+      %h2 Committees
+      %p
+        - @person.committees.each do |committee|
+          %div
+          = committee.type_fm
+          = link_to(committee.name, committee_path(committee))
+
+    .grid_4.omega
       %h2 Votes
       - if @latest_roll_calls.size > 0
         %div
@@ -134,8 +142,8 @@
 
 
 
-    .grid_4.omega
-      %h2!= sponsorship_vitals_for(@person)
+  .grid_12.alpha.omega
+    %h2!= sponsorship_vitals_for(@person)
 
 
   %hr.push_top

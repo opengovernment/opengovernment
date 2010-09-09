@@ -1,8 +1,8 @@
 .hov.share_buttons
-  %h4
+  %h4.button
     %span= message
     .arrow
-  .drop
+  .drop.button
     %ul.share
       %li.twitter
         %a{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
@@ -16,4 +16,3 @@
         %a{:href => "http://www.facebook.com/share.php?u=#{u url}&title=#{u title}"} Facebook
   
   
-    %p Tweet this bill using the hashtags #{@bill.to_hashtags}
