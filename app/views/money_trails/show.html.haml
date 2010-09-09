@@ -1,0 +1,23 @@
+%h2 Money Trail
+
+.grid_8.alpha
+  - @sectors[0..@sectors.size/2].each do |sector|
+    %ul
+      %li
+        %strong.span
+          = sector.name
+        - sector.children.each do |industry|
+          %ul
+            %li
+              = industry.name
+
+.grid_8.beta
+  - @sectors[@sectors.size/2..@sectors.size].each do |sector|
+    %ul
+      %li
+        %strong.span
+          = sector.name
+        - sector.children.each do |industry|
+          %ul
+            %li
+              = industry.name

@@ -3,4 +3,3 @@
     = link_to(tag.name, "#", :class => [css_class, 'tagger'], "data-content" => tag.id)
     = link_to(image_tag('delete.png'), admin_issue_path(tag.id), :method => :delete, :remote => true, :confirm => "Are you sure? All the taggings would be removed too.")
     = link_to(image_tag('page_white_edit.png'), nil, :class => 'renamer')
-

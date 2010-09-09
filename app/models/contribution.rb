@@ -5,5 +5,4 @@ class Contribution < ActiveRecord::Base
   define_index do
     indexes contributor_name, :sortable => true
   end
-
 end

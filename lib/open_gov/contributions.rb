@@ -29,7 +29,7 @@ module OpenGov
       end
 
       def make_contribution(con)
-        business = Business.find_by_nimsp_sector_code_and_nimsp_industry_code(con.imsp_sector_code, con.imsp_industry_code)
+        business = Business.find_by_name(con.business_name)
         contribution = business.contributions.build(
           :contributor_state_id => State.find_by_abbrev(con.contributor_state),
           :contributor_occupation => con.contributor_occupation,

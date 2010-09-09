@@ -62,7 +62,7 @@ class StatesController < ApplicationController
           @bills = @state.bills.search(@query, @search_options)
           @contributions = Contribution.search(@query, @search_options)
           @committees = @committee_type.search(@query, @search_options)
-        when "bills"          
+        when "bills"
           @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries
         when "legislators"
