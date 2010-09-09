@@ -1,3 +1,4 @@
+set :rake, "/opt/rubye/bin/rake"
 set :deploy_to, "/u/apps/og-staging"
 set :rails_env, "staging"
 set :branch, "master"
