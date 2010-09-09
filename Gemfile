@@ -28,6 +28,9 @@ gem "geokit"
 # Breadcrumbs
 gem "simple-navigation"
 
+# Static pages
+gem "high_voltage"
+
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 gem "chronic" # Complex date string parsing
@@ -56,16 +59,7 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :branch => 'rails3'
 
 # Bundle gems used only in certain environments:
-group :cucumber do
-#   gem 'capybara'
-   gem 'database_cleaner'
-   gem 'cucumber-rails'
-   gem 'cucumber'
-   gem 'spork'
-   gem 'launchy'    # So you can do Then show me the page
-end
-
-group :test, :cucumber do
+group :test do
   # Bundle gems for certain environments:
   gem "webrat", "~> 0.7.2.beta1"
   gem "rspec", ">= 2.0.0.beta.20"
@@ -79,4 +73,10 @@ group :test, :cucumber do
   gem "machinist"
   gem "linecache19"
   gem "ruby-debug19"  
+# gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
 end

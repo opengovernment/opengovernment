@@ -2,4 +2,6 @@
 %h2!= "#{@action.bill.state.name} bill #{link_to(@action.bill.bill_number, bill_path(@action.bill.session, @action.bill))} " + @action.action_fm + "."
 - if @action.actor_fm
   %h3= "by the #{@action.actor_fm}"
-%p= "on " + @action.date.to_s(:pretty)
+%p
+  on
+  = @action.date.to_html
