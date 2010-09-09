@@ -1,0 +1,15 @@
+- content_for :content do
+  .grid_16
+    - if content_for?(:title)
+      %h1.grid_13.alpha= yield(:title)
+
+  %hr.grid_16
+
+  %nav.grid_4.alpha
+    #left_nav
+      = render_navigation(:level => 2)
+
+  .grid_12.omega
+    = yield
+
+= render :file => 'layouts/application'

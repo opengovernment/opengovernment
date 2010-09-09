@@ -1,10 +1,22 @@
 stylesheets:
-  blueprint:
-    - public/stylesheets/blueprint.css
-  basic:
+  common:
+    - public/stylesheets/reset.css
+    - public/stylesheets/960.css
     - public/stylesheets/html5.css
+    - public/stylesheets/application.css
+    - public/stylesheets/jquery-ui-1.8.4.css
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
-    - public/stylesheets/blueprint.css
+    - public/stylesheets/type.css
     - public/stylesheets/forms.css
+    - public/stylesheets/layout.css
     - public/stylesheets/sharing.css
+    - public/stylesheets/breadcrumb.css
+  please_break_these_out:
+    - public/stylesheets/vote.css
+  
+javascripts:
+  common:
+    - public/javascripts/jquery.rails.js
+    - public/javascripts/tracker.js
+    - public/javascripts/application.js

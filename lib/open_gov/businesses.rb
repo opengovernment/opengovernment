@@ -2,7 +2,7 @@ module OpenGov
   class Businesses < Resources
     # TODO: This should be more cleanly separated from contributions --
     # so we don't have to delete all contributions when we load businesses (the second time)
-    
+
     class << self
       def fetch
         businesses = GovKit::FollowTheMoney::Business.list
@@ -12,7 +12,7 @@ module OpenGov
 
       def import!
         businesses = fetch
-        puts "Deleting existing buisinesses and contributions.."        
+        puts "Deleting existing buisinesses and contributions.."
         Contribution.delete_all
         Business.delete_all
 
@@ -24,13 +24,16 @@ module OpenGov
       def import_business(bus)
         puts "Importing: #{bus.business_name}"
 
-        business = Business.new
-        business.business_name = bus.business_name
-        business.industry_name = bus.industry_name
-        business.sector_name = bus.sector_name
-        business.nimsp_industry_code = bus.imsp_industry_code
-        business.nimsp_sector_code = bus.imsp_sector_code
-        business.save!
+        sector = Sector.find_or_create_by_name_and_nimsp_code(bus.sector_name, bus.imsp_sector_code)
+
+        industry = Industry.find_or_initialize_by_name_and_nimsp_code(bus.industry_name, bus.imsp_industry_code)
+        industry.parent = sector
+        industry.save
+
+        business = Business.find_or_initialize_by_name_and_type(bus.business_name, 'Business')
+        business.parent = industry
+        business.save
+
       end
     end
   end

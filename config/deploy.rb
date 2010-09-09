@@ -6,7 +6,6 @@
 #
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
-#require 'thinking_sphinx'
 
 set :stages, %w(staging production)
 set :default_stage, "staging"
@@ -34,19 +33,17 @@ namespace :deploy do
     run "cp #{deploy_to}/#{shared_dir}/config/api_keys.yml #{current_release}/config/api_keys.yml"
     run "ln -s #{deploy_to}/#{shared_dir}/robots.txt #{current_release}/public/robots.txt"
     run "ln -s #{deploy_to}/#{shared_dir}/data #{current_release}/data"
-#    run "ln -s #{deploy_to}/#{shared_dir}/files/synch_s3_asset_host.yml #{current_release}/config/"
-    sudo "chgrp -R apache #{current_release}"
+#    sudo "chgrp -R apache #{current_release}"
+    link_sphinx
+  end
+
+  task :link_sphinx do
     run "ln -s #{shared_path}/db/sphinx #{current_release}/db/sphinx"
   end
 
   desc "Compile CSS & JS for public/assets/ (see assets.yml)"
   task :jammit do
-    run "cd #{current_release}; /opt/rubye/bin/jammit"
-
-    # .gz filenames do not work in safari; we need to rename these files.
-    # .cssjz and .jsjz are special extensions recognized by the S3 syncher so it
-    # will do the right thing with respect to the Content-Type and Content-Encoding headers.
-    run "cd #{current_release}/public/assets; for f in *.css.gz; do mv $f `basename $f .css.gz`.cssgz; done; for f in *.js.gz; do mv $f `basename $f .js.gz`.jsgz; done"
+    run "cd #{current_release}; bundle exec jammit"
   end
 
   desc "Restart Passenger"
@@ -65,4 +62,4 @@ after "deploy:cleanup", "sphinx:shared_sphinx_folder"
 after "deploy:update", "deploy:cleanup"
 after "deploy:update_code", "deploy:link_shared"
 after "deploy:cleanup", "sphinx:rebuild"
-#after "deploy:update_code", "deploy:jammit"
+after "deploy:update_code", "deploy:jammit"
