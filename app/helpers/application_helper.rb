@@ -4,6 +4,10 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+  
+  def hashtags(hash_tags)
+    content_for(:hashtags) { hash_tags }
+  end
 
   # Javascript hooks -- eg. document ready events. or other page-level
   # javascript that can't be accomplished via rails-ujs.
