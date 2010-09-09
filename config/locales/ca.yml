@@ -1,0 +1,4 @@
+tx:
+  states:
+    show:
+      intro: "Welcome to OpenGovernment.org California!"
