@@ -31,9 +31,13 @@ namespace :deploy do
   task :link_shared do
     run "cp #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
     run "cp #{deploy_to}/#{shared_dir}/config/api_keys.yml #{current_release}/config/api_keys.yml"
+    run "ln -s #{deploy_to}/#{shared_dir}/robots.txt #{current_release}/public/robots.txt"
     run "ln -s #{deploy_to}/#{shared_dir}/data #{current_release}/data"
-#    run "ln -s #{deploy_to}/#{shared_dir}/files/synch_s3_asset_host.yml #{current_release}/config/"
-    sudo "chgrp -R apache #{current_release}"
+#    sudo "chgrp -R apache #{current_release}"
+    link_sphinx
+  end
+
+  task :link_sphinx do
     run "ln -s #{shared_path}/db/sphinx #{current_release}/db/sphinx"
   end
 
