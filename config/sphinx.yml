@@ -1,0 +1,2 @@
+production:
+  bin_path: '/usr/local/bin'
