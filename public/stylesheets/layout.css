@@ -51,6 +51,24 @@ font-weight: bold;
   }
 
 
+
+
+.state-and-chamber{
+position: absolute;
+top: 10px;
+font-size: 11px;
+color: #999;
+}
+
+
+
+.session{
+margin-top: 20px;
+clear: both;
+display: block;
+}
+
+
 /*///////////////////////////
 
 ~ Container
@@ -75,7 +93,7 @@ font-weight: bold;
 ///////////////////////////*/
 
 header{
-height: 56px;
+height: 46px;
 position: relative;
 margin: 0;
 }
@@ -83,7 +101,7 @@ margin: 0;
 
 
 #account{
-padding: 21px 0 0;
+padding: 16px 0 0;
 }
 
 
@@ -195,7 +213,8 @@ font-size: 11px;
 .summary{
 font-size: 18px;
 line-height: 1.4em;
-padding: 20px 0;
+padding: 5px 0 25px;
+margin: 0;
 }
 
 
@@ -215,14 +234,14 @@ padding-bottom: 20px;
 
 
 .search{
-padding: 14px 0 0 0;
+padding: 10px 0 0 0;
 height: 28px;
 }
 
 
 .search #search_type{
 float: left;
-margin-right: 15px;
+margin: 4px 15px 0 0;
 }
 
 
@@ -256,7 +275,7 @@ padding: 6px 8px;
 
 .search input#q{
 border: 0;
-padding: 6px 8px;
+padding: 5px 8px;
   border: 0;
   width: 180px;
   float: left;
@@ -283,11 +302,11 @@ float: right;
 }
 
 .search_button input{
-padding: 5px 10px;
+padding: 3px 10px;
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 margin: 0px;
-text-transform: uppercase;
+
 float: right;
 cursor: pointer;
 font-size: 11px;
@@ -719,13 +738,28 @@ padding-top: 20px;
 float: right;
 width: 500px;
 position: relative;
+z-index: 100000;
+}
+
+.hov{
+float: right;
+width: 80px;
+padding: 0;
+margin-left: 20px;
+position: relative;
+z-index: 100010;
 }
 
 
-.take_action h4{
+.hov:hover{
+cursor: pointer; 
+}
+
+
+.hov h4{
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
-margin: 5px 0 0;
+margin: 0px 0 0;
 float: right;
 cursor: pointer;
 font-size: 11px;
@@ -743,20 +777,46 @@ font-size: 11px;
 }
 
 
-.take_action h4 span{
+
+.hov .drop{
+display: none;
+}
+
+
+.hov:hover .drop{
+display: block !important;
+border: 1px solid #aaa;
+position: relative;
+border-top: 1px solid #ccc;
+border-bottom: 1px solid #999;
+-moz-box-shadow:inset 0px 1px 1px #fff;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #efefef,  #dedede); /* for firefox 3.6+ */
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+position: absolute;
+top: 27px;
+width: 200px;
+padding-top: 10px;
+height: 100px;
+z-index: 9999999;
+right: 0;
+}
+
+
+
+
+.hov h4 span{
 padding-right: 20px;
 float: left;
 padding: 7px 10px 0px;
 }
 
 
-.take_action div:hover h4{
-background: #eee;
-box-shadow:inset 0 0 10px #000000;
-}
 
 
-.take_action h4 .arrow{
+.hov h4 .arrow{
 float: right;
 border-left: 1px solid #bbb;
 height: 25px;
@@ -770,48 +830,18 @@ background: url(/images/sprites.png) -3px -312px no-repeat;
 
 
 
-.take_action h4:hover .arrow{
-background: #fff url(/images/sprites.png) -3px -312px no-repeat;
+.hov:hover .arrow{
+background: #fff url(/images/sprites.png) -3px -312px no-repeat !important;
 }
-
-
-
-.take_action div{
-float: right;
-padding: 0 0 0 20px;
-height: 37px;
-margin: 0;
-}
-
-.take_action ul{
-display: none;
-}
-
-.take_action div:hover ul{
-display: block;
-position: absolute;
-top: 55px;
-width: 200px;
-margin: 0  0 0 -114px;
-padding-top: 10px;
-height: 100px;
-z-index: 9999999;
-padding-right: 40px;
-}
-
-.take_action ul li{
-float: right;
-}
-
-
-
 
 
 
 .support_buttons a{
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
-margin: 5px 0 0 10px;
+border-radius: 3px;
+
+margin: 0px 0 0 10px;
 width: 30px;
 float: right;
 text-transform: uppercase;
@@ -821,7 +851,12 @@ text-align: center;
 border: 1px solid #aaa;
 border-top: 1px solid #ccc;
 border-bottom: 1px solid #999;
+
+
 -moz-box-shadow:inset 0px 1px 1px #fff;
+-webkit-box-shadow:inset 0px 1px 1px #fff;
+box-shadow:inset 0px 1px 1px #fff;
+
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
 background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
 background: -moz-linear-gradient(top,  #efefef,  #dedede); /* for firefox 3.6+ */
@@ -829,6 +864,42 @@ background: -moz-linear-gradient(top,  #efefef,  #dedede); /* for firefox 3.6+ *
 overflow: hidden;
 }
 
+
+
+
+.support_buttons a:hover{
+
+border: 1px solid #aaa;
+border-top: 1px solid #ccc;
+border-bottom: 1px solid #999;
+
+-moz-box-shadow:inset 0px 1px 1px #fff;
+-webkit-box-shadow:inset 0px 1px 1px #fff;
+box-shadow:inset 0px 1px 1px #fff;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeee'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+
+
+}
+
+.support_buttons a:active{
+
+border: 1px solid #fff;
+border-top: 1px solid #fff;
+border-bottom: 1px solid #fff;
+
+-moz-box-shadow:inset 0px 1px 1px #333;
+-webkit-box-shadow:inset 0px 1px 1px #333;
+box-shadow:inset 0px 1px 1px #333;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
+
+
+}
 
 .support_buttons a span{
 padding: 25px 0 0 0;

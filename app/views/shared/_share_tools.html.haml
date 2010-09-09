@@ -1,15 +1,19 @@
-.share_buttons
+.hov.share_buttons
   %h4
     %span= message
     .arrow
-  %ul.share
-    %li.twitter
-      %a{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
-    %li.reddit
-      %a{:href => "http://reddit.com/submit?url=#{u url}&title=#{u title}"} Reddit
-    %li.digg
-      %a{:href => "http://digg.com/submit?phase=2&amp;url=#{u url}&title=#{u title}"} Digg
-    %li.stumble
-      %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&title=#{u title}"} StumbleUpon   
-    %li.facebook
-      %a{:href => "http://www.facebook.com/share.php?u=#{u url}&title=#{u title}"} Facebook
+  .drop
+    %ul.share
+      %li.twitter
+        %a{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
+      %li.reddit
+        %a{:href => "http://reddit.com/submit?url=#{u url}&title=#{u title}"} Reddit
+      %li.digg
+        %a{:href => "http://digg.com/submit?phase=2&amp;url=#{u url}&title=#{u title}"} Digg
+      %li.stumble
+        %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&title=#{u title}"} StumbleUpon   
+      %li.facebook
+        %a{:href => "http://www.facebook.com/share.php?u=#{u url}&title=#{u title}"} Facebook
+  
+  
+    %p Tweet this bill using the hashtags #{@bill.to_hashtags}

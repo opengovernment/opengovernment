@@ -1,13 +1,4 @@
 
-
-
-
-body{
-margin: 0;
-padding: 0;
-background: url(/images/bg.gif);
-}
-
 /* Overrides*/
  th, td, caption{
    padding-left: 0;

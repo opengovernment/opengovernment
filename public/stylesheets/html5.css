@@ -4,7 +4,7 @@ html {font-size:100.01%;}
 
 body{
   margin: 0;
-  padding: 0 0 40px;
+  padding: 20px 0 40px;
   background: url(/images/bg.gif);
   font-size:12px;
   color:#222;
@@ -26,7 +26,9 @@ section { display: block; }
 
 hr {
 border:none;
-border-bottom: 2px solid #c3d3e4;
+border-top: 1px solid #fff;
+
+border-bottom: 2px solid #d1dddd;
 color:#ddd;
 clear:both;
 float:none;
@@ -58,7 +60,7 @@ padding:0;
 }
 
 ul.lined li{
-border-bottom: 1px solid #ddd;
+border-bottom: 1px solid #eee;
 margin: 0 0 5px;
 padding: 0px 0 5px;
 line-height: 1.4em;
@@ -84,6 +86,10 @@ Tables
 
 ////////////////////////////////////////////////////*/
 
+table{
+width: 100%;
+}
+
 
 thead th{
 text-align: left;
@@ -93,12 +99,14 @@ text-align: left;
 th{
 padding: 0px 0px 10px 0px;
 border-bottom: 1px solid #ddd;
+text-align: left;
 }
 
 
 td{
 min-width: 70px;
 padding: 10px 0;
+vertical-align: top;
 }
 
 
