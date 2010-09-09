@@ -57,19 +57,11 @@ ActiveRecord::Schema.define(:version => 54) do
     t.string   "kind"
   end
 
+  add_index "bills", [nil], :name => "bill_number_idx"
+
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
     t.integer  "subject_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "businesses", :force => true do |t|
-    t.string   "business_name"
-    t.string   "industry_name"
-    t.string   "sector_name"
-    t.integer  "nimsp_industry_code"
-    t.integer  "nimsp_sector_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,21 +112,6 @@ ActiveRecord::Schema.define(:version => 54) do
     t.integer  "legislature_id",                                            :null => false
     t.string   "type",                             :default => "Committee", :null => false
     t.string   "openstates_id"
-  end
-
-  create_table "contributions", :force => true do |t|
-    t.integer  "candidate_id"
-    t.integer  "business_id"
-    t.integer  "contributor_state_id"
-    t.string   "contributor_occupation"
-    t.string   "contributor_employer"
-    t.integer  "amount"
-    t.date     "date"
-    t.string   "contributor_city"
-    t.string   "contributor_name"
-    t.string   "contributor_zipcode"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "districts", :force => true do |t|

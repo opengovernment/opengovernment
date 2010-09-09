@@ -30,6 +30,13 @@ GIT
   specs:
     acts-as-taggable-on (2.0.6)
 
+GIT
+  remote: http://github.com/stefankroes/ancestry.git
+  revision: ecea76f
+  specs:
+    ancestry (1.2.0)
+      activerecord (>= 2.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -219,6 +226,7 @@ PLATFORMS
 DEPENDENCIES
   GeoRuby
   acts-as-taggable-on!
+  ancestry!
   autotest
   autotest-rails
   bson_ext
