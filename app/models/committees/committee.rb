@@ -1,8 +1,8 @@
 class Committee < ActiveRecord::Base
-  has_one :parent, :class_name => "Committee", :foreign_key => "votesmart_id", :primary_key => "votesmart_parent_id"
   belongs_to :legislature
   has_many :committee_memberships
   has_many :members, :through => :committee_memberships, :source => :person
+  belongs_to :parent, :class_name => 'Committee'
 
   define_index do
     indexes name, :sortable => true
@@ -23,6 +23,17 @@ class Committee < ActiveRecord::Base
     when "H"
       ::LowerCommittee
     when "J"
+      ::JointCommittee
+    end
+  end
+  
+  def self.subclass_from_openstates_chamber(t)
+    case t
+    when "lower"
+      ::LowerCommittee
+    when "upper"
+      ::UpperCommittee
+    when "joint"
       ::JointCommittee
     end
   end

@@ -85,11 +85,9 @@ module OpenGov
               else
                 puts "Could not find district #{fs_role.district.to_s} served by #{person.full_name} (#{person.openstates_id}) in #{state.abbrev}; skipping"
               end
-            when GovKit::OpenStates::ROLE_COMMITTEE_MEMBER
+            # Ignore committee memberships; we're getting those from committees/ data.
+            #when GovKit::OpenStates::ROLE_COMMITTEE_MEMBER
               # Their votesmart_committee_id may be nil
-              if committee = (fs_role.votesmart_committee_id? ? Committee.find_by_votesmart_id(fs_role.votesmart_committee_id) : Committee.find_or_create_by_name_and_legislature_id(fs_role.committee, legislature.id))
-                committee_membership = CommitteeMembership.find_or_create_by_person_id_and_session_id_and_committee_id(person.id, session.id, committee.id)
-              end
             end
           end
         end # transaction

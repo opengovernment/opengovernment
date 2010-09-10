@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 55) do
+ActiveRecord::Schema.define(:version => 56) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 55) do
     t.string   "kind"
   end
 
-#  add_index "bills", [nil], :name => "bill_number_idx"
+  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(:version => 55) do
     t.integer "person_id"
     t.integer "session_id"
     t.integer "committee_id"
+    t.string  "full_name"
+    t.string  "role"
   end
 
   create_table "committees", :force => true do |t|
@@ -121,6 +123,7 @@ ActiveRecord::Schema.define(:version => 55) do
     t.integer  "legislature_id",                                            :null => false
     t.string   "type",                             :default => "Committee", :null => false
     t.string   "openstates_id"
+    t.integer  "parent_id"
   end
 
   create_table "contributions", :force => true do |t|

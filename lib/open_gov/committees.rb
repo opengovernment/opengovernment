@@ -1,15 +1,95 @@
 module OpenGov
-  class Committees < Resources
+  class Committees < Resources  
+    COMMITTEE_DIR = File.join(OPENSTATES_DIR, "api", "committees")
+
     class << self
       def import!
         State.loadable.each do |state|
-          import_one(state)
+          import_state(state)
         end
       end
 
-      def import_one(state)
+      def import_state(state, options = {})
+        unless options[:remote] && File.exists?(COMMITTEE_DIR)
+          puts "Local Open States committee data is missing; fetching remotely instead."
+          return import_state(state, :remote => true)
+        end
+        
+        # Always import VoteSmart from remote data.
+        # Currently disabled because OpenStates no longer provides votesmart committee ids.
+        # import_all_from_votesmart(state)
+        
+        if options[:remote]
+          # Counters
+          i = 0
+
+          puts "---------- Loading #{state.name} committee data from local OpenStates data."
+          GovKit::OpenStates::Committee.search(:state => state.abbrev).each do |search_result|
+            if committee = GovKit::OpenStates::Committee.find(search_result.id)
+              i = i + 1
+              import_openstates_committee(committee, state)
+            else
+              puts "Could not find committee #{search_result.id} at OpenStates"
+            end
+          end
+
+          puts "OpenStates: Imported #{i} committees from remote data"
+        else
+          # Import from local data
+          state_committees = File.join(COMMITTEE_DIR, "#{state.abbrev}*")
+          i = 0
+
+          Dir.glob(state_committees).each do |file|
+            i = i + 1
+            import_openstates_committee(GovKit::OpenStates::Committee.parse(JSON.parse(File.read(file))), state)
+          end
+
+          puts "OpenStates: Imported #{i} committees in #{state.abbrev} from local data"
+        end
+      
+      end
+
+      def import_openstates_committee(os_com, state)
+          # Prerequisite: We've already fetched the committee via VoteSmart.
+          # We are keying off of that committee here, and augmenting the data.
+          # The true purpose of this method is to create committee memberships.
+          legislature_id = state.legislature.id
+          subclass = Committee.subclass_from_openstates_chamber(os_com.chamber)
+
+          Committee.transaction do
+
+            if committee = subclass.find_or_initialize_by_legislature_id_and_name(legislature_id, os_com[:subcommittee] || os_com[:committee])
+              committee.openstates_id = os_com.id
+              if os_com[:subcommittee]
+                committee.parent = subclass.find_or_create_by_name_and_legislature_id(os_com.committee, legislature_id)
+              end
+              committee.save
+
+              os_com.members.each do |os_role|
+                # TODO: Simplify based on OpenStates issue #56
+                member_name = os_role[:legislator] || os_role[:name]
+
+                if os_role[:leg_id] && person = Person.find_by_openstates_id(os_role[:leg_id])
+                  committee_membership = CommitteeMembership.find_or_initialize_by_person_id_and_committee_id(person.id, committee.id)
+                  # TODO: Associate committee memberships with a specific session.
+                  committee_membership.full_name = member_name
+                  committee_membership.role = os_role[:role]
+                  committee_membership.save
+                else
+                  # A committee membership without a leg_id.
+                  if member_name
+                    committee_membership = CommitteeMembership.find_or_create_by_role_and_full_name_and_committee_id(os_role[:role], member_name, committee.id)
+                  end                  
+                end
+              end
+            end
+
+          end # transaction
+      end
+      
+      def import_all_from_votesmart(state)
         committees = GovKit::VoteSmart::Committee.find_by_type_and_state(nil, state.abbrev)
-        puts "---------- Loading #{state.name} committees from VoteSmart."
+        puts "---------- Loading #{state.name} committee metadata from VoteSmart."
         i = 0
 
         # This should be an array of Committee objects.
