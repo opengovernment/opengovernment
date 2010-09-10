@@ -12,7 +12,7 @@ stylesheets:
     - public/stylesheets/layout.css
     - public/stylesheets/sharing.css
     - public/stylesheets/breadcrumb.css
-  please_break_these_out:
+  other:
     - public/stylesheets/vote.css
   
 javascripts:

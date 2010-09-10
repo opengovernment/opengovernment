@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
               inner join contributions c on c.business_id = b.id
               where c.candidate_id = #{self.id}
               group by b.business_name
-              order by amount desc
+              order by amount descw
               limit 20
           }
 
