@@ -17,23 +17,22 @@
 
   .grid_12.alpha
     %h2= @state.legislature.name
+    %p= link_to_with_domain('Official Site', @state.official_url)
     .committees_count
-      = @state.legislature.primary_committees.count
-      committees and
-      = @state.legislature.sub_committees.count
-      sub-committees.
+      = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
 
     - @state.chambers.each do |chamber|
       .grid_6.alpha
         %h3
-          =chamber.name
+          = chamber.name
           - surround '(', ')' do
-            = chamber.people.count
+            = link_to chamber.people.count, people_path
         %ul.lined
           %li= pluralize(chamber.people.democrats.count, 'Democrat')
           %li= pluralize(chamber.people.republicans.count, 'Republican')
           - if chamber.people.other.count > 0
             %li= pluralize(chamber.people.other.count, 'Other')
+          %li= link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
         .grid_6.alpha.district_map
           = leg_map_img(@state, chamber)
 
