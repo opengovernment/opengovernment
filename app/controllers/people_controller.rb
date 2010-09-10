@@ -6,8 +6,13 @@ class PeopleController < ApplicationController
   def index
     @chamber = @state.upper_chamber
     @current_tab = :upper
-    poeple_in_chamber(params[:sort])
-    @people = @facets.for(:chamber_id => @chamber.id)
+
+    if poeple_in_chamber(params[:sort])
+      @people = @facets.for(:chamber_id => @chamber.id)
+    else
+      @people = []
+    end
+
   end
 
   def upper
@@ -70,7 +75,12 @@ class PeopleController < ApplicationController
       'last_name asc'
     end
 
-    @facets = Person.facets :with => { :chamber_id => @chamber.id }, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
+    begin
+      @facets = Person.facets :with => { :chamber_id => @chamber.id }, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
+    rescue Riddle::ConnectionError
+      flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
+      return nil
+    end
   end
   
 
