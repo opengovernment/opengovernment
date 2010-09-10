@@ -23,6 +23,7 @@ OpenGov::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
+  config.active_support.deprecation = :notify
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -37,8 +38,10 @@ OpenGov::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
-  # Enable threaded mode
-  # config.threadsafe!
-  HOST = "opengovernment.org"
+  HOST = ENV['HOST'] || 'opengovernment.org'
+  HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
+
+  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
+  
   config.action_mailer.default_url_options = {:host => HOST}
 end
