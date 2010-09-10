@@ -5,7 +5,7 @@
   - if @committees.size > 0
     - @committees.each do |committee|
       %li
-        = link_to(committee.name, state_committee_path(@state, committee))
+        = link_to(committee.name, committee_path(committee))
   - else
     %p Sorry, we didn't find any committees.
 = will_paginate @committees
