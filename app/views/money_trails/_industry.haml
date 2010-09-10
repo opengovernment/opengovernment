@@ -1,0 +1,6 @@
+%ul
+  %li
+    %strong
+      = render :partial => 'business', :locals => {:business => industry}
+  %ul
+    = render :partial => 'business', :collection => industry.children
