@@ -2,9 +2,14 @@ class Chamber < ActiveRecord::Base
   belongs_to :legislature
   has_many :districts
   has_many :legislators, :through => :districts
-  has_one :state, :through => :legislature
   has_many :bills
-  has_many :committees, :through => :legislature
+  
+  with_options :through => :legislature do |a|
+    a.has_many :committees
+    a.has_many :primary_committees
+    a.has_many :sub_committees
+    a.has_one :state
+  end
 
   default_scope :order => "case when chambers.type = 'UpperChamber' then 0 else 1 end"
 
