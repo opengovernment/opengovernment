@@ -1,0 +1,4 @@
+%ul
+  %h3
+    = render :partial => 'business', :locals => {:business => sector}
+  = render :partial => 'industry', :collection => sector.children
