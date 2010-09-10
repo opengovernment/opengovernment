@@ -216,12 +216,20 @@ namespace :load do
   task :fixtures => :environment do
     require 'active_record/fixtures'
 
-    Dir.chdir(Rails.root)
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
-    Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
+
+    if Rails.env == 'test'
+      Fixtures.reset_cache
+      fixtures_folder = File.join(Rails.root, 'spec', 'fixtures')
+      fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
+      Fixtures.create_fixtures(fixtures_folder, fixtures)
+    else
+      Dir.chdir(Rails.root)
+      Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
+      Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
+      Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
+      Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
+      Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
+    end
 
     # Force a reload of the DistrictType class, so we get the proper constants
     class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
