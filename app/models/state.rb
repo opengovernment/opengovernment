@@ -14,6 +14,8 @@ class State < Place
     hm.has_many :lower_committees
     hm.has_many :joint_committees
     hm.has_many :upper_committees
+    hm.has_many :primary_committees
+    hm.has_many :sub_committees
   end
 
   has_many :bills
