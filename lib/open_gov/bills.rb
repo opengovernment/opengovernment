@@ -97,7 +97,9 @@ module OpenGov
           end
 
           unless @bill.save!
+            # The transaction has rolled back if we get to this point.
             puts "Skipping...#{@bill.errors.full_messages.join(',')}"
+            return
           end
 
           bill.actions.each do |action|
