@@ -76,11 +76,13 @@ module OpenGov
           # A bill number alone does not identify a bill; we also need a session ID.
           session = state.legislature.sessions.find_by_name(bill.session)
 
-          @bill = Bill.find_or_initialize_by_openstates_id(bill["_id"])
+          @bill = Bill.find_or_initialize_by_openstates_id(bill['_id'])
           @bill.title = bill.title
           @bill.bill_number = bill.bill_id
           @bill.session_id = session.id
-          @bill.kind = bill.kind
+
+          # TODO: bill.type is actually an array -- let's get all of the items instead of just _type!
+          @bill.kind = bill['_type']
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
@@ -142,7 +144,7 @@ module OpenGov
               :passed => vote.passed,
               :date => Date.valid_date!(vote.date),
               :motion => vote.motion,
-              :kind => vote.type,
+              :kind => vote[:type],
               :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
             )
 
