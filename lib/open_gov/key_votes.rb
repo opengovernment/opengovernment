@@ -34,18 +34,18 @@ module OpenGov
                       Rails.logger.debug "Looking for special session #{$3} (#{$1 + $4})"
                       bill_type = $1
                       bill_number = $4
-                      og_session = state.legislature.sessions.for_year(year).select { |s| s.special_number == $3.to_i }.first
+                      og_sessions = state.legislature.sessions.for_year(year).select { |s| s.special_number == $3.to_i }
                     elsif $1 && $4
                       # Major session
                       Rails.logger.debug "Looking for major session (#{$1 + $4})"
                       bill_type = $1
                       bill_number = $4
-                      og_session = state.legislature.sessions.major.for_year(year).first                   
+                      og_sessions = state.legislature.sessions.for_year(year).select { |s| s.special_number.nil? }
                     end
                 end
 
-                if og_session && og_bill = Bill.where(:session_id => og_session.id).with_type_and_number(bill_type, bill_number).first
-                  Rails.logger.debug "Found a bill #{og_bill.bill_number} in session #{og_session.name}"
+                if og_sessions && og_bill = Bill.where(:session_id => og_sessions).with_type_and_number(bill_type, bill_number).first
+                  Rails.logger.debug "Found a bill #{og_bill.bill_number} in session #{og_bill.session.name}"
                   i += 1
                   og_bill.update_attributes!(
                     :votesmart_id => bill.billId,

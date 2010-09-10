@@ -9,7 +9,7 @@ class CommitteesController < ApplicationController
     @committees = @state.upper_committees.paginate :page => params[:page], :order => params[:order] || 'name'
     render :template => "committees/index"
   end
-  
+
   def lower
     @committees = @state.lower_committees.paginate :page => params[:page], :order => params[:order] || 'name'
     render :template => "committees/index"
