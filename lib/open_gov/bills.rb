@@ -122,7 +122,7 @@ module OpenGov
             Sponsorship.create(
               :bill => @bill,
               :sponsor_id => @people[sponsor.leg_id],
-              :sponsor_name => sponsor[:name]
+              :sponsor_name => sponsor[:name],
               :kind => sponsor[:type]
             )
           end
