@@ -95,7 +95,14 @@ class GovTrackImporter
     role = role_already_exists?(role_xml)
     attrs = role_xml.attributes
 
-    role.party = attrs['party']
+    role.party = case attrs['party']
+      when 'Democrat', 'Democratic', 'D'
+        'Democrat'
+      when 'Republican', 'R'
+        'Republican'
+      else
+        'Independent'
+      end
 
     state = State.find_by_abbrev(attrs['state'])
 

@@ -41,23 +41,21 @@ class Role < ActiveRecord::Base
     end
 
     case party
-    when "Democrat"
+    when "Democratic"
       "dem"
     when "Republican"
       "rep"
-    else
+    when "Independent"
       "ind"
     end
   end
 
   def party_fm
     case party
-      when "Democrat"
+      when "Democratic"
         "D"
       when "Republican"
         "R"
-      when ""
-        ""
       else
         "I"
     end

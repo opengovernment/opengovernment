@@ -15,13 +15,13 @@ class Chamber < ActiveRecord::Base
 
   has_and_belongs_to_many :people, :join_table => 'v_most_recent_roles' do
     def democrats
-      where("v_most_recent_roles.party in ('D', 'Democrat')")
+      where("v_most_recent_roles.party = 'Democratic'")
     end
     def republicans
-      where("v_most_recent_roles.party in ('R', 'Republican')")
+      where("v_most_recent_roles.party = 'Republican'")
     end
     def other
-      where("v_most_recent_roles.party not in ('Democrat', 'Republican', 'D', 'R')")
+      where("v_most_recent_roles.party not in ('Democratic', 'Republican')")
     end
     def including_district_names
       select('people.*, v_most_recent_roles.district_name')

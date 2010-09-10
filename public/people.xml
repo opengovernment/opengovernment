@@ -47,7 +47,7 @@
           <ogc:Filter>
           <ogc:PropertyIsEqualTo>
             <ogc:PropertyName>party</ogc:PropertyName>
-            <ogc:Literal>Democrat</ogc:Literal>
+            <ogc:Literal>Democratic</ogc:Literal>
           </ogc:PropertyIsEqualTo>
           </ogc:Filter>
           <PolygonSymbolizer>
