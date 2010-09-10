@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 55) do
     t.string   "kind"
   end
 
-  add_index "bills", [nil], :name => "bill_number_idx"
+#  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 55) do
   end
 
   create_table "citations", :force => true do |t|
-    t.string   "url",           :limit => 2000
+    t.string   "url",           :limit => 8000
     t.string   "excerpt",       :limit => 4000
     t.string   "title",         :limit => 1000
     t.string   "source"
