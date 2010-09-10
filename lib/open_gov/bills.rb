@@ -88,12 +88,16 @@ module OpenGov
 
           # There is no unique data on a bill's actions that we can key off of, so we
           # must delete and recreate them all each time.
-          if @bill.id
+          unless @bill.new_record?
             @bill.actions.delete_all
             @bill.sponsors.delete_all
             @bill.versions.delete_all
             @bill.votes.destroy_all
             @bill.subjects.destroy_all
+          end
+
+          unless @bill.save!
+            puts "Skipping...#{@bill.errors.full_messages.join(',')}"
           end
 
           bill.actions.each do |action|
@@ -129,6 +133,7 @@ module OpenGov
             )
           end
 
+
           if bill.subjects?
             bill.subjects.each do |subject|
               s = Subject.find_or_create_by_name(subject)
@@ -155,9 +160,6 @@ module OpenGov
             end
           end
 
-          unless @bill.save!
-            puts "Skipping...#{@bill.errors.full_messages.join(',')}"
-          end
         end # transaction
       end
     end
