@@ -4,21 +4,21 @@
     %span.bill_title
       != bill.title
 
-  .grid_4.bill_status.omega 
-    = bill.actions.first.kind
-    
+  .grid_4.bill_status.omega
+    = bill.actions.first && bill.actions.first.kind
+
     - if bill.votesmart_key_vote?
       %span.vote_smart_keyvote
         This is a Votesmart Key Vote!
-    
+
     .introduced
       Introduced:
       != bill.first_action_at
-    
+
     .recent_action
       Most recent action:
       != bill.last_action_at
-      
+
     .recent_vote
       != bill.votes.count
       votes have occurred on this bill

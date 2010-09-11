@@ -65,22 +65,21 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 # Bundle gems used only in certain environments:
 group :test do
   # Bundle gems for certain environments:
-  gem "webrat", "~> 0.7.2.beta1"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
   gem "rspec", ">= 2.0.0.beta.20"
   gem "rspec-core", ">= 2.0.0.beta.20", :require => 'rspec/core'
   gem "rspec-expectations", ">= 2.0.0.beta.20", :require => 'rspec/expectations'
   gem "rspec-mocks", ">= 2.0.0.beta.20", :require => 'rspec/mocks'
   gem "rspec-rails", ">= 2.0.0.beta.20", :require => 'rspec/rails'
+  gem 'cucumber'
+  gem 'cucumber-rails'
   gem "autotest"
   gem "autotest-rails"
   gem "factory_girl_rails"
   gem "machinist"
   gem "linecache19"
   gem "ruby-debug19"
-# gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'spork'
-  gem 'launchy'    # So you can do Then show me the page
 end
