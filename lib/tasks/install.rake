@@ -261,7 +261,7 @@ namespace :load do
     end
   end
 
-  desc "Fetch and load committees from VoteSmart"
+  desc "Fetch and load committees from OpenStates"
   task :committees => :environment do
     OpenGov::Committees.import!
   end

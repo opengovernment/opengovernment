@@ -3,7 +3,7 @@ class BillsController < ApplicationController
   before_filter :get_bill, :except => [:index]
 
   def index
-    @state_bills = Bill.for_state(@state).unscoped
+    @state_bills = Bill.for_state(@state)
 
     respond_to do |format|
       format.js do
