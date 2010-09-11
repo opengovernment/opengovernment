@@ -23,7 +23,7 @@ module OpenGov
           # Counters
           i = 0
 
-          puts "---------- Loading #{state.name} committee data from local OpenStates data."
+          puts "---------- Loading #{state.name} committee data from remote OpenStates data."
           GovKit::OpenStates::Committee.search(:state => state.abbrev).each do |search_result|
             if committee = GovKit::OpenStates::Committee.find(search_result.id)
               i = i + 1
@@ -36,6 +36,7 @@ module OpenGov
           puts "OpenStates: Imported #{i} committees from remote data"
         else
           # Import from local data
+          puts "---------- Loading #{state.name} committee data from local OpenStates data."
           state_committees = File.join(COMMITTEE_DIR, "#{state.abbrev}*")
           i = 0
 
@@ -59,7 +60,8 @@ module OpenGov
           Committee.transaction do
 
             if committee = subclass.find_or_initialize_by_legislature_id_and_name(legislature_id, os_com[:subcommittee] || os_com[:committee])
-              committee.openstates_id = os_com.id
+
+              committee.openstates_id = os_com[:id] || os_com[:'_id']
               if os_com[:subcommittee]
                 committee.parent = subclass.find_or_create_by_name_and_legislature_id(os_com.committee, legislature_id)
               end
