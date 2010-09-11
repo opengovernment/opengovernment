@@ -2,3 +2,7 @@ md:
   states:
     show:
       intro: "Welcome to OpenGovernment.org Maryland! Maryland's General Assembly is composed of an upper chamber, the Senate, and a lower chamber, the House of Delegates. Senators serve four-year terms coincident with the federal election in which the President of the United States is not elected. Each Senatory represents approx. 121,265 Marylanders (2009 est. pop. of 5,699,478 divided by 47 districts). Last session, senators introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. Delegates: four year terms. Each Delegate represents approx. 40,422 Marylanders (2009 est. pop. of 5,699,478 divided by 141 districts). Last session, delegates introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. Last election: Nov. 7, 2006. Next election: Nov. 2, 2010. The most recent legislative session lasted from January 13 - April 12, 2010 and has been in interim session since. The next General Assembly session will last from January 12th to April 11, 2011."
+      state_population: "No population data."
+      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
+      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      

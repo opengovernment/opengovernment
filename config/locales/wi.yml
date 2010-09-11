@@ -2,3 +2,6 @@ wi:
   states:
     show:
       intro: "Welcome to OpenGovernment.org Wisconsin! WI State Senate: four-year terms, staggered so that half the Senate is up for election every two years. Each Senator represents approximately 171,357 Wisconsinites (2008 est. pop. of 5,654,774 divided by 33 senate districts). This past session, senators introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. WI State Assembly: two-year terms. Each assemblymember represents approx. 57,119 Wisconsinites (2008 est. pop. of 5,654,774 divided by 99 assembly districts). This past session, assemblymembers introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. Last election: Nov. 4, 2008. Next election: Nov. 2nd, 2010. The WI legislature last sent bills to the Governor on June 9th, 2010, and is in a period of 'committee work' until the next legislature is inaugurated on January 3, 2011." 
+      state_population: "No population data."
+      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
+      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."

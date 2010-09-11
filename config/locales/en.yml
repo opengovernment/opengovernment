@@ -2,7 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   home:
     index:
       intro: "Welcome to OpenGovernment.org!"
+  states:
+    show:
+      state_population: "No population data."
+      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
+      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      last_election_date: "No data for last election date."
