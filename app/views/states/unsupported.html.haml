@@ -1,23 +1,25 @@
 - title("Sorry, #{@state.name} isn't ready yet!")
 
-%h2 OpenGovernment #{@state.name} isn't ready yet!
+%h2 Sorry, OpenGovernment #{@state.name} isn't ready yet!
 .span-14
-  %p Data from the #{@state.name} state legislature is coming soon. You can help make it happen by contacting your elected officials and letting them know that transparency in government matters to you and your community.
-
-  %p
-    %strong Contact your officials with a personal email or phone call
-    &mdash;you could tell them something like this:
+  %p Here's the situation: government data is, unfortunately, closed-off from the public. Almost none of the U.S. state governments make their data easily accessible on the Web -- and sadly, at the moment, that includes information from the #{@state.name} state legislature. We should be concerned that our elected officials and our public infrastructure are so pitifully behind-the-times in basic standards of transparency and technology... it's going to take public-minded efforts from people like you to force your government to be open and accountable. Public data can and should be available to the public, immediately and in full. This is our demand, and we hope you join our campaign below to liberate your data.
+  
+  %p It might help to know: our non-profit organizations and a dedicated team of volunteers had to do a lot of work just to get basic government data into the more-or-less intelligible shape you see here, and that's just for the legislatures of five states (CA, LA, MD, TX, and WI). This doesn't yet include important public data from the other two branches of government: Executive, such as state budgets and agency expenditures; and Judicial, such as laws and statutes. What's more, this doesn't yet include a host of other data that the government should provide in open standards, but doesn't: the full text of legislation, video of legislative sessions and committee hearings, campaign contribution information and financial disclosure forms, and more. What's even more on top of that, this doesn't yet include a whole world of other data that would be useful to people in connecting with their government, but is beyond our current resources to gather: social media accounts for elected officials; issue group scorecards with ratings for important bills and key votes; analysis of the role of money-in-politics; easy-to-understand primers on how state governments work and how laws are passed in each of the 50 U.S. states; and more. And that's all just for state governments! The same principles of transparency and openness apply for government at the county, city, town, and most-local level. There ought to be a version of OpenCongress for your city and neighborhood... or to put it another way, OpenGovernment should encompass all your elected officials in our representative democracy, along with (if applicable in your state) your ability to exercise direct democracy in casting votes on amendments and more. That's where we're headed. There's a lot of work yet to do. 
+    
+  %p But the encouraging news is that here, with OpenGovernment, we now have a good start in applying this model of transparency to every level government. This transparency, in turn, can restore public trust in our representative democracy and increase civic engagement in our communities. Here are three things you can do to help our non-profit project grow. 
+  
+  .span-10.last
+    %h3 First, leave us your e-mail address to stay informed.
+    = form_tag(state_subscriptions_path)
+    = hidden_field_tag :id, @state.id
+    = text_field_tag :email
+    = submit_tag "Subscribe"
+    </form>
+  
+    %strong Second, join our OpenGovData campaign. 
+    &mdash;when you contact your officials, you could tell them something like this:
 
   %blockquote
     %q As a constituent, I want my state government to be transparent and accountable. A necessary component of transparency is open data: making legislative information more accessible, as outlined in the <a href="http://resource.org/8_principles.html">8 Principles of Open Government Data</a>. Then, in the future, I'll be able to track and share what's happening in our state government on the free and open-source website OpenGovernment.org.
-
-.span-10.last
-  %h3 Want updates from OpenGovernment.org?
-  Leave us your e-mail address to stay informed.
-  = form_tag(state_subscriptions_path)
-  = hidden_field_tag :id, @state.id
-  = text_field_tag :email
-  = submit_tag "Subscribe"
-  </form>
   
-  %p OpenGovernment.org is free and open-source.
+  %p Third, help spread the word by pressing a big button below. Remember, OenGovernment.org is free and open-source. We're working to put government at your fingertips. 
