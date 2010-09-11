@@ -1,15 +1,1 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  business_name: MyString
-  industry_name: MyString
-  sector_name: MyString
-  nimsp_industry_code: 1
-  nimsp_sector_code: 1
-
-two:
-  business_name: MyString
-  industry_name: MyString
-  sector_name: MyString
-  nimsp_industry_code: 1
-  nimsp_sector_code: 1

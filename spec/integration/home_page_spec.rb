@@ -3,27 +3,24 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Home Page" do
   before do
     visit root_path
-    response.should have_selector('.find_form > form > input#q')
+    page.should have_css('.find_form > form > input#q')
   end
-
 
   it "given an address it should the show legislators in the area" do
     fill_in 'q', :with => '3306 French Place, Austin, TX 78722'
     click_button 'Find'
 
-    current_url.should == 'search'
+    page.should have_content("District 25")
+    page.should have_content("District 14")
 
-    response.should contain("District 25")
-    response.should contain("District 14")
-
-    response.should contain("Kirk Watson")
-    response.should contain("Kay Bailey Hutchison")
-    response.should contain("John Cornyn")
-    response.should contain("Lloyd A. Doggett")
+    page.should have_content("Kirk Watson")
+    page.should have_content("Kay Bailey Hutchison")
+    page.should have_content("John Cornyn")
+    page.should have_content("Lloyd A. Doggett")
   end
 
   it "should redirect to home page when somebody clicks on logo" do
     click_link "OpenGovernment"
-    response.should redirect_to(root_path)
+    current_path.should == root_path
   end
 end

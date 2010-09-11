@@ -6,7 +6,7 @@ OpenGov::Application.routes.draw do
     match '/search' => 'states#search', :as => 'state_search'
     match '/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
 
-    resources :people, :only => [:show, :index] do
+    resources :people, :only => [:show, :index, :money_trail] do
       collection do
         get :upper
         get :lower
@@ -64,5 +64,4 @@ OpenGov::Application.routes.draw do
   root :to => "home#index"
 
   resources :pages, :only => :show
-
 end

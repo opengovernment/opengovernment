@@ -3,15 +3,22 @@ module RSpec::Rails
     extend ActiveSupport::Concern
     extend RSpec::Rails::ModuleInclusion
 
-    include ActionDispatch::Integration::Runner
-    include RSpec::Rails::TestUnitAssertionAdapter
-    include ActionDispatch::Assertions
-    include Webrat::Matchers
-    include Webrat::Methods
-    include RSpec::Matchers
+    include ActionView::TestCase::Behavior
+    include RSpec::Rails::RailsExampleGroup
+    include RSpec::Rails::BrowserSimulators
+    include RSpec::Rails::Matchers::RoutingMatchers
     include RSpec::Rails::Matchers::RedirectTo
     include RSpec::Rails::Matchers::RenderTemplate
-    include ActionController::TemplateAssertions
+
+
+    webrat do
+      include Webrat::Matchers
+      include Webrat::Methods
+    end
+
+    capybara do
+      include Capybara
+    end
 
     module InstanceMethods
       def app
@@ -25,13 +32,16 @@ module RSpec::Rails
 
     included do
       metadata[:type] = :integration
+      metadata[:render_views] = true
 
       before do
         @router = ::Rails.application.routes
       end
 
-      Webrat.configure do |config|
-        config.mode = :rack
+      webrat do
+        Webrat.configure do |config|
+          config.mode = :rack
+        end
       end
     end
 

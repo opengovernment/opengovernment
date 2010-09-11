@@ -5,5 +5,7 @@ describe "All possible routes" do
 #    @named_routes =
   end
 
-  it ""
+  describe "Static Pages" do
+    
+  end
 end
