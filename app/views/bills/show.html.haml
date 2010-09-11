@@ -118,16 +118,11 @@
               %span.small-label other votes
 
             %td.vote-bar
-              %span{:class => 'vote-yes-block', :style => "width: #{number_with_precision(vote.yes_pct)}%;"} &nbsp;
-              %span{:class => 'vote-no-block', :style => "width: #{number_with_precision(vote.no_pct)}%;"} &nbsp;
-              %span{:class => 'vote-other-block', :style => "width: #{number_with_precision(vote.other_pct)}%;"} &nbsp;
-              %span{:class => 'vote-needed', :style => "width: #{number_with_precision(vote.needed_to_pass_pct)}%;"} &nbsp;
-
-
-
-
-
+              %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
+              %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
+              %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
+              %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
 
   %hr
 
-  %br
+  %b
