@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_filter :authenticate, :only => :index
 
   DEFAULT_STATE_COLOR = '#DDDDDD'
   SUPPORTED_STATE_COLOR = '#FCFBE6'
