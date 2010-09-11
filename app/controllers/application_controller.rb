@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   # You have to put something like:
   def extract_locale_from_subdomain
     parsed_locale = request.subdomains.first
+    puts "subdomain: " + request.subdomains.first
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale : nil 
   end 
 
