@@ -22,7 +22,7 @@ module OpenGov
           puts "OpenStates: Imported #{i} people from remote data"
         else
           unless File.exists?(LEG_DIR)
-            puts "Local Open States data is missing; fetching remotely instead."
+            puts "Local Open States data not found in #{LEG_DIR}; fetching remotely instead."
             return import_one(state, :remote => true)
           end
 

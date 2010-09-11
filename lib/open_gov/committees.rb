@@ -11,7 +11,7 @@ module OpenGov
 
       def import_state(state, options = {})
         unless options[:remote] && File.exists?(COMMITTEE_DIR)
-          puts "Local Open States committee data is missing; fetching remotely instead."
+          puts "Local Open States committee data not found in #{COMMITTEE_DIR}; fetching remotely instead."
           return import_state(state, :remote => true)
         end
         
