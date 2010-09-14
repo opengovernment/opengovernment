@@ -1,4 +1,5 @@
 - title("#{@state.name} Representatives")
+- dropdown('.sort_hot', 'ul.people_sorts')
 
 %h1.grid_16
   = "#{@state.name} Representatives"
@@ -7,19 +8,19 @@
 
 .grid_16
   .sort.button
-    %span.sort_label 
-      Sort by 
-      %strong Name
-    .arrow   
-    %ul.button
+    .sort_hot
+      %span.sort_label 
+        Sort by 
+        %strong Name
+      .arrow   
+    %ul.button.people_sorts
       %li
         = link_to "Name", url_for(:sort => 'name'), :remote => true
       %li 
         = link_to "District", url_for(:sort => 'district'), :remote => true
       %li 
         = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
-    
-      
+
   %ul.tabs
  
     %li
