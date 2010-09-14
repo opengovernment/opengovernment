@@ -9,17 +9,15 @@
 .grid_16
   .sort.button
     .sort_hot
-      %span.sort_label 
+      %span.sort_label
         Sort by 
-        %strong Name
-      .arrow   
+        %strong= @sorts[@sort.to_sym]
+      .arrow
     %ul.button.people_sorts
-      %li
-        = link_to "Name", url_for(:sort => 'name'), :remote => true
-      %li 
-        = link_to "District", url_for(:sort => 'district'), :remote => true
-      %li 
-        = link_to "Public Interest", url_for(:sort => 'citations'), :remote => true
+      - @sorts.each do |k, v|
+        %li
+          = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
+
 
   %ul.tabs
  

@@ -6,8 +6,13 @@ class PeopleController < ApplicationController
   def index
     @chamber = @state.upper_chamber
     @current_tab = :upper
+    @sort = params[:sort] || 'name'
+    
+    @sorts = {:name => 'Name',
+      :district => 'District',
+      :citations => 'Public Interest'}
 
-    if poeple_in_chamber(params[:sort])
+    if poeple_in_chamber(@sort)
       @people = @facets.for(:chamber_id => @chamber.id)
     else
       @people = []
