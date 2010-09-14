@@ -4,15 +4,22 @@ var mouse_is_on_menu = false;
 function create_dropdown_menu(anchor_div, menu_div) {
 
   /* Breadcrumb dropdown menu */
-  $(anchor_div).click(function() { //When trigger is clicked...  
+  $(anchor_div).click(function() {
+      // When trigger is clicked...  
       //Following events are applied to the subnav itself (moving subnav up and down)  
       var t = $(this).data("destroyHandle");
       if (t) {
         clearTimeout(t);
       }
 
-      $(this).parent().find(menu_div).show(); //Drop down the subnav on click  
-      $(this).addClass("subhover"); //On hover over, add class "subhover"
+      if (!$(this).hasClass("subhover")) {
+        $(this).parent().find(menu_div).show(); //Drop down the subnav on click  
+        $(this).addClass("subhover"); //On hover over, add class "subhover"
+      } else {
+        $(menu_div).hide();
+        $(anchor_div).removeClass("subhover");
+      }
+
       return false;
   });
 
@@ -42,13 +49,13 @@ function create_dropdown_menu(anchor_div, menu_div) {
   $('body').mouseup(function(){ 
       if(! mouse_is_on_menu) {
         $(menu_div).hide();
-        $(anchor_div).removeClass("subhover"); 
+        $(anchor_div).removeClass("subhover");
       }
   });
 
 }
 
-$(document).ready(function(){ 
+$(document).ready(function() {
   create_dropdown_menu("a#dropdown", "ul.state-select");
 });
 
