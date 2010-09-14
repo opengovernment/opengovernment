@@ -11,3 +11,7 @@ en:
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
       last_election_date: "No data for last election date."
+  bills:
+    money_trail:
+      title: "Money Trail data isn't quite ready!"
+      details: "Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital data in place!"

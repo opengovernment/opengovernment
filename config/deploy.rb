@@ -20,7 +20,7 @@ set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 
 namespace :deploy do
-  desc "Link the shared/ files"
+  desc 'Link the shared/ files'
   task :link_shared do
     run "ln -s #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
     run "ln -s #{deploy_to}/#{shared_dir}/config/api_keys.yml #{current_release}/config/api_keys.yml"
