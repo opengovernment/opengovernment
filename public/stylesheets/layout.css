@@ -1051,13 +1051,6 @@ cursor: pointer;
 background: #fff url(/images/sprites.png) -3px -312px no-repeat;
 }
 
-
-.sort:hover ul{
-display: block;
-
-}
-
-
 .sort ul{
 display: none;
 position: absolute;

@@ -1,30 +1,21 @@
 - title("#{@state.name} Bills")
+- dropdown('.sort_hot', 'ul.bill_sorts')
 
 %h1.grid_16
   = "#{@state.name} Bills"
 
 %hr.grid_16
 
-
-.sort
-  %span.sort_label Sort by Name
-  .arrow   
-  %ul
-    %li
-      = link_to "Recent Actions", url_for(:sort => 'actions'), :remote => true
-    %li
-      = link_to "Recent Bills", url_for(:sort => 'recent'), :remote => true
-    %li
-      = link_to "Most In The News", url_for(:sort => 'citations'), :remote => true
-    %li
-      = link_to "Most Viewed", url_for(:sort => 'views'), :remote => true
-    %li
-      = link_to "Key Votes", url_for(:sort => 'keyvotes'), :remote => true
-
-
+.sort.button
+  .sort_hot
+    %span.sort_label
+      Sort by 
+      %strong= @sorts[@sort.to_sym]
+    .arrow
+  %ul.button.bill_sorts
+    - @sorts.each do |k, v|
+      %li
+        = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
 
 #bills
   = render :partial => 'shared/bill', :collection => @bills
-
-
-
