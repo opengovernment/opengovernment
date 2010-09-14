@@ -23,7 +23,7 @@
     = include_javascripts :common
 
     - if content_for? :js_hook
-      %script(type="text/javascript")
+      %script(type='text/javascript' charset='UTF-8')
         = yield :js_hook
 
     = yield :head
