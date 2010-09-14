@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(:version => 57) do
     t.string   "kind"
   end
 
-  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
