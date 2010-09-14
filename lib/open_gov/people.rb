@@ -80,7 +80,7 @@ module OpenGov
                   :chamber_id => chamber.id,
                   :start_date => Date.valid_date!(fs_role.start_date),
                   :end_date => Date.valid_date!(fs_role.end_date),
-                  :party => fs_role.party
+                  :party => standardize_party(fs_role.party)
                 )
               else
                 puts "Could not find district #{fs_role.district.to_s} served by #{person.full_name} (#{person.openstates_id}) in #{state.abbrev}; skipping"
@@ -92,6 +92,20 @@ module OpenGov
           end
         end # transaction
       end # import_one
-    end
+
+      private
+      
+      def standardize_party(party_name)
+        case party_name.downcase
+        when 'democrat', 'd', 'democratic', 'dem'
+          'Democratic'
+        when 'republican', 'r', 'rep'
+          'Republican'
+        else
+          'Independent'
+        end
+      end
+    end # standardize_party
+
   end
 end
