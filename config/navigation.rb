@@ -59,7 +59,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
           m.item :votes, 'Votes', votes_person_path(@person)
-          m.item :money_trail, 'Money Trail', '#'
+          m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
         end
       end
     end

@@ -58,7 +58,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person || resource_not_found
   end
-  
+
   private
 
   def poeple_in_chamber(sort)
@@ -82,6 +82,4 @@ class PeopleController < ApplicationController
       return nil
     end
   end
-  
-
 end
