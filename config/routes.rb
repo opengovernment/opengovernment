@@ -27,6 +27,7 @@ OpenGov::Application.routes.draw do
       member do
         get :major_actions
         get :news
+        get :money_trail
       end
       shallow do
         resources :actions, :only => [:show]

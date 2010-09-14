@@ -48,7 +48,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Coverage', '#'
           m.item :video, 'Video', '#', :class => 'inactive'
-          m.item :money_trail, 'Money Trail', '#', :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
         end
       end
     end
