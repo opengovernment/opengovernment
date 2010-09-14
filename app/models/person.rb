@@ -36,22 +36,23 @@ class Person < ActiveRecord::Base
   has_many :business_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.business_name, sum(c.amount) as amount
+              SELECT b.name, sum(c.amount) as amount
               FROM businesses b
               inner join contributions c on c.business_id = b.id
               where c.candidate_id = #{self.id}
-              group by b.business_name
-              order by amount descw
+              group by b.name
+              order by amount desc
               limit 20
           }
 
-  has_many :industry_contributions, :class_name => "Contribution",
+  has_many :industry_contributions, :foreign_key => "candidate_id",
+           :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.industry_name, sum(c.amount) as amount
+              SELECT b.name, sum(c.amount) as amount
               FROM businesses b
               inner join contributions c on c.business_id = b.id
               where c.candidate_id = #{self.id}
-              group by b.industry_name
+              group by b.name
               order by amount desc
               limit 20
           }
@@ -59,11 +60,11 @@ class Person < ActiveRecord::Base
   has_many :sector_contributions, :foreign_key => "candidate_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.sector_name, sum(c.amount) as amount
+              SELECT b.name, sum(c.amount) as amount
               FROM businesses b
               inner join contributions c on c.business_id = b.id
               where c.candidate_id = #{self.id}
-              group by b.sector_name
+              group by b.name
               order by amount desc
               limit 20
           }
