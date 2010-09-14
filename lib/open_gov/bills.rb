@@ -2,13 +2,15 @@ module OpenGov
   class Bills < Resources
     VOTES_DIR = File.join(OPENSTATES_DIR, "api", "votes")
 
-    @people = {}
+    @@people = {}
 
     class << self
       def build_people_hash
         # Cache all of the ids of people so we don't have to keep looking them up.
-        Person.all(:conditions => "openstates_id is not null").each do |p|
-          @people[p.openstates_id] = p.id
+        if @@people.size == 0
+          Person.all(:conditions => "openstates_id is not null").each do |p|
+            @@people[p.openstates_id] = p.id
+          end
         end
       end
 
@@ -53,6 +55,8 @@ module OpenGov
       end
 
       def import_remote(state)
+        build_people_hash
+
         puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
         # TODO: This isn't quite right...
@@ -72,6 +76,8 @@ module OpenGov
       end
 
       def import_bill(bill, state, options)
+        build_people_hash
+        
         Bill.transaction do
           # A bill number alone does not identify a bill; we also need a session ID.
           session = state.legislature.sessions.find_by_name(bill.session)
@@ -119,6 +125,9 @@ module OpenGov
               :date => action_date)
           end
 
+          # Save the first & last action dates
+          @bill.save
+
           bill.versions.each do |version|
             v = Version.find_or_initialize_by_bill_id_and_name(@bill.id, version.name)
             v.url = version.url
@@ -127,14 +136,12 @@ module OpenGov
 
           # Same deal as with actions, above
           bill.sponsors.each do |sponsor|
-            Sponsorship.create(
-              :bill => @bill,
-              :sponsor_id => @people[sponsor.leg_id],
+            @bill.sponsorships << Sponsorship.new(
+              :sponsor_id => @@people[sponsor.leg_id] || Person.where(:openstates_id => sponsor.leg_id).first.try(:id),
               :sponsor_name => sponsor[:name],
               :kind => sponsor[:type]
             )
           end
-
 
           if bill.subjects?
             bill.subjects.each do |subject|
