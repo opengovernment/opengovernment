@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   layout 'application'
-  # Auth for staging environment
-  USERNAME, PASSWORD = 'opengov', API_KEYS['og_staging']
 
   def set_locale
     I18n.locale = extract_locale_from_subdomain
@@ -39,14 +37,6 @@ class ApplicationController < ActionController::Base
 
   def current_place_name
     @state.try(:name) || current_place.try(:name)
-  end
-
-  def authenticate
-    if Rails.env == "staging"
-      authenticate_or_request_with_http_basic do |username, password|
-        username == USERNAME && Digest::MD5.hexdigest(password) == PASSWORD
-      end
-    end
   end
 
   private

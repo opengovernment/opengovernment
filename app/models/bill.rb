@@ -15,8 +15,6 @@ class Bill < ActiveRecord::Base
   has_many :major_actions, :class_name => 'Action', :conditions => ["kind <> 'other' and kind is not null"]
   has_many :votes, :dependent => :destroy
 
-  default_scope :order => "first_action_at desc"
-
   scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
 
   # upper_and_stripped() is an indexed function on the bills table

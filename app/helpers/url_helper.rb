@@ -24,7 +24,7 @@ module UrlHelper
 
   def with_subdomain(subdomain)  
     subdomain = (subdomain || '')
-    subdomain = HOME_SUBDOMAIN if subdomain.empty? && defined?(HOME_SUBDOMAIN)
+    subdomain = HOME_SUBDOMAIN if subdomain.empty? && defined?(HOME_SUBDOMAIN) && request.subdomains.first != HOME_SUBDOMAIN
     subdomain += '.' unless subdomain.empty?  
 
     domain = request.domain

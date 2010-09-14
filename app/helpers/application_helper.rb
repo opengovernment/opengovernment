@@ -9,6 +9,15 @@ module ApplicationHelper
     content_for(:hashtags) { hash_tags }
   end
 
+  def dropdown(hot_selector, menu_selector)
+      javascript do (%Q|
+        $(document).ready(function(){ 
+          create_dropdown_menu("#{hot_selector}", "#{menu_selector}");
+        });
+      |)
+      end
+  end
+
   # Javascript hooks -- eg. document ready events. or other page-level
   # javascript that can't be accomplished via rails-ujs.
   # <script> tags should not be passed in with the js.

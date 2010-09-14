@@ -48,7 +48,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Coverage', '#'
           m.item :video, 'Video', '#', :class => 'inactive'
-          m.item :money_trail, 'Money Trail', '#', :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
         end
       end
     end
@@ -70,7 +70,7 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
     primary.item :money_trail, 'Money Trail', money_trail_path
-    primary.item :pages, 'Pages', '#' do |m|
+    primary.item :pages, 'Pages', '#', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")
       m.item :help, 'Help', page_path("help")

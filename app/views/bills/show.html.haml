@@ -66,10 +66,10 @@
   .grid_6.alpha
     %h2 Sponsors
     %ul.lined
-      - @bill.sponsorships.includes(:sponsor).order("people.last_name").each do |s|
+      - @sponsors.each do |s|
         %li
           - surround '',',' do
-            = link_to(s.sponsor.full_name, person_path(s.sponsor))
+            = s.sponsor_id? ? link_to(s.sponsor_name, person_path(s.sponsor)) : s.sponsor_name
           = s.kind_fm
   
   .grid_6.omega
