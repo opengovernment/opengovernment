@@ -5,7 +5,7 @@
       != bill.title
 
   .grid_4.bill_status.omega
-    = bill.actions.first && bill.actions.first.kind
+    = bill.actions.first.try(:kinds)
 
     - if bill.votesmart_key_vote?
       %span.vote_smart_keyvote

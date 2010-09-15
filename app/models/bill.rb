@@ -13,7 +13,7 @@ class Bill < ActiveRecord::Base
   end
 
   has_many :sponsors, :through  => :sponsorships
-  has_many :major_actions, :class_name => 'Action', :conditions => ["kind <> 'other' and kind is not null"]
+  has_many :major_actions, :class_name => 'Action', :conditions => ["kind_one <> 'other' and kind_one is not null"]
   has_many :votes, :dependent => :destroy
 
   scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
@@ -55,6 +55,10 @@ class Bill < ActiveRecord::Base
     # Trigger the join on citations before indexing the count
     has citations(:id), :as => :citations_ids
     has "COUNT(citations.id)", :as => :citations_count, :type => :integer
+  end
+  
+  def kinds
+    [kind_one, kind_two, kind_three].compact
   end
 
   class << self

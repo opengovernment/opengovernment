@@ -5,7 +5,7 @@ hb10:
   updated_at: 2010-05-12 18:49:36.203056
   session: tx81
   bill_number: HB 10
-  kind: bill
+  kind_one: "bill"
   openstates_id:
   state_id: 47
 hb1000:
@@ -14,7 +14,7 @@ hb1000:
   title: Relating to the amounts of certain residence homestead exemptions from ad valorem taxation and the adjustment of the amounts of those exemptions applicable to a homestead based on changes in the appraised value of the homestead.
   updated_at: 2010-05-12 18:49:36.309626
   session: tx81
-  kind: "bill"
+  kind_one: "bill"
   bill_number: HB 1000
   openstates_id:
   state_id: 47
@@ -22,7 +22,7 @@ hb1001:
   created_at: 2010-05-10 23:26:12.936782
   chamber: txl
   title: Relating to limits on the size of public school classes in prekindergarten, kindergarten, and grades one through four.
-  kind: "bill"
+  kind_one: "bill"
   updated_at: 2010-05-12 18:49:36.338261
   session: tx81
   bill_number: HB 1001
@@ -33,7 +33,7 @@ hb1002:
   chamber_id: txl
   title: Relating to access by the members of electric cooperatives to meetings of the boards of directors and certain information of the electric cooperatives.
   updated_at: 2010-05-12 18:49:36.36844
-  kind: "bill"
+  kind_one: "bill"
   session: tx81
   bill_number: HB 1002
   openstates_id:
@@ -44,7 +44,7 @@ hb1003:
   title: Relating to notice provided to certain victims or witnesses regarding certain inmates or defendants who are electronically monitored.
   updated_at: 2010-05-12 18:49:36.563682
   session: tx81
-  kind: "bill"
+  kind_one: "bill"
   bill_number: HB 1003
   openstates_id: 
   state_id: 47
@@ -54,7 +54,7 @@ hjr3:
   title: Relating to notice provided to certain victims or witnesses regarding certain inmates or defendants who are electronically monitored.
   updated_at: 2010-05-12 18:49:36.563682
   session: tx81
-  kind: "joint resolution"
+  kind_one: "joint resolution"
   bill_number: HJR 3
   openstates_id: 
   state_id: 47

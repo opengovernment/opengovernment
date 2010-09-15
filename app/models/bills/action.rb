@@ -5,7 +5,7 @@ class Action < ActiveRecord::Base
   class << self
     def find_all_by_issue(issue)
       find_by_sql(["select * from v_tagged_actions
-              where kind <> 'other' and kind is not null and tag_name = ? order by date desc", issue.name])
+              where kind_one <> 'other' and kind_one is not null and tag_name = ? order by date desc", issue.name])
     end
   end
 
@@ -26,8 +26,12 @@ class Action < ActiveRecord::Base
     end
   end
 
+  def kinds
+    [kind_one, kind_two, kind_three].compact
+  end
+
   def major?
-    !kind.blank? && kind != "other"
+    !kinds.empty? && !kinds.include?("other")
   end
 
   def action_fm

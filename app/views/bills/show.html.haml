@@ -79,7 +79,7 @@
       %ul.lined
         - @bill.versions.each do |version|
           %li
-            = version.url.blank ? version.name : link_to(version.name, version.url)
+            = version.url.blank? ? version.name : link_to(version.name, version.url)
 
     - if @bill.documents.count > 0
       %h2 Documents
