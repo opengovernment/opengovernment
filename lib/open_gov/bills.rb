@@ -87,12 +87,15 @@ module OpenGov
           @bill.session_id = session.id
           @bill.alternate_titles = bill[:alternate_titles]
 
-          # TODO: Exclude types 'bill'
-          @bill.kind_one = bill[:type].try(:first)
-          @bill.kind_two = bill[:type].try(:second)
-          @bill.kind_three = bill[:type].try(:third)
-          if bill[:type].size > 3
-            puts "Skipping bill types for #{bill[:bill_id]}: #{bill[:type][3..-1].join(', ')}."
+          # Exclude types 'bill'
+          @bill_types = bill[:type] || []
+          @bill_types.delete("bill")
+
+          @bill.kind_one = @bill_types[0]
+          @bill.kind_two = @bill_types[1]
+          @bill.kind_three = @bill_types[2]
+          if @bill_types.size > 3
+            puts "Skipping bill types for #{bill[:bill_id]}: #{@bill_types[3..-1].join(', ')}."
           end
 
           @bill.state = state
