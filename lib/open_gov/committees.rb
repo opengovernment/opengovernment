@@ -61,26 +61,23 @@ module OpenGov
 
             if committee = subclass.find_or_initialize_by_legislature_id_and_name(legislature_id, os_com[:subcommittee] || os_com[:committee])
 
-              committee.openstates_id = os_com[:id] || os_com[:'_id']
-              if os_com[:subcommittee]
-                committee.parent = subclass.find_or_create_by_name_and_legislature_id(os_com.committee, legislature_id)
+              committee.openstates_id = os_com[:id]
+              if os_com[:parent_id]
+                committee.parent = subclass.find_by_openstates_id(os_com[:parent_id])
               end
               committee.save
 
               os_com.members.each do |os_role|
-                # TODO: Simplify based on OpenStates issue #56
-                member_name = os_role[:legislator] || os_role[:name]
-
                 if os_role[:leg_id] && person = Person.find_by_openstates_id(os_role[:leg_id])
                   committee_membership = CommitteeMembership.find_or_initialize_by_person_id_and_committee_id(person.id, committee.id)
                   # TODO: Associate committee memberships with a specific session.
-                  committee_membership.full_name = member_name
+                  committee_membership.full_name = os_role[:name]
                   committee_membership.role = os_role[:role]
                   committee_membership.save
                 else
                   # A committee membership without a leg_id.
-                  if member_name
-                    committee_membership = CommitteeMembership.find_or_create_by_role_and_full_name_and_committee_id(os_role[:role], member_name, committee.id)
+                  if os_role[:name]
+                    committee_membership = CommitteeMembership.find_or_create_by_role_and_full_name_and_committee_id(os_role[:role], os_role[:name], committee.id)
                   end                  
                 end
               end

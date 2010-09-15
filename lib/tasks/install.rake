@@ -199,9 +199,10 @@ namespace :load do
     puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
     Rake::Task['load:districts'].invoke
-    Rake::Task['load:committees'].invoke
     puts "\n---------- Loading people"
     Rake::Task['load:people'].invoke
+    puts "\n---------- Loading committees and committee memberships"
+    Rake::Task['load:committees'].invoke
     puts "\n---------- Loading bills"
     Rake::Task['load:bills'].invoke
     puts "\n---------- Loading news & blog citations"

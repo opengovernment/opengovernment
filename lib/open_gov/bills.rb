@@ -82,13 +82,18 @@ module OpenGov
           # A bill number alone does not identify a bill; we also need a session ID.
           session = state.legislature.sessions.find_by_name(bill.session)
 
-          @bill = Bill.find_or_initialize_by_openstates_id(bill['_id'])
+          @bill = Bill.find_or_initialize_by_session_id_and_bill_number(session.id, bill[:bill_id])
           @bill.title = bill.title
-          @bill.bill_number = bill.bill_id
           @bill.session_id = session.id
+          @bill.alternate_titles = bill[:alternate_titles]
 
-          # TODO: bill.type is actually an array -- let's get all of the items instead of just _type!
-          @bill.kind = bill['_type']
+          @bill.kind_one = bill[:type].try(:first)
+          @bill.kind_two = bill[:type].try(:second)
+          @bill.kind_three = bill[:type].try(:third)
+          if bill[:type].size > 3
+            puts "Skipping bill types for #{bill[:bill_id]}: #{bill[:type][3..-1].join(', ')}."
+          end
+          
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
@@ -98,6 +103,7 @@ module OpenGov
             @bill.actions.delete_all
             @bill.sponsors.delete_all
             @bill.versions.delete_all
+            @bill.documents.delete_all
             @bill.votes.destroy_all
             @bill.subjects.destroy_all
           end
@@ -120,23 +126,34 @@ module OpenGov
             @bill.actions << Action.new(
               :actor => action.actor,
               :action => action.action,
-              :kind => action[:type] && action[:type].first,
+              :kind_one => action[:type].try(:first),
+              :kind_two => action[:type].try(:second),
+              :kind_three => action[:type].try(:third),
               :action_number => action[:action_number],
-              :date => action_date)
+              :date => action_date
+            )
           end
 
           # Save the first & last action dates
           @bill.save
 
           bill.versions.each do |version|
-            v = Version.find_or_initialize_by_bill_id_and_name(@bill.id, version.name)
-            v.url = version.url
-            v.save!
+            @bill.versions << BillVersion.new(
+              :name => version[:name],
+              :url => version[:url]
+            )
+          end
+
+          bill.documents.each do |doc|
+            @bill.documents << BillDocument.new(
+              :name => doc[:name],
+              :url => doc[:url]
+            )
           end
 
           # Same deal as with actions, above
           bill.sponsors.each do |sponsor|
-            @bill.sponsorships << Sponsorship.new(
+            @bill.sponsorships << BillSponsorship.new(
               :sponsor_id => @@people[sponsor.leg_id] || Person.where(:openstates_id => sponsor.leg_id).first.try(:id),
               :sponsor_name => sponsor[:name],
               :kind => sponsor[:type]

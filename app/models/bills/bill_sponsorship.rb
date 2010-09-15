@@ -1,4 +1,4 @@
-class Sponsorship < ActiveRecord::Base
+class BillSponsorship < ActiveRecord::Base
   belongs_to :bill
   belongs_to :sponsor, :class_name => 'Person'
   validates_presence_of :bill_id

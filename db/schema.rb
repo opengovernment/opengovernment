@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 57) do
+ActiveRecord::Schema.define(:version => 58) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(:version => 57) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "action_number"
-    t.string   "kind"
+    t.string   "kind_one"
+    t.string   "kind_two"
+    t.string   "kind_three"
   end
 
   add_index "actions", ["bill_id", "date"], :name => "index_actions_on_bill_id_and_date"
@@ -41,6 +43,29 @@ ActiveRecord::Schema.define(:version => 57) do
     t.datetime "updated_at"
   end
 
+  create_table "bill_documents", :force => true do |t|
+    t.integer "bill_id"
+    t.string  "name",    :limit => 4000
+    t.string  "url",     :limit => 8000
+  end
+
+  create_table "bill_sponsorships", :force => true do |t|
+    t.integer  "bill_id"
+    t.integer  "sponsor_id"
+    t.string   "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sponsor_name"
+  end
+
+  create_table "bill_versions", :force => true do |t|
+    t.integer  "bill_id"
+    t.string   "url"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bills", :force => true do |t|
     t.string   "title",              :limit => 64000
     t.integer  "state_id"
@@ -54,9 +79,14 @@ ActiveRecord::Schema.define(:version => 57) do
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
-    t.string   "kind"
+    t.string   "kind_one"
+    t.string   "kind_two"
+    t.string   "kind_three"
+    t.string   "alternate_titles",   :limit => 5000
+    t.string   "short_title",        :limit => 1000
   end
 
+  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
@@ -232,6 +262,8 @@ ActiveRecord::Schema.define(:version => 57) do
     t.string   "vote_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "committee"
+    t.float    "threshold"
   end
 
   add_index "roll_calls", ["vote_id", "vote_type"], :name => "roll_calls_vote_id_and_type_idx"
@@ -265,15 +297,6 @@ ActiveRecord::Schema.define(:version => 57) do
     t.datetime "updated_at"
   end
 
-  create_table "sponsorships", :force => true do |t|
-    t.integer  "bill_id"
-    t.integer  "sponsor_id"
-    t.string   "kind"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "sponsor_name"
-  end
-
   create_table "states", :force => true do |t|
     t.string   "name",                                         :null => false
     t.string   "abbrev",       :limit => 2,                    :null => false
@@ -288,6 +311,7 @@ ActiveRecord::Schema.define(:version => 57) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "kind",       :limit => 200
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -328,14 +352,6 @@ ActiveRecord::Schema.define(:version => 57) do
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["id", "confirmation_token"], :name => "index_users_on_id_and_confirmation_token"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
-
-  create_table "versions", :force => true do |t|
-    t.integer  "bill_id"
-    t.string   "url"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "votes", :force => true do |t|
     t.integer  "yes_count"

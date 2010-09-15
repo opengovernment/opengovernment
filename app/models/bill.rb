@@ -6,8 +6,9 @@ class Bill < ActiveRecord::Base
   belongs_to :chamber
 
   with_options :dependent => :destroy do |hm|
-    hm.has_many :sponsorships
-    hm.has_many :versions
+    hm.has_many :sponsorships, :class_name => 'BillSponsorship'
+    hm.has_many :versions, :class_name => 'BillVersion'
+    hm.has_many :documents, :class_name => 'BillDocument'
     hm.has_many :actions
   end
 
