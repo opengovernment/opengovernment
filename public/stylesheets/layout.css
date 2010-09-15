@@ -269,13 +269,6 @@ font-weight: bold;
 }
 
 
-.footer{
-clear: both;
-}
-
-
-
-
 
 
 /*///////////////////////////
@@ -762,14 +755,27 @@ color: #777;
 
 
 
-.footer li{
-float: left;
-clear: none;
+.footer{
+clear: both;
 }
+
+.footer li{
+clear: none;
+line-height: 2.5em;
+}
+
+
+.footer h4{
+margin-top: 10px;
+line-height: 3em;
+border-bottom: 1px solid #d1dddd;
+color: #777;
+}
+
 
 .footer li a{
 display: block;
-padding: 10px 25px 10px 0;
+
 }
 
 
