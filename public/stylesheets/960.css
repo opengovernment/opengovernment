@@ -25,6 +25,13 @@ background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
 
   }
 
+.sub_footer{
+  width: 960px;
+  padding: 0 15px;
+  margin: 0px auto 20px;
+  font-size: 11.5px;
+  }
+
 
 
 
