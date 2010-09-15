@@ -1,1 +1,48 @@
 %h2 Money Trail
+
+.grid_12.alpha
+  - if @person.has_contributions?
+    .small.quiet.grid_24
+      Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
+    %div.grid_3.alpha
+      %h3
+        Top List
+      - @person.contributions.each do |c|
+        .grid_4
+          = c.business.business_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+
+    %div.grid_3
+      %h3
+        By Industry
+      - @person.industry_contributions.each do |c|
+        .grid_4
+          = c.industry_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+
+    %div.grid_3
+      %h3
+        By Sector
+      - @person.sector_contributions.each do |c|
+        .grid_4
+          = c.sector_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+
+    %div.grid_3.omega
+      %h3
+        By Business
+      - @person.business_contributions.each do |c|
+        .grid_4
+          = c.business_name
+        .grid_2.last
+          = number_to_currency(c.amount)
+
+  - else
+    .grid_12.alpha
+      No data is available for this Member at this time via <a href="http://www.followthemoney.org/">Follow The Money</a>.<br/>
+      To inquire how you can help make this info available and ensure transparency in government,
+      %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} click here
+      == .

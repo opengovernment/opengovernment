@@ -5,13 +5,16 @@ class BillsController < ApplicationController
   def index
     @sort = params[:sort] || 'introduced'
 
-    @sorts = {:introduced => 'Date Introduced',
+    @sorts = {
+      :introduced => 'Date Introduced',
       :recent => 'Recent Actions',
       :citations => 'Most In The News',
       :views => 'Most Viewed',
-      :keyvotes => 'Key Votes'}
+      :keyvotes => 'Key Votes'
+    }
 
     @state_bills = Bill.for_state(@state)
+
     @bills = case params[:sort]
       when 'introduced'
         @state_bills.order('first_action_at desc').limit(10)
@@ -23,7 +26,7 @@ class BillsController < ApplicationController
         @state_bills.where(:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers)
       else
         @state_bills.order('last_action_at desc').limit(10)
-    end
+             end
 
     respond_to do |format|
       format.js
@@ -37,7 +40,7 @@ class BillsController < ApplicationController
     else
       @actions = @bill.major_actions
     end
-    
+
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, sponsorships.sponsor_name")
 
     respond_to do |format|
