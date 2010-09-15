@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 58) do
     t.string   "kind_one"
     t.string   "kind_two"
     t.string   "kind_three"
-    t.string   "alternate_titles",   :limit => 5000
+    t.string   "alternate_titles",   :limit => 10000
     t.string   "short_title",        :limit => 1000
   end
 

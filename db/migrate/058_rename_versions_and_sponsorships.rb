@@ -14,7 +14,7 @@ class RenameVersionsAndSponsorships < ActiveRecord::Migration
 
     add_column :roll_calls, :committee, :string
     add_column :roll_calls, :threshold, :float
-    add_column :bills, :alternate_titles, :string, :limit => 5000
+    add_column :bills, :alternate_titles, :string, :limit => 10000
     add_column :bills, :short_title, :string, :limit => 1000
 
     rename_column :actions, :kind, :kind_one
