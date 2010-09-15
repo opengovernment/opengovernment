@@ -127,9 +127,9 @@ ALTER TABLE bill_sponsorships
  ADD CONSTRAINT bill_sponsorships_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
 
- ALTER TABLE bill_documents
-  ADD CONSTRAINT bill_documents_bill_id_fk
-  FOREIGN KEY (bill_id) REFERENCES bills (id);
+ALTER TABLE bill_documents
+ADD CONSTRAINT bill_documents_bill_id_fk
+FOREIGN KEY (bill_id) REFERENCES bills (id);
 
 ALTER TABLE roles ADD CONSTRAINT party_ck CHECK (party in ('Democratic', 'Republican', 'Independent'));
 
