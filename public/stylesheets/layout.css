@@ -1,3 +1,21 @@
+.boxxed{
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 1px 2px #75a2ab;
+  -webkit-box-shadow: 0px 1px 2px #75a2ab;
+  box-shadow: 0px 1px 2px #75a2ab;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+
+  }
+
+
+.sub_footer{
+  width: 960px;
+  padding: 0 15px;
+  margin: 0px auto 20px;
+  font-size: 11.5px;
+  }
 
 
 
@@ -17,6 +35,14 @@ border-radius: 4px;
 -webkit-border-radius: 4px;
 }
 
+.margin-top{
+  margin-top: 13px;
+  }
+
+
+.floatright{
+  float: right;
+  }
 
 
 .vote_smart_keyvote{
@@ -207,23 +233,6 @@ clear: both;
 
 
 
-
-/*///////////////////////////
-
-~ Find YOur Districts
-
-///////////////////////////*/
-
-.full_lined{
-border-bottom: #ddd 1px solid; 
-padding: 10px 0;
-min-height: 20px;
-}
-
-.find_form{
-float: left;
-
-}
 .auto_find{
 float: right;
 }
@@ -494,11 +503,32 @@ margin-top: -40px;
 }
 
 
+
+
+
 /*///////////////////////////
 
-~ FindBox
+~ Find YOur Districts
 
 ///////////////////////////*/
+
+.full_lined{
+border-bottom: #ddd 1px solid; 
+padding: 10px 0;
+min-height: 20px;
+}
+
+.find_form{
+border: 1px solid #eee;
+overflow: auto;
+padding: 10px 18px;
+background: #f9f9f9;
+
+-moz-border-radius: 5px;
+
+}
+
+
 
 
 .find_box{
@@ -577,13 +607,12 @@ background: url(/images/sprites.png) 8px -218px no-repeat;
 padding: 5px 20px 0 0px;
 float: left;
 margin:0 0 0px;
-font-size: 16px;
+font-size: 14px;
 line-height:1.3em;
 color: #36676f;
-text-transform: uppercase;
  clear: both; 
-  font-family: "Droid Sans", Arial; 
-font-weight: bold !important;
+font-weight: normal;
+ 
 }
 
 

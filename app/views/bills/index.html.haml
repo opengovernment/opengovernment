@@ -17,5 +17,10 @@
       %li
         = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
 
+
+%hr.grid_16
+
+
+
 #bills
   = render :partial => 'shared/bill', :collection => @bills
