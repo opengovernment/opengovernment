@@ -1,23 +1,18 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :except => [:index, :upper, :lower]
+  before_filter :setup_sort, :only => [:index, :upper, :lower]
   before_filter :get_state
 
   # /states/texas/people
   def index
     @chamber = @state.upper_chamber
     @current_tab = :upper
-    @sort = params[:sort] || 'name'
-    
-    @sorts = {:name => 'Name',
-      :district => 'District',
-      :citations => 'Public Interest'}
 
     if poeple_in_chamber(@sort)
       @people = @facets.for(:chamber_id => @chamber.id)
     else
       @people = []
     end
-
   end
 
   def upper
@@ -39,7 +34,7 @@ class PeopleController < ApplicationController
   end
 
   def sponsored_bills
-    @sponsorships = Sponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).paginate(:page => params[:page])
+    @sponsorships = BillSponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).paginate(:page => params[:page])
   end
 
   # /people/1
@@ -88,5 +83,12 @@ class PeopleController < ApplicationController
     end
   end
   
+  def setup_sort
+    @sort = params[:sort] || 'name'
+
+    @sorts = {:name => 'Name',
+      :district => 'District',
+      :citations => 'Public Interest'}
+  end
 
 end
