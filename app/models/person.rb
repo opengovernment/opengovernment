@@ -189,7 +189,7 @@ class Person < ActiveRecord::Base
             (select b.session_id, s0.sponsor_id,
             -- we're doing this subquery for the bill_count.
             count(*) as bill_count
-            from sponsorships s0,
+            from bill_sponsorships s0,
             bills b,
             v_most_recent_sessions s1
             where s0.bill_id = b.id

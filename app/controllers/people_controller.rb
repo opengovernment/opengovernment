@@ -20,14 +20,14 @@ class PeopleController < ApplicationController
   def upper
     @chamber = @state.upper_chamber
     @current_tab = :upper
-    people_in_chamber(params[:sort])
+    people_in_chamber
     render :template => 'people/index'
   end
 
   def lower
     @chamber = @state.lower_chamber
     @current_tab = :lower
-    people_in_chamber(params[:sort])
+    people_in_chamber
     render :template => 'people/index'
   end
 
@@ -62,7 +62,7 @@ class PeopleController < ApplicationController
 
   private
   def people_by_facets
-    if poeple_in_chamber
+    if people_in_chamber
       @facets.for(:chamber_id => @chamber.id)
     else
       []

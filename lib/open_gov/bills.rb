@@ -87,13 +87,14 @@ module OpenGov
           @bill.session_id = session.id
           @bill.alternate_titles = bill[:alternate_titles]
 
+          # TODO: Exclude types 'bill'
           @bill.kind_one = bill[:type].try(:first)
           @bill.kind_two = bill[:type].try(:second)
           @bill.kind_three = bill[:type].try(:third)
           if bill[:type].size > 3
             puts "Skipping bill types for #{bill[:bill_id]}: #{bill[:type][3..-1].join(', ')}."
           end
-          
+
           @bill.state = state
           @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
