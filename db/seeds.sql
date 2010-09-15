@@ -119,13 +119,17 @@ ALTER TABLE bills
  ADD CONSTRAINT bills_chamber_id_fk
  FOREIGN KEY (chamber_id) REFERENCES chambers (id);
 
-ALTER TABLE versions
- ADD CONSTRAINT versions_bill_id_fk
+ALTER TABLE bill_versions
+ ADD CONSTRAINT bill_versions_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
 
-ALTER TABLE sponsorships
- ADD CONSTRAINT sponsorships_bill_id_fk
+ALTER TABLE bill_sponsorships
+ ADD CONSTRAINT bill_sponsorships_bill_id_fk
  FOREIGN KEY (bill_id) REFERENCES bills (id);
+
+ ALTER TABLE bill_documents
+  ADD CONSTRAINT bill_documents_bill_id_fk
+  FOREIGN KEY (bill_id) REFERENCES bills (id);
 
 ALTER TABLE roles ADD CONSTRAINT party_ck CHECK (party in ('Democratic', 'Republican', 'Independent'));
 

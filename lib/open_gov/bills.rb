@@ -158,7 +158,7 @@ module OpenGov
           # Same deal as with actions, above
           bill.sponsors.each do |sponsor|
             @bill.sponsorships << BillSponsorship.new(
-              :sponsor_id => @@people[sponsor.leg_id] || Person.where(:openstates_id => sponsor.leg_id).first.try(:id),
+              :sponsor_id => sponsor.leg_id.blank? ? nil : @@people[sponsor.leg_id],
               :sponsor_name => sponsor[:name],
               :kind => sponsor[:type]
             )
