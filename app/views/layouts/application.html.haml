@@ -43,7 +43,7 @@
             = render :partial => 'shared/search_form'
 
      
-    %div.container_16.bread
+    %div.container_16.bread.boxxed
       %ul.breadcrumb
         %li.topnav
           %a{:href => root_path}
@@ -56,7 +56,7 @@
         = render_navigation(:renderer => SimpleNavigation::Renderer::Bread)
   
   
-    %div.container_16.main
+    %div.container_16.main.boxxed
       %div#flash
         - flash.each do |key, value|
           %div(id="flash_#{key}")
@@ -70,7 +70,5 @@
 
     .clearfix
 
-    %div.container_16
-      %div.footer
-        = render :partial => 'layouts/footer'
-      .clearfix
+    = render :partial => 'layouts/footer'
+    .clearfix
