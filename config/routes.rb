@@ -6,7 +6,7 @@ OpenGov::Application.routes.draw do
     match '/search' => 'states#search', :as => 'state_search'
     match '/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
 
-    resources :people, :only => [:show, :index, :money_trail] do
+    resources :people, :only => [:show, :index] do
       collection do
         get :upper
         get :lower
@@ -15,6 +15,7 @@ OpenGov::Application.routes.draw do
         get :news
         get :sponsored_bills
         get :votes
+        get :money_trail
       end
     end
 
