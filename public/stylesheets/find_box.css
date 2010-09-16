@@ -1,0 +1,161 @@
+
+/*///////////////////////////
+
+~ Find YOur Districts
+
+///////////////////////////*/
+
+.full_lined{
+border-bottom: #ddd 1px solid; 
+padding: 10px 0;
+min-height: 20px;
+}
+
+.find_form{
+
+}
+
+.auto_find{
+float: right;
+}
+
+
+
+
+.find_box{
+position: relative;
+border-bottom: 1px solid #eee;
+overflow: auto;
+padding: 18px 0px 10px;
+background: #f9f9f9;
+margin: 0px -26px 0 -26px;
+}
+
+
+.auto_find{
+position: absolute;
+right: 81px;
+top: 17px;
+right: 20px;
+display: block;
+background: #fff;
+border-bottom: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+
+  margin-left: 15px;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  
+
+}
+
+
+
+.auto_find a{
+display: block;
+padding: 6px 15px 5px 30px;
+background: #fff;
+font-size: 11px;
+text-shadow: #d5ebef 0px 1px 0px;
+
+background: url(/images/sprites.png) 12px -218px no-repeat;
+
+font-weight: bold;
+text-transform: uppercase;
+
+}
+
+
+.auto_find a:hover{
+text-decoration: none;
+}
+
+
+
+
+#find_my_rep{
+padding: 0px 24px;
+}
+
+
+#find_my_rep #q{
+width: 230px;
+padding-left: 25px;
+background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+}
+
+
+#find_my_rep label{
+padding: 6px 20px 0 0px;
+float: left;
+margin:0 0 0px;
+font-size: 13px;
+line-height:1.3em;
+color: #36676f;
+clear: both; 
+font-weight: normal;
+
+}
+
+
+
+.find_button input{
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+  
+  padding: 6px 20px;
+
+  margin-left: 15px;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  
+  }
+
+
+.finding{
+position: absolute;
+width: 18px;
+height: 18px;
+right: 237px;
+top: 19px;
+background: url(/images/location_spinner.gif) no-repeat;
+}

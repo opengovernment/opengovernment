@@ -1,0 +1,154 @@
+
+
+/*///////////////////////////
+
+~ Classes
+
+///////////////////////////*/
+
+
+
+
+.button{
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  
+  }
+
+
+
+
+
+
+.centered{
+text-align: center;
+}
+
+.rounded{
+border-radius: 4px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+}
+
+.margin-top{
+  margin-top: 13px;
+  }
+
+
+.floatright{
+  float: right;
+  }
+
+
+.vote_smart_keyvote{
+color: #999;
+}
+
+.bold{
+font-weight: bold;
+}
+
+
+.tip{
+  background: #c3d3e4;
+  padding: 30px 0;
+  font-style: italic;
+  font-weight: bold;
+  color: #4c647a;
+  font-size: 14px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  
+  margin: 0 0 15px;
+  
+  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f5', endColorstr='#f7fbfb'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#f7fbfb)); /* for webkit browsers */
+
+  background: -moz-linear-gradient(top,  #f4f5f5,  #f7fbfb); /* for firefox 3.6+ */
+  }
+
+
+
+
+.state-and-chamber{
+color: #888;
+display: block;
+}
+
+
+
+.session{
+margin-top: 20px;
+clear: both;
+display: block;
+}
+
+
+
+.fancy-date{
+border: 1px solid #f0f0f0;
+display: block;
+text-shadow: 0 1px 0px #fff;
+width: 40px;
+background: #f6f6f6;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius:3px;
+
+
+
+}
+
+
+.date-month,
+.date-day,
+.date-year{
+display: block;
+text-align: center;
+}
+
+.date-month{
+font-weight: bold;
+font-size: 10px;
+padding: 5px 0 0;
+text-transform: uppercase;
+}
+
+
+.date-day{
+font-weight: bold;
+font-size: 15px;
+padding: 0;
+text-transform: uppercase;
+}
+
+.date-year{
+font-size: 10px;
+padding: 0 0 5px;
+text-transform: uppercase;
+}

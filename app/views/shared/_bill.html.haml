@@ -1,10 +1,10 @@
-%li.grid_12[bill]
-  .grid_8.alpha
+%li[bill]
+  .bill_titles
     != link_to(bill.bill_number, bill_path(bill.session, bill), :class => 'bill_link')
     %span.bill_title
       != bill.title
 
-  .grid_4.bill_status.omega
+  .bill_status
     = bill.actions.first && bill.actions.first.kind
 
     - if bill.votesmart_key_vote?
