@@ -155,52 +155,6 @@
 
   %hr.push_top
 
-  .grid_12.alpha
-    %h2 Contributions
-    - if @person.has_contributions?
-      .small.quiet.grid_24
-        Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
-      %div.grid_3.alpha
-        %h3
-          Top List
-        - @person.contributions.each do |c|
-          .grid_4
-            = c.business.business_name
-          .grid_2.last
-            = number_to_currency(c.amount)
-
-      %div.grid_3
-        %h3
-          By Industry
-        - @person.industry_contributions.each do |c|
-          .grid_4
-            = c.industry_name
-          .grid_2.last
-            = number_to_currency(c.amount)
-
-      %div.grid_3
-        %h3
-          By Sector
-        - @person.sector_contributions.each do |c|
-          .grid_4
-            = c.sector_name
-          .grid_2.last
-            = number_to_currency(c.amount)
-
-      %div.grid_3.omega
-        %h3
-          By Business
-        - @person.business_contributions.each do |c|
-          .grid_4
-            = c.business_name
-          .grid_2.last
-            = number_to_currency(c.amount)
-
-    - else
-      .grid_12.alpha
-        No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
-        %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
-        == .
 
   %hr.push_top
 
@@ -222,3 +176,8 @@
       %p.grid_12.alpha
         No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
         %a{:href => 'http://votesmart.org/program_donations_index.php'} here
+
+  .grid_12.alpha
+    #disqus_thread
+    = embed_disqus("person-#{@person.id}")
+

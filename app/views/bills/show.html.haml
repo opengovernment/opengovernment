@@ -97,10 +97,9 @@
     .grid_12.alpha
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
-
-  #twitter(style="display: none;")
-    %h2 Tweets
-    .grid_6.alpha
+  .grid_12.alpha
+    #twitter(style="display: none;")
+      %h2 Tweets
       %ul#tweets
 
   - if @bill.votes.count > 0
@@ -136,5 +135,6 @@
               %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
               %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
 
-
-  
+  .grid_12.alpha
+    #disqus_thread
+    = embed_disqus("bill-#{@bill.id}")

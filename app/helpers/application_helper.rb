@@ -9,6 +9,17 @@ module ApplicationHelper
     content_for(:hashtags) { hash_tags }
   end
 
+  # Javascript hooks -- eg. document ready events. or other page-level
+  # javascript that can't be accomplished via rails-ujs.
+  # <script> tags should not be passed in with the js.
+  def javascript
+    content_for(:js_hook) { yield }
+  end
+  
+  def footer_javascript
+    content_for(:js_footer) { yield }
+  end
+
   def dropdown(hot_selector, menu_selector)
       javascript do (%Q|
         $(document).ready(function(){ 
@@ -26,16 +37,9 @@ module ApplicationHelper
     end
   end
 
-  # Javascript hooks -- eg. document ready events. or other page-level
-  # javascript that can't be accomplished via rails-ujs.
-  # <script> tags should not be passed in with the js.
-  def javascript
-    content_for(:js_hook) { yield }
-  end
-
   def track(object)
     if MongoMapper.connected?
-      javascript do
+      footer_javascript do
         %Q|
             $(document).ready(function() {
               Tracker.req.object_id = #{object.id};
@@ -66,4 +70,37 @@ module ApplicationHelper
       image_tag('missing.png', ops)
     end
   end
+
+  def embed_disqus(page_id)
+    # Universal comment count code
+    if Rails.env != 'production'
+      javascript do (%q{
+          var disqus_developer = 1;
+        })
+      end
+    end
+
+    footer_javascript do (%q{
+      var disqus_shortname = 'opengovernment';
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.src = 'http://disqus.com/forums/opengovernment/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+      })
+    end
+  
+    # Universal 
+    return %Q{<script type="text/javascript">
+      var disqus_identifier = "#{page_id}";
+      (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://opengovernment.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=opengovernment">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>}.html_safe
+  end
+
 end

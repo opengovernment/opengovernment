@@ -1,6 +1,7 @@
 %h2 Money Trail
 
 .grid_12.alpha
+  %h2 Contributions
   - if @person.has_contributions?
     .small.quiet.grid_24
       Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
@@ -42,7 +43,6 @@
 
   - else
     .grid_12.alpha
-      No data is available for this Member at this time via <a href="http://www.followthemoney.org/">Follow The Money</a>.<br/>
-      To inquire how you can help make this info available and ensure transparency in government,
-      %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} click here
+      No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
+      %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
       == .

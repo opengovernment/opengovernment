@@ -72,3 +72,7 @@
 
     = render :partial => 'layouts/footer'
     .clearfix
+    
+    - if content_for? :js_footer
+      %script(type='text/javascript' charset='UTF-8')
+        = yield :js_footer
