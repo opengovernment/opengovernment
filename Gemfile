@@ -69,11 +69,11 @@ group :test do
   gem 'database_cleaner'
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
-  gem "rspec", ">= 2.0.0.beta.20"
-  gem "rspec-core", ">= 2.0.0.beta.20", :require => 'rspec/core'
-  gem "rspec-expectations", ">= 2.0.0.beta.20", :require => 'rspec/expectations'
-  gem "rspec-mocks", ">= 2.0.0.beta.20", :require => 'rspec/mocks'
-  gem "rspec-rails", ">= 2.0.0.beta.20", :require => 'rspec/rails'
+  gem "rspec", ">= 2.0.0.beta.22"
+  gem "rspec-core", ">= 2.0.0.beta.22", :require => 'rspec/core'
+  gem "rspec-expectations", ">= 2.0.0.beta.22", :require => 'rspec/expectations'
+  gem "rspec-mocks", ">= 2.0.0.beta.22", :require => 'rspec/mocks'
+  gem "rspec-rails", ">= 2.0.0.beta.22", :require => 'rspec/rails'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem "autotest"

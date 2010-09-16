@@ -17,8 +17,8 @@ describe Action do
     issue_actions = Action.find_all_by_issue(@tagging.tag)
     issue_actions.should have_at_least(1).actions
     issue_actions.each do |i|
-      i.kind.should_not be_nil
-      i.kind.should_not eql('other')
+      i.kinds.should_not be_empty
+      i.kinds.should_not contain('other')
     end
   end
 end

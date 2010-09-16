@@ -35,7 +35,7 @@ s_HB1002_1:
   updated_at: 2010-05-12 19:28:52.216043
   bill: hb1002
 s_HB1003_1:
-  kind: author
+  kind: 'LEAD_AUTHOR'
   sponsor: dawnna
   created_at: 2010-05-12 19:28:52.247642
   updated_at: 2010-05-12 19:28:52.247642

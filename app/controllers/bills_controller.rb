@@ -41,7 +41,7 @@ class BillsController < ApplicationController
       @actions = @bill.major_actions
     end
 
-    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, sponsorships.sponsor_name")
+    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
 
     respond_to do |format|
       format.js
