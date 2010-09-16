@@ -5,9 +5,13 @@ class PeopleController < ApplicationController
 
   # /states/texas/people
   def index
+    upper
+  end
+
+  def upper
     @chamber = @state.upper_chamber
     @current_tab = :upper
-
+    
     @people =
       case @sort
         when "views"
@@ -15,19 +19,22 @@ class PeopleController < ApplicationController
         else
           people_by_facets
       end
-  end
-
-  def upper
-    @chamber = @state.upper_chamber
-    @current_tab = :upper
-    people_in_chamber
+    
     render :template => 'people/index'
   end
 
   def lower
     @chamber = @state.lower_chamber
     @current_tab = :lower
-    people_in_chamber
+    
+    @people =
+      case @sort
+        when "views"
+          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
+        else
+          people_by_facets
+      end
+
     render :template => 'people/index'
   end
 
@@ -73,8 +80,6 @@ class PeopleController < ApplicationController
     # This sets up variables for the view
 
     @order = case @sort
-      when 'last_name'
-        'last_name asc'
       when 'district'
         'district_order asc'
       when 'citations'
