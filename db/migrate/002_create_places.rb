@@ -13,28 +13,28 @@ class CreatePlaces < ActiveRecord::Migration
       t.datetime :launch_date
     end
 
-    create_table :districts do |t|
-      t.string :name, :null => false
-      t.string :census_sld
-      t.string :census_district_type
-      t.boolean :at_large
-      t.references :state, :null => false
-      t.multi_polygon :geom, :srid => District::SRID
-      t.string :vintage, :limit => 4 # From the census data. A year ('06') or congress ('110')
-    end
+ #   create_table :districts do |t|
+#      t.string :name, :null => false
+#      t.string :census_sld
+#      t.string :census_district_type
+#      t.boolean :at_large
+#      t.references :state, :null => false
+#      t.multi_polygon :geom, :srid => District::SRID
+#      t.string :vintage, :limit => 4 # From the census data. A year ('06') or congress ('110')
+#    end
 
-    add_index :districts, :geom, :spatial => true
+#    add_index :districts, :geom, :spatial => true
 
-    execute "ALTER TABLE districts
-    ADD CONSTRAINT districts_state_fk
-    FOREIGN KEY (state_id) REFERENCES states (id);"
+#    execute "ALTER TABLE districts
+#    ADD CONSTRAINT districts_state_fk
+#    FOREIGN KEY (state_id) REFERENCES states (id);"
 
   end
 
   def self.down
-    execute "ALTER TABLE districts DROP CONSTRAINT districts_state_fk;"
-    remove_index :districts, :geom
-    drop_table :districts
-    drop_table :states
+#    execute "ALTER TABLE districts DROP CONSTRAINT districts_state_fk;"
+#    remove_index :districts, :geom
+#    drop_table :districts
+#    drop_table :states
   end
 end
