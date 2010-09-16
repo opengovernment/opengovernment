@@ -1,13 +1,4 @@
-.boxxed{
-  border: 1px solid #fff;
-  -moz-box-shadow: 0px 1px 2px #75a2ab;
-  -webkit-box-shadow: 0px 1px 2px #75a2ab;
-  box-shadow: 0px 1px 2px #75a2ab;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
 
-  }
 
 
 .sub_footer{
@@ -17,153 +8,6 @@
   font-size: 11.5px;
   }
 
-
-
-/*///////////////////////////
-
-~ Classes
-
-///////////////////////////*/
-
-.centered{
-text-align: center;
-}
-
-.rounded{
-border-radius: 4px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
-}
-
-.margin-top{
-  margin-top: 13px;
-  }
-
-
-.floatright{
-  float: right;
-  }
-
-
-.vote_smart_keyvote{
-color: #999;
-}
-
-.bold{
-font-weight: bold;
-}
-
-
-.tip{
-  background: #c3d3e4;
-  padding: 30px 0;
-  font-style: italic;
-  font-weight: bold;
-  color: #4c647a;
-  font-size: 14px;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  
-  margin: 0 0 15px;
-  
-  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f5', endColorstr='#f7fbfb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#f7fbfb)); /* for webkit browsers */
-
-  background: -moz-linear-gradient(top,  #f4f5f5,  #f7fbfb); /* for firefox 3.6+ */
-  }
-
-
-
-
-.state-and-chamber{
-color: #888;
-display: block;
-}
-
-
-
-.session{
-margin-top: 20px;
-clear: both;
-display: block;
-}
-
-
-
-.fancy-date{
-border: 1px solid #f0f0f0;
-display: block;
-text-shadow: 0 1px 0px #fff;
-width: 40px;
-background: #f6f6f6;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius:3px;
-
-
-
-}
-
-
-.date-month,
-.date-day,
-.date-year{
-display: block;
-text-align: center;
-}
-
-.date-month{
-font-weight: bold;
-font-size: 10px;
-padding: 5px 0 0;
-text-transform: uppercase;
-}
-
-
-.date-day{
-font-weight: bold;
-font-size: 15px;
-padding: 0;
-text-transform: uppercase;
-}
-
-.date-year{
-font-size: 10px;
-padding: 0 0 5px;
-text-transform: uppercase;
-}
-
-
-.button{
-
-font-family: Arial, Helvetica, sans-serif;
-font-weight: bold !important;
-
-text-shadow: 0 1px 0px #fff;
-
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius:3px;
-
-
-border: 1px solid #a7c3c9;
-border-top: 1px solid #c6d9de;
-border-bottom: 1px solid #4e7179;
-
-
--moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
--webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
-
-}
 
 
 
@@ -179,11 +23,12 @@ background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ *
 
 
 .main{
-background: #fff;
-border-top: 1px solid #d6e8eb;
-}
-
-
+  background: #fff;
+  padding-bottom: 50px;
+  border-top: 1px solid #d6e8eb;
+  }
+  
+  
 
 
 
@@ -193,29 +38,22 @@ border-top: 1px solid #d6e8eb;
 
 ///////////////////////////*/
 
-header{
-height: 46px;
-position: relative;
-margin: 0;
-}
 
 
 
-#account{
-padding: 16px 0 0;
-}
+#account{ padding: 16px 0 0;}
 
 
 #account p{
-margin: 0;
-padding: 0;
-}
+  margin: 0;
+  padding: 0;
+  }
 
 
 #account a{
-margin: 0;
-padding: 0 20px 0 0;
-}
+  margin: 0;
+  padding: 0 20px 0 0;
+  }
 
 
 
@@ -232,10 +70,6 @@ clear: both;
 
 
 
-
-.auto_find{
-float: right;
-}
 
 
 
@@ -277,7 +111,11 @@ background: url(/images/sub.png) right -1px no-repeat;
 font-weight: bold;
 }
 
-
+.discuss{
+padding: 20px;
+background: url(/images/sprites.png) left -434px no-repeat;
+font-weight: bold;
+}
 
 
 /*///////////////////////////
@@ -485,8 +323,10 @@ background: url(/images/sprites.png) left -61px no-repeat;
 
 .bill_link{
 font-weight: bold;
+/*
 padding-left: 15px;
 background: url(/images/sprites.png) left -149px no-repeat;
+*/
 }
 
 
@@ -506,127 +346,6 @@ margin-top: -40px;
 
 
 
-/*///////////////////////////
-
-~ Find YOur Districts
-
-///////////////////////////*/
-
-.full_lined{
-border-bottom: #ddd 1px solid; 
-padding: 10px 0;
-min-height: 20px;
-}
-
-.find_form{
-border: 1px solid #eee;
-overflow: auto;
-padding: 10px 18px;
-background: #f9f9f9;
-
--moz-border-radius: 5px;
-
-}
-
-
-
-
-.find_box{
-padding: 15px 0 10px;
-position: relative;
-
-}
-
-
-.auto_find{
-position: absolute;
-right: 81px;
-top: -13px;
-display: block;
-background: #fff;
-border-bottom: 0;
-
-  border-radius: 4px;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-radius: 4px;
-
-
-
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #cfe7e9,  #aeccce); /* for firefox 3.6+ */
-
-border: 1px solid #38575d;
-border-top: 1px solid #69949c;
-border-bottom: 0;
-  border-radius: 4px;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-radius: 4px;
-
-}
-
-
-
-.auto_find a{
-display: block;
-padding: 7px 0 6px 25px;
-background: #fff;
-width: 248px;
-font-size: 11px;
-text-shadow: #d5ebef 0px 1px 0px;
-
-background: url(/images/sprites.png) 10px -218px no-repeat;
-
-font-weight: bold;
-text-transform: uppercase;
-
-}
-
-
-.auto_find a:hover{
-text-decoration: none;
-}
-
-
-
-
-#find_my_rep{
-padding: 0px;
-width: 700px;
-}
-
-#find_my_rep #q{
-width: 200px;
-background: url(/images/sprites.png) 8px -218px no-repeat;
-}
-
-
-#find_my_rep label{
-padding: 5px 20px 0 0px;
-float: left;
-margin:0 0 0px;
-font-size: 14px;
-line-height:1.3em;
-color: #36676f;
- clear: both; 
-font-weight: normal;
- 
-}
-
-
-
-
-
-.finding{
-position: absolute;
-width: 18px;
-height: 18px;
-right: 83px;
-top: 21px;
-background: url(/images/location_spinner.gif) no-repeat;
-}
 
 
 
@@ -760,20 +479,6 @@ top: 12px;
 
 
 
-/*///////////////////////////
-
-~ Bill Listing
-
-///////////////////////////*/
-
-.bill_status{
-font-size: 11px;
-}
-
-
-.bill_title{
-color: #777;
-}
 
 
 /*///////////////////////////

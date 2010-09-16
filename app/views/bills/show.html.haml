@@ -119,7 +119,6 @@
     .grid_12.alpha
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
 
-  %hr.push_top
 
   #twitter(style="display: none;")
     %h2 Tweets
@@ -127,6 +126,8 @@
       %ul#tweets
 
   - if @bill.votes.count > 0
+    %hr.push_top
+
     %h2 Votes
     %table.vote-summary.grid_12.alpha
 
@@ -157,6 +158,5 @@
               %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
               %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
 
-  %hr
 
-  %b
+  

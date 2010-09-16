@@ -57,14 +57,13 @@ ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor
   float: left;
   margin: -1px 0 0 -16px;
 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ecf9fc'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ecf9fc)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #fff,  #ecf9fc); /* for firefox 3.6+ */
+border-bottom: 1px solid #dcdcdc;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#efefef'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
 
 
--moz-box-shadow:inset 0 1px 0px #fff, 0 1px 0px #93b8bd;
--webkit-box-shadow:inset 0 1px 0px #fff;
-box-shadow:inset 0 1px 0px #fff;
 }
 
 .breadcrumb li{
@@ -105,10 +104,13 @@ box-shadow:inset 0 1px 0px #fff;
   padding: 18px 35px 0 15px;
   text-decoration: none;
   -moz-border-radius-topleft: 4px;
-  color: #333; 
   line-height: 1em;
   margin: 0;
   position: relative;
+}
+
+.breadcrumb li.person{
+  margin-left: -50px;
 }
 
 .breadcrumb .person a,
@@ -149,12 +151,12 @@ box-shadow:inset 0 1px 0px #fff;
 
 .breadcrumb li:hover, .breadcrumb a.subhover{
   z-index: 120;
-  background: #fbfdfe url(/images/crumb_right.gif) right 0px no-repeat;
+
 }
 
 
 .breadcrumb li a:hover{
-  background: url(/images/crumb_right.gif) left -99px no-repeat !important;
+
 }
 
 

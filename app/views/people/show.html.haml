@@ -48,8 +48,9 @@
     %li.discuss
       Discussion Forum
   
-    %li.wiki
-      Follow #{@person.full_name.possessive} campaign on RaceTracker
+    %li.race_tracker
+      Follow #{@person.full_name.possessive} campaign on
+      %span RaceTracker
 
 
 .grid_12
@@ -84,7 +85,7 @@
       - if @person.youtube_id?
         %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
 
-  .grid_6
+  .grid_6.omega
     %h2 Bio
     %small.quiet.span
       From the non-partisan
@@ -118,11 +119,11 @@
 
     .grid_4
       %h2 Committees
-      %p
+      %ul.lined
         - @person.committees.each do |committee|
-          %div
-          = committee.type_fm
-          = link_to(committee.name, committee_path(committee))
+          %li
+            = committee.type_fm
+            = link_to(committee.name, committee_path(committee))
 
     .grid_4.omega
       %h2 Votes
@@ -140,6 +141,7 @@
       - else
         %p We have no voting history for #{@person.full_name}
 
+  %hr.push_top
 
   .grid_12.alpha.omega
     %h2!= sponsorship_vitals_for(@person)
