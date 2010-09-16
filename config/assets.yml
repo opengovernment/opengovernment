@@ -18,5 +18,7 @@ stylesheets:
 javascripts:
   common:
     - public/javascripts/jquery.rails.js
+    - public/javascripts/jquery.timeago.js
     - public/javascripts/tracker.js
     - public/javascripts/application.js
+    - public/javascripts/twitter.js

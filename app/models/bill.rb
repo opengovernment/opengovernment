@@ -56,7 +56,7 @@ class Bill < ActiveRecord::Base
     has citations(:id), :as => :citations_ids
     has "COUNT(citations.id)", :as => :citations_count, :type => :integer
   end
-  
+
   def kinds
     [kind_one, kind_two, kind_three].compact
   end
