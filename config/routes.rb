@@ -24,6 +24,9 @@ OpenGov::Application.routes.draw do
     resource :money_trail, :only => [:show]
 
     match '/bills', :to => 'bills#index', :as => 'bills'
+    match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
+    match '/bills/lower', :to => 'bills#lower', :as => 'bills_lower'
+
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :major_actions

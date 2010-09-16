@@ -6,16 +6,21 @@ module UrlHelper
   #   http://news.bbc.co.uk/latest/news/ => news.bbc.co.uk
   #   www.whitehouse.gov/obama => whitehouse.gov
   def domain_for(url)
-    if dom = URI.parse(url).host
-      dom.sub(/www\./,'')
+    begin
+      if dom = URI.parse(url).host
+        dom.sub(/www\./,'')
+      end
+    rescue URI::InvalidURIError
+      nil
     end
   end
 
   def link_to_with_domain(name, url, html_options = nil)
+    domain = domain_for(url)
     result = link_to(name, url, html_options) \
-      + " <span class=\"link_domain\">(".html_safe \
-      + domain_for(url) \
-      + ")</span>".html_safe
+      + (domain ? (' <span class="link_domain small quiet">'.html_safe \
+      +  '(' + domain + ')' \
+      + '</span>'.html_safe) : '')
   end
 
   def state_url(subdomain)

@@ -19,7 +19,7 @@ class Session < ActiveRecord::Base
   end
   
   def name_fm
-    "#{name}" + "(#{start_year} &ndash; #{end_year})"
+    "#{name} " + (start_year == end_year ? "(#{start_year})" : "(#{start_year} &ndash; #{end_year})")
   end
 
   def special_number

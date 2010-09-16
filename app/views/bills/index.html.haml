@@ -24,13 +24,17 @@
 
   %ul.tabs
     %li
-      %a.active 
-        Senate
+      = link_to('All', bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : ''))
+      
+    %li.divider &#124;
+
+    %li
+      = link_to(@state.upper_chamber.name, bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : ''))
+        
     %li.divider &#124;  
 
     %li
-      %a 
-        House of Representatives
+      = link_to(@state.lower_chamber.name, bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : ''))
 
   %hr.push_bottom
 

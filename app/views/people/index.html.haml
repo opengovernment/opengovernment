@@ -26,10 +26,10 @@
   %ul.tabs
  
     %li
-      = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => params[:sort]), :class => (@current_tab == :upper ? 'active' : '')
+      = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')
     %li.divider &#124;  
     %li
-      = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => params[:sort]), :class => (@current_tab == :lower ? 'active' : '')
+      = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')
 
   %hr
   
