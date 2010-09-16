@@ -17,6 +17,14 @@ module ApplicationHelper
       |)
       end
   end
+  
+  def tweets(q)
+    javascript do
+    (%Q|
+      TwitterAPI.hook("#{q}");
+    |)
+    end
+  end
 
   # Javascript hooks -- eg. document ready events. or other page-level
   # javascript that can't be accomplished via rails-ujs.

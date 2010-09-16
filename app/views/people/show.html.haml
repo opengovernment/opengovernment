@@ -1,7 +1,8 @@
 - title(@person.official_name)
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Votes by #{@person.official_name}"})
-  = track(@person)
+- track(@person)
+- tweets(@person.full_name)
 
 .grid_16
   %aside.take_action
@@ -142,6 +143,12 @@
         %p We have no voting history for #{@person.full_name}
 
   %hr.push_top
+
+
+  #twitter(style="display: none;")
+    %h2 Tweets
+    .grid_6.alpha
+      %ul#tweets
 
   .grid_12.alpha.omega
     %h2!= sponsorship_vitals_for(@person)

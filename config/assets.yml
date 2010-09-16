@@ -14,6 +14,7 @@ stylesheets:
     - public/stylesheets/breadcrumb.css
   other:
     - public/stylesheets/vote.css
+    - public/stylesheets/twitter.css
   
 javascripts:
   common:
