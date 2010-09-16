@@ -10,7 +10,7 @@
   = render_navigation(:level => 1)
   %p.donate= link_to 'Help Us Open Gov!', '/help/donate'
 
-#bills.grid_12
+#bill_index.grid_12
   .sort.button
     .sort_hot
       %span.sort_label
@@ -21,7 +21,7 @@
       - @sorts.each do |k, v|
         %li
           = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
-  
+
   %ul.tabs
     %li
       %a.active 
@@ -34,5 +34,5 @@
 
   %hr.push_bottom
 
-  %ul.lined.and_spaced
+  %ul.lined.and_spaced#bill_list
     = render :partial => 'shared/bill', :collection => @bills
