@@ -82,11 +82,9 @@ ActiveRecord::Schema.define(:version => 58) do
     t.string   "kind_one"
     t.string   "kind_two"
     t.string   "kind_three"
-    t.string   "alternate_titles",   :limit => 10000
+    t.string   "alternate_titles",   :limit => 20000
     t.string   "short_title",        :limit => 1000
   end
-
-  add_index "bills", [nil], :name => "bill_number_idx"
 
   create_table "bills_subjects", :force => true do |t|
     t.integer  "bill_id"
@@ -170,18 +168,8 @@ ActiveRecord::Schema.define(:version => 58) do
     t.datetime "updated_at"
   end
 
-  create_table "districts", :force => true do |t|
-    t.string        "name",                                :null => false
-    t.string        "census_sld"
-    t.string        "census_district_type"
-    t.boolean       "at_large"
-    t.integer       "state_id",                            :null => false
-    t.string        "vintage",              :limit => 4
-    t.integer       "chamber_id"
-    t.multi_polygon "geom",                 :limit => nil,                 :srid => 4269
-  end
-
-  add_index "districts", ["geom"], :name => "index_districts_on_geom", :spatial => true
+# Could not dump table "districts" because of following StandardError
+#   Unknown type 'geometry' for column 'geom'
 
   create_table "industries", :force => true do |t|
     t.string   "business_name"
@@ -311,7 +299,6 @@ ActiveRecord::Schema.define(:version => 58) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "kind",       :limit => 200
   end
 
   create_table "subscriptions", :force => true do |t|

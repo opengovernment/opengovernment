@@ -22,7 +22,7 @@ gem "clearance"
 
 # GIS & Geocoding
 gem "GeoRuby"
-gem "spatial_adapter"
+# gem "spatial_adapter"
 gem "geokit"
 
 # Breadcrumbs

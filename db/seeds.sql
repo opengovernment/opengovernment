@@ -1,6 +1,32 @@
 -- Any executes from migrations must go in here, or they
 -- will not be run when someone installs the app.
 
+-- We create this table here because we're not using spatial_adapter anymore
+-- (due to bugs & performance issues).
+CREATE SEQUENCE districts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+CREATE TABLE districts (
+    id integer primary key NOT NULL DEFAULT nextval('districts_id_seq'::regclass),
+    name character varying(255) NOT NULL,
+    census_sld character varying(255),
+    census_district_type character varying(255),
+    at_large boolean,
+    state_id integer NOT NULL,
+    vintage character varying(4),
+    chamber_id integer,
+    geom geometry,
+    CONSTRAINT enforce_dims_geom CHECK ((st_ndims(geom) = 2)),
+    CONSTRAINT enforce_geotype_geom CHECK (((geometrytype(geom) = 'MULTIPOLYGON'::text) OR (geom IS NULL))),
+    CONSTRAINT enforce_srid_geom CHECK ((st_srid(geom) = 4269))
+);
+
+CREATE INDEX index_districts_on_geom ON districts USING gist (geom);
+
 -- FUNCTIONS --
 CREATE OR REPLACE FUNCTION beginning_of(year integer) RETURNS date AS $$
 BEGIN

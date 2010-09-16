@@ -87,7 +87,7 @@
       %ul.lined
         - @bill.documents.each do |document|
           %li
-            = document.url.blank ? document.name : link_to(document.name, document.url)
+            = document.url.blank? ? document.name : link_to(document.name, document.url)
 
   %hr.push_top
 
