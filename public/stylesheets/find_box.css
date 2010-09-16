@@ -23,23 +23,25 @@ float: right;
 
 
 .find_box{
-position: relative;
-border-bottom: 1px solid #eee;
-overflow: auto;
-padding: 18px 0px 10px;
-background: #f9f9f9;
-margin: 0px -26px 0 -26px;
-}
+  position: relative;
+  border-bottom: 1px solid #eee;
+  overflow: auto;
+  padding: 18px 0px 10px;
+  background: #f9f9f9;
+  margin: 0px -26px 0 -26px;
+  }
 
 
 .auto_find{
-position: absolute;
-right: 81px;
-top: 17px;
-right: 20px;
-display: block;
-background: #fff;
-border-bottom: 0;
+  position: absolute;
+  right: 81px;
+  top: 17px;
+  right: 20px;
+
+  background: #fff;
+  display: block !important;
+
+  border-bottom: 0;
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
@@ -72,50 +74,50 @@ border-bottom: 0;
 
 
 .auto_find a{
-display: block;
-padding: 6px 15px 5px 30px;
-background: #fff;
-font-size: 11px;
-text-shadow: #d5ebef 0px 1px 0px;
-
-background: url(/images/sprites.png) 12px -218px no-repeat;
-
-font-weight: bold;
-text-transform: uppercase;
-
-}
+  display: block !important;
+  padding: 6px 15px 5px 30px;
+  background: #fff;
+  font-size: 11px;
+  text-shadow: #d5ebef 0px 1px 0px;
+  
+  background: url(/images/sprites.png) 12px -218px no-repeat;
+  
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  }
 
 
 .auto_find a:hover{
-text-decoration: none;
-}
+  text-decoration: none;
+  }
 
 
 
 
 #find_my_rep{
-padding: 0px 24px;
-}
+  padding: 0px 24px;
+  }
 
 
 #find_my_rep #q{
-width: 230px;
-padding-left: 25px;
-background: #fff url(/images/sprites.png) 8px -218px no-repeat;
-}
-
+  width: 230px;
+  padding-left: 25px;
+  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+  }
+  
 
 #find_my_rep label{
-padding: 6px 20px 0 0px;
-float: left;
-margin:0 0 0px;
-font-size: 13px;
-line-height:1.3em;
-color: #36676f;
-clear: both; 
-font-weight: normal;
-
-}
+  padding: 6px 20px 0 0px;
+  float: left;
+  margin:0 0 0px;
+  font-size: 13px;
+  line-height:1.3em;
+  color: #36676f;
+  clear: both; 
+  font-weight: normal;
+  
+  }
 
 
 
@@ -152,10 +154,10 @@ font-weight: normal;
 
 
 .finding{
-position: absolute;
-width: 18px;
-height: 18px;
-right: 237px;
-top: 19px;
-background: url(/images/location_spinner.gif) no-repeat;
-}
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 237px;
+  top: 19px;
+  background: url(/images/location_spinner.gif) no-repeat;
+  }

@@ -1,18 +1,6 @@
 
 
 
-.boxxed{
-  border: 1px solid #fff;
-  -moz-box-shadow: 0px 1px 2px #75a2ab;
-  -webkit-box-shadow: 0px 1px 2px #75a2ab;
-  box-shadow: 0px 1px 2px #75a2ab;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
-
-  }
-
-
 .sub_footer{
   width: 960px;
   padding: 0 15px;
@@ -35,11 +23,12 @@
 
 
 .main{
-background: #fff;
-border-top: 1px solid #d6e8eb;
-}
-
-
+  background: #fff;
+  padding-bottom: 50px;
+  border-top: 1px solid #d6e8eb;
+  }
+  
+  
 
 
 
@@ -49,29 +38,22 @@ border-top: 1px solid #d6e8eb;
 
 ///////////////////////////*/
 
-header{
-height: 46px;
-position: relative;
-margin: 0;
-}
 
 
 
-#account{
-padding: 16px 0 0;
-}
+#account{ padding: 16px 0 0;}
 
 
 #account p{
-margin: 0;
-padding: 0;
-}
+  margin: 0;
+  padding: 0;
+  }
 
 
 #account a{
-margin: 0;
-padding: 0 20px 0 0;
-}
+  margin: 0;
+  padding: 0 20px 0 0;
+  }
 
 
 
@@ -129,7 +111,11 @@ background: url(/images/sub.png) right -1px no-repeat;
 font-weight: bold;
 }
 
-
+.discuss{
+padding: 20px;
+background: url(/images/sprites.png) left -434px no-repeat;
+font-weight: bold;
+}
 
 
 /*///////////////////////////
@@ -490,45 +476,6 @@ position: absolute;
 left: 90px;
 top: 12px;
 }
-
-
-
-/*///////////////////////////
-
-~ Bill Listing
-
-///////////////////////////*/
-
-
-
-
-.bill_title{
-color: #777;
-display: block;
-line-height: 1.3em;
-}
-
-
-.bill_link{
-display: block;
-font-size: 16px;
-line-height: 1.3em;
-margin-bottom: 5px;
-}
-
-
-
-
-.bill_status{
-font-size: 11px;
-}
-
-
-.bill_status div{
-float: left;
-padding-right: 20px;
-}
-
 
 
 

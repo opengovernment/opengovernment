@@ -1,12 +1,13 @@
 
 
-/*///////////////////////////
+/*///////////////////////////////////////////////////
 
 ~ Classes
 
-///////////////////////////*/
+///////////////////////////////////////////////////*/
 
 
+/*///////////// ~  Standard Button  ~ /////////////*/
 
 
 .button{
@@ -37,37 +38,115 @@
   }
 
 
-
-
-
-
-.centered{
-text-align: center;
-}
-
 .rounded{
-border-radius: 4px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
-}
-
-.margin-top{
-  margin-top: 13px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
   }
 
 
-.floatright{
-  float: right;
+
+/*///////////// ~  Type Stuff  ~ /////////////*/
+
+.centered{ text-align: center;}
+
+.bold{ font-weight: bold;}
+
+.no-deco{ text-decoration: none;}
+
+
+
+/*///////////// ~  Margins  ~ /////////////*/
+
+.margin-top{ margin-top: 13px;}
+
+.margin-bottom{ margin-bottom: 13px;}
+
+.no-margin{ margin: 0;}
+
+
+.push_bottom { margin-bottom: 10px;}
+
+.push_top {padding: 30px 0 0px;}
+
+
+
+/*///////////// ~  Paddings  ~ /////////////*/
+
+
+
+
+
+
+/*///////////// ~  Floating  ~ /////////////*/
+
+.floatright{ float: right;}
+
+
+
+
+
+/*///////////// ~  Cancellations  ~ /////////////*/
+
+
+
+.space {background:#fff;color:#fff;visibility:hidden;}
+
+
+/*///////////// ~  Standard List  ~ /////////////*/
+
+
+ul.lined{
+  margin: 0;
+  padding:0;
+  }
+
+ul.lined li{
+  border-bottom: 1px solid #eee;
+  margin: 0 0 5px;
+  padding: 0px 0 5px;
+  line-height: 1.4em;
   }
 
 
-.vote_smart_keyvote{
-color: #999;
-}
+ul.lined li:first-letter{
+  text-transform: uppercase;
+  }
 
-.bold{
-font-weight: bold;
-}
+
+ul.lined.and_spaced li{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  }
+
+ul.lined.and_spaced.with_titles li a{
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  }
+
+
+
+
+
+
+.boxxed{
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 1px 2px #75a2ab;
+  -webkit-box-shadow: 0px 1px 2px #75a2ab;
+  box-shadow: 0px 1px 2px #75a2ab;
+
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+
+  }
+
+
+
+
+
 
 
 .tip{
@@ -95,60 +174,79 @@ font-weight: bold;
 
 
 
+.vote_smart_keyvote{ color: #999; font-size: 11px;}
+
+
+
 .state-and-chamber{
-color: #888;
-display: block;
-}
+  color: #888;
+  display: block;
+  }
 
 
 
 .session{
-margin-top: 20px;
-clear: both;
-display: block;
-}
+  margin-top: 20px;
+  clear: both;
+  display: block;
+  }
 
+
+
+/*///////////// ~  Calendar  ~ /////////////*/
 
 
 .fancy-date{
-border: 1px solid #f0f0f0;
-display: block;
-text-shadow: 0 1px 0px #fff;
-width: 40px;
-background: #f6f6f6;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius:3px;
-
-
-
-}
+  border: 1px solid #f0f0f0;
+  display: block;
+  text-shadow: 0 1px 0px #fff;
+  width: 40px;
+  background: #f6f6f6;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  }
 
 
 .date-month,
 .date-day,
 .date-year{
-display: block;
-text-align: center;
-}
+  display: block;
+  text-align: center;
+  }
 
 .date-month{
-font-weight: bold;
-font-size: 10px;
-padding: 5px 0 0;
-text-transform: uppercase;
-}
+  font-weight: bold;
+  font-size: 10px;
+  padding: 5px 0 0;
+  text-transform: uppercase;
+  }
 
 
 .date-day{
-font-weight: bold;
-font-size: 15px;
-padding: 0;
-text-transform: uppercase;
-}
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0;
+  text-transform: uppercase;
+  }
 
 .date-year{
-font-size: 10px;
-padding: 0 0 5px;
-text-transform: uppercase;
+  font-size: 10px;
+  padding: 0 0 5px;
+  text-transform: uppercase;
+  }
+
+
+
+.race_tracker span{
+display: block;
+padding-top: 30px;
+height: 0;
+margin-top: 5px;
+overflow: hidden;
+background: #fff url(/images/race_tracker.png) 0 0 no-repeat;
 }
+
+
+
+

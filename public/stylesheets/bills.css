@@ -1,0 +1,45 @@
+
+
+/*///////////////////////////
+
+~ Bill Listing
+
+///////////////////////////*/
+
+
+#bills ul li:hover a{ text-decoration: underline;}
+
+.bill{
+padding-bottom: 15px !important;
+margin-bottom: 15px !important;
+}
+
+
+
+
+.bill_title{
+margin-bottom: 5px;
+  display: block;
+  line-height: 1.3em;
+  }
+
+
+.bill_link{
+  font-size: 16px;
+  line-height: 1.3em;
+  margin-bottom: 5px;
+  }
+  
+
+.bill_status{ 
+  font-size: 11px;
+  color: #777;
+  }
+
+
+.bill_status div{
+  float: left;
+  padding-right: 20px;
+  }
+  
+

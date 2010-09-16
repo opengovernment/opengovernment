@@ -1,5 +1,11 @@
-html {font-size:100.01%;}
+/*///////////////////////////////////////////////////
 
+~ HTML
+
+///////////////////////////////////////////////////*/
+
+
+html {font-size:100.01%;}
 
 
 body{
@@ -8,7 +14,7 @@ body{
   background: url(/images/bg.gif);
   font-size:12px;
   color:#222;
-line-height: 1.3em;
+  line-height: 1.3em;
   font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
   }
 
@@ -29,99 +35,52 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; }
 
 
 hr {
-border:none;
-border-top: 1px solid #fff;
-
-border-bottom: 2px solid #d1dddd;
-color:#ddd;
-clear:both;
-float:none;
-margin: 0;
-width:100%;
-height: 1px;
-}
-
-hr.push_bottom {
-margin: 0 0 10px;
-}
-
-
-hr.push_top {
-padding: 30px 0 0px;
-}
+  border:none;
+  border-top: 1px solid #fff;
+  border-bottom: 2px solid #d1dddd;
+  color:#ddd;
+  clear:both;
+  float:none;
+  margin: 0;
+  width:100%;
+  height: 1px;
+  }
 
 
 
-hr.space {background:#fff;color:#fff;visibility:hidden;}
-
-header{
-margin: 0 10px !important;
-}
-
-ul.lined{
-margin: 0;
-padding:0;
-}
-
-ul.lined li{
-border-bottom: 1px solid #eee;
-margin: 0 0 5px;
-padding: 0px 0 5px;
-line-height: 1.4em;
-}
+header{ 
+  margin: 0 10px !important;
+  height: 46px;
+  position: relative;
+  margin: 0;
+  }
 
 
-ul.lined li:first-letter{
-text-transform: uppercase;
-}
+
+/*///////////// ~  Tables  ~ /////////////*/
 
 
-ul.lined.and_spaced li{
-padding-bottom: 10px;
-margin-bottom: 10px;
-
-}
-
-ul.lined.and_spaced.with_titles li a{
-display: block;
-margin-bottom: 5px;
-font-weight: bold;
-}
+table{ width: 100%;}
 
 
-/*////////////////////////////////////////////////////
-
-Tables
-
-////////////////////////////////////////////////////*/
-
-table{
-width: 100%;
-}
-
-
-thead th{
-text-align: left;
-}
+thead th{ text-align: left;}
 
 
 th{
-padding: 0px 0px 10px 0px;
-border-bottom: 1px solid #ddd;
-text-align: left;
-}
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  }
 
 
 td{
-min-width: 70px;
-padding: 10px 0;
-vertical-align: top;
-}
+  min-width: 70px;
+  padding: 10px 0;
+  vertical-align: top;
+  }
 
 
-table, td, th, tr{
-margin: 0;
-}
+table, td, th, tr{ margin: 0;}
 
 
 

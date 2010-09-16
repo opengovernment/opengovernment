@@ -1,15 +1,16 @@
 %li[bill]
+  - if bill.votesmart_key_vote?
+    %span.vote_smart_keyvote.floatright
+      This is a Votesmart Key Vote!
+
   .bill_titles
     != link_to(bill.bill_number, bill_path(bill.session, bill), :class => 'bill_link')
     %span.bill_title
       != bill.title
 
   .bill_status
-    = bill.actions.first.try(:kinds)
-
-    - if bill.votesmart_key_vote?
-      %span.vote_smart_keyvote
-        This is a Votesmart Key Vote!
+    .action_status
+      = bill.actions.first.try(:kinds)
 
     .introduced
       Introduced:
@@ -22,3 +23,4 @@
     .recent_vote
       != bill.votes.count
       votes have occurred on this bill
+  .clear
