@@ -48,10 +48,6 @@ gem 'haml', '>= 3.0.18'
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
 
-
-#Acting as tree
-#gem 'ancestry', :git => 'http://github.com/stefankroes/ancestry.git'
-
 # Importing & parsing stuff
 gem "httparty"
 gem "hpricot"

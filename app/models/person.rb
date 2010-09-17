@@ -167,6 +167,14 @@ class Person < ActiveRecord::Base
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
   end
 
+  def state_id
+    current_roles.try(:first).try(:state_id)
+  end
+  
+  def state
+    state_id ? State.find(state_id) : nil
+  end
+
   def has_contributions?
     !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
   end

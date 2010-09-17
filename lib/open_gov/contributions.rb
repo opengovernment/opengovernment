@@ -35,6 +35,7 @@ module OpenGov
         business = Business.find_by_name(con.business_name)
         contribution = business.contributions.create(
           :person_id => person.id,
+          :state_id => person.state_id,
           :contributor_state_id => con.contributor_state.blank? ? nil : State.find_by_abbrev(con.contributor_state).try(:id),
           :contributor_occupation => con.contributor_occupation,
           :contributor_employer => con.contributor_employer,

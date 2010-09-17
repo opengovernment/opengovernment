@@ -157,10 +157,8 @@ ActiveRecord::Schema.define(:version => 59) do
     t.string   "contributor_zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state_id"
   end
-
-  add_index "contributions", ["business_id"], :name => "contributions_corporate_entity_id_idx"
-  add_index "contributions", ["person_id"], :name => "contributions_person_id_idx"
 
   create_table "corporate_entities", :force => true do |t|
     t.string   "name"

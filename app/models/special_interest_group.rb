@@ -8,6 +8,12 @@ class SpecialInterestGroup < ActiveRecord::Base
       find_by_sql(["select * from v_tagged_sigs
               where tag_name = ?", issue.name])
     end
+    
+  end
+
+  def average_rating_for_chamber_and_year(chamber_id, year)
+    ratings = Rating.find_by_sql(["select avg(rating) as average_rating, count(*) as rating_count from ratings a join roles r on (r.person_id = a.person_id) where timespan = ? and chamber_id = ? and a.sig_id = ?", year, chamber_id, id])
+    [ratings.first.try(:average_rating), ratings.first.try(:rating_count)]
   end
 
   def to_param
