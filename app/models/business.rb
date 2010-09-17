@@ -1,7 +1,4 @@
-class Business < ActiveRecord::Base
-  has_many :contributions
-  has_ancestry
-
+class Business < CorporateEntity
   def total_contributions
     self.contributions.sum("amount")
   end

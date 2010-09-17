@@ -13,6 +13,8 @@ module OpenGov
             contributions = GovKit::FollowTheMoney::Contribution.find(person.nimsp_candidate_id)
           rescue Crack::ParseError => e
             puts e.class.to_s + ": Invalid JSON for person " + person.nimsp_candidate_id.to_s
+          rescue GovKit::ResourceNotFound => e
+            puts "Skipping #{person.full_name}--No contributions found."
           end
 
           contributions ||= []

@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_filter :find_person, :except => [:index, :upper, :lower, :money_trail]
+  before_filter :find_person, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
   before_filter :get_state
 

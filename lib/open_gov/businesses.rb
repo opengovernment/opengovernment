@@ -30,7 +30,7 @@ module OpenGov
         industry.parent = sector
         industry.save
 
-        business = Business.find_or_initialize_by_name_and_type(bus.business_name, 'Business')
+        business = Business.find_or_initialize_by_name(bus.business_name)
         business.parent = industry
         business.save
 

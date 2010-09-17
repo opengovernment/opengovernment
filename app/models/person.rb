@@ -30,43 +30,59 @@ class Person < ActiveRecord::Base
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
+  has_many :contributions, :order => "amount desc", :limit => 20
   has_many :ratings, :order => "timespan desc"
 
-  has_many :business_contributions, :foreign_key => "candidate_id",
+# The queries below roll up contributions, relying on the ancestry column
+# of corporate_entities.
+#
+# They assume that sectors always have null ancestry,
+# industries are always children of sectors
+# and businesses are at the third level.
+#
+# These queries also assume that contributions are ONLY associated
+# with Businesses.
+#  ancestry |  id  | name                           | type                
+#           |   40 | Construction                   | Sector
+#  40       |   41 | General Contractors            | Industry
+#  40/41    |  636 | Construction & public works    | Business
+
+  has_many :business_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
               SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
-              inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
+              FROM corporate_entities b
+              inner join contributions c on c.corporate_entity_id = b.id
+              where c.person_id = #{id}
               group by b.name
               order by amount desc
               limit 20
           }
 
-  has_many :industry_contributions, :foreign_key => "candidate_id",
+  has_many :industry_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
-              inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
-              group by b.name
-              order by amount desc
-              limit 20
+             SELECT b2.id, b2.name, sum(c.amount) as amount
+             FROM corporate_entities b
+             inner join contributions c on c.corporate_entity_id = b.id
+             inner join corporate_entities b2 on b.ancestry like '%/' || b2.id
+             where c.person_id = #{id}
+             group by b2.id, b2.name
+             order by amount desc
+             limit 20
           }
 
-  has_many :sector_contributions, :foreign_key => "candidate_id",
+  has_many :sector_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
-              inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
-              group by b.name
-              order by amount desc
-              limit 20
+             SELECT b2.id, b2.name, sum(c.amount) as amount
+             FROM corporate_entities b
+             inner join contributions c on c.corporate_entity_id = b.id
+             inner join corporate_entities b2 on b.ancestry like b2.id || '/%'
+             where c.person_id = #{id}
+             group by b2.id, b2.name
+             order by amount desc
+             limit 20
           }
 
   has_many :roll_calls do
