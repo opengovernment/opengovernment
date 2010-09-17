@@ -33,26 +33,16 @@ class Person < ActiveRecord::Base
   has_many :contributions, :order => "amount desc", :limit => 20
   has_many :ratings, :order => "timespan desc"
 
-# The queries below roll up contributions, relying on the ancestry column
-# of corporate_entities.
-#
-# They assume that sectors always have null ancestry,
-# industries are always children of sectors
-# and businesses are at the third level.
-#
+
 # These queries also assume that contributions are ONLY associated
 # with Businesses.
-#  ancestry |  id  | name                           | type                
-#           |   40 | Construction                   | Sector
-#  40       |   41 | General Contractors            | Industry
-#  40/41    |  636 | Construction & public works    | Business
 
   has_many :business_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
               SELECT b.name, sum(c.amount) as amount
               FROM corporate_entities b
-              inner join contributions c on c.corporate_entity_id = b.id
+              inner join contributions c on c.business_id = b.id
               where c.person_id = #{id}
               group by b.name
               order by amount desc
@@ -62,12 +52,13 @@ class Person < ActiveRecord::Base
   has_many :industry_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-             SELECT b2.id, b2.name, sum(c.amount) as amount
+             SELECT i.id, i.name, sum(c.amount) as amount
              FROM corporate_entities b
-             inner join contributions c on c.corporate_entity_id = b.id
-             inner join corporate_entities b2 on b.ancestry like '%/' || b2.id
+             inner join contributions c on c.business_id = b.id
+             inner join corporate_entities i on i.id = b.industry_id
              where c.person_id = #{id}
-             group by b2.id, b2.name
+--             and i.type = 'Industry'
+             group by i.id, i.name
              order by amount desc
              limit 20
           }
@@ -75,12 +66,12 @@ class Person < ActiveRecord::Base
   has_many :sector_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-             SELECT b2.id, b2.name, sum(c.amount) as amount
+             SELECT s.id, s.name, sum(c.amount) as amount
              FROM corporate_entities b
-             inner join contributions c on c.corporate_entity_id = b.id
-             inner join corporate_entities b2 on b.ancestry like b2.id || '/%'
+             inner join contributions c on c.business_id = b.id
+             inner join corporate_entities s on s.id = b.sector_id
              where c.person_id = #{id}
-             group by b2.id, b2.name
+             group by s.id, s.name
              order by amount desc
              limit 20
           }

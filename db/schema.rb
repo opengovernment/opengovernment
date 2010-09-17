@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 59) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "corporate_entity_id"
+    t.integer  "business_id"
     t.integer  "contributor_state_id"
     t.string   "contributor_occupation"
     t.string   "contributor_employer"
@@ -159,13 +159,17 @@ ActiveRecord::Schema.define(:version => 59) do
     t.datetime "updated_at"
   end
 
+  add_index "contributions", ["business_id"], :name => "contributions_corporate_entity_id_idx"
+  add_index "contributions", ["person_id"], :name => "contributions_person_id_idx"
+
   create_table "corporate_entities", :force => true do |t|
     t.string   "name"
     t.integer  "nimsp_code"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-    t.string   "ancestry"
+    t.integer  "sector_id"
+    t.integer  "industry_id"
   end
 
   create_table "industries", :force => true do |t|

@@ -50,7 +50,7 @@ gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-o
 
 
 #Acting as tree
-gem 'ancestry', :git => 'http://github.com/stefankroes/ancestry.git'
+#gem 'ancestry', :git => 'http://github.com/stefankroes/ancestry.git'
 
 # Importing & parsing stuff
 gem "httparty"

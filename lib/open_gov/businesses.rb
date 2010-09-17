@@ -14,7 +14,7 @@ module OpenGov
         businesses = fetch
         puts "Deleting existing buisinesses and contributions.."
         Contribution.delete_all
-        Business.delete_all
+        CorporateEntity.delete_all
 
         businesses.each do |business|
           import_business(business)
@@ -24,16 +24,21 @@ module OpenGov
       def import_business(bus)
         puts "Importing: #{bus.business_name}"
 
-        sector = Sector.find_or_create_by_name_and_nimsp_code(bus.sector_name, bus.imsp_sector_code)
+        Sector.transaction do
+          sector = Sector.find_or_create_by_nimsp_code(bus.imsp_sector_code)
+          sector.name = bus.sector_name
+          sector.save
 
-        industry = Industry.find_or_initialize_by_name_and_nimsp_code(bus.industry_name, bus.imsp_industry_code)
-        industry.parent = sector
-        industry.save
+          industry = Industry.find_or_create_by_nimsp_code(bus.imsp_industry_code) 
+          industry.name = bus.industry_name
+          industry.sector_id = sector.id
+          industry.save
 
-        business = Business.find_or_initialize_by_name(bus.business_name)
-        business.parent = industry
-        business.save
-
+          business = Business.find_or_initialize_by_name(bus.business_name)
+          business.sector_id = sector.id
+          business.industry_id = industry.id
+          business.save
+        end
       end
     end
   end

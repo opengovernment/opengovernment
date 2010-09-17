@@ -23,17 +23,19 @@ module OpenGov
 
           puts "Importing contributions..\n\n"
 
-          contributions.each do |contribution|
-            person.contributions << make_contribution(contribution)
+          Contribution.transaction do
+            contributions.each do |contribution|
+              make_contribution(person, contribution)
+            end
           end
-          person.save!
         end
       end
 
-      def make_contribution(con)
+      def make_contribution(person, con)
         business = Business.find_by_name(con.business_name)
-        contribution = business.contributions.build(
-          :contributor_state_id => State.find_by_abbrev(con.contributor_state),
+        contribution = business.contributions.create(
+          :person_id => person.id,
+          :contributor_state_id => con.contributor_state.blank? ? nil : State.find_by_abbrev(con.contributor_state).try(:id),
           :contributor_occupation => con.contributor_occupation,
           :contributor_employer => con.contributor_employer,
           :amount => con.amount,
@@ -42,7 +44,6 @@ module OpenGov
           :contributor_name => con.contributor_name,
           :contributor_zipcode => con.contributor_zipcode
         )
-        contribution
       end
     end
   end
