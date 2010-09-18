@@ -4,5 +4,6 @@ class Contribution < ActiveRecord::Base
 
   define_index do
     indexes contributor_name, :sortable => true
+    has state_id
   end
 end

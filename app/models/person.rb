@@ -25,7 +25,7 @@ class Person < ActiveRecord::Base
   has_many :committees, :through => :committee_memberships
 
   has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
-  has_one :chamber, :through => :current_roles
+  has_one :chamber, :through => :roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
@@ -125,6 +125,7 @@ class Person < ActiveRecord::Base
 
     has chamber(:id), :as => :chamber_id, :facet => true
     has "current_district_order_for(people.id)", :as => :district_order, :type => :string
+    has "current_state_for(people.id)", :as => :state_id, :type => :integer
   end
 
   def full_name
@@ -170,9 +171,9 @@ class Person < ActiveRecord::Base
   def state_id
     current_roles.try(:first).try(:state_id)
   end
-  
+ 
   def state
-    state_id ? State.find(state_id) : nil
+   state_id ? State.find(state_id) : nil
   end
 
   def has_contributions?

@@ -64,6 +64,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION current_state_for(p_id integer) RETURNS varchar AS $$
+DECLARE
+  s INTEGER;
+BEGIN
+  select state_id into s from v_most_recent_roles where person_id = p_id limit 1;
+  RETURN s;
+END;
+$$ LANGUAGE plpgsql;
+
 CREATE OR REPLACE FUNCTION current_district_order_for(p_id integer) RETURNS varchar AS $$
 DECLARE
   num VARCHAR;
