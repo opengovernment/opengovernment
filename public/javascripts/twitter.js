@@ -17,7 +17,7 @@ TwitterAPI.refresh = function(q) {
   	  if (i <= 5) {
     	  created_at = new Date(this['created_at']);
     		tweet = '<span class="from_user"><a rel="nofollow" href="http://twitter.com/' + escape(this['from_user']) + '">' + this['from_user'] + '</a></span> ';
-    		tweet += '<span class="text">' + this['text'] + "</span>";
+    		tweet += '<span class="text">' + replaceURLWithHTMLLinks(this['text']) + "</span>";
     		tweet += '<time class="timeago" datetime="' + created_at.toISOString() + '"></time>';
     		content += '<li class="tweet">' + tweet + '</li>';
       }
