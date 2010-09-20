@@ -24,3 +24,20 @@ describe "Date" do
     end
   end
 end
+
+describe "Integer" do
+  describe "scale" do
+    # No change in scale
+    Integer.scale(1, 1, 1).should == 1
+
+    # Scale down
+    Integer.scale(1, 1, 0.5).should == 0.5
+
+    # Scale a zero
+    Integer.scale(0, 1, 1).should == 0
+    Integer.scale(0, 1, 0.5).should == 0
+
+    # Scale up
+    Integer.scale(5, 10, 100).should == 50
+  end
+end
