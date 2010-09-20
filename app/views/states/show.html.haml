@@ -50,7 +50,7 @@
           %li= link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
         %h3.margin-top
           Population
-        %p t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
+        %p= t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
         %ul.lined 
           %li= t '.state_population'
           %li= t '.last_election_date'
