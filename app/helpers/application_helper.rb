@@ -53,11 +53,18 @@ module ApplicationHelper
 
   def photo_for(person, size = :full)
     ops = case size
+      when :tiny
+        {:width => 30, :height => 30}
       when :thumb
         {:width => 50, :height => 50}
       else
         {:width => 110, :height => 110}
           end
+
+    # Use the 50x50 images for 'tiny'.
+    if size == :tiny
+      size = :thumb
+    end
 
     if person.photo?
       # The local photo

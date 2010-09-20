@@ -67,10 +67,11 @@
     %ul.lined
       - @sponsors.each do |s|
         %li
+          = s.sponsor_id? ? photo_for(s.sponsor, :tiny) : nil
           - surround '',',' do
             = s.sponsor_id? ? link_to(s.sponsor_name, person_path(s.sponsor)) : s.sponsor_name
           = s.kind_fm
-  
+
   .grid_6.omega
     - if @bill.versions.count > 0
       %h2 Versions
