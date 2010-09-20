@@ -5,7 +5,7 @@ a1:
   action: Signed in Senate-Art III Sec 49a Tx. Const.
   date: 2009-07-01 07:00:00
   id: "187020"
-  kind: "bill:signed"
+  kind_one: "bill:signed"
   action_number: "S1"
   bill: HB10
 a2:
@@ -14,7 +14,7 @@ a2:
   actor: lower
   action: Senate passage reported
   date: 2009-07-01 07:00:00
-  kind: "other"
+  kind_one: "other"
   action_number: "H1"
   id: "187023"
   bill: HB10
@@ -25,7 +25,7 @@ a3:
   action: Sent to the Governor
   date: 2009-07-07 07:00:00
   action_number: "H2"
-  kind: "governor:received"
+  kind_one: "governor:received"
   id: "187018"
   bill: HB10
 a4:
@@ -34,7 +34,7 @@ a4:
   actor: executive
   action: Sent to the Comptroller
   action_number: "H3"
-  kind: "other"
+  kind_one: "other"
   date: 2009-07-06 07:00:00
   id: "187019"
   bill: HB10
