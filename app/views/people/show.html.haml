@@ -47,7 +47,7 @@
 
   %ul.user
     %li.discuss
-      Discussion Forum
+      %a= link_to('Discussion Forum', discuss_person_path(@person))
   
     %li.race_tracker
       Follow #{@person.full_name.possessive} campaign on
@@ -176,8 +176,3 @@
       %p.grid_12.alpha
         No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
         %a{:href => 'http://votesmart.org/program_donations_index.php'} here
-
-  .grid_12.alpha
-    #disqus_thread
-    = embed_disqus("person-#{@person.id}")
-

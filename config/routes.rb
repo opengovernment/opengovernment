@@ -16,6 +16,7 @@ OpenGov::Application.routes.draw do
         get :sponsored_bills
         get :votes
         get :money_trail
+        get :discuss
       end
     end
 
