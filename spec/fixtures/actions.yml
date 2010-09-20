@@ -85,7 +85,6 @@ a9:
   actor: upper
   action: Passed
   date: 2009-07-01 07:00:00
-  kind: "bill:passed"
   action_number: "H8"
   id: "187025"
   kind_one: "other"
