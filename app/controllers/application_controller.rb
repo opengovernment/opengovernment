@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
  # include BreadcrumbsOnRails::ControllerMixin
-  include Clearance::Authentication
   include UrlHelper
   helper_method :current_place, :current_place_name
   before_filter :set_locale
 
   protect_from_forgery
+  
   layout 'application'
 
   def set_locale

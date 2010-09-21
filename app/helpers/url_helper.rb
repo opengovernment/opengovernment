@@ -19,7 +19,7 @@ module UrlHelper
   end
 
   def state_url(subdomain)
-    url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "states", :action => "show")
+    url_for(:subdomain => (subdomain.is_a?(State) ? subdomain.abbrev.downcase : subdomain), :controller => "/states", :action => "show")
   end
 
   def with_subdomain(subdomain)  
@@ -33,10 +33,11 @@ module UrlHelper
     [subdomain, domain, request.port_string].join  
   end
   
-  def url_for(options = nil)
+  def url_for(options = nil)    
     if options.kind_of?(Hash) && options.has_key?(:subdomain)  
       options[:host] = with_subdomain(options.delete(:subdomain))  
     end
+
     super  
   end
 end
