@@ -13,11 +13,23 @@ module ApplicationHelper
   # javascript that can't be accomplished via rails-ujs.
   # <script> tags should not be passed in with the js.
   def javascript
-    content_for(:js_hook) { yield }
+    hook_for(:js_hook) { yield }
   end
   
   def footer_javascript
-    content_for(:js_footer) { yield }
+    hook_for(:js_footer) { yield }
+  end
+
+  # A slightly more sophisticated content_for.
+  # This method won't attach the same hook twice.
+  def hook_for(content_block_name)
+    @hooks ||= {}
+    @hooks[content_block_name] ||= []
+    digest = Digest::MD5.hexdigest(yield)
+    unless @hooks[content_block_name].include?(digest)
+      @hooks[content_block_name] << digest
+      content_for(content_block_name) { yield }
+    end
   end
 
   def dropdown(hot_selector, menu_selector)
@@ -80,15 +92,29 @@ module ApplicationHelper
 
   def embed_disqus(page_id)
     # Universal comment count code
+    # If you only want comments counts, call this like so:
+    #   - embed_disqus([unique-page-id])
+    # at the top of the template. Then append #disqus_thread to the
+    # href of the link to the comments page.
+
+    # If you want to embed the actual discussion, use:
+    #   = embed_disqus([unique-page-id])
+    # in the place where you want the discussion to show.
+    
     if Rails.env != 'production'
       javascript do (%q{
           var disqus_developer = 1;
         })
       end
     end
+    
+    javascript do (%Q{
+          var disqus_identifier = '#{page_id}';
+          var disqus_shortname = '#{API_KEYS['disqus_shortname'] || 'opengovernment'}';
+      })
+    end
 
     footer_javascript do (%q{
-      var disqus_shortname = 'opengovernment';
       (function () {
         var s = document.createElement('script'); s.async = true;
         s.src = 'http://disqus.com/forums/opengovernment/count.js';
@@ -98,8 +124,7 @@ module ApplicationHelper
     end
   
     # Universal 
-    return %Q{<script type="text/javascript">
-      var disqus_identifier = "#{page_id}";
+    return %q{<script type="text/javascript">
       (function() {
        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
        dsq.src = 'http://opengovernment.disqus.com/embed.js';
