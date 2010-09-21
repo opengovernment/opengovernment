@@ -2,16 +2,23 @@ stylesheets:
   common:
     - public/stylesheets/reset.css
     - public/stylesheets/960.css
-    - public/stylesheets/html5.css
     - public/stylesheets/application.css
-    - public/stylesheets/jquery-ui-1.8.4.css
+    - public/stylesheets/bills.css
+    - public/stylesheets/breadcrumb.css
+    - public/stylesheets/classes.css
+    - public/stylesheets/find_box.css
+    - public/stylesheets/forms.css
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
-    - public/stylesheets/type.css
-    - public/stylesheets/forms.css
+    - public/stylesheets/html5.css
+    - public/stylesheets/jquery-ui-1.8.4.css
     - public/stylesheets/layout.css
     - public/stylesheets/sharing.css
-    - public/stylesheets/breadcrumb.css
+    - public/stylesheets/type.css
+    - public/stylesheets/vote.css
+
+
+
   other:
     - public/stylesheets/classes.css
     - public/stylesheets/vote.css
