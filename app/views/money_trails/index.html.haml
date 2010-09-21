@@ -1,8 +1,9 @@
+- title("Money Trail")
 %h2 Money Trail
 
 .grid_8.alpha
   %ul
-    = render :partial => 'sector', :collection => @sectors[0..@sectors.size/2]
+    = render :partial => 'sector', :collection => @sectors[0...@sectors.size/2]
 
 .grid_8.beta
   %ul

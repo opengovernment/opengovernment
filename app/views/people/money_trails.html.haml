@@ -1,0 +1,28 @@
+- title("Money Trail for #{@person.official_name}")
+.grid_16.alpha
+  %h1
+    = @person.official_name
+    - surround '(', ')' do
+      = @person.current_role.try(:affiliation_fm)
+  %hr
+
+
+= render(:partial => 'nav')
+
+.grid_12.alpha
+  %h2 Money Trail
+  - if @person.has_contributions?
+    .small.quiet.grid_12
+      Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
+    .grid_6.alpha
+      %h3 All By Sector
+      = render :partial => 'sector', :collection => @sectors
+    .grid_6.omega
+      %h3 Top Individual Contributions
+      = render :partial => 'contribution', :collection => @contributions
+
+  - else
+    .grid_12.alpha
+      No data is available for this Member at this time via FollowTheMoney.org. To inquire how you can help make this info available and ensure transparency in government, visit
+      %a{:href => 'http://www.followthemoney.org/Contact/index.phtml?dvd=8'} here
+      == .

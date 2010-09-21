@@ -7,12 +7,8 @@
 
 %hr.grid_16
 
-= render(:partial => 'nav')
-
 .grid_16.alpha
-  %nav.grid_4.alpha
-    #left_nav
-      = render_navigation(:level => 3)
+  = render(:partial => 'nav')
 
   - if @person.citations.count > 0
     .grid_8.omega
