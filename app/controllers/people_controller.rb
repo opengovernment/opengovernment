@@ -12,29 +12,14 @@ class PeopleController < ApplicationController
     @chamber = @state.upper_chamber
     @current_tab = :upper
     
-    @people =
-      if @sort == 'views' && MongoMapper.connected?
-        Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-      else
-        people_by_facets
-      end
-   
-    render :template => 'people/index'
+    render_people
   end
 
   def lower
     @chamber = @state.lower_chamber
     @current_tab = :lower
-    
-    @people =
-      case @sort
-        when "views"
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-        else
-          people_by_facets
-      end
 
-    render :template => 'people/index'
+    render_people
   end
 
   def votes
@@ -96,10 +81,14 @@ class PeopleController < ApplicationController
       return nil
     end
   end
-
-  
+    
   def setup_sort
     @sort = params[:sort] || 'name'
+
+    # check our MongoMapper connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'name'
+    end
 
     @sorts = {:name => 'Name',
       :district => 'District',
@@ -107,4 +96,15 @@ class PeopleController < ApplicationController
       :views => 'Most Viewed'}
   end
 
+  def render_people
+    @people =
+      case @sort
+        when 'views'
+          Person.find(Page.most_viewed('Person').collect(&:og_object_id), :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party")
+        else
+          people_by_facets
+      end
+   
+    render :template => 'people/index'
+  end
 end

@@ -52,6 +52,11 @@ class BillsController < ApplicationController
   end
 
   def scope_bills(bills)
+    # Fall back to 'introduced' if we have no MongoDB connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'introduced'
+    end
+
     case @sort
       when 'introduced'
         bills.order('first_action_at desc').limit(10)
