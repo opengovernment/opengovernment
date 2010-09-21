@@ -6,34 +6,12 @@
 .grid_12.alpha
   %h2 Contributions
   - if @person.has_contributions?
-    .small.quiet.grid_24
+    .small.quiet.grid_12
       Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
-    %div.grid_4.alpha
-      %h3
-        By Industry
-      - @person.industry_contributions.each do |c|
-        .grid_3.alpha
-          = c.name
-        .grid_1.omega
-          = number_to_currency(c.amount)
-
-    %div.grid_4
-      %h3
-        By Sector
-      - @person.sector_contributions.each do |c|
-        .grid_3.alpha
-          = c.name
-        .grid_1.omega
-          = number_to_currency(c.amount)
-
-    %div.grid_4.omega
-      %h3
-        By Business
-      - @person.business_contributions.each do |c|
-        .grid_3.alpha
-          = c.name
-        .grid_1.omega
-          = number_to_currency(c.amount)
+    .grid_6.alpha
+      = render :partial => 'sector', :collection => @sectors
+    .grid_6.omega
+      = render :partial => 'contribution', :collection => @contributions
 
   - else
     .grid_12.alpha

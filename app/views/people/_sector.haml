@@ -1,0 +1,4 @@
+%h3
+  = render :partial => 'corporate_entity', :locals => {:corporate_entity => sector}
+%ul
+  = render :partial => 'industry', :collection => sector.industries.contributions_for_person(@person).all

@@ -44,7 +44,7 @@ SimpleNavigation::Configuration.run do |navigation|
       if !@bill.nil?
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
-          m.item :votes, "#{@bill.votes.count} Votes", votes_bill_path(@bill.session, @bill), :if => Proc.new { @bill.votes.count > 0 }
+          m.item :votes, pluralize(@bill.votes.count, 'Vote'), votes_bill_path(@bill.session, @bill), :if => Proc.new { @bill.votes.count > 0 }
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Coverage', '#'
           m.item :video, 'Video', '#', :class => 'inactive'
@@ -59,7 +59,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :overview, 'Overview', person_path(@person)
           m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
-          m.item :votes, 'Votes', votes_person_path(@person)
+          m.item :votes, pluralize(@person.votes.count, 'Vote'), votes_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
