@@ -13,13 +13,12 @@ class PeopleController < ApplicationController
     @current_tab = :upper
     
     @people =
-      case @sort
-        when "views"
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-        else
-          people_by_facets
+      if @sort == 'views' && MongoMapper.connected?
+        Person.find(Page.most_viewed('Person').collect(&:og_object_id))
+      else
+        people_by_facets
       end
-    
+   
     render :template => 'people/index'
   end
 
@@ -104,7 +103,8 @@ class PeopleController < ApplicationController
 
     @sorts = {:name => 'Name',
       :district => 'District',
-      :citations => 'Public Interest'}
+      :citations => 'Most In The News',
+      :views => 'Most Viewed'}
   end
 
 end
