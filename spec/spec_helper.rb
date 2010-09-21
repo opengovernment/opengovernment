@@ -5,7 +5,7 @@ Spork.prefork do
   require File.dirname(__FILE__) + "/../config/environment"
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
- # Capybara.app = OpenGov::Application
+#  Capybara.app = OpenGov::Application
 
   RSpec.configure do |config|
     config.mock_with :rspec

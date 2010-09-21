@@ -1,3 +1,6 @@
+require 'rspec/rails'
+require 'rspec/rails/view_assigns'
+
 module RSpec::Rails
   module IntegrationExampleGroup
     extend ActiveSupport::Concern
@@ -9,7 +12,6 @@ module RSpec::Rails
     include RSpec::Rails::Matchers::RoutingMatchers
     include RSpec::Rails::Matchers::RedirectTo
     include RSpec::Rails::Matchers::RenderTemplate
-
 
     webrat do
       include Webrat::Matchers
