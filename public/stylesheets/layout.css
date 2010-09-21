@@ -111,7 +111,7 @@ background: url(/images/sub.png) right -1px no-repeat;
 font-weight: bold;
 }
 
-.discuss{
+li.discuss{
 padding: 20px;
 background: url(/images/sprites.png) left -434px no-repeat;
 font-weight: bold;
