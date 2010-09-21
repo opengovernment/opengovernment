@@ -33,6 +33,8 @@ OpenGov::Application.routes.draw do
         get :major_actions
         get :news
         get :money_trail
+        get :votes
+        get :discuss
       end
       shallow do
         resources :actions, :only => [:show]
