@@ -65,14 +65,14 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
-    primary.item :issues, 'Issues', issues_path
+    primary.item :issues, 'Issues', issues_path, :class => 'issues'
     primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |m|
       if !@vote.nil?
         m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
       end
     end
-    primary.item :money_trail, 'Money Trail', money_trail_path
-    primary.item :pages, 'Pages', '#', :if => Proc.new { controller.controller_name == "pages" } do |m|
+    primary.item :money_trail, 'Money Trail', money_trail_path, :class => 'money_trail'
+    primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")
       m.item :help, 'Help', page_path("help")
