@@ -33,8 +33,9 @@ module OpenGov
         c = owner.citations.find_or_initialize_by_source_and_date(citation.source, Date.valid_date!(citation.date))
         c.url = citation.url
         c.weight = citation.weight
-        c.excerpt = citation.excerpt
-        c.title = citation.title
+        # Remove HTML tags from citation title and excerpt
+        c.title = Hpricot(citation.title).scrub
+        c.excerpt = Hpricot(citation.excerpt).scrub
         c.search_source = source
         c.save!
       end
