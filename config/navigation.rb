@@ -44,11 +44,12 @@ SimpleNavigation::Configuration.run do |navigation|
       if !@bill.nil?
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
-          m.item :votes, 'Votes', '#'
+          m.item :votes, "#{@bill.votes.count} Votes", votes_bill_path(@bill.session, @bill), :if => Proc.new { @bill.votes.count > 0 }
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Coverage', '#'
           m.item :video, 'Video', '#', :class => 'inactive'
           m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
+          m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
         end
       end
     end
@@ -60,17 +61,18 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
           m.item :votes, 'Votes', votes_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
+          m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
       end
     end
-    primary.item :issues, 'Issues', issues_path
+    primary.item :issues, 'Issues', issues_path, :class => 'issues'
     primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |m|
       if !@vote.nil?
         m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
       end
     end
-    primary.item :money_trail, 'Money Trail', money_trail_path
-    primary.item :pages, 'Pages', '#', :if => Proc.new { controller.controller_name == "pages" } do |m|
+    primary.item :money_trail, 'Money Trail', money_trail_path, :class => 'money_trail'
+    primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")
       m.item :help, 'Help', page_path("help")

@@ -1,0 +1,14 @@
+.grid_16
+  %h1
+    %span.state-and-chamber
+      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
+    %span
+      = "#{@bill.bill_number}"
+
+    %hr
+
+= render :partial => 'nav'
+
+.grid_12.alpha
+  #disqus_thread
+  = embed_disqus("bill-#{@bill.id}")

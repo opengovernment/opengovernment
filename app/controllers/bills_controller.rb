@@ -1,37 +1,23 @@
 class BillsController < ApplicationController
   before_filter :get_state
-  before_filter :get_bill, :except => [:index]
+  before_filter :get_bill, :except => [:index, :upper, :lower]
+  before_filter :setup_sort, :only => [:index, :upper, :lower]
 
   def index
-    @sort = params[:sort] || 'introduced'
+    @bills = scope_bills(Bill.for_state(@state))
+    @current_tab = :all
+  end
 
-    @sorts = {
-      :introduced => 'Date Introduced',
-      :recent => 'Recent Actions',
-      :citations => 'Most In The News',
-      :views => 'Most Viewed',
-      :keyvotes => 'Key Votes'
-    }
-
-    @state_bills = Bill.for_state(@state)
-
-    @bills = case params[:sort]
-      when 'introduced'
-        @state_bills.order('first_action_at desc').limit(10)
-      when 'citations'
-        @state_bills.search(:order => 'citations_count desc', :per_page => 10)
-      when 'views'
-        @state_bills.find(Page.most_viewed('Bill').collect(&:og_object_id))
-      when 'keyvotes'
-        @state_bills.where(:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers)
-      else
-        @state_bills.order('last_action_at desc').limit(10)
-             end
-
-    respond_to do |format|
-      format.js
-      format.html
-    end
+  def upper
+    @bills = scope_bills(Bill.for_state(@state).in_chamber(@state.legislature.upper_chamber))
+    @current_tab = :upper
+    render :template => 'bills/index'
+  end
+  
+  def lower
+    @bills = scope_bills(Bill.for_state(@state).in_chamber(@state.legislature.lower_chamber))
+    @current_tab = :lower
+    render :template => 'bills/index'
   end
 
   def show
@@ -53,6 +39,38 @@ class BillsController < ApplicationController
   end
 
   protected
+  def setup_sort
+    @sort = params[:sort] || 'recent'
+
+    @sorts = {
+      :recent => 'Recent Actions',
+      :introduced => 'Date Introduced',
+      :citations => 'Most In The News',
+      :views => 'Most Viewed',
+      :keyvotes => 'Key Votes'
+    }
+  end
+
+  def scope_bills(bills)
+    # Fall back to 'introduced' if we have no MongoDB connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'introduced'
+    end
+
+    case @sort
+      when 'introduced'
+        bills.order('first_action_at desc').limit(10)
+      when 'citations'
+        bills.search(:order => 'citations_count desc', :per_page => 10)
+      when 'views'
+        bills.find(Page.most_viewed('Bill').collect(&:og_object_id))
+      when 'keyvotes'
+        bills.where(:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers)
+      else
+        bills.order('last_action_at desc').limit(10)
+    end
+  end
+
   def get_bill
     if params[:id]
       @bill = @state && @state.bills.find_by_session_name_and_param(params[:session], params[:id])

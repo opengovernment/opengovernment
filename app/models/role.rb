@@ -51,6 +51,10 @@ class Role < ActiveRecord::Base
   end
 
   def party_fm
+    Role.party_fm(party)
+  end
+
+  def self.party_fm(party)
     case party
       when "Democratic"
         "D"

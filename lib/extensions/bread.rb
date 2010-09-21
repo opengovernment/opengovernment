@@ -22,10 +22,20 @@ module SimpleNavigation
         item_container.items.inject([]) do |list, item|
           ops = item.html_options.except(:id)
           if item.selected?
+            list_item = link_to(html_safe(content_tag(:span, item.name)), item.url, {:method => item.method}.merge(item.html_options.except(:class, :id)))
             if i == 0 && level == 0
               ops[:class].concat(' first')
+              list_item << link_to('', '#', :id => 'secondary_dropdown', :class => 'dropdown')
+
+              secondary_items = ''.html_safe
+              item_container.items.each do |item|
+                secondary_items << content_tag(:li, link_to(html_safe(content_tag(:span, item.name)), item.url))
+              end
+
+              list_item << content_tag(:ul, secondary_items, :class => 'secondary-select')
             end
-            list << content_tag(:li, link_to(html_safe(content_tag(:span, item.name)), item.url, {:method => item.method}.merge(item.html_options.except(:class, :id))), ops)
+
+            list << content_tag(:li, list_item, ops)
 
             # Recurse if necessary
             list.concat(a_tags(item.sub_navigation, level + 1)) if include_sub_navigation?(item)

@@ -132,7 +132,6 @@ margin-right: -19px;
 }
 
 
-
 .previous_page,
 a.previous_page{
 float: left !important;
@@ -153,6 +152,8 @@ margin-left: -19px;
 
 .disabled{
 cursor: default !important;
+margin-left: -10px !important;
+margin-right: -10px !important;
 }
 
 /*

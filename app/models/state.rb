@@ -43,6 +43,16 @@ class State < Place
 
   has_many :subscriptions
 
+  # See note in person.rb regarding the use of ancestry in
+  # corporate_entities.
+  has_many :sector_contributions, :class_name => 'Sector', :finder_sql => %q{SELECT b2.id, b2.name, b2.type, b2.ancestry, sum(c.amount) as amount
+  FROM corporate_entities b
+  inner join contributions c on c.corporate_entity_id = b.id
+  inner join corporate_entities b2 on b.ancestry like b2.id || '/%'
+  inner join v_most_recent_roles r on r.person_id = c.person_id
+  where r.state_id = #{id}
+  group by b2.id, b2.name, b2.type, b2.ancestry order by name}
+
   class << self
     def find_by_param(param, ops = {})
       find_by_name(param.titleize, ops)

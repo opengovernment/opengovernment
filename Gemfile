@@ -49,10 +49,6 @@ gem 'haml', '>= 3.0.18'
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
 
-
-#Acting as tree
-gem 'ancestry', :git => 'http://github.com/stefankroes/ancestry.git'
-
 # Importing & parsing stuff
 gem "httparty"
 gem "hpricot"
@@ -66,15 +62,11 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 # Bundle gems used only in certain environments:
 group :test do
   # Bundle gems for certain environments:
-  gem 'capybara'
   gem 'database_cleaner'
-  gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
-  gem "rspec", ">= 2.0.0.beta.22"
-  gem "rspec-core", ">= 2.0.0.beta.22", :require => 'rspec/core'
-  gem "rspec-expectations", ">= 2.0.0.beta.22", :require => 'rspec/expectations'
-  gem "rspec-mocks", ">= 2.0.0.beta.22", :require => 'rspec/mocks'
-  gem "rspec-rails", ">= 2.0.0.beta.22", :require => 'rspec/rails'
+  gem 'rspec-rails', '>= 2.0.0.beta.22'
+  gem 'spork'
+  gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem "autotest"

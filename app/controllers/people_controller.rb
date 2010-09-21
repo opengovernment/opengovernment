@@ -1,34 +1,25 @@
 class PeopleController < ApplicationController
-  before_filter :find_person, :except => [:index, :upper, :lower, :money_trail]
+  before_filter :find_person, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
   before_filter :get_state
 
   # /states/texas/people
   def index
-    @chamber = @state.upper_chamber
-    @current_tab = :upper
-
-    @people =
-      case @sort
-        when "views"
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-        else
-          people_by_facets
-      end
+    upper
   end
 
   def upper
     @chamber = @state.upper_chamber
     @current_tab = :upper
-    people_in_chamber
-    render :template => 'people/index'
+    
+    render_people
   end
 
   def lower
     @chamber = @state.lower_chamber
     @current_tab = :lower
-    people_in_chamber
-    render :template => 'people/index'
+
+    render_people
   end
 
   def votes
@@ -73,8 +64,6 @@ class PeopleController < ApplicationController
     # This sets up variables for the view
 
     @order = case @sort
-      when 'last_name'
-        'last_name asc'
       when 'district'
         'district_order asc'
       when 'citations'
@@ -84,20 +73,38 @@ class PeopleController < ApplicationController
       end
 
     begin
-      @facets = Person.facets :with => {:chamber_id => @chamber.id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name"
+      # TODO: This is less than ideal. We're calling some stored procedures here because
+      # we don't have a better way (like outer joining to the current roles view).
+      @facets = Person.facets :with => {:chamber_id => @chamber.id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
     rescue Riddle::ConnectionError
       flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
       return nil
     end
   end
-
-  
+    
   def setup_sort
     @sort = params[:sort] || 'name'
 
+    # check our MongoMapper connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'name'
+    end
+
     @sorts = {:name => 'Name',
       :district => 'District',
-      :citations => 'Public Interest'}
+      :citations => 'Most In The News',
+      :views => 'Most Viewed'}
   end
 
+  def render_people
+    @people =
+      case @sort
+        when 'views'
+          Person.find(Page.most_viewed('Person').collect(&:og_object_id), :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party")
+        else
+          people_by_facets
+      end
+   
+    render :template => 'people/index'
+  end
 end

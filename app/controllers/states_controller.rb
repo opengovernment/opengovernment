@@ -41,7 +41,7 @@ class StatesController < ApplicationController
       :page => params[:page],
       :per_page => 15,
       :order => params[:order],
-      :state_id => @state.id
+      :with => {:state_id => @state.id}
     }
 
     case @committee_type
@@ -54,7 +54,7 @@ class StatesController < ApplicationController
     if @search_session
       @search_options[:with].merge!(:session_id => @search_session)
     end
-
+    
     if @query
       case @search_type
         when "all"
@@ -62,6 +62,7 @@ class StatesController < ApplicationController
           @bills = @state.bills.search(@query, @search_options)
           @contributions = Contribution.search(@query, @search_options)
           @committees = @committee_type.search(@query, @search_options)
+          @total_entries = @legislators.total_entries + @bills.total_entries + @contributions.total_entries + @committees.total_entries
         when "bills"
           @bills = @state.bills.search(@query, @search_options)
           @total_entries = @bills.total_entries

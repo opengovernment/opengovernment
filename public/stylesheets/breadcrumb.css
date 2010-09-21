@@ -11,7 +11,8 @@ border-bottom: 0 !important;
 
 
 /* State selector menu */
-ul.breadcrumb li ul.state-select {  
+ul.state-select,
+ul.secondary-select {  
   list-style: none;  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
   left: -1px;  
@@ -25,7 +26,8 @@ ul.breadcrumb li ul.state-select {
   border-top: 0;
 }
 
-ul.breadcrumb li ul.state-select li {  
+ul.state-select li,
+ul.secondary-select li {  
   list-style: none;
   background: none !important;
   border-top: 1px solid #ddd;
@@ -33,17 +35,13 @@ margin: 0 !important;
 float: left;
 }
 
-ul.breadcrumb li ul.state-select li a {  
+ul.state-select li a,
+ul.secondary-select li a {  
   float: left;
   margin: 0;
   padding-left: 25px;
   background: none !important;
   width: 170px;  
-}
-
-ul.breadcrumb li ul.state-select li a:hover{  
-
-
 }
 
 ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
@@ -176,11 +174,11 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   background: none !important;
 }
 
-#dropdown{
+.dropdown{
   background: url(/images/sprites.png) left -254px no-repeat;
 }
 
-#dropdown:hover{
+.dropdown:hover{
   background: url(/images/sprites.png) left -254px no-repeat !important;
 }
 

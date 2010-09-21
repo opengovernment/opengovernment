@@ -6,6 +6,7 @@ class Committee < ActiveRecord::Base
 
   define_index do
     indexes name, :sortable => true
+    has legislature(:state_id), :as => :state_id, :type => :integer
   end
 
   SORTABLE_BY = {

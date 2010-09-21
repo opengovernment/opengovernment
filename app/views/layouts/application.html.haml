@@ -28,7 +28,7 @@
 
     = yield :head
     %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
-  %body
+  %body{:class => page_class}
     %div.container_16
       %div.skip-link.screen-reader-text
         %a(href="#content" title="Skip to content") Skip to content
@@ -51,7 +51,7 @@
           %a{:href => root_path}
             %strong OpenGovernment
             = current_place_name
-          %a#dropdown{:href => '#'}
+          %a#dropdown{:class => 'dropdown', :href => '#'}
           %ul.state-select
             - State.loadable.each do |state|
               %li= link_to state.name, state_url(state)
@@ -74,3 +74,7 @@
 
     = render :partial => 'layouts/footer'
     .clearfix
+    
+    - if content_for? :js_footer
+      %script(type='text/javascript' charset='UTF-8')
+        = yield :js_footer
