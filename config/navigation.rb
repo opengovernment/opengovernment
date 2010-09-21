@@ -48,7 +48,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Coverage', '#'
           m.item :video, 'Video', '#', :class => 'inactive'
-          m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trails_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
         end
       end
@@ -60,7 +60,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
           m.item :votes, pluralize(@person.votes.count, 'Vote'), votes_person_path(@person)
-          m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
+          m.item :money_trail, 'Money Trail', money_trails_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
       end
@@ -71,7 +71,7 @@ SimpleNavigation::Configuration.run do |navigation|
         m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
       end
     end
-    primary.item :money_trail, 'Money Trail', money_trail_path, :class => 'money_trail'
+    primary.item :money_trail, 'Money Trail', money_trails_path, :class => 'money_trail'
     primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")

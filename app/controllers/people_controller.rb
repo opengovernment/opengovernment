@@ -45,8 +45,8 @@ class PeopleController < ApplicationController
     end
   end
   
-  def money_trail
-    @sectors = Sector.contributions_for_person(@person).all
+  def money_trails
+    @sectors = Sector.aggregates_for_person(@person).all
     @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
   end
 

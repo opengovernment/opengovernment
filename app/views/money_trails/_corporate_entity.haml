@@ -1,5 +1,6 @@
 %li.grid_8
-  .grid_5.alpha
-    = corporate_entity.name
-  .grid_2.beta.right
+  .grid_6.alpha
+    = link_to(corporate_entity.name, money_trail_path(corporate_entity), :remote => true)
+  .grid_2.omega
     = number_to_currency(corporate_entity.amount)
+  .grid_8.alpha.omega[corporate_entity]
