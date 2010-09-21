@@ -9,7 +9,7 @@ class MoneyTrailsController < ApplicationController
   end
   
   def show
-    @contributions = @industry.contributions.for_state(@state.id).grouped_by_name.all
+    @contributions = @industry.contributions.for_state(@state.id).grouped_by_name.limit(20).all
   end
 
   protected
