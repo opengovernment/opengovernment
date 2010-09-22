@@ -16,6 +16,7 @@ stylesheets:
     - public/stylesheets/sharing.css
     - public/stylesheets/type.css
     - public/stylesheets/vote.css
+    - public/stylesheets/tipsy.css
 
   other:
     - public/stylesheets/classes.css
@@ -27,6 +28,7 @@ javascripts:
   common:
     - public/javascripts/jquery.rails.js
     - public/javascripts/jquery.timeago.js
+    - public/javascripts/jquery.tipsy.js
     - public/javascripts/tracker.js
     - public/javascripts/application.js
     - public/javascripts/twitter.js
