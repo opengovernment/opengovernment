@@ -108,10 +108,9 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   float: left;
   line-height: 3em;
   list-style: none;
-  background: url(/images/crumb_right.png) right 0 no-repeat;
-
   clear: none;
   position: relative;
+margin-left: -23px;
   z-index: 100;
 }
 
@@ -119,79 +118,24 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   float: left;
   height: 29px;
   list-style: none;
-  padding: 18px 40px 0 15px;
+  padding: 18px 60px 0 25px;
   text-decoration: none;
-
+font-size: 13px;
   line-height: 1em;
-  margin: 0;
-  position: relative;
+  margin: 0 !important;
+
+  background: url(/images/crumb_right.png) right 0 no-repeat;
 }
 
 
 
 .breadcrumb li a span{
-  -moz-border-radius-topleft: 4px;
-  padding: 0 0 0 15px;
+  margin: 0 0 0 15px;
+
 }
 
-.breadcrumb .person,
-.breadcrumb .bill{
-  z-index: 90;
-  margin-left: -30px;
-}
-
-.breadcrumb .first{
-  z-index: 95;
-  margin-left: -30px;
-}
-
-.breadcrumb .first a{
-  padding-left: 45px;
-}
-
-
-.breadcrumb li.person{
-  margin-left: -50px;
-}
-
-.breadcrumb .person a,
-.breadcrumb .bill a{
-  padding-left: 45px;
-}
-
-.breadcrumb .person a span{
-  padding-left: 22px;
-}
-
-.breadcrumb .people a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -30px no-repeat;
-}
-
-.breadcrumb .bill a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -149px no-repeat;
-}
-
-
-
-.breadcrumb .person.gender-male a span{
-  background: url(/images/male.gif) left 2px no-repeat;
-}
-
-
-.breadcrumb .person.gender-unknown a span{
-  background: url(/images/sprites.png) left -30px no-repeat;
-}
-
-.breadcrumb .bills a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -122px no-repeat;
-}
-
-
-.breadcrumb .bill{
-padding: 0 !important;
+.breadcrumb li a:hover span{
+text-decoration: underline;
 }
 
 
@@ -206,8 +150,13 @@ padding: 0 !important;
 }
 
 
-.topnav a{
+.topnav{
+margin-left: 0px !important;
+}
 
+
+li.topnav a{
+  padding: 18px 60px 0 15px;
 }
 
 
@@ -223,7 +172,7 @@ padding: 0 !important;
 }
 
 .dropdown{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
   border: 1px solid #ddd;
 
   position: absolute;

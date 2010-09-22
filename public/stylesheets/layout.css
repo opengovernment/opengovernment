@@ -757,67 +757,57 @@ background: url(/images/sprites.png) 9px -391px no-repeat;
 
 
 .sort{
-float: right;
-margin: 6px 0 0 0;
+margin: 0;
 padding: 0px;
 position: relative;
+line-height: 1em;
 }
+
 
 
 
 .sort .sort_label{
 float: left;
-padding: 6px 10px 0;
+
 }
 
 
 .sort .arrow{
 float: left;
-border-left: 1px solid #bbb;
-height: 25px;
+height: 14px;
 width: 25px;
-background: url(/images/sprites.png) -3px -312px no-repeat;
-}
-
-
-.sort:hover{
--moz-border-radius-bottomleft: 0px;
--moz-border-radius-bottomright: 0px;
-cursor: pointer;
-}
-
-
-.sort:hover .arrow{
--moz-border-radius-topright: 3px;
-background: #fff url(/images/sprites.png) -3px -312px no-repeat;
-}
-
-
-.sort:hover ul{
--moz-border-radius-topleft: 0px;
--moz-border-radius-topright: 0px;
-cursor: pointer;
+background: url(/images/sprites.png) -3px -317px no-repeat;
 }
 
 
 
 .sort ul{
-display: none;
-position: absolute;
-float: right;
-margin: 6px 0 0 0;
-padding: 0px;
-left: -1px;
-top: 19px;
-width: 100%;
+float: left;
+display: block !important;
+line-height: 1em;
+padding: 0;
+margin: 0;
+}
+
+
+
+.sort ul li{
+float: left;
+line-height: 1em;
+clear: none;
+padding: 0 !imortant;
+margin: 0;
 }
 
 
 .sort ul li a{
-display: block;
-border-bottom: 1px solid #ddd;
-padding: 10px;
+float: left;
+padding: 0 20px 0 0;
+margin: 0 !important;
+background: none !important;
 }
+
+
 
 .sort .sort_label{
 font-weight: normal !important;
@@ -825,8 +815,6 @@ font-weight: normal !important;
 
 
 .sort ul li a:hover{
-background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
-text-decoration: none;
 }
 
 .sort ul li a strong{
