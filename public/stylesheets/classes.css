@@ -7,6 +7,15 @@
 ///////////////////////////////////////////////////*/
 
 
+.spin{
+  background: transparent url(/images/gear.gif) 0 0 no-repeat !important;
+height: 25px;
+width: 25px;  
+position: absolute;
+top: 300px;
+}
+
+
 /*///////////// ~  Standard Button  ~ /////////////*/
 
 

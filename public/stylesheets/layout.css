@@ -792,17 +792,24 @@ cursor: pointer;
 background: #fff url(/images/sprites.png) -3px -312px no-repeat;
 }
 
+
+.sort:hover ul{
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 0px;
+cursor: pointer;
+}
+
+
+
 .sort ul{
 display: none;
 position: absolute;
 float: right;
 margin: 6px 0 0 0;
 padding: 0px;
-
 left: -1px;
 top: 19px;
-width: 121px;
-
+width: 100%;
 }
 
 
@@ -819,6 +826,7 @@ font-weight: normal !important;
 
 .sort ul li a:hover{
 background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
+text-decoration: none;
 }
 
 .sort ul li a strong{

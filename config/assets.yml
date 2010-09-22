@@ -17,8 +17,6 @@ stylesheets:
     - public/stylesheets/type.css
     - public/stylesheets/vote.css
 
-
-
   other:
     - public/stylesheets/classes.css
     - public/stylesheets/vote.css

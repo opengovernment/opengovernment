@@ -1,4 +1,5 @@
-%ul
-  %h3
-    = render :partial => 'corporate_entity', :locals => {:corporate_entity => sector}
+%h2.grid_6.alpha.omega
+  = render :partial => 'corporate_entity', :locals => {:corporate_entity => sector}
+
+%ul.grid_6.alpha.omega.lined
   = render :partial => 'industry', :collection => sector.industries.contributions_for_state(@state).all

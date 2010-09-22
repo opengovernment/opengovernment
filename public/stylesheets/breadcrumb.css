@@ -20,11 +20,18 @@ ul.secondary-select {
   margin: 0;
   padding: 0;  
   display: none;  
-  float: left;
-  width: 230px;  
+
+  width: 235px;  
   top: 47px;
+border: 1px solid #ccc;
   border-top: 0;
 }
+
+ul.secondary-select {
+  left: 8px !important;  
+  width: 170px !important; 
+}
+
 
 ul.state-select li,
 ul.secondary-select li {  
@@ -40,11 +47,44 @@ ul.secondary-select li a {
   float: left;
   margin: 0;
   padding-left: 25px;
-  background: none !important;
+  background: #f9f9f9 !important;
   width: 170px;  
 }
 
-ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
+
+ul.secondary-select li a {  
+  float: left;
+  margin: 0;
+  padding-left: 35px !important;
+  background: #f9f9f9 !important;
+  width: 95px;  
+}
+
+ul.state-select li a:hover,
+ul.secondary-select li a:hover{  
+
+  background: #fff !important;
+  }
+
+
+ul.secondary-select {  
+  list-style: none;  
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+  left: -1px;  
+  background: #fff;  
+  margin: 0;
+  padding: 0;  
+  display: none;  
+  float: left;
+  width: 235px;  
+  top: 47px;
+border: 1px solid #ccc;
+  border-top: 0;
+}
+
+
+ul.breadcrumb li span.subhover 
+{cursor: pointer;} /*--Hover effect for trigger--*/  
 
 .breadcrumb{
   height: 47px;
@@ -68,12 +108,26 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   float: left;
   line-height: 3em;
   list-style: none;
-  background: url(/images/crumb_right.gif) right 0 no-repeat;
-  -moz-border-radius-topleft: 4px;
+  background: url(/images/crumb_right.png) right 0 no-repeat;
+
   clear: none;
   position: relative;
   z-index: 100;
 }
+
+.breadcrumb li a{
+  float: left;
+  height: 29px;
+  list-style: none;
+  padding: 18px 40px 0 15px;
+  text-decoration: none;
+
+  line-height: 1em;
+  margin: 0;
+  position: relative;
+}
+
+
 
 .breadcrumb li a span{
   -moz-border-radius-topleft: 4px;
@@ -95,17 +149,6 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   padding-left: 45px;
 }
 
-.breadcrumb li a{
-  float: left;
-  height: 29px;
-  list-style: none;
-  padding: 18px 35px 0 15px;
-  text-decoration: none;
-  -moz-border-radius-topleft: 4px;
-  line-height: 1em;
-  margin: 0;
-  position: relative;
-}
 
 .breadcrumb li.person{
   margin-left: -50px;
@@ -147,6 +190,11 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
 }
 
 
+.breadcrumb .bill{
+padding: 0 !important;
+}
+
+
 .breadcrumb li:hover, .breadcrumb a.subhover{
   z-index: 120;
 
@@ -171,19 +219,61 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
 }
 
 .topnav:hover a:hover{
-  background: none !important;
+
 }
 
 .dropdown{
-  background: url(/images/sprites.png) left -254px no-repeat;
-}
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
+  border: 1px solid #ddd;
+
+  position: absolute;
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+
+  z-index: 999999;
+
+  top: 13px;
+  right: 27px;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 20px !important;
+  width: 20px !important;
+  }
+
+
+
 
 .dropdown:hover{
-  background: url(/images/sprites.png) left -254px no-repeat !important;
-}
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fff);
+  border: 1px solid #aaa !important;
+
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  }
 
 
+.dropdown.subhover{
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
+  border: 1px solid #ccc !important;
 
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 1px #ddd;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  }
 
 
 
