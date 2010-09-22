@@ -12,7 +12,9 @@
 height: 25px;
 width: 25px;  
 position: absolute;
-top: 300px;
+top: 78px !important;
+right: 20px;
+z-index: 999999;
 }
 
 

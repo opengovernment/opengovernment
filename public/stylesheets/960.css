@@ -12,6 +12,7 @@
 .container_16 {
   width: 960px;
   padding: 0 15px;
+  position: relative;
   margin: 0px auto 20px;
   }
 
