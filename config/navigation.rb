@@ -57,9 +57,9 @@ SimpleNavigation::Configuration.run do |navigation|
       if !@person.nil?
         person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
           m.item :overview, 'Overview', person_path(@person)
+          m.item :votes, pluralize(@person.votes.count, 'Vote'), votes_person_path(@person)
           m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
-          m.item :votes, pluralize(@person.votes.count, 'Vote'), votes_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trails_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end

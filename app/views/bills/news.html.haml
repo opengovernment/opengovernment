@@ -1,3 +1,4 @@
+- title("#{@bill.state.name} #{@bill.bill_number} News and Blog Coverage")
 
 .grid_16
   %h1
@@ -5,20 +6,23 @@
       = "#{@bill.state.name} #{@bill.chamber.name} Bill "
     %span
       = "#{@bill.bill_number}"
-
     %hr
+
+%hr.grid_16
 
 = render :partial => 'nav'
 
-- if @bill.citations.count > 0
-  %div.grid_12
-    %h2 Citations
-    %div.grid_4.alpha
+%div.grid_12
+  - if @bill.citations.empty?
+    %div.no_results There were no news results for this bill.
+  - else
+    %div.grid_12.alpha.omega
+      Here are all the bill news results.
+    %div.grid_6.alpha
       %h3 Google News
       %ul.lined.and_spaced.with_titles
         = render :partial => 'shared/citation', :collection => @bill.google_news_citations
-
-    %div.grid_4
+    %div.grid_6.omega
       %h3 Blogs
       %ul.lined.and_spaced.with_titles
         = render :partial => 'shared/citation', :collection => @bill.google_blog_citations
