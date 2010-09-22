@@ -4,6 +4,9 @@
   %h1 Votes by #{@person.full_name}
   %hr
 
+= render(:partial => 'nav')
+
+.grid_12
   - if @roll_calls.total_entries > 0
     = will_paginate @roll_calls
     %table.vote_summary

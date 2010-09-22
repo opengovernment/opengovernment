@@ -16,6 +16,7 @@ OpenGov::Application.routes.draw do
         get :sponsored_bills
         get :votes
         get :money_trail
+        get :discuss
       end
     end
 
@@ -24,11 +25,16 @@ OpenGov::Application.routes.draw do
     resource :money_trail, :only => [:show]
 
     match '/bills', :to => 'bills#index', :as => 'bills'
+    match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
+    match '/bills/lower', :to => 'bills#lower', :as => 'bills_lower'
+
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :major_actions
         get :news
         get :money_trail
+        get :votes
+        get :discuss
       end
       shallow do
         resources :actions, :only => [:show]

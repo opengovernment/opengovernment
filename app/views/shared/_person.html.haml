@@ -1,5 +1,5 @@
 %li.person
-  %a{:href=>person_path(person)}  
+  %a{:href => person_path(person)}  
 
     %span.small_thumbnail
       != photo_for(person, :thumb) 
@@ -7,5 +7,5 @@
     %span{:class => "person_name #{person.gender_class}"}
       != person.full_name
 
- 
-    %span.person_district= person.district_name
+    %span.person_district= person.try(:district_name)
+    %span.person_party= Role.party_fm(person.try(:party))

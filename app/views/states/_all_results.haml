@@ -12,6 +12,17 @@
           People
           - surround '(',')' do
             = @legislators.total_entries rescue 0
+      %li
+        %a
+          Committees
+          - surround '(',')' do
+            = @committees.total_entries rescue 0
+      %li
+        %a
+          Contributions
+          - surround '(',')' do
+            = @contributions.total_entries rescue 0
+
 
   .grid_12
     - unless @bills.empty?
@@ -32,6 +43,31 @@
           - @legislators.each do |leg|
             %li[leg]
               != link_to(leg.full_name, person_path(leg))
-
-
         = will_paginate @legislators
+
+    - unless @committees.empty?
+      %aside.search_sidebar.span-4
+        %p.sort
+
+      %div.search_results.span-20.last
+        %h2 Committees
+        %ul.committees
+          - @committees.each do |committee|
+            %li[committee]
+              != link_to(committee.name, committee_path(committee))
+        = will_paginate @committees
+
+
+    - unless @contributions.empty?
+      %aside.search_sidebar.span-4
+        %p.sort
+
+      %div.search_results.span-20.last
+        %h2 Contributions
+        %ul.contributions
+          - @contributions.each do |contribution|
+            %li[contribution]
+              != contribution.contributor_name
+        = will_paginate @contributions
+
+

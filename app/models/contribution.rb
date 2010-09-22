@@ -1,8 +1,9 @@
 class Contribution < ActiveRecord::Base
-  belongs_to :candidate, :class_name => 'Person'
-  belongs_to :business
+  belongs_to :person
+  belongs_to :corporate_entity
 
   define_index do
     indexes contributor_name, :sortable => true
+    has state_id
   end
 end

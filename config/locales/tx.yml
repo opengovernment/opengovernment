@@ -1,8 +1,12 @@
 tx:
   states:
     show:
-        intro: "Welcome to OpenGovernment.org Texas!"
-        state_population: "No population data."
-        state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
-        state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+        intro: "Welcome to OpenGovernment.org Texas! Please find below an introduction to the Texas state legislature, with more links below to resources for connecting with the state executive and judicial branches of government."
+        state_upper_chamber: "32 Senators: 12 Democrats, 20 Republicans, 0 Other."
+        state_lower_chamber: "150 Assemblymembers: 73 Democrats, 77 Republicans, 0 Other."
+        state_population: "2009 est. pop.: 24,782,302 (cit. <a href=\"http://quickfacts.census.gov/qfd/states/48000.html\">Census.gov</a>"
+        state_pop_per_upper_chamber_member: "Each senator serves a four-year term and represents approx. 774,447 Texans"
+        state_pop_per_lower_chamber_member: "Each member serves a two-year term and represents approx. 165,215 Texans"
+        state_last_election_upper_chamber: "Last election: Nov. 4th, 2008. 15 seats were up for election (9 R, 6 D). Incumbents re-elected (# R, #D). Over the past ## cycles, incumbents win ##% of the times they run. Democrats gained 1 seat, District #. One Republican resigned and was replaced by a Republican."
+        state_next_election_upper_chamber: "Next election: Nov. 2nd, 2010. 15 seats are up for election (12 R, 3 D). 8 Republicans are running unopposed, "
       

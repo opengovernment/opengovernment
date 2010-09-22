@@ -2,45 +2,45 @@
 
 - case @search_type
   - when "all"
-    %h1.grid_16
-      Searching all of 
-      = @state.name
-      %span.results_count
-        = "( #{@total_entries} )"
+    .grid_16
+      %h1
+        Searching all of 
+        = @state.name
+      %span.results_count #{@total_entries} results
     = render :partial => "all_results"
 
   - when "bills"
-    %h1.grid_16
-      Searching
-      = @state.name
-      Bills
-      %span.results_count
-        = "( #{@total_entries} )"
+    .grid_16
+      %h1
+        Searching
+        = @state.name
+        Bills
+      %span.results_count #{@total_entries} results
     = render :partial => "bills_results"
 
   - when "legislators"
-    %h1.grid_16
-      Searching
-      = @state.name
-      Legislators
-      %span.results_count
-        = "( #{@total_entries} )"
+    .grid_16
+      %h1
+        Searching
+        = @state.name
+        Legislators
+      %span.results_count #{@total_entries} results
     = render :partial => "legislators_results"
 
   - when "committees"
-    %h1.grid_16
-      Searching
-      = @state.name
-      Committee
-      %span.results_count
-        = "( #{@total_entries} )"
+    .grid_16
+      %h1
+        Searching
+        = @state.name
+        Committee
+      %span.results_count #{@total_entries} results
     = render :partial => "committees_results"
 
   - when "contributions"
-    %h1.grid_16
-      Searching
-      = @state.name
-      Contributions
-      %span.results_count
-        = "( #{@total_entries} )"
+    .grid_16
+      %h1
+        Searching
+        = @state.name
+        Contributions
+      %span.results_count #{@total_entries} results
     = render :partial => "contributions_results"

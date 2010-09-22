@@ -25,48 +25,55 @@ class Person < ActiveRecord::Base
   has_many :committees, :through => :committee_memberships
 
   has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
-  has_one :chamber, :through => :current_roles
+  has_one :chamber, :through => :roles
 
   has_many :sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
 
-  has_many :contributions, :foreign_key => "candidate_id", :order => "amount desc", :limit => 20
+  has_many :contributions, :order => "amount desc", :limit => 20
   has_many :ratings, :order => "timespan desc"
 
-  has_many :business_contributions, :foreign_key => "candidate_id",
+
+# These queries also assume that contributions are ONLY associated
+# with Businesses.
+
+  has_many :business_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
               SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
+              FROM corporate_entities b
               inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
+              where c.person_id = #{id}
               group by b.name
               order by amount desc
               limit 20
           }
 
-  has_many :industry_contributions, :foreign_key => "candidate_id",
+  has_many :industry_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
-              inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
-              group by b.name
-              order by amount desc
-              limit 20
+             SELECT i.id, i.name, sum(c.amount) as amount
+             FROM corporate_entities b
+             inner join contributions c on c.business_id = b.id
+             inner join corporate_entities i on i.id = b.industry_id
+             where c.person_id = #{id}
+--             and i.type = 'Industry'
+             group by i.id, i.name
+             order by amount desc
+             limit 20
           }
 
-  has_many :sector_contributions, :foreign_key => "candidate_id",
+  has_many :sector_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
            :finder_sql => %q{
-              SELECT b.name, sum(c.amount) as amount
-              FROM businesses b
-              inner join contributions c on c.business_id = b.id
-              where c.candidate_id = #{self.id}
-              group by b.name
-              order by amount desc
-              limit 20
+             SELECT s.id, s.name, sum(c.amount) as amount
+             FROM corporate_entities b
+             inner join contributions c on c.business_id = b.id
+             inner join corporate_entities s on s.id = b.sector_id
+             where c.person_id = #{id}
+             group by s.id, s.name
+             order by amount desc
+             limit 20
           }
 
   has_many :roll_calls do
@@ -118,6 +125,7 @@ class Person < ActiveRecord::Base
 
     has chamber(:id), :as => :chamber_id, :facet => true
     has "current_district_order_for(people.id)", :as => :district_order, :type => :string
+    has "current_state_for(people.id)", :as => :state_id, :type => :integer
   end
 
   def full_name
@@ -158,6 +166,14 @@ class Person < ActiveRecord::Base
 
   def youtube_url
     youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
+  end
+
+  def state_id
+    current_roles.try(:first).try(:state_id)
+  end
+ 
+  def state
+   state_id ? State.find(state_id) : nil
   end
 
   def has_contributions?

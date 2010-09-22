@@ -13,8 +13,10 @@ stylesheets:
     - public/stylesheets/sharing.css
     - public/stylesheets/breadcrumb.css
   other:
+    - public/stylesheets/classes.css
     - public/stylesheets/vote.css
     - public/stylesheets/twitter.css
+    - public/stylesheets/find_box.css
   
 javascripts:
   common:

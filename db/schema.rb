@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 58) do
+ActiveRecord::Schema.define(:version => 59) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -93,15 +93,6 @@ ActiveRecord::Schema.define(:version => 58) do
     t.datetime "updated_at"
   end
 
-  create_table "businesses", :force => true do |t|
-    t.string   "name"
-    t.integer  "nimsp_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
-    t.string   "ancestry"
-  end
-
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "votesmart_id"
@@ -154,7 +145,7 @@ ActiveRecord::Schema.define(:version => 58) do
   end
 
   create_table "contributions", :force => true do |t|
-    t.integer  "candidate_id"
+    t.integer  "person_id"
     t.integer  "business_id"
     t.integer  "contributor_state_id"
     t.string   "contributor_occupation"
@@ -166,10 +157,18 @@ ActiveRecord::Schema.define(:version => 58) do
     t.string   "contributor_zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state_id"
   end
 
-# Could not dump table "districts" because of following StandardError
-#   Unknown type 'geometry' for column 'geom'
+  create_table "corporate_entities", :force => true do |t|
+    t.string   "name"
+    t.integer  "nimsp_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+    t.integer  "sector_id"
+    t.integer  "industry_id"
+  end
 
   create_table "industries", :force => true do |t|
     t.string   "business_name"
