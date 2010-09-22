@@ -1,7 +1,8 @@
 class View
-  include MongoMapper::Document
+  include MongoMapper::EmbeddedDocument
+
   key :created_at
-  key :user_id
-  belongs_to :page
-  scope :since, lambda {|date| where(:created_at.gte => date)}
+  key :og_user_id, Integer
+
+#  scope :since, lambda {|date| where(:created_at.gte => date)}
 end

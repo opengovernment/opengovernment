@@ -23,4 +23,9 @@
     .recent_vote
       != bill.votes.count
       votes have occurred on this bill
+      
+    - if MongoMapper.connected?
+      .view_count
+        != bill.views
+        views
   .clear

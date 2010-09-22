@@ -24,7 +24,7 @@ OpenGov::Application.routes.draw do
 
     resources :sigs, :only => [:index, :show]
     resources :issues, :only => [:index, :show]
-    resources :money_trails, :only => [:index, :show]
+    resources :money_trails, :only => [:index, :show], :path => 'money_trail'
 
     match '/bills', :to => 'bills#index', :as => 'bills'
     match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
