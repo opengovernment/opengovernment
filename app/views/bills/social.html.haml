@@ -1,0 +1,16 @@
+- title("#{@bill.state.name} #{@bill.bill_number} Social Media Mentions")
+
+.grid_16
+  %h1
+    %span.state-and-chamber
+      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
+    %span
+      = "#{@bill.bill_number}"
+    %hr
+
+%hr.grid_16
+
+= render :partial => 'nav'
+
+%div.grid_12
+  %p Social media mentions...
