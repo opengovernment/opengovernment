@@ -1,3 +1,3 @@
-Clearance.configure do |config|
-  config.mailer_sender = 'donotreply@opengovernment.org'
-end
+#Clearance.configure do |config|
+#  config.mailer_sender = 'donotreply@opengovernment.org'
+#end

@@ -11,7 +11,63 @@ border-bottom: 0 !important;
 
 
 /* State selector menu */
-ul.breadcrumb li ul.state-select {  
+ul.state-select,
+ul.secondary-select {  
+  list-style: none;  
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+  left: -1px;  
+  background: #fff;  
+  margin: 0;
+  padding: 0;  
+  display: none;  
+
+  width: 235px;  
+  top: 47px;
+border: 1px solid #ccc;
+  border-top: 0;
+}
+
+ul.secondary-select {
+  left: 8px !important;  
+  width: 170px !important; 
+}
+
+
+ul.state-select li,
+ul.secondary-select li {  
+  list-style: none;
+  background: none !important;
+  border-top: 1px solid #ddd;
+margin: 0 !important;
+float: left;
+}
+
+ul.state-select li a,
+ul.secondary-select li a {  
+  float: left;
+  margin: 0;
+  padding-left: 25px;
+  background: #f9f9f9 !important;
+  width: 170px;  
+}
+
+
+ul.secondary-select li a {  
+  float: left;
+  margin: 0;
+  padding-left: 35px !important;
+  background: #f9f9f9 !important;
+  width: 95px;  
+}
+
+ul.state-select li a:hover,
+ul.secondary-select li a:hover{  
+
+  background: #fff !important;
+  }
+
+
+ul.secondary-select {  
   list-style: none;  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
   left: -1px;  
@@ -20,33 +76,15 @@ ul.breadcrumb li ul.state-select {
   padding: 0;  
   display: none;  
   float: left;
-  width: 230px;  
+  width: 235px;  
   top: 47px;
+border: 1px solid #ccc;
   border-top: 0;
 }
 
-ul.breadcrumb li ul.state-select li {  
-  list-style: none;
-  background: none !important;
-  border-top: 1px solid #ddd;
-margin: 0 !important;
-float: left;
-}
 
-ul.breadcrumb li ul.state-select li a {  
-  float: left;
-  margin: 0;
-  padding-left: 25px;
-  background: none !important;
-  width: 170px;  
-}
-
-ul.breadcrumb li ul.state-select li a:hover{  
-
-
-}
-
-ul.breadcrumb li span.subhover {background-position: center bottombottom; cursor: pointer;} /*--Hover effect for trigger--*/  
+ul.breadcrumb li span.subhover 
+{cursor: pointer;} /*--Hover effect for trigger--*/  
 
 .breadcrumb{
   height: 47px;
@@ -70,82 +108,34 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
   float: left;
   line-height: 3em;
   list-style: none;
-  background: url(/images/crumb_right.gif) right 0 no-repeat;
-  -moz-border-radius-topleft: 4px;
   clear: none;
   position: relative;
+margin-left: -23px;
   z-index: 100;
-}
-
-.breadcrumb li a span{
-  -moz-border-radius-topleft: 4px;
-  padding: 0 0 0 15px;
-}
-
-.breadcrumb .person,
-.breadcrumb .bill{
-  z-index: 90;
-  margin-left: -30px;
-}
-
-.breadcrumb .first{
-  z-index: 95;
-  margin-left: -30px;
-}
-
-.breadcrumb .first a{
-  padding-left: 45px;
 }
 
 .breadcrumb li a{
   float: left;
   height: 29px;
   list-style: none;
-  padding: 18px 35px 0 15px;
+  padding: 18px 60px 0 25px;
   text-decoration: none;
-  -moz-border-radius-topleft: 4px;
+font-size: 13px;
   line-height: 1em;
-  margin: 0;
-  position: relative;
-}
+  margin: 0 !important;
 
-.breadcrumb li.person{
-  margin-left: -50px;
-}
-
-.breadcrumb .person a,
-.breadcrumb .bill a{
-  padding-left: 45px;
-}
-
-.breadcrumb .person a span{
-  padding-left: 22px;
-}
-
-.breadcrumb .people a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -30px no-repeat;
-}
-
-.breadcrumb .bill a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -149px no-repeat;
+  background: url(/images/crumb_right.png) right 0 no-repeat;
 }
 
 
 
-.breadcrumb .person.gender-male a span{
-  background: url(/images/male.gif) left 2px no-repeat;
+.breadcrumb li a span{
+  margin: 0 0 0 15px;
+
 }
 
-
-.breadcrumb .person.gender-unknown a span{
-  background: url(/images/sprites.png) left -30px no-repeat;
-}
-
-.breadcrumb .bills a span{
-  padding-left: 22px;
-  background: url(/images/sprites.png) left -122px no-repeat;
+.breadcrumb li a:hover span{
+text-decoration: underline;
 }
 
 
@@ -160,8 +150,13 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
 }
 
 
-.topnav a{
+.topnav{
+margin-left: 0px !important;
+}
 
+
+li.topnav a{
+  padding: 18px 60px 0 15px;
 }
 
 
@@ -173,19 +168,61 @@ background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
 }
 
 .topnav:hover a:hover{
-  background: none !important;
+
 }
 
-#dropdown{
-  background: url(/images/sprites.png) left -254px no-repeat;
-}
+.dropdown{
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
+  border: 1px solid #ddd;
 
-#dropdown:hover{
-  background: url(/images/sprites.png) left -254px no-repeat !important;
-}
+  position: absolute;
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+
+  z-index: 999999;
+
+  top: 13px;
+  right: 27px;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 20px !important;
+  width: 20px !important;
+  }
 
 
 
+
+.dropdown:hover{
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fff);
+  border: 1px solid #aaa !important;
+
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  }
+
+
+.dropdown.subhover{
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
+  border: 1px solid #ccc !important;
+
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 1px #ddd;
+  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
+  }
 
 
 

@@ -18,7 +18,7 @@
     %ul.button.people_sorts
       - @sorts.each do |k, v|
         %li
-          = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
+          = link_to(v, url_for(:sort => k), :class => k == @sort ? 'active' : '')
 
   %ul.tabs
  

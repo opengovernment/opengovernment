@@ -12,30 +12,14 @@ class PeopleController < ApplicationController
     @chamber = @state.upper_chamber
     @current_tab = :upper
     
-    @people =
-      case @sort
-        when "views"
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-        else
-          people_by_facets
-      end
-    
-    render :template => 'people/index'
+    render_people
   end
 
   def lower
     @chamber = @state.lower_chamber
     @current_tab = :lower
-    
-    @people =
-      case @sort
-        when "views"
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id))
-        else
-          people_by_facets
-      end
 
-    render :template => 'people/index'
+    render_people
   end
 
   def votes
@@ -59,6 +43,11 @@ class PeopleController < ApplicationController
         @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
       end
     end
+  end
+  
+  def money_trails
+    @sectors = Sector.aggregates_for_person(@person).all
+    @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
   end
 
   protected
@@ -97,14 +86,30 @@ class PeopleController < ApplicationController
       return nil
     end
   end
-
-  
+    
   def setup_sort
     @sort = params[:sort] || 'name'
 
+    # check our MongoMapper connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'name'
+    end
+
     @sorts = {:name => 'Name',
       :district => 'District',
-      :citations => 'Public Interest'}
+      :citations => 'Most In The News',
+      :views => 'Most Viewed'}
   end
 
+  def render_people
+    @people =
+      case @sort
+        when 'views'
+          Person.find(Page.most_viewed('Person').collect(&:og_object_id), :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party")
+        else
+          people_by_facets
+      end
+   
+    render :template => 'people/index'
+  end
 end

@@ -1,0 +1,1 @@
+$("#industry_<%= @industry.id %>").html("<%= escape_javascript(render(:partial => 'contribution', :collection => @contributions))%>");

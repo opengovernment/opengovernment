@@ -9,3 +9,6 @@
 
     %span.person_district= person.try(:district_name)
     %span.person_party= Role.party_fm(person.try(:party))
+
+    .person_views #{person.views} Views
+    .person_citations #{person.citations.since(30.days.ago).count} News & blog entries, past 30 days

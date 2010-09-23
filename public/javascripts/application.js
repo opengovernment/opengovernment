@@ -57,6 +57,7 @@ function create_dropdown_menu(anchor_div, menu_div) {
 
 $(document).ready(function() {
   create_dropdown_menu("a#dropdown", "ul.state-select");
+  create_dropdown_menu("a#secondary_dropdown", "ul.secondary-select");
 });
 
 function replaceURLWithHTMLLinks(text) {

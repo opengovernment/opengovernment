@@ -7,22 +7,24 @@
 
 %hr.grid_16
 
-= render(:partial => 'nav')
-
 .grid_16.alpha
-  %nav.grid_4.alpha
-    #left_nav
-      = render_navigation(:level => 3)
+  = render(:partial => 'nav')
 
-  - if @person.citations.count > 0
-    .grid_8.omega
-      %h2 Citations
-      .grid_4.alpha
-        %h3 Google News
-        %ul.lined.and_spaced.with_titles
-          = render :partial => 'shared/citation', :collection => @person.google_news_citations
-
-      .grid_4.omega
-        %h3 Blogs
-        %ul.lined.and_spaced.with_titles
-          = render :partial => 'shared/citation', :collection => @person.google_blog_citations
+  .grid_12.omega
+    - if @person.citations.empty?
+      %div.no_results
+        There were no news results for
+        = @person.full_name
+    - else
+      .grid_12
+        Here are all the news results for
+        = @person.full_name
+      .grid_12
+        .grid_6.alpha
+          %h3 Google News
+          %ul.lined.and_spaced.with_titles
+            = render :partial => 'shared/citation', :collection => @person.google_news_citations
+        .grid_6.omega
+          %h3 Blogs
+          %ul.lined.and_spaced.with_titles
+            = render :partial => 'shared/citation', :collection => @person.google_blog_citations

@@ -1,4 +1,6 @@
 OpenGov::Application.routes.draw do
+  devise_for :users, :path => 'users', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
   constraints(Subdomain) do
@@ -15,14 +17,14 @@ OpenGov::Application.routes.draw do
         get :news
         get :sponsored_bills
         get :votes
-        get :money_trail
+        get :money_trails
         get :discuss
       end
     end
 
     resources :sigs, :only => [:index, :show]
     resources :issues, :only => [:index, :show]
-    resource :money_trail, :only => [:show]
+    resources :money_trails, :only => [:index, :show], :path => 'money_trail'
 
     match '/bills', :to => 'bills#index', :as => 'bills'
     match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
@@ -32,7 +34,7 @@ OpenGov::Application.routes.draw do
       member do
         get :major_actions
         get :news
-        get :money_trail
+        get :money_trails
         get :votes
         get :discuss
       end
@@ -63,6 +65,7 @@ OpenGov::Application.routes.draw do
     end
     resources :taggings, :only => [:create, :destroy]
   end
+
 
   match '/search' => 'districts#search', :as => 'search'
 

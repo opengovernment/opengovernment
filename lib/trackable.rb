@@ -1,6 +1,6 @@
 module Trackable
   def page
-    Page.by_object(self.id.to_s, self.class.to_s).first
+    Page.by_object(self.class.to_s, self.id).first
   end
 
   def views(since=nil)

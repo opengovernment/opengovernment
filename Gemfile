@@ -18,7 +18,8 @@ gem "capistrano-ext"
 gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 
 # Basic authentication
-gem "clearance"
+# gem "clearance"
+gem "devise"
 
 # GIS & Geocoding
 gem "GeoRuby"

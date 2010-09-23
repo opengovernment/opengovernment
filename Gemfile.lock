@@ -68,6 +68,7 @@ GEM
     autotest (4.3.2)
     autotest-rails (4.1.0)
       ZenTest
+    bcrypt-ruby (2.1.2)
     bson (1.0.7)
     bson_ext (1.0.7)
     builder (2.1.2)
@@ -88,7 +89,6 @@ GEM
       selenium-webdriver (>= 0.0.3)
     chronic (0.2.3)
       hoe (>= 1.2.1)
-    clearance (0.8.8)
     closure-compiler (0.3.2)
     columnize (0.3.1)
     configuration (1.1.0)
@@ -103,6 +103,9 @@ GEM
       cucumber (>= 0.8.0)
     culerity (0.2.12)
     database_cleaner (0.5.2)
+    devise (1.1.2)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 0.10.7)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -220,6 +223,8 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.23)
+    warden (0.10.7)
+      rack (>= 1.0.0)
     will_paginate (3.0.pre2)
     yui-compressor (0.9.1)
 
@@ -236,10 +241,10 @@ DEPENDENCIES
   capistrano-ext
   capybara
   chronic
-  clearance
   cucumber
   cucumber-rails
   database_cleaner
+  devise
   factory_girl_rails
   formtastic!
   geokit
