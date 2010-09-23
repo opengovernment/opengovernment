@@ -9,6 +9,9 @@
       != bill.title
 
   .bill_status
+    .sponsor_mugs
+      = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
+
     .action_status
       = bill.actions.first.try(:kinds)
 
@@ -23,7 +26,7 @@
     .recent_vote
       != bill.votes.count
       votes have occurred on this bill
-      
+    
     - if MongoMapper.connected?
       .view_count
         != bill.views

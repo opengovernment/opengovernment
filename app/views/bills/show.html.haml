@@ -61,14 +61,14 @@
 
   .grid_6.alpha
     %h2 Sponsors
-    - @sponsors.each do |s|
-      = s.sponsor_id? ? link_to(photo_for(s.sponsor, :tiny), person_path(s.sponsor), :rel => 'tipsy', :title => s.sponsor.full_name) : nil
+    = sponsor_mugs(@sponsors)
     %ul.lined
       - @sponsors.each do |s|
-        %li
-          - surround '',',' do
-            = s.sponsor_id? ? link_to(s.sponsor_name, person_path(s.sponsor)) : s.sponsor_name
-          = s.kind_fm
+        - if !s.sponsor_id || s.sponsor.photo_url.blank?
+          %li
+            - surround '',',' do
+              = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
+            = s.kind_fm
 
   .grid_6.omega
     - if @bill.versions.count > 0

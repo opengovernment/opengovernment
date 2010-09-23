@@ -59,7 +59,7 @@
   #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
 
   %h2 Full Roll Call
-  - unless @vote.roll_calls
+  - unless @vote.roll_calls.size > 0
     %grid_16.alpha Sorry, no roll call is available for this vote.
   - else
     .grid_16
