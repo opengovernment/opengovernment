@@ -1,5 +1,4 @@
 - title("#{@state.name} Issues")
-- dropdown('.sort_hot', 'ul.bill_sorts')
 
 %h1.grid_16
   = "#{@state.name} Issues"
@@ -15,7 +14,7 @@
         Sort by 
         %strong= @sorts[@sort.to_sym]
       .arrow
-    %ul.button.bill_sorts
+    %ul.button.sorts
       - @sorts.each do |k, v|
         %li
           = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
