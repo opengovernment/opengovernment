@@ -26,3 +26,6 @@ tx:
         next_election_date: "Nov. 2, 2010"
         next_election_upper_chamber_seats_available: "15 seats up for election"
         next_session_start_date: "Jan. 11, 2011"
+  bills:
+    videos:
+      miro_url: 'http://txopengov.mirocommunity.org/'
