@@ -172,13 +172,13 @@
     $.fn.tipsy.defaults = {
         delayIn: 0,
         delayOut: 0,
-        fade: false,
+        fade: true,
         fallback: '',
-        gravity: 'n',
+        gravity: 'sw',
         html: false,
         live: false,
         offset: 0,
-        opacity: 0.8,
+        opacity: 1,
         title: 'title',
         trigger: 'hover'
     };

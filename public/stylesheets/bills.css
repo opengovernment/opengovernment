@@ -31,16 +31,13 @@ padding-right: 5px;
   
 
 .bill_status{ 
-
+padding: 5px 12px;
   font-size: 11px;
-  color: #999;
+  color: #666;
 margin-top: 15px;
-background: #f9f9f9;
+background: #f3f7f7;
 clear: both;
-overflow: auto;  
-
-
-  
+ 
   
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
@@ -52,12 +49,56 @@ overflow: auto;
 
 
 .bill_status div{
-  float: left;
-padding: 5px 10px;
+padding: 0px 0px 5px;
   padding-right: 20px;
-border-right: 1px solid #efefef;
   }
   
+
+
+
 .sponsor_mug {
   padding-left: 1px;
 }
+
+
+.sponsor_mugs{
+margin: 5px 0;
+float: right !important;
+height: 55px;
+padding: 0 !important;
+}
+
+
+
+.sponsor_mugs span{
+float: right;
+clear: both;
+display: block;
+}
+
+
+
+
+.sponsor_mugs a{
+float:right;
+padding: 2px;
+margin: 0 0px 10px 10px;
+box-shadow: 0 1px 1px #999;
+  -moz-box-shadow: 0 1px 1px #666;
+  -webkit-box-shadow: 0 1px 1px #999;
+ 
+ overflow: hidden !important;
+ 
+ border-radius: 2px;
+  -moz-border-radius: 1px !important;
+  -webkit-border-radius: 1px;
+
+background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+}
+
+
+.sponsor_mugs img{
+border: 1px solid #fff;
+}
+
+

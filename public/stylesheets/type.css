@@ -50,6 +50,7 @@ line-height:1em;
 margin: 0 0 10px; 
 width: 100%; 
 float: left; 
+text-transform: uppercase;
 font-weight: bold;
 }
 
@@ -58,10 +59,13 @@ font-weight: bold;
 h4 {
 font-size:12px;
 line-height:1.25;
-margin: 0 0 10px; 
+padding: 0 0 5px; 
+margin: 0 0 5px;
 color: #333; 
+border-bottom: 1px solid #d5e1ee;
 font-weight: bold;
 float: left; 
+text-transform: uppercase;
 width: 100%;
 }
 
