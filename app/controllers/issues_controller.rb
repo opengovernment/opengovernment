@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
   before_filter :get_issue, :only => [:show]
+  before_filter :get_state
 
   def index
     respond_to do |format|
