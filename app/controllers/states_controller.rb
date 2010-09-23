@@ -76,7 +76,6 @@ class StatesController < ApplicationController
           @contributions = Contribution.search(@query, @search_options)
           @total_entries = @contributions.total_entries
       end
-      render :template => "states/results.html.haml"
     else
       render :nothing => true
     end
