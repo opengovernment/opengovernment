@@ -4,7 +4,7 @@
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 - track(@bill)
-- tweets(@bill.to_hashtags)
+- tweets(@bill.to_hashtags, 2)
 
 .grid_16
 
@@ -97,4 +97,6 @@
   .grid_12.alpha
     #twitter(style="display: none;")
       %h2 Tweets
+      #notweets(style="display: none;")
+        %p Sorry, there were no tweets found for #{@bill.bill_number}.
       %ul#tweets

@@ -39,3 +39,13 @@
             %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
             %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
             %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
+
+
+  - if @bill.major_actions.count > 0
+    .sort
+      %ul
+        %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions", bill_path(@bill.session, @bill, :actions => 'major'), :remote => true}
+        %li.divider |
+        %li{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions", bill_path(@bill.session, @bill, :actions => 'all'), :remote => true}
+      .grid_12.alpha
+        #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}

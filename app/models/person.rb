@@ -20,7 +20,11 @@ class Person < ActiveRecord::Base
   validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
 
   has_many :roles, :dependent => :destroy
-  has_many :addresses, :dependent => :destroy
+  has_many :addresses, :dependent => :destroy do
+    def in_district
+      where("addresses.votesmart_type = 'District'")
+    end
+  end
   has_many :committee_memberships, :dependent => :destroy
   has_many :committees, :through => :committee_memberships
 
@@ -145,6 +149,10 @@ class Person < ActiveRecord::Base
 
   def gender_class
     "gender-" + gender_fm.parameterize
+  end
+
+  def district_office_city
+    addresses.in_district.first.try(:city)
   end
 
   def current_role
