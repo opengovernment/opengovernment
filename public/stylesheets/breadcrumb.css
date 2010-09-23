@@ -55,7 +55,7 @@ ul.secondary-select li a {
 ul.secondary-select li a {  
   float: left;
   margin: 0;
-  padding-left: 35px !important;
+  padding-left: 15px !important;
   background: #f9f9f9 !important;
   width: 95px;  
 }

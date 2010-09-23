@@ -1,12 +1,52 @@
-.tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
-  .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+.tipsy { 
+padding: 5px; 
+font-size: 10px; 
+position: absolute; 
+z-index: 100000; 
+
+}
+
+
+  .tipsy-inner { 
+  padding: 8px 13px 8px 13px; 
+  background-color: #fff; color: #333; 
+  max-width: 200px; text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  font-size: 12px;
+  text-shadow: 0 1px 0px #fff;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 2px #aaa, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #d6e8eb); /* for firefox 3.6+ */
+  }
+
+
+
   .tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
-  .tipsy-arrow { position: absolute; background: url('../images/tipsy.gif') no-repeat top left; width: 9px; height: 5px; }
+  .tipsy-arrow { position: absolute; background: url('../images/tipsy.png') no-repeat top left;
+ width:13px; height: 8px; 
+
+}
   .tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
     .tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
     .tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
   .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
-    .tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+    .tipsy-sw .tipsy-arrow { bottom: -2px; left: 10px; background-position: bottom left; }
     .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
   .tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
   .tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }

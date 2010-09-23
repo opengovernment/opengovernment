@@ -8,7 +8,8 @@
     %span.bill_title
       != bill.title
 
-  .bill_status
+
+  .bill_status.rounded
     .sponsor_mugs
       = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
 
