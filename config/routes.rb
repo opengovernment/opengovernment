@@ -38,6 +38,7 @@ OpenGov::Application.routes.draw do
         get :money_trails
         get :social
         get :votes
+        get :videos
         get :discuss
       end
       shallow do

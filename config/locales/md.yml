@@ -5,4 +5,7 @@ md:
       state_population: "No population data."
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
-      
+  bills:
+    videos:
+      miro_url: 'http://mdopengov.mirocommunity.org/'
+          
