@@ -2,7 +2,7 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Votes by #{@person.official_name}"})
 - track(@person)
-- tweets(@person.full_name)
+- tweets(@person.full_name, 2)
 
 .grid_16.alpha
   %aside.take_action

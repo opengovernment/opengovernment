@@ -7,14 +7,14 @@ TwitterAPI.search = function(q, callback){
 	$.getJSON(requestURL, callback);
 }
 
-TwitterAPI.refresh = function(q) {
+TwitterAPI.refresh = function(q, limit) {
   TwitterAPI.search(q, function(json, status){
   	var content = "";
     var count = 0;
 
   	$.each(json['results'], function(i) {
   	  count += 1;
-  	  if (i <= 5) {
+  	  if (i <= limit) {
     	  created_at = new Date(this['created_at']);
     		tweet = '<span class="from_user"><a rel="nofollow" href="http://twitter.com/' + escape(this['from_user']) + '">' + this['from_user'] + '</a></span> ';
     		tweet += '<span class="text">' + replaceURLWithHTMLLinks(this['text']) + "</span>";
@@ -27,16 +27,18 @@ TwitterAPI.refresh = function(q) {
       $("#twitter").show();
   	  $("ul#tweets").html(content);
   	  jQuery("time.timeago").timeago(); 
+    } else {
+      $("#twitter").show();
+      $("#notweets").show();
     }
 
   });
 }
 
-
-TwitterAPI.hook = function(q) {
+TwitterAPI.hook = function(q, limit) {
   $(document).ready(function() {
-    TwitterAPI.refresh(q);
+    TwitterAPI.refresh(q, limit);
   });
 
-  setInterval(function() { TwitterAPI.refresh(q);  }, 30000);
+  setInterval(function() { TwitterAPI.refresh(q, limit);  }, 30000);
 }

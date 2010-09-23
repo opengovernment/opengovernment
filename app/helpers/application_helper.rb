@@ -40,11 +40,11 @@ module ApplicationHelper
       |)
       end
   end
-  
-  def tweets(q)
+
+  def tweets(q, limit = 5)
     javascript do
     (%Q|
-      TwitterAPI.hook("#{q}");
+      TwitterAPI.hook("#{q}", #{limit});
     |)
     end
   end

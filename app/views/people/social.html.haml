@@ -1,0 +1,20 @@
+- title("Tweets about #{@person.official_name}")
+- tweets(@person.full_name, 10)
+
+.grid_16
+  %h1.grid_13.alpha
+    Social Media Mentions for
+    = @person.full_name
+    
+%hr.grid_16
+
+= render :partial => 'nav'
+
+.grid_12.omega
+  #twitter(style="display: none;")
+    %h2 Tweets
+    .grid_6.alpha
+      #notweets(style="display: none;")
+        %p Sorry, there were no tweets found for #{@person.full_name}.
+      %ul#tweets
+    
