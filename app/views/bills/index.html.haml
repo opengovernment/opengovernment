@@ -27,18 +27,15 @@
   %hr.push_bottom
 
   .sort.grid_12.alpha.push_bottom
-    .sort_hot
-      %span.sort_label
-        Sort by 
-        %strong= @sorts[@sort.to_sym]
-      .arrow
     %ul.bill_sorts
       - @sorts.each do |k, v|
         %li
-          = link_to(v, url_for(:sort => k), :class => k == @sort ? 'active' : '')
+          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : ''))
 
   %hr.push_bottom
 
 
   %ul.lined.and_spaced#bill_list
     = render :partial => 'shared/bill', :collection => @bills
+
+  %a.all_bills{:href => search_path(:search_type => 'bills')} All Bills &rarr;

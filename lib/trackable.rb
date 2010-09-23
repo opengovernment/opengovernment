@@ -7,7 +7,7 @@ module Trackable
     return 0 unless page
 
     if since
-      page.views_since(since).count
+      page.views.since(since).count
     else
       page.views.count
     end

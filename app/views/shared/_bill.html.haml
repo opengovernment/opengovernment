@@ -8,9 +8,13 @@
     %span.bill_title
       != bill.title
 
+
   .bill_status.rounded
-    .action_status
-      = bill.actions.first.try(:kinds)
+    .sponsor_mugs
+      = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
+
+    .action_status{:class => bill.actions.first.try(:kind_classes)}
+      = bill.actions.first.try(:kind_fm)
 
     .introduced
       Introduced:
@@ -21,11 +25,10 @@
       != bill.last_action_at
 
     .recent_vote
-      != bill.votes.count
-      votes have occurred on this bill
-      
+      != pluralize(bill.votes.count, 'vote')
+      on this bill
+    
     - if MongoMapper.connected?
       .view_count
-        != bill.views
-        views
+        = pluralize(bill.views, 'view')
   .clear

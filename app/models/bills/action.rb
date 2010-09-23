@@ -58,5 +58,45 @@ class Action < ActiveRecord::Base
         "was " + action.downcase
     end
   end
+
+  def kind_fm
+    kinds.collect do |kind|
+      case kind
+        when 'bill:introduced'
+          'introduced'
+        when 'committee:passed:unfavorable', 'committee:passed:favorable'
+          'passed in committee'
+        when 'governor:signed'
+          'signed by the Governor'
+        when 'governor:received'
+          'received by the Governor'
+        when 'governor:vetoed'
+          'vetoed by the Governor'
+        when 'governor:vetoed:line-item'
+          'line-item vetoed by the Governor'
+        when 'bill:passed'
+          'passed'
+        when 'bill:failed'
+          'failed to pass'
+        when 'amendment:withdrawn'
+          'had an amendment withdrawn'
+        when 'amendment:passed'
+          'had an amendment pass'
+        when 'committee:referred'
+          'was referred to committee'
+        when 'amendment:failed'
+          'had an amendment fail'
+        when 'amendment:introduced'
+          'had an amendment introduced'
+        when 'bill:signed'
+          'signed'
+      end # case
+    end.join(' and ')
+  end
+
+  def kind_classes
+    kinds.collect { |k| k.gsub(':', '-') }.join(' ')
+  end
+
 end
 
