@@ -8,7 +8,7 @@
     %span.bill_title
       != bill.title
 
-  .bill_status
+  .bill_status.rounded
     .action_status
       = bill.actions.first.try(:kinds)
 

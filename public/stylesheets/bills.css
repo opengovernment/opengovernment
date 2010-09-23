@@ -18,28 +18,44 @@ margin-bottom: 15px !important;
 
 
 .bill_title{
-margin-bottom: 5px;
-  display: block;
+font-size: 14px;
+color: #444;
   line-height: 1.3em;
   }
 
 
 .bill_link{
-  font-size: 16px;
-  line-height: 1.3em;
-  margin-bottom: 5px;
+font-size: 14px;
+padding-right: 5px;
   }
   
 
 .bill_status{ 
+
   font-size: 11px;
-  color: #777;
-  }
+  color: #999;
+margin-top: 15px;
+background: #f9f9f9;
+clear: both;
+overflow: auto;  
+
+
+  
+  
+  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
+  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+
+
+}
 
 
 .bill_status div{
   float: left;
+padding: 5px 10px;
   padding-right: 20px;
+border-right: 1px solid #efefef;
   }
   
 
