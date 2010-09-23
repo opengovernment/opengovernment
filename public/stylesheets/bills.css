@@ -14,7 +14,10 @@ padding-bottom: 15px !important;
 margin-bottom: 15px !important;
 }
 
-
+.all_bills {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
 
 .bill_title{
