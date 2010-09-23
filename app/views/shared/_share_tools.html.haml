@@ -5,14 +5,38 @@
   .drop.button
     %ul.share
       %li.twitter
-        %a{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
+        %a.shorten_link{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
       %li.reddit
-        %a{:href => "http://reddit.com/submit?url=#{u url}&title=#{u title}"} Reddit
+        %a{:href => "http://reddit.com/submit?url=#{u url}&amp;title=#{u title}"} Reddit
       %li.digg
-        %a{:href => "http://digg.com/submit?phase=2&amp;url=#{u url}&title=#{u title}"} Digg
+        %a{:href => "http://digg.com/submit?phase=2&amp;url=#{u url}&amp;title=#{u title}"} Digg
       %li.stumble
-        %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&title=#{u title}"} StumbleUpon   
+        %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&amp;title=#{u title}"} StumbleUpon   
       %li.facebook
-        %a{:href => "http://www.facebook.com/share.php?u=#{u url}&title=#{u title}"} Facebook
-  
-  
+        %a{:href => "http://www.facebook.com/share.php?u=#{u url}&amp;title=#{u title}"} Facebook
+
+:ruby
+  footer_javascript do (%Q|
+    var bitly = new BitlyAPI("#{API_KEYS['bitly_login']}", "#{API_KEYS['bitly_key']}");
+    var og_page_title = '#{u title}';
+    var og_page_url = '#{u url}';
+    var og_submit_url;
+
+    $('a.shorten_link').click(function(event) {
+      event.preventDefault(); //stop default browser behaviour 
+
+      switch ($(this).parent().attr('class')) {
+        case 'twitter':
+          og_submit_url = 'http://twitter.com/home?status=' + og_page_title + ' SHORT_URL';
+          break;
+        // in case we add more services later...
+      }
+
+      bitly.shorten(og_page_url, function(json, status) {
+        if (json['status_code'] == '200') {
+          window.location.href = og_submit_url.replace(/SHORT_URL/, json['data']['url']);
+        }
+      });
+    });
+  |)
+  end
