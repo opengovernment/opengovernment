@@ -51,20 +51,12 @@
          	</TextSymbolizer>
          </Rule>
 
-         <% State.loadable.each do |state| %>
          <Rule>
          	<Name>href</Name>
-         	<ogc:Filter>
-                <ogc:PropertyIsEqualTo>
-                  <ogc:PropertyName>STATE_ABBR</ogc:PropertyName>
-                  <ogc:Literal><%= state.abbrev %></ogc:Literal>
-                </ogc:PropertyIsEqualTo>
-            </ogc:Filter>
          	<TextSymbolizer>
          		<Label><%= state_url(state) %></Label>
          	</TextSymbolizer>
          </Rule>
-         <% end %>
 
          <Rule>
            <Title>Labels</Title>
