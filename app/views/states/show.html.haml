@@ -47,10 +47,12 @@
           %li= link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
         %h3.margin-top
           Population
-        %p= t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
+        %p
+          Each senator serves a #{chamber.term_length} year term and represents approx.
+          =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
         %ul.lined 
-          %li= t '.state_population'
-          %li= t '.last_election_date'
+          %li= raw t '.state_population'
+          %li= raw t '.last_election_date'
         .grid_6.alpha.district_map
           = leg_map_img(@state, chamber)
 

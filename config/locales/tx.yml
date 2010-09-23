@@ -1,8 +1,20 @@
 tx:
   states:
     show:
-      intro: "Welcome to OpenGovernment.org Texas! TX State Senate: four-year terms. Each senator represents approx. 799,429 Texans (2008 est. pop of 24,782,302 divided by 31 districts). Last session, senators introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. TX State House of Representatives: two year terms. Last session, representatives introduced #### bills, of which ### passed (approx. ##%), and of which ## votes were deemed Key Votes. Each member represents approx. 165,215 Texans (2008 est. pop. of 24,782,302 divided by districts). Last election: Nov. 4th, 2008. Next election: Nov. 2nd, 2010. The TX legislature is 'adjourned sine die', which means 'without assigning a day for a further meeting or hearing', on the assumption that a new session will commence next year."
-      state_population: "2008 est. pop of 24,782,302"
-      state_pop_per_upper_chamber_member: "Each senator represents approx. 799,429 Texans"
-      state_pop_per_lower_chamber_member: "Each member represents approx. 165,215 Texans"
-      
+        intro: "Welcome to OpenGovernment.org Texas! Please find below an introduction to the Texas state legislature, with more links below to resources for connecting with the state executive and judicial branches of government."
+        state_upper_chamber: "32 Senators: 12 Democrats, 20 Republicans, 0 Other."
+        state_lower_chamber: "150 Assemblymembers: 73 Democrats, 77 Republicans, 0 Other."
+        state_population: "2009 est. pop.: 24,782,302 (cit. <a href=\"http://quickfacts.census.gov/qfd/states/48000.html\">Census.gov</a>)"
+        state_pop_per_upper_chamber_member: "774,447 Texans"
+        state_pop_per_lower_chamber_member: "165,215 Texans"
+        state_last_election_upper_chamber: "Last election: Nov. 4th, 2008. 15 seats were up for election (9 R, 6 D). Incumbents re-elected (# R, #D). Over the past ## cycles, incumbents win ##% of the times they run. Democrats gained 1 seat, District #. One Republican resigned and was replaced by a Republican."
+        state_next_election_upper_chamber: "Next election: Nov. 2nd, 2010. 15 seats are up for election (12 R, 3 D). 8 Republicans are running unopposed, "
+        current_session: "81st Legislature (Jan 13, 2009 - Dec 2010)"
+        upper_chamber_active_session_date: "Active from Jan 13 - July 2, 2009"
+        last_election_date: "Nov. 4, 2008"
+        last_election_upper_chamber_open_seats: "15 seats were up for election (9 R, 6 D)"
+        last_election_upper_chamber_incumbent_seats: "14 incumbents re-elected: (8 R, 6 D)"
+        last_election_upper_chamber_seat_changes: "Democrats gained 1 seat, District 10. One Republican resigned (District 17) and was replaced by a Republican."
+        next_election_date: "Nov. 2, 2010"
+        next_election_upper_chamber_seats_available: "15 seats up for election"
+        next_session_start_date: "Jan. 11, 2011"
