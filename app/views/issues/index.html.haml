@@ -1,5 +1,4 @@
 - title("#{@state.name} Issues")
-- dropdown('.sort_hot', 'ul.bill_sorts')
 
 %h1.grid_16
   = "#{@state.name} Issues"
@@ -8,28 +7,5 @@
 
 = render :partial => 'shared/left_nav_toplevel'
 
-#issues.grid_16
-  .sort.button
-    .sort_hot
-      %span.sort_label
-        Sort by 
-        %strong= @sorts[@sort.to_sym]
-      .arrow
-    %ul.button.bill_sorts
-      - @sorts.each do |k, v|
-        %li
-          = link_to(v, url_for(:sort => k), :remote => true, :class => k == @sort ? 'active' : '')
-  
-  %ul.tabs
-    %li
-      %a.active 
-        Senate
-    %li.divider &#124;  
-
-    %li
-      %a 
-        House of Representatives
-
-  %hr
-
+.grid_12
   = render(:partial => 'shared/issue', :collection => @issues)

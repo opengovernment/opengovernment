@@ -1,0 +1,7 @@
+- title("Videos for #{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
+
+= render :partial => 'wrapper'
+
+%p We don't have videos yet, but you can help us add them via Miro Community.
+%a{:href => t('.miro_url')}= @bill.state.name
+

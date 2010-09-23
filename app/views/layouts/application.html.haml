@@ -30,9 +30,7 @@
     %title= "OpenGovernment - " + (yield(:title) || "revealing state and local government data")
   %body{:class => page_class}
 
-
     %div.container_16
-      .spin
       %div.skip-link.screen-reader-text
         %a(href="#content" title="Skip to content") Skip to content
       %header
@@ -42,7 +40,7 @@
             %a.account(href="#content" title="Username") #{current_user ? current_user.login : 'Anonymous' }.
             - if current_user
               %a(href="/users/logout") Logout
-            %a.help(href="#content" title="Help Center") Help
+            %a.help(href="/pages/help" title="Help Center") Help
         - if current_place
           .grid_7.omega.search
             = render :partial => 'shared/search_form'

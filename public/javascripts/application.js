@@ -60,6 +60,17 @@ $(document).ready(function() {
   create_dropdown_menu("a#secondary_dropdown", "ul.secondary-select");
 });
 
+$('a[data-remote]').live('ajax:loading', function() {
+  $(this).closest('ul').find(".spin").show();
+  }
+);
+
+$('a[data-remote]').live('ajax:complete', function() {
+  $(this).closest('ul').find(".spin").hide();
+  }
+);
+
+
 function replaceURLWithHTMLLinks(text) {
   var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
   return text.replace(exp,"<a href='$1' rel='nofollow' target='_blank'>$1</a>"); 

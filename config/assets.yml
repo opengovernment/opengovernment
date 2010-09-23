@@ -13,10 +13,12 @@ stylesheets:
     - public/stylesheets/html5.css
     - public/stylesheets/jquery-ui-1.8.4.css
     - public/stylesheets/layout.css
+    - public/stylesheets/people.css
     - public/stylesheets/sharing.css
+    - public/stylesheets/tipsy.css
+
     - public/stylesheets/type.css
     - public/stylesheets/vote.css
-    - public/stylesheets/tipsy.css
 
   other:
     - public/stylesheets/classes.css

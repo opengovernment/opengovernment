@@ -8,14 +8,36 @@
 
 
 .spin{
-  background: transparent url(/images/gear.gif) 0 0 no-repeat !important;
-height: 25px;
-width: 25px;  
+  background: transparent url(/images/pulse.gif) 0 0 no-repeat !important;
+height: 31px;
+width: 31px;  
 position: absolute;
-top: 78px !important;
+top: 75px !important;
 right: 20px;
 z-index: 999999;
 }
+
+
+
+#flash{
+background: #efefef;
+padding: 20px;
+margin: 0 -16px 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #fff,  #eee); /* for firefox 3.6+ */
+  
+
+}
+
+#flash #flash_error{
+  color: red;
+font-weight: bold;
+text-align: center;
+}
+
+
+
 
 
 /*///////////// ~  Standard Button  ~ /////////////*/
@@ -68,6 +90,12 @@ z-index: 999999;
 .italic{font-style: italic;}
 
 
+
+.red{
+  color: red;
+}
+
+
 /*///////////// ~  Margins  ~ /////////////*/
 
 .margin-top{ margin-top: 13px;}
@@ -94,6 +122,7 @@ z-index: 999999;
 
 .floatright{ float: right;}
 
+.floatleft{ float: left;}
 
 
 

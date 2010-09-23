@@ -1,5 +1,4 @@
 - title("#{@state.name} Bills")
-- dropdown('.sort_hot', 'ul.bill_sorts')
 
 %h1.grid_16
   = "#{@state.name} Bills"
@@ -27,7 +26,7 @@
   %hr.push_bottom
 
   .sort.grid_12.alpha.push_bottom
-    %ul.bill_sorts
+    %ul.sorts
       - @sorts.each do |k, v|
         %li
           = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : ''))
