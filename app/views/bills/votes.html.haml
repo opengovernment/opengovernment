@@ -47,5 +47,6 @@
         %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions", bill_path(@bill.session, @bill, :actions => 'major'), :remote => true}
         %li.divider |
         %li{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions", bill_path(@bill.session, @bill, :actions => 'all'), :remote => true}
+        %li.spin(style="display: none;")
       .grid_12.alpha
         #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
