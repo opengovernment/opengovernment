@@ -7,8 +7,8 @@ class HomeController < ApplicationController
 #  MAP_BG_COLOR = '#EAF7FE'
 
   # Note, please maintain this aspect ratio
-  MAP_WIDTH = 800
-  MAP_HEIGHT = 450
+  MAP_WIDTH = 950
+  MAP_HEIGHT = 500
   MAP_POST_URL = %q(#{GEOSERVER_BASE_URL}/wms?
     service=WMS
     &request=GetMap
