@@ -1,0 +1,39 @@
+.grid_16
+  - if defined?(show_tools)
+    %aside.take_action
+      = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+      .hov.track_buttons
+        %h4.button
+          %span Track
+          .arrow
+        .drop.button
+          %ul
+            %li.rss 
+              = link_to "All actions", {:actions => 'all', :format => :atom}
+              = link_to "Major actions", {:actions => 'major', :format => :atom}
+            %li.email Email Alerts
+
+      .hov.write_buttons
+        %h4.button
+          %span Write
+          .arrow
+        .drop.button
+          %ul
+            %li.email Email
+            %li.twitter Twitter
+            %li.email Facebook
+
+      .support_buttons
+        %a.support.button
+          %span I Support this Bill!
+        %a.oppose.button
+          %span I Oppose this Bill!
+  %h1
+    %span.state-and-chamber
+      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
+    %span
+      = "#{@bill.bill_number}"
+
+%hr.grid_16
+
+= render(:partial => 'nav')

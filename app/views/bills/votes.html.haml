@@ -1,13 +1,6 @@
-.grid_16
-  %h1
-    %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
-    %span
-      = "#{@bill.bill_number}"
+- title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number} Votes and Actions")
 
-    %hr
-
-= render :partial => 'nav'
+= render :partial => 'wrapper'
 
 .grid_12
   %h2 Votes
