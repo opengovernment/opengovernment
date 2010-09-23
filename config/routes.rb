@@ -35,6 +35,7 @@ OpenGov::Application.routes.draw do
         get :major_actions
         get :news
         get :money_trails
+        get :social
         get :votes
         get :discuss
       end

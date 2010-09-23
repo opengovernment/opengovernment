@@ -46,7 +46,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
           m.item :votes, pluralize(@bill.votes.count, 'Vote'), votes_bill_path(@bill.session, @bill), :if => Proc.new { @bill.votes.count > 0 }
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
-          m.item :tweets, 'Social Media Coverage', '#'
+          m.item :tweets, 'Social Media Coverage', social_bill_path(@bill.session, @bill)
           m.item :video, 'Video', '#', :class => 'inactive'
           m.item :money_trail, 'Money Trail', money_trails_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
