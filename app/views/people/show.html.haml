@@ -4,43 +4,12 @@
 - track(@person)
 - tweets(@person.full_name, 2)
 
-.grid_16.alpha
-  %aside.take_action
-    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
-    .hov.track_buttons
-      %h4.button
-        %span Track
-        .arrow
-      .drop.button
-        %ul
-          %li.rss 
-            = link_to "All actions", {:actions => 'all', :format => :atom}
-            = link_to "Major actions", {:actions => 'major', :format => :atom}
-          %li.email Email Alerts
 
-    .hov.write_buttons
-      %h4.button
-        %span Write
-        .arrow
-      .drop.button
-        %ul
-          %li.email Email
-          %li.twitter Twitter
-          %li.email Facebook
 
-    .support_buttons
-      %a.support.button
-        %span I Support this Representative!
-      %a.oppose.button
-        %span I Oppose this Representative!
+= render(:partial => 'wrapper', :locals => {:show_tools => true})
 
-  %h1
-    = @person.official_name
-    - surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
-  %hr
 
-= render(:partial => 'nav')
+
 
 .grid_12
   = render :partial => 'shared/view_counts', :locals => {:page => @person}
@@ -103,7 +72,7 @@
       %p
         - @person.roles.each do |role|
           %div
-            #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
+            #{role.state.try(:name)} #{role.chamber.name}, session #{raw role.session.name_fm}
       - if @person.committees.size > 0
 
     .grid_4
@@ -123,10 +92,10 @@
               - @latest_roll_calls.each do |roll_call|
                 - vote = roll_call.vote
                 %li
-                  = "#{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+                  = raw "#{roll_call.vote_type.titleize} on #{link_to(vote.bill.bill_number, bill_path(vote.bill, vote.bill.session))}: #{link_to(vote.motion, vote_path(vote.id))} on #{vote.date}"
 
         %p
-          != link_to("View All Votes", votes_person_path(@person))
+          != link_to("View All #{@person.votes.count} Votes", votes_person_path(@person))
       - else
         %p We have no voting history for #{@person.full_name}
 

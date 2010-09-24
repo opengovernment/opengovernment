@@ -301,7 +301,7 @@ background: -moz-linear-gradient(top,  #d6e8eb,  #ecf9fc); /* for firefox 3.6+ *
 
 ///////////////////////////*/
 
-
+/*
 .gender-unknown{
 padding-left: 20px;
 background: url(/images/sprites.png) left -30px no-repeat;
@@ -318,7 +318,7 @@ padding-left: 20px;
 background: url(/images/sprites.png) left -61px no-repeat;
 }
 
-
+*/
 
 
 .bill_link{
@@ -513,7 +513,13 @@ font-weight: bold;
 }
 
 
+.sorts li.sort_label {
+  padding-right: 10px;
+}
 
+.sorts li a.active {
+  font-weight: bold;
+}
 
 
 

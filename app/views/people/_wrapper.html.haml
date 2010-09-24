@@ -1,4 +1,5 @@
-.grid_16
+.grid_16.alpha
+
   - if defined?(show_tools)
     %aside.take_action
       = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
@@ -25,15 +26,13 @@
 
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')
-          %span I Support this Bill!
+          %span I Support this Rep!
         %a.oppose.button(rel='tipsy' title='Sign in to vote!')
-          %span I Oppose this Bill!
+          %span I Oppose this Rep!
   %h1
-    %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
-    %span
-      = "#{@bill.bill_number}"
-
+    = @person.official_name
+    - surround '(', ')' do
+      = @person.current_role.try(:affiliation_fm)
   %hr
 
 = render(:partial => 'nav')
