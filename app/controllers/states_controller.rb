@@ -27,6 +27,12 @@ class StatesController < ApplicationController
     @search_type = params[:search_type] || "all"
     @committee_type = params[:committee_type] || "all"
 
+    # Because we are rendering a partial with @search_type in the filename,
+    # sanitize this param.
+    unless ['all','legislators','bills','committees','contributions'].include? @search_type
+      @search_type = 'all'
+    end
+
     # We might be able to stop right here and redirect to a bill.
     if ['all', 'bills'].include? @search_type
       if @bills = Bill.for_state(@state).with_number(@query)
@@ -76,15 +82,9 @@ class StatesController < ApplicationController
           @contributions = Contribution.search(@query, @search_options)
           @total_entries = @contributions.total_entries
       end
-      render :template => "states/results.html.haml"
     else
       render :nothing => true
     end
   end
 
-  protected
-
-  def committee_type
-
-  end
 end

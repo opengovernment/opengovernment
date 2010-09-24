@@ -1,17 +1,6 @@
 - title("Videos for #{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 
-.grid_16
-  %h1
-    %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name} Bill"
-    %span
-      = "#{@bill.bill_number}"
-
-    %hr
-
-
-= render :partial => 'nav'
-
+= render :partial => 'wrapper'
 
 %p We don't have videos yet, but you can help us add them via Miro Community.
 %a{:href => t('.miro_url')}= @bill.state.name

@@ -44,7 +44,7 @@ SimpleNavigation::Configuration.run do |navigation|
       if !@bill.nil?
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
-          m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill), :if => Proc.new { @bill.votes.count > 0 }
+          m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Mentions', social_bill_path(@bill.session, @bill)
           m.item :videos, 'Videos', videos_bill_path(@bill.session, @bill), :class => 'inactive'

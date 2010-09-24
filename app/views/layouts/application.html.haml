@@ -36,11 +36,14 @@
       %header
         #account.grid_9.alpha
           .grid_8.alpha.omega
-            Hello,
-            %a.account(href="#content" title="Username") #{current_user ? current_user.login : 'Anonymous' }.
+
             - if current_user
-              %a(href="/users/logout") Logout
-            %a.help(href="#content" title="Help Center") Help
+              Hello,
+              %a.account(href="#content" title="Username") #{current_user.login}.
+              = link_to('Logout', destroy_user_session_path)
+            - else
+              = link_to('Login', new_user_session_path)
+            %a.help{:href => page_path('help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search
             = render :partial => 'shared/search_form'

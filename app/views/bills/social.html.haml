@@ -1,16 +1,15 @@
-- title("#{@bill.state.name} #{@bill.bill_number} Social Media Mentions")
+- title("Tweets about #{@bill.bill_number}")
+- tweets(@bill.to_hashtags, 2)
 
-.grid_16
-  %h1
-    %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
-    %span
-      = "#{@bill.bill_number}"
-    %hr
+= render(:partial => 'wrapper')
 
-%hr.grid_16
+.grid_12
+  %p
+    Here are the social media mentions found for this bill at this time. This includes Tweets with hashtag #txbill and the hashtag with this bill's specific number, e.g. #hb1 or #sb362, etc. You can add your updates to this page and help build public knowledge about this bill. Simply Tweet about this bill with the hashtags above, and if it's published where the Twitter search engines can find it, a link to your Tweet will automatically appear here within 24 hours. Or, if you don't have a social media account, you can write a letter to a local newspaper or political blog that mentions this specific bill, and if your letter is published on the Web, a link to that page will be gathered here for everyone to access. We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art serach robots bring in irrelevant Tweets, such as sports scores -- so if you see irrelevant Tweets below, it's no big deal, please carry on. Actually, if you can take a moment to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous Tweets cleaned-up and out-of-the-way as quickly as possible. Now, here's what we found by way of real-world context for this bill on social media:
 
-= render :partial => 'nav'
-
-%div.grid_12
-  %p Social media mentions...
+  #twitter(style="display: none;")
+    %h2 Tweets
+    .grid_12.alpha
+      #notweets(style="display: none;")
+        %p Well, no social media mentions found for this bill at this time. But hey, we can build on this. Here's what we do: using Twitter Search, we automatically search all publicly-available Tweets for citations of this bill by hashtag #txbill, combined with hashtag, for example, #hb1 or #sb362. Any matching results would be displayed below, but in their absence, there are a couple of likely reasons for this state of affairs that are worth mentioning. First, unfortunately, there are often not a lot of specific mentions of individual bills in state government out there on Twitter to be found -- i.e., we're starting with a deficit of attention and resources for legislation at the state and local levels. Second, some entities in state government such as issue-based groups or political reporters may be writing about this bill, but not on the Web where search engines can find their content. In order to build public knowledge about bills and issues in state government, then, we need to first publish them online in open standards -- i.e., not on password-protected proprietary services like Facebook or Twitter, but rather on the wide expanse of the searchable Web -- so that everyone can easily find information about this bill and learn what's really happening with it. As for what you can do, Tweet about this bill using hashtag #txbill and its number, e.g. #hb1 or #sb362, and a link to your update will automatically appear here within 24 hours or so for everyone to access. And that would be greatly helpful. There's lots more to do to make our government more open and accountable, e.g. with more resources we could do more to find mentions on more-or-less closed-off social networking services like Facebook -- read more about <a href="/pages/help">how you can help</a>.
+      %ul#tweets

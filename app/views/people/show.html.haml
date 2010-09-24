@@ -4,44 +4,12 @@
 - track(@person)
 - tweets(@person.full_name, 2)
 
-.grid_16
-  %aside.take_action
-    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
-    .hov.track_buttons
-      %h4.button
-        %span Track
-        .arrow
-      .drop.button
-        %ul
-          %li.rss 
-            = link_to "All actions", {:actions => 'all', :format => :atom}
-            = link_to "Major actions", {:actions => 'major', :format => :atom}
-          %li.email Email Alerts
 
-    .hov.write_buttons
-      %h4.button
-        %span Write
-        .arrow
-      .drop.button
-        %ul
-          %li.email Email
-          %li.twitter Twitter
-          %li.email Facebook
 
-    .support_buttons
-      %a.support.button
-        %span I Support this Representative!
-      %a.oppose.button
-        %span I Oppose this Representative!
-           
+= render(:partial => 'wrapper', :locals => {:show_tools => true})
 
-  %h1
-    = @person.official_name
-    - surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
-  %hr
 
-= render(:partial => 'nav')
+
 
 .grid_12
   = render :partial => 'shared/view_counts', :locals => {:page => @person}
