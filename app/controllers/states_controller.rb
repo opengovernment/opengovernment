@@ -81,9 +81,4 @@ class StatesController < ApplicationController
     end
   end
 
-  protected
-
-  def committee_type
-
-  end
 end
