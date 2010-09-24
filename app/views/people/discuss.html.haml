@@ -1,13 +1,6 @@
 - title("Discuss #{@person.official_name}")
 
-.grid_16.alpha
-  %h1
-    = @person.official_name
-    - surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
-  %hr
-
-= render(:partial => 'nav')
+= render(:partial => 'wrapper')
 
 .grid_12.alpha
   .intro Intro text

@@ -1,0 +1,18 @@
+- case @search_type
+  - when "all"
+    .grid_16
+      %h1
+        Searching all of 
+        = @state.name
+  - else
+    .grid_16
+      %h1
+        Searching
+        = @state.name
+        = @search_type.titleize
+
+%span.results_count 
+  - if @query.blank?
+    All results.
+  - else
+    #{@total_entries} results for #{@query}
