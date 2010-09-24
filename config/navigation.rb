@@ -48,7 +48,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Mentions', social_bill_path(@bill.session, @bill)
           m.item :videos, 'Videos', videos_bill_path(@bill.session, @bill), :class => 'inactive'
-          m.item :money_trail, 'Money Trail', money_trails_bill_path(@bill.session, @bill), :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
         end
       end
@@ -61,7 +61,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
           m.item :tweets, 'Social Media Mentions', social_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
-          m.item :money_trail, 'Money Trail', money_trails_person_path(@person)
+          m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
       end

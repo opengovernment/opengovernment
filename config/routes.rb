@@ -18,7 +18,7 @@ OpenGov::Application.routes.draw do
         get :sponsored_bills
         get :votes
         get :social
-        get :money_trails
+        get :money_trail
         get :discuss
       end
     end
@@ -35,7 +35,7 @@ OpenGov::Application.routes.draw do
       member do
         get :major_actions
         get :news
-        get :money_trails
+        get :money_trail
         get :social
         get :votes
         get :videos
