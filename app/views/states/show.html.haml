@@ -12,6 +12,7 @@
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
+  %p= t '.intro'
 
   .grid_12.alpha
     .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
@@ -29,11 +30,14 @@
     .space
 
     - @state.chambers.each do |chamber|
-      .grid_6.alpha
+      .grid_6{:class => cycle('alpha','omega')}
         %h2
           = chamber.name
           - surround '(', ')' do
             = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
+
+        .grid_6.alpha.district_map
+          = leg_map_img(@state, chamber)
 
         %ul.lined
           %li
@@ -98,11 +102,6 @@
             = raw t '.next_election_upper_chamber_seats_available'
 
 
-
-
-        .grid_6.alpha.district_map
-          = leg_map_img(@state, chamber)
-
     %hr.push_top
 
     .grid_12.alpha.key_votes
@@ -113,5 +112,6 @@
       %p
         %ul.lined.and_spaced
           = render :partial => 'shared/bill', :collection => @state_key_votes
+      %a.large{:href => bills_path} All Key Votes &rarr;
 
     %p.grid_12.alpha= raw t '.background'
