@@ -3,22 +3,22 @@
     %p.filter
     %ul
       %li
-        %a
+        %a{:href => url_for(params.merge({:search_type => 'bills'}))}
           Bills
           - surround '(',')' do
             = @bills.total_entries rescue 0
       %li
-        %a
+        %a{:href => url_for(params.merge({:search_type => 'people'}))}
           People
           - surround '(',')' do
             = @legislators.total_entries rescue 0
       %li
-        %a
+        %a{:href => url_for(params.merge({:search_type => 'committees'}))}
           Committees
           - surround '(',')' do
             = @committees.total_entries rescue 0
       %li
-        %a
+        %a{:href => url_for(params.merge({:search_type => 'contributions'}))}
           Contributions
           - surround '(',')' do
             = @contributions.total_entries rescue 0
