@@ -12,6 +12,10 @@
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
+  = t '.intro'
+  
+  %hr.push_bottom
+  
   .grid_6.alpha
     = render :partial => 'sector', :collection => @sectors[0...@sectors.size/2]
   
