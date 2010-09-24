@@ -112,6 +112,6 @@
       %p
         %ul.lined.and_spaced
           = render :partial => 'shared/bill', :collection => @state_key_votes
-      %a.large{:href => bills_path} All Key Votes &rarr;
+      %a.large{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
 
     %p.grid_12.alpha= raw t '.background'

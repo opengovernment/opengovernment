@@ -41,6 +41,6 @@ OpenGov::Application.configure do
   HOST = ENV['HOST'] || 'opengovernment.org'
   HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
   GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
-  
+
   config.action_mailer.default_url_options = {:host => HOST}
 end
