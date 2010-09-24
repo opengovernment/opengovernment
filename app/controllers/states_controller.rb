@@ -6,7 +6,7 @@ class StatesController < ApplicationController
       @legislature = @state.legislature
       @most_recent_session = Session.most_recent(@legislature).first
 
-      @state_key_votes = Bill.where(:votesmart_key_vote => true, :session_id => @most_recent_session).limit(5)
+      @state_key_votes = Bill.where(:votesmart_key_vote => true, :state_id => @state.id).limit(5)
     else
       render :template => 'states/unsupported'
     end
