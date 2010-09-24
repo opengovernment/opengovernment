@@ -33,7 +33,7 @@
 .lined li.person a .small_thumbnail {
   float:left;
   padding: 2px;
-  
+  margin-right: 20px;
   box-shadow: 0 1px 1px #999;
   -moz-box-shadow: 0 1px 1px #666;
   -webkit-box-shadow: 0 1px 1px #999;
@@ -57,17 +57,18 @@
 
 
 .lined li.person a span.person_name{
-  float: left;
-  margin: 25px 0 0 20px;
+display: block;
+  margin: 15px 0 5px;
   font-size: 20px;
   }
 
 
 .lined li.person a .person_district,
 .lined li.person a .person_party {
-  float: right;
-  margin: 25px 0 0 20px
+display: inline;
   }
 
 
-
+.lined li.person a .person_citations{
+float: right;
+}

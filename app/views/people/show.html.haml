@@ -4,7 +4,7 @@
 - track(@person)
 - tweets(@person.full_name, 2)
 
-.grid_16.alpha
+.grid_16
   %aside.take_action
     = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
     .hov.track_buttons

@@ -9,16 +9,6 @@
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
-  .sort.button
-    .sort_hot
-      %span.sort_label
-        Sort by 
-        %strong= @sorts[@sort.to_sym]
-      .arrow
-    %ul.button.people_sorts
-      - @sorts.each do |k, v|
-        %li
-          = link_to(v, url_for(:sort => k), :class => k == @sort ? 'active' : '')
 
   %ul.tabs
  
@@ -28,8 +18,20 @@
     %li
       = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')
 
-  %hr
-  
+  %hr.push_bottom
+
+  .sort.grid_12.alpha.push_bottom
+    .sort_hot
+      %span.sort_label
+        Sort by 
+        %strong= @sorts[@sort.to_sym]
+      .arrow
+    %ul.people_sorts
+      - @sorts.each do |k, v|
+        %li
+          = link_to(v, url_for(:sort => k), :class => k == @sort ? 'active' : '')
+
+  %hr.push_bottom
 
   #chamber
     = render :partial => 'chamber'
