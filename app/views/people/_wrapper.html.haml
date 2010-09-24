@@ -25,11 +25,10 @@
             %li.email Facebook
 
       .support_buttons
-        %a.support.button
-          %span I Support this Representative!
-        %a.oppose.button
-          %span I Oppose this Representative!
-
+        %a.support.button(rel='tipsy' title='Sign in to vote!')
+          %span I Support this Rep!
+        %a.oppose.button(rel='tipsy' title='Sign in to vote!')
+          %span I Oppose this Rep!
   %h1
     = @person.official_name
     - surround '(', ')' do
