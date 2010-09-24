@@ -72,7 +72,7 @@
       %p
         - @person.roles.each do |role|
           %div
-            #{role.state.try(:name)} #{role.chamber.name} #{year_span(role.start_date, role.end_date)}
+            #{role.state.try(:name)} #{role.chamber.name}, session #{raw role.session.name_fm}
       - if @person.committees.size > 0
 
     .grid_4
@@ -92,10 +92,10 @@
               - @latest_roll_calls.each do |roll_call|
                 - vote = roll_call.vote
                 %li
-                  = "#{roll_call.vote_type} on [#{vote.bill.bill_number}: #{vote.motion}] at #{vote.date}"
+                  = raw "#{roll_call.vote_type.titleize} on #{link_to(vote.bill.bill_number, bill_path(vote.bill, vote.bill.session))}: #{link_to(vote.motion, vote_path(vote.id))} on #{vote.date}"
 
         %p
-          != link_to("View All Votes", votes_person_path(@person))
+          != link_to("View All #{@person.votes.count} Votes", votes_person_path(@person))
       - else
         %p We have no voting history for #{@person.full_name}
 

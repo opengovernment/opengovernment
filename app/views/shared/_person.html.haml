@@ -12,7 +12,9 @@
       - if person.district_office_city
         out of
         = person.district_office_city
-    .person_party= Role.party_fm(person.try(:party))
+    .person_party
+      = surround '(', ')' do
+        = Role.party_fm(person.try(:party))
 
     - if MongoMapper.connected?
       .person_views #{person.views} Views
