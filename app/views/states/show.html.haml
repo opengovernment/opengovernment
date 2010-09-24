@@ -13,16 +13,11 @@
 
 .grid_12
 
-
   .grid_12.alpha
     .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
 
 
     %h2= @state.legislature.name
-
-    %p
-      = raw t '.intro'
-
 
     .italic.grid_6.alpha
       = raw t '.current_session'    
@@ -31,9 +26,7 @@
     .grid_6.omega
       = raw t '.state_population'
 
-
     .space
-
 
     - @state.chambers.each do |chamber|
       .grid_6.alpha
@@ -120,3 +113,5 @@
       %p
         %ul.lined.and_spaced
           = render :partial => 'shared/bill', :collection => @state_key_votes
+
+    %p.grid_12.alpha= raw t '.background'
