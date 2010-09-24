@@ -1,7 +1,7 @@
 tx:
   states:
     show:
-        intro: "Welcome to OpenGovernment.org Texas! Please find below an introduction to the Texas state legislature, with more links below to resources for connecting with the state executive and judicial branches of government."
+        intro: "Welcome to OpenGovernment.org Texas. This page offers an overview of the TX state legislature. Use the categories on the left to browse official government information combined with real-world context from around the Web. At the bottom of this page, you can find links with more resources about how the TX state government works. More resources: <a href=\"http://en.wikipedia.org/wiki/Texas_Legislature\">Wikipedia</a>, <a href=\"http://ballotpedia.org/wiki/index.php/Texas\">Ballotpedia</a>, <a href=\"http://www.opencongress.org/states/TX\">OpenCongress TX</a>, <a href=\"http://www.opencongress.org/wiki/Texas\">OpenCongress Wiki TX state blogroll</a>, <a href=\"http://ncsl.typepad.com/the_thicket/\">National Conference of State Legislatures Blog - The Thicket</a>."
 
         state_upper_chamber: "32 Senators: 12 Democrats, 20 Republicans, 0 Other."
         state_lower_chamber: "150 Assemblymembers: 73 Democrats, 77 Republicans, 0 Other."
