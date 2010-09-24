@@ -27,9 +27,11 @@
 
   .sort.grid_12.alpha.push_bottom
     %ul.sorts
+      %li.sort_label
+        Sort by
       - @sorts.each do |k, v|
         %li
-          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : ''))
+          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
 
   %hr.push_bottom
 
