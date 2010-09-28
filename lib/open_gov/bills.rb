@@ -180,7 +180,11 @@ module OpenGov
               :date => Date.valid_date!(vote.date),
               :motion => vote.motion,
               :kind => vote[:type],
-              :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber")
+              :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber"),
+              :committee_name => vote[:committee],
+              # TODO: This doesn't actually work. It never inserts anything.
+              # String.to_frac is in our lib/extensions/string.rb, so why doesn't this work?
+              :threshold => vote[:threshold].try(:to_frac)
             )
 
             ['yes', 'no', 'other'].each do |vote_type|

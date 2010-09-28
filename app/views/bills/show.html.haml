@@ -50,9 +50,46 @@
 
   %hr.push_top
 
-  - if @bill.major_actions.count > 0
+  - if @few_actions.size > 0
     .grid_12.alpha
-      #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+      %h2 Recent Actions
+      #bill_actions
+        = render :partial => 'actions_table', :locals => {:actions => @few_actions}
+        = link_to(raw("Full bill history &rarr;"),  votes_bill_path(@bill.session, @bill))
+
+  - if @few_votes.size > 0
+    .grid_12.alpha
+      %h2 Recent Votes
+      %table.vote-summary.grid_12.alpha
+
+        %tbody
+          - @few_votes.each do |vote|
+            %tr
+
+              %td.vote_date= vote.date.to_html
+
+              %td.vote-motion
+                %h4= link_to("#{vote.motion}", vote_path(vote))
+              %td.votes
+                %span.total-votes.rounded= vote.total_count
+                %span.small-label total votes
+              %td.votes{:class => vote.passed? ? 'vote-passed' : ''}
+                %span.vote-yes.rounded= vote.yes_count.round
+                %span.small-label yes votes
+              %td.votes{:class => vote.passed? ? '' : 'vote-failed'}
+                %span.vote-no.rounded= vote.no_count.round
+                %span.small-label no votes
+              %td.votes
+                %span.other-votes.rounded= vote.other_count.round
+                %span.small-label other votes
+
+              %td.vote-bar
+                %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
+                %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
+                %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
+                %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
+      = link_to(raw("All votes &rarr;"),  votes_bill_path(@bill.session, @bill))
+
 
   .grid_12.alpha
     #twitter(style="display: none;")

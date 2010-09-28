@@ -513,7 +513,13 @@ font-weight: bold;
 }
 
 
+.sorts li.sort_label {
+  padding-right: 10px;
+}
 
+.sorts li a.active {
+  font-weight: bold;
+}
 
 
 

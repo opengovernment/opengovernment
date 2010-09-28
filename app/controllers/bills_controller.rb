@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   before_filter :get_state
   before_filter :get_bill, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
-  before_filter :get_actions, :only => [:show, :votes]
+  before_filter :get_actions, :only => [:votes]
 
   def index
     @bills = scope_bills(Bill.for_state(@state))
@@ -23,6 +23,9 @@ class BillsController < ApplicationController
 
   def show
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
+
+    @few_actions = @bill.actions.limit(2)
+    @few_votes = @bill.votes.limit(2)
 
     respond_to do |format|
       format.js

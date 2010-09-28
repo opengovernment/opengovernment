@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 59) do
+ActiveRecord::Schema.define(:version => 60) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(:version => 59) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "citations", ["owner_id", "owner_type", "date"], :name => "citations_owner_date_idx"
 
   create_table "committee_memberships", :force => true do |t|
     t.integer "person_id"
@@ -253,6 +255,7 @@ ActiveRecord::Schema.define(:version => 59) do
     t.float    "threshold"
   end
 
+  add_index "roll_calls", ["person_id"], :name => "roll_calls_person_id_idx"
   add_index "roll_calls", ["vote_id", "vote_type"], :name => "roll_calls_vote_id_and_type_idx"
 
   create_table "sessions", :force => true do |t|
@@ -352,6 +355,8 @@ ActiveRecord::Schema.define(:version => 59) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "kind"
+    t.string   "committee_name"
+    t.float    "treshold"
   end
 
 end

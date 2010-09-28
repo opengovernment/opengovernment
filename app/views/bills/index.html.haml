@@ -8,7 +8,10 @@
 = render :partial => 'shared/left_nav_toplevel'
 
 #bill_index.grid_12
+  = t '.intro'
 
+  %hr.push_bottom
+  
   %ul.tabs
     %li
       = link_to('All', bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : ''))
@@ -24,12 +27,14 @@
       = link_to(@state.lower_chamber.name, bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : ''))
 
   %hr.push_bottom
-
-  .sort.grid_12.alpha.push_bottom
+  
+  .sort.grid_12.alpha.push_bottom  
     %ul.sorts
+      %li.sort_label
+        Sort by
       - @sorts.each do |k, v|
         %li
-          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : ''))
+          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
 
   %hr.push_bottom
 
@@ -37,4 +42,4 @@
   %ul.lined.and_spaced#bill_list
     = render :partial => 'shared/bill', :collection => @bills
 
-  %a.all_bills{:href => search_path(:search_type => 'bills')} Browse All Bills &rarr;
+  %a.large{:href => search_path(:search_type => 'bills')} Browse All Bills &rarr;
