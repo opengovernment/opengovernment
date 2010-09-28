@@ -1,6 +1,6 @@
 class Page
   include MongoMapper::Document
-  many :views
+  many :page_views
 
   key :url, String, :indexed => true
   key :countable_id, Integer, :required => true, :indexed => true
@@ -11,7 +11,7 @@ class Page
 
   validate :should_be_unique
 
-  def all_views
+  def view_count
     return 0 if views.count == 0
 
     opts = {:query => { :countable_type => countable_type, :countable_id => countable_id}}
@@ -36,7 +36,7 @@ class Page
     (finder && finder["value"].to_i) || 0
   end
 
-  def views_since(since)
+  def view_count_since(since)
     return 0 if views.count == 0
 
     opts = {:query => { :countable_type => countable_type, :countable_id => countable_id } }
