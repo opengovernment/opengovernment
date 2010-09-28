@@ -105,7 +105,21 @@ class PeopleController < ApplicationController
     @people =
       case @sort
         when 'views'
-          Person.find(Page.most_viewed('Person').collect(&:og_object_id), :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party")
+          # This is gnarly. We have to generate a case statement for PostgreSQL in order to
+          # get the people out in page view order. AND we need an SQL in clause for the people.
+
+          # It does result in only one SQL call, though.
+          # Good thing this is only ever limited to 10 or 20 people.
+
+          countable_ids = Page.most_viewed('Person').collect(&:countable_id)
+          
+          where_clause = 'CASE '
+          countable_ids.each_with_index do |countable_id, i|
+            where_clause += "WHEN people.id = #{countable_id} THEN #{i} "
+          end
+          where_clause += ' END'
+
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").order(where_clause).where(:id => countable_ids)
         else
           people_by_facets
       end

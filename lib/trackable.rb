@@ -1,15 +1,15 @@
 module Trackable
   def page
-    PageView.by_object(self.class.to_s, self.id).first
+    Page.by_object(self.class.to_s, self.id).first
   end
 
   def views(since=nil)
     return 0 unless page
 
     if since
-      page.since(since).count
+      page.view_count_since(since)
     else
-      page.views.count
+      page.view_count
     end
   end
 end

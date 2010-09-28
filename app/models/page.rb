@@ -7,86 +7,60 @@ class Page
   key :countable_type, String, :required => true, :indexed => true
 
   scope :by_object, lambda {|object_type, object_id| where({:countable_id => object_id, :countable_type => object_type}) }
-  scope :most_viewed, lambda {|object_type| where(:countable_type => object_type).order("views desc").limit(10) }
 
   validate :should_be_unique
+  
+  MAP_FUNCTION = %q( function() {
+        emit(this.page_id, this.total);
+  } )
 
+  REDUCE_FUNCTION = %q( function(key, values) {
+      var total = 0;
+      for ( var i=0; i<values.length; i++ ) {
+        total += values[i];
+      }
+      return total;
+  })
+  
   def view_count
-    return 0 if views.count == 0
+    return 0 if page_views.count == 0 || self.new_record?
 
-    opts = {:query => { :countable_type => countable_type, :countable_id => countable_id}}
+    opts = {:query => {:page_id => self['_id']} }
 
-    map_function = %q( function() {
-          for (var i = 0; i < this.views.length ; i++) {
-            emit({type: this.countable_type, id: this.countable_id}, this.views[i].count);
-          }
-    } )
-
-    reduce_function = %q( function(key, values) {
-            var total = 0;
-            for ( var i=0; i<values.length; i++ ) {
-              total += values[i];
-            }
-            return total;
-    })
-
-    mr = collection.map_reduce( map_function, reduce_function, opts )
+    mr = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
     
     finder = mr.find.first
     (finder && finder["value"].to_i) || 0
   end
 
   def view_count_since(since)
-    return 0 if views.count == 0
+    return 0 if page_views.count == 0 || self.new_record?
 
-    opts = {:query => { :countable_type => countable_type, :countable_id => countable_id } }
-    map_function = %Q( function() {
-          var d = new Date("#{since.utc}");
-          for (var i = 0; i < this.views.length ; i++) {
-            if (this.views[i].hour >= d) {
-              emit({type: this.countable_type, id: this.countable_id}, this.views[i].count);
-            }
-          }
-    } )
+    opts = {:query => {'page_id' => self['_id'], 'hour' => { '$gt' => since.utc } } }
 
-    reduce_function = %q( function(key, values) {
-            var total = 0;
-            for ( var i=0; i<values.length; i++ ) {
-              total += values[i];
-            }
-            return total;
-    })
-
-    mr = collection.map_reduce( map_function, reduce_function, opts )
+    mr = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
     
     finder = mr.find.first
     (finder && finder["value"].to_i) || 0
   end
 
-  class << self
-    def all_views_by_object_type
-      collection.group(["og_object_type"], {}, {:views => 0}, "function(doc, prev) {prev.views += doc.views}", true)
+  def mark_hit
+    raise if new_record?
+
+    if page_view = PageView.first_or_create({:page_id => self.id, :hour => Time.now.beginning_of_hour})
+      page_view.total += 1
+      page_view.save
     end
+  end
 
-    def top_views_for(object_type, limit = 10)
-      opts = {  }
-      map_function = %Q( function() {
-        for (var i = 0; i < this.views.length ; i++) {
-          emit({type: this.countable_type, id: this.countable_id}, this.views[i].count);
-        }
-      } )
+  class << self
+    def most_viewed(object_type, limit = 10)
+      opts = { :query => {'countable_type' => object_type } }
 
-      reduce_function = %Q( function(key, values) {
-              var total = 0;
-              for ( var i=0; i<values.length; i++ ) {
-                total += values[i];
-              }
-              return total;
-      })
+      top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
 
-      top_views = collection.map_reduce( map_function, reduce_function, { } )
-
-      top_views.find.where(:type => object_type).limit(limit).collect { |p| [Page.find(p['_id']), p['value']] }
+      # p['value'] contains the total hit count, but we're not using it right now.
+      top_views.find.sort([['value','descending']]).limit(limit).collect { |p| Page.find(p['_id']) }
     end
   end # self
 

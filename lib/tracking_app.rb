@@ -15,14 +15,12 @@ class TrackingApp
   def self.store(request)
     page = Page.find_by_url(request.params['u'])
 
-    page ||= Page.new({
-                        :og_object_id => request.params['object_id'],
-                        :og_object_type => request.params['object_type'],
+    page ||= Page.create({
+                        :countable_id => request.params['object_id'],
+                        :countable_type => request.params['object_type'],
                         :url => request.params['u']
                       })
 
-
-    page.views << View.new({:user_id => request.params['user'], :created_at => Time.now})
-    page.save
+    page.mark_hit
   end
 end
