@@ -45,12 +45,16 @@
 
   .grid_6.omega
     %h2 Bio
-    %small.quiet.span
-      From the non-partisan
-      = link_to("wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
-    %p
-      = @person.bio_data
-
+    - if @person.bio_data.blank?
+      %p
+        No biography was found on Wikipedia for #{@person.full_name}.
+    - else
+      %small.quiet.span
+        From the non-partisan
+        = link_to("Wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
+      %p
+        = @person.bio_data
+        = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
  
   %hr.push_top
 
