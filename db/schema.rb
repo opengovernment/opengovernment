@@ -356,7 +356,7 @@ ActiveRecord::Schema.define(:version => 60) do
     t.datetime "updated_at"
     t.string   "kind"
     t.string   "committee_name"
-    t.float    "treshold"
+    t.float    "threshold"
   end
 
 end

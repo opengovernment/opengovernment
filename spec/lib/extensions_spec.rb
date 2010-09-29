@@ -41,3 +41,9 @@ describe "Integer" do
     Integer.scale(5, 10, 100).should == 50
   end
 end
+
+describe "Time" do
+  describe "beginning_of_hour" do
+    Time.mktime(1991, 1, 1, 2, 31, 22).beginning_of_hour.should == Time.mktime(1991, 1, 1, 2)
+  end
+end

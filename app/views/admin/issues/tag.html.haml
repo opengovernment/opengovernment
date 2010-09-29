@@ -41,17 +41,18 @@
     |)
   end
 
-.span-24
+.grid_16
   = form_tag(admin_taggings_path, :remote => true, :id => "tagging_form") do
-    .span-12
+    .grid_8.alpha
       %h2
         = @title
       = link_to "All", '#', :id => 'select_all'
       = link_to "None", '#', :id => 'select_none'
       %div#taggables
-        = render :partial => "admin/taggings/taggables.html.haml"
+        = render :partial => "admin/taggings/taggable", :collection => @taggables
+      = will_paginate @taggables
       = hidden_field_tag :taggable_type, @taggable_type
-    .span-12.last
+    .grid_8.omega
       %h2 Issues
       %div#tags
         = render :partial => "tags.html.haml"

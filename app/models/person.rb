@@ -16,8 +16,8 @@ class Person < ActiveRecord::Base
   # Right now this is used by OpenStates::Photos::sync! to
   # download photos for each person.
   attr_accessor :photo_url
-  before_validation :download_remote_image, :if => :photo_url_provided?
-  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
+#  before_validation :download_remote_image, :if => :photo_url_provided?
+#  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy do
@@ -250,7 +250,7 @@ class Person < ActiveRecord::Base
       f.base_uri.path.split('/').blank? ? nil : f.read
     end
 
-  rescue
+#  rescue
     # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
   end
 

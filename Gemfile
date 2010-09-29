@@ -1,6 +1,3 @@
-# TODO: When Rails 3 comes out, remove most of the :gits and other references to
-# prerelease gems that are here for Rails 3 compatibility right now.
-
 source 'http://rubygems.org'
 
 gem 'rails', '>= 3.0.0'
@@ -14,19 +11,20 @@ gem "bson_ext"
 gem "capistrano"
 gem "capistrano-ext"
 
+# Config
+gem 'settingslogic'
+
 # An alternative form builder
 gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 
 # Basic authentication
-# gem "clearance"
 gem "devise"
 
 # GIS & Geocoding
 gem "GeoRuby"
-# gem "spatial_adapter"
 gem "geokit"
 
-# Breadcrumbs
+# Breadcrumbs & navigation
 gem "simple-navigation"
 
 # Static pages
@@ -35,16 +33,17 @@ gem "high_voltage"
 # Data import
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 gem "chronic" # Complex date string parsing
+#gem 'delayed_job', '~> 2.1.0.pre2'
 
 # Simple pagination
 gem "will_paginate", "~> 3.0.pre2"
 
 # Attachments & assets
-gem "paperclip"
-gem "jammit"
+gem 'paperclip'
+gem 'jammit'
 
 # HAML!
-gem 'haml', '>= 3.0.18'
+gem 'haml', '>= 3.0.19'
 
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
@@ -63,7 +62,7 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
 group :test do
   # Bundle gems for certain environments:
   gem 'database_cleaner'
-  gem 'launchy'    # So you can do Then show me the page
+  gem 'launchy'    # So you can do "Then show me the page"
   gem 'rspec-rails', '>= 2.0.0.beta.22'
   gem 'spork'
   gem 'capybara'
