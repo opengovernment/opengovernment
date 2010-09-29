@@ -113,13 +113,7 @@ class PeopleController < ApplicationController
 
           countable_ids = Page.most_viewed('Person').collect(&:countable_id)
           
-          where_clause = 'CASE '
-          countable_ids.each_with_index do |countable_id, i|
-            where_clause += "WHEN people.id = #{countable_id} THEN #{i} "
-          end
-          where_clause += ' END'
-
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").order(where_clause).where(:id => countable_ids)
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
         else
           people_by_facets
       end

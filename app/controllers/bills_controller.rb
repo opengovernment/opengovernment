@@ -71,7 +71,14 @@ class BillsController < ApplicationController
       when 'citations'
         bills.search(:order => 'citations_count desc', :per_page => 10)
       when 'views'
-        bills.find(Page.most_viewed('Bill').collect(&:og_object_id))
+        # This is gnarly. We have to generate a case statement for PostgreSQL in order to
+        # get the people out in page view order. AND we need an SQL in clause for the people.
+
+        # It does result in only one SQL call, though.
+        # Good thing this is only ever limited to 10 or 20 people.
+        countable_ids = Page.most_viewed('Bill').collect(&:countable_id)
+
+        bills.find_in_explicit_order('bills.id', countable_ids)
       when 'keyvotes'
         bills.where(:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers)
       else
