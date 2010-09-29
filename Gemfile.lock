@@ -118,7 +118,7 @@ GEM
     geokit (1.5.0)
     gherkin (2.1.5)
       trollop (~> 1.16.2)
-    haml (3.0.18)
+    haml (3.0.21)
     high_voltage (0.9.1)
     highline (1.6.1)
     hoe (2.6.1)
@@ -215,6 +215,7 @@ GEM
       ffi (>= 0.6.1)
       json_pure
       rubyzip
+    settingslogic (2.0.6)
     simple-navigation (2.7.3)
     spork (0.8.4)
     term-ansicolor (1.0.5)
@@ -248,7 +249,7 @@ DEPENDENCIES
   factory_girl_rails
   formtastic!
   geokit
-  haml (>= 3.0.18)
+  haml (>= 3.0.19)
   high_voltage
   hpricot
   hpricot_scrub!
@@ -263,6 +264,7 @@ DEPENDENCIES
   rails (>= 3.0.0)
   rspec-rails (>= 2.0.0.beta.22)
   ruby-debug19
+  settingslogic
   simple-navigation
   spork
   thinking-sphinx!
