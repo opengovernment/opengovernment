@@ -1,46 +1,47 @@
 class Admin::TaggingsController < Admin::AdminController
   def destroy
     @taggable_type = params[:taggable_type]
-    @taggables = taggables_for(@taggable_type)
     @tagging = ActsAsTaggableOn::Tagging.find(params[:id])
+
+    @taggable_ids = @tagging.taggable_id
+    @taggables = taggables_for(@taggable_type)
     @tagging.destroy
-    respond_to { |format| format.js }
+
+    respond_to do |format|
+      format.js do
+        render :template => 'admin/taggings/refresh'
+      end
+    end
   end
 
   def create
     @taggable_type = params[:taggable_type]
-    unless params[:taggables].blank?
-      case @taggable_type
-        when "subject"
-          @subjects = params[:taggables].collect { |s| Subject.find(s) }
-          @subjects.map do |subject|
-            subject.issue_list << params[:tag]
-            subject.save
-          end
-        when "category"
-          @categories = params[:taggables].collect { |s| Category.find(s) }
-          @categories.map do |kat|
-            kat.issue_list << params[:tag]
-            kat.save
-          end
+    @taggable_ids = params[:taggables]
+
+    unless @taggable_ids.blank?
+      @taggables = taggables_for(@taggable_type)
+
+      @taggables.map do |item|
+        item.issue_list << params[:tag]
+        item.save
       end
     end
 
-    @taggables = taggables_for(@taggable_type)
-
     respond_to do |format|
-      format.js
+      format.js do
+        render :template => 'admin/taggings/refresh'
+      end
     end
   end
 
   protected
 
   def taggables_for(taggable_type)
-    case @taggable_type
-      when "category"
-        Category.all.paginate(:page => params[:page], :order => params[:order])
+    case taggable_type
       when "subject"
-        Subject.all.paginate(:page => params[:page], :order => params[:order])
+        Subject.where(:id => @taggable_ids)
+      when "category"
+        Category.where(:id => @taggable_ids)
     end
   end
 

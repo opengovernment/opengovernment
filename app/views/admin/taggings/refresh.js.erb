@@ -1,0 +1,7 @@
+var hook = $("#taggables");
+<% @taggables.each do |taggable| %>
+  var taggable_item = hook.find('#<%= @taggable_type %>_<%= taggable.id %>');
+  taggable_item.html("<%= escape_javascript(render(:partial => "taggable", :locals => {:taggable => taggable})) %>");
+<% end %>
+hook.effect("highlight", {}, 200);
+$("#tagging_form").get(0).reset();
