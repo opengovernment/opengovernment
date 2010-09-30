@@ -160,8 +160,8 @@ end
 desc "Fetch Data: districts, bills"
 namespace :fetch do
   task :setup => :environment do
-    FileUtils.mkdir_p(DATA_DIR)
-    Dir.chdir(DATA_DIR)
+    FileUtils.mkdir_p(Settings.data_dir)
+    Dir.chdir(Settings.data_dir)
   end
 
   task :all do
