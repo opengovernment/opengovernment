@@ -14,4 +14,6 @@ en:
   bills:
     money_trail:
       title: "Money Trail data isn't quite ready!"
-      details: "Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital data in place!"
+      details: |
+        Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital
+        data in place!

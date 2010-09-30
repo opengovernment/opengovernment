@@ -21,7 +21,7 @@
     %h2= @state.legislature.name
 
     .italic.grid_6.alpha
-      = raw t '.current_session'    
+      = raw t '.current_session'
 
 
     .grid_6.omega
@@ -50,7 +50,7 @@
           %li
             = raw t '.upper_chamber_active_session_date'
           %li
-            Next Session: 
+            Next Session:
             = raw t '.next_session_start_date'
 
 
@@ -80,7 +80,7 @@
         %p
           Each legislator represents approx.
           =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
-        
+
 
 
         %h3.push_top
@@ -91,7 +91,7 @@
 
         %h4
           Last Election
-        %ul.lined 
+        %ul.lined
           %li
             = raw t '.last_election_date'
           %li
@@ -102,7 +102,7 @@
 
         %h4
           Next Election
-        %ul.lined 
+        %ul.lined
           %li
             = raw t '.next_election_date'
           %li
