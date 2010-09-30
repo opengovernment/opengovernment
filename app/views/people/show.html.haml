@@ -114,25 +114,25 @@
   .grid_12.alpha.omega
     %h2!= sponsorship_vitals_for(@person)
 
-  %hr.push_top
+    %hr.push_top
 
 
-  %hr.push_top
 
   .grid_12.alpha
     %h2 Ratings
     - if @person.ratings
       .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
-      %hr
       - @person.ratings.each do |rating|
-        %div.grid_8
+        %h3
           = rating.special_interest_group.category.name
-        %div.grid_8
-          = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
-        %div.grid_2
-          = rating.timespan
-        %div.grid_2
-          = rating.rating
+        %ul.lined
+          %li.grid_12.alpha
+            %span.grid_10.alpha
+              = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+            %span.grid_1
+              = rating.timespan
+            %span.grid_1.omega
+              = rating.rating
     - else
       %p.grid_12.alpha
         No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit

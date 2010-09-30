@@ -1,4 +1,5 @@
-.full_lined
+.space
+.grid_16
   %p Welcome to OpenGovernment, a free and open-source public resource for government transparency at the state and local levels. Finally, a version of OpenCongress for your state legislature. 
   
   %p Learn how your state government works. Track bills and people in your state legislature. Share useful info about all of your political interests. Follow the money trail on key votes. Spread the word to your friends and neighbors, then contact your elected officials. Together, we can build public knowledge in communities and increase civic engagement in our democracy.
@@ -9,6 +10,8 @@
   
   %p <strong>To get started, click on your state in the map below, or enter your zip.</strong>
 
-= render :partial => 'shared/find_my_rep_form'
+
+.grid_16
+  = render :partial => 'shared/find_my_rep_form'
 
 = interactive_us_map

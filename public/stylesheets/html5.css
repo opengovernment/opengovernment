@@ -57,6 +57,32 @@ header{
 
 
 
+p{
+line-height: 1.6em;
+}
+
+ol{
+padding-left: 1.5em;
+}
+
+ol li{
+list-style-type: decimal !important;
+color: #36676f;
+font-weight: bold;
+font-style: italic;
+}
+
+
+ol li p{
+margin: 0;
+color: #333;
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+
 /*///////////// ~  Tables  ~ /////////////*/
 
 

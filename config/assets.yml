@@ -6,7 +6,6 @@ stylesheets:
     - public/stylesheets/bills.css
     - public/stylesheets/breadcrumb.css
     - public/stylesheets/classes.css
-    - public/stylesheets/find_box.css
     - public/stylesheets/forms.css
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
@@ -21,7 +20,6 @@ stylesheets:
     - public/stylesheets/vote.css
 
   other:
-    - public/stylesheets/classes.css
     - public/stylesheets/vote.css
     - public/stylesheets/twitter.css
     - public/stylesheets/find_box.css
