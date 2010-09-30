@@ -1,6 +1,5 @@
 module SimpleNavigation
   module Renderer
-    
     # Renders an ItemContainer as a <div> element and its containing items as <a> elements.
     # It only renders 'selected' elements.
     #
@@ -12,7 +11,7 @@ module SimpleNavigation
       
       def render(item_container)
         a_tags = a_tags(item_container)
-        html_safe(a_tags.join(join_with))
+        a_tags.join(join_with)
       end
 
       protected
@@ -22,7 +21,7 @@ module SimpleNavigation
         item_container.items.inject([]) do |list, item|
           ops = item.html_options.except(:id)
           if item.selected?
-            list_item = link_to(html_safe(content_tag(:span, item.name)), item.url, {:method => item.method}.merge(item.html_options.except(:class, :id)))
+            list_item = link_to(content_tag(:span, item.name)), item.url, {:method => item.method}.merge(item.html_options.except(:class, :id))
             if i == 0 && level == 0
               ops[:class].concat(' first')
               list_item << link_to('', '#', :id => 'secondary_dropdown', :class => 'dropdown')
