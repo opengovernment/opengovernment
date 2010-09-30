@@ -9,34 +9,41 @@
 
 .spin{
   background: transparent url(/images/pulse.gif) 0 0 no-repeat !important;
-height: 31px;
-width: 31px;  
-position: absolute;
-top: 75px !important;
-right: 20px;
-z-index: 999999;
-}
+  height: 31px;
+  width: 31px;  
+  position: absolute;
+  top: 75px !important;
+  right: 20px;
+  z-index: 999999;
+  }
 
 
 
 #flash{
-background: #efefef;
-padding: 20px;
-margin: 0 -16px 0;
+  background: #efefef;
+  padding: 20px;
+  margin: 0 -16px 0;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #fff,  #eee); /* for firefox 3.6+ */
   
-
-}
+  
+  }
 
 #flash #flash_error{
   color: red;
-font-weight: bold;
-text-align: center;
-}
+  font-weight: bold;
+  text-align: center;
+  }
 
 
+
+.intro{
+  padding: 30px 0 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+  font-style: italic;
+  }
 
 
 
@@ -280,14 +287,14 @@ ul.lined.and_spaced.with_titles li a{
 
 
 .race_tracker span{
-display: block;
-padding-top: 30px;
-height: 0;
-margin-top: 5px;
-overflow: hidden;
-background: #fff url(/images/race_tracker.png) 0 0 no-repeat;
-}
-
-
+  display: block;
+  padding-top: 30px;
+  height: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  background: #fff url(/images/race_tracker.png) 0 0 no-repeat;
+  }
+  
+  
 
 
