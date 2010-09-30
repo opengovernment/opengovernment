@@ -12,7 +12,10 @@
             %li.rss 
               = link_to "All actions", {:actions => 'all', :format => :atom}
               = link_to "Major actions", {:actions => 'major', :format => :atom}
-            %li.email Email Alerts
+            %li.email 
+              %a
+                %span
+                Email Alerts
 
       .hov.write_buttons
         %h4.button
@@ -20,9 +23,12 @@
           .arrow
         .drop.button
           %ul
-            %li.email Email
-            %li.twitter Twitter
-            %li.email Facebook
+            %li.email 
+              %a Email
+            %li.twitter 
+              %a Twitter
+            %li.facebook 
+              %a Facebook
 
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')
