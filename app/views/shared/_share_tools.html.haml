@@ -17,7 +17,7 @@
 
 :ruby
   footer_javascript do (%Q|
-    var bitly = new BitlyAPI("#{API_KEYS['bitly_login']}", "#{API_KEYS['bitly_key']}");
+    var bitly = new BitlyAPI("#{ApiKeys.bitly_login}", "#{ApiKeys.bitly_key}");
     var og_page_title = '#{u title}';
     var og_page_url = '#{u url}';
     var og_submit_url;

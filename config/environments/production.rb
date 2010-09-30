@@ -37,10 +37,8 @@ OpenGov::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-
-  HOST = ENV['HOST'] || 'opengovernment.org'
+  HOST = ENV['host'] || 'opengovernment.org'
   HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
-  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 
   config.action_mailer.default_url_options = {:host => HOST}
 end

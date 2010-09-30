@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   # Note, please maintain this aspect ratio
   MAP_WIDTH = 950
   MAP_HEIGHT = 500
-  MAP_POST_URL = %q(#{GEOSERVER_BASE_URL}/wms?
+  MAP_POST_URL = %q(#{Settings.geoserver_base_url}/wms?
     service=WMS
     &request=GetMap
     &version=1.1.1

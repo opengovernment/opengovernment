@@ -31,8 +31,8 @@ module OpenGov
       end
       
       def fetch_one(state)
-        FileUtils.mkdir_p(DISTRICTS_DIR)
-        Dir.chdir(DISTRICTS_DIR)
+        FileUtils.mkdir_p(Settings.districts_dir)
+        Dir.chdir(Settings.districts_dir)
 
         {"upper" => AREA_STATE_UPPER, "lower" => AREA_STATE_LOWER}.each do |name, house|
 

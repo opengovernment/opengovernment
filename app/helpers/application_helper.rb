@@ -101,16 +101,10 @@ module ApplicationHelper
     #   = embed_disqus([unique-page-id])
     # in the place where you want the discussion to show.
     
-    if Rails.env != 'production'
-      javascript do (%q{
-          var disqus_developer = 1;
-        })
-      end
-    end
-    
     javascript do (%Q{
+          var disqus_developer = #{Settings.disqus_developer};
           var disqus_identifier = '#{page_id}';
-          var disqus_shortname = '#{API_KEYS['disqus_shortname'] || 'opengovernment'}';
+          var disqus_shortname = '#{ApiKeys.disqus_shortname}';
       })
     end
 

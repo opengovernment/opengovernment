@@ -19,7 +19,6 @@ OpenGov::Application.configure do
   config.active_support.deprecation = :stderr
 
   HOST = 'localhost'
-  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
 
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+  config.action_mailer.default_url_options = {:host => "#{HOST}:3000"}
 end

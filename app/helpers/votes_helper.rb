@@ -92,7 +92,7 @@ module VotesHelper
     end
   end
 
-  MAP_URL = %q(#{GEOSERVER_BASE_URL}/wms?
+  MAP_URL = %q(#{Settings.geoserver_base_url}/wms?
     service=WMS
     &request=GetMap
     &version=1.1.1

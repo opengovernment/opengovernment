@@ -27,10 +27,8 @@ OpenGov::Application.configure do
   #      SetEnv HOST test.dev.opengovernment.org
   #   </VirtualHost>
   #
-  HOST = ENV['HOST'] || 'staging.opengovernment.org'
-  HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
-
-  GEOSERVER_BASE_URL = "http://#{HOST}:8080/geoserver"
+  HOST = ENV['HOST'] || Settings.host
+  HOME_SUBDOMAIN = Settings.host.sub(/\..*$/,'')
 
   config.action_mailer.default_url_options = { :host => HOST }  
 end

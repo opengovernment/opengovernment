@@ -1,6 +1,6 @@
 module OpenGov
   class Bills < Resources
-    VOTES_DIR = File.join(OPENSTATES_DIR, "api", "votes")
+    VOTES_DIR = File.join(Settings.openstates_dir, "api", "votes")
 
     @@people = {}
 
@@ -28,7 +28,7 @@ module OpenGov
         if options[:remote]
           import_remote(state)
         else
-          state_dir = File.join(OPENSTATES_DIR, "api", state.abbrev.downcase)
+          state_dir = File.join(Settings.openstates_dir, "api", state.abbrev.downcase)
 
           unless File.exists?(state_dir)
             puts "Local Open State API data for #{state.name} is missing."

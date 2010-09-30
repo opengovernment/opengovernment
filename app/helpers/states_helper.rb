@@ -1,6 +1,6 @@
 module StatesHelper
 
-  STATE_MAP_URL = %q(#{GEOSERVER_BASE_URL}/wms?
+  STATE_MAP_URL = %q(#{Settings.geoserver_base_url}/wms?
     service=WMS
     &request=GetMap
     &version=1.1.1

@@ -1,6 +1,6 @@
 module OpenGov
   class Committees < Resources  
-    COMMITTEE_DIR = File.join(OPENSTATES_DIR, "api", "committees")
+    COMMITTEE_DIR = File.join(Settings.openstates_dir, "api", "committees")
 
     class << self
       def import!

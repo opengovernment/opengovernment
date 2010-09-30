@@ -8,7 +8,7 @@ class GovTrackImporter
     @data_url = options[:data_url] || GOV_TRACK_PEOPLE_URL
     @file_name = File.basename(@data_url)
     @refresh_data = options[:refresh_data] || false
-    @data_dir = options[:data_dir] || DATA_DIR
+    @data_dir = options[:data_dir] || Settings.data_dir
   end
 
   def fetch_data
