@@ -3,9 +3,9 @@ class Action < ActiveRecord::Base
   default_scope :order => 'actions.date desc'
 
   class << self
-    def find_all_by_issue(issue)
+    def find_all_by_issue(issue, limit = 10)
       find_by_sql(["select * from v_tagged_actions
-              where kind_one <> 'other' and kind_one is not null and tag_name = ? order by date desc", issue.name])
+              where kind_one <> 'other' and kind_one is not null and tag_name = ? order by date desc limit ?", issue.name, limit])
     end
   end
 

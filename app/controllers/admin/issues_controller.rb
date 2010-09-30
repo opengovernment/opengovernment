@@ -1,7 +1,7 @@
 class Admin::IssuesController < Admin::AdminController
   def bills
     @tags = ActsAsTaggableOn::Tag.all
-    @taggables = Subject.all.paginate(:page => params[:page], :order => params[:order])
+    @taggables = Subject.order(:name).paginate(:page => params[:page], :order => params[:order])
     @title = "Bill Subjects"
     @taggable_type = "subject"
     render :template => 'admin/issues/tag'
