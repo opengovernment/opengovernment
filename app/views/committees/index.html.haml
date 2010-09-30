@@ -1,11 +1,17 @@
 - title("#{@state.name} Committees")
-%h2 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees
-= will_paginate @committees
-%ul
-  - if @committees.size > 0
-    - @committees.each do |committee|
-      %li
-        = link_to(committee.name, committee_path(committee))
-  - else
-    %p Sorry, we didn't find any committees.
-= will_paginate @committees
+.grid_16
+  %h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
+  %hr
+= render :partial => 'shared/left_nav_toplevel'
+
+.grid_12
+
+  = will_paginate @committees
+  %ul.lined
+    - if @committees.size > 0
+      - @committees.each do |committee|
+        %li
+          = link_to(committee.name, committee_path(committee))
+    - else
+      %p Sorry, we didn't find any committees.
+  = will_paginate @committees
