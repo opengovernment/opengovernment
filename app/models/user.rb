@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  establish_connection 'opencongress'
+  if ActiveRecord::Base.configurations.has_key?('opencongress')
+    establish_connection 'opencongress'
+  end
 
   devise :database_authenticatable, :rememberable, :token_authenticatable, :timeoutable
   
