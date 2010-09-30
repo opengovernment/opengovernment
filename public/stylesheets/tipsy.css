@@ -42,7 +42,7 @@ z-index: 100000;
  width:13px; height: 8px; 
 
 }
-  .tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+  .tipsy-n .tipsy-arrow { top: -1px; left: 50%; margin-left: -4px; }
     .tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
     .tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
   .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }

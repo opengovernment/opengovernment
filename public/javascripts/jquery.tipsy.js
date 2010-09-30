@@ -174,7 +174,7 @@
         delayOut: 0,
         fade: true,
         fallback: '',
-        gravity: 'sw',
+        gravity: 'n',
         html: false,
         live: false,
         offset: 0,
