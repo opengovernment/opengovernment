@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def upper
     @chamber = @state.upper_chamber
     @current_tab = :upper
-    
+
     render_people
   end
 
@@ -44,8 +44,8 @@ class PeopleController < ApplicationController
       end
     end
   end
-  
-  def money_trails
+
+  def money_trail
     @sectors = Sector.aggregates_for_person(@person).all
     @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
   end
@@ -86,7 +86,7 @@ class PeopleController < ApplicationController
       return nil
     end
   end
-    
+
   def setup_sort
     @sort = params[:sort] || 'name'
 
@@ -112,12 +112,12 @@ class PeopleController < ApplicationController
           # Good thing this is only ever limited to 10 or 20 people.
 
           countable_ids = Page.most_viewed('Person').collect(&:countable_id)
-          
+
           Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
         else
           people_by_facets
       end
-   
+
     render :template => 'people/index'
   end
 end
