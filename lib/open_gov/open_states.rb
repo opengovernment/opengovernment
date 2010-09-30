@@ -7,8 +7,8 @@ module OpenGov
     end
     
     def self.fetch_one(state)
-      FileUtils.mkdir_p(OPENSTATES_DIR)
-      Dir.chdir(OPENSTATES_DIR)
+      FileUtils.mkdir_p(Settings.openstates_dir)
+      Dir.chdir(Settings.openstates_dir)
 
       openstates_fn = "#{state.abbrev.downcase}.zip"
       curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''

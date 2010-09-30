@@ -300,7 +300,7 @@ namespace :load do
   end
 
   task :districts => :environment do
-    Dir.glob(File.join(DISTRICTS_DIR, '*.shp')).each do |shpfile|
+    Dir.glob(File.join(Settings.districts_dir, '*.shp')).each do |shpfile|
       OpenGov::Districts::import!(shpfile)
     end
 

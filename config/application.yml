@@ -1,0 +1,30 @@
+defaults: &defaults
+  data_dir: <%= Rails.root.join("data") %>
+  districts_dir: <%= Rails.root.join("data", "districts") %>
+  govtrack_dir: <%= Rails.root.join("data", "govtrack") %>
+  openstates_dir: <%= Rails.root.join("data", "openstates") %>
+  mongo_database: og_<%= Rails.env %>
+  geoserver_base_url: http://localhost:8080/geoserver
+  enable_simple_admin_authentication: false
+  disqus_developer: 0
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+  geoserver_base_url: http://staging.opengovernment.org:8080/geoserver
+  host: staging.opengovernment.org
+
+production:
+  <<: *defaults
+  data_dir: /data/opengovernment
+  districts_dir: /data/opengovernment/districts
+  govtrack_dir: /data/opengovernment/govtrack
+  openstates_dir: /data/opengovernment/openstates
+  geoserver_base_url: http://opengovernment.org:8080/geoserver
+  enable_simple_admin_authentication: true
+  disqus_developer: 1
