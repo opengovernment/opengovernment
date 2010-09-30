@@ -11,4 +11,4 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path("../../Gemfile", __FILE__)
 require 'rubygems'
 require 'bundler/setup'
 
-load Gem.bin_path('json_pure', 'edit_json.rb')
+load Gem.bin_path('json', 'edit_json.rb')

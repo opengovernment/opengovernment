@@ -15,7 +15,7 @@ gem "capistrano-ext"
 gem 'settingslogic'
 
 # An alternative form builder
-gem "formtastic", :git => 'http://github.com/justinfrench/formtastic.git', :branch => 'rails3'
+gem 'formtastic', '~> 1.1.0'
 
 # Basic authentication
 gem "devise"
