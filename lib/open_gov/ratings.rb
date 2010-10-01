@@ -8,8 +8,9 @@ module OpenGov
       end
 
       def import_categories
-        puts "Deleting existing categories"
-        Category.delete_all
+        #puts "Deleting existing categories"
+        #Category.delete_all
+
         State.loadable.each do |state|
           begin
             puts "Importing categories.."
@@ -26,8 +27,8 @@ module OpenGov
       end
 
       def import_sigs
-        puts "Deleting existing Special Interest Groups"
-        SpecialInterestGroup.delete_all
+        #puts "Deleting existing Special Interest Groups"
+        #SpecialInterestGroup.delete_all
 
         State.loadable.each do |state|
           puts "Importing Special Interest groups for .. #{state.name} "

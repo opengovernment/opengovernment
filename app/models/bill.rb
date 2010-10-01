@@ -53,8 +53,9 @@ class Bill < ActiveRecord::Base
     has bill_number, state_id, session_id, chamber_id, last_action_at, first_action_at
 
     # Trigger the join on citations before indexing the count
-    has citations(:id), :as => :citations_ids
-    has "COUNT(citations.id)", :as => :citations_count, :type => :integer
+    # We're using SQL to do this now... so no need to index it.
+    #has citations(:id), :as => :citations_ids
+    #has "COUNT(citations.id)", :as => :citations_count, :type => :integer
   end
 
   def kinds

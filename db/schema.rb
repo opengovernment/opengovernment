@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 61) do
+ActiveRecord::Schema.define(:version => 62) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(:version => 61) do
 
   create_table "ratings", :force => true do |t|
     t.integer  "person_id"
-    t.integer  "rating"
+    t.string   "rating"
     t.integer  "timespan"
     t.integer  "sig_id"
     t.integer  "votesmart_id"
