@@ -22,9 +22,9 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @actions = Action.find_all_by_issue(@issue)
-    @bills = Bill.find_all_by_issue(@issue)
-    @sigs = SpecialInterestGroup.find_all_by_issue(@issue)
+    @actions = Action.by_state_and_issue(@state.id, @issue)
+    @bills = Bill.by_state_and_issue(@state.id, @issue)
+    @sigs = SpecialInterestGroup.by_state_and_issue(@state.id, @issue)
 
     respond_to do |format|
       format.atom

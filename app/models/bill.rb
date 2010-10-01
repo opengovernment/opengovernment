@@ -66,9 +66,9 @@ class Bill < ActiveRecord::Base
       for_session_named(session.titleize).find_by_bill_number(param.titleize.upcase)
     end
 
-    def find_all_by_issue(issue, limit = 10)
+    def by_state_and_issue(state_id, issue, limit = 10)
       find_by_sql(["select * from v_tagged_bills
-                where tag_name = ? order by last_action_at desc limit ?", issue.name, limit])
+                where tag_name = ? and state_id = ? order by last_action_at desc limit ?", issue.name, state_id, limit])
     end
   end
 
