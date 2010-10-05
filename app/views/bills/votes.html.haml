@@ -12,8 +12,10 @@
 
           %td.vote_date= vote.date.to_html
 
-          %td.vote-motion
+          %td.vote-motion{:class => vote.committee? ? 'committee-vote' : ''}
             %h4= link_to("#{vote.motion}", vote_path(vote))
+            - if vote.committee_name
+              %span.vote-committee-name= vote.committee_name + ' Committee'
           %td.votes
             %span.total-votes.rounded= vote.total_count
             %span.small-label total votes
