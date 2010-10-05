@@ -15,12 +15,15 @@ margin: 15px 0 15px 15px !important;
 height: 20px;
 }
 
+
+.write_buttons li,
 ul.share li {
   float: left;
   clear: none;
 margin-right: 7px;
 }
 
+.write_buttons a,
 ul.share li a {
   width: 27px !important;
   height: 0px !important;
@@ -28,7 +31,7 @@ ul.share li a {
   padding-top: 27px !important;
   float: left !important;
 }
-
+.write_buttons .facebook a,
 .share .facebook a {
   background: url('/images/share.png') no-repeat left top;
 }
@@ -40,6 +43,7 @@ ul.share li a {
 .share .twitter {
 }
 
+.write_buttons .twitter a,
 .share .twitter a {
   background: url('/images/share.png') no-repeat -30px top;
   margin: 0 !important;
@@ -96,3 +100,67 @@ ul.share li a {
 .share .stumble a:hover {
   background: url('/images/share.png') no-repeat -150px -30px;
 }
+
+
+
+.hov.track_buttons .drop{
+height: 122px;
+width: 156px;
+}
+
+
+.hov.track_buttons ul li{
+display: block !important;
+float: none !important;
+
+}
+
+
+
+.hov.track_buttons ul li.rss a{
+display: block !important;
+float: none !important;
+padding-left: 30px;
+background: url('/images/share.png') no-repeat -495px 0px;
+margin: 15px;
+}
+
+
+.hov.track_buttons ul li.email a{
+display: block !important;
+float: none !important;
+margin: 15px;
+}
+
+
+.hov.track_buttons ul li.email a span{
+padding-left: 25px;
+height: 20px;
+margin-right: 5px;
+float: left;
+background: url('/images/share.png') no-repeat -63px 0px;
+}
+
+.write_buttons .email a{
+background: url('/images/share.png') no-repeat -63px 0px;
+}
+
+
+.write_buttons ul{
+margin: 20px 0 0 20px !important;
+}
+
+.write_buttons li a{
+margin: 0px !important;
+padding: 24px 0 0 0!important;
+height: 0px !important;
+width: 25px !important;
+overflow: hidden !important;
+
+}
+.write_buttons .drop{
+height: 60px !important;
+width: 130px !important;
+}
+
+
