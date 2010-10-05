@@ -50,6 +50,7 @@
               %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
               %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
               %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
+              %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
 
     = will_paginate @roll_calls
 
