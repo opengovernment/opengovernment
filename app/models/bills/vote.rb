@@ -18,6 +18,10 @@ class Vote < ActiveRecord::Base
     yes_count + no_count + other_count
   end
 
+  def committee?
+    !committee_name.blank?
+  end
+
   # These two methods provide a naive algorithm that assumes every motion requires a majority
   # of members present and voting to pass.
   #
