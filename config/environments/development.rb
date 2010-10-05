@@ -18,6 +18,8 @@ OpenGov::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = :stderr
 
+  config.cache_store = :mem_cache_store, { :namespace => 'opengovernment_development' }
+
   HOST = 'localhost'
 
   config.action_mailer.default_url_options = {:host => "#{HOST}:3000"}

@@ -21,6 +21,8 @@ OpenGov::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
+  config.cache_store = :mem_cache_store, '10.13.219.6:11211', { :namespace => 'opengovernment_staging' }
+
   # You can pass an alternative hostname in via
   # Passenger eg.
   #   <VirtualHost ...>

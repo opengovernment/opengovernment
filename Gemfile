@@ -7,6 +7,10 @@ gem "pg"
 gem "mongo_mapper"
 gem "bson_ext"
 
+# Rails.cache
+gem 'memcache-client'
+gem 'memcached'
+
 # Deployment
 gem "capistrano"
 gem "capistrano-ext"
@@ -17,7 +21,7 @@ gem 'settingslogic'
 # An alternative form builder
 gem 'formtastic', '~> 1.1.0'
 
-# Basic authentication
+# Authentication
 gem "devise"
 
 # GIS & Geocoding
@@ -30,10 +34,8 @@ gem "simple-navigation"
 # Static pages
 gem "high_voltage"
 
-# Data import
-# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
-gem "chronic" # Complex date string parsing
-#gem 'delayed_job', '~> 2.1.0.pre2'
+# Background tasks
+gem 'delayed_job', '~> 2.1.0.pre2'
 
 # Simple pagination
 gem "will_paginate", "~> 3.0.pre2"
@@ -52,6 +54,8 @@ gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-o
 gem "httparty"
 gem "hpricot"
 gem 'hpricot_scrub', :git => 'http://github.com/UnderpantsGnome/hpricot_scrub.git'
+gem "chronic" # Complex date string parsing
+# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 
 # Indexing and Search
 gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphinx.git',

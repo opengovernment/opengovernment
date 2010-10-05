@@ -76,7 +76,7 @@
       %p
         - @person.roles.each do |role|
           %div
-            #{role.state.try(:name)} #{role.chamber.name}, session #{raw role.session.name_fm}
+            #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm) }
       - if @person.committees.size > 0
 
     .grid_4

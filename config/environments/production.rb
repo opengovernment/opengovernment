@@ -26,7 +26,7 @@ OpenGov::Application.configure do
   config.active_support.deprecation = :notify
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :mem_cache_store, '10.13.219.6:11211', { :namespace => 'opengovernment_production' }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
