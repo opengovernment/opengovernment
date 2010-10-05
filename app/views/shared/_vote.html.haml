@@ -8,6 +8,9 @@
           = link_to(bill.bill_number, bill_path(bill.session, bill))
           = ': '
           = link_to(vote.motion, vote_path(vote))
+        %span.vote_chamber= vote.chamber.name
+        - if vote.committee_name
+          %span.vote_committee= vote.committee_name + ' committee'
         %span.bill_title= bill.title
       - else
         %h4= link_to("#{vote.motion}", vote_path(vote))

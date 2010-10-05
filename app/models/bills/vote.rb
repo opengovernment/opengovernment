@@ -25,15 +25,19 @@ class Vote < ActiveRecord::Base
   # exceptions like urgency measures. This information may be best stored at the state or chamber level.
   #
   def needed_to_pass_frac
-    0.5
+    threshold || 0.5
   end
-  
+
   def needed_to_pass_pct
     needed_to_pass_frac * 100
   end
 
   def needed_to_pass
-    ((yes_count + no_count + other_count) * needed_to_pass_frac).round
+    # This may ultimately depend on the state.
+
+    # Some states base this on the number of people "present and voting", others always use
+    # all elected reps as the total.
+    ((yes_count + no_count) * needed_to_pass_frac).round
   end
   
   # yes_frac / no_frac / other_frac
