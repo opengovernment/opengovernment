@@ -4,9 +4,9 @@ class SpecialInterestGroup < ActiveRecord::Base
   has_many :ratings, :foreign_key => 'sig_id', :order => "timespan desc"
 
   class << self
-    def find_all_by_issue(issue)
+    def by_state_and_issue(state_id, issue, limit = 10)
       find_by_sql(["select * from v_tagged_sigs
-              where tag_name = ?", issue.name])
+              where tag_name = ? and state_id = ? limit ?", issue.name, state_id, limit])
     end
     
   end

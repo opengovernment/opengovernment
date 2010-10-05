@@ -66,7 +66,11 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
-    primary.item :issues, 'Issues', issues_path, :class => 'issues'
+    primary.item :issues, 'Issues', issues_path, :class => 'issues' do |m|
+      if !@issue.nil?
+        m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
+      end
+    end
     primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |m|
       if !@vote.nil?
         m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"

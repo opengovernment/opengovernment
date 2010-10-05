@@ -249,7 +249,7 @@ CREATE OR REPLACE VIEW v_tagged_bills AS
   tt.context = 'issues' and t.id = tt.tag_id;
 
 CREATE OR REPLACE VIEW v_tagged_actions AS
-  select distinct a.*, tag_name
+  select distinct a.*, tgb.tag_name, tgb.state_id
   from v_tagged_bills as tgb, actions a
   where tgb.id = a.bill_id;
 

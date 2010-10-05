@@ -12,15 +12,10 @@ module VotesHelper
   # If a given bar is more than 100 pixels long, it's safe to show the label.
   LABEL_MIN_WIDTH = 80
 
-  def vote_chart_image_tag(vote, size = :full)
+  def vote_chart_image_tag(vote)
 
-    if size == :full
-      height, width = 100, 300
-      bar_height = 20
-    elsif size == :thumb
-      height, width = 40, 80
-      bar_height = 8
-    end
+    height, width = 100, 300
+    bar_height = 20
 
     vote_types = ['yes', 'no', 'other']
     parties = [Legislature::MAJOR_PARTIES, nil].flatten
@@ -52,16 +47,11 @@ module VotesHelper
     if total_votes > 0
       logger.debug "Total votes: #{total_votes}"
 
-      if size == :full
-        # Where are we going to place the "votes needed to pass" label?
-        votes_needed_y_ratio = Integer.scale(vote.needed_to_pass, total_votes, width) / width
+      # Where are we going to place the "votes needed to pass" label?
+      votes_needed_y_ratio = Integer.scale(vote.needed_to_pass, total_votes, width) / width
 
-        # Google's marker format -- see Chart API docs for chm=
-        markers = "@f#{vote.needed_to_pass} needed to pass*,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
-      else
-        # Don't show votes needed to pass on smaller charts.
-        markers = ""
-      end
+      # Google's marker format -- see Chart API docs for chm=
+      markers = "@f#{vote.needed_to_pass} needed to pass*,666666,1,0.2:#{votes_needed_y_ratio},12,,h"
 
       # Pull out all the arrays of values, and put them into the Google Charts table format
       # This will give us three data series (one for each party), with three values each.

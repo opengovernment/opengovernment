@@ -69,7 +69,7 @@ class BillsController < ApplicationController
       when 'introduced'
         bills.order('first_action_at desc').limit(10)
       when 'citations'
-        bills.search(:order => 'citations_count desc', :per_page => 10)
+        bills.joins("inner join (select owner_id as bill_id, count(citations.id) as citation_count from citations where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.citation_count desc").limit(10)
       when 'views'
         # This is gnarly. We have to generate a case statement for PostgreSQL in order to
         # get the people out in page view order. AND we need an SQL in clause for the people.
