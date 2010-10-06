@@ -18,7 +18,64 @@
     %span.session Session: #{raw @bill.session.name_fm}
     %p.grid_12.alpha.summary= @bill.title
 
-  %hr
+    .grid_11.alpha
+      %ul.status_bar.grid_11.alpha
+        %li.grid_2.alpha.omega
+          %a Introduced
+
+        %li.grid_3.alpha.omega
+          %a Amendment Failed
+
+        %li.grid_3.alpha.omega
+          %a Referred to Committee
+
+        %li.grid_3.alpha.omega
+          %a Bill Failed
+
+        %li.law
+          Law
+
+
+
+
+    .grid_9.alpha.is_law
+      %ul.status_bar.grid_9.alpha
+        %li.grid_2.alpha.omega
+          %a Introduced
+
+        %li.grid_3.alpha.omega
+          %a Amendment Passed
+
+
+        %li.grid_3.alpha.omega
+          %a Bill Signed & Passed
+
+        %li.law
+          Law
+
+
+    .grid_11.alpha.is_law
+      %ul.status_bar.grid_11.alpha
+        %li.grid_2.alpha.omega
+          %a Introduced
+
+        %li.grid_3.alpha.omega
+          %a Amendment Failed
+
+        %li.grid_3.alpha.omega
+          %a Referred to Committee
+
+        %li.grid_3.alpha.omega
+          %a Bill Signed & Passed
+
+        %li.law
+          Law
+
+
+
+
+
+
 
   .grid_6.alpha
     %h2 Sponsors
@@ -48,7 +105,7 @@
           %li
             = document.url.blank? ? document.name : link_to(document.name, document.url)
 
-  %hr.push_top
+  .space
 
   - if @few_actions.size > 0
     .grid_12.alpha
@@ -56,6 +113,9 @@
       #bill_actions
         = render :partial => 'actions_table', :locals => {:actions => @few_actions}
         = link_to(raw("Full bill history &rarr;"),  votes_bill_path(@bill.session, @bill))
+
+  %hr.push_top
+
 
   - if @few_votes.size > 0
     .grid_12.alpha
@@ -89,6 +149,10 @@
                 %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
                 %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
       = link_to(raw("All votes &rarr;"),  votes_bill_path(@bill.session, @bill))
+
+
+  .space
+
 
 
   .grid_12.alpha

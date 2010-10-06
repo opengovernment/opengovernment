@@ -2,10 +2,66 @@
 
 /*///////////////////////////
 
-~ Bill Listing
+~ Bills
 
 ///////////////////////////*/
 
+
+/*/////////////  - Status Bar -  //////////////*/
+
+
+
+
+.status_bar{
+border: 1px solid #eee;
+-moz-border-radius: 3px;
+clear: none;
+position: relative;
+}
+
+
+.status_bar li{
+clear: none;
+}
+
+
+.status_bar a{
+display: block;
+height: 27px;
+padding: 6px 15px 0px 15px;
+font-size: 11px;
+background: url(/images/status_right.png) right 0 no-repeat;
+}
+
+
+.law{
+float: right;
+position: absolute;
+right: -1px;
+top: -4px;
+color: #eee;
+border: 1px solid #eee;
+padding: 10px 7px;
+background: #fff;
+font-size: 11px;
+text-transform: uppercase;
+-moz-border-radius: 2px;
+}
+
+
+
+
+
+.is_law .law{
+color: #999;
+border: 1px solid #aaa;
+}
+
+
+
+
+
+/*/////////////  - Listings -  //////////////*/
 
 #bills ul li:hover a{ text-decoration: underline;}
 
