@@ -8,11 +8,11 @@
 
     %tbody
       - @bill.votes.each do |vote|
-        %tr
+        %tr{:class => vote.committee? ? 'committee-vote' : ''}
 
           %td.vote_date= vote.date.to_html
 
-          %td.vote-motion{:class => vote.committee? ? 'committee-vote' : ''}
+          %td.vote-motion
             %h4= link_to("#{vote.motion}", vote_path(vote))
             - if vote.committee_name
               %span.vote-committee-name= vote.committee_name + ' Committee'

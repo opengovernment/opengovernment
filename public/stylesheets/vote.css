@@ -1,5 +1,11 @@
 
 
+tr.committee-vote h4{
+padding-left: 20px;
+  background: url(/images/purp.png) no-repeat 0 4px;
+}
+
+
 
 .small-label{
 font-size: 11px;
