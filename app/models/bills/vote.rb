@@ -22,6 +22,10 @@ class Vote < ActiveRecord::Base
     !committee_name.blank?
   end
 
+  def kind_fm
+    ['passage', 'amendment'].include?(kind) ? 'on ' + kind : ''
+  end
+
   # These two methods provide a naive algorithm that assumes every motion requires a majority
   # of members present and voting to pass.
   #

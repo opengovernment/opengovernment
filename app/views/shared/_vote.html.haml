@@ -1,26 +1,39 @@
 -# Accepts a vote and (optionally) a bill and person, returns a vote summary.
 -# If no bill is passed in, show the motion without the bill number and title.
 -# If a person is passed in, show the person's vote as a column.
-  %tr
-    %td
-      - if defined?(bill)
-        %h4
+%tr{:class => vote.committee? ? 'committee-vote' : ''}
+  %td.vote_date= vote.date.to_html
+
+  %td.vote-motion
+    - if defined?(bill)
+      %h4
+        = succeed(': ') do
           = link_to(bill.bill_number, bill_path(bill.session, bill))
-          = ': '
-          = link_to(vote.motion, vote_path(vote))
-        %span.vote_chamber= vote.chamber.name
-        - if vote.committee_name
-          %span.vote_committee= vote.committee_name + ' committee'
-        %span.bill_title= bill.title
-      - else
-        %h4= link_to("#{vote.motion}", vote_path(vote))
-      %br
-      %span.vote_date= vote.date
+        = link_to(vote.motion, vote_path(vote))
+    - else
+      %h4= link_to(vote.motion, vote_path(vote))
+    - if vote.committee_name
+      %span.vote-committee-name= vote.committee_name + ' Committee'
+    - unless vote.kind_fm.blank?
+      %span.vote-kind= vote.kind_fm
+  - if defined?(roll_call)
     %td
-      = vote.yes_count
-      &ndash;
-      = vote.no_count
-      &ndash;
-      = vote.other_count
-    %td
-    
+      %strong= roll_call.vote_type.capitalize
+  %td.votes
+    %span.total-votes.rounded= vote.total_count
+    %span.small-label total votes
+  %td.votes{:class => vote.passed? ? 'vote-passed' : ''}
+    %span.vote-yes.rounded= vote.yes_count.round
+    %span.small-label yes votes
+  %td.votes{:class => vote.passed? ? '' : 'vote-failed'}
+    %span.vote-no.rounded= vote.no_count.round
+    %span.small-label no votes
+  %td.votes
+    %span.other-votes.rounded= vote.other_count.round
+    %span.small-label other votes
+
+  %td.vote-bar
+    %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
+    %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
+    %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
+    %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
