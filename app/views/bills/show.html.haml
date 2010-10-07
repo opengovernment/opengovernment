@@ -18,64 +18,8 @@
     %span.session Session: #{raw @bill.session.name_fm}
     %p.grid_12.alpha.summary= @bill.title
 
-    .grid_11.alpha
-      %ul.status_bar.grid_11.alpha
-        %li.grid_2.alpha.omega
-          %a Introduced
-
-        %li.grid_3.alpha.omega
-          %a Amendment Failed
-
-        %li.grid_3.alpha.omega
-          %a Referred to Committee
-
-        %li.grid_3.alpha.omega
-          %a Bill Failed
-
-        %li.law
-          Law
-
-
-
-
-    .grid_9.alpha.is_law
-      %ul.status_bar.grid_9.alpha
-        %li.grid_2.alpha.omega
-          %a Introduced
-
-        %li.grid_3.alpha.omega
-          %a Amendment Passed
-
-
-        %li.grid_3.alpha.omega
-          %a Bill Signed & Passed
-
-        %li.law
-          Law
-
-
-    .grid_11.alpha.is_law
-      %ul.status_bar.grid_11.alpha
-        %li.grid_2.alpha.omega
-          %a Introduced
-
-        %li.grid_3.alpha.omega
-          %a Amendment Failed
-
-        %li.grid_3.alpha.omega
-          %a Referred to Committee
-
-        %li.grid_3.alpha.omega
-          %a Bill Signed & Passed
-
-        %li.law
-          Law
-
-
-
-
-
-
+  - status_bar(@bill)
+  .clear
 
   .grid_6.alpha
     %h2 Sponsors
@@ -121,33 +65,9 @@
     .grid_12.alpha
       %h2 Recent Votes
       %table.vote-summary.grid_12.alpha
-
         %tbody
-          - @few_votes.each do |vote|
-            %tr
+          = render :collection => @few_votes, :partial => 'shared/vote'
 
-              %td.vote_date= vote.date.to_html
-
-              %td.vote-motion
-                %h4= link_to("#{vote.motion}", vote_path(vote))
-              %td.votes
-                %span.total-votes.rounded= vote.total_count
-                %span.small-label total votes
-              %td.votes{:class => vote.passed? ? 'vote-passed' : ''}
-                %span.vote-yes.rounded= vote.yes_count.round
-                %span.small-label yes votes
-              %td.votes{:class => vote.passed? ? '' : 'vote-failed'}
-                %span.vote-no.rounded= vote.no_count.round
-                %span.small-label no votes
-              %td.votes
-                %span.other-votes.rounded= vote.other_count.round
-                %span.small-label other votes
-
-              %td.vote-bar
-                %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
-                %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
-                %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
-                %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
       = link_to(raw("All votes &rarr;"),  votes_bill_path(@bill.session, @bill))
 
 

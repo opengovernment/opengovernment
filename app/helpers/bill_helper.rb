@@ -21,4 +21,38 @@ module BillHelper
       mugs
     end
   end
+  
+  def status_bar(bill)
+    status_items = ''
+    status_cell_count = 0
+
+    if bill.actions.introduced?
+      status_items += content_tag(:li, link_to('Introduced', action_path(bill.actions.first_introduced)), :class => 'grid_2 alpha omega')
+      status_cell_count += 2
+    end
+    
+    if bill.actions.referred_to_committee?
+      status_items += content_tag(:li, link_to('Referred to Committee', action_path(bill.actions.first_referred_to_committee)), :class => 'grid_3 alpha omega')
+      status_cell_count += 3
+    end
+
+    if bill.actions.passed?
+      status_items += content_tag(:li, link_to('Bill Passed', action_path(bill.actions.first_passed)), :class => 'grid_3 alpha omega')
+      status_cell_count += 3
+    elsif bill.actions.failed?
+      status_items += content_tag(:li, link_to('Bill Failed', action_path(bill.actions.first_failed)), :class => 'grid_3 alpha omega')
+      status_cell_count += 3
+    end
+
+    status_items += content_tag(:li, 'Law', :class => 'law')
+
+    if status_cell_count > 0
+      status_cell_count += 2
+      haml_tag "div.grid_#{status_cell_count}.alpha#{(bill.actions.signed? ? '.is_law' : '')}" do
+        haml_tag "ul.status_bar.grid_#{status_cell_count}.alpha" do
+          output_buffer << status_items
+        end
+      end
+    end
+  end
 end

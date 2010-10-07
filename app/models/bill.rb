@@ -9,7 +9,24 @@ class Bill < ActiveRecord::Base
     hm.has_many :sponsorships, :class_name => 'BillSponsorship'
     hm.has_many :versions, :class_name => 'BillVersion'
     hm.has_many :documents, :class_name => 'BillDocument'
-    hm.has_many :actions
+    hm.has_many :actions do
+      def has_kind?(kind)
+        exists?(["? in (actions.kind_one, actions.kind_two, actions.kind_three)", kind])
+      end
+      
+      def of_kind(kind)
+        where(["? in (actions.kind_one, actions.kind_two, actions.kind_three)", kind]).order('actions.date desc').first
+      end
+
+      {:introduced => 'bill:introduced', 
+       :referred_to_committee => 'committee:referred',
+       :passed => 'bill:passed',
+       :failed => 'bill:failed',
+       :signed => 'governor:signed'}.each do |label, kind|
+        define_method("#{label}?") { self.send('has_kind?', kind) }
+        define_method("first_#{label}") { self.send('of_kind', kind) }
+      end
+    end
   end
 
   has_many :sponsors, :through  => :sponsorships
