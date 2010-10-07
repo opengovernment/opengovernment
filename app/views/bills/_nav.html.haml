@@ -5,5 +5,4 @@
     = render_navigation(:level => 3)
 
   %ul
-    %li.discuss
-      %a= link_to('Comments', discuss_bill_path(@bill.session, @bill, :anchor => 'disqus_thread'))
+    %li.discuss= link_to('Comments', discuss_bill_path(@bill.session, @bill, :anchor => 'disqus_thread'))
