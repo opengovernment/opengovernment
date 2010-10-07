@@ -35,6 +35,8 @@
       bitly.shorten(og_page_url, function(json, status) {
         if (json['status_code'] == '200') {
           window.location.href = og_submit_url.replace(/SHORT_URL/, json['data']['url']);
+        } else {
+          window.location.href = og_submit_url.replace(/SHORT_URL/, og_page_url);
         }
       });
     });
