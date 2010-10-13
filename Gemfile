@@ -27,6 +27,7 @@ gem "devise"
 # GIS & Geocoding
 gem "GeoRuby"
 gem "geokit"
+gem 'geoip'
 
 # Breadcrumbs & navigation
 gem "simple-navigation"
@@ -70,7 +71,7 @@ group :test do
   # Bundle gems for certain environments:
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
-  gem 'rspec-rails', '>= 2.0.0.beta.22'
+  gem 'rspec-rails', '>= 2.0.0.rc'
   gem 'spork'
   gem 'capybara'
   gem 'cucumber'
