@@ -9,7 +9,7 @@ gem "bson_ext"
 
 # Rails.cache
 gem 'memcache-client'
-gem 'memcached'
+# gem 'memcached'
 
 # Deployment
 gem "capistrano"

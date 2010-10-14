@@ -144,7 +144,6 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     memcache-client (1.8.5)
-    memcached (1)
     mime-types (1.16)
     mongo (1.1)
       bson (>= 1.0.5)
@@ -262,7 +261,6 @@ DEPENDENCIES
   linecache19
   machinist
   memcache-client
-  memcached
   mongo_mapper
   paperclip
   pg
