@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 
 Spork.prefork do
   require File.dirname(__FILE__) + "/../config/environment"
+  require 'rspec/core'
+  require 'rspec/rails'
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 #  Capybara.app = OpenGov::Application
