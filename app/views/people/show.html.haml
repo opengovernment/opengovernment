@@ -111,8 +111,10 @@
     .grid_6.alpha
       %ul#tweets
 
-  .grid_12.alpha.omega
-    %h2!= sponsorship_vitals_for(@person)
+  .grid_12.alpha.omega.sponsored_bills
+    = sponsorship_vitals_for(@person)
+    %ul
+      = render @person.sponsored_bills.limit(5)
 
     %hr.push_top
 

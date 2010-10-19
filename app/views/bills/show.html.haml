@@ -6,11 +6,11 @@
 - track(@bill)
 - tweets(@bill.to_hashtags, 2)
 
-= render :partial => 'wrapper', :locals => {:show_tools => true}
+= render 'wrapper', :show_tools => true
 
 .grid_12
   .grid_12.alpha
-    = render :partial => 'shared/view_counts', :locals => {:page => @bill}
+    = render 'shared/view_counts', :page => @bill
 
   %hr
   
@@ -66,7 +66,7 @@
       %h2 Recent Votes
       %table.vote-summary.grid_12.alpha
         %tbody
-          = render :collection => @few_votes, :partial => 'shared/vote'
+          = render @few_votes
 
       = link_to(raw("All votes &rarr;"),  votes_bill_path(@bill.session, @bill))
 

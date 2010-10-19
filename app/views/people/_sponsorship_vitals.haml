@@ -1,0 +1,6 @@
+.sponsorship_vitals
+  - if vitals
+    %h2= link_to(vitals.bill_count, sponsored_bills_person_url(@person)) + ' bills sponsored or co-sponsored'
+    .rank Ranks #{vitals.rank.to_i.ordinalize} out of #{vitals.total_sponsors} #{@person.chamber.title.pluralize}
+  - else
+    No sponsorship information available
