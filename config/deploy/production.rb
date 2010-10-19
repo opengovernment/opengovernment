@@ -2,7 +2,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 
 set :application, "opengovernment"
-set :rvm_ruby_string, 'ruby-1.9.2'
+set :rvm_ruby_string, 'ree@og'
 set :rails_env, "production"
 set :branch, "production"
 set :deploy_to, "/web/opengovernment.org"
