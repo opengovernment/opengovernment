@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-rvm --create 1.9.2@og
-rvm use 1.9.2@og
+rvm --create ree@og
+rvm use ree@og
 
