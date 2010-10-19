@@ -24,8 +24,8 @@ class BillsController < ApplicationController
   def show
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
 
-    @few_actions = @bill.actions.limit(2)
-    @few_votes = @bill.votes.limit(2)
+    @actions = @bill.actions
+    @votes = @bill.votes
 
     respond_to do |format|
       format.js

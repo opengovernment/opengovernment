@@ -77,15 +77,17 @@
         - @person.roles.each do |role|
           %div
             #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm) }
-      - if @person.committees.size > 0
 
     .grid_4
       %h2 Committees
-      %ul.lined
-        - @person.committees.each do |committee|
-          %li
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee))
+      - if @person.committees.size > 0
+        %ul.lined
+          - @person.committees.each do |committee|
+            %li
+              = committee.type_fm
+              = link_to(committee.name, committee_path(committee))
+      - else
+        %p We have no committee membership information for #{@person.full_name}.
 
     .grid_4.omega
       %h2 Votes
@@ -99,7 +101,7 @@
                   = raw "#{roll_call.vote_type.titleize} on #{link_to(vote.bill.bill_number, bill_path(vote.bill, vote.bill.session))}: #{link_to(vote.motion, vote_path(vote.id))} on #{vote.date}"
 
         %p
-          != link_to("View All #{@person.votes.count} Votes", votes_person_path(@person))
+          != link_to("View All #{@person.votes.count} Votes &rarr;".html_safe, votes_person_path(@person))
       - else
         %p We have no voting history for #{@person.full_name}
 
@@ -116,13 +118,14 @@
     %ul
       = render @person.sponsored_bills.limit(5)
 
+    = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
     %hr.push_top
 
 
 
   .grid_12.alpha
     %h2 Ratings
-    - if @person.ratings
+    - if @person.ratings.size > 0
       .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
       - @person.ratings.each do |rating|
         %h3
