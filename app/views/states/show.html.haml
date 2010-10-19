@@ -36,7 +36,7 @@
 
         %h2
           = chamber.name
-          - surround '(', ')' do
+          = surround '(', ')' do
             = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
 
         .grid_6.alpha.district_map
@@ -56,7 +56,7 @@
 
         %h3
           Legislators
-          - surround '(', ')' do
+          = surround '(', ')' do
             = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
         %ul.lined
           %li= pluralize(chamber.people.democrats.count, 'Democrat')

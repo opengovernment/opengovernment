@@ -79,6 +79,10 @@ class Bill < ActiveRecord::Base
     [kind_one, kind_two, kind_three].compact
   end
 
+  def title_fm
+    bill_number + ': ' + title
+  end
+
   class << self
     def find_by_session_name_and_param(session, param)
       for_session_named(session.titleize).find_by_bill_number(param.titleize.upcase)

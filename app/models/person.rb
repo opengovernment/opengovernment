@@ -31,8 +31,8 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
   has_one :chamber, :through => :roles
 
-  has_many :sponsorships, :foreign_key => "sponsor_id"
-  has_many :sponsored_bills, :class_name => 'Bill', :through => :sponsorships, :source => :bill
+  has_many :bill_sponsorships, :foreign_key => "sponsor_id"
+  has_many :sponsored_bills, :class_name => 'Bill', :through => :bill_sponsorships, :source => :bill
 
   has_many :contributions, :order => "amount desc", :limit => 20
   has_many :ratings, :order => "timespan desc"

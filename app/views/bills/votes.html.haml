@@ -4,12 +4,16 @@
 
 .grid_12
   %h2 Votes
-  %table.vote-summary.grid_12.alpha
+  - if @bill.votes.size > 0
+    %table.vote-summary.grid_12.alpha
 
-    %tbody
-      = render :collection => @bill.votes, :partial => 'shared/vote'
+      %tbody
+        = render @bill.votes
+  - else
+    We have no votes for this bill.
 
-  - if @bill.major_actions.count > 0
+  %h2 Actions
+  - if @bill.actions.size > 0
     .sort
       %ul
         %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions", bill_path(@bill.session, @bill, :actions => 'major'), :remote => true}
@@ -18,3 +22,5 @@
         %li.spin(style="display: none;")
       .grid_12.alpha
         #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+  - else
+    We have no actions for this bill.

@@ -48,13 +48,42 @@
         %p
           No biography was found on Wikipedia for #{@person.full_name}.
       - else
+
+
+
+
+
         %small.quiet.span
           From the non-partisan
           = link_to("Wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
         %p
           = @person.bio_data
           = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
-   
+
+
+
+
+
+        %p We have no voting history for #{@person.full_name}
+
+  %hr.push_top
+
+
+  #twitter(style="display: none;")
+    %h2 Tweets
+    .grid_6.alpha
+      %ul#tweets
+
+  .grid_12.alpha.omega.sponsored_bills
+    = sponsorship_vitals_for(@person)
+    %ul
+      = render @person.sponsored_bills.limit(5)
+
+
+
+
+
+
     %hr.push_top
   
     .grid_12.alpha

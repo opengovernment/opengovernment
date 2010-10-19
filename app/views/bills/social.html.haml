@@ -1,7 +1,7 @@
 - title("Tweets about #{@bill.bill_number}")
 - tweets(@bill.to_hashtags, 2)
 
-= render(:partial => 'wrapper')
+= render 'wrapper'
 
 .grid_12
   %p

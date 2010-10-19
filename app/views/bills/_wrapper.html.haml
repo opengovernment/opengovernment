@@ -1,7 +1,7 @@
 .grid_16
   - if defined?(show_tools)
     %aside.take_action
-      = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+      = render 'shared/share_tools', :message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url
       .hov.track_buttons
         %h4.button
           %span Track

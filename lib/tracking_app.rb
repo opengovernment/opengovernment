@@ -40,10 +40,9 @@ class TrackingApp
   def self.valid_cache_key(object_type, object_id, ip)
     klass = object_type.constantize
     if klass.superclass == ActiveRecord::Base && klass.exists?(object_id)
-      [ip, object_type, object_id].join(':')
-    else
-      nil
+      return [ip, object_type, object_id].join(':')
     end
+    nil
   end
 
 end

@@ -24,7 +24,7 @@
           %th Other
       %tbody
       - @roll_calls.each do |roll_call|
-        = render :partial => 'shared/vote', :locals => {:bill => roll_call.vote.bill, :vote => roll_call.vote, :roll_call => roll_call}
+        = render roll_call.vote, :bill => roll_call.vote.bill, :roll_call => roll_call
 
     = will_paginate @roll_calls
 

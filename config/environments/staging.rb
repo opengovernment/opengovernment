@@ -29,8 +29,8 @@ OpenGov::Application.configure do
   #      SetEnv HOST test.dev.opengovernment.org
   #   </VirtualHost>
   #
-  HOST = ENV['HOST'] || Settings.host
-  HOME_SUBDOMAIN = Settings.host.sub(/\..*$/,'')
+  HOST = ENV['HOST'] || 'staging.opengovernment.org'
+  HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
 
   config.action_mailer.default_url_options = { :host => HOST }  
 end

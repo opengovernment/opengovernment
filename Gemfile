@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '>= 3.0.0'
+gem 'rails'
 
 # ActiveRecord requires a database adapter.
 gem "pg"
@@ -9,7 +9,7 @@ gem "bson_ext"
 
 # Rails.cache
 gem 'memcache-client'
-gem 'memcached'
+# gem 'memcached'
 
 # Deployment
 gem "capistrano"
@@ -27,6 +27,7 @@ gem "devise"
 # GIS & Geocoding
 gem "GeoRuby"
 gem "geokit"
+gem 'geoip'
 
 # Breadcrumbs & navigation
 gem "simple-navigation"
@@ -65,12 +66,16 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :require => 'thinking_sphinx',
      :branch => 'rails3'
 
+group :development, :test do 
+ gem 'silent-postgres' # Quieter postgres log messages
+end
+
 # Bundle gems used only in certain environments:
 group :test do
   # Bundle gems for certain environments:
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
-  gem 'rspec-rails', '>= 2.0.0.beta.22'
+  gem 'rspec-rails', '>= 2.0.0.rc'
   gem 'spork'
   gem 'capybara'
   gem 'cucumber'
@@ -79,6 +84,6 @@ group :test do
   gem "autotest-rails"
   gem "factory_girl_rails"
   gem "machinist"
-  gem "linecache19"
-  gem "ruby-debug19"
+  gem "linecache"
+  gem "ruby-debug"
 end
