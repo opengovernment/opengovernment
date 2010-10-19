@@ -28,18 +28,11 @@ module UrlHelper
   end
 
   def with_subdomain(subdomain)  
-    Rails.logger.info "subdomains #{request.subdomains.inspect}"
-    Rails.logger.info HOME_SUBDOMAIN if defined?(HOME_SUBDOMAIN)
-    Rails.logger.info "domain #{request.domain}"
-
     subdomain = (subdomain || '')
-    subdomain = HOME_SUBDOMAIN if subdomain.empty? && defined?(HOME_SUBDOMAIN) && request.subdomains.first != HOME_SUBDOMAIN
-    subdomain += '.' unless subdomain.empty?  
+    subdomain = HOME_SUBDOMAIN if subdomain.empty? && defined?(HOME_SUBDOMAIN)
+    subdomain += '.' unless subdomain.empty?
 
-    domain = request.domain
-    domain = HOST if defined?(HOME_SUBDOMAIN)
-
-    [subdomain, domain, request.port_string].join  
+    [subdomain, request.domain, request.port_string].join  
   end
   
   def url_for(options = nil)    
