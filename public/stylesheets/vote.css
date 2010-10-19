@@ -228,11 +228,15 @@ margin-top: 10px;
 
 /* Big vote chart -- votes/show */
 .vote_chart table {
-  width: 450px;
+  width: 400px !important;
+}
+
+.vote_chart table td {
+  min-width: 25px;
 }
 
 .vote_chart table td.vote_chart {
-  width: 300px; /* See votes_helper full-size chart width */
+  width: 300px ; /* See votes_helper full-size chart width */
 }
 
 .vote_chart table caption {
