@@ -28,3 +28,4 @@ production:
   geoserver_base_url: http://app.opengovernment.org:8080/geoserver
   enable_simple_admin_authentication: true
   disqus_developer: 1
+  host: app.opengovernment.org
