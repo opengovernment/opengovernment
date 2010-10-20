@@ -2,7 +2,12 @@ require 'open-uri'
 
 class Person < ActiveRecord::Base
   include Trackable
-  has_attached_file :photo, :styles => {:full => "110x110>", :thumb => "50x50#"}
+
+  # See http://www.taknado.com/en/2009/10/01/paperclip-tweaks/
+  # and http://www.imagemagick.org/script/command-line-processing.php#geometry
+  # for geometry options
+  has_attached_file :photo, :styles => {:full => "110x110", :thumb => "50x50#"}, :convert_options => { :all => '-gravity north'}
+
   acts_as_citeable :with => [:official_name]
 
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
@@ -16,8 +21,8 @@ class Person < ActiveRecord::Base
   # Right now this is used by OpenStates::Photos::sync! to
   # download photos for each person.
   attr_accessor :photo_url
-#  before_validation :download_remote_image, :if => :photo_url_provided?
-#  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
+  before_validation :download_remote_image, :if => :photo_url_provided?
+  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy do
@@ -242,15 +247,11 @@ class Person < ActiveRecord::Base
   end
 
   def do_download_remote_image
-    return nil unless photo_url
-
-    uri = URI.parse(photo_url)
-
-    uri.open do |f|
-      f.base_uri.path.split('/').blank? ? nil : f.read
-    end
-
-#  rescue
+    io = open(URI.parse(photo_url))
+    def io.original_filename; base_uri.path.split('/').last; end
+    io.original_filename.blank? ? nil : io
+  rescue OpenURI::HTTPError => e
+    puts "OpenURL error: #{e}"
     # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
   end
 
