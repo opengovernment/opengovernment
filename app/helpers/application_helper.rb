@@ -64,14 +64,17 @@ module ApplicationHelper
   end
 
   def photo_for(person, size = :full)
+    # This roughly matches the dimensions used in people.rb
     ops = case size
       when :tiny
         {:width => 30, :height => 30}
       when :thumb
         {:width => 50, :height => 50}
+      when :full
+        {:width => 90} # Variable height.
       else
-        {:height => 110}
-          end
+        {}
+      end
 
     # Use the 50x50 images for 'tiny'.
     if size == :tiny

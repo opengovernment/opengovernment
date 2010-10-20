@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
   # See http://www.taknado.com/en/2009/10/01/paperclip-tweaks/
   # and http://www.imagemagick.org/script/command-line-processing.php#geometry
   # for geometry options
-  has_attached_file :photo, :styles => {:full => "110x110", :thumb => "50x50#"}, :convert_options => { :all => '-gravity north'}
+  has_attached_file :photo, :styles => {:full => "90", :thumb => "50x50#"}, :convert_options => { :all => '-gravity north'}
 
   acts_as_citeable :with => [:official_name]
 
