@@ -88,3 +88,8 @@ margin-top: 18px;
 }
 
 
+.lined li.person .grid_6{
+border-right: 1px solid #efefef;
+padding-bottom: 15px;
+}
+

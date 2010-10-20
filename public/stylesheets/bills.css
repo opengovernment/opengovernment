@@ -117,6 +117,10 @@ background: #f3f7f7;
 .bill_status div{
 padding: 0px 0 5px;
   }
+
+.bill_status div.top{
+padding: 5px 0 5px;
+  }
   
 
 
@@ -159,8 +163,8 @@ background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
 
 .sponsor_mugs img{
 border: 1px solid #fff;
- height: 20px;
-width: 17px;
+ height: 25px;
+width: 22px;
 }
 
 

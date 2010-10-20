@@ -742,8 +742,9 @@ margin: 0;
 
 .sort ul li a{
 float: left;
-padding: 0 20px 0 0;
-margin: 0 !important;
+margin: 0 10px 0 0;
+padding: 0 10px 0 0;
+border-right: 1px solid #215357 !important;;
 background: none !important;
 }
 

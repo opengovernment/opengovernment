@@ -16,11 +16,11 @@
 
   .bill_status.rounded.grid_7.omega
 
-    .introduced.grid_4.omega
+    .introduced.grid_4.omega.top
       Introduced:
       != bill.first_action_at
 
-    .recent_vote.grid_3.alpha
+    .recent_vote.grid_3.alpha.top
       != pluralize(bill.votes.count, 'vote')
       on this bill
     
