@@ -57,8 +57,7 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 
 .lined li.person a .small_thumbnail img{
   display: block;
-  height: 60px;
-  width: 50px; 
+
   border: 1px solid #fff;
   }
 
