@@ -70,13 +70,13 @@
   %hr.push_top
 
   .grid_12.alpha
+    = render_navigation
 
     .grid_4.alpha
       %h2 Roles
       %p
         - @person.roles.each do |role|
-          %div
-            #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm) }
+          %div #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm)}
 
     .grid_4
       %h2 Committees
@@ -98,7 +98,13 @@
               - @latest_roll_calls.each do |roll_call|
                 - vote = roll_call.vote
                 %li
-                  = raw "#{roll_call.vote_type.titleize} on #{link_to(vote.bill.bill_number, bill_path(vote.bill, vote.bill.session))}: #{link_to(vote.motion, vote_path(vote.id))} on #{vote.date}"
+                  = roll_call.vote_type.titleize
+                  on
+                  = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
+                  motion
+                  = succeed ',' do
+                    = link_to(vote.motion, vote_path(vote.id))
+                  = vote.date
 
         %p
           != link_to("View All #{@person.votes.count} Votes &rarr;".html_safe, votes_person_path(@person))

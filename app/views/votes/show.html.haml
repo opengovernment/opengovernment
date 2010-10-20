@@ -33,7 +33,7 @@
   %hr.push_bottom
 
 
-  .grid_6
+  .grid_6.alpha
     %h2 Geography of the Vote
     = vote_legend_img
     = vote_map_img(@state, @vote.id)
@@ -58,11 +58,11 @@
 
   #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
 
-  %h2 Full Roll Call
-  - unless @vote.roll_calls.size > 0
-    %grid_16.alpha Sorry, no roll call is available for this vote.
-  - else
-    .grid_16
+  .grid_16.alpha
+    %h2 Full Roll Call
+    - unless @vote.roll_calls.size > 0
+      %p Sorry, no roll call is available for this vote.
+    - else
       - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
         .grid_5
           %table.roll_call

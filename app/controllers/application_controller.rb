@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
- # include BreadcrumbsOnRails::ControllerMixin
   include UrlHelper
   helper_method :current_place, :current_place_name
   before_filter :set_locale

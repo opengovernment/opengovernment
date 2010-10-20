@@ -37,7 +37,7 @@
           %span I Oppose this Rep!
   %h1
     = @person.official_name
-    - surround '(', ')' do
+    = surround '(', ')' do
       = @person.current_role.try(:affiliation_fm)
   %hr
 
