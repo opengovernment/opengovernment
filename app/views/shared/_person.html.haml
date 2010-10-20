@@ -4,18 +4,20 @@
     .small_thumbnail
       != photo_for(person, :thumb) 
 
-    %span{:class => "person_name #{person.gender_class}"}
-      != person.full_name
-
-    .person_district
-      = person.try(:district_name)
-      - if person.district_office_city
-        out of
-        = person.district_office_city
-    .person_party
-      = surround '(', ')' do
-        = Role.party_fm(person.try(:party))
-
-    - if MongoMapper.connected?
-      .person_views #{person.views} Views
-    .person_citations #{person.citations.since(30.days.ago).count} News & blog entries, past 30 days
+    .grid_6
+      %span{:class => "person_name #{person.gender_class}"}
+        != person.full_name
+  
+      .person_district
+        = person.try(:district_name)
+        - if person.district_office_city
+          out of
+          = person.district_office_city
+        .person_party
+          = surround '(', ')' do
+            = Role.party_fm(person.try(:party))
+    .grid_4  
+      - if MongoMapper.connected?
+        .person_views #{person.views} Views
+    .grid_4  
+      .person_citations #{person.citations.since(30.days.ago).count} News & blog entries, past 30 days

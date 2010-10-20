@@ -11,7 +11,7 @@
 .grid_12
   %p.intro= t '.intro'
 
-  %hr.push_bottom
+  %hr
   
   %ul.tabs
  
@@ -23,7 +23,7 @@
 
   %hr.push_bottom
 
-  .sort.grid_12.alpha.push_bottom
+  .sort.grid_12.alpha
     %ul.people_sorts.sorts
       %li.sort_label
         Sort by
@@ -31,7 +31,7 @@
         %li
           = link_to(v, url_for(:sort => k), :class => k.to_s == @sort ? 'active' : nil)
 
-  %hr.push_bottom
+  %hr.push_top
 
   #chamber
     = render :partial => 'chamber'
