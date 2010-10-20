@@ -41,7 +41,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.
     #
     primary.item :bills, 'Bills', bills_path, :class => 'bills' do |bill|
-      if !@bill.nil?
+      if defined?(@bill)
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
           m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
@@ -51,10 +51,14 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
         end
+      elsif defined?(@vote)
+        bill.item :bill, @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |m|
+          m.item :vote, 'Roll Call', vote_path(@vote), :class => "vote #{@vote.outcome_class}"
+        end
       end
     end
     primary.item :people, 'People', people_path, :class => 'people' do |person|
-      if !@person.nil?
+      if defined?(@person)
         person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
           m.item :overview, 'Overview', person_path(@person)
           m.item :votes, pluralize(@person.votes.count, 'Vote'), votes_person_path(@person)
@@ -67,15 +71,15 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
     primary.item :issues, 'Issues', issues_path, :class => 'issues' do |m|
-      if !@issue.nil?
+      if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
       end
     end
-    primary.item :votes, 'Votes', '#', :if => Proc.new { !@vote.nil? } do |m|
-      if !@vote.nil?
-        m.item :vote, @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}"
-      end
-    end
+ #   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
+#      m.item :bill,  @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |b|
+ #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
+ #     end
+ #   end
     primary.item :money_trail, 'Money Trail', money_trails_path, :class => 'money_trail'
     primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")

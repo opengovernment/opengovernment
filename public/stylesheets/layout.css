@@ -144,6 +144,11 @@ margin: 0;
 }
 
 
+.details{
+  padding: 10px 0 15px;
+  line-height: 1.4em;
+}
+
 
 .district_map img{
 padding-bottom: 20px;
@@ -326,13 +331,6 @@ font-weight: bold;
 padding-left: 15px;
 background: url(/images/sprites.png) left -149px no-repeat;
 */
-}
-
-
-
-
-.details{
-padding-top: 30px;
 }
 
 

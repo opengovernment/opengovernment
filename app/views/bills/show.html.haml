@@ -52,24 +52,24 @@
 
   .space
 
-  - if @few_actions.size > 0
+  - if @actions.limit(2).size > 0
     .grid_12.alpha
       %h2 Recent Actions
       #bill_actions
-        = render :partial => 'actions_table', :locals => {:actions => @few_actions}
+        = render 'actions_table', :actions => @actions
         = link_to(raw("Full bill history &rarr;"),  votes_bill_path(@bill.session, @bill))
 
   %hr.push_top
 
 
-  - if @few_votes.size > 0
+  - if @votes.limit(2).size > 0
     .grid_12.alpha
       %h2 Recent Votes
       %table.vote-summary.grid_12.alpha
         %tbody
-          = render @few_votes
+          = render @votes
 
-      = link_to(raw("All votes &rarr;"),  votes_bill_path(@bill.session, @bill))
+      = link_to(raw("All votes &rarr;"), votes_bill_path(@bill.session, @bill))
 
 
   .space
