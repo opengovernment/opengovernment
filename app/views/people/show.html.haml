@@ -17,12 +17,7 @@
   
       .grid_2.alpha
         = photo_for(@person)
-  
-      - Person.with_openstates_photo_url.where("photo_file_name is not null").each do |p|
-        = image_tag p.photo.url
-        = image_tag p.photo.url(:full)
-        = image_tag p.photo.url(:thumb)
-          
+
       %ul.grid_4.omega
         - if @person.birthday?
           %li= "Born #{@person.birthday}"

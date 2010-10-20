@@ -70,7 +70,7 @@ module ApplicationHelper
       when :thumb
         {:width => 50, :height => 50}
       else
-        {:width => 110, :height => 110}
+        {:height => 110}
           end
 
     # Use the 50x50 images for 'tiny'.
