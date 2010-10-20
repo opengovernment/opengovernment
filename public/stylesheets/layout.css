@@ -111,9 +111,9 @@ font-weight: bold;
 }
 
 li.discuss{
-padding: 20px;
-background: url(/images/sprites.png) left -434px no-repeat;
-font-weight: bold;
+padding: 8px 0 8px 20px;
+background: url(/images/sprites.png) left -444px no-repeat;
+
 }
 
 
@@ -139,7 +139,7 @@ font-size: 11px;
 .summary{
 font-size: 18px;
 line-height: 1.4em;
-padding: 5px 0 15px;
+padding: 25px 0;
 margin: 0;
 }
 
@@ -742,8 +742,9 @@ margin: 0;
 
 .sort ul li a{
 float: left;
-padding: 0 20px 0 0;
-margin: 0 !important;
+margin: 0 10px 0 0;
+padding: 0 10px 0 0;
+border-right: 1px solid #215357 !important;;
 background: none !important;
 }
 

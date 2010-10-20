@@ -36,7 +36,7 @@
       %header
         #account.grid_9.alpha
           .grid_8.alpha.omega
-
+            %strong OpenGovernment 
             - if current_user
               Hello,
               %a.account(href="#content" title="Username") #{current_user.login}.
@@ -53,7 +53,6 @@
       %ul.breadcrumb
         %li.topnav
           %a{:href => root_path}
-            %strong OpenGovernment
             = current_place_name
           %a#dropdown{:class => 'dropdown', :href => '#'}
           %ul.state-select

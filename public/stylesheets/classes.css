@@ -113,7 +113,7 @@
 
 .push_bottom { margin-bottom: 10px;}
 
-.push_top {padding-top: 15px}
+.push_top {padding-top: 10px}
 
 
 
@@ -232,11 +232,6 @@ ul.lined.and_spaced.with_titles li a{
 
 
 
-.session{
-  margin-top: 20px;
-  clear: both;
-  display: block;
-  }
 
 
 

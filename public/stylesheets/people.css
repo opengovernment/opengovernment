@@ -1,4 +1,11 @@
 
+
+.people.index .intro{
+padding-right: 250px;
+background: #fff url(/images/intros/people.gif) right center no-repeat;
+}
+
+
 /*///////////////////////////
 
 ~ People Main Page
@@ -57,7 +64,7 @@
 
 
 .lined li.person a span.person_name{
-display: block;
+  display: block;
   margin: 15px 0 5px;
   font-size: 20px;
   }
@@ -65,10 +72,24 @@ display: block;
 
 .lined li.person a .person_district,
 .lined li.person a .person_party {
-display: inline;
+  display: inline;
   }
 
 
-.lined li.person a .person_citations{
-float: right;
+.lined li.person a .person_citations,
+.lined li.person a .person_views{
+
+
+  }
+
+
+.lined li.person a .person_views{
+margin-top: 18px;
 }
+
+
+.lined li.person .grid_6{
+border-right: 1px solid #efefef;
+padding-bottom: 15px;
+}
+
