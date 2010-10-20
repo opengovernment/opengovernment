@@ -1,4 +1,4 @@
-%li[bill]
+%li.grid_12[bill]
   - if bill.votesmart_key_vote?
     %span.vote_smart_keyvote.floatright
       This is a Votesmart Key Vote!
@@ -8,27 +8,31 @@
     %span.bill_title
       != bill.title
 
-
-  .bill_status.rounded
-    .sponsor_mugs
-      = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
-
-    .action_status{:class => bill.actions.first.try(:kind_classes)}
+  .sponsor_mugs.grid_5.alpha
+    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
       = bill.actions.first.try(:kind_fm)
+    = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
 
-    .introduced
+
+  .bill_status.rounded.grid_7.omega
+
+    .introduced.grid_4.omega
       Introduced:
       != bill.first_action_at
 
-    .recent_action
-      Most recent action:
-      != bill.last_action_at
-
-    .recent_vote
+    .recent_vote.grid_3.alpha
       != pluralize(bill.votes.count, 'vote')
       on this bill
     
+
+    .recent_action.grid_4.omega
+      Most recent action:
+      != bill.last_action_at
+
+
     - if MongoMapper.connected?
-      .view_count
+      .view_count.grid_3.alpha
         = pluralize(bill.views, 'view')
-  .clear
+
+
+

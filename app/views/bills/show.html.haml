@@ -10,12 +10,13 @@
 
 .grid_12
   .grid_12.alpha
+    %span.session Session: #{raw @bill.session.name_fm}
+
     = render 'shared/view_counts', :page => @bill
 
   %hr
   
   .grid_12.alpha
-    %span.session Session: #{raw @bill.session.name_fm}
     %p.grid_12.alpha.summary= @bill.title
 
   - status_bar(@bill)

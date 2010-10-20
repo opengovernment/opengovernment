@@ -111,9 +111,9 @@ font-weight: bold;
 }
 
 li.discuss{
-padding: 20px;
-background: url(/images/sprites.png) left -434px no-repeat;
-font-weight: bold;
+padding: 8px 0 8px 20px;
+background: url(/images/sprites.png) left -444px no-repeat;
+
 }
 
 
@@ -139,7 +139,7 @@ font-size: 11px;
 .summary{
 font-size: 18px;
 line-height: 1.4em;
-padding: 5px 0 25px;
+padding: 25px 0;
 margin: 0;
 }
 

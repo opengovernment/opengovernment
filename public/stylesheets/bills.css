@@ -1,5 +1,15 @@
 
 
+.bills.index .intro{
+padding-right: 250px;
+background: #fff url(/images/intros/bills.gif) right center no-repeat;
+}
+
+
+
+
+
+
 /*///////////////////////////
 
 ~ Bills
@@ -17,6 +27,7 @@ border: 1px solid #eee;
 -moz-border-radius: 3px;
 clear: none;
 position: relative;
+background: #f5fdfe;
 }
 
 
@@ -59,6 +70,10 @@ border: 1px solid #aaa;
 
 
 
+.session{
+float: right;
+margin-top: 10px;
+  }
 
 
 /*/////////////  - Listings -  //////////////*/
@@ -84,12 +99,10 @@ padding-right: 5px;
   
 
 .bill_status{ 
-padding: 5px 12px;
   font-size: 11px;
   color: #666;
 margin-top: 15px;
 background: #f3f7f7;
-clear: both;
  
   
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
@@ -102,8 +115,7 @@ clear: both;
 
 
 .bill_status div{
-padding: 0px 0px 5px;
-  padding-right: 20px;
+padding: 0px 0 5px;
   }
   
 
@@ -115,31 +127,26 @@ padding: 0px 0px 5px;
 
 
 .sponsor_mugs{
-margin: 5px 0;
-float: right !important;
-height: 55px;
-padding: 0 !important;
+
 }
 
 
 
 .sponsor_mugs span{
-float: right;
-clear: both;
-display: block;
+
 }
 
 
 
 
 .sponsor_mugs a{
-float:right;
-padding: 2px;
-margin: 0 0px 10px 10px;
+padding: 1px !important;
+margin: 0 10px 0px 0px;
 box-shadow: 0 1px 1px #999;
   -moz-box-shadow: 0 1px 1px #666;
   -webkit-box-shadow: 0 1px 1px #999;
- 
+
+float: left;
  overflow: hidden !important;
  
  border-radius: 2px;
@@ -152,9 +159,20 @@ background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
 
 .sponsor_mugs img{
 border: 1px solid #fff;
+ height: 20px;
+width: 17px;
 }
 
 
 #bill_actions td {
   padding: 5px 0;
 }
+
+
+.action_status{
+padding: 10px 0;
+}
+
+
+
+
