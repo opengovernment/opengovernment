@@ -53,7 +53,7 @@
       %ul.breadcrumb
         %li.topnav
           %a{:href => root_path}
-            = current_place_name
+            = current_place_name || "Select a State"
           %a#dropdown{:class => 'dropdown', :href => '#'}
           %ul.state-select
             - State.loadable.each do |state|

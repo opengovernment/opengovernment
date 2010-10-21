@@ -3,6 +3,8 @@ class StatesController < ApplicationController
 
   def show
     if @state.supported?
+      session[:preferred_location] = request.subdomains.first
+      
       @legislature = @state.legislature
       @most_recent_session = Session.most_recent(@legislature).first
 
