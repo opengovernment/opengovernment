@@ -57,7 +57,7 @@ class HomeController < ApplicationController
     end
 
     # Send them somewhere via geoip, if possible
-    if sub = subdomain_via_geoip(request.ip)
+    if (sub = subdomain_via_geoip(request.ip)) && State.find_by_slug(sub).try(:supported?)
       redirect_to url_for(:subdomain => sub)
     end
   end
