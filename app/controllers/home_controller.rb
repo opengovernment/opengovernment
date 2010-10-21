@@ -58,7 +58,7 @@ class HomeController < ApplicationController
 
     # Send them somewhere via geoip, if possible
     if sub = subdomain_via_geoip(request.ip)
-      redirect_to url_for(:subodmain => sub)
+      redirect_to url_for(:subdomain => sub)
     end
   end
   
