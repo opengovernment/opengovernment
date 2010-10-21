@@ -50,4 +50,25 @@ class HomeController < ApplicationController
     end
   end
 
+  def index
+    # Do they have a preferred location cookie?
+    if session[:preferred_location]
+      redirect_to url_for(:subdomain => session[:preferred_location])
+    end
+
+    # Send them somewhere via geoip, if possible
+    if sub = subdomain_via_geoip(request.ip)
+      redirect_to url_for(:subodmain => sub)
+    end
+  end
+  
+  def home
+    render :template => 'home/index'
+  end
+
+  protected
+  def subdomain_via_geoip(ip)
+    GEOIP.country(ip)[6].downcase if GEOIP
+  end
+
 end

@@ -77,5 +77,9 @@ OpenGov::Application.routes.draw do
 
   root :to => "home#index"
 
+  # This route renders home#index without a geoip/cookie
+  # redirect.
+  match '/home' => 'home#home'
+
   resources :pages, :only => :show
 end

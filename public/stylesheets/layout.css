@@ -1,4 +1,57 @@
 
+.wave{
+background: #a6b9bc url(/images/wave_top.gif) left 0 no-repeat;
+min-height: 300px;
+margin: 0 -16px;
+padding-top: 40px;
+}
+
+
+.wave h2{
+width: 312px;
+margin: 0px auto 0; 
+background: url(/images/begin.gif) left 0 no-repeat;
+height: 0 !important;
+overflow: hidden;
+line-height: 3em;
+padding-top: 61px;
+border: none;
+}
+
+
+
+.illo{
+background: #f6f8fa url(/images/wave_bottom.gif) left 0 no-repeat;
+padding-top: 60px;
+margin: 0 -16px;
+
+}
+
+
+.illo h2{
+width: 503px;
+margin: 0px auto 0; 
+background: url(/images/do_more.gif) left 0 no-repeat;
+height: 0 !important;
+overflow: hidden;
+line-height: 3em;
+padding-top: 67px;
+border: none;
+}
+
+
+.illo p{
+background: #f6f8fa url(/images/illo.png) 24px 0 no-repeat;
+width: 100%;
+padding-top: 400px;
+height: 0;
+overflow: hidden;
+}
+
+
+
+
+
 
 
 .sub_footer{
@@ -9,6 +62,36 @@
   }
 
 
+.menu{
+padding-top: 250px;
+width: 300px;
+height: 0;
+overflow: hidden;
+float: left;
+margin-left: 26px;
+background: url(/images/menu.gif) center top no-repeat;
+}
+
+.map{
+padding-top: 250px;
+width: 300px;
+height: 0;
+overflow: hidden;
+float: left;
+margin-left: 20px;
+background: url(/images/map.gif) center -50px no-repeat;
+
+}
+
+
+
+.wave .find_box{
+background: 0;
+width: 300px;
+float: left;
+border: none;
+margin: 0 0 0 20px;
+}
 
 
 
@@ -55,6 +138,9 @@
   }
 
 
+#account strong{
+padding-right: 20px;
+}
 
 
 /*///////////////////////////

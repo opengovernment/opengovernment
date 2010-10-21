@@ -186,10 +186,8 @@ background: #2a6b0d;
 color: #fff !important;
 }
 
-td.vote-failed span {
+td.vote-failed .vote-no {
   border: 5px solid #9d1c1c !important;
-border-top: 0px !important;
-border-bottom: 0px !important;
 background: #9d1c1c;
 color: #fff !important;
 
