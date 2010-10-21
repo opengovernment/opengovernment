@@ -36,7 +36,7 @@
       %header
         #account.grid_9.alpha
           .grid_8.alpha.omega
-            %strong OpenGovernment 
+            %strong= link_to 'OpenGovernment', home_url(:subdomain => false) 
             - if current_user
               Hello,
               %a.account(href="#content" title="Username") #{current_user.login}.
