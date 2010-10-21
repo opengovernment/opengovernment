@@ -8,7 +8,7 @@ class DistrictsController < ApplicationController
       @state = State.find_by_abbrev(@point.state)
 
       if @state && @state.supported?
-        
+        return
       else
         render :template => "shared/unsupported"
       end

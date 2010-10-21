@@ -52,7 +52,7 @@
     %div.container_16.bread.boxxed
       %ul.breadcrumb
         %li.topnav
-          %a{:href => root_path}
+          %a{:href => root_url(:subdomain => current_place_subdomain)}
             = current_place_name || "Select a State"
           %a#dropdown{:class => 'dropdown', :href => '#'}
           %ul.state-select

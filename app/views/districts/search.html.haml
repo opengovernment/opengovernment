@@ -20,7 +20,7 @@
               %li
                 - if place.kind_of?(District)
                   = "#{place.name}: "
-                = link_to rep.official_name, person_url(rep, :subdomain => @state.abbrev)
+                = link_to rep.official_name, person_url(rep, :subdomain => current_place_subdomain)
         - else
           = "No representatives found."
 - else

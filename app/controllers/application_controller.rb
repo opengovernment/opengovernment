@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include UrlHelper
-  helper_method :current_place, :current_place_name
+  helper_method :current_place, :current_place_name, :current_place_subdomain
   before_filter :set_locale
 
   protect_from_forgery
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   protected
   def resource_not_found
     flash[:error] = "Sorry. We were not able to locate what you were looking for.."
-    redirect_to(url_for(home_url, :subdomain => false))
+    redirect_to(home_url(:subdomain => false))
   end
 
   def get_state
@@ -35,7 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_place_name
-    @state.try(:name) || current_place.try(:name)
+    current_place.try(:name)
+  end
+  
+  def current_place_subdomain
+    current_place.try(:abbrev).try(:downcase)
   end
 
   private

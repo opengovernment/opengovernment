@@ -94,7 +94,4 @@ class State < Place
     !unsupported? && (launch_date >= Time.now)
   end
 
-  def region_code
-    "US-#{self.abbrev}"
-  end
 end
