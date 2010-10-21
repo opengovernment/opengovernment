@@ -83,7 +83,10 @@ module ApplicationHelper
 
     if person.photo?
       # The local photo
-      image_tag(person.photo.url(size), ops)
+      #
+      # URI encode because some photos actually have
+      # % characters in the names. D'oh!
+      image_tag(URI.encode(person.photo.url(size)), ops)
     elsif person.photo_url(size)
       # The remote photo, as a backup
       image_tag(person.photo_url(size), ops)

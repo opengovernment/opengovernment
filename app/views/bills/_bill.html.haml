@@ -1,4 +1,4 @@
 %li[bill]
   = succeed ',' do
-    = link_to bill.title_fm, bill_path(bill.session, bill)
+    = link_to truncate(bill.title_fm, :length => 140), bill_path(bill.session, bill)
   = 'Introduced ' + bill.first_action_at.to_s(:pretty)
