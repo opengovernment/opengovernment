@@ -61,7 +61,6 @@
 
   %hr.push_top
 
-
   - if @votes.limit(2).size > 0
     .grid_12.alpha
       %h2 Recent Votes
@@ -71,10 +70,7 @@
 
       = link_to(raw("All votes &rarr;"), votes_bill_path(@bill.session, @bill))
 
-
   .space
-
-
 
   .grid_12.alpha
     #twitter(style="display: none;")
