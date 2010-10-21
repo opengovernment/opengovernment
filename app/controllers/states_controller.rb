@@ -18,7 +18,7 @@ class StatesController < ApplicationController
     if request.post?
       @state.subscriptions.build(:email => params[:email])
       if @state.save
-        redirect_to root_path
+        redirect_to(root_path) and return
       end
     else
     end
@@ -39,7 +39,7 @@ class StatesController < ApplicationController
     if ['all', 'bills'].include? @search_type
       if @bills = Bill.for_state(@state).with_number(@query)
         if @bills.size == 1
-          return redirect_to bill_path(@bills.first.session, @bills.first)
+          redirect_to(bill_path(@bills.first.session, @bills.first)) and return
         end
       end
     end

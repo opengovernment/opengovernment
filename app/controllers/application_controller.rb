@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   protected
   def resource_not_found
     flash[:error] = "Sorry. We were not able to locate what you were looking for.."
-    redirect_to url_for(:subdomain => false, :controller => 'home', :action => 'index')
+    redirect_to(url_for(home_url, :subdomain => false))
   end
 
   def get_state

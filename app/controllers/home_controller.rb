@@ -53,12 +53,12 @@ class HomeController < ApplicationController
   def index
     # Do they have a preferred location cookie?
     if session[:preferred_location]
-      redirect_to url_for(:subdomain => session[:preferred_location]) and return
+      redirect_to(url_for(:subdomain => session[:preferred_location])) and return
     end
 
     # Send them somewhere via geoip, if possible
     if (sub = subdomain_via_geoip(request.ip)) && State.find_by_slug(sub).try(:supported?)
-      redirect_to url_for(:subdomain => sub) and return
+      redirect_to(url_for(:subdomain => sub)) and return
     end
   end
   
