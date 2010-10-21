@@ -1,17 +1,40 @@
 .space
-.grid_16
-  %p Welcome to OpenGovernment, a free and open-source public resource for government transparency at the state and local levels. Finally, a version of OpenCongress for your state legislature. 
-  
-  %p Learn how your state government works. Track bills and people in your state legislature. Share useful info about all of your political interests. Follow the money trail on key votes. Spread the word to your friends and neighbors, then contact your elected officials. Together, we can build public knowledge in communities and increase civic engagement in our democracy.
-  
-  / Build public knowledge about politics, organize your community, and increase civic engagement in our democracy. Much of this data is newly-liberated from closed-off government websites. All of it is uniquely-aggregated and presented in a user-friendly interface. 
-  
-  %p OpenGovernment is a non-profit and non-partisan project of the <a href="http://participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>, the team behind <a href="http://www.opencongress.org/">OpenCongress</a>, the most-visited government transparency website in the United States. The site is in early development -- much more to come, and you can help us grow.  
-  
-  %p <strong>To get started, click on your state in the map below, or enter your zip.</strong>
 
 
-.grid_16
+
+.grid_8
+  %strong Finally, a version of OpenCongress for your state legislature
+  %p Welcome to OpenGovernment, a free and open-source public resource for government transparency at the state and local levels.
+
+
+
+.grid_8
+  %p OpenGovernment is a non-profit and non-partisan project of the Participatory Politics Foundation and the Sunlight Foundation, the team behind OpenCongress, the most-visited government transparency website in the United States. The site is in early development -- much more to come, and you can help us grow.
+
+
+.clear
+
+
+.wave
+  %h2 Begin by choosing your state
+
+  %a.menu Use the menu above
+
   = render :partial => 'shared/find_my_rep_form'
+
+  %a.map Use the map below
+
+
+  .clear
+
+
+
+.illo
+  %h2 Do more with OpeGovernment 
+
+  %p Learn Track and Share
+
+
+
 
 = interactive_us_map
