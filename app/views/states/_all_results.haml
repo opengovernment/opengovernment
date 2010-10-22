@@ -26,7 +26,7 @@
 
   .grid_12
     - unless @bills.empty?
-      %div.search_results.span-20.last
+      %div.search_results.last
         %h2 Bills
         %ul.bills.lined.and_spaced
           - @bills.each do |bill|
@@ -34,10 +34,10 @@
         = will_paginate @bills, :class => "pagination"
 
     - unless @legislators.empty?
-      %aside.search_sidebar.span-4
+      %aside.search_sidebar
         %p.sort
 
-      %div.search_results.span-20.last
+      %div.search_results.last
         %h2 Legislators
         %ul.legislators
           - @legislators.each do |leg|
@@ -46,10 +46,10 @@
         = will_paginate @legislators
 
     - unless @committees.empty?
-      %aside.search_sidebar.span-4
+      %aside.search_sidebar
         %p.sort
 
-      %div.search_results.span-20.last
+      %div.search_results.last
         %h2 Committees
         %ul.committees
           - @committees.each do |committee|
@@ -59,10 +59,10 @@
 
 
     - unless @contributions.empty?
-      %aside.search_sidebar.span-4
+      %aside.search_sidebar
         %p.sort
 
-      %div.search_results.span-20.last
+      %div.search_results.last
         %h2 Contributions
         %ul.contributions
           - @contributions.each do |contribution|

@@ -17,3 +17,6 @@ en:
       details: |
         Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital
         data in place!
+    votes:
+      no_actions: We have no actions for this bill.
+      major_action: A major action for a bill includes either movement between committees or roll call vote on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on this bill's status in the legislative process.

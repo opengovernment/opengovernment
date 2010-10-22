@@ -203,14 +203,6 @@ clear: both;
 }
 
 
-
-
-
-
-aside.span-6.last{
-
-}
-
 .less_padding{
 padding: 0px 0;
 }
@@ -879,10 +871,13 @@ margin: 0;
 float: left;
 margin: 0 10px 0 0;
 padding: 0 10px 0 0;
-border-right: 1px solid #215357 !important;;
+border-right: 1px solid #215357 !important;
 background: none !important;
 }
 
+.sort ul li.last a{
+  border: none !important;
+}
 
 
 .sort .sort_label{
@@ -896,9 +891,3 @@ font-weight: normal !important;
 .sort ul li a strong{
 font-weight: bold;
 }
-
-
-
-
-
-

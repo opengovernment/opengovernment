@@ -1,10 +1,10 @@
 - title("Sorry, #{@state.name} isn't ready yet!")
 
 %h2 Sorry, OpenGovernment #{@state.name} isn't ready yet!
-.span-14
+.grid_7
   %p Currently, OpenGovernment has information for five state legislatures: California, Louisiana, Maryland, Texas, and Wisconsin. We seek to roll out versions of OpenGovernment for the remaining 45 U.S. state legislatures over the course of 2011, with continual enhancements beyond. So while a version of OpenGovernment for #{@state.name} is coming within a year at most, it's not ready yet. But you can help speed it along and make it better. 
     
-  .span-10.last
+  .grid_5.last
     %h3 First, leave us your e-mail address to stay informed with updates as we get closer to rolling-out OpenGovernment - #{@state.name}:
     = form_tag(state_subscriptions_path)
     = hidden_field_tag :id, @state.id

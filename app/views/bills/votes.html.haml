@@ -15,12 +15,15 @@
   %h2 Actions
   - if @bill.actions.size > 0
     .sort
-      %ul
+      %ul.sorts
+        %li.sort_label
+          Filter
         %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions (#{@bill.major_actions.count})", bill_path(@bill.session, @bill, :actions => 'major'), :remote => true}
-        %li.divider |
-        %li{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions (#{@bill.actions.count})", bill_path(@bill.session, @bill, :actions => 'all'), :remote => true}
+        %li.last{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions (#{@bill.actions.count})", bill_path(@bill.session, @bill, :actions => 'all'), :remote => true}
         %li.spin(style="display: none;")
-      .grid_12.alpha
-        #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+    .grid_12.alpha
+      #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+      %p= t '.major_action'
   - else
-    We have no actions for this bill.
+    %p= t '.no_actions'
+
