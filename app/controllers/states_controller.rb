@@ -36,7 +36,8 @@ class StatesController < ApplicationController
     end
 
     # We might be able to stop right here and redirect to a bill.
-    if ['all', 'bills'].include? @search_type
+    case @search_type
+    when 'all', 'bills'
       if @bills = Bill.for_state(@state).with_number(@query)
         if @bills.size == 1
           redirect_to(bill_path(@bills.first.session, @bills.first)) and return
@@ -44,13 +45,14 @@ class StatesController < ApplicationController
       end
     end
 
-    @search_session = params[:session_id]
     @search_options = {
       :page => params[:page],
       :per_page => 15,
       :order => params[:order],
-      :with => {:state_id => @state.id}
+      :with => {:state_id => @state.id }
     }
+
+    @search_options[:with].merge!(:session_id => @search_session) if params[:session_id]
 
     case @committee_type
       when "all"
@@ -59,9 +61,6 @@ class StatesController < ApplicationController
         @committee_type = "#{params[:committee_type]}_committee".classify.constantize
     end
 
-    if @search_session
-      @search_options[:with].merge!(:session_id => @search_session)
-    end
     
     if @query
       case @search_type

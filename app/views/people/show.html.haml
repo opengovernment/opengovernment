@@ -70,9 +70,8 @@
 
       .grid_4.alpha
         %h2 Roles
-        %p
-          - @person.roles.each do |role|
-            %div #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm)}
+        - @person.roles.each do |role|
+          %div #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm)}
 
       .grid_4
         %h2 Committees
