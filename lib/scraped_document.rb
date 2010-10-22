@@ -1,6 +1,8 @@
 module ScrapedDocument
-  has_attached_file :document
-
+  def self.included(base)
+    base.has_attached_file :document
+  end
+  
   private
 
   def url_provided?

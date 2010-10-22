@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 63) do
+ActiveRecord::Schema.define(:version => 64) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -44,9 +44,13 @@ ActiveRecord::Schema.define(:version => 63) do
   end
 
   create_table "bill_documents", :force => true do |t|
-    t.integer "bill_id"
-    t.string  "name",    :limit => 4000
-    t.string  "url",     :limit => 8000
+    t.integer  "bill_id"
+    t.string   "name",                  :limit => 4000
+    t.string   "url",                   :limit => 8000
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "bill_sponsorships", :force => true do |t|
@@ -64,6 +68,10 @@ ActiveRecord::Schema.define(:version => 63) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "bills", :force => true do |t|
