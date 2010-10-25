@@ -14,17 +14,17 @@
   
   %ul.tabs
     %li
-      = link_to('All', bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : ''))
+      %a{:href => bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
     %li.divider &#124;
 
     %li
-      = link_to(@state.upper_chamber.name, bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : ''))
+      %a{:href => bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
         
     %li.divider &#124;  
 
     %li
-      = link_to(@state.lower_chamber.name, bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : ''))
+      %a{:href => bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
 
   %hr.push_bottom
   
