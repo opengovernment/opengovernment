@@ -166,6 +166,14 @@ background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
 padding: 10px 0;
 }
 
+.action_date {
+  float: left;
+  padding: 20px 20px 0 0;
+}
 
+p.action_text {
+  font-size: 20px;
+  padding: 20px 0;
+}
 
 

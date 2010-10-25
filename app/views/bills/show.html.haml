@@ -1,6 +1,6 @@
 - content_for :head do
-  = auto_discovery_link_tag(:atom, {:action => 'major_actions', :format => :atom}, {:title => "Major Actions"})
-  = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "All Actions"})
+  = auto_discovery_link_tag(:atom, major_actions_bill_path(@bill.session, @bill, :format => :atom), {:title => "Major Actions"})
+  = auto_discovery_link_tag(:atom, actions_bill_path(@bill.session, @bill, :format => :atom))
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 - track(@bill)
@@ -39,16 +39,14 @@
   
       %ul.lined
         - @bill.versions.each do |version|
-          %li
-            = version.url.blank? ? version.name : link_to(version.name, version.url)
+          %li= link_to_document(version)
 
     - if @bill.documents.count > 0
       %h2 Documents
 
       %ul.lined
         - @bill.documents.each do |document|
-          %li
-            = document.url.blank? ? document.name : link_to(document.name, document.url)
+          %li= link_to_document(document)
 
   .space
 
@@ -56,8 +54,8 @@
     .grid_12.alpha
       %h2 Recent Actions
       #bill_actions
-        = render 'actions_table', :actions => @actions
-        = link_to(raw("Full bill history &rarr;"),  votes_bill_path(@bill.session, @bill))
+        = render 'actions_table', :actions => @actions.limit(2)
+        = link_to(raw("All #{pluralize(@actions.size, 'Action')} &rarr;"),  votes_bill_path(@bill.session, @bill))
 
   %hr.push_top
 
@@ -68,7 +66,7 @@
         %tbody
           = render @votes
 
-      = link_to(raw("All votes &rarr;"), votes_bill_path(@bill.session, @bill))
+      = link_to(raw("All #{pluralize(@votes.size, 'Vote')} &rarr;"), votes_bill_path(@bill.session, @bill))
 
   .space
 

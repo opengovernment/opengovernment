@@ -2,7 +2,6 @@ class BillsController < ApplicationController
   before_filter :get_state
   before_filter :get_bill, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
-  before_filter :get_actions, :only => [:votes]
 
   def index
     @bills = scope_bills(Bill.for_state(@state))
@@ -23,29 +22,27 @@ class BillsController < ApplicationController
 
   def show
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
-
-    @actions = @bill.actions
     @votes = @bill.votes
+    @actions = @bill.actions
+  end
 
-    respond_to do |format|
-      format.js
-      format.atom do
-        render :template => 'shared/actions'
-      end
-      format.html
-    end
+  def votes
+    @actions = @bill.major_actions
+  end
+
+  def actions
+    @actions = @bill.actions
+    @actions_shown = :all
+  end
+
+  def major_actions
+    @actions = @bill.major_actions
+    @actions_shown = :major
+
+    render :template => 'bills/actions'
   end
 
   protected
-  def get_actions
-    if params[:actions] && params[:actions] == 'all'
-      @actions = @bill.actions
-      @actions_shown = :all
-    else
-      @actions = @bill.major_actions
-      @actions_shown = :major
-    end
-  end
 
   def setup_sort
     @sort = params[:sort] || 'recent'

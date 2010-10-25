@@ -9,8 +9,8 @@
         .drop.button
           %ul
             %li.rss 
-              = link_to "All actions", {:actions => 'all', :format => :atom}
-              = link_to "Major actions", {:actions => 'major', :format => :atom}
+              = link_to "All actions", actions_bill_path(@bill.session, @bill, :format => :atom)
+              = link_to "Major actions", major_actions_bill_path(@bill.session, @bill, :format => :atom)
             %li.email 
               %a
                 %span

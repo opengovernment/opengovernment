@@ -1,7 +1,9 @@
 - title("Action on #{@action.bill.title}")
-%h2!= "#{@action.bill.state.name} bill #{link_to(@action.bill.bill_number, bill_path(@action.bill.session, @action.bill))} " + @action.action_fm + "."
-- if @action.actor_fm
-  %h3= "by the #{@action.actor_fm}"
-%p
-  on
+.action_date
   = @action.date.to_html
+%p.action_text
+  = "#{@action.bill.state.name} bill"
+  = link_to(@action.bill.bill_number, bill_path(@action.bill.session, @action.bill))
+  = @action.action_fm + "."
+  - if @action.actor_fm
+    = "by the #{@action.actor_fm}"

@@ -55,6 +55,10 @@ SimpleNavigation::Configuration.run do |navigation|
         bill.item :bill, @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |m|
           m.item :vote, 'Roll Call', vote_path(@vote), :class => "vote #{@vote.outcome_class}"
         end
+      elsif defined?(@action)
+        bill.item :bill, @action.bill.bill_number, bill_path(@action.bill.session, @action.bill), :class => 'bill' do |a|
+          a.item :action, 'Action', action_path(@action), :class => 'action'
+        end
       end
     end
     primary.item :people, 'People', people_path, :class => 'people' do |person|
@@ -70,11 +74,13 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
+    
     primary.item :issues, 'Issues', issues_path, :class => 'issues' do |m|
       if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
       end
     end
+    
  #   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
 #      m.item :bill,  @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |b|
  #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
