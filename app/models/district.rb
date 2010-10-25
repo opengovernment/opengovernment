@@ -33,14 +33,12 @@ class District < Place
     "This is #{state.name}'s #{chamber.name.downcase} District #{number}."
   end
 
-  class << self
-    # This returns the point object (GeoLoc)
-    # and the districts associated with that point,
-    # or nil if nothing was found.
-    def find_by_address(addr)
-      point = GeoKit::Geocoders::MultiGeocoder.geocode(addr)
-      return nil unless point.success?
-      [point, self.for_x_y(point.lat, point.lng)]
-    end
+  # This returns the point object (GeoLoc)
+  # and the districts associated with that point,
+  # or nil if nothing was found.
+  def self.find_by_address(addr)
+    point = GeoKit::Geocoders::MultiGeocoder.geocode(addr)
+    return nil unless point.success?
+    [point, District.for_x_y(point.lat, point.lng)]
   end
 end

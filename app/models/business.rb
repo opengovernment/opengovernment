@@ -3,6 +3,6 @@ class Business < CorporateEntity
   has_many :contributions
 
   def total_contributions
-    self.contributions.sum("amount")
+    contributions.sum("amount")
   end
 end

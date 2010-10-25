@@ -3,12 +3,9 @@ class SpecialInterestGroup < ActiveRecord::Base
   belongs_to :category
   has_many :ratings, :foreign_key => 'sig_id', :order => "timespan desc"
 
-  class << self
-    def by_state_and_issue(state_id, issue, limit = 10)
-      find_by_sql(["select * from v_tagged_sigs
-              where tag_name = ? and state_id = ? limit ?", issue.name, state_id, limit])
-    end
-    
+  def self.by_state_and_issue(state_id, issue, limit = 10)
+    find_by_sql(["select * from v_tagged_sigs
+            where tag_name = ? and state_id = ? limit ?", issue.name, state_id, limit])
   end
 
   def average_rating_for_chamber_and_year(chamber_id, year)

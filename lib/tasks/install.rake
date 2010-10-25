@@ -184,11 +184,6 @@ namespace :fetch do
       state ? OpenGov::OpenStates.fetch_one(state) : OpenGov::OpenStates.fetch!
     end
   end
-
-  desc "Fetch photos and attach them to people"
-  task :photo_thumbs => :environment do
-    OpenGov::Photos.sync!
-  end
 end
 
 desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"

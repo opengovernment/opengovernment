@@ -189,10 +189,6 @@ class Person < ActiveRecord::Base
    state_id ? State.find(state_id) : nil
   end
 
-  def has_contributions?
-    !(self.contributions | self.industry_contributions | self.business_contributions | self.sector_contributions).blank?
-  end
-
   def photo_url(size = :full)
     openstates_photo_url || votesmart_photo_url
   end

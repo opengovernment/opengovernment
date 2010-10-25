@@ -53,16 +53,14 @@ class State < Place
   where r.state_id = #{id}
   group by b2.id, b2.name, b2.type, b2.ancestry order by name}
 
-  class << self
-    def find_by_param(param, ops = {})
-      find_by_name(param.titleize, ops)
-    end
+  def self.find_by_param(param, ops = {})
+    find_by_name(param.titleize, ops)
+  end
 
-    def find_by_slug(param, ops = {})
-      find_by_param(param, ops)|| \
-      find_by_name(param.capitalize, ops) || \
-      find_by_abbrev(param.upcase, ops)
-    end
+  def self.find_by_slug(param, ops = {})
+    find_by_param(param, ops)|| \
+    find_by_name(param.capitalize, ops) || \
+    find_by_abbrev(param.upcase, ops)
   end
 
   def to_param

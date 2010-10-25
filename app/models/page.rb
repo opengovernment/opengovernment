@@ -23,7 +23,7 @@ class Page
   })
   
   def view_count
-    return 0 if page_views.count == 0 || self.new_record?
+    return 0 if page_views.count == 0 || new_record?
 
     opts = {:query => {:page_id => self['_id']} }
 
@@ -34,7 +34,7 @@ class Page
   end
 
   def view_count_since(since)
-    return 0 if page_views.count == 0 || self.new_record?
+    return 0 if page_views.count == 0 || new_record?
 
     opts = {:query => {'page_id' => self['_id'], 'hour' => { '$gt' => since.utc } } }
 
@@ -47,27 +47,25 @@ class Page
   def mark_hit
     raise if new_record?
 
-    if page_view = PageView.first_or_create({:page_id => self.id, :hour => Time.now.beginning_of_hour})
+    if page_view = PageView.first_or_create({:page_id => id, :hour => Time.now.beginning_of_hour})
       page_view.total += 1
       page_view.save
     end
   end
 
-  class << self
-    def most_viewed(object_type, limit = 10)
-      opts = { :query => {'countable_type' => object_type } }
+  def self.most_viewed(object_type, limit = 10)
+    opts = { :query => {'countable_type' => object_type } }
 
-      top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
+    top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
 
-      # p['value'] contains the total hit count, but we're not using it right now.
-      top_views.find.sort([['value','descending']]).limit(limit).collect { |p| Page.find(p['_id']) }
-    end
-  end # self
+    # p['value'] contains the total hit count, but we're not using it right now.
+    top_views.find.sort([['value','descending']]).limit(limit).collect { |p| Page.find(p['_id']) }
+  end
 
   protected
    def should_be_unique
-     page = Page.first( :countable_type => self.countable_type,
-                        :countable_id => self.countable_id )
+     page = Page.first( :countable_type => countable_type,
+                        :countable_id => countable_id )
 
      valid = (page.nil? || page.id == self.id)
      if !valid

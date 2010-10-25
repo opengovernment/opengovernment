@@ -117,9 +117,9 @@ class Role < ActiveRecord::Base
   protected
 
   def assure_dates_in_order
-    return unless self.start_date && self.end_date
+    return unless start_date && end_date
 
-    if self.start_date < self.end_date
+    if start_date < end_date
       return true
     else
       return false

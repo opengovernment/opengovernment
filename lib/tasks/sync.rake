@@ -20,4 +20,14 @@ namespace :sync do
     `gzip -df #{File.basename(geoip_url)}`
   end
 
+  desc "Fetch photos and attach them to people"
+  task :photos => :environment do
+    OpenGov::Photos.sync!
+  end
+
+  desc "Fetch bill full text and associated documents"
+  task :bill_texts => :environment do
+    OpenGov::BillTexts.sync!
+  end
+
 end
