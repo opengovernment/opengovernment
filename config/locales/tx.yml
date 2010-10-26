@@ -2,10 +2,7 @@ tx:
   states:
     show:
         intro: |
-          Welcome to OpenGovernment.org Texas. This page offers an overview of the TX state legislature. Use the
-          categories on the left to browse official government information combined with real-world context from around
-          the Web. At the bottom of this page, you can find links with more resources about how the TX state government
-          works.
+          Welcome to OpenGovernment - Texas. Learn about bills and votes in the Texas state legislature. Track the issues you care about, then contact your elected officials. To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Texas state government works.
 
         background: |
           More resources: <a href="http://en.wikipedia.org/wiki/Texas_Legislature">Wikipedia</a>,
@@ -20,7 +17,7 @@ tx:
 
         state_population: |
           2009 State Population est. 24,782,302 (cit.
-          <a href="http://quickfacts.census.gov/qfd/states/48000.html">Census.gov</a>)
+          <a href="http://quickfacts.census.gov/qfd/states/48000.html" target="_blank">Census.gov</a>)
 
         state_pop_per_upper_chamber_member: "774,447 Texans"
         state_pop_per_lower_chamber_member: "165,215 Texans"
@@ -34,7 +31,7 @@ tx:
           unopposed.
 
         current_session: "81st Legislature (Jan 13, 2009 - Dec 2010)"
-        upper_chamber_active_session_date: "Active from Jan 13 - July 2, 2009"
+        upper_chamber_active_session_date: "In regular session from Jan 13th - July 2, 2009"
 
         last_election_date: "Nov. 4, 2008"
 
@@ -45,60 +42,55 @@ tx:
           Republican.
         next_election_date: "Nov. 2, 2010"
         next_election_upper_chamber_seats_available: "15 seats up for election"
-        next_session_start_date: "Jan. 11, 2011"
+        next_session_start_date: "Jan. 11th, 2011"
   bills:
     videos:
       miro_url: 'http://txopengov.mirocommunity.org/'
     index:
       intro: |
-        This is a list of all bills in the Texas state legislature. The TX legislature is only in 'regular session'
-        (meaning, where bills are inroduced and voted on) for a period of 140 days every two years. The current 81st TX
+        This is a list of all bills in the Texas state legislature. By state law, the legislature is only in 'regular session'
+        (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st Texas
         legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the bills listed below will have no further official actions.
-        A new TX legislature (the 82nd) will convene on Jan. 11, 2011, after which date new bills will be introduced
-        and appear here automatically. Until then, you can learn more about bills from this past session by using the
-        sort-by options below to view bills in different ways -- for example, by most in the news, or those with 'key
-        votes' as determined by the non-partisn Project Vote Smart.
+        scheduled periodically through the end of 2010, the legislature will generally not take any more actions on the bills below
+        
+        A new Texas state legislature, the 82nd, will convene on Jan. 11th, 2011, after which date new bills will be introduced
+        and appear here automatically. Until then, you can use the sort-by options below to view bills in different ways.
 
   people:
     index:
       intro: |
-        This is a list of all members of the Texas state legislature. The TX legislature is only in 'regular session'
-        (meaning, where bills are inroduced and voted on) for a period of 140 days every two years. The current 81st
-        TX legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the bills listed below will have no further official actions.
-        A new TX legislature (the 82nd) will convene on Jan. 11, 2011, after which date new bills will be introduced
-        and appear here automatically. Until then, you can learn more about bills from this past session by using
-        the sort-by options below to view bills in different ways -- for example, by most in the news, or those with
-        'key votes' as determined by the non-partisn Project Vote Smart.
+        This is a list of all members of the Texas state legislature. By state law, the legislature is only in 'regular session'
+        (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st
+        Texas legislature was in regular session from approx. March to July of 2009, and while committee hearings are
+        scheduled periodically through the end of 2010, the members below will generally not introduce any new legislation.
+        A new Texas state legislature (the 82nd) will convene on Jan. 11, 2011, after which date new and returning members will be sworn in
+        and appear here automatically. Until then, you use the sort-by options below to view members in different ways. 
 
   issues:
     index:
       intro: |
         This is a list of issue areas associated with legislation in the Texas state legislature.
-        The TX legislature assigns official 'subjects' to bills -- sometimes more than a dozen subjects per bill,
-        sometimes zero per bill, with no clear explanation of their methodology. These subjects, which total 6,039 in
-        the current 81st TX legislature, can sometimes be very specific, and sometimes very broad. To make this
-        bill-to-issue system more widely accessible, we manually matched up every subject with one of the below 46
-        legislative issue areas, as defined by the non-partisan Project VoteSmart. The result is that all of the below
-        issue areas have many hundreds of bills attached, with most bills attached to more than one issue area. Our
-        goal with this effort is to make it easier to find bills that are relevant to the real-world issues you care
-        about, while still making the raw subect information available for those with more niche interests. The TX
+        The Texas legislature assigns official 'subjects' to bills -- sometimes more than twenty subjects per bill,
+        sometimes zero. These subjects, which total 6,039 in
+        the current 81st TX legislature, are sometimes very specific and other times very broad. To make this
+        bill-to-issue system more accessible, we manually matched up every official subject with one of the below 46
+        legislative issue areas, as generated by the non-partisan Project VoteSmart. The result is that all of the below
+        issue areas have many hundreds of TX state legislative items attached, with most bills attached to more than one issue area. Our
+        goal is to make it easier to find bills that are relevant to the real-world issues you care
+        about, while still making the raw subect information available for those with specific interest areas. The TX
         legislature is currently not in regular session, meaning that there will be no further bills added to the issue
         areas below. The next TX legislature will convene on Jan. 11, 2011, after which date new bills will be
-        introduced and will appear here automatically under our refined issue area categories. Until then, you can
-        learn more about  bills and issues from this past session by using the sort-by options below to view issues
-        in different ways -- for example, by most-viewed.
+        introduced and will appear here automatically under our customized issue area categories. Until then, you can
+        learn more about issues and bills from this legislature by using the sort-by options below.
 
   money_trails:
     index:
       intro: |
-        This is all publicly-available information about campaign contributions made to members of the TX state
-        legislature. Data comes from the non-partisanFollowTheMoney, which receives its data from the state disclosure
+        This page lists all publicly-available information about campaign contributions made to members of the TX state
+        legislature. Data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
         agencies with which candidates must file their campaign finance reports. The Money Trail on OpenGovernment
-        makes it possible to connect the dots between bills, key votes, issues, and campaign contributions.
-        The next election (for all 150 Assemblymembers and half of the 32 Senators) will occur on Nov. 2, 2010.
-        The newly-elected TX legislature will convene on Jan. 11, 2011, after which time up-to-date campaign
-        contribution info will appear here as soon as it's available. Until then, you can learn more about
-        the money trail from this past session by viewing contributions by the three tiers listlisted below: sectors,
-        industries, and businesses.
+        makes it possible to connect the dots between bills, key votes, issue areas, and campaign contributions in state legislatures.
+        The next election for the Texas legislature (for all 150 Assemblymembers and half of the 32 Senators) will occur on Nov. 2, 2010.
+        The newly-elected legislature will convene on Jan. 11, 2011, after which time up-to-date campaign
+        contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from this session by viewing the three tiers of contributions listed below: sectors,
+        industries, and businesses. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics.
