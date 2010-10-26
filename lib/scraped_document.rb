@@ -26,7 +26,9 @@ module ScrapedDocument
   end
 
   def do_download_file
-    io = open(URI.parse(document_url))
+    u = URI.parse(document_url)
+    u.userinfo = 'anonymous' if u.scheme == 'ftp'
+    io = open(u)
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e
