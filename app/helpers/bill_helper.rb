@@ -8,7 +8,7 @@ module BillHelper
     
     sponsors.each do |s|
      if s.sponsor_id? && !s.sponsor.photo_url.blank?
-       mugs += link_to(photo_for(s.sponsor, :tiny), person_path(s.sponsor), :rel => 'tipsy', :title => s.sponsor.full_name + ', ' + s.kind_fm + '(' + s.sponsor.current_role.try(:affiliation_fm) + ')', :class => 'sponsor_mug')
+       mugs += link_to(photo_for(s.sponsor, :tiny), person_path(s.sponsor), :rel => 'tipsy', :title => s.sponsor.full_name + ', ' + s.kind_fm + ' (' + s.sponsor.current_role.try(:affiliation_fm) + ')', :class => 'sponsor_mug')
        i += 1
      end
      break if i == limit && limit > 0

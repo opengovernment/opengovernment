@@ -1,28 +1,56 @@
 - title(@sig.name)
 
-%h1.grid_16
-  .grid_12
-    = @sig.name
-  .grid_4.last
-    = @sig.category.name
+.grid_16.alpha
+  %nav.grid_4.alpha
+    #left_nav
+      = render_navigation(:level => 2)
 
-%hr
+  .grid_12.omega
+    %h1
+      = @sig.name
+      .subhead
+        = @sig.category.name
 
-- %w(description contact_name email city address phone_one).each do |attr|
-  - attr_value = @sig.send(attr)
-  - attr_name = attr.titleize
-  %div.grid_8
-    %h4
-      = attr_name
-    %div
-      = attr_value.blank? ? "Not available": attr_value
+    %hr
 
-%h4 Ratings
-%hr
-- @sig.ratings.each do |rating|
-  %div.grid_6
-    = link_to(rating.person.full_name, person_path(rating.person))
-  %div.grid_1
-    = rating.timespan
-  %div.grid_1
-    = rating.rating
+    .sig_description
+      = @sig.description
+
+    %div.vcard[@sig]
+      %h2
+        %span.type> Contact Information
+      - unless @sig.email.blank?
+        .sig_email= mail_to @sig.email, 'E-Mail', :class => 'email', :encode => :javascript
+      - unless @sig.address.blank?
+        %div.street-address!= @sig.address
+        %span.locality>= @sig.city
+        ,
+        %span.region{:title => @sig.state.name}= @sig.state.abbrev
+        %span.postal-code= @sig.zip
+      - unless @sig.phone_one.blank?
+        .tel
+          %span.grid_1.alpha.type> Phone
+          %span.grid_2.omega.value #{@sig.phone_one}
+      - unless @sig.fax.blank?
+        .tel
+          %span.grid_1.alpha.type> FAX
+          %span.grid_2.omega.value #{@sig.fax}
+
+    %hr
+  
+    .grid_12.alpha
+      %h2 Ratings
+      .grid_6.alpha
+        .ratings-header
+          .grid_3.alpha Person
+          .grid_1 District
+          .grid_1 Rating
+          .grid_1.omega Year
+        = render @sig.ratings[0...@sig.ratings.size/2]
+      .grid_6.omega
+        .ratings-header
+          .grid_3.alpha Person
+          .grid_1 District
+          .grid_1 Rating
+          .grid_1.omega Year
+        = render @sig.ratings[@sig.ratings.size/2..@sig.ratings.size]

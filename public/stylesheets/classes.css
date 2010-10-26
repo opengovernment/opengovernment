@@ -225,7 +225,7 @@ ul.lined.and_spaced.with_titles li a{
 
 
 
-.state-and-chamber{
+.subhead, .state-and-chamber {
   color: #888;
   display: block;
   }

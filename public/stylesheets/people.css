@@ -92,3 +92,28 @@ border-right: 1px solid #efefef;
 padding-bottom: 15px;
 }
 
+
+/* Rating party color boxes */
+.rating_person.rating_dem {
+  background: url(/images/ratings/dem-box.gif) no-repeat 0% 50%;
+}
+
+.rating_person.rating_rep {
+  background: url(/images/ratings/rep-box.gif) no-repeat 0% 50%;
+}
+
+.rating_person.rating_ind {
+  background: url(/images/ratings/ind-box.gif) no-repeat 0% 50%;
+}
+
+.ratings-header {
+  font-weight: bold;
+}
+
+.rating_person {
+  margin-left: 0;
+  padding-left: 20px;
+  width: 150px;
+  display: inline;
+  float: left;
+}

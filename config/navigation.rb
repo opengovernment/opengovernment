@@ -75,6 +75,12 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     end
     
+    if defined?(@sig)
+      primary.item :people, 'People', people_path, :class => 'people' do |person|
+        person.item :sig, 'Special Interest Group', sig_path(@sig)
+      end
+    end
+    
     primary.item :issues, 'Issues', issues_path, :class => 'issues' do |m|
       if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
