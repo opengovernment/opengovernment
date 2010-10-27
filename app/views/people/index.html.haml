@@ -1,17 +1,19 @@
 - title("#{@state.name} Representatives")
 - dropdown('.sort_hot', 'ul.people_sorts')
 
-%h1.grid_16
-  = "#{@state.name} Representatives"
 
-%hr.grid_16
 
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
+
+  %h1
+    = "#{@state.name} Representatives"
+  
+  %hr
+
   %p.intro= t '.intro'
 
-  %hr
   
   %ul.tabs
  
@@ -21,7 +23,7 @@
     %li
       = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')
 
-  %hr.push_bottom
+
 
   .sort.grid_12.alpha
     %ul.people_sorts.sorts
@@ -31,7 +33,6 @@
         %li
           = link_to(v, url_for(:sort => k), :class => k.to_s == @sort ? 'active' : nil)
 
-  %hr.push_top
 
   #chamber
     = render :partial => 'chamber'
