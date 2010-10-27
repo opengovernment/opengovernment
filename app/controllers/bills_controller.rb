@@ -47,13 +47,14 @@ class BillsController < ApplicationController
   def setup_sort
     @sort = params[:sort] || 'recent'
 
-    @sorts = {
-      :recent => 'Recent Actions',
-      :introduced => 'Date Introduced',
-      :citations => 'Most In The News',
-      :views => 'Most Viewed',
-      :keyvotes => 'Key Votes'
-    }
+    @sorts = ActiveSupport::OrderedHash.new
+    @sorts[:recent] = 'Recent Actions'
+    @sorts[:introduced] = 'Date Introduced'
+    @sorts[:citations] = 'Most In The News'
+    @sorts[:views] = 'Most Viewed'
+    @sorts[:keyvotes] = 'Key Votes'
+
+    puts @sorts.inspect
   end
 
   def scope_bills(bills)

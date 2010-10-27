@@ -95,10 +95,11 @@ class PeopleController < ApplicationController
       @sort = 'name'
     end
 
-    @sorts = {:name => 'Name',
-      :district => 'District',
-      :citations => 'Most In The News',
-      :views => 'Most Viewed'}
+    @sorts = ActiveSupport::OrderedHash.new
+    @sorts[:name] = 'Name'
+    @sorts[:district] = 'District'
+    @sorts[:views] = 'Most Viewed'
+    @sorts[:citations] = 'Most In The News'
   end
 
   def render_people

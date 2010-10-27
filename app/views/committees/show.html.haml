@@ -5,18 +5,20 @@
   %hr
 
   .grid_8.alpha
-    %h2 Basic Info
-    %p
-      %ul
-        %li
-          Type:
-          = @committee.type_fm
-        %li
-          Website: 
-          = @committee.url ? link_to_with_domain(@committee.name, @committee.url) : @committee.name
-
-  .grid_8.omega
     %h2 Members
     %ul
       - @committee.members.each do |member|
         %li= link_to(member.official_name, person_path(member))
+
+  .grid_8.omega
+    %h2 Basic Info
+    %p
+      %ul
+        - unless @committee.type_fm.blank?
+          %li
+            Type:
+            = @committee.type_fm
+        - unless @committee.url.blank?
+          %li
+            Website: 
+            = @committee.url ? link_to_with_domain(@committee.name, @committee.url) : @committee.name
