@@ -661,7 +661,7 @@ float: right;
 width: 500px;
 position: relative;
 margin-bottom: 15px;
-z-index: 100000;
+z-index: 999;
 }
 
 .hov{
@@ -670,7 +670,7 @@ width: 90px;
 padding: 0;
 margin-left: 20px;
 position: relative;
-z-index: 100010;
+z-index: 999;
 }
 
 
@@ -706,7 +706,7 @@ position: absolute;
 top: 43px;
 width: 200px;
 height: 100px;
-z-index: 9999998;
+z-index: 1000;
 right: -2px;
 -moz-border-radius-topright: 0px;
 
@@ -734,7 +734,7 @@ padding: 6px 10px 0px;
 padding-bottom: 17px !important;
 border-bottom: none !important;
 position: relative;
-z-index: 99999999;
+z-index: 1001;
 -moz-box-shadow: inset 0 1px 0px #fff;
 -webkit-box-shadow: inset 0 1px 0px #fff;
 box-shadow: inset 0 1px 0px #fff;

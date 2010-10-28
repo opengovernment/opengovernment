@@ -50,6 +50,10 @@ class PeopleController < ApplicationController
     @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
   end
 
+  def contact
+    render :layout => 'popup'
+  end
+
   protected
   def find_person
     @person = Person.find(params[:id])

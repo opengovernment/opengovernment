@@ -20,6 +20,7 @@ OpenGov::Application.routes.draw do
         get :social
         get :money_trail
         get :discuss
+        get :contact
       end
     end
 

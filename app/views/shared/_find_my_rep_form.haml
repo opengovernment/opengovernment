@@ -8,10 +8,11 @@
     .find_button
       = submit_tag 'Find'
     </form>
-  .auto_find
-    = link_to 'Auto-Find My Current Location', 'javascript:findMe();'
+  - unless defined?(narrow)
+    .auto_find
+      = link_to 'Auto-Find My Current Location', 'javascript:findMe();'
   .finding(style='display: none;')
-      
+
   :javascript  
     if (navigator.geolocation) {
       function findMe() {

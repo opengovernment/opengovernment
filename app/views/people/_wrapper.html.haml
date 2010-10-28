@@ -16,18 +16,9 @@
                 %span
                 Email Alerts
 
-      .hov.write_buttons
+      .write_buttons
         %h4.button
-          %span Write
-          .arrow
-        .drop.button
-          %ul
-            %li.email 
-              %a Email
-            %li.twitter 
-              %a Twitter
-            %li.facebook 
-              %a Facebook
+          = link_to('Contact this rep', {:action => :contact}, :class => 'modal')
 
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')

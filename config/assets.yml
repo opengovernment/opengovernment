@@ -9,6 +9,7 @@ stylesheets:
     - public/stylesheets/forms.css
     - public/stylesheets/formtastic.css
     - public/stylesheets/formtastic_changes.css
+    - public/stylesheets/colorbox.css
     - public/stylesheets/html5.css
     - public/stylesheets/jquery-ui-1.8.4.css
     - public/stylesheets/layout.css

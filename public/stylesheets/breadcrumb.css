@@ -185,7 +185,7 @@ li.topnav a{
   -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #fefefe, inset 0 1px 0px #fff;
 
-  z-index: 999999;
+  z-index: 99;
 
   top: 13px;
   right: 27px;
