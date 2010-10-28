@@ -1,29 +1,23 @@
 - title("Members of the #{@state.legislature.name}")
-- dropdown('.sort_hot', 'ul.people_sorts')
 
-
-
-= render :partial => 'shared/left_nav_toplevel'
+= render 'shared/left_nav_toplevel'
 
 .grid_12
-
   %h1
     = "Members of the #{@state.legislature.name}"
-  
+
   %hr
 
   %p.intro= t '.intro'
 
-  
+  = render 'shared/find_my_rep_form', :narrow => true
+
   %ul.tabs
- 
     %li
       = link_to @state.upper_chamber.name, url_for(:action => 'upper', :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')
     %li.divider &#124;  
     %li
       = link_to @state.lower_chamber.name, url_for(:action => 'lower', :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')
-
-
 
   .sort.grid_12.alpha
     %ul.people_sorts.sorts
@@ -32,7 +26,6 @@
       - @sorts.each do |k, v|
         %li
           = link_to(v, url_for(:sort => k), :class => k.to_s == @sort ? 'active' : nil)
-
 
   #chamber
     = render :partial => 'chamber'

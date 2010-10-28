@@ -40,7 +40,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.
     #
-    primary.item :bills, 'Bills', bills_path, :class => 'bills' do |bill|
+    primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills' do |bill|
       if defined?(@bill)
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
@@ -61,27 +61,28 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
     end
-    primary.item :people, 'People', people_path, :class => 'people' do |person|
+    primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |person|
       if defined?(@person)
         person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
           m.item :overview, 'Overview', person_path(@person)
           m.item :votes, pluralize(number_with_delimiter(@person.votes.count), 'Vote'), votes_person_path(@person)
-          m.item :bills, pluralize(number_with_delimiter(@person.current_sponsorship_vitals.bill_count), 'Bill') + ' Sponsored', sponsored_bills_person_path(@person)
+          m.item :bills, pluralize(number_with_delimiter(@person.current_sponsorship_vitals.try(:bill_count)), 'Bill') + ' Sponsored', sponsored_bills_person_path(@person)
           m.item :tweets, 'Social Media Mentions', social_person_path(@person)
           m.item :citations, 'News & Blog Coverage', news_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
       end
+      person.item :search, 'Find Your District', search_url(:subdomain => false)
     end
     
     if defined?(@sig)
-      primary.item :people, 'People', people_path, :class => 'people' do |person|
+      primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |person|
         person.item :sig, 'Special Interest Group', sig_path(@sig)
       end
     end
     
-    primary.item :issues, 'Issues', issues_path, :class => 'issues' do |m|
+    primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
       if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
       end
@@ -92,7 +93,7 @@ SimpleNavigation::Configuration.run do |navigation|
  #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
  #     end
  #   end
-    primary.item :money_trail, 'Money Trail', money_trails_path, :class => 'money_trail'
+    primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail'
     primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")

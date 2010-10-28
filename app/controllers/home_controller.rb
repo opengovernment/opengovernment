@@ -57,18 +57,13 @@ class HomeController < ApplicationController
     end
 
     # Send them somewhere via geoip, if possible
-    if (sub = subdomain_via_geoip(request.ip)) && State.find_by_slug(sub).try(:supported?)
+    if (sub = Subdomain.from_ip(request.ip)) && State.find_by_slug(sub).try(:supported?)
       redirect_to(url_for(:subdomain => sub)) and return
     end
   end
   
   def home
     render :template => 'home/index'
-  end
-
-  protected
-  def subdomain_via_geoip(ip)
-    GEOIP.country(ip)[6].downcase if GEOIP
   end
 
 end

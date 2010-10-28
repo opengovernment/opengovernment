@@ -1,5 +1,5 @@
 %li.person
-  %a{:href => person_path(person)}  
+  %a{:href => (defined?(subdomain) ? person_url(person, :subdomain => subdomain) : person_path(person))}  
 
     .small_thumbnail
       != photo_for(person, :thumb) 

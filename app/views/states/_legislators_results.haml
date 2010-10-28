@@ -11,7 +11,7 @@
 
     %div.search_results.grid_12
       %ul.legislators.lined
-        = render :partial => 'shared/person', :collection => @legislators
+        = render @legislators
 
       = will_paginate @legislators
 
