@@ -58,18 +58,27 @@ function create_dropdown_menu(anchor_div, menu_div) {
 $(document).ready(function() {
   create_dropdown_menu("a#dropdown", "ul.state-select");
   create_dropdown_menu("a#secondary_dropdown", "ul.secondary-select");
+
+  $('a[rel=tipsy],span[rel=tipsy]').tipsy();
+
+  // Modals.
+  $('a.modal').colorbox({
+      transition:'none',
+      opacity: .75,
+      scrolling: false
+  });
+
+  $('a[data-remote]').live('ajax:loading', function() {
+    $(this).closest('ul').find(".spin").show();
+    }
+  );
+
+  $('a[data-remote]').live('ajax:complete', function() {
+    $(this).closest('ul').find(".spin").hide();
+    }
+  );
+
 });
-
-$('a[data-remote]').live('ajax:loading', function() {
-  $(this).closest('ul').find(".spin").show();
-  }
-);
-
-$('a[data-remote]').live('ajax:complete', function() {
-  $(this).closest('ul').find(".spin").hide();
-  }
-);
-
 
 function replaceURLWithHTMLLinks(text) {
   var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;

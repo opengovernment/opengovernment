@@ -112,7 +112,7 @@
     .grid_6.omega.sponsored_bills
       = sponsorship_vitals_for(@person)
       %ul
-        = render @person.sponsored_bills.limit(5)
+        = render @person.bill_sponsorships.limit(5)
       = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
       %hr.push_top
 

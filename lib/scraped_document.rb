@@ -4,7 +4,7 @@ module ScrapedDocument
   def self.included(base)
     base.class_eval do
       has_attached_file :document, :path => ':rails_root/public/system/:class/:id/:style/:filename',:url => '/system/:class/:id/:style/:filename'
-      scope :without_local_document, where("url is not null and url != '' and document_file_name is null")
+      scope :without_local_copy, where("url is not null and url != '' and document_file_name is null")
 
       # Right now this is used by OpenGov::BillTexts::sync! to
       # download documents for each bill.
@@ -27,8 +27,11 @@ module ScrapedDocument
 
   def do_download_file
     u = URI.parse(document_url)
-    u.userinfo = 'anonymous' if u.scheme == 'ftp'
-    io = open(u)
+    Timeout::timeout(10) do
+      ops = {}
+      ops[:ftp_active_mode] = false if u.scheme = 'ftp'
+      io = open(u, ops)
+    end
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e

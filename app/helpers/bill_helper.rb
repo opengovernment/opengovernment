@@ -21,7 +21,7 @@ module BillHelper
       mugs
     end
   end
-  
+
   def status_bar(bill)
     status_items = ''
     status_cell_count = 0
@@ -55,4 +55,9 @@ module BillHelper
       end
     end
   end
+  
+  def short_bill_link(bill)
+    link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 80), :title => bill.title, :rel => (bill.title.length > 80 ? 'tipsy' : ''))
+  end
+
 end

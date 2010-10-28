@@ -13,14 +13,9 @@
 
   - if @sponsorships.empty?
     %h2= "#{@person.full_name} has no sponsored bills."
-  
-  
+
   - else
     %h2= sponsorship_vitals_for(@person)
     = will_paginate @sponsorships
     %ul.lined.and_spaced
-      - @sponsorships.each do |sponsorship|
-        %li
-          = sponsorship.kind_fm + " of"
-          = link_to(sponsorship.bill.title, bill_path(sponsorship.bill.session, sponsorship.bill))
-          .bill_date.small= sponsorship.bill.first_action_at
+      = render @sponsorships
