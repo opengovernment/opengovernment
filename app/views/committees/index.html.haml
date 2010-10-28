@@ -1,10 +1,11 @@
 - title("#{@state.name} Committees")
-.grid_16
-  %h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
-  %hr
+
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
+
+  %h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
+  %hr
 
   = will_paginate @committees
   %ul.lined

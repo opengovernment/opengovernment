@@ -1,17 +1,16 @@
 - title("#{@state.name} Money Trail")
 
 
-.grid_16
-  %h1.grid_9.alpha
-    = @state.name
-    Money Trail
-  %hr
-
 
 
 = render :partial => 'shared/left_nav_toplevel'
 
 .grid_12
+
+  %h1
+    = @state.name
+    Money Trail
+
   %p.intro= t '.intro'
   
   %hr

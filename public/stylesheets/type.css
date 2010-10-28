@@ -10,25 +10,25 @@ color: #215357 !important;
 
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.01em; 
-  font-family: "Droid Sans", Arial; 
+
   font-weight:normal;color:#111;
   }
 
 
 h1 {
-font-family: "Droid Sans", Arial; 
+
 font-size: 23px;
 margin: 0;
 padding: 28px 0px;  
 position: relative;
-line-height: 1.5em;
+line-height: 1em;
 }
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
 
 
 h2 {
-margin:0 0 10px;
+margin: 0 0 5px;
 font-size: 16px;
 line-height:1.3em;
  padding: 10px 0;
@@ -36,21 +36,21 @@ color: #36676f;
 font-weight: bold;
 text-transform: uppercase;
  clear: left; 
-border-bottom: 1px solid #d1dddd;
+border-bottom: 1px solid #f4f9fa;
 }
 
 
 
 
 h3 {
-padding: 0px 0 10px;
-border-bottom: 1px solid #d5e1ee;
+padding: 5px 0;
+border-bottom: 1px solid #f4f9fa;
 font-size:14px;
 line-height:1em;
 margin: 0 0 10px; 
 width: 100%; 
 float: left; 
-text-transform: uppercase;
+
 font-weight: bold;
 }
 

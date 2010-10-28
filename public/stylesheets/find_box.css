@@ -5,11 +5,7 @@
 
 ///////////////////////////*/
 
-.full_lined{
-border-bottom: #ddd 1px solid; 
-padding: 10px 0;
-min-height: 20px;
-}
+
 
 .find_form{
 
@@ -24,7 +20,7 @@ float: right;
 
 .find_box{
   position: relative;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   overflow: auto;
   padding: 18px 0px 10px;
   background: #f9f9f9;
@@ -55,18 +51,18 @@ float: right;
   border-radius:3px;
   
   
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #777;
   
   
-  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
   
 
 }

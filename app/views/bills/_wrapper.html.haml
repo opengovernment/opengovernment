@@ -1,6 +1,15 @@
-.grid_16
+= render(:partial => 'nav')
+
+.grid_12
+  %h1
+    %span.state-and-chamber
+      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
+    %span
+      = "#{@bill.bill_number}"
+  
+  
   - if defined?(show_tools)
-    %aside.take_action
+    %aside.take_action.full_lined
       = render 'shared/share_tools', :message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url
       .hov.track_buttons
         %h4.button
@@ -15,7 +24,7 @@
               %a
                 %span
                 Email Alerts
-
+  
       .hov.write_buttons
         %h4.button
           %span Write
@@ -28,18 +37,10 @@
               %a Twitter
             %li.facebook 
               %a Facebook
-
+  
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')
           %span I Support this Bill!
         %a.oppose.button(rel='tipsy' title='Sign in to vote!')
           %span I Oppose this Bill!
-  %h1
-    %span.state-and-chamber
-      = "#{@bill.state.name} #{@bill.chamber.name} Bill "
-    %span
-      = "#{@bill.bill_number}"
-
-  %hr
-
-= render(:partial => 'nav')
+  

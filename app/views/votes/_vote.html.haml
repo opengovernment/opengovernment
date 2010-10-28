@@ -11,7 +11,7 @@
           = link_to(bill.bill_number, bill_path(bill.session, bill))
         = link_to(vote.motion, vote_path(vote))
     - else
-      %h4= link_to(vote.motion, vote_path(vote))
+      %span= link_to(vote.motion, vote_path(vote))
     - if vote.committee_name
       %span.vote-committee-name= vote.committee_name + ' Committee'
     - unless vote.kind_fm.blank?
