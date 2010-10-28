@@ -8,13 +8,9 @@
     %span.bill_title
       != bill.title
 
-  .sponsor_mugs.grid_5.alpha
-    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
-      = bill.actions.first.try(:kind_fm)
-    = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
 
 
-  .bill_status.rounded.grid_7.omega
+  .bill_status.rounded
 
     .introduced.grid_4.omega.top
       Introduced:
@@ -36,3 +32,7 @@
 
 
 
+  .sponsor_mugs
+    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
+      = bill.actions.first.try(:kind_fm)
+    = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)

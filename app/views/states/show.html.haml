@@ -3,15 +3,18 @@
 .grid_16
   = render :partial => 'shared/find_my_rep_form'
 
-.grid_16
+
+= render :partial => 'shared/left_nav_toplevel'
+
+.grid_12
+
+
   %h1.grid_9.alpha
     = @state.name
   %hr
 
 
-= render :partial => 'shared/left_nav_toplevel'
 
-.grid_12
   %p.intro= t '.intro'
 
   .grid_12.alpha

@@ -4,141 +4,151 @@
 - track(@person)
 - tweets(@person.full_name, 2)
 
-.grid_16
-  = render(:partial => 'wrapper', :locals => {:show_tools => true})
 
-  .grid_12.omega
-    = render :partial => 'shared/view_counts', :locals => {:page => @person}
-  
-    %hr
+= render(:partial => 'wrapper', :locals => {:show_tools => true})
 
-    .grid_6.alpha
-      %h2 General Info
-  
-      .grid_2.alpha
-        = photo_for(@person)
+.grid_12
 
-      %ul.grid_4.omega
-        - if @person.birthday?
-          %li= "Born #{@person.birthday}"
-        - if @person.gender?
-          %li{:class => @person.gender} Gender: #{@person.gender}
-        - if @person.religion?
-          %li= "Religion: #{@person.religion}"
-        - if @person.website_one?
-          %li
-            = link_to_with_domain("Website", @person.website_one)
-        - if @person.website_two?
-          %li
-            = link_to_with_domain("Website", @person.website_two)
-        - if @person.webmail?
-          %li
-            = link_to_with_domain("Web E-Mail", @person.webmail)
-        - if @person.email?
-          %li!= mail_to(@person.email, "E-mail", :encode => "javascript")
-        - if @person.youtube_id?
-          %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
-  
-    .grid_6.omega
-      %h2 Bio
-      - if @person.bio_data.blank?
-        %p
-          No biography was found on Wikipedia for #{@person.full_name}.
+  = render :partial => 'shared/view_counts', :locals => {:page => @person}
+
+  %hr
+
+  .grid_6.alpha
+    %h2 General Info
+
+    .grid_2.alpha
+      = photo_for(@person)
+
+    %ul.grid_4.omega
+      - if @person.birthday?
+        %li= "Born #{@person.birthday}"
+      - if @person.gender?
+        %li{:class => @person.gender} Gender: #{@person.gender}
+      - if @person.religion?
+        %li= "Religion: #{@person.religion}"
+      - if @person.website_one?
+        %li
+          = link_to_with_domain("Website", @person.website_one)
+      - if @person.website_two?
+        %li
+          = link_to_with_domain("Website", @person.website_two)
+      - if @person.webmail?
+        %li
+          = link_to_with_domain("Web E-Mail", @person.webmail)
+      - if @person.email?
+        %li!= mail_to(@person.email, "E-mail", :encode => "javascript")
+      - if @person.youtube_id?
+        %li!= "Youtube: " + link_to(@person.youtube_id, @person.youtube_url)
+
+  .grid_6.omega
+    %h2 Bio
+    - if @person.bio_data.blank?
+      %p
+        No biography was found on Wikipedia for #{@person.full_name}.
+    - else
+      %small.quiet.span
+        From the non-partisan
+        = link_to("Wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
+      %p
+        = @person.bio_data
+        %br
+        = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
+
+  .space.clear
+
+  %hr.push_top
+
+  .grid_12.alpha
+    %h2 Addresses
+    %ul.addresses
+      - if @person.addresses.size > 0
+        = render :partial => "shared/address", :collection => @person.addresses
       - else
-        %small.quiet.span
-          From the non-partisan
-          = link_to("Wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
-        %p
-          = @person.bio_data
-          %br
-          = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
+        %p Sorry, we found no addresses.
 
+  .space.clear
 
-    %hr.push_top
+  %hr.push_top
 
-    .grid_12.alpha
-      %h2 Addresses
-      %ul.addresses
-        - if @person.addresses.size > 0
-          = render :partial => "shared/address", :collection => @person.addresses
-        - else
-          %p Sorry, we found no addresses.
+  .grid_12.alpha
 
-    %hr.push_top
+    .grid_4.alpha
+      %h2 Roles
+      - @person.roles.each do |role|
+        %div #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm)}
 
-    .grid_12.alpha
+    .grid_4
+      %h2 Committees
+      - if @person.committees.size > 0
+        %ul.lined
+          - @person.committees.each do |committee|
+            %li
+              = committee.type_fm
+              = link_to(committee.name, committee_path(committee))
+      - else
+        %p We have no committee membership information for #{@person.full_name}.
 
-      .grid_4.alpha
-        %h2 Roles
-        - @person.roles.each do |role|
-          %div #{role.state.try(:name)} #{role.chamber.try(:name)}, session #{raw role.session.try(:name_fm)}
-
-      .grid_4
-        %h2 Committees
-        - if @person.committees.size > 0
-          %ul.lined
-            - @person.committees.each do |committee|
-              %li
-                = committee.type_fm
-                = link_to(committee.name, committee_path(committee))
-        - else
-          %p We have no committee membership information for #{@person.full_name}.
-
-      .grid_4.omega
-        %h2 Votes
-        - if @latest_roll_calls
+    .grid_4.omega
+      %h2 Votes
+      - if @latest_roll_calls
+        %div
           %div
-            %div
-              %ul
-                - @latest_roll_calls.each do |roll_call|
-                  - vote = roll_call.vote
-                  %li
-                    = roll_call.vote_type.titleize
-                    on
-                    = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
-                    motion
-                    = succeed ',' do
-                      = link_to(vote.motion, vote_path(vote.id))
-                    = vote.date
+            %ul
+              - @latest_roll_calls.each do |roll_call|
+                - vote = roll_call.vote
+                %li
+                  = roll_call.vote_type.titleize
+                  on
+                  = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
+                  motion
+                  = succeed ',' do
+                    = link_to(vote.motion, vote_path(vote.id))
+                  = vote.date
 
-          %p
-            != link_to("View All #{@person.votes.count} Votes &rarr;".html_safe, votes_person_path(@person))
-        - else
-          %p We have no voting history for #{@person.full_name}
-
-    %hr.push_top
-
-    .grid_6.alpha
-      #twitter(style="display: none;")
-        %h2 Tweets
-        %ul#tweets
-
-    .grid_6.omega.sponsored_bills
-      = sponsorship_vitals_for(@person)
-      %ul
-        = render @person.sponsored_bills.limit(5)
-      = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
-      %hr.push_top
-
-    .grid_12.alpha
-      %h2 Ratings
-      - if @person.ratings
-        .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
-        - @person.ratings.group_by(&:category).each do |category, ratings|
-          %h3= category.name
-          - ratings.each do |rating|
-            %ul.lined
-              %li.grid_12.alpha
-                %span.grid_10.alpha
-                  = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
-                %span.grid_1
-                  = rating.timespan
-                %span.grid_1.omega
-                  = rating.rating
+        %p
+          != link_to("View All #{@person.votes.count} Votes &rarr;".html_safe, votes_person_path(@person))
       - else
-        %p.grid_12.alpha
-          No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
-          %a{:href => 'http://votesmart.org/program_donations_index.php'} here
+        %p We have no voting history for #{@person.full_name}
 
-    %hr.push_top
-  
+  .space.clear
+
+  %hr.push_top
+
+  .grid_6.alpha
+    #twitter(style="display: none;")
+      %h2 Tweets
+      %ul.lined#tweets
+
+  .grid_6.omega.sponsored_bills
+    = sponsorship_vitals_for(@person)
+    %br
+    %ul.lined
+      = render @person.sponsored_bills.limit(5)
+    = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
+
+
+  .space.clear
+
+  %hr.push_top
+
+  .grid_12.alpha
+    %h2 Ratings
+    - if @person.ratings
+      .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+      - @person.ratings.group_by(&:category).each do |category, ratings|
+        %h3= category.name
+        - ratings.each do |rating|
+          %ul.lined
+            %li.grid_12.alpha
+              %span.grid_10.alpha
+                = link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+              %span.grid_1
+                = rating.timespan
+              %span.grid_1.omega
+                = rating.rating
+    - else
+      %p.grid_12.alpha
+        No data found for this Member at this time via Project Vote Smart. To inquire how you can help make this info available and ensure transparency in government, visit
+        %a{:href => 'http://votesmart.org/program_donations_index.php'} here
+
+  %hr.push_top

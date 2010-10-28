@@ -1,22 +1,25 @@
 - title("Bills sponsored by #{@person.full_name}")
 
-.grid_16
+
+
+= render(:partial => 'nav')
+  
+
+.grid_12
   %h1
     = @person.official_name
     - surround '(', ')' do
       = @person.current_role.try(:affiliation_fm)
-  %hr
 
-= render(:partial => 'nav')
-  
-.grid_12
+  %hr
 
   - if @sponsorships.empty?
     %h2= "#{@person.full_name} has no sponsored bills."
   
   
   - else
-    %h2= sponsorship_vitals_for(@person)
+    %p= sponsorship_vitals_for(@person)
+
     = will_paginate @sponsorships
     %ul.lined.and_spaced
       - @sponsorships.each do |sponsorship|

@@ -37,7 +37,7 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; }
 hr {
   border:none;
   border-top: 1px solid #fff;
-  border-bottom: 2px solid #d1dddd;
+  border-bottom: 2px solid #f4f9fa;
   color:#ddd;
   clear:both;
   float:none;

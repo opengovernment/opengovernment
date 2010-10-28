@@ -1,7 +1,15 @@
-.grid_16.alpha
+= render(:partial => 'nav')
+
+.grid_12.omega
+
+  %h1
+    = @person.official_name
+    = surround '(', ')' do
+      = @person.current_role.try(:affiliation_fm)
+
 
   - if defined?(show_tools)
-    %aside.take_action
+    %aside.take_action.full_lined
       = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
       .hov.track_buttons
         %h4.button
@@ -35,10 +43,3 @@
           %span I Support this Rep!
         %a.oppose.button(rel='tipsy' title='Sign in to vote!')
           %span I Oppose this Rep!
-  %h1
-    = @person.official_name
-    = surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
-  %hr
-
-= render(:partial => 'nav')

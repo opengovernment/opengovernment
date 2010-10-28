@@ -13,6 +13,15 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 ///////////////////////////*/
 
 
+
+body.people.index ul.lined{
+margin-left: -38px !important;
+width: 764px;
+clear: both;
+}
+
+
+
 .lined li.person{
   margin: 0 !important;
   overflow: auto;
@@ -21,8 +30,8 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 
 .lined li.person a{
   display: block;
-  height: 68px;
-  padding: 10px 0 !important;
+  height: 72px;
+  padding: 20px 20px 8px 40px !important;
   }
 
 .lined li.person a:hover{
@@ -40,7 +49,7 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 .lined li.person a .small_thumbnail {
   float:left;
   padding: 2px;
-  margin-right: 20px;
+  margin-right: 10px;
   box-shadow: 0 1px 1px #999;
   -moz-box-shadow: 0 1px 1px #666;
   -webkit-box-shadow: 0 1px 1px #999;
@@ -64,7 +73,7 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 
 .lined li.person a span.person_name{
   display: block;
-  margin: 15px 0 5px;
+  margin: 10px 0 5px;
   font-size: 20px;
   }
 
@@ -83,12 +92,15 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 
 
 .lined li.person a .person_views{
-margin-top: 18px;
+margin-top: 7px;
 }
 
 
 .lined li.person .grid_6{
 border-right: 1px solid #efefef;
-padding-bottom: 15px;
+padding-bottom: 10px;
 }
+
+
+
 

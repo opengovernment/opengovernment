@@ -1,11 +1,10 @@
 
 
 .bread{
-height: 46px;
-margin: 0px auto;
--moz-border-radius: 0px;
+height: 36px;
+margin: 0px auto 20px;
+-moz-border-radius: 30px;
 border-bottom: 0 !important;
-
 }
 
 
@@ -47,7 +46,7 @@ ul.secondary-select li a {
   float: left;
   margin: 0;
   padding-left: 25px;
-  background: #f9f9f9 !important;
+
   width: 170px;  
 }
 
@@ -94,14 +93,6 @@ ul.breadcrumb li span.subhover
   letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
   float: left;
   margin: -1px 0 0 -16px;
-
-border-bottom: 1px solid #dcdcdc;
-
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#efefef'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
-
-
 }
 
 .breadcrumb li{
@@ -116,15 +107,16 @@ margin-left: -23px;
 
 .breadcrumb li a{
   float: left;
-  height: 29px;
+  height: 24px;
   list-style: none;
-  padding: 18px 60px 0 25px;
+
+  padding: 13px 60px 0 25px;
   text-decoration: none;
 font-size: 13px;
   line-height: 1em;
   margin: 0 !important;
 
-  background: url(/images/crumb_right.png) right 0 no-repeat;
+  background: url(/images/crumb_right.png) right -5px no-repeat;
 }
 
 
@@ -157,7 +149,7 @@ padding-left: 10px;
 
 
 li.topnav a{
-  padding: 18px 60px 0 15px;
+  padding-left: 15px;
 }
 
 
@@ -173,9 +165,25 @@ li.topnav a{
 }
 
 .dropdown{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
-  border: 1px solid #ddd;
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fcfcfc) !important;
+  border: 1px solid #fff;
+  position: absolute;
 
+  z-index: 999999;
+
+  top: 8px;
+  right: 27px;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 20px !important;
+  width: 20px !important;
+  }
+
+
+.breadcrumb li:hover .dropdown{
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fcfcfc) !important;
+  border: 1px solid #ddd;
+  border-top: 1px solid #e9e9e9;
   position: absolute;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
@@ -187,15 +195,13 @@ li.topnav a{
 
   z-index: 999999;
 
-  top: 13px;
+  top: 8px;
   right: 27px;
   margin: 0 !important;
   padding: 0 !important;
   height: 20px !important;
   width: 20px !important;
   }
-
-
 
 
 .dropdown:hover{

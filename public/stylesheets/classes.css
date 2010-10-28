@@ -140,6 +140,23 @@
 .space {background:#fff;color:#fff;visibility:hidden; height: 35px;}
 
 
+
+
+
+.full_lined{
+border-top: 1px solid #ddeded;
+border-bottom: 1px solid #ddeded;
+float: left;
+
+margin: 0 0px 0 -39px !important;
+width: 764px !important;
+
+background: #f4f9fa;
+
+  }
+
+
+
 /*///////////// ~  Standard List  ~ /////////////*/
 
 
@@ -149,7 +166,7 @@ ul.lined{
   }
 
 ul.lined li{
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f4f9fa;
   margin: 0 0 5px;
   padding: 0px 0 5px;
   line-height: 1.4em;
@@ -175,13 +192,25 @@ ul.lined.and_spaced.with_titles li a{
 
 
 
+/*
+.money_trails ul.lined li{
+  padding-left: 20px;
+  background: #fff url(/images/cash.gif) left 2px no-repeat;
+  }
+
+.issues ul.lined li{
+  padding-left: 20px;
+  background: #fff url(/images/issues.gif) left 2px no-repeat;
+  }
+
+*/
 
 
 .boxxed{
   border: 1px solid #fff;
-  -moz-box-shadow: 0px 1px 2px #75a2ab;
-  -webkit-box-shadow: 0px 1px 2px #75a2ab;
-  box-shadow: 0px 1px 2px #75a2ab;
+  -moz-box-shadow: 0px 1px 2px #6d6a58;
+  -webkit-box-shadow: 0px 1px 2px #6d6a58;
+  box-shadow: 0px 1px 2px #6d6a58;
 
 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
@@ -228,6 +257,7 @@ ul.lined.and_spaced.with_titles li a{
 .state-and-chamber{
   color: #888;
   display: block;
+padding-bottom: .5em;
   }
 
 

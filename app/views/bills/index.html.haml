@@ -13,7 +13,6 @@
 
   %p.intro= t '.intro'
 
-  %hr
   
   %ul.tabs
     %li
@@ -29,7 +28,6 @@
     %li
       = link_to(@state.lower_chamber.name, bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : ''))
 
-  %hr.push_bottom
   
   .sort.grid_12.alpha  
     %ul.sorts
@@ -38,8 +36,7 @@
       - @sorts.each do |k, v|
         %li
           = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
-
-  %hr.push_top.push_bottom
+  .space.clear
 
   %ul.lined.and_spaced#bill_list
     = render :partial => 'shared/bill', :collection => @bills

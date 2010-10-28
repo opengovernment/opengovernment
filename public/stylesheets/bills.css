@@ -2,7 +2,7 @@
 
 .bills.index .intro{
 padding-right: 250px;
-background: #fff url(/images/intros/bills.gif) right center no-repeat;
+background: #fff url(/images/intros/bills.gif) 490px center no-repeat;
 }
 
 
@@ -103,8 +103,10 @@ padding-right: 5px;
   color: #666;
 margin-top: 15px;
 background: #f3f7f7;
- 
-  
+margin-left: 10px; 
+
+  float: left;
+width:400px;
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
@@ -119,7 +121,7 @@ background: #f3f7f7;
 }
 
 .bill_status div.top{
-  padding: 5px 0 5px;
+  padding: 5px 0 0px;
 }
 
 
@@ -129,6 +131,9 @@ background: #f3f7f7;
 
 
 .sponsor_mugs{
+float: left;
+width: 255px;
+padding: 0 0 0 20px;
 }
 
 .sponsor_mugs span{
