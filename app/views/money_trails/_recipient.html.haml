@@ -1,0 +1,4 @@
+.grid_4.alpha
+  .recipient_name= link_to(recipient.person.try(:full_name), person_path(recipient.person))
+.grid_2.omega
+  .amount= number_to_currency(recipient.amount)

@@ -9,4 +9,10 @@
     Money Trail -
     = @industry.name
 
-  = render :partial => 'money_trails/contribution', :collection => @contributions
+  .grid_6.alpha
+    %h2 Top 20 Contributors
+    = render :partial => 'money_trails/contribution', :collection => @contributions
+
+  .grid_6.omega
+    %h2 Top 20 Recipients
+    = render :partial => 'money_trails/recipient', :collection => @recipients
