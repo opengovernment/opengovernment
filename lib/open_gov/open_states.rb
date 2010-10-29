@@ -5,7 +5,7 @@ module OpenGov
         fetch_one(state)
       end
     end
-    
+
     def self.fetch_one(state)
       FileUtils.mkdir_p(Settings.openstates_dir)
       Dir.chdir(Settings.openstates_dir)

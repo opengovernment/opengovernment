@@ -28,9 +28,7 @@ module ScrapedDocument
   def do_download_file
     u = URI.parse(document_url)
     Timeout::timeout(10) do
-      ops = {}
-      ops[:ftp_active_mode] = false if u.scheme = 'ftp'
-      io = open(u, ops)
+      io = open(u)
     end
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
