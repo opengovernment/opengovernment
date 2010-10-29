@@ -141,10 +141,17 @@ float: left;
 background: url('/images/share.png') no-repeat -63px 0px;
 }
 
-.write_buttons .email a{
-background: url('/images/share.png') no-repeat -63px 0px;
+.write_buttons {
+  float: left;
+  width: 120px;
+  padding: 0;
+  margin: 10px 0 10px 40px;
+  position: relative;
 }
 
+/* .write_buttons .email a{
+background: url('/images/share.png') no-repeat -63px 0px;
+}
 
 .write_buttons ul{
 margin: 20px 0 0 20px !important;
@@ -163,4 +170,5 @@ height: 60px !important;
 width: 130px !important;
 }
 
+*/
 

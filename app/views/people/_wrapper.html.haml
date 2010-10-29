@@ -24,9 +24,9 @@
                 %span
                 Email Alerts
 
-      .write_buttons
-        %h4.button
-          = link_to('Contact this rep', {:action => :contact}, :class => 'modal')
+      .write_button
+        %span.button
+          %span= link_to('Contact this rep', {:action => :contact}, :class => 'modal')
 
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')
