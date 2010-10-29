@@ -73,15 +73,13 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end
       end
+      if defined?(@sig)
+          person.item :sig, 'Special Interest Group', sig_path(@sig)
+      end
       person.item :search, 'Find Your District', search_url(:subdomain => false)
     end
     
-    if defined?(@sig)
-      primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |person|
-        person.item :sig, 'Special Interest Group', sig_path(@sig)
-      end
-    end
-    
+        
     primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
       if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
