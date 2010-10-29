@@ -4,7 +4,7 @@
   #left_nav
     = render_navigation(:level => 1)
 
-.grid_12.omega
+.grid_12
   - if @point
     %h1 Your Officials
 
@@ -15,16 +15,15 @@
         = "We couldn't find your exact address, but we found your #{@point.precision}."
 
     - [Legislature::CONGRESS, @state.legislature].each do |leg|
-      %section.legislature
-        %h3[leg]= leg.name
-        - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
-          %h4[chamber]= chamber.name
-          - places_and_reps = chamber.current_legislators_by_point(@point)
-          - if places_and_reps.size > 0
-            - places_and_reps.each do |place, reps|
-              %ul.chamber_members
-                = render reps, :subdomain => current_place_subdomain
-          - else
-            = "No legislators found."
+      %h3[leg]= leg.name
+      - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
+        %h4[chamber]= chamber.name
+        - places_and_reps = chamber.current_legislators_by_point(@point)
+        - if places_and_reps.size > 0
+          - places_and_reps.each do |place, reps|
+            %ul.chamber_members.lined
+              = render reps, :subdomain => current_place_subdomain
+        - else
+          = "No legislators found."
   - else
     Sorry, we couldn't find your address.
