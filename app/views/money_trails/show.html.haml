@@ -3,7 +3,6 @@
 = render 'shared/left_nav_toplevel'
 
 .grid_12
-
   %h1
     = @state.name
     Money Trail -
@@ -16,3 +15,9 @@
   .grid_6.omega
     %h2 Top 20 Recipients
     = render :partial => 'money_trails/recipient', :collection => @recipients
+
+  .grid_12.alpha
+    %hr.push_top
+    %p
+      Source:
+      %a{:href => 'http://www.followthemoney.org/'} National Institute on Money in State Politics
