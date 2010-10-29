@@ -1,0 +1,12 @@
+- title("#{@state.name} Money Trail - #{@industry.name}")
+
+= render 'shared/left_nav_toplevel'
+
+.grid_12
+
+  %h1
+    = @state.name
+    Money Trail -
+    = @industry.name
+
+  = render :partial => 'money_trails/contribution', :collection => @contributions

@@ -93,7 +93,11 @@ SimpleNavigation::Configuration.run do |navigation|
  #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
  #     end
  #   end
-    primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail'
+    primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail' do |m|
+      if defined?(@industry)
+        m.item :industry, @industry.name, money_trail_path(@industry)
+      end
+    end
     primary.item :pages, 'Pages', '#', :class => 'page', :if => Proc.new { controller.controller_name == "pages" } do |m|
       m.item :about, 'About OpenGovernment.org', page_path("about")
       m.item :policy, 'Privacy Policy', page_path("privacy")

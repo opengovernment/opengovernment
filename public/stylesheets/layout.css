@@ -160,6 +160,11 @@ width: 162px !important;
   }
   
   
+/* No background on the homepage */
+.home.index .main {
+  background: #fff;
+}
+
 
 
 

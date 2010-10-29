@@ -2,8 +2,4 @@
   .floatright
     = number_to_currency(corporate_entity.amount)
 
-  %span= link_to(corporate_entity.name, money_trail_path(corporate_entity), :remote => true)
-
-
-
-
+  %span= link_to(corporate_entity.name, money_trail_path(corporate_entity))
