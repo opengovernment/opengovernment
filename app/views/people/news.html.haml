@@ -11,7 +11,7 @@
   %hr.push_bottom
 
 
-  - if @person.citations.empty?
+  - if @person.mentions.empty?
     %div.no_results
       Well, no news or blog mentions found for this legislator at this time. But hey, we can build on this. Here's what we do: using Google News and Blog Search, we automatically search the Web for mentions of this member by his or her full name, e.g. "Representative Firstname Lastname" or "Senator Firstname Lastname". Any matching results would be displayed below, but in their absence, there are a couple of likely reasons for this state of affairs that are worth mentioning. First, unfortunately, there are often not a lot of specific mentions of individual members of state government out there on the Web to be found -- i.e., we're starting with a deficit of attention and resources for legislators at the state and local levels. Second, some entities such as issue-based groups or political reporters may be writing about state government officials, but not on the Web where search engines can find their content. In order to build public knowledge about members of and candidates for state government, then, we need to first publish them online in open standards -- i.e., not on password-protected proprietary services like Facebook or Twitter, but rather on the wide expanse of the searchable Web -- so that everyone can easily find information about this bill and learn what's really happening with it. As for what you can do, publish a blog post of your own or write a letter to your local newspaper / political blog that refers to this member by its official title and number -- if it's published on the Web where search engines can find it, a link to your post will automatically appear here within 24 hours or so for everyone to access. And that would be greatly helpful. There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
       = @person.full_name
@@ -27,8 +27,8 @@
     .grid_6.alpha
       %h2 Google News
       %ul.lined.and_spaced.with_titles
-        = render :partial => 'shared/citation', :collection => @person.google_news_citations
+        = render @person.google_news_mentions
     .grid_6.omega
       %h2 Blogs
       %ul.lined.and_spaced.with_titles
-        = render :partial => 'shared/citation', :collection => @person.google_blog_citations
+        = render @person.google_blog_mentions

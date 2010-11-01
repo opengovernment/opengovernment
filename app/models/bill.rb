@@ -45,15 +45,8 @@ class Bill < ActiveRecord::Base
   scope :for_session_named, lambda { |s| {:conditions => ["upper(sessions.name) = upper(?)", s], :joins => [:session]} }
   scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
-  has_many :citations, :as => :owner
 
-  with_options :as => :owner, :class_name => "Citation" do |c|
-    c.has_many :google_news_citations, :conditions => {:search_source => "Google News"}
-    c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
-    c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
-  end
-
-  acts_as_citeable :keywords => ["Bill"], :with => [:bill_number, "state.name"]
+  acts_as_noteworthy :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
   has_many :bills_subjects
   has_many :subjects, :through => :bills_subjects
@@ -69,10 +62,10 @@ class Bill < ActiveRecord::Base
     indexes title, :sortable => true
     has bill_number, state_id, session_id, chamber_id, last_action_at, first_action_at
 
-    # Trigger the join on citations before indexing the count
+    # Trigger the join on mentions before indexing the count
     # We're using SQL to do this now... so no need to index it.
-    #has citations(:id), :as => :citations_ids
-    #has "COUNT(citations.id)", :as => :citations_count, :type => :integer
+    #has mentions(:id), :as => :mentions_ids
+    #has "COUNT(mentions.id)", :as => :mentions_count, :type => :integer
   end
 
   def kinds

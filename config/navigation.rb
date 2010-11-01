@@ -45,7 +45,7 @@ SimpleNavigation::Configuration.run do |navigation|
         bill.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
           m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
-          m.item :citations, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
+          m.item :mentions, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
           m.item :tweets, 'Social Media Mentions', social_bill_path(@bill.session, @bill)
           m.item :videos, 'Videos', videos_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
@@ -68,7 +68,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :votes, pluralize(number_with_delimiter(@person.votes.count), 'Vote'), votes_person_path(@person)
           m.item :bills, pluralize(number_with_delimiter(@person.current_sponsorship_vitals.try(:bill_count)), 'Bill') + ' Sponsored', sponsored_bills_person_path(@person)
           m.item :tweets, 'Social Media Mentions', social_person_path(@person)
-          m.item :citations, 'News & Blog Coverage', news_person_path(@person)
+          m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
           m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
         end

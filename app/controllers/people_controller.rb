@@ -75,8 +75,8 @@ class PeopleController < ApplicationController
     @order = case @sort
       when 'district'
         'district_order asc'
-      when 'citations'
-        'citations_count desc'
+      when 'mentions'
+        'mentions_count desc'
       else
         'last_name asc'
       end
@@ -103,7 +103,7 @@ class PeopleController < ApplicationController
     @sorts[:name] = 'Name'
     @sorts[:district] = 'District'
     @sorts[:views] = 'Most Viewed'
-    @sorts[:citations] = 'Most In The News'
+    @sorts[:mentions] = 'Most In The News'
   end
 
   def render_people

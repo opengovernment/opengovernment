@@ -1,0 +1,4 @@
+%li
+  = link_to_with_domain raw(mention.title), mention.url
+  .mention_date= mention.date.try(:to_s, :pretty)
+  = raw mention.excerpt

@@ -20,4 +20,4 @@
       - if MongoMapper.connected?
         .person_views #{person.views} Views
     .grid_4  
-      .person_citations #{person.citations.since(30.days.ago).count} News & blog entries, past 30 days
+      .person_mentions #{person.mentions.since(30.days.ago).count} News & blog entries, past 30 days

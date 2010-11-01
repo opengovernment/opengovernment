@@ -50,7 +50,7 @@ class BillsController < ApplicationController
     @sorts = ActiveSupport::OrderedHash.new
     @sorts[:recent] = 'Recent Actions'
     @sorts[:introduced] = 'Date Introduced'
-    @sorts[:citations] = 'Most In The News'
+    @sorts[:mentions] = 'Most In The News'
     @sorts[:views] = 'Most Viewed'
     @sorts[:keyvotes] = 'Key Votes'
 
@@ -66,8 +66,8 @@ class BillsController < ApplicationController
     case @sort
       when 'introduced'
         bills.order('first_action_at desc').limit(10)
-      when 'citations'
-        bills.joins("inner join (select owner_id as bill_id, count(citations.id) as citation_count from citations where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.citation_count desc").limit(10)
+      when 'mentions'
+        bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc").limit(10)
       when 'views'
         # This is gnarly. We have to generate a case statement for PostgreSQL in order to
         # get the people out in page view order. AND we need an SQL in clause for the people.

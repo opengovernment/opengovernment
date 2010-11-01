@@ -196,7 +196,7 @@ namespace :fetch do
   end
 end
 
-desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, citations"
+desc "Load all data: fixtures, legislatures, districs, committess, people(including their addresses, photos), bills, mentions"
 namespace :load do
   task :all  => :environment do
     # We don't load fixtures here anymore-- we load them earlier so we can use them to fetch the right districts and bills.
@@ -210,8 +210,8 @@ namespace :load do
     Rake::Task['load:committees'].invoke
     puts "\n---------- Loading bills"
     Rake::Task['load:bills'].invoke
-    puts "\n---------- Loading news & blog citations"
-    Rake::Task['load:citations'].invoke
+    puts "\n---------- Loading news & blog mentions"
+    Rake::Task['load:mentions'].invoke
     puts "\n---------- Loading PVS contribution and ratings data"
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
@@ -252,9 +252,9 @@ namespace :load do
     end
   end
 
-  desc "Fetch and load citations"
-  task :citations => :environment do
-    OpenGov::Citations.import!
+  desc "Fetch and load mentions"
+  task :mentions => :environment do
+    OpenGov::Mentions.import!
   end
 
   desc "Load bills from Open State data"

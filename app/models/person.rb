@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   # for geometry options
   has_attached_file :photo, :styles => {:full => "90", :thumb => "50x50#"}, :convert_options => { :all => '-gravity north'}
 
-  acts_as_citeable :with => [:official_name]
+  acts_as_noteworthy :with => [:official_name]
 
   validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
   validates_presence_of :first_name, :last_name
@@ -105,14 +105,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  has_many :citations, :as => :owner
-
-  with_options :as => :owner, :class_name => "Citation" do |c|
-    c.has_many :google_news_citations, :conditions => {:search_source => "Google News"}
-    c.has_many :google_blog_citations, :conditions => {:search_source => "Google Blogs"}
-    c.has_many :technorati_citations, :conditions => {:search_source => "Technorati"}
-  end
-
   scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
   scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
   scope :with_openstates_photo_url, :conditions => ["openstates_photo_url is not null"]
@@ -128,9 +120,9 @@ class Person < ActiveRecord::Base
     indexes first_name, middle_name, last_name, :sortable => true
     has email
 
-    # Trigger the join on citations before indexing the count
-    has citations(:id), :as => :citations_ids
-    has "COUNT(citations.id)", :as => :citations_count, :type => :integer
+    # Trigger the join on mentions before indexing the count
+    has mentions(:id), :as => :mentions_ids
+    has "COUNT(mentions.id)", :as => :mentions_count, :type => :integer
 
     has chamber(:id), :as => :chamber_id, :facet => true
     has "current_district_order_for(people.id)", :as => :district_order, :type => :string

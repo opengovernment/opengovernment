@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 64) do
+ActiveRecord::Schema.define(:version => 65) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(:version => 64) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+  end
+
+  create_table "bill_sources", :force => true do |t|
+    t.integer  "bill_id"
+    t.datetime "retrieved"
+    t.string   "url"
   end
 
   create_table "bill_sponsorships", :force => true do |t|
@@ -117,20 +123,11 @@ ActiveRecord::Schema.define(:version => 64) do
   end
 
   create_table "citations", :force => true do |t|
-    t.string   "url",           :limit => 8000
-    t.string   "excerpt",       :limit => 4000
-    t.string   "title",         :limit => 1000
-    t.string   "source"
-    t.datetime "date"
-    t.float    "weight"
-    t.integer  "owner_id"
-    t.string   "owner_type"
-    t.string   "search_source"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "citeable_id"
+    t.string   "citeable_type"
+    t.datetime "retrieved"
+    t.string   "url"
   end
-
-  add_index "citations", ["owner_id", "owner_type", "date"], :name => "citations_owner_date_idx"
 
   create_table "committee_memberships", :force => true do |t|
     t.integer "person_id"
@@ -209,6 +206,22 @@ ActiveRecord::Schema.define(:version => 64) do
     t.string  "name"
     t.integer "state_id"
   end
+
+  create_table "mentions", :force => true do |t|
+    t.string   "url",           :limit => 8000
+    t.string   "excerpt",       :limit => 4000
+    t.string   "title",         :limit => 1000
+    t.string   "source"
+    t.datetime "date"
+    t.float    "weight"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "search_source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mentions", ["owner_id", "owner_type", "date"], :name => "citations_owner_date_idx"
 
   create_table "people", :force => true do |t|
     t.string   "first_name",                           :null => false
