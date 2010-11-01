@@ -77,4 +77,8 @@
         %p Sorry, there were no tweets found for #{@bill.bill_number}.
       %ul#tweets
 
-  = render @bill.citations
+  - if @bill.citations.any?
+    .citations
+      Sources:
+      %ul
+        = render @bill.citations
