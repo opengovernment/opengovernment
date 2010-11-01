@@ -138,7 +138,7 @@ module OpenGov
       elsif fips_code == 33 && shape.lsad == "LL"
         "District " + census_name_column
       else
-        "District " + census_name_column.to_i.to_s
+        "District " + census_name_column
       end
     end
 
