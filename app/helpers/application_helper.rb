@@ -44,7 +44,7 @@ module ApplicationHelper
   def tweets(q, limit = 5)
     javascript do
     (%Q|
-      TwitterAPI.hook("#{q}", #{limit});
+      TwitterAPI.hook('"#{q}"', #{limit});
     |)
     end
   end
@@ -87,9 +87,9 @@ module ApplicationHelper
       # URI encode because some photos actually have
       # % characters in the names. D'oh!
       image_tag(URI.encode(person.photo.url(size)), ops)
-    elsif person.photo_url(size)
+    elsif person.photo_url
       # The remote photo, as a backup
-      image_tag(person.photo_url(size), ops)
+      image_tag(person.photo_url, ops)
     else
       # No photo.
       image_tag('missing.png', ops)
