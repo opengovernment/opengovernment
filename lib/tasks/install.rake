@@ -167,6 +167,7 @@ namespace :fetch do
   task :all do
     Rake::Task['fetch:districts'].invoke
     Rake::Task['fetch:openstates'].invoke
+    Rake::Task['fetch:geoip'].invoke
   end
 
   desc "Get the district SHP files for Congress and all active states"
@@ -174,6 +175,15 @@ namespace :fetch do
     with_states do |state|
       state ? OpenGov::Districts.fetch_one(state) : OpenGov::Districts.fetch!
     end
+  end
+
+  desc "Fetch latest GeoIP dataset (updated monthly)"
+  task :geoip => :setup do
+    geoip_url = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
+
+    puts "---------- Downloading GeoIP datafile"
+    `curl -fO #{geoip_url}`
+    `gzip -df #{File.basename(geoip_url)}`
   end
 
   desc "Get the openstates files for all active states"
@@ -206,6 +216,10 @@ namespace :load do
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
     Rake::Task['load:ratings'].invoke
+    puts "\n---------- Fetch photos and attach them to people"
+    Rake::Task['sync:photos'].invoke
+    puts "\n---------- Fetch bill text & documents and attach them to bills"
+    Rake::Task['sync:bill_texts'].invoke    
   end
 
   # These tasks are listed in the order that we need the data to be inserted.

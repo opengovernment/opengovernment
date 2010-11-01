@@ -46,7 +46,7 @@ module OpenGov
       # Get the federal data.
       process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
     end
-    
+
     def self.import!(shpfile)
       puts "Inserting shapefile #{File.basename(shpfile)}"
       OpenGov::Shapefile.process(shpfile, :drop_table => true)
@@ -138,7 +138,7 @@ module OpenGov
       elsif fips_code == 33 && shape.lsad == "LL"
         "District " + census_name_column
       else
-        "District " + census_name_column
+        "District " + census_name_column.gsub(/^0+/,'')
       end
     end
 

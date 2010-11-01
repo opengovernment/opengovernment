@@ -104,8 +104,9 @@ module OpenGov
           unless @bill.new_record?
             @bill.actions.delete_all
             @bill.sponsors.delete_all
-            @bill.versions.delete_all
-            @bill.documents.delete_all
+            @bill.sources.delete_all
+            @bill.versions.destroy_all
+            @bill.documents.destroy_all
             @bill.votes.destroy_all
             @bill.subjects.destroy_all
           end
@@ -114,6 +115,13 @@ module OpenGov
             # The transaction has rolled back if we get to this point.
             puts "Skipping...#{@bill.errors.full_messages.join(',')}"
             return
+          end
+
+          bill.sources.each do |source|
+            @bill.sources << Source.new(
+              :url => source.url,
+              :retrieved => Date.valid_date!(source.retrieved)
+            )
           end
 
           bill.actions.each do |action|
