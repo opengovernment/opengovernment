@@ -182,8 +182,8 @@ class Person < ActiveRecord::Base
    state_id ? State.find(state_id) : nil
   end
 
-  def photo_url(size = :full)
-    openstates_photo_url || votesmart_photo_url
+  def photo_url
+    openstates_photo_url
   end
 
   def current_sponsorship_vitals

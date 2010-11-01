@@ -86,6 +86,7 @@ module OpenGov
                 remote_ratings.each do |rr|
                   rating = person.ratings.find_or_initialize_by_votesmart_id(rr.ratingId)
                   rating.rating = rr.rating
+                  rating.rating_name = rr.ratingName
                   rating.rating_text = rr.ratingText
                   rating.timespan = rr.timespan
                   rating.sig_id = SpecialInterestGroup.find_by_votesmart_id(rr.sigId).id
