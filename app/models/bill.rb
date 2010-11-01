@@ -46,8 +46,10 @@ class Bill < ActiveRecord::Base
   scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
+  # Creates #mentions associations.
   acts_as_noteworthy :keywords => ["Bill"], :with => [:bill_number, "state.name"]
 
+  has_many :citations, :as => :citeable
   has_many :bills_subjects
   has_many :subjects, :through => :bills_subjects
 

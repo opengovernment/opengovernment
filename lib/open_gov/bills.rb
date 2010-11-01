@@ -118,7 +118,7 @@ module OpenGov
           end
 
           bill.sources.each do |source|
-            @bill.sources << Source.new(
+            @bill.citations << Citation.new(
               :url => source.url,
               :retrieved => Date.valid_date!(source.retrieved)
             )

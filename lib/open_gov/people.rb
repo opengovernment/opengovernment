@@ -57,6 +57,13 @@ module OpenGov
 
         person.save!
 
+        fs_person.sources.each do |source|
+          person.citations << Citation.new(
+            :url => source.url,
+            :retrieved => Date.valid_date!(source.retrieved)
+          )
+        end
+        
         fs_person.roles.each do |fs_role|
           legislature = state.legislature
           session = Session.find_by_legislature_id_and_name(state.legislature, fs_role.term)

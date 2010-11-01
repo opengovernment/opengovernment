@@ -6,11 +6,11 @@ class Person < ActiveRecord::Base
   # See http://www.taknado.com/en/2009/10/01/paperclip-tweaks/
   # and http://www.imagemagick.org/script/command-line-processing.php#geometry
   # for geometry options
-  has_attached_file :photo, :styles => {:full => "90", :thumb => "50x50#"}, :convert_options => { :all => '-gravity north'}
+  has_attached_file :photo, :styles => {:full => '90', :thumb => '50x50#'}, :convert_options => { :all => '-gravity north'}
 
   acts_as_noteworthy :with => [:official_name]
 
-  validates_inclusion_of :gender, :in => ["M", "F"], :allow_blank => true
+  validates_inclusion_of :gender, :in => %w(M F), :allow_blank => true
   validates_presence_of :first_name, :last_name
 
   [:website_one, :website_two, :webmail].each do |prop|
@@ -36,6 +36,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
   has_one :chamber, :through => :roles
 
+  has_many :citations, :as => :citeable
   has_many :bill_sponsorships, :foreign_key => "sponsor_id"
   has_many :sponsored_bills, :class_name => 'Bill', :through => :bill_sponsorships, :source => :bill
 
@@ -105,15 +106,15 @@ class Person < ActiveRecord::Base
     end
   end
 
-  scope :with_votesmart_id, :conditions => ["votesmart_id is not null"]
-  scope :with_nimsp_candidate_id, :conditions => ["nimsp_candidate_id is not null"]
-  scope :with_openstates_photo_url, :conditions => ["openstates_photo_url is not null"]
+  scope :with_votesmart_id, :conditions => ['votesmart_id is not null']
+  scope :with_nimsp_candidate_id, :conditions => ['nimsp_candidate_id is not null']
+  scope :with_openstates_photo_url, :conditions => ['openstates_photo_url is not null']
   scope :with_current_role, :include => :current_roles
 
-  # How will we allow people to sort bills?
+  # How will we allow people to sort people?
   SORTABLE_BY = {
-    "First Name" => "first_name asc",
-    "Last Name" => "last_name asc"
+    'First Name' => 'first_name asc',
+    'Last Name' => 'last_name asc'
   }.freeze
 
   define_index do
@@ -122,11 +123,11 @@ class Person < ActiveRecord::Base
 
     # Trigger the join on mentions before indexing the count
     has mentions(:id), :as => :mentions_ids
-    has "COUNT(mentions.id)", :as => :mentions_count, :type => :integer
+    has 'COUNT(mentions.id)', :as => :mentions_count, :type => :integer
 
     has chamber(:id), :as => :chamber_id, :facet => true
-    has "current_district_order_for(people.id)", :as => :district_order, :type => :string
-    has "current_state_for(people.id)", :as => :state_id, :type => :integer
+    has 'current_district_order_for(people.id)', :as => :district_order, :type => :string
+    has 'current_state_for(people.id)', :as => :state_id, :type => :integer
   end
 
   def full_name
