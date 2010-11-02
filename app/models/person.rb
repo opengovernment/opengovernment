@@ -221,7 +221,6 @@ class Person < ActiveRecord::Base
 
   def sync_photo!
     self.photo = do_download_remote_image
-    self.photo.reprocess!
     self.save(false)
   end
 
