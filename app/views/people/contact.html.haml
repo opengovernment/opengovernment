@@ -2,11 +2,11 @@
 
 %p Here is the contact info that this legislator has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent.
 
-%p To find out who represents you, enter your five-digit zip code here, or click this button to find your elected officials automatically based on on your current location. 
+%p To find out who represents you, enter your five-digit zip code here, or click 'find' to automatically locate your elected officials based on on your current location. 
 
 = render 'shared/find_my_rep_form', :narrow => true
 
-%p Use the info below to contact this legislator with your questions or comments -- short, specific communications typically work best. 
+%p Use the contact info below to contact this legislator with your questions or comments -- short, specific communications typically work best. 
 
 %ul.contact_options
   = render :partial => 'links'
@@ -16,17 +16,12 @@
     - if @person.addresses.size > 0
       = render :partial => "shared/address", :collection => @person.addresses
     - else
-      %p Sorry, we found no addresses.
+      %p Sorry, we found no addresses. We believe it should be easy to see this person's official office addresses in the capitol and his or her district, but the government does not make data about addresses available in open standards. So, <a href="/pages/help">help us find this info</a> to display it here for everyone on the open Web!  
 
   %li.public_schedule
-    Public Schedule - <a href="/pages/help">help us find this info</a>!
+    Public Schedule - we believe it should be easy to see a calendar of this person's recent and upcoming public events, but the government does not make data about public appearances available in open standards. So, <a href="/pages/help">help us find this info</a> to display it here for everyone on the open Web! 
 
   %li.social_media
-    Social media accounts - <a href="/pages/help">help us find this info</a>!
-    a) Facebook
-    b) Diaspora 
-    c) Twitter
-    d)LinkedIn
-    e) Identi.ca
+    Social media - we believe it should be easy to see a list of this person's social media accounts, for example, their official Facebook and Twitter profiles, but the government does not make data about its members' social media accounts available in open standards. So, <a href="/pages/help">help us find this info</a> to display it here for everyone on the open Web! 
 
 %p We seek to make the process of contacting your elected officials even easier and more effective. With your support, we can do more to provide meaningful public input to the legislative process -- <a href="/pages/help">help us grow</a>. For more helpful tips on communicating productively with state government, visit "<a href="/pages/howtouse">how to use OpenGovernment</a>". Have contact info for this person that we can display here? <a href="/pages/contact">Let us know</a>. 
