@@ -14,7 +14,7 @@ module StatesHelper
     &SLD=#{CGI::escape(sld_url)}).gsub(/\n\s+/,'')
 
   def leg_map_img(state, chamber)
-    width, height = 220, 220
+    width, height = 300, (300 * state.bbox_aspect_ratio).to_i
 
     sld_url = request ? "#{request.protocol}#{request.host_with_port}/people.xml" : "http://localhost:3000/people.xml"
     image_tag(eval('"' + STATE_MAP_URL + '"'), :alt => "#{state.name} #{chamber.name}", :width => width, :height => height)
