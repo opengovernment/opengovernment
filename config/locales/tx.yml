@@ -2,8 +2,7 @@ tx:
   states:
     show:
         intro: |
-          Welcome to OpenGovernment - Texas. Learn about bills and votes in the Texas state legislature. Track the issues you care about, then contact your elected officials.<br> 
-          
+          Welcome to OpenGovernment - Texas. Learn about bills and votes in the Texas state legislature. Track the issues you care about, then contact your elected officials. 
           To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Texas state government works.
 
         background: |

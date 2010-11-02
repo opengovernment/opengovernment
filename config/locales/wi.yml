@@ -1,10 +1,22 @@
 wi:
   states:
     show:
-      intro: "Welcome to OpenGovernment.org Wisconsin!"
-      state_population: "No population data."
-      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
-      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      intro: |
+        Welcome to OpenGovernment.org - Wisconsin. Learn about bills and votes in the Wisconsin state legislature. Track the issues you care about, then contact your elected officials.<br><br>
+        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Wisconsin state government works.
+      state_population: | 
+        <a href="2009 est. pop.: 5,654,774 (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)
+      state_pop_per_upper_chamber_member: "171,357 Wisconsinians"
+      state_pop_per_lower_chamber_member: "57,702 Wisconsinians"
+      current_session: "2009 - 2010"
+      upper_chamber_active_session_date: 
+      next_session_start_date: 
+      last_election_upper_chamber_open_seats: 
+      last_election_upper_chamber_incumbent_seats: 
+      next_election_date:
+      next_election_upper_chamber_seats_available:
+      background: | 
+        Here are more links with background on the Wisconsin state legislature and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Wisconsin_Legislature">Wikipedia</a>; <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Legislature">Ballotpedia</a>, including the 2010 elections in the <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Assembly_elections,_2010">Assembly</a>; OpenCongress <a href="http://www.opencongress.org/states/WI">WI state page</a>, including two federal U.S. <a href="http://www.opencongress.org/people/senators#WI">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#WI">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Wisconsin">WI state page</a>, including blogroll of WI-state political blogs</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more WI-relevant political blogs in the left-hand sidebar.
   bills:
     videos:
       miro_url: 'http://wiopengov.mirocommunity.org/'

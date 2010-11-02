@@ -1,10 +1,21 @@
 la:
   states:
     show:
-      intro: "Welcome to OpenGovernment.org Louisiana!"
-      state_population: "No population data."
-      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
-      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      intro: |
+        Welcome to OpenGovernment.org - Louisiana. Learn about bills and votes in the Louisiana state legislature. Track the issues you care about, then contact your elected officials.<br><br>
+        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Louisiana state government works.
+      current_session: "2009-2010"
+      state_population: |
+        "2009 est. pop.: 4,492,076 (cit. <a href="http://quickfacts.census.gov/qfd/states/22000.html" target="_blank">Census.gov</a>)"
+      state_pop_per_upper_chamber_member: "128,345 Lousianans."
+      state_pop_per_lower_chamber_member: "40,108 Louisanans."
+      last_election_date: "Nov. 2nd, 2010" 
+      last_election_upper_chamber_open_seats: 
+      last_election_upper_chamber_incumbent_seats:
+      next_election_date: "Nov. 2012"
+      next_election_upper_chamber_seats_available: 
+      background: |
+        Here are some links with background on the Louisiana state legislature and explanations of how it works: <a href="http://en.wikipedia.org/wiki/Louisiana_State_Legislature">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Louisiana_State_Legislature">Ballotpedia</a>; OpenCongress state page for <a href="http://www.opencongress.org/states/LA">Louisiana</a>, with links to federal <a href="http://www.opencongress.org/people/senators#L">senators</a> and <a href="http://www.opencongress.org/people/representatives#L">representatives</a>; OpenCongress Wiki blogroll of <a href="http://www.opencongress.org/wiki/Louisiana">LA state political blogs</a>; and the National Council of State Legislatures official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more LA state blogs in the left-hand sidebar. 
   bills:
     videos:
       miro_url: 'http://laopengov.mirocommunity.org/'
