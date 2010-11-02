@@ -8,14 +8,6 @@ module ScrapedDocument
 
       before_update :queue_document_download, :if => :refresh_document?
       after_create :queue_document_download
-
-      # cancel post-processing now, and set flag...
-      before_document_post_process do |obj|
-        if obj.refresh_document?
-          false # halts processing
-        end
-      end
-
     end
   end
 
