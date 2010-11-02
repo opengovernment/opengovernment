@@ -2,11 +2,12 @@ ca:
   states:
     show:
       intro: |
-        Welcome to OpenGovernment.org - California. Learn about bills and votes in the California state legislature. Track the issues you care about, then contact your elected officials. 
-        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the California state government works.
-      state_population: "36,961,664 people"
-      state_pop_per_upper_chamber_member: "924,041 Californians per Senator"
-      state_pop_per_lower_chamber_member: "462,021 Californians per Assemblymember"
+       <br><em><strong>Learn</strong> about bills and key votes in the California state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
+        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information along with helpful news & blog coverage from around the Web. Scroll down on this page for more educational resources about how the California state legislature works. This free public resource is still in early development -- much more to come, and you can <a href="/pages/help">help us grow</a>. 
+      state_population: |
+        2009 est. pop.: 36,961,664 people (cit. <a href="http://quickfacts.census.gov/qfd/states/06000.html">Census.gov)
+      state_pop_per_upper_chamber_member: "924,041 CA residents"
+      state_pop_per_lower_chamber_member: "462,021 CA residents"
       last_election_date: "Nov. 4th, 2008"
       current_session: "2009-2010 session"
       upper_chamber_active_session_date: "In regular session from Jan. 12th, 2010 - Aug. 31st, 2010"
