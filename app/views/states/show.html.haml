@@ -11,6 +11,7 @@
 
 
   %h1.grid_9.alpha
+    Welcome to OpenGovernment -
     = @state.name
   %hr
 
@@ -46,6 +47,55 @@
         .grid_6.alpha.district_map
           = leg_map_img(@state, chamber)
 
+        %p
+          Legislators:
+          = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
+          SENS OR REPS
+          %br            
+          = surround '(', ')' do
+            = pluralize(chamber.people.democrats.count, 'Democrat')
+            = pluralize(chamber.people.republicans.count, 'Republican')
+          - if chamber.people.other.count > 0
+            = pluralize(chamber.people.other.count, 'Other')
+          %br            
+          Each legislator represents approx.
+          =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
+
+
+
+
+        %p
+          Committees:
+          = link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
+          ,
+          = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
+          %br
+          = link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).count, 'Bill'), bills_path
+          ,
+          = link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).with_key_votes.count, 'Key Votes'), bills_path
+
+
+
+        %p
+          Last Election:
+          = raw t '.last_election_date'
+          %br
+          = raw t '.last_election_upper_chamber_open_seats'
+          %br
+          = raw t '.last_election_upper_chamber_incumbent_seats'
+
+
+
+
+
+        %p
+          Next Election:
+          = raw t '.next_election_date'
+          %br
+          = raw t '.next_election_upper_chamber_seats_available'
+
+
+
 
 
 
@@ -58,59 +108,13 @@
             = raw t '.next_session_start_date'
 
 
-        %h3
-          Legislators
-          = surround '(', ')' do
-            = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
-        %ul.lined
-          %li= pluralize(chamber.people.democrats.count, 'Democrat')
-          %li= pluralize(chamber.people.republicans.count, 'Republican')
-          - if chamber.people.other.count > 0
-            %li= pluralize(chamber.people.other.count, 'Other')
 
 
-        %h3.margin-top
-          Committees
-        %ul.lined
-          %li= link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
-          %li= link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).count, 'Bill'), bills_path
-          %li= link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).with_key_votes.count, 'Key Votes'), bills_path
-          %li= link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
-
-
-
-        %h3.margin-top
-          Population
-        %p
-          Each legislator represents approx.
-          =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
-
-
-
-        %h3.push_top
-          Elections
         %p
           Legislators serve #{chamber.term_length} year terms
 
 
-        %h4
-          Last Election
-        %ul.lined
-          %li
-            = raw t '.last_election_date'
-          %li
-            = raw t '.last_election_upper_chamber_open_seats'
-          %li
-            = raw t '.last_election_upper_chamber_incumbent_seats'
 
-
-        %h4
-          Next Election
-        %ul.lined
-          %li
-            = raw t '.next_election_date'
-          %li
-            = raw t '.next_election_upper_chamber_seats_available'
 
     %hr.push_top
 
