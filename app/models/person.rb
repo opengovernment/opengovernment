@@ -17,12 +17,15 @@ class Person < ActiveRecord::Base
     validates_format_of prop, :with => URI::regexp(%w(http https)), :allow_nil => true
   end
 
-  # We could ask for a photo URL on a form this way, if we wanted.
-  # Right now this is used by OpenStates::Photos::sync! to
-  # download photos for each person.
-  attr_accessor :photo_url
-  before_validation :download_remote_image, :if => :photo_url_provided?
-  validates_presence_of :openstates_photo_url, :if => :photo_url_provided?, :message => 'is invalid or inaccessible'
+  before_update :queue_photo_download, :if => :refresh_photo?
+  after_create :queue_photo_download
+
+  # cancel post-processing now, and set flag...
+  before_photo_post_process do |person|
+    if person.refresh_photo?
+      false # halts processing
+    end
+  end
 
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy do
@@ -43,9 +46,8 @@ class Person < ActiveRecord::Base
   has_many :contributions, :order => "amount desc", :limit => 20
   has_many :ratings, :order => "timespan desc"
 
-
-# These queries also assume that contributions are ONLY associated
-# with Businesses.
+  # These queries also assume that contributions are ONLY associated
+  # with Businesses.
 
   has_many :business_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",
@@ -224,19 +226,24 @@ class Person < ActiveRecord::Base
     "#{id}-#{full_name.parameterize}"
   end
 
-  private
-
-  def photo_url_provided?
-    !self.photo_url.blank?
+  def sync_photo!
+    self.photo = do_download_remote_image
+    self.photo.reprocess!
+    self.save(false)
   end
 
-  def download_remote_image
-    self.photo = do_download_remote_image
-    self.openstates_photo_url = photo_url
+  def refresh_photo?
+    self.openstates_photo_url_changed? || (!self.openstates_photo_url.blank? && !self.photo?)
+  end
+
+  private
+
+  def queue_photo_download
+    Delayed::Job.enqueue PersonPhotoJob.new(self.id)
   end
 
   def do_download_remote_image
-    io = open(URI.parse(photo_url))
+    io = open(URI.parse(openstates_photo_url))
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e
@@ -245,6 +252,7 @@ class Person < ActiveRecord::Base
   rescue SystemCallError => e
     # eg. connection reset by peer
     puts "System call error: #{e}"
+    raise
   end
 
 end

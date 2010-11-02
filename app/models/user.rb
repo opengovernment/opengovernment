@@ -30,4 +30,9 @@ class User < ActiveRecord::Base
     # immediately change the auth_token so it can't be used again
     update_attribute('authentication_token', Digest::SHA1.hexdigest("--#{Time.now.utc}--#{encrypted_password}--#{id}--#{rand}--"))
   end
+  
+  def self.find_for_database_authentication(conditions)
+    value = conditions[authentication_keys.first]
+    where(["login = :value OR email = :value", { :value => value }]).first
+  end
 end

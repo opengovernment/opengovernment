@@ -1,7 +1,6 @@
 # Configuration
 require 'yaml'
 
-
 # Some helper methods so that we can remove a task preloaded by another .rake file.
 Rake::TaskManager.class_eval do
   def remove_task(task_name)
