@@ -52,7 +52,7 @@ module OpenGov
         end
       end
 
-      def import_remote(state)
+      def self.import_remote(state)
         build_people_hash
 
         puts "\nUpdating Open State bill data for #{state.name} from remote API"
@@ -73,7 +73,7 @@ module OpenGov
         end
       end
 
-      def import_bill(bill, state, options)
+      def self.import_bill(bill, state, options)
         build_people_hash
         
         Bill.transaction do
