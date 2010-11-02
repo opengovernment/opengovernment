@@ -48,7 +48,7 @@
           = leg_map_img(@state, chamber)
 
         %p
-          Legislators:
+          %strong Legislators:
           = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
           SENS OR REPS
           %br            
@@ -65,7 +65,7 @@
 
 
         %p
-          Committees:
+          %strong Committees:
           = link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
           ,
           = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
@@ -77,7 +77,7 @@
 
 
         %p
-          Last Election:
+          %strong Last Election:
           = raw t '.last_election_date'
           %br
           = raw t '.last_election_upper_chamber_open_seats'
@@ -89,7 +89,7 @@
 
 
         %p
-          Next Election:
+          %strong Next Election:
           = raw t '.next_election_date'
           %br
           = raw t '.next_election_upper_chamber_seats_available'
@@ -99,13 +99,11 @@
 
 
 
-
-        %ul.lined
-          %li
-            = raw t '.upper_chamber_active_session_date'
-          %li
-            Next Session:
-            = raw t '.next_session_start_date'
+        %p
+          = raw t '.upper_chamber_active_session_date'
+          %br
+          %strong Next Session:
+          = raw t '.next_session_start_date'
 
 
 
