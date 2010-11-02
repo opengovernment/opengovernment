@@ -90,17 +90,19 @@ module VotesHelper
     &layers=topp:states,cite:v_district_votes
     &bbox=#{state.bbox.join(",")}
     &cql_filter=STATE_ABBR='#{state.abbrev}';vote_id+=+#{vote_id}
-    &width=#{MAP_WIDTH}
-    &height=#{MAP_HEIGHT}
+    &width=#{width}
+    &height=#{height}
     &format=image/png
     &SLD=#{CGI::escape(sld_url)}).gsub(/\n\s+/,'')
 
-  MAP_WIDTH = 300
-  MAP_HEIGHT = 300
-
   def vote_map_img(state, vote_id)
+    width = 300
+
+    # The image aspect ratio must match the bounding box of the map being rendered
+    height = (width * state.bbox_aspect_ratio).to_i
+
     sld_url = request ? "#{request.protocol}#{request.host_with_port}/votes.xml" : "http://localhost:3000/votes.xml"
-    return image_tag(eval('"' + MAP_URL + '"'), :width => MAP_WIDTH, :height => MAP_HEIGHT, :class => 'vote_map', :alt => "Geography of the vote")
+    return image_tag(eval('"' + MAP_URL + '"'), :width => width, :height => height, :class => 'vote_map', :alt => "Geography of the vote")
   end
 
   def vote_legend_img

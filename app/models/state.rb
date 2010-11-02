@@ -80,6 +80,11 @@ class State < Place
     nil
   end
 
+  def bbox_aspect_ratio
+    y = bbox
+    (y[3]-y[1])/(y[2]-y[0])
+  end
+
   def unsupported?
     launch_date.blank?
   end
