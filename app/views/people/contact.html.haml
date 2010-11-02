@@ -1,10 +1,12 @@
-%h2 Contact This Rep
+%h2 Contact This Person
 
-%p Here is the contact info that this legislator has made publicly available. Most state legislators only respond to questions and comments from their constituents, so note whether or not you are a constituent in your communication.
+%p Here is the contact info that this legislator has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent.
 
-%p We make it easy to find and contact the people who represent you in state government - enter your address here.
+%p To find out who represents you, enter your five-digit zip code here, or click this button to find your elected officials automatically based on on your current location. 
 
 = render 'shared/find_my_rep_form', :narrow => true
+
+%p Use the info below to contact this legislator with your questions or comments -- short, specific communications typically work best. 
 
 %ul.contact_options
   = render :partial => 'links'
@@ -17,13 +19,14 @@
       %p Sorry, we found no addresses.
 
   %li.public_schedule
-    Public Schedule - Help us find this info!
+    Public Schedule - <a href="/pages/help">help us find this info</a>!
 
   %li.social_media
-    Social media accounts (Help us find this info!)
-    a) FB
-    b) Twitter
-    c) LinkedIn
-    d) Identi.ca
+    Social media accounts - <a href="/pages/help">help us find this info</a>!
+    a) Facebook
+    b) Diaspora 
+    c) Twitter
+    d)LinkedIn
+    e) Identi.ca
 
-%p We seek to make the process of contacting your elected officials even easier and more effective. Towards this end, we have plans on OpenGovernment that will allow you to find other people who care about the issues you do, and team up together to advocate. With your support, we can do more to open up government and provide meaningful public input to the legislative process. Donate or volunteer. For more helpful tips on communicating productively with members of state government, visit "how to use OpenGovernment".
+%p We seek to make the process of contacting your elected officials even easier and more effective. With your support, we can do more to provide meaningful public input to the legislative process -- <a href="/pages/help">help us grow</a>. For more helpful tips on communicating productively with state government, visit "<a href="/pages/howtouse">how to use OpenGovernment</a>". Have contact info for this person that we can display here? <a href="/pages/contact">Let us know</a>. 
