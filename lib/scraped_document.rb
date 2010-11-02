@@ -26,7 +26,7 @@ module ScrapedDocument
   end
 
   def refresh_document?
-    self.url_changed? || (!self.url.blank? && !self.document?)
+    !self.url.blank? && (self.url_changed? || !self.document?)
   end
 
   private

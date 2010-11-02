@@ -233,7 +233,7 @@ class Person < ActiveRecord::Base
   end
 
   def refresh_photo?
-    self.openstates_photo_url_changed? || (!self.openstates_photo_url.blank? && !self.photo?)
+    !self.openstates_photo_url.blank? && (self.openstates_photo_url_changed? || !self.photo?)
   end
 
   private

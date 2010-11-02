@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 65) do
+ActiveRecord::Schema.define(:version => 66) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -245,7 +245,6 @@ ActiveRecord::Schema.define(:version => 65) do
     t.string   "website_two",          :limit => 2000
     t.string   "webmail",              :limit => 2000
     t.string   "email"
-    t.string   "votesmart_photo_url"
     t.string   "openstates_photo_url"
     t.string   "bio_data",             :limit => 8000
     t.string   "photo_file_name"
