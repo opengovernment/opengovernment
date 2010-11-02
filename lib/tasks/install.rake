@@ -297,8 +297,8 @@ namespace :load do
     # These methods all act on all people with votesmart ids
     Dir.chdir(Rails.root)
     OpenGov::Addresses.import!
-    OpenGov::Photos.import!
-    puts "---------- Importing bios from VoteSmart."
+
+    puts "---------- Importing bios from Wikipedia."
     OpenGov::Bios.import!
   end
 
