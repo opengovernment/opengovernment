@@ -242,6 +242,9 @@ class Person < ActiveRecord::Base
   rescue OpenURI::HTTPError => e
     puts "OpenURL error: #{e}"
     # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+  rescue SystemCallError => e
+    # eg. connection reset by peer
+    puts "System call error: #{e}"
   end
 
 end
