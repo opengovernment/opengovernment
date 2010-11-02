@@ -54,6 +54,8 @@ module OpenGov
         rescue GovKit::ResourceNotFound
           s += 1
           # puts "No addresses found for #{person.to_param}"
+        rescue Timeout::Error
+          puts "Timeout fetching address for #{person.to_param}"
         end
       end # Person.each
       puts "\nUpdated addresses for #{u} people; skipped #{s}."
