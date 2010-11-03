@@ -78,20 +78,20 @@ SimpleNavigation::Configuration.run do |navigation|
       end
       person.item :search, 'Find Your District', search_url(:subdomain => false)
     end
-    
-        
+           
     primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
       if defined?(@issue)
         m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
       end
     end
 
-    primary.item :subjects, 'Subjects', subjects_path(:subdomain => current_place_subdomain), :class => 'subjects' do |s|
-      if defined?(@subject)
+  if defined?(@subject)
+    primary.item :subjects, 'Issues', subjects_path(:subdomain => current_place_subdomain), :class => 'subjects' do |s|
         s.item :subject, @subject.name, subject_path(@subject), :class => 'subject'
-      end
     end
- #   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
+  end
+
+#   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
 #      m.item :bill,  @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |b|
  #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
  #     end

@@ -6,9 +6,9 @@ class SubjectsController < ApplicationController
     @min_bills = 10
 
     if params[:all]
-      @subjects = Subject.for_state(@state).paginate(:page => params[:page])
+      @subjects = Subject.for_state(@state).order("subjects.name").paginate(:page => params[:page])
     else
-      @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).paginate(:page => params[:page])
+      @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).order("subjects.name").paginate(:page => params[:page])
     end
   end
 
