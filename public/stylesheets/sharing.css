@@ -104,7 +104,12 @@ ul.share li a {
 
 
 
-.hov.track_buttons .drop{
+.people.show .hov.track_buttons .drop{
+  height: 86px;
+  width: 156px;
+  }
+
+.bills.show .hov.track_buttons .drop{
   height: 122px;
   width: 156px;
   }
@@ -113,10 +118,7 @@ ul.share li a {
 .hov.track_buttons ul li{
   display: block !important;
   float: none !important;
-  
   }
-
-
 
 .hov.track_buttons ul li.rss a{
   display: block !important;
@@ -142,9 +144,10 @@ ul.share li a {
   background: url('/images/share.png') no-repeat -63px 0px;
   }
 
+.write_buttons,
 .write_button {
   float: left;
-  margin: 10px 0 10px 13px;
+  margin: 10px 0 10px 13px !important;
   }
 
 
