@@ -21,6 +21,9 @@ module OpenGov
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
     def self.fetch!
+      FileUtils.mkdir_p(Settings.districts_dir)
+      Dir.chdir(Settings.districts_dir)
+
       fetch_us_congress
       
       # Get state legislature files, when available
