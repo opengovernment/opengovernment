@@ -49,10 +49,10 @@ class StatesController < ApplicationController
       :page => params[:page],
       :per_page => 15,
       :order => params[:order],
-      :with => {:state_id => @state.id }
+      :with => { :state_id => @state.id }
     }
 
-    @search_options[:with].merge!(:session_id => @search_session) if params[:session_id]
+    @search_options[:with].merge!(:session_id => params[:session_id]) if params[:session_id]
 
     case @committee_type
       when "all"
@@ -60,7 +60,6 @@ class StatesController < ApplicationController
       else
         @committee_type = "#{params[:committee_type]}_committee".classify.constantize
     end
-
     
     if @query
       case @search_type
