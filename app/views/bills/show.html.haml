@@ -41,6 +41,12 @@
         - @bill.versions.each do |version|
           %li= link_to_document(version)
 
+    - if @bill.subjects.count > 0
+      %h2 Subject Areas
+      %ul.lined
+        - @bill.subjects.each do |subject|
+          %li= link_to(subject.name, subject_path(subject))
+
     - if @bill.documents.count > 0
       %h2 Documents
 

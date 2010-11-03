@@ -1,0 +1,10 @@
+- title(@subject.name)
+%h1= @subject.name
+%div.grid_12
+  = will_paginate @subject_bills
+  %ul
+    %li
+    - @subject_bills.each do |bill|
+      = render bill
+
+  = will_paginate @subject_bills

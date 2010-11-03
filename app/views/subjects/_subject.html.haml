@@ -1,0 +1,3 @@
+%li
+  .link= link_to(subject.name, subject_path(subject))
+  .count= pluralize(subject.bills.count, 'Bill')
