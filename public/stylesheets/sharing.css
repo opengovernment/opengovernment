@@ -192,6 +192,40 @@ width: 130px !important;
 
 */
 
+.write_buttons form{
+padding: 15px !important;
+}
+
+.write_buttons strong{
+display: block;
+padding-bottom: 10px;
+font-size: 12px;
+}
+
+.write_buttons label{
+float: left;
+
+}
+
+.write_buttons #q{
+float: left;
+clear: none !important;
+width: 60px !important;
+}
+
+
+
+.write_buttons .find_button input{
+float: left;
+clear: none !important;
+width: 202px !important;
+margin: 0 0 0px -16px;
+padding: 10px 0;
+margin-top: 7px;
+}
+
+
+
 
 
 /*///////////////////////////
@@ -245,7 +279,7 @@ display: none;
 .hov:hover .drop{
 display: block !important;
 position: absolute;
-top: 37px;
+top: 34px;
 width: 200px;
 height: 100px;
 z-index: 1000;
