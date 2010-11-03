@@ -103,7 +103,7 @@ class Person < ActiveRecord::Base
 
   scope :with_votesmart_id, :conditions => ['votesmart_id is not null']
   scope :with_nimsp_candidate_id, :conditions => ['nimsp_candidate_id is not null']
-  scope :with_openstates_photo_url, :conditions => ['openstates_photo_url is not null']
+  scope :with_photo_url, :conditions => ['photo_url is not null']
   scope :with_current_role, :include => :current_roles
 
   # How will we allow people to sort people?
@@ -177,10 +177,6 @@ class Person < ActiveRecord::Base
    state_id ? State.find(state_id) : nil
   end
 
-  def photo_url
-    openstates_photo_url
-  end
-
   def current_sponsorship_vitals
     Person.find_by_sql(["
       select * from (
@@ -225,7 +221,7 @@ class Person < ActiveRecord::Base
   end
 
   def refresh_photo?
-    !self.openstates_photo_url.blank? && (self.openstates_photo_url_changed? || !self.photo?)
+    !self.photo_url.blank? && (self.photo_url_changed? || !self.photo?)
   end
 
   private
@@ -235,7 +231,7 @@ class Person < ActiveRecord::Base
   end
 
   def do_download_remote_image
-    io = open(URI.parse(openstates_photo_url))
+    io = open(URI.parse(photo_url))
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e
