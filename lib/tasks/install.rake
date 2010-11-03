@@ -225,7 +225,6 @@ namespace :load do
   task :fixtures => :environment do
     require 'active_record/fixtures'
 
-
     if Rails.env == 'test'
       Fixtures.reset_cache
       fixtures_folder = File.join(Rails.root, 'spec', 'fixtures')
