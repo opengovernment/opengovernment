@@ -43,6 +43,7 @@ class Bill < ActiveRecord::Base
   scope :in_chamber, lambda { |c| {:conditions => ["chamber_id = ?", c]} }
   scope :for_session, lambda { |s| {:conditions => ["session_id = ?", s], :joins => [:session]} }
   scope :for_session_named, lambda { |s| {:conditions => ["upper(sessions.name) = upper(?)", s], :joins => [:session]} }
+  scope :for_session_including_children, lambda { |s| {:conditions => ["session_id in (select id from sessions where id = ? or parent_id = ?)", s, s], :joins => [:session]} }
   scope :with_key_votes, :conditions => {:votesmart_key_vote => true}
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 

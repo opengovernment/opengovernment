@@ -193,7 +193,8 @@ from
   INNER JOIN people p ON (rc.person_id = p.id)
   INNER JOIN votes v ON (rc.vote_id = v.id)
   INNER JOIN bills b ON (b.id = v.bill_id)
-  LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id = r.session_id);
+  -- we look at parent_id here because 
+  LEFT OUTER JOIN roles r ON (r.person_id = rc.person_id and b.session_id in (select id from sessions where id = r.session_id or parent_id = r.session_id));
 
 -- Used for geoserver vote maps
 CREATE OR REPLACE VIEW v_district_votes AS
