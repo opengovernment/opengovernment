@@ -321,4 +321,69 @@ padding-bottom: .5em;
   
   
 
+.cancel_button{
+position: absolute;
+right: 0px;
+top: 0px;
+overflow: hidden;
+height: 0;
+width: 44px;
+padding-top: 42px;
+display: block;
+  background: url(/images/x.png) 16px 14px no-repeat;
+border-left: 1px solid #e9e9e9;
+}
+
+
+
+.cancel_button:hover{
+  background: #fff url(/images/x.png) 16px 14px no-repeat;
+}
+
+
+.popup h2{
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+border-top: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
+padding-left: 14px;
+margin: 0;
+}
+
+
+.popup p{
+clear: both;
+padding: 14px;
+margin: 0;
+}
+
+
+.popup ul{
+padding: 14px;
+}
+
+
+.popup ul li{
+padding: 0px 20px 0 0;
+margin: 0;
+}
+
+.popup .contact_options{
+font-size: 18px;
+margin-bottom:40px;
+}
+
+
+.popup .contact_options li{
+float: left;
+clear: none;
+}
+
+
+.popup .addresses{
+margin-bottom: 120px;
+}
+
+
 

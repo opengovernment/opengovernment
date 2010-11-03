@@ -50,7 +50,7 @@
         %p
           %strong Legislators:
           = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
-          SENS OR REPS
+          = chamber.title.pluralize
           %br            
           = surround '(', ')' do
             = pluralize(chamber.people.democrats.count, 'Democrat')
@@ -62,17 +62,15 @@
           =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
 
 
-
-
         %p
           %strong Committees:
           = link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
           ,
           = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
           %br
-          = link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).count, 'Bill'), bills_path
+          = link_to pluralize(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).count, 'Bill'), bills_path
           ,
-          = link_to pluralize(Bill.for_session(@most_recent_session).in_chamber(chamber).with_key_votes.count, 'Key Votes'), bills_path
+          = link_to pluralize(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count, 'Key Votes'), bills_path
 
         %p
           %strong Last Election:
@@ -81,7 +79,6 @@
           =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
           %br
           =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
-
 
         %p
           %strong Next Election:
@@ -96,14 +93,8 @@
           %strong Next Session:
           = raw t '.next_session_start_date'
 
-
-
-
         %p
           Legislators serve #{chamber.term_length} year terms
-
-
-
 
     %hr.push_top
 

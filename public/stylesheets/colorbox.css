@@ -10,14 +10,14 @@
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
 #cboxOverlay{background:#000;}
 #cboxLoadingGraphic{background:url(/images/ajax-loader.gif) center center no-repeat;}
-#cboxLoadedContent{background:#fff;}
+#cboxLoadedContent{background:#000; padding: 10px; -moz-border-radius: 5px;}
 
 
 /* OG Colorbox customization */
 .popup {
-	padding: 20px;
 	width: 700px;
 	display: block;
 	float: left;
 	position: relative;
+background:#fff;
 }

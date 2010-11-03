@@ -1,8 +1,8 @@
 .share_buttons p{
-font-weight: normal;
-font-size: 11px;
-padding: 0 10px;
-}
+  font-weight: normal;
+  font-size: 11px;
+  padding: 0 10px;
+  }
 
 
 
@@ -10,18 +10,18 @@ padding: 0 10px;
 
 ul.share {
   list-style: none !important;
-padding: 4px;
-margin: 15px 0 15px 15px !important;
-height: 20px;
-}
+  padding: 4px;
+  margin: 15px 0 15px 15px !important;
+  height: 20px;
+  }
 
 
 .write_buttons li,
 ul.share li {
   float: left;
   clear: none;
-margin-right: 7px;
-}
+  margin-right: 7px;
+  }
 
 .write_buttons a,
 ul.share li a {
@@ -30,7 +30,8 @@ ul.share li a {
   overflow: hidden !important;
   padding-top: 27px !important;
   float: left !important;
-}
+  }
+
 .write_buttons .facebook a,
 .share .facebook a {
   background: url('/images/share.png') no-repeat left top;
@@ -104,50 +105,69 @@ ul.share li a {
 
 
 .hov.track_buttons .drop{
-height: 122px;
-width: 156px;
-}
+  height: 122px;
+  width: 156px;
+  }
 
 
 .hov.track_buttons ul li{
-display: block !important;
-float: none !important;
-
-}
+  display: block !important;
+  float: none !important;
+  
+  }
 
 
 
 .hov.track_buttons ul li.rss a{
-display: block !important;
-float: none !important;
-padding-left: 30px;
-background: url('/images/share.png') no-repeat -495px 0px;
-margin: 15px;
-}
+  display: block !important;
+  float: none !important;
+  padding-left: 30px;
+  background: url('/images/share.png') no-repeat -495px 0px;
+  margin: 15px;
+  }
 
 
 .hov.track_buttons ul li.email a{
-display: block !important;
-float: none !important;
-margin: 15px;
-}
+  display: block !important;
+  float: none !important;
+  margin: 15px;
+  }
 
 
 .hov.track_buttons ul li.email a span{
-padding-left: 25px;
-height: 20px;
-margin-right: 5px;
-float: left;
-background: url('/images/share.png') no-repeat -63px 0px;
+  padding-left: 25px;
+  height: 20px;
+  margin-right: 5px;
+  float: left;
+  background: url('/images/share.png') no-repeat -63px 0px;
+  }
+
+.write_button {
+  float: left;
+  margin: 10px 0 10px 13px;
+  }
+
+
+.write_button span.button {
+  float: left;
+padding: 5px 12px 4px !important;
+text-transform: uppercase;
+font-size: 11px !important;
+color: #333 !important;
+display: block;
+  }
+
+
+.track_buttons{
+margin-left: 13px !important;
 }
 
-.write_buttons {
-  float: left;
-  width: 120px;
-  padding: 0;
-  margin: 10px 0 10px 40px;
-  position: relative;
+
+.support_buttons{
+padding: 10px 30px 0 0;
 }
+
+
 
 /* .write_buttons .email a{
 background: url('/images/share.png') no-repeat -63px 0px;
@@ -163,12 +183,210 @@ padding: 24px 0 0 0!important;
 height: 0px !important;
 width: 25px !important;
 overflow: hidden !important;
-
 }
+
 .write_buttons .drop{
 height: 60px !important;
 width: 130px !important;
 }
 
 */
+
+.write_buttons form{
+padding: 15px !important;
+}
+
+.write_buttons strong{
+display: block;
+padding-bottom: 10px;
+font-size: 12px;
+}
+
+.write_buttons label{
+float: left;
+
+}
+
+.write_buttons #q{
+float: left;
+clear: none !important;
+width: 60px !important;
+}
+
+
+
+.write_buttons .find_button input{
+float: left;
+clear: none !important;
+width: 202px !important;
+margin: 0 0 0px -16px;
+padding: 10px 0;
+margin-top: 7px;
+}
+
+
+
+
+
+/*///////////////////////////
+
+~ Take Action
+
+///////////////////////////*/
+
+
+
+.take_action{
+height: 47px;
+}
+
+.hov{
+float: left;
+width: 90px;
+padding: 0;
+margin: 10px 0 10px 40px;
+position: relative;
+z-index: 999;
+}
+
+
+.hov:hover{
+cursor: pointer; 
+}
+
+
+.hov h4{
+float: left;
+
+cursor: pointer;
+font-size: 11px;
+
+font-family: Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size: 11px;
+margin: 0 !important;
+padding: 0 !important;
+
+}
+
+
+
+.hov .drop{
+display: none;
+}
+
+
+.hov:hover .drop{
+display: block !important;
+position: absolute;
+top: 34px;
+width: 200px;
+height: 100px;
+z-index: 1000;
+right: -2px;
+-moz-border-radius-topright: 0px;
+
+cursor: default;
+
+-moz-box-shadow: 0 1px 0px #a7c3c9;
+-webkit-box-shadow: 0 1px 0px #dbdbdb;
+box-shadow: 0 1px 0px #dbdbdb;
+
+
+}
+
+
+
+.hov h4 span{
+padding-right: 20px;
+float: left;
+padding: 6px 10px 0px;
+}
+
+
+.hov:hover h4{
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+padding-bottom: 8px !important;
+border-bottom: none !important;
+position: relative;
+z-index: 1001;
+-moz-box-shadow: inset 0 1px 0px #fff;
+-webkit-box-shadow: inset 0 1px 0px #fff;
+box-shadow: inset 0 1px 0px #fff;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #eaf8fb); /* for firefox 3.6+ */
+
+
+}
+
+
+
+
+
+.hov.share_buttons .drop{
+height: 60px;
+}
+
+
+
+.hov h4 .arrow{
+float: right;
+border-left: 1px solid #b3cdd1;
+height: 25px;
+width: 25px;
+-moz-border-radius-topright: 3px;
+-moz-border-radius-bottomright: 3px;
+padding: 0;
+margin: 0 !important;
+background: url(/images/sprites.png) -4px -312px no-repeat;
+}
+
+
+.hov:hover h4 .arrow{
+-moz-box-shadow: inset 0 -1px 0px #d8ecf0;
+-webkit-box-shadow: inset 0 -1px 0px #d8ecf0;
+box-shadow: inset 0 -1px 0px #d8ecf0;
+-moz-border-radius-bottomright: 0px;
+border-bottom: 1px solid #fff;
+-moz-border-radius-bottomleft: 4px;
+background: #e8f7fa url(/images/sprites.png) -4px -312px no-repeat !important;
+}
+
+
+
+
+.support_buttons a{
+margin: 0px 0 0 10px;
+width: 30px;
+float: right;
+text-transform: uppercase;
+cursor: pointer;
+font-size: 11px;
+text-align: center;
+overflow: hidden;
+}
+
+
+
+.support_buttons a span{
+padding: 25px 0 0 0;
+display: block;
+height: 0px;
+overflow: hidden;
+}
+
+.support span{
+background: url(/images/sprites.png) 9px -354px no-repeat;
+}
+
+
+.oppose span{
+background: url(/images/sprites.png) 9px -391px no-repeat;
+}
+
+
+
 
