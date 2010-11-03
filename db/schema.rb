@@ -53,12 +53,6 @@ ActiveRecord::Schema.define(:version => 67) do
     t.datetime "document_updated_at"
   end
 
-  create_table "bill_sources", :force => true do |t|
-    t.integer  "bill_id"
-    t.datetime "retrieved"
-    t.string   "url"
-  end
-
   create_table "bill_sponsorships", :force => true do |t|
     t.integer  "bill_id"
     t.integer  "sponsor_id"
