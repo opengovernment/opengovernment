@@ -34,6 +34,7 @@
     = bill.title
 
 %h3 Special Interest Groups
+
 - @sigs.each do |sig|
   %li
     != link_to(sig.name, sig_path(sig)) + " "

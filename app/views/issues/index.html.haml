@@ -22,7 +22,7 @@
     = render(:partial => 'shared/issue', :collection => @issues)
 
   %h2 Bill Subjects
-  %ul.subjects
+  %ul.lined
     = render @subjects
   
   %strong.all_subjects= link_to(raw('All Subjects &rarr;'), subjects_path)
