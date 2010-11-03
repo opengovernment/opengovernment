@@ -75,6 +75,6 @@
             %tbody
               - roll_calls.each do |roll_call|
                 %tr
-                  %td.person(class="vote_#{roll_call.roles.first.party_abbr}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
-                  %td= roll_call.roles.first.district_fm
-                  %td= roll_call.roles.first.party_fm
+                  %td.person(class="vote_#{roll_call.roles.first.try(:party_abbr)}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
+                  %td= roll_call.roles.first.try(:district_fm)
+                  %td= roll_call.roles.first.try(:party_fm)
