@@ -4,7 +4,7 @@ module OpenGov
       import_bills
       import_people
     end
-            
+
     def self.import_bills
       puts "Importing mentions for bills.."
       Bill.with_key_votes.each do |bill|
