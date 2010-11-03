@@ -20,13 +20,6 @@ class Person < ActiveRecord::Base
   before_update :queue_photo_download, :if => :refresh_photo?
   after_create :queue_photo_download
 
-  # cancel post-processing now, and set flag...
-  before_photo_post_process do |person|
-    if person.refresh_photo?
-      false # halts processing
-    end
-  end
-
   has_many :roles, :dependent => :destroy
   has_many :addresses, :dependent => :destroy do
     def in_district
@@ -228,7 +221,6 @@ class Person < ActiveRecord::Base
 
   def sync_photo!
     self.photo = do_download_remote_image
-    self.photo.reprocess!
     self.save(false)
   end
 

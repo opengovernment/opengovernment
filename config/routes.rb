@@ -35,6 +35,7 @@ OpenGov::Application.routes.draw do
     resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
       member do
         get :news
+        get :contact
         get :money_trail
         get :social
         get :votes
