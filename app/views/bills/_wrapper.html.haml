@@ -30,13 +30,14 @@
           %span Write
           .arrow
         .drop.button
-          %ul
-            %li.email 
-              %a Email
-            %li.twitter 
-              %a Twitter
-            %li.facebook 
-              %a Facebook
+          = form_tag(contact_bill_path(@bill.session, @bill), :method => :get, :remote => true, :id => 'find_my_rep')
+          %strong Find Your #{@bill.chamber.title}
+          %label(for='q')
+            ZIP Code
+          = text_field_tag :q, params[:q], :autocomplete => 'off'
+          .find_button
+            = submit_tag 'Find'
+          </form>
   
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')
