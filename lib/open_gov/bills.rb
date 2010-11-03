@@ -105,7 +105,7 @@ module OpenGov
         unless @bill.new_record?
           @bill.actions.delete_all
           @bill.sponsors.delete_all
-          @bill.sources.delete_all
+          @bill.citations.delete_all
           @bill.versions.destroy_all
           @bill.documents.destroy_all
           @bill.votes.destroy_all
