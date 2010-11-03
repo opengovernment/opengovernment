@@ -23,6 +23,7 @@ gem 'formtastic', '~> 1.1.0'
 
 # Authentication
 gem "devise"
+gem "ruby_parser"
 
 # GIS & Geocoding
 gem "GeoRuby"

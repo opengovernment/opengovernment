@@ -205,6 +205,8 @@ GEM
       ruby-debug-base (~> 0.10.3.0)
     ruby-debug-base (0.10.3)
       linecache (>= 0.3)
+    ruby_parser (2.0.5)
+      sexp_processor (~> 3.0)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     rubyzip (0.9.4)
@@ -214,6 +216,7 @@ GEM
       json_pure
       rubyzip
     settingslogic (2.0.6)
+    sexp_processor (3.0.5)
     silent-postgres (0.0.4)
     simple-navigation (3.0.0)
       activesupport (>= 2.3.2)
@@ -266,6 +269,7 @@ DEPENDENCIES
   rails
   rspec-rails (>= 2.0.0.rc)
   ruby-debug
+  ruby_parser
   settingslogic
   silent-postgres
   simple-navigation
