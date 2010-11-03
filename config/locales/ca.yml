@@ -2,20 +2,21 @@ ca:
   states:
     show:
       intro: |
-       <br><em><strong>Learn</strong> about bills and key votes in the California state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
-        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information along with helpful news & blog coverage from around the Web. Scroll down on this page for more educational resources about how the California state legislature works. This free public resource is still in early development -- much more to come, and you can <a href="/pages/help">help us grow</a>. 
+       <em><strong>Learn</strong> about bills and votes in the California state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
+        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down on this page for more educational resources about how the California state legislature works. 
       state_population: |
         2009 est. pop.: 36,961,664 people (cit. <a href="http://quickfacts.census.gov/qfd/states/06000.html">Census.gov)
       state_pop_per_upper_chamber_member: "924,041 CA residents"
       state_pop_per_lower_chamber_member: "462,021 CA residents"
-      last_election_date: "Nov. 4th, 2008"
+      last_election_date: |
+        Nov. 2nd, 2010. Election summary: <a href="http://www.ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">Ballotpedia</a>.
       current_session: "2009-2010 session"
       upper_chamber_active_session_date: "In regular session from Jan. 12th, 2010 - Aug. 31st, 2010"
       last_election_upper_chamber_open_seats: 
-      next_election_date: "Nov. 2nd, 2010"
+      next_election_date: "Nov. 6th, 2012"
       next_election_upper_chamber_seats_available: 
       background: |
-        Here are more links with background the CA state legislature and the best explanations of how it works: Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a>; Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a>; OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a>; OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA-relevant political blogs in the left-hand sidebar.
+        Here are more links with background the CA state legislature and the best explanations of how it works: Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a>; Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a>; OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a>; OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA-relevant political blogs in the left-hand sidebar. This free public resource is still in early development -- much more to come, and you can <a href="/pages/help">help us grow</a>. 
   bills:
     videos:
       miro_url: 'http://caopengov.mirocommunity.org/'
