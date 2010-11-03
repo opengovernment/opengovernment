@@ -52,7 +52,7 @@ module OpenGov
           :middle_name => fs_person.middle_name,
           :suffix => fs_person[:suffixes],
           :updated_at => Date.valid_date!(fs_person.updated_at),
-          :openstates_photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
+          :photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
         )
 
         person.save!

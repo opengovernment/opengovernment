@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 66) do
+ActiveRecord::Schema.define(:version => 67) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -224,9 +224,9 @@ ActiveRecord::Schema.define(:version => 66) do
   add_index "mentions", ["owner_id", "owner_type", "date"], :name => "citations_owner_date_idx"
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",                           :null => false
+    t.string   "first_name",                         :null => false
     t.string   "middle_name"
-    t.string   "last_name",                            :null => false
+    t.string   "last_name",                          :null => false
     t.string   "openstates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
@@ -241,12 +241,12 @@ ActiveRecord::Schema.define(:version => 66) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "website_one",          :limit => 2000
-    t.string   "website_two",          :limit => 2000
-    t.string   "webmail",              :limit => 2000
+    t.string   "website_one",        :limit => 2000
+    t.string   "website_two",        :limit => 2000
+    t.string   "webmail",            :limit => 2000
     t.string   "email"
-    t.string   "openstates_photo_url"
-    t.string   "bio_data",             :limit => 8000
+    t.string   "photo_url"
+    t.string   "bio_data",           :limit => 8000
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
