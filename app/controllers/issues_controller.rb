@@ -3,6 +3,9 @@ class IssuesController < ApplicationController
   before_filter :get_state
 
   def index
+    @min_bills = 10
+    @subjects = Subject.for_state(@state).order("subjects.name").with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).limit(20)
+
     respond_to do |format|
       @issues = ActsAsTaggableOn::Tag.all
       format.js do

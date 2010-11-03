@@ -1,4 +1,7 @@
 - title(@subject.name)
+
+= render :partial => 'shared/left_nav_toplevel'
+
 %h1= @subject.name
 %div.grid_12
   = will_paginate @subject_bills
