@@ -120,11 +120,14 @@ padding-bottom: 10px;
   font-weight: bold;
 }
 
-.rating_person {
+table.ratings td.rating_person {
   margin-left: 0;
-  padding-left: 20px;
+  padding: 2px 0 2px 20px;
   width: 150px;
   display: inline;
   float: left;
 }
 
+table.ratings td {
+  padding: 2px 0;
+}
