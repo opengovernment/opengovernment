@@ -56,8 +56,8 @@ module BillHelper
     end
   end
   
-  def short_bill_link(bill)
-    link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 80), :title => bill.title, :rel => (bill.title.length > 80 ? 'tipsy' : ''))
+  def short_bill_link(bill, length = 80)
+    link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => length), :title => bill.title, :rel => (bill.title.length > length ? 'tipsy' : ''))
   end
 
 end

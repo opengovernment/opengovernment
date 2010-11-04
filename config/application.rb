@@ -29,6 +29,7 @@ module OpenGov
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 
     # Prefer the default locale, :en.
+    config.i18n.default_locale = :de 
     config.i18n.fallbacks = true
 
     # Configure generators values. Many other options are available, be sure to check the documentation.

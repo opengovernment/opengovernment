@@ -78,9 +78,9 @@
 
   .grid_12.alpha
     #twitter(style="display: none;")
-      %h2 Tweets
+      %h2 Twitter Mentions
       #notweets(style="display: none;")
-        %p Sorry, there were no tweets found for #{@bill.bill_number}.
+        %p Sorry, there were no tweets found for #{@bill.to_hashtags}.
       %ul#tweets
 
   - if @bill.citations.any?

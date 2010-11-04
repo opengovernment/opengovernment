@@ -4,9 +4,7 @@
       This is a Votesmart Key Vote!
 
   .bill_titles
-    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => 'bill_link')
-    %span.bill_title
-      != bill.title
+    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 500))
 
   .bill_status.rounded
 
