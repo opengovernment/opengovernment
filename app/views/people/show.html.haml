@@ -29,14 +29,11 @@
       = render 'links', :person => @person
 
   .grid_6.omega
-    %h2 Bio
+    %h2 Wikipedia Bio
     - if @person.bio_data.blank?
       %p
         No biography was found on Wikipedia for #{@person.full_name}.
     - else
-      %small.quiet.span
-        From the non-partisan
-        = link_to("Wikipedia", "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
       %p
         = @person.bio_data
         %br
@@ -47,7 +44,7 @@
   %hr.push_top
 
   .grid_12.alpha
-    %h2 Addresses
+    %h2 Office Addresses
     %ul.addresses
       - if @person.addresses.size > 0
         = render :partial => "shared/address", :collection => @person.addresses
@@ -77,42 +74,43 @@
         %p We have no committee membership information for #{@person.full_name}.
 
     .grid_4.omega
-      %h2 Votes
-      - if @latest_roll_calls
-        %div
-          %div
-            %ul
-              - @latest_roll_calls.each do |roll_call|
-                - vote = roll_call.vote
-                %li
-                  = roll_call.vote_type.titleize
-                  on
-                  = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
-                  motion
-                  = succeed ',' do
-                    = link_to(vote.motion, vote_path(vote.id))
-                  = vote.date
-
-        %p
-          != link_to("View All #{number_with_delimiter(@person.votes.count)} Votes &rarr;".html_safe, votes_person_path(@person))
-      - else
-        %p We have no voting history for #{@person.full_name}
-
+      #twitter(style="display: none;")
+        %h2 Twitter Mentions
+        %ul.lined#tweets
+    
   .space.clear
 
   %hr.push_top
 
-  .grid_6.alpha
-    #twitter(style="display: none;")
-      %h2 Tweets
-      %ul.lined#tweets
-
-  .grid_6.omega.sponsored_bills
+  .grid_6.alpha.sponsored_bills
+    %h2 Sponsored Bills
     = sponsorship_vitals_for(@person)
     %br
     %ul.lined
       = render @person.bill_sponsorships.limit(5)
     = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
+
+  .grid_6.omega
+    %h2 Votes
+    - if @latest_roll_calls
+      %div
+        %div
+          %ul
+            - @latest_roll_calls.each do |roll_call|
+              - vote = roll_call.vote
+              %li
+                = roll_call.vote_type.titleize
+                on
+                = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
+                motion
+                = succeed ',' do
+                  = link_to(vote.motion, vote_path(vote.id))
+                = vote.date
+
+      %p
+        != link_to("View All #{number_with_delimiter(@person.votes.count)} Votes &rarr;".html_safe, votes_person_path(@person))
+    - else
+      %p We have no voting history for #{@person.full_name}
 
 
   .space.clear
@@ -120,9 +118,9 @@
   %hr.push_top
 
   .grid_12.alpha
-    %h2 Ratings
+    %h2 Interest Group Ratings
     - if @person.ratings
-      .small.quiet.grid_24 From the non-partisan <a href="http://www.followthemoney.org/Institute/about_data.phtml"> Project Vote Smart</a>.
+      .small.quiet.grid_24 From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
       - @person.ratings.group_by(&:category).each do |category, ratings|
         %h3= category.name
         - ratings.each do |rating|

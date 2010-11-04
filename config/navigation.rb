@@ -65,8 +65,8 @@ SimpleNavigation::Configuration.run do |navigation|
       if defined?(@person)
         person.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
           m.item :overview, 'Overview', person_path(@person)
-          m.item :votes, pluralize(number_with_delimiter(@person.votes.count), 'Vote'), votes_person_path(@person)
-          m.item :bills, pluralize(number_with_delimiter(@person.current_sponsorship_vitals.try(:bill_count)), 'Bill') + ' Sponsored', sponsored_bills_person_path(@person)
+          m.item :votes, 'Votes (' + number_with_delimiter(@person.votes.count, :delimiter => ',').to_s + ')', votes_person_path(@person)
+          m.item :bills, 'Bills Sponsored (' + number_with_delimiter(@person.current_sponsorship_vitals.try(:bill_count), :delimiter => ',').to_s + ')', sponsored_bills_person_path(@person)
           m.item :tweets, 'Social Media Mentions', social_person_path(@person)
           m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)

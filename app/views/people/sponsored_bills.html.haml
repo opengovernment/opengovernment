@@ -7,9 +7,10 @@
 
 .grid_12
   %h1
-    = @person.official_name
-    - surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
+    Bills Sponsored by #{@person.official_name}
+    .subhead
+      (most recent first)
+  
 
   %hr
 
@@ -20,5 +21,8 @@
     %p= sponsorship_vitals_for(@person)
 
     = will_paginate @sponsorships
+
     %ul.lined.and_spaced
       = render @sponsorships
+
+    = will_paginate @sponsorships

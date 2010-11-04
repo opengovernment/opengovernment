@@ -1,4 +1,4 @@
-- title("Votes by #{@person.full_name}")
+- title("Votes by #{@person.official_name}")
 
 
 
@@ -6,8 +6,10 @@
 
 .grid_12
 
-
-  %h1 Votes by #{@person.full_name}
+  %h1
+    Votes by #{@person.official_name}
+    .subhead
+      (most recent first)
   %hr
 
   - if @roll_calls.total_entries > 0
