@@ -1,10 +1,10 @@
-%h2 Contact This Person
+%h2 Contact #{@person.full_name}
 
 %p Here is the contact info that this legislator has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent. (If you're not sure if this person represents you, you can easily find out your elected officials from our homepage, and then contact them.) Short, specific communications typically work best.
 
 
 %ul.contact_options
-  = render :partial => 'links'
+  = render 'links', :person => @person
 
 %h2 Addresses
 %ul.addresses
