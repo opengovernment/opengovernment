@@ -37,19 +37,32 @@
 
   %hr
 
+  %nav.faceted.by_year
+    - @years_available.each do |year|
+      - if @year == year
+        %em= year
+      - else
+        = link_to(year, params.merge(:year => year))
+
   .grid_12.alpha
     %h2 Ratings
     .grid_6.alpha
-      .ratings-header
-        .grid_3.alpha Person
-        .grid_1 District
-        .grid_1 Rating
-        .grid_1.omega Year
-      = render @sig.ratings[0...@sig.ratings.size/2]
+      %table.ratings
+        %thead
+          %tr
+            %th Person
+            %th District
+            %th Rating
+            %th Year
+        %tbody
+          = render @ratings[0...@ratings.size/2]
     .grid_6.omega
-      .ratings-header
-        .grid_3.alpha Person
-        .grid_1 District
-        .grid_1 Rating
-        .grid_1.omega Year
-      = render @sig.ratings[@sig.ratings.size/2..@sig.ratings.size]
+      %table.ratings
+        %thead
+          %tr
+            %th Person
+            %th District
+            %th Rating
+            %th Year
+        %tbody
+          = render @ratings[@ratings.size/2..@ratings.size]

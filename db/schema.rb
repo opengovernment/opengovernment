@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 67) do
+ActiveRecord::Schema.define(:version => 68) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(:version => 67) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+  end
+
+  create_table "bill_sources", :force => true do |t|
+    t.integer  "bill_id"
+    t.datetime "retrieved"
+    t.string   "url"
   end
 
   create_table "bill_sponsorships", :force => true do |t|
@@ -256,6 +262,7 @@ ActiveRecord::Schema.define(:version => 67) do
     t.string   "rating_text",  :limit => 4000
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rating_name"
   end
 
   create_table "roles", :force => true do |t|
