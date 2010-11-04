@@ -25,6 +25,7 @@ md:
       lower_chamber_term_limit: 
       background: | 
         Here are more links about the Maryland General Assembly and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a>; OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a>; and the National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more MD political sites in the left-hand sidebar. This free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
+ 
   bills:
     videos:
       miro_url: 'http://mdopengov.mirocommunity.org/'
@@ -32,16 +33,22 @@ md:
       intro: |
          This is a list of all bills in the current Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will not have any more official actions.<br><br>
             A new Maryland state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
-      people: 
-        index:
-          intro: |
-            This is a list of all members of the Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th.  As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on bills.<br><br>
+  people: 
+    index:
+      intro: |
+        This is a list of all members of the Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th.  As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on bills.<br><br>
             A new Maryland state legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in different ways.
 
-      money_trails:
-        index:
-          intro: |
-            This page lists all publicly-available information about campaign contributions made to members of the Maryland state
+  issues:
+    index:
+      intro: |
+        This is a list of all issue areas -- here referred to as "subjects" -- for legislation in the Texas state legislature. State legislatures generate many thousands of subjects every two-year session and officially assign them to individual legislative items -- sometimes many subjects per bill, sometimes zero. <br><br> To make this bill-to-issue system more intelligible, the first list below is the 46 major legislative issue areas as determined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a>. With volunteer <a href="/pages/help">help</a>, we seek to manually match every official bill subject to one of the below 46 issue areas. The resulting info on OpenGovernment will make it far easier to find bills that are relevant to the real-world political issues you care about. Until that project is completed, below that list on this page is displayed the most-frequent bill subjects in Maryland, those that are applied to bills ten or more times. Click the link to "view all" subjects to see the full list of many thousands of individual, idiosyncratic bill subjects and their associated bills.<br><br>
+                  The next Maryland legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically under our customized issue area categories. Until then, use the sort-by options below to view issues and bills from the most recent legislature in different ways.
+                  
+  money_trails:
+    index:
+      intro: |
+        This page lists all publicly-available information about campaign contributions made to members of the Maryland state
                       legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                       agencies with which candidates must file their campaign finance reports.<br><br>
                       The newly-elected CA legislature will convene in January 2011, after which time up-to-date campaign
