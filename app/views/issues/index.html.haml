@@ -16,8 +16,13 @@
   
   %hr
 
-  <h2>Issue Areas</h2>
+  %h2 Issue Areas
 
   %ul.lined
     = render(:partial => 'shared/issue', :collection => @issues)
+
+  %h2 Bill Subjects
+  %ul.lined
+    = render @subjects
   
+  %strong.all_subjects= link_to(raw('All Subjects &rarr;'), subjects_path)
