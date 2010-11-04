@@ -1,0 +1,33 @@
+%h2 Contact the #{@state.name} #{@chamber.name}
+
+%p Here is the contact info that this legislator has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent. (If you're not sure if this person represents you, you can easily find out your elected officials from our homepage, and then contact them.) Short, specific communications typically work best.
+
+.grid_12
+  - if @point
+
+    %p.districtsnear
+      %strong= "Districts near #{@point.full_address}"
+    %p
+      - if @point.precision != "address"
+        = "We couldn't find your exact address, but we found your #{@point.precision}."
+
+      - if @people.size > 0
+        - @people.each do |place, reps|
+          %ul.reps.lined
+            - reps.each do |rep|
+              %li.rep
+                = photo_for(rep)
+                = rep.full_name
+                
+                %ul.contact_options
+                  = render 'links', :person => rep
+
+                %h2 Addresses
+                %ul.addresses
+                  - if rep.addresses.size > 0
+                    = render :partial => "shared/address", :collection => rep.addresses
+
+      - else
+        = "No legislators found."
+  - else
+    Sorry, we couldn't find your address.

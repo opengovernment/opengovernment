@@ -30,7 +30,7 @@
           %span Write
           .arrow
         .drop.button
-          = form_tag(contact_bill_path(@bill.session, @bill), :method => :get, :remote => true, :id => 'find_my_rep')
+          = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
           %strong Find Your #{@bill.chamber.title}
           %label(for='q')
             ZIP Code
@@ -38,6 +38,20 @@
           .find_button
             = submit_tag 'Find'
           </form>
+          %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
+          -# Form results appear in a colorbox, not a separate page.
+          :ruby
+            javascript do
+              (%Q|
+                $(document).ready(function() {
+                  $('#find_my_rep input:submit').click(function(e){
+                    $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
+                    $('#rep_link').click();
+                    e.preventDefault();
+                  });
+                });
+              |)
+            end
   
       .support_buttons
         %a.support.button(rel='tipsy' title='Sign in to vote!')

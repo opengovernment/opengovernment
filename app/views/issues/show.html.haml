@@ -28,13 +28,14 @@
         %td= link_to("link", action)
 
 %h3 Bills
+%ul.bills
 - @bills.each do |bill|
   %li
     != link_to(bill.bill_number, bill_path(bill.session, bill)) + " "
     = bill.title
 
 %h3 Special Interest Groups
-
+%ul.sigs
 - @sigs.each do |sig|
   %li
     != link_to(sig.name, sig_path(sig)) + " "

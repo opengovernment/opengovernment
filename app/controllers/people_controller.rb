@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_filter :find_person, :except => [:index, :upper, :lower]
+  before_filter :find_person, :except => [:index, :upper, :lower, :search]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
   before_filter :get_state
 
@@ -51,6 +51,23 @@ class PeopleController < ApplicationController
   end
 
   def contact
+    render :layout => 'popup'
+  end
+  
+  def search
+    # Search for a person to contact. Right now available via a bill page--
+    # eg. contact my senator.
+    @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q])
+
+    if @point
+      @state = State.find_by_abbrev(@point.state)
+
+      if params[:chamber_id]
+        @chamber = Chamber.find(params[:chamber_id])
+        @people = @chamber.current_legislators_by_point(@point)
+      end
+    end
+
     render :layout => 'popup'
   end
 
