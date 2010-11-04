@@ -9,9 +9,9 @@
       Showing popular subjects.
       = link_to("Show all subjects instead", {:all => 't'})
   
-  %nav.by_letter
+  %nav.faceted.by_letter
     - ('A'..'Z').each do |letter|
-      - if params[:letter] == letter
+      - if @letter == letter
         %em= letter
       - else
         = link_to(letter, params.merge(:letter => letter).except(:page))

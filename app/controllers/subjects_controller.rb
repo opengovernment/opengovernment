@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
 
   def index
     @min_bills = 10
-    letter = params[:letter] || 'A'
+    @letter = params[:letter] || 'A'
     page = params[:page] || 1
     
     if params[:all]
@@ -13,7 +13,7 @@ class SubjectsController < ApplicationController
       @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills])
     end
     
-    @subjects = @subjects.where(["upper(subjects.name) like ?", letter + '%']).paginate(:page => params[:page])
+    @subjects = @subjects.where(["upper(subjects.name) like ?", @letter + '%']).paginate(:page => params[:page])
   end
 
   def get_subject

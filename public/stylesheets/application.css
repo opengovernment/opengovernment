@@ -6,7 +6,7 @@
  
 
 /* Pagination */
-.pagination, nav.by_letter {
+.pagination, nav.faceted {
   border: none;
   text-align: center;
   padding: 3px;
@@ -27,12 +27,12 @@ margin: 15px 0 25px;
   background: transparent url('/images/apple-circle.gif') no-repeat 50% 50%;
 }
 
-.pagination a, nav.by_letter a {
+.pagination a, nav.faceted a {
   text-decoration: none;
   color: black;
 }
 
-.pagination a:hover, .pagination a:focus, nav.by_letter a:hover, nav.by_letter a:focus {
+.pagination a:hover, .pagination a:focus, nav.faceted a:hover, nav.faceted a:focus {
   text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ margin: 15px 0 25px;
 	left: -9000em;
 }
 
-.pagination em, nav.by_letter em {
+.pagination em, nav.faceted em {
 cursor: default;
 
   -moz-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
@@ -77,14 +77,14 @@ font-size: 11px;
 margin-right: 3px;
 }
 
-nav.by_letter em,
-nav.by_letter a {
+nav.faceted em,
+nav.faceted a {
   padding: 3px 5px;
   margin-right: 1px;
 }
 
 .pagination a:hover,
-nav.by_letter a:hover {
+nav.faceted a:hover {
 
   -moz-box-shadow: 0px 1px 1px #555, 0px 0px 1px #888;
   -webkit-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
@@ -99,7 +99,7 @@ background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
 
 
 .pagination a:active,
-nav.by_letter a:active {
+nav.faceted a:active {
 
   -moz-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
   -webkit-box-shadow: 0px 1px 0px #a9a9a9, 0px 1px 3px #888;
