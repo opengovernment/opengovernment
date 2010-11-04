@@ -1,24 +1,51 @@
 md:
   states:
     show:
-      intro: |
-        Welcome to OpenGovernment.org - Maryland. Learn about bills and votes in the Maryland General Assembly. Track the issues you care about, then contact your elected officials.<br><br>
-        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Maryland state legislature works.
+      intro:   |
+            <strong>Learn</strong> about bills and key votes in the Maryland state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
+            To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Maryland state government works.
       state_population: |
         2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)
       current_session: "2009-2010"
-      state_pop_per_upper_chamber_member: "121,266 Marylanders"
-      state_pop_per_lower_chamber_member: "40,137 Marylanders"
-      upper_chamber_active_session_date:
+      state_pop_per_upper_chamber_member: "121,266 people in MD"
+      state_pop_per_lower_chamber_member: "40,137 people in MD"
+      upper_chamber_active_session_date: "Most recent regular session: Jan. 13th - Apr. 12th, 2010"
       next_session_start_date:
       last_election_date: "Nov. 2nd, 2010" 
       last_election_upper_chamber_open_seats: 
       last_election_upper_chamber_incumbent_seats: 
-      next_election_date: 
+      next_election_date: "Nov. 6th, 2012"
       next_election_upper_chamber_seats_available: 
+      upper_chamber_term_limit:
+      last_election_lower_chamber_open_seats: 
+      last_election_lower_chamber_incumbent_seats: 
+      next_election_lower_chamber_seats_available: 
+      lower_chamber_active_session_date: "Most recent regular session: Jan. 13th - Apr. 12th, 2010"
+      next_session_start_date: 
+      lower_chamber_term_limit: 
       background: | 
-        Here are more links about the Maryland General Assembly and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a>; OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a>; and the National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more MD political sites in the left-hand sidebar.
+        Here are more links about the Maryland General Assembly and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a>; OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a>; and the National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more MD political sites in the left-hand sidebar. This free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
   bills:
     videos:
       miro_url: 'http://mdopengov.mirocommunity.org/'
-          
+    index: 
+      intro: |
+         This is a list of all bills in the current Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will not have any more official actions.<br><br>
+            A new Maryland state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
+      people: 
+        index:
+          intro: |
+            This is a list of all members of the Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th.  As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on bills.<br><br>
+            A new Maryland state legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in different ways.
+
+      money_trails:
+        index:
+          intro: |
+            This page lists all publicly-available information about campaign contributions made to members of the Maryland state
+                      legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
+                      agencies with which candidates must file their campaign finance reports.<br><br>
+                      The newly-elected CA legislature will convene in January 2011, after which time up-to-date campaign
+                      contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from the last legislature by viewing the three tiers of contributors listed below: <em>sectors</em>,
+                     <em>industries</em>, and <em>businesses</em>.<br><br> The Money Trail on OpenGovernment
+                        makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and members of the legislature to mandate real-time financial disclosure and fair elections for a trustworthy degree of transparency in government. 
+

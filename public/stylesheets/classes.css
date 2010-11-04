@@ -394,6 +394,37 @@ width: 180px;
 margin-bottom: 20px !important;
 }
 
+.bills.show .contact_options,
+.bills.show .addresses{
+padding: 10px 0;
+clear: both;
+}
+
+
+.bills.show .rep{
+padding: 10px 0;
+width: 610px;
+border: 1px solid #ddd;
+padding: 20px;
+background: #eee;
+}
+
+
+
+.bills.show .rep .full_name,
+.bills.show .rep img{
+
+float: left;
+}
+
+
+
+.bills.show .rep .full_name{
+padding: 35px 0 0 25px;
+font-size: 25px;
+
+}
+
 
 
 

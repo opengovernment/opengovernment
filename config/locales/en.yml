@@ -1,4 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
+it# Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
@@ -19,4 +19,4 @@ en:
         data in place!
     votes:
       no_actions: We have no actions for this bill.
-      major_action: A major action for a bill includes either movement between committees or roll call vote on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on this bill's status in the legislative process.
+      major_action: "A major action for a bill, as we define it, includes either movement between committees or roll call vote on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on this bill's status in the legislative process."

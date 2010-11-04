@@ -264,9 +264,11 @@ background: #fbfcfd;
 
 
 li.discuss{
-padding: 8px 0 8px 20px;
+padding: 8px 0 8px 0px;
+/*
 background: url(/images/sprites.png) left -444px no-repeat;
-
+*/
+font-size: 14px;
 }
 
 

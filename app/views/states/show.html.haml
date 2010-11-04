@@ -94,7 +94,8 @@
           = raw t '.next_session_start_date'
 
         %p
-          Legislators serve #{chamber.term_length} year terms
+          Legislators serve #{chamber.term_length}-year terms, with
+          =t (chamber.type == 'UpperChamber' ? '.upper_chamber_term_limit' : '.lower_chamber_term_limit')
 
     %hr.push_top
 

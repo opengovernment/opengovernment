@@ -13,16 +13,16 @@
 
       - if @people.size > 0
         - @people.each do |place, reps|
-          %ul.reps.lined
+          %ul.reps
             - reps.each do |rep|
               %li.rep
                 = photo_for(rep)
-                = rep.full_name
+                %span.full_name= rep.full_name
                 
                 %ul.contact_options
                   = render 'links', :person => rep
 
-                %h2 Addresses
+                %h3 Addresses
                 %ul.addresses
                   - if rep.addresses.size > 0
                     = render :partial => "shared/address", :collection => rep.addresses
