@@ -5,7 +5,7 @@
   %h1
     = @person.official_name
     .subhead
-      #{@person.current_role.try(:party)}, #{@person.try(:district_name)}
+      #{@person.try(:party)}, #{@person.try(:district_name)}
 
 
   - if defined?(show_tools)
