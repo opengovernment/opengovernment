@@ -3,7 +3,7 @@ module ScrapedDocument
   
   def self.included(base)
     base.class_eval do
-      has_attached_file :document, :path => ':rails_root/public/system/:class/:id/:style/:filename', :url => '/system/:class/:id/:style/:filename'
+      has_attached_file :document, :path => ':rails_root/public/system/:class/:id_partition/:style/:filename', :url => '/system/:class/:id_partition/:style/:filename'
       scope :without_local_copy, where("url is not null and url != '' and document_file_name is null")
 
       before_update :queue_document_download, :if => :refresh_document?
