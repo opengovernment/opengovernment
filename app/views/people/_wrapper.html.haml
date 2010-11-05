@@ -4,8 +4,8 @@
 
   %h1
     = @person.official_name
-    = surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
+    .subhead
+      #{@person.current_role.try(:party)}, #{@person.try(:district_name)}
 
 
   - if defined?(show_tools)
