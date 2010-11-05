@@ -29,8 +29,10 @@ module OpenGov
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 
     # Prefer the default locale, :en.
-    config.i18n.default_locale = :de 
-    config.i18n.fallbacks = true
+    # Rails 3.0.1 way of doing this is in intializers/i18n.rb
+    # Rails 3.0.2: (see https://rails.lighthouseapp.com/projects/8994/tickets/4428-add-a-configi18nfallback-setting-and-enable-fallbacks-in-environmentproductionrb)
+#    config.i18n.default_locale = :de 
+#    config.i18n.fallbacks = true
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|

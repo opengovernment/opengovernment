@@ -30,7 +30,7 @@
         %h2 Bills
         %ul.bills.lined.and_spaced
           - @bills.each do |bill|
-            = render :partial => 'shared/bill', :locals => {:bill => bill}
+            = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
         = will_paginate @bills, :class => "pagination"
 
     - unless @legislators.empty?

@@ -1,5 +1,5 @@
 %li.grid_12[bill]
-  - if bill.votesmart_key_vote?
+  - if bill.votesmart_key_vote? && !hide_key_vote
     %span.vote_smart_keyvote.floatright
       This is a Votesmart Key Vote!
 
@@ -26,9 +26,7 @@
       .view_count.grid_3.alpha
         = pluralize(bill.views, 'view')
 
-
-
   .sponsor_mugs
     .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
-      = bill.actions.first.try(:kind_fm)
+      = bill.actions.last.try(:kind_fm).try(:titleize)
     = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)

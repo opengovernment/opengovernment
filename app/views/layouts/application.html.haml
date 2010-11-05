@@ -42,13 +42,12 @@
               %a.account(href="#content" title="Username") #{current_user.login}.
               = link_to('Logout', destroy_user_session_path)
             - else
-              = link_to('Login', new_user_session_path)
+              = link_to('Login', new_user_session_path, :class => 'modal')
             %a.help{:href => page_path('help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search
             = render :partial => 'shared/search_form'
 
-     
     %div.container_16.bread.boxxed
       %ul.breadcrumb
         %li.topnav

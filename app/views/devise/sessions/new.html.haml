@@ -1,4 +1,8 @@
 %h2 Sign in
+%p
+  Use your OpenCongress login to sign in, or
+  %a{:href => 'http://www.opencongress.org/register'} sign up.
+  
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
     = f.label :login

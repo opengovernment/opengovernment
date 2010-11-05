@@ -16,7 +16,7 @@ module BillHelper
     
     sponsors_left = sponsors.size - i
     if summary && sponsors_left > 0 && !mugs.blank?
-      mugs + content_tag(:span, "and #{pluralize(sponsors_left, 'other')}.")
+      mugs + content_tag(:span, "and #{pluralize(sponsors_left, 'other')}.", :class => "other_sponsor_count")
     else
       mugs
     end
