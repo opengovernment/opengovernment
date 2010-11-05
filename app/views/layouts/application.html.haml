@@ -27,7 +27,7 @@
         = yield :js_hook
 
     = yield :head
-    %title= "OpenGovernment - " + (yield(:title) || "revealing state government data")
+    %title= "OpenGovernment - " + (content_for?(:title) ? yield(:title) : "revealing state government data")
   %body{:class => page_class}
 
     %div.container_16
