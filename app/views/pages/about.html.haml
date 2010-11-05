@@ -1,38 +1,60 @@
 - title("About OpenGovernment.org")
 
-%h2#the_project The Project
+%ol
+  %li
+    %p <a href="/pages/about/#background_and_mission">Background and Mission</a>
+  %li 
+    %p <a href="/pages/about/#current_status">Current Status</a>
+  %li 
+    %p <a href="/pages/about/#our_data_sources">Our Data Sources</a>
+  %li 
+    %p <a href="/pages/about/##how_to_use_og">How To Use OpenGovernment</a>
+  %li
+    %p <a href="/pages/about/#developer_hub">Developer Hub</a>
+  %li
+    %p <a href="/pages/about/#search_tips">Search Tips</a>
+  %li 
+    %p <a href="/pages/help">Help Us Open Government!</a>
 
-%p OpenGovernment is a free and open-source public resource website for government transparency at the state and local levels. The site is a non-partisan joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>, and is independent from any government entity, candidate for office, or political party.
+%h2#background_and_mission Background and Mission
 
-%p OpenGovernment comes to you from the team that brought you OpenCongress.org, a leading web resource for civic engagement. Conceived in 2004, the main problem that OpenCongress sought to address was a lack of accessible information online about bills, votes, and issues in the U.S. Congress. The official website of Congress, Thomas.loc.gov, published raw data about legislation, but not in open data standards, not in timely ways, and not on webpages that were sufficiently user-friendly. (More than 15 years after Thomas' launch, it still doesn't come close to doing any of these things, which is unacceptable.)
+%p OpenGovernment is a free and open-source public resource website for government transparency and civic engagement at the state and local levels. The site is a non-partisan joint project of two 501(c)3 non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. OpenGovernment is independent from any government entity, candidate for office, or political party. The information contained on OpenGovernment pages, wherever applicable, is cited to a primary source-- while we aggregate many different data sources, we do not edit or manipulate government data in any way before presenting it here.  
 
-%p OpenCongress addressed this problem, as much as possible given inherited technical limitations imposed by the data sources, by combining official government information with social wisdom from around the open Web. The resulting open-source software on OpenCongress enables individuals and organizations to track and share information about what's really happening in Congress through a user-friendly web application. Since its launch in 2007, OpenCongress has grown to become the most-visited government transparency website in the United States, and is proud to be an active contributor to a burgeoning ecosystem of open-government resources online. 
+%p OpenGovernment comes from the team that brought you <a href="http://www.opencongress.org/" target="_blank">OpenCongress.org</a>, a leading web tool for government transparency in the federal U.S. Congress. Conceived in 2004, the main problem that OpenCongress sought to address was a lack of accessible information online about bills, votes, and issues in the U.S. Congress. The official website of Congress, <a href="http://thomas.loc.gov/" target="_blank">THOMAS</a>, published raw data about legislation, but not in ways that are compliant with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Eight Principles of Open Government Data</a>, not in sufficiently timely ways, and not on webpages that were proven to be user-friendly. (More than 15 years after THOMAS' launch, it still doesn't come close to doing any of these things. It's simply unacceptable.) 
 
-%p Ever since we conceived of OpenCongress, we anticipated that the model of aggregating disparate data sources into a user-friendly web interface could be productively applied to other entities: state legislatures, city councils, neighborhood associations, international institutions, governorships, secretaries of state, supreme courts, circuit judges, public-mission institutions such as schools & hospitals, foreign countries with more-or-less democratic systems of governance, and more. The ultimate mission of OpenGovernment is to achieve full public transparency in all three branches of government (executive, legislative, and judicial) at every level of our representative democracy (federal, state, city, local, and more). 
+%p OpenCongress addressed this problem -- as much as possible given the inherited technical limitations of Congressional data sources -- by combining official government information with news & blog coverage from around the open Web, campaign contribution info, public participation tools, and more. The resulting open-source OpenCongress web application enables individuals and organizations to track and share information about what's really happening in Congress. Since its launch in 2007, OpenCongress has grown to become the most-visited government transparency website in the United States, and is proud to be an active contributor to a burgeoning ecosystem of open-government resources online. Read more <a href="http://www.opencongress.org/about" target="_blank">about OpenCongress</a>.  
 
+%p Ever since we conceived of OpenCongress, we foresaw that this model of aggregating disparate data sources into a user-friendly web interface could be productively applied to other entities: state legislatures, city councils, neighborhood associations, international institutions, governorships, secretaries of state, supreme courts, circuit judges, public-mission institutions such as schools & hospitals, foreign countries with more-or-less democratic systems of governance, and more. 
 
-%h2#the_current_state The Current State
+%p In other words, we often received the quite-sensible question, "When will there be an OpenCongress for my state?" Or, "... for my city?" Or, "... for my neighborhood?" Or, ... "for my country?" We're happy to say we're on-track to answer that question. We're working with the staff at Sunlight Labs and many volunteers on the community-driven <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a>, with the goal of establishing a data standard and collecting machine-readable data streams for all 50 U.S. State Legislatures. These data streams will provide official government info to <a href="https://github.com/opengovernment/govkit#readme" target="_blank">GovKit</a>, the open-source application that combines it with other publicly-available data sources and social wisdom from around the open Web. GovKit, in turn, will power the OpenGovernment website: essentially, free and non-partisan versions of OpenCongress for all fifty state legislatures and a dozen major cities, with even more local versions planned. We'll continue to encourage volunteers to remix the code for city, county, or municipal governments. Along the way, we've made our code more modular and better-documented, in order to make it possible for volunteers to make their own versions of OpenGovernment with an emphasis on the issues they and their communities care about. 
 
+%p So while our code has always been 100% open, we now have an even better answer to the question, "How do I make an OpenCongress for my (state, city, town, or country)?" OpenGovernment is the new solution.
 
-%p Writing in late 2010, the situation with official websites for U.S. state legislatures is nearly exactly as with Thomas in 2004. Unfortunately, almost no U.S. state government makes its data available in full online. Out of the 49 bicameral state legislatures in the U.S. and one unicameral body (Nebraska's), only one chamber -- one entity out of 99, namely the New York State Senate -- makes its legislative data available in ways that are sufficiently compliant with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Eight Principles of Open Government Data</a>. Every other chamber of state government remains insistently closed-off from its constituents, refusing to release public data (legislative actions, votes, bill analysis -- don't even get us started on campaign contributions) online in ways that are truly open, despite the proven technical means to do so. State legislatures, in other words, make public data "defective by design". Open-source software, open standards, flexible licensing, and easily-findable technical best practices make it possible for any branch of state government to comply with the Eight Principles in just months ... given, of course, the political & institutional will exists to do so. And that's just to address the back-end data issues... on the front-end, the status quo for state-level governments online is a mishmash of non-standards-based, hilariously poorly-designed, arcane and insufficiently usable websites that don't do nearly enough to informing the public at large. Public data can and should be public, immediately and in full, and it can and should be made accessible to everyone online, so as to increase trust and civic engagement in our representative democracy. 
+%p The ultimate mission of OpenGovernment is to ensure that all three branches (executive, legislative, and judicial) at every level of government (federal, state, city, local, and more) comply with the Eight Principles of Open Government Data. Public data can and should be public, immediately and in full, and it can and should be made accessible to everyone online, so as to increase trust in the political process. From this foundation of open government data, an entire ecosystem of public-interest tools can grow and evolve. Transparency, in turn, can create new opportunities for meaningful civic engagement in our representative democracy. Greater day-to-day civic engagement and citizen watchdogging, we believe, will result in reduced corruption in government, better public policy outcomes, and stronger democratic institutions. 
+
+%h2#current_status <a href="/pages/about/#our_current_status">Current Status</a>
+
+%p Writing in late 2010, the situation with official websites for U.S. state legislatures is nearly exactly as with Thomas in 2004. Unfortunately, almost no U.S. state government makes its data available in ways that are compliant with the Eight Principles of Open Government Data, or even close. Out of the 49 bicameral state legislatures in the U.S. and one unicameral body (that of Nebraska), only one single chamber -- one entity out of 99, namely the New York State Senate -- makes its legislative data available in ways that are sufficiently compliant with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Eight Principles of Open Government Data</a>. Every other chamber of state government remains insistently closed-off from its constituents, refusing to release public data (legislative actions, votes, bill analysis -- not to mention campaign contributions) online in ways that are truly open, despite the proven technical means to do so. State legislatures, in other words, make public data "defective by design". Open-source software, open standards, flexible licensing, and easily-findable technical best practices make it possible for any branch of state government to comply with the Eight Principles in a relatively short period of time ... given, of course, the political & institutional will exists to do so. And that's just to address the back-end data issues... on the front-end, the status quo for state-level government websites is a mishmash of non-standards-based, poorly-designed websites that don't do nearly enough to keep the public at large informed. 
 
 %p OpenGovernment is a first step towards a solution. In the shorter-term, OpenGovernment is basically a version of OpenCongress for state legislatures, in early open-source development. We cleaned-up the OpenCongress code base for OpenGovernment, bringing over some parts and writing lots of new code, making it better-documented and more modular. We also simplified the web design and foregrounded more of our user-friendly participation tools along with our unique data offerings. We offer OpenGovernment to the public commons as a free, libre, and open-source model for open standards and future government transparency projects -- contributions warmly welcomed and remixes encouraged. 
 
-%p As of Novemeber 2010, OpenGovernment has information for five state legislatures: California, Louisiana, Maryland, Texas, and Wisconsin. (Why these five states? The shortest answer is: these data problems are time- and work-intensive to solve, and it made sense for technical reasons to start with these five particular legislatures, which include two of the three biggest most-populous states in the country in CA and TX.) Over the course of the next year, we seek to roll out OpenGovernment to the remaining 45 U.S. state legislatures, and with additional resources, to more than a dozen major cities across the country. If you live in one of these five states, get started using OpenGovernment to track, understand, and contact your elected officials. If you don't live in one of these five states, please <a href="http://crm.ppolitics.org/">join our e-mail list</a> to receive project updates, as a version of OpenGovernment for your state is in the works -- <a href="/pages/help">you can help</a> speed it along and make it better, and until then you can explore our current offerings. We love questions and feedback, let us know what you think! <a href="/pages/contact">Contact us.</a>
+%p As of November 2010, OpenGovernment has information for five state legislatures: California, Louisiana, Maryland, Texas, and Wisconsin. (Why these five states? The shortest answer is: these data problems are time- and work-intensive to solve, and it made sense for technical reasons to start with these five particular legislatures, which include two of the three biggest most-populous states in the country in CA and TX.) Over the course of the next year, we seek to roll out OpenGovernment to the remaining 45 U.S. state legislatures, and with additional resources, to more than a dozen major cities across the country. If you live in one of these five states, get started using OpenGovernment to track, understand, and contact your elected officials. If you don't live in one of these five states, please <a href="http://crm.ppolitics.org/">join our e-mail list</a> to receive project updates, as a version of OpenGovernment for your state is in the works -- <a href="/pages/help">you can help</a> speed it along and make it better, and until then you can explore our current offerings. We love questions and feedback, let us know what you think! <a href="/pages/contact">Contact us.</a>
 
-%h2 Our Data Sources - Uniquely Aggregated by the open-source GovKit API wrapper: 
+%h2#our_data_sources <a href="/pages/about/our_data_sources">Our Data Sources</a> 
+
+%p - Uniquely aggregated on OpenGovernment by the open-source <a href="https://github.com/opengovernment/govkit">GovKit</a> API wrapper: 
 
 %ol
   %li 
     %p The primary source for all legislative information on OpenGovernment is the official state website, standardized and brought to OpenGovernment by the <a href=\"http://openstates.sunlightlabs.com/\">Open States Project</a> of Sunlight Labs and its volunteer community: bills, members, actions, votes, committees, and more. This data stream forms the legislative backbone of the site. 
   %li 
-    %p News and Blog coverage via Google News and Blog Search
+    %p News and Blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a>
   %li 
-    %p Campaign contribution data via Follow The Money -- and for CA, add'l data via MAPLight 
+    %p Campaign contribution data via the non-profit, non-partisan website of the National Institute on Money in State Politics (NIMSP), <a href="http://www.followthemoney.org/">FollowTheMoney.org</a> -- and forthcoming, additional state-level data via <a href="http://maplight.org/">MAPLight</a>. 
   %li 
-    %p Issue Areas, Issue Group Ratings, and official member contact information (where avail.) via Project VoteSmart. 
+    %p Issue Areas, Issue Group Ratings, and official member contact information (where avail.) via the non-partisan <a href="http://votesmart.org/">Project VoteSmart</a>. 
   %li 
-    %p Social Media mentions via the Twitter API, with more to come 
+    %p Social Media mentions via the <a href="http://apiwiki.twitter.com/w/page/22554648/FrontPage">Twitter API</a>, with more to come 
   %li 
     %p Legislator bios via Wikipedia and "how state gov works" resources via Ballotpedia 
   %li 
@@ -40,7 +62,7 @@
   %li 
     %p U.S. Congressional data from Thomas via GovTrack, via OpenCongress & the OG Community Project on the OC Wiki
 
-%h2#how_to_use_og How To Use OpenGovernment
+%h2#how_to_use_og <a href="/pages/about/how_to_use_og">How To Use OpenGovernment</a>
 
 %ol
   %li 
@@ -58,14 +80,14 @@
   %li 
     %p Remix 
 
-%h2#developer_central Developer Central 
+%h2#developer_hub <a href="/pages/about/#developer_hub">Developer Hub</a> 
 
 %p <a href=\"http://github.com/opengovernment\">GitHub</a>
 %p Developer list-serv
 %p Bug reports: ZenDesk
 %p Feature enhancements: Lighthouse
 
-%h2#search_help Search Help - Advanced Search
+%h2#search_tips <a href="/pages/about/#search_tips">Search Tips - Advanced Search</a>
 
 %p Search tips go here. 
 
