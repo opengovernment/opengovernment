@@ -5,6 +5,6 @@
 - if person.webmail?
   %li= link_to_with_domain("Web E-Mail", person.webmail)
 - if person.email?
-  %li!= mail_to(person.email, "E-mail", :encode => 'hex')
+  %li!= mail_to(person.email, :encode => 'hex')
 - if person.youtube_id?
   %li!= "Youtube: " + link_to(person.youtube_id, @person.youtube_url)

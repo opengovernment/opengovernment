@@ -215,10 +215,8 @@ namespace :load do
     Rake::Task['load:businesses'].invoke
     Rake::Task['load:contributions'].invoke
     Rake::Task['load:ratings'].invoke
-    puts "\n---------- Fetch photos and attach them to people"
+    puts "\n---------- Fetch VoteSmart photos and attach them to people"
     Rake::Task['sync:photos'].invoke
-    puts "\n---------- Fetch bill text & documents and attach them to bills"
-    Rake::Task['sync:bill_texts'].invoke    
   end
 
   # These tasks are listed in the order that we need the data to be inserted.
