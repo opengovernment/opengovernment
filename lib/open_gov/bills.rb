@@ -45,8 +45,12 @@ module OpenGov
                 $stdout.flush
               end
 
-              bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
-              import_bill(bill, state, options)
+              begin
+                bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
+                import_bill(bill, state, options)
+              rescue ArgumentError => e
+                puts "Failed to parse bill #{file}: #{e}"
+              end
             end
           end
         end

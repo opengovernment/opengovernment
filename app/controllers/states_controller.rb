@@ -36,6 +36,8 @@ class StatesController < ApplicationController
     end
 
     # We might be able to stop right here and redirect to a bill.
+    # This is specifically for searched bill numbers.  Re-directing to a single
+    # match in the generic case is handled below
     case @search_type
     when 'all', 'bills'
       if @bills = Bill.for_state(@state).with_number(@query)
@@ -81,6 +83,17 @@ class StatesController < ApplicationController
         when "contributions"
           @contributions = Contribution.search(@query, @search_options)
           @total_entries = @contributions.total_entries
+      end
+      
+      if @total_entries == 1
+        # go straight to the page for this object
+        if @legislators && @legislators.total_entries == 1
+          redirect_to @legislators.first
+        elsif @bills && @bills.total_entries == 1
+          redirect_to bill_path(@bills.first.session, @bills.first)
+        elsif @committees && @committees.total_entries == 1
+          redirect_to committee_path(@committees.first)
+        end
       end
     else
       render :nothing => true
