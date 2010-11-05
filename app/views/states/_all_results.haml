@@ -27,7 +27,7 @@
   .grid_12
     - unless @bills.empty?
       %div.search_results.last
-        %h2 Bills
+        %h2= link_to('Bills', bills_path)
         %ul.bills.lined.and_spaced
           - @bills.each do |bill|
             = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
@@ -38,7 +38,7 @@
         %p.sort
 
       %div.search_results.last
-        %h2 Legislators
+        %h2= link_to('People', people_path)
         %ul.legislators
           - @legislators.each do |leg|
             %li[leg]

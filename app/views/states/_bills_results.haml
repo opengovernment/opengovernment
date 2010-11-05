@@ -17,7 +17,7 @@
               = link_to name, state_search_path(params.merge({:order => column}))
 
     .grid_12
-      %h2 Bills
+      %h2= link_to('Bills', bills_path)
       = will_paginate @bills, :class => "pagination"
 
       %div.search_results
