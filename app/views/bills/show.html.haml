@@ -85,6 +85,10 @@
 
   - if @bill.citations.any?
     .citations
-      Sources:
+      %p
+        Primary sources for this bill:
       %ul
         = render @bill.citations
+      How did we get all this other info? Actually, it was tough, but we got it. About
+      = succeed '.' do
+        = link_to('our data sources', page_path('about'))
