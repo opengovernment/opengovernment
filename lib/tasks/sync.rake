@@ -10,8 +10,8 @@ namespace :sync do
   end
 
   desc "Fetch bill full text and associated documents"
-  task :bill_texts => :environment do
-    OpenGov::BillTexts.sync!
+  task :photos => :environment do
+    OpenGov::Photos.import!
   end
 
 end

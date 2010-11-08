@@ -6,8 +6,7 @@
       = "#{@bill.state.name} #{@bill.chamber.name} Bill "
     %span
       = "#{@bill.bill_number}"
-  
-  
+
   - if defined?(show_tools)
     %aside.take_action.full_lined
       = render 'shared/share_tools', :message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url
@@ -18,13 +17,13 @@
         .drop.button
           %ul
             %li.rss 
-              = link_to "All actions", actions_bill_path(@bill.session, @bill, :format => :atom)
-              = link_to "Major actions", major_actions_bill_path(@bill.session, @bill, :format => :atom)
+              = link_to "All actions - RSS", actions_bill_path(@bill.session, @bill, :format => :atom)
+              = link_to "Major actions - RSS", major_actions_bill_path(@bill.session, @bill, :format => :atom)
             %li.email 
               %a
                 %span
-                Email Alerts
-  
+                Email Alerts (coming soon)
+
       .hov.write_buttons
         %h4.button
           %span Write
@@ -54,8 +53,8 @@
             end
   
       .support_buttons
-        %a.support.button(rel='tipsy' title='Sign in to vote!')
+        %a.support.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
           %span I Support this Bill!
-        %a.oppose.button(rel='tipsy' title='Sign in to vote!')
+        %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
           %span I Oppose this Bill!
   

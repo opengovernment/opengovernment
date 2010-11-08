@@ -17,12 +17,12 @@
               = link_to name, state_search_path(params.merge({:order => column}))
 
     .grid_12
-      %h2 Bills
+      %h2= link_to('Bills', bills_path)
       = will_paginate @bills, :class => "pagination"
 
       %div.search_results
         %ul.bills.bills.lined.and_spaced
-          = render :partial => 'shared/bill', :collection => @bills
+          = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => false}
 
       .clearfix
     

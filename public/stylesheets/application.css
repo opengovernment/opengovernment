@@ -197,4 +197,6 @@ nav.footer ul li {
   padding-right: 10px;
 }
 
-
+.translation_missing {
+  display: none;
+}

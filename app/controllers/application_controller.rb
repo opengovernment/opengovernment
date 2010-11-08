@@ -5,7 +5,17 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   
-  layout 'application'
+  layout :layout_by_resource
+
+  def layout_by_resource
+    if devise_controller? && request.xhr?
+      "popup"
+    elsif devise_controller?
+      "pages"
+    else
+      "application"
+    end
+  end
 
   def set_locale
     I18n.locale = extract_locale_from_subdomain
@@ -14,8 +24,8 @@ class ApplicationController < ActionController::Base
   # Get locale from top-level domain or return nil if such locale is not availabl
   # You have to put something like:
   def extract_locale_from_subdomain
-    parsed_locale = request.subdomains.first
-    return nil unless parsed_locale
+    return nil unless request.subdomains.first
+    parsed_locale = 'en-' + request.subdomains.first.upcase
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale : nil
   end
 

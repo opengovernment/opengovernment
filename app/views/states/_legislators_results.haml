@@ -10,6 +10,7 @@
             = link_to name, state_search_path(params.merge({:order => column}))
 
     %div.search_results.grid_12
+      %h2= link_to('People', people_path)
       %ul.legislators.lined
         = render @legislators
 

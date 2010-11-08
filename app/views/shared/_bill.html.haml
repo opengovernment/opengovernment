@@ -1,12 +1,10 @@
 %li.grid_12[bill]
-  - if bill.votesmart_key_vote?
+  - if bill.votesmart_key_vote? && !hide_key_vote
     %span.vote_smart_keyvote.floatright
       This is a Votesmart Key Vote!
 
   .bill_titles
-    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => 'bill_link')
-    %span.bill_title
-      != bill.title
+    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 500))
 
   .bill_status.rounded
 
@@ -28,9 +26,7 @@
       .view_count.grid_3.alpha
         = pluralize(bill.views, 'view')
 
-
-
   .sponsor_mugs
     .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
-      = bill.actions.first.try(:kind_fm)
+      = bill.actions.last.try(:kind_fm).try(:titleize)
     = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)

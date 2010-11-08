@@ -4,8 +4,8 @@
 
   %h1
     = @person.official_name
-    = surround '(', ')' do
-      = @person.current_role.try(:affiliation_fm)
+    .subhead
+      #{@person.try(:party)}, #{@person.try(:district_name)}
 
 
   - if defined?(show_tools)
@@ -18,18 +18,18 @@
         .drop.button
           %ul
             %li.rss
-              = link_to "All Votes", {:format => :atom}
+              = link_to "All Votes - RSS", {:format => :atom}
             %li.email 
               %a
                 %span
-                Email Alerts
+                Email Alerts (coming soon)
 
       .write_button
         %span.button
           %span= link_to('Contact this rep', {:action => :contact}, :class => 'modal')
 
       .support_buttons
-        %a.support.button(rel='tipsy' title='Sign in to vote!')
+        %a.support.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
           %span I Support this Rep!
-        %a.oppose.button(rel='tipsy' title='Sign in to vote!')
+        %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
           %span I Oppose this Rep!

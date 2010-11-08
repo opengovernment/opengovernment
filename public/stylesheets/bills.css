@@ -181,4 +181,10 @@ p.action_text {
   padding: 20px 0;
 }
 
-
+.sponsor_mugs span {
+  display: block;
+  padding-top: 3px;
+  font-size: 10px;
+  color: #666;
+  clear: both;
+}

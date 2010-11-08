@@ -73,7 +73,7 @@ class PeopleController < ApplicationController
 
   protected
   def find_person
-    @person = Person.find(params[:id])
+    @person = Person.where(:id => params[:id]).select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").first
     @person || resource_not_found
   end
 

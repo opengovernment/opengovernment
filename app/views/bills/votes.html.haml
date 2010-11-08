@@ -26,7 +26,7 @@
         %li.spin(style="display: none;")
     .grid_12.alpha
       #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
-      %p= t '.major_action'
+      %p= t '.major_action', :default => :en
   - else
     %p= t '.no_actions'
 

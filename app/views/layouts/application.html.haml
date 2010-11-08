@@ -27,7 +27,7 @@
         = yield :js_hook
 
     = yield :head
-    %title= "OpenGovernment - " + (yield(:title) || "revealing state government data")
+    %title= "OpenGovernment - " + (content_for?(:title) ? yield(:title) : "revealing state government data")
   %body{:class => page_class}
 
     %div.container_16
@@ -40,15 +40,14 @@
             - if current_user
               Hello,
               %a.account(href="#content" title="Username") #{current_user.login}.
-              = link_to('Logout', destroy_user_session_path)
+              = link_to('Sign out', destroy_user_session_path)
             - else
-              = link_to('Login', new_user_session_path)
+              = link_to('Sign in', new_user_session_path, :class => 'modal')
             %a.help{:href => page_path('help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search
             = render :partial => 'shared/search_form'
 
-     
     %div.container_16.bread.boxxed
       %ul.breadcrumb
         %li.topnav

@@ -68,11 +68,11 @@
 
         %p
           %strong Committees:
-          - succeed ',' do
+          = succeed ',' do
             = link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
           = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
           %br
-          - succeed ',' do
+          = succeed ',' do
             = link_to "#{number_with_delimiter(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path
           = link_to "#{Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path
 
@@ -110,7 +110,7 @@
 
       %p
         %ul.lined.and_spaced
-          = render :partial => 'shared/bill', :collection => @state_key_votes
+          = render :partial => 'shared/bill', :collection => @state_key_votes, :locals => {:hide_key_vote => true}
       %a.large{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
 
     %p.grid_12.alpha= raw t '.background'
