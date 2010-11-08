@@ -1,6 +1,6 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, major_actions_bill_path(@bill.session, @bill, :format => :atom), {:title => "Major Actions"})
-  = auto_discovery_link_tag(:atom, actions_bill_path(@bill.session, @bill, :format => :atom))
+  = auto_discovery_link_tag(:atom, actions_bill_path(@bill.session, @bill, :format => :atom), { :title => "All Actions"})
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 - track(@bill)

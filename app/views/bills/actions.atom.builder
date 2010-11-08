@@ -1,5 +1,5 @@
 atom_feed(:root_url => url_for(:format => nil, :only_path => false)) do |feed|
-  feed.title(@bill.title)
+  feed.title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number} - #{@actions_shown.to_s} actions")
   feed.updated(@bill.last_action_at)
 
   for action in @actions
