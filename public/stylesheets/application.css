@@ -200,3 +200,18 @@ nav.footer ul li {
 .translation_missing {
   display: none;
 }
+
+.citations {
+  padding-top: 15px;
+  font-size: 0.9em;
+}
+
+.citations p, .citations ul {
+  margin-bottom: 4px;
+}
+
+.citation_url, .citation_retrieved {
+  display: inline;
+  padding-right: 10px;
+}
+

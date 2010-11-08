@@ -97,7 +97,7 @@ class GovTrackImporter
 
     role.party = case attrs['party']
       when 'Democrat', 'D'
-        'Democratic'
+        'Democrat'
       when 'Republican', 'R'
         'Republican'
       else

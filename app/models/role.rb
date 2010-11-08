@@ -41,7 +41,7 @@ class Role < ActiveRecord::Base
     end
 
     case party
-    when "Democratic"
+    when "Democrat"
       "dem"
     when "Republican"
       "rep"
@@ -56,7 +56,7 @@ class Role < ActiveRecord::Base
 
   def self.party_fm(party)
     case party
-      when "Democratic"
+      when "Democrat"
         "D"
       when "Republican"
         "R"

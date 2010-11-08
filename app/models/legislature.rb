@@ -17,5 +17,5 @@ class Legislature < ActiveRecord::Base
   has_many :sessions
 
   CONGRESS = Legislature.find_by_name("United States Congress")
-  MAJOR_PARTIES = ["Democratic", "Republican"]
+  MAJOR_PARTIES = ["Democrat", "Republican"]
 end
