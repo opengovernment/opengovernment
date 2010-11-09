@@ -410,10 +410,7 @@ float: right;
 
 .search_button input{
 padding: 5px 10px;
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
 margin: 0px;
-
 float: right;
 cursor: pointer;
 font-size: 11px;
@@ -422,41 +419,64 @@ text-align: center;
 -moz-outline: none;
 outline: none;
 
-border: 1px solid #a7c3c9;
-border-top: 1px solid #c6d9de;
-border-bottom: 1px solid #95b6bd;
 
-
-  -moz-box-shadow: 0 1px 0px #95b6bd, inset 0 1px 0px #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  
 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
 }
 
 
 .search_button input:hover{
-
-border: 1px solid #a7c3c9;
-border-top: 1px solid #c6d9de;
-border-bottom: 1px solid #95b6bd;
-
-
-  -moz-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #fff,  #d6e8eb); /* for firefox 3.6+ */
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #ecf9fc); /* for firefox 3.6+ */
 }
 
 
 .search_button input:active{
 
-border: 1px solid #fff;
+border: 1px solid #ddd;
+border-bottom: 1px solid #fff;
 
 
   -moz-box-shadow:inset 0 1px 1px #333;
