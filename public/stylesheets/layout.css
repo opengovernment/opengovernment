@@ -1,5 +1,11 @@
 
 
+.home.home .find_box{
+margin: 0 -16px !important;
+}
+
+
+
 .smaller *{
 font-size: 12px !important;
 }
@@ -35,16 +41,16 @@ border: none;
 
 
 .illo{
-background: #f6f8fa url(/images/wave_bottom.gif) left 0 no-repeat;
-padding-top: 60px;
-margin: 0 -16px;
+background: #f6f8fa;
+padding: 60px 0 30px;
+margin: 0 -16px -18px -16px;
 
 }
 
 
 .illo h2{
 width: 503px;
-margin: 0px auto 0; 
+margin: 0px auto 0 !important; 
 background: url(/images/do_more.gif) left 0 no-repeat;
 height: 0 !important;
 overflow: hidden;
@@ -60,12 +66,19 @@ width: 100%;
 padding-top: 400px;
 height: 0;
 overflow: hidden;
+margin: 0 !important;
 }
 
 
+h2.grid_14.push_1{
+font-size: 28px;
 
+}
 
-
+.grid_7.bigger{
+font-size: 17px;
+font-weight: bold;
+}
 
 
 .sub_footer{
@@ -167,7 +180,10 @@ width: 162px !important;
 
 
 
-
+.home.home .main{
+  padding-bottom: 0px;
+  }
+  
 
 /*///////////////////////////
 
