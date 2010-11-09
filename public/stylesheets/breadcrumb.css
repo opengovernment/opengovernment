@@ -15,15 +15,21 @@ ul.secondary-select {
   list-style: none;  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
   left: -1px;  
-  background: #fff;  
   margin: 0;
-  padding: 0;  
+  padding: 5px;  
+-moz-border-radius: 5px;
   display: none;  
 
-  width: 235px;  
-  top: 47px;
+  width: 237px;  
+  top: 37px;
 border: 1px solid #ccc;
-  border-top: 0;
+
+
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+
 }
 
 ul.secondary-select {
@@ -36,7 +42,8 @@ ul.state-select li,
 ul.secondary-select li {  
   list-style: none;
   background: none !important;
-  border-top: 1px solid #ddd;
+  border: 1px solid #ddd;
+border-top: 0;
 margin: 0 !important;
 float: left;
 }
@@ -46,8 +53,8 @@ ul.secondary-select li a {
   float: left;
   margin: 0;
   padding-left: 25px;
-
-  width: 170px;  
+  background: #fff !important;
+  width: 150px;  
 }
 
 
@@ -62,7 +69,7 @@ ul.secondary-select li a {
 ul.state-select li a:hover,
 ul.secondary-select li a:hover{  
 
-  background: #fff !important;
+  background: #efefef !important;
   }
 
 
