@@ -26,11 +26,12 @@ module SimpleNavigation
           # One item at every nav level that leads to where we are now is considered "selected"
           if item.selected?
             
-            list_item = content_tag(:span, item.name)
 
             # Link to all items that with children (but not to the current page)
             if include_sub_navigation?(item)
-              list_item = link_to(list_item, item.url, { :method => item.method }.merge(item.html_options.except(:class, :id)))
+              list_item = link_to(content_tag(:span, item.name), item.url, { :method => item.method }.merge(item.html_options.except(:class, :id)))
+            else
+              list_item = content_tag(:span, item.name, :class => 'current')
             end
 
             if i == 0 && level == 0
