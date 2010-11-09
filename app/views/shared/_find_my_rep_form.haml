@@ -1,8 +1,8 @@
 .find_form
   = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get, :id => 'find_my_rep')
   %label(for='q')
-    %strong Find Your District by 
-    Entering Your Zip Code
+    %strong Find Your District
+    Enter address or ZIP
   = text_field_tag :q, params[:q], :autocomplete => 'off'
   .find_button
     = submit_tag 'Find'
