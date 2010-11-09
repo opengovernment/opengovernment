@@ -53,7 +53,7 @@
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democratic</ogc:Literal>
+                <ogc:Literal>Democrat</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -78,7 +78,7 @@
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democratic</ogc:Literal>
+                <ogc:Literal>Democrat</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -119,7 +119,7 @@
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democratic</ogc:Literal>
+                <ogc:Literal>Democrat</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -239,7 +239,7 @@
                 </ogc:PropertyIsNotEqualTo>
                 <ogc:PropertyIsNotEqualTo>
                   <ogc:PropertyName>party</ogc:PropertyName>
-                  <ogc:Literal>Democratic</ogc:Literal>
+                  <ogc:Literal>Democrat</ogc:Literal>
                 </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -268,7 +268,7 @@
                 </ogc:PropertyIsNotEqualTo>
                 <ogc:PropertyIsNotEqualTo>
                   <ogc:PropertyName>party</ogc:PropertyName>
-                  <ogc:Literal>Democratic</ogc:Literal>
+                  <ogc:Literal>Democrat</ogc:Literal>
                 </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -313,7 +313,7 @@
               </ogc:PropertyIsNotEqualTo>
               <ogc:PropertyIsNotEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democratic</ogc:Literal>
+                <ogc:Literal>Democrat</ogc:Literal>
               </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>

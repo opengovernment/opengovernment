@@ -104,7 +104,7 @@ module OpenGov
     def self.standardize_party(party_name)
       case party_name.downcase
       when 'democrat', 'd', 'democratic', 'dem'
-        'Democratic'
+        'Democrat'
       when 'republican', 'r', 'rep'
         'Republican'
       else
