@@ -34,20 +34,22 @@
             = s.kind_fm
 
   .grid_6.omega
-    - if @bill.versions.count > 0
+    - if @bill.versions.any?
       %h2 Bill Text
   
       %ul.lined
         - @bill.versions.each do |version|
           %li= link_to_document(version)
 
-    - if @bill.subjects.count > 0
-      %h2 Subject Areas
+    %h2 Subject Areas
+    - if @bill.subjects.any?
       %ul.lined
         - @bill.subjects.each do |subject|
           %li= link_to(subject.name, subject_path(subject))
+    - else
+      %p None.
 
-    - if @bill.documents.count > 0
+    - if @bill.documents.any?
       %h2 Documents
 
       %ul.lined
