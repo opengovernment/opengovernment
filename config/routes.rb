@@ -51,7 +51,7 @@ OpenGov::Application.routes.draw do
       end
     end
 
-    resources :committees, :only => [:show] do
+    resources :committees, :only => [:show, :index] do
       collection do
         get :upper
         get :lower

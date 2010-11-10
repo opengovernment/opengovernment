@@ -8,87 +8,86 @@
 
 = render 'wrapper', :show_tools => true
 
-.grid_12
-  .grid_12.alpha
-    %span.session Session: #{raw @bill.session.name_fm}
+.grid_12.alpha
+  %span.session Session: #{raw @bill.session.name_fm}
 
-    = render 'shared/view_counts', :page => @bill
+  = render 'shared/view_counts', :page => @bill
 
-  %hr
-  - status_bar(@bill)
-  .clear
+%hr
+- status_bar(@bill)
+.clear
 
-  .grid_6.alpha
-    %h2 Sponsors
-    = sponsor_mugs(@sponsors)
+.grid_6.alpha
+  %h2 Sponsors
+  = sponsor_mugs(@sponsors)
+  %ul.lined
+    - @sponsors.each do |s|
+      - if !s.sponsor_id || s.sponsor.photo_url.blank?
+        %li
+          - surround '',',' do
+            = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
+          = s.kind_fm
+
+.grid_6.omega
+  - if @bill.versions.any?
+    %h2 Bill Text
+
     %ul.lined
-      - @sponsors.each do |s|
-        - if !s.sponsor_id || s.sponsor.photo_url.blank?
-          %li
-            - surround '',',' do
-              = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
-            = s.kind_fm
+      - @bill.versions.each do |version|
+        %li= link_to_document(version)
 
-  .grid_6.omega
-    - if @bill.versions.any?
-      %h2 Bill Text
-  
-      %ul.lined
-        - @bill.versions.each do |version|
-          %li= link_to_document(version)
+    = t '.missing_bill_text'
 
-      = t '.missing_bill_text'
+  %h2 Subject Areas
+  - if @bill.subjects.any?
+    %ul.lined
+      - @bill.subjects.each do |subject|
+        %li= link_to(subject.name, subject_path(subject))
+  - else
+    %p None.
 
-    %h2 Subject Areas
-    - if @bill.subjects.any?
-      %ul.lined
-        - @bill.subjects.each do |subject|
-          %li= link_to(subject.name, subject_path(subject))
-    - else
-      %p None.
+  - if @bill.documents.any?
+    %h2 Documents
 
-    - if @bill.documents.any?
-      %h2 Documents
+    %ul.lined
+      - @bill.documents.each do |document|
+        %li= link_to_document(document)
 
-      %ul.lined
-        - @bill.documents.each do |document|
-          %li= link_to_document(document)
+.space
 
-  .space
-
-  - if @actions.limit(2).size > 0
-    .grid_12.alpha
-      %h2 Recent Actions
-      #bill_actions
-        = render 'actions_table', :actions => @actions.limit(2)
-        = link_to(raw("All #{pluralize(@actions.size, 'Action')} &rarr;"),  votes_bill_path(@bill.session, @bill))
-
-  %hr.push_top
-
-  - if @votes.limit(2).size > 0
-    .grid_12.alpha
-      %h2 Recent Votes
-      %table.vote-summary.grid_12.alpha
-        %tbody
-          = render @votes
-
-      = link_to(raw("All #{pluralize(@votes.size, 'Vote')} &rarr;"), votes_bill_path(@bill.session, @bill))
-
-  .space
-
+- if @actions.limit(2).size > 0
   .grid_12.alpha
-    #twitter(style="display: none;")
-      %h2 Twitter Mentions
-      #notweets(style="display: none;")
-        %p= t '.no_tweets', :hashtags => @bill.to_hashtags
-      %ul#tweets
+    %h2 Recent Actions
+    #bill_actions
+      = render 'actions_table', :actions => @actions.limit(2)
+      = link_to(raw("All #{pluralize(@actions.size, 'Action')} &rarr;"),  votes_bill_path(@bill.session, @bill))
 
-  - if @bill.citations.any?
-    .citations
-      %p
-        Primary sources for this bill:
-      %ul
-        = render @bill.citations
-      How did we get all this other info? Actually, it was tough, but we got it. About
-      = succeed '.' do
-        = link_to('our data sources', page_path('about'))
+%hr.push_top
+
+- if @votes.limit(2).size > 0
+  .grid_12.alpha
+    %h2 Recent Votes
+    %table.vote-summary.grid_12.alpha
+      %tbody
+        = render @votes
+
+    = link_to(raw("All #{pluralize(@votes.size, 'Vote')} &rarr;"), votes_bill_path(@bill.session, @bill))
+
+.space
+
+.grid_12.alpha
+  #twitter(style="display: none;")
+    %h2 Twitter Mentions
+    #notweets(style="display: none;")
+      %p= t '.no_tweets', :hashtags => @bill.to_hashtags
+    %ul#tweets
+
+- if @bill.citations.any?
+  .citations
+    %p
+      Primary sources for this bill:
+    %ul
+      = render @bill.citations
+    How did we get all this other info? Actually, it was tough, but we got it. About
+    = succeed '.' do
+      = link_to('our data sources', page_path('about'))

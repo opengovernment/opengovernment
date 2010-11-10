@@ -2,19 +2,18 @@
 
 = render(:partial => 'wrapper')
 
-.grid_12
-  %h2 Money Trail
-  - if @person.contributions.any?
-    .small.quiet.grid_12
-      Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
-    .grid_6.alpha
-      %h3 All By Sector
-      = render :partial => 'sector', :collection => @sectors
-    .grid_6.omega
-      %h3 Top Individual Contributions
-      = render :partial => 'contribution', :collection => @contributions
+%h2 Money Trail
+- if @person.contributions.any?
+  .small.quiet.grid_12
+    Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
+  .grid_6.alpha
+    %h3 All By Sector
+    = render :partial => 'sector', :collection => @sectors
+  .grid_6.omega
+    %h3 Top Individual Contributions
+    = render :partial => 'contribution', :collection => @contributions
 
-  - else
-    .grid_12.alpha
-      No data is available for this Member at this time via the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Together we can make this info available and build transparency in government-- see <a href="/pages/help">how you can help</a>. 
-      == .
+- else
+  .grid_12.alpha
+    No data is available for this Member at this time via the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Together we can make this info available and build transparency in government-- see <a href="/pages/help">how you can help</a>. 
+    == .

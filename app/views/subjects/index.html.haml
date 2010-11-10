@@ -1,24 +1,23 @@
 - title("#{@state.name} Bill Subjects")
 
-= render :partial => 'shared/left_nav_toplevel'
+= render :partial => 'shared/appeal'
 
 %h1 #{@state.name} Bill Subjects
-%div.grid_12
-  - unless params[:all]
-    %p
-      Showing popular subjects.
-      = link_to("Show all subjects instead", {:all => 't'})
-  
-  %nav.faceted.by_letter
-    - ('A'..'Z').each do |letter|
-      - if @letter == letter
-        %em= letter
-      - else
-        = link_to(letter, params.merge(:letter => letter).except(:page))
+- unless params[:all]
+  %p
+    Showing popular subjects.
+    = link_to("Show all subjects instead", {:all => 't'})
 
-  = will_paginate @subjects
+%nav.faceted.by_letter
+  - ('A'..'Z').each do |letter|
+    - if @letter == letter
+      %em= letter
+    - else
+      = link_to(letter, params.merge(:letter => letter).except(:page))
 
-  %ul.subjects
-    = render @subjects
+= will_paginate @subjects
 
-  = will_paginate @subjects
+%ul.subjects
+  = render @subjects
+
+= will_paginate @subjects

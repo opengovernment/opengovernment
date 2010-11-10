@@ -4,7 +4,7 @@ class CommitteesController < ApplicationController
   def index
     @committees = @state.committees.paginate :page => params[:page], :order => params[:order] || 'name'
   end
-  
+
   def upper
     @committees = @state.upper_committees.paginate :page => params[:page], :order => params[:order] || 'name'
     render :template => "committees/index"
@@ -22,6 +22,7 @@ class CommitteesController < ApplicationController
 
   def show
     @committee = Committee.find(params[:id])
+    render :layout => 'popup'
   end
 
 end

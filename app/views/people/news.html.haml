@@ -2,37 +2,35 @@
 
 = render(:partial => 'nav')
 
+%h1
+  News &amp; Blog Coverage for
+  = @person.full_name
 
-.grid_12.omega
-  %h1
-    News &amp; Blog Coverage for
-    = @person.full_name
-
-  %hr.push_bottom
+%hr.push_bottom
 
 
-  - if @person.mentions.empty?
-    %div.no_results
-      At the moment, we're finding no news or blog mentions of this legislator (using the search query, e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog Search). But you can start building public knowledge here for this elected official.<br><br>
+- if @person.mentions.empty?
+  %div.no_results
+    At the moment, we're finding no news or blog mentions of this legislator (using the search query, e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog Search). But you can start building public knowledge here for this elected official.<br><br>
+  
+    If you can, publish a blog post that refers to this person by his title and full name, e.g. "Senator Firstname Lastname", and if it's on the open Web where search engines can find it, a link to your post and an excerpt will automatically appear here within 24 hours for everyone to see. If you don't have access to a blog of your own, you can write a letter to the editor of your local newspaper or one of your state's many political blogs, and if they publish it on the Web, same as above, and that would be greatly helpful.<br><br> 
     
-      If you can, publish a blog post that refers to this person by his title and full name, e.g. "Senator Firstname Lastname", and if it's on the open Web where search engines can find it, a link to your post and an excerpt will automatically appear here within 24 hours for everyone to see. If you don't have access to a blog of your own, you can write a letter to the editor of your local newspaper or one of your state's many political blogs, and if they publish it on the Web, same as above, and that would be greatly helpful.<br><br> 
-      
-      In order to build public knowledge about members of and candidates for state government, we need to publish our information & insights online in open standards -- i.e., not on password-protected proprietary services like Facebook or Twitter, but rather on the wide expanse of the searchable Web -- so that everyone can easily find information about this bill and learn what's really happening with it. There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
+    In order to build public knowledge about members of and candidates for state government, we need to publish our information & insights online in open standards -- i.e., not on password-protected proprietary services like Facebook or Twitter, but rather on the wide expanse of the searchable Web -- so that everyone can easily find information about this bill and learn what's really happening with it. There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
 
-  - else
+- else
 
-    .grid_12.alpha.omega
-      %p 
-        Here are all the news and blog mentions found for this legislator (e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog searches). You can add to this page and help build public knowledge about this person. Simply mention this member by his or her official title and full name in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this specific person by title and name as above, and if your letter is published on the Web, a link to that page will be gathered here for everyone to access. We've done our best to optimize our automated search processes for this person, but occasionally even our state-of-the-art search robots bring in irrelevant links, such as other people with similar names -- so if you see irrelevant links below, it's no big deal, please carry on. Actually, if you care to take a moment to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous links cleaned-up and out-of-the-way as quickly as possible. Now, here's what we found by way of real-world news & blog context for this person:
-        = @person.full_name
+  .grid_12.alpha.omega
+    %p 
+      Here are all the news and blog mentions found for this legislator (e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog searches). You can add to this page and help build public knowledge about this person. Simply mention this member by his or her official title and full name in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this specific person by title and name as above, and if your letter is published on the Web, a link to that page will be gathered here for everyone to access. We've done our best to optimize our automated search processes for this person, but occasionally even our state-of-the-art search robots bring in irrelevant links, such as other people with similar names -- so if you see irrelevant links below, it's no big deal, please carry on. Actually, if you care to take a moment to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous links cleaned-up and out-of-the-way as quickly as possible. Now, here's what we found by way of real-world news & blog context for this person:
+      = @person.full_name
 
-    %hr
+  %hr
 
-    .grid_6.alpha
-      %h2 Google News
-      %ul.lined.and_spaced.with_titles
-        = render @person.google_news_mentions
-    .grid_6.omega
-      %h2 Blogs
-      %ul.lined.and_spaced.with_titles
-        = render @person.google_blog_mentions
+  .grid_6.alpha
+    %h2 Google News
+    %ul.lined.and_spaced.with_titles
+      = render @person.google_news_mentions
+  .grid_6.omega
+    %h2 Blogs
+    %ul.lined.and_spaced.with_titles
+      = render @person.google_blog_mentions

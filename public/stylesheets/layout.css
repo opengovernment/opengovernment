@@ -276,6 +276,9 @@ font-weight: bold;
 background: #fbfcfd;
 }
 
+nav#left_nav ul li.selected ul {
+  font-weight: normal;
+}
 
 
 

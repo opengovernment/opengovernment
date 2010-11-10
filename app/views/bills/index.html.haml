@@ -1,44 +1,40 @@
 - title("#{@state.name} Bills")
 
+= render :partial => 'shared/appeal'
+
+%h1
+  = "#{@state.name} Bills"
+
+%hr
+
+%p.intro= t '.intro'
 
 
-= render :partial => 'shared/left_nav_toplevel'
+%ul.tabs
+  %li
+    %a{:href => bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
-#bill_index.grid_12
-  
-  %h1
-    = "#{@state.name} Bills"
+  %li.divider &#124;
 
-  %hr
+  %li
+    %a{:href => bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
+      
+  %li.divider &#124;  
 
-  %p.intro= t '.intro'
+  %li
+    %a{:href => bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
 
-  
-  %ul.tabs
-    %li
-      %a{:href => bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
-    %li.divider &#124;
+.sort.grid_12.alpha  
+  %ul.sorts
+    %li.sort_label
+      Sort by
+    - @sorts.each do |k, v|
+      %li
+        = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
+.space.clear
 
-    %li
-      %a{:href => bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
-        
-    %li.divider &#124;  
+%ul.lined.and_spaced#bill_list
+  = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => (['keyvotes','mentions'].include?(@sort) ? true : false)}
 
-    %li
-      %a{:href => bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
-
-  
-  .sort.grid_12.alpha  
-    %ul.sorts
-      %li.sort_label
-        Sort by
-      - @sorts.each do |k, v|
-        %li
-          = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
-  .space.clear
-
-  %ul.lined.and_spaced#bill_list
-    = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => (['keyvotes','mentions'].include?(@sort) ? true : false)}
-
-  %a.large{:href => search_path(:search_type => 'bills')} Browse All Bills &rarr;
+%a.large{:href => search_path(:search_type => 'bills')} Browse All Bills &rarr;

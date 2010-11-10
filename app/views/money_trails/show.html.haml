@@ -1,23 +1,20 @@
 - title("#{@state.name} Money Trail - #{@industry.name}")
 
-= render 'shared/left_nav_toplevel'
+%h1
+  = @state.name
+  Money Trail -
+  = @industry.name
 
-.grid_12
-  %h1
-    = @state.name
-    Money Trail -
-    = @industry.name
+.grid_6.alpha
+  %h2 Top 20 Contributors
+  = render :partial => 'money_trails/contribution', :collection => @contributions
 
-  .grid_6.alpha
-    %h2 Top 20 Contributors
-    = render :partial => 'money_trails/contribution', :collection => @contributions
+.grid_6.omega
+  %h2 Top 20 Recipients
+  = render :partial => 'money_trails/recipient', :collection => @recipients
 
-  .grid_6.omega
-    %h2 Top 20 Recipients
-    = render :partial => 'money_trails/recipient', :collection => @recipients
-
-  .grid_12.alpha
-    %hr.push_top
-    %p
-      Source:
-      %a{:href => 'http://www.followthemoney.org/'} National Institute on Money in State Politics
+.grid_12.alpha
+  %hr.push_top
+  %p
+    Source:
+    %a{:href => 'http://www.followthemoney.org/'} National Institute on Money in State Politics

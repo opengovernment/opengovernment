@@ -1,18 +1,16 @@
 - title("#{@state.name} Committees")
 
-= render :partial => 'shared/left_nav_toplevel'
+= render :partial => 'shared/appeal'
 
-.grid_12
+%h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
+%hr
 
-  %h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
-  %hr
-
-  = will_paginate @committees
-  %ul.lined
-    - if @committees.size > 0
-      - @committees.each do |committee|
-        %li
-          = link_to(committee.name, committee_path(committee))
-    - else
-      %p Sorry, we didn't find any committees.
-  = will_paginate @committees
+= will_paginate @committees
+%ul.lined
+  - if @committees.size > 0
+    - @committees.each do |committee|
+      %li
+        = link_to(committee.name, committee_path(committee), :class => "modal")
+  - else
+    %p Sorry, we didn't find any committees.
+= will_paginate @committees

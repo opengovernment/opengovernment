@@ -15,66 +15,63 @@
   |)
   end
 
+%h1
+  %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
+%hr
 
-.grid_16
+.grid_2.alpha.details
+  %span= @vote.date
+  %br
+  %span= "In the " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '') + @vote.chamber.name
 
-  %h1
-    %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
-  %hr
+.grid_10.summary.alpha
+  %p= @vote.bill.title
 
-  .grid_3.alpha.details
-    %span= @vote.date
-    %br
-    %span= "In the " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '') + @vote.chamber.name
-
-  .grid_13.summary.alpha
-    %p= @vote.bill.title
-
-  %hr.push_bottom
+%hr.push_bottom
 
 
-  .grid_6.alpha
-    %h2 Geography of the Vote
-    = vote_legend_img
-    = vote_map_img(@state, @vote.id)
+.grid_6.alpha
+  %h2 Geography of the Vote
+  = vote_legend_img
+  = vote_map_img(@state, @vote.id)
 
-  .grid_7.vote_chart.omega
-    %h2 Vote Breakdown
-    %table
-      %tr
-        %th.first.label Yes
-        %td.first.label!= @vote.passed? ? '&radic;' : ''
-        %td.first.label= @vote.yes_count
-        %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
-      %tr
-        %th.label No
-        %td.label!= @vote.passed? ? '' : '&radic;'
-        %td.label= @vote.no_count
-      %tr
-        %th.last.label Other
-        %td.last.label
-        %td.last.label #{@vote.other_count}
-      %caption(align='bottom')= "* 'Needed to pass' is not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
+.grid_6.vote_chart.omega
+  %h2 Vote Breakdown
+  %table
+    %tr
+      %th.first.label Yes
+      %td.first.label!= @vote.passed? ? '&radic;' : ''
+      %td.first.label= @vote.yes_count
+      %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
+    %tr
+      %th.label No
+      %td.label!= @vote.passed? ? '' : '&radic;'
+      %td.label= @vote.no_count
+    %tr
+      %th.last.label Other
+      %td.last.label
+      %td.last.label #{@vote.other_count}
+    %caption(align='bottom')= "* 'Needed to pass' is not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
 
-  #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
+#votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
 
-  .grid_16.alpha
-    %h2 Full Roll Call
-    - unless @vote.roll_calls.size > 0
-      %p Sorry, no roll call is available for this vote.
-    - else
-      - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-        .grid_5
-          %table.roll_call
-            %caption(align='top') #{vote_type.capitalize} Votes
-            %thead
+.grid_12.alpha
+  %h2 Full Roll Call
+  - unless @vote.roll_calls.size > 0
+    %p Sorry, no roll call is available for this vote.
+  - else
+    - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
+      .grid_4
+        %table.roll_call
+          %caption(align='top') #{vote_type.capitalize} Votes
+          %thead
+            %tr
+              %th Name
+              %th District
+              %th Party
+          %tbody
+            - roll_calls.each do |roll_call|
               %tr
-                %th Name
-                %th District
-                %th Party
-            %tbody
-              - roll_calls.each do |roll_call|
-                %tr
-                  %td.person(class="vote_#{roll_call.roles.first.try(:party_abbr)}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
-                  %td= roll_call.roles.first.try(:district_fm)
-                  %td= roll_call.roles.first.try(:party_fm)
+                %td.person(class="vote_#{roll_call.roles.first.try(:party_abbr)}_#{vote_type}")= link_to roll_call.person.full_name, person_path(roll_call.person)
+                %td= roll_call.roles.first.try(:district_fm)
+                %td= roll_call.roles.first.try(:party_fm)
