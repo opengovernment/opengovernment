@@ -49,7 +49,7 @@ class Chamber < ActiveRecord::Base
 
   def short_name
     case name
-    when "House of Representatives"
+    when "House of Representatives", "House of Delegates"
       "House"
     else
       name

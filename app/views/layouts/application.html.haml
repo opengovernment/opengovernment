@@ -68,14 +68,17 @@
             %div(id="flash_#{key}")
               =h value
       %div.content
-        .grid_4
-          %nav#left_nav
-            = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
-          = yield :after_left_nav
+        - if content_for?(:content)
+          -# :content can be yielded by nested templates eg. pages.html.haml
+          = yield(:content)
+        - else
+          .grid_4
+            %nav#left_nav
+              = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
+            = yield :after_left_nav
 
-        .grid_12
-          -# :content can be yielded by nested templates eg. static.html.haml
-          = content_for?(:content) ? yield(:content) : yield
+          .grid_12
+            = yield
       %br
       .clearfix
 

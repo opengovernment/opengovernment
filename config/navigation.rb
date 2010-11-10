@@ -46,7 +46,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :help, 'Help', page_path("help")
       primary.item :contact, 'Contact Us', page_path("contact")
     else
-    
+
       if controller_name == 'subjects'
         if defined?(@subject)
           primary.item :subject, 'Bill Subject', subject_path(@subject, :subdomain => current_place_subdomain)
@@ -93,19 +93,21 @@ SimpleNavigation::Configuration.run do |navigation|
 
       primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills'
       primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |p|
-        p.item :upper, "#{current_place.legislature.upper_chamber.name}", people_path
-        p.item :lower, "#{current_place.legislature.lower_chamber.name}", lower_people_path
-        p.item :upper, "#{current_place.legislature.upper_chamber.name} Committees", upper_committees_path
-        p.item :lower, "#{current_place.legislature.lower_chamber.name} Committees", lower_committees_path
-        p.item :joint, "Joint Committees", joint_committees_path
+        if defined?(current_place)
+          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)}", people_path
+          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)}", lower_people_path
+          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path
+          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)} Committees", lower_committees_path
+          p.item :joint, "Joint Committees", joint_committees_path
+        end
       end
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
-           
+
       primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
- #       if defined?(@issue)
+#       if defined?(@issue)
 #          m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
-#        end
+#       end
       end
 
   #   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
