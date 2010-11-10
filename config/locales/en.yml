@@ -22,7 +22,10 @@ en:
         A major action for a bill, as we define it, includes either movement between committees or roll call vote
         on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
         this bill's status in the legislative process.
-
+  people:
+    show:
+      wikipedia_missing: "No biography was found on Wikipedia for %{name}."
+      
   support:
     array:
       words_connector: ", "
