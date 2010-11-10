@@ -32,14 +32,14 @@ en-LA:
       
     index:
       intro: |
-        This is a list of all bills in the Louisiana state legislature. In 2010, the legislature was only in regular session -- meaning, where bills were introduced and voted on -- from March 29th - June 21st. As a result, while each chamber of the legislature still holds committee hearings through the end of the year, the bills below will not have any more actions.<br><br>
-        A new Louisiana state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
+        <!--In 2010, the legislature was only in regular session -- meaning, where bills were introduced and voted on -- from March 29th - June 21st. As a result, while each chamber of the legislature still holds committee hearings through the end of the year, the bills below will not have any more actions.-->
+        This is a list of all bills in the current 2009 - 2010 Louisiana state legislature. A new legislature will convene in January 2011, after which date newly introduced bills will appear here automatically. Until then, you can use the sort-by options below to view bills in each chamber.
         
   people: 
     index:
       intro: |
-        This is a list of all members of the Louisiana state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on these bills.<br><br>
-        A new Louisiana state legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in different ways.
+       <!--In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on these bills.-->
+         This is a list of all members of the current 2009 - 2010 Louisiana state legislature. A new legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in each chamber.
 
   issues:
     index:
