@@ -106,12 +106,12 @@ ul.share li a {
 
 
 .people.show .hov.track_buttons .drop{
-  height: 86px;
-  width: 156px;
+  height: 96px;
+  width: 165px;
   }
 
 .bills.show .hov.track_buttons .drop{
-  height: 122px;
+  height: 132px;
   width: 156px;
   }
 
@@ -137,13 +137,23 @@ ul.share li a {
   }
 
 
-.hov.track_buttons ul li.email a span{
+li.email a span{
   padding-left: 25px;
   height: 20px;
   margin-right: 5px;
   float: left;
   background: url('/images/share.png') no-repeat -63px 0px;
   }
+
+
+li.email a span.soon{
+font-size: 11px;
+font-weight: normal;
+padding-left: 29px;
+  background: none;
+margin-top: -5px;  
+}
+
 
 .write_buttons,
 .write_button {
