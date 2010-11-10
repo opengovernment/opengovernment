@@ -6,6 +6,7 @@
       = "#{@bill.state.name} #{@bill.chamber.name} Bill "
     %span
       = "#{@bill.bill_number}"
+      = @bill.title
 
   - if defined?(show_tools)
     %aside.take_action.full_lined

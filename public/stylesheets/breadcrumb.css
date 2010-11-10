@@ -117,7 +117,7 @@ margin-left: -23px;
   height: 24px;
   list-style: none;
 
-  padding: 13px 60px 0 25px;
+  padding: 13px 30px 0 25px;
   text-decoration: none;
 font-size: 13px;
   line-height: 1em;
@@ -157,8 +157,13 @@ padding-left: 10px;
 
 li.topnav a{
   padding-left: 15px;
+padding-right: 60px;
 }
 
+li.first a{
+
+padding-right: 60px;
+}
 
 .topnav a strong{
   font-weight: bold !important;
@@ -239,4 +244,8 @@ li.topnav a{
   }
 
 
+
+.current{
+padding-left: 40px;
+}
 

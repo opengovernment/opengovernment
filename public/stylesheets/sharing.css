@@ -11,8 +11,9 @@
 ul.share {
   list-style: none !important;
   padding: 4px;
-  margin: 15px 0 15px 15px !important;
+  margin: 10px 0 15px 34px !important;
   height: 20px;
+float: left;
   }
 
 
