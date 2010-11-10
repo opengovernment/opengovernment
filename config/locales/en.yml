@@ -25,6 +25,7 @@ en:
   people:
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."
+      no_tweets: "Sorry, there were no tweets found for %{hashtags}."
       
   support:
     array:

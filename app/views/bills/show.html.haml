@@ -82,7 +82,7 @@
     #twitter(style="display: none;")
       %h2 Twitter Mentions
       #notweets(style="display: none;")
-        %p Sorry, there were no tweets found for #{@bill.to_hashtags}.
+        %p= t '.no_tweets', :hashtags => @bill.to_hashtags
       %ul#tweets
 
   - if @bill.citations.any?
