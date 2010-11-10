@@ -31,8 +31,7 @@
   .grid_6.omega
     %h2 Wikipedia Bio
     - if @person.bio_data.blank?
-      %p
-        No biography was found on Wikipedia for #{@person.full_name}.
+      %p= t '.wikipedia_missing', :name => @person.full_name
     - else
       %p
         = @person.bio_data
