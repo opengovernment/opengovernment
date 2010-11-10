@@ -37,6 +37,18 @@
         #account.grid_9.alpha
           .grid_8.alpha.omega
             %strong= link_to 'OpenGovernment', home_url(:subdomain => false) 
+
+            %ul.breadcrumb
+              %li.topnav
+                %a{:href => root_url(:subdomain => current_place_subdomain)}
+                  = current_place_name || "Select a State"
+                %a#dropdown{:class => 'dropdown', :href => '#'}
+                %ul.state-select
+                  - State.loadable.each do |state|
+                    %li= link_to state.name, state_url(state)
+
+
+
             - if current_user
               Hello,
               %a.account(href="#content" title="Username") #{current_user.login}.
@@ -48,15 +60,6 @@
           .grid_7.omega.search
             = render :partial => 'shared/search_form'
 
-    %div.container_16.bread.boxxed
-      %ul.breadcrumb
-        %li.topnav
-          %a{:href => root_url(:subdomain => current_place_subdomain)}
-            = current_place_name || "Select a State"
-          %a#dropdown{:class => 'dropdown', :href => '#'}
-          %ul.state-select
-            - State.loadable.each do |state|
-              %li= link_to state.name, state_url(state)
 
     %div.container_16.main.boxxed
       - unless flash.empty?

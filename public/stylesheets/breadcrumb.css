@@ -1,13 +1,46 @@
 
 
-.bread{
-height: 36px;
-margin: 0px auto 20px;
--moz-border-radius: 30px;
-border-bottom: 0 !important;
+.breadcrumb{
+  float: left;
+margin-top: -2px;
+}
+
+.breadcrumb li{
+  float: left;
+  line-height: 3em;
+  list-style: none;
+}
+
+.breadcrumb li a{
+  float: left;
+  list-style: none;
+  text-decoration: none;
+font-size: 13px;
+  line-height: 1.6em;
+  margin: 0 !important;
 }
 
 
+
+.breadcrumb li a span{
+  margin: 0 0 0 15px;
+
+}
+
+.breadcrumb li a:hover span{
+text-decoration: underline;
+}
+
+
+.breadcrumb li:hover, .breadcrumb a.subhover{
+  z-index: 120;
+
+}
+
+
+.breadcrumb li a:hover{
+
+}
 
 /* State selector menu */
 ul.state-select,
@@ -92,89 +125,8 @@ border: 1px solid #ccc;
 ul.breadcrumb li span.subhover 
 {cursor: pointer;} /*--Hover effect for trigger--*/  
 
-.breadcrumb{
-  height: 47px;
-  padding: 0;
-  clear: both;
-  width: 992px;
-  letter-spacing: 0.01em; font-family: "Droid Sans", Arial;
-  float: left;
-  margin: -1px 0 0 -16px;
-}
-
-.breadcrumb li{
-  float: left;
-  line-height: 3em;
-  list-style: none;
-  clear: none;
-  position: relative;
-margin-left: -23px;
-  z-index: 100;
-}
-
-.breadcrumb li a{
-  float: left;
-  height: 24px;
-  list-style: none;
-
-  padding: 13px 30px 0 25px;
-  text-decoration: none;
-font-size: 13px;
-  line-height: 1em;
-  margin: 0 !important;
-
-  background: url(/images/crumb_right.png) right -5px no-repeat;
-}
 
 
-
-.breadcrumb li a span{
-  margin: 0 0 0 15px;
-
-}
-
-.breadcrumb li a:hover span{
-text-decoration: underline;
-}
-
-
-.breadcrumb li:hover, .breadcrumb a.subhover{
-  z-index: 120;
-
-}
-
-
-.breadcrumb li a:hover{
-
-}
-
-
-.topnav{
-margin-left: 0px !important;
-padding-left: 10px;
-}
-
-
-li.topnav a{
-  padding-left: 15px;
-padding-right: 60px;
-}
-
-li.first a{
-
-padding-right: 60px;
-}
-
-.topnav a strong{
-  font-weight: bold !important;
-  padding-right: 9px;
-  padding-left: 9px;
-  font-family: "Droid Sans Bold", Arial;
-}
-
-.topnav:hover a:hover{
-
-}
 
 .dropdown{
   background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fcfcfc) !important;

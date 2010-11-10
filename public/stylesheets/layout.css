@@ -210,9 +210,10 @@ width: 162px !important;
 
 
 #account strong{
-padding-right: 20px;
+padding-right: 10px;
 font-size: 16px;
 margin-left: -20px;
+float: left;
 }
 
 
@@ -289,6 +290,59 @@ background: url(/images/sprites.png) left -444px no-repeat;
 */
 font-size: 14px;
 }
+
+
+
+
+#left_nav ul li ul li{
+margin: 0;
+padding-right: 0px;
+margin-left: 0px;
+background: none;
+}
+
+
+#left_nav ul li.selected ul li a{
+margin: 0;
+padding: 8px 0 8px 35px;
+background: none;
+}
+
+
+
+#left_nav ul li ul li.selected a{
+margin: 0;
+padding-right: 0px;
+
+background: #cddcde !important;
+cursor: default;
+}
+
+
+#left_nav ul li ul li.selected a:hover{
+text-decoration: none;
+}
+
+
+
+
+
+
+
+
+#left_nav ul li.selected a{
+border-bottom: 1px solid #b8cfd1;
+}
+
+
+#left_nav ul li#person.selected ul{
+background: #dde9ea;
+border-right: 1px solid #b8cfd1;
+}
+
+
+
+
 
 
 /*///////////////////////////
