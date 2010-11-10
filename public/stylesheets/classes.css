@@ -1,3 +1,9 @@
+.venn{
+width: 714px; 
+  background: transparent url(/images/about.png) 0 0 no-repeat !important;
+margin: 40px 0 40px -13px;
+height: 590px;
+}
 
 
 /*///////////////////////////////////////////////////
@@ -258,6 +264,7 @@ ul.lined.and_spaced.with_titles li a{
   color: #888;
   display: block;
 padding-bottom: .5em;
+font-size: 12px;
   }
 
 
@@ -310,13 +317,13 @@ padding-bottom: .5em;
 
 
 
-.race_tracker span{
-  display: block;
-  padding-top: 30px;
-  height: 0;
-  margin-top: 5px;
-  overflow: hidden;
-  background: #fff url(/images/race_tracker.png) 0 0 no-repeat;
+.race_tracker a{
+font-size: 11px;
+ border-top: 1px solid #d1dddd;
+display: block;
+margin-left: -26px;
+line-height: 1.4em;
+padding: 15px 26px;
   }
   
   

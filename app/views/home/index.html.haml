@@ -1,37 +1,25 @@
+.find_box
+  = render :partial => 'shared/find_my_rep_form'
+
 .space
 
-.grid_8.smaller
+%h2.grid_14.push_1 Finally, a version of OpenCongress for your state legislature
+
+.grid_7.bigger
   .push_1
     %br
-    %strong Finally, a version of OpenCongress for your state legislature
     %p 
-      Welcome to OpenGovernment, a free and open-source public 
-      %br
-      resource for government transparency at the state and local levels.
+      Welcome to OpenGovernment, a free and open-source public resource for government transparency at the state and local levels.
 
 
-.grid_7.smaller
+.grid_7
   .push_1
-
     %br
     %p OpenGovernment is a non-profit and non-partisan project of the Participatory Politics Foundation and the Sunlight Foundation, the team behind OpenCongress, the most-visited government transparency website in the United States. The site is in early development -- much more to come, and you can help us grow.
 
 
-.clear
+.clear.space
 
-
-.wave
-  %h2 Begin by choosing your state
-
-  %a.menu Use the menu above
-
-  .find_box
-    = render :partial => 'shared/find_my_rep_form'
-
-  %a.map Use the map below
-
-
-  .clear
 
 
 
@@ -39,8 +27,3 @@
   %h2 Do more with OpeGovernment 
 
   %p Learn Track and Share
-
-
-
-
-= interactive_us_map

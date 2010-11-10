@@ -1,7 +1,7 @@
 %h2 Sign in
 %p
   For the time being, for technical reasons, we only support sign ins using the free accounts of our sibling site, OpenCongress. Head over there
-  = %a{:href => 'http://www.opencongress.org/register'} to register,
+  %a{:href => 'http://www.opencongress.org/register'} to register,
   and then use your OpenCongress username and password to sign in here.
   
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|

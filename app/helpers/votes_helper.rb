@@ -39,7 +39,7 @@ module VotesHelper
     end
 
     # Our array now looks something like this:
-    #  => ["Democrat", [64, 0, 3], "Republican", [18, 52, 3], "Other", [0, 0, 0]]
+    #  => ['Democrat', [64, 0, 3], 'Republican', [18, 52, 3], 'Other', [0, 0, 0]]
     counts_only = votes.select { |x| x.instance_of?(Array) }
 
     total_votes = counts_only.flatten.inject { |sum,n| sum + n }

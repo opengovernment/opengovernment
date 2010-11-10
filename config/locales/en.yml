@@ -1,7 +1,32 @@
-it# Sample localization file for English. Add more files in this directory for other locales.
+# Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
+  home:
+    index:
+      intro: "Welcome to OpenGovernment.org!"
+  states:
+    show:
+      state_population: "No population data."
+      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
+      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      last_election_date: "No data for last election date."
+  bills:
+    money_trail:
+      title: "Money Trail data isn't quite ready!"
+      details: |
+        Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital
+        data in place!
+    votes:
+      no_actions: "We have no actions for this bill."
+      major_action: |
+        A major action for a bill, as we define it, includes either movement between committees or roll call vote
+        on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
+        this bill's status in the legislative process.
+  people:
+    show:
+      wikipedia_missing: "No biography was found on Wikipedia for %{name}."
+      no_tweets: "Sorry, there were no tweets found for %{hashtags}."
+      
   support:
     array:
       words_connector: ", "
@@ -63,23 +88,4 @@ en:
           trillion: Trillion
           quadrillion: Quadrillion
 
-  
-  
-  home:
-    index:
-      intro: "Welcome to OpenGovernment.org!"
-  states:
-    show:
-      state_population: "No population data."
-      state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
-      state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
-      last_election_date: "No data for last election date."
-  bills:
-    money_trail:
-      title: "Money Trail data isn't quite ready!"
-      details: |
-        Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital
-        data in place!
-    votes:
-      no_actions: We have no actions for this bill.
-      major_action: "A major action for a bill, as we define it, includes either movement between committees or roll call vote on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on this bill's status in the legislative process."
+

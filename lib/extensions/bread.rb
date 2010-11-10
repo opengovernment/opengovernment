@@ -21,10 +21,18 @@ module SimpleNavigation
         item_container.items.inject([]) do |list, item|
           ops = item.html_options.except(:id)
 
-#          Rails.logger.debug "item: #{item.name}\nselected? #{item.selected?} sub? #{include_sub_navigation?(item)}"
+          Rails.logger.debug "item: #{item.name}\nselected? #{item.selected?} sub? #{include_sub_navigation?(item)}\n"
 
+          # One item at every nav level that leads to where we are now is considered "selected"
           if item.selected?
-            list_item = link_to(content_tag(:span, item.name), item.url, { :method => item.method }.merge(item.html_options.except(:class, :id)))
+            
+
+            # Link to all items that with children (but not to the current page)
+            if include_sub_navigation?(item)
+              list_item = link_to(content_tag(:span, item.name), item.url, { :method => item.method }.merge(item.html_options.except(:class, :id)))
+            else
+              list_item = content_tag(:span, item.name, :class => 'current')
+            end
 
             if i == 0 && level == 0
               ops[:class].concat(' first')

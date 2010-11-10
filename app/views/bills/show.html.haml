@@ -1,6 +1,6 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, major_actions_bill_path(@bill.session, @bill, :format => :atom), {:title => "Major Actions"})
-  = auto_discovery_link_tag(:atom, actions_bill_path(@bill.session, @bill, :format => :atom))
+  = auto_discovery_link_tag(:atom, actions_bill_path(@bill.session, @bill, :format => :atom), { :title => "All Actions"})
 
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number}")
 - track(@bill)
@@ -15,10 +15,6 @@
     = render 'shared/view_counts', :page => @bill
 
   %hr
-
-  .grid_12.alpha
-    %p.grid_12.alpha.summary= @bill.title
-
   - status_bar(@bill)
   .clear
 
@@ -34,20 +30,24 @@
             = s.kind_fm
 
   .grid_6.omega
-    - if @bill.versions.count > 0
+    - if @bill.versions.any?
       %h2 Bill Text
   
       %ul.lined
         - @bill.versions.each do |version|
           %li= link_to_document(version)
 
-    - if @bill.subjects.count > 0
-      %h2 Subject Areas
+      = t '.missing_bill_text'
+
+    %h2 Subject Areas
+    - if @bill.subjects.any?
       %ul.lined
         - @bill.subjects.each do |subject|
           %li= link_to(subject.name, subject_path(subject))
+    - else
+      %p None.
 
-    - if @bill.documents.count > 0
+    - if @bill.documents.any?
       %h2 Documents
 
       %ul.lined
@@ -80,11 +80,15 @@
     #twitter(style="display: none;")
       %h2 Twitter Mentions
       #notweets(style="display: none;")
-        %p Sorry, there were no tweets found for #{@bill.to_hashtags}.
+        %p= t '.no_tweets', :hashtags => @bill.to_hashtags
       %ul#tweets
 
   - if @bill.citations.any?
     .citations
-      Sources:
+      %p
+        Primary sources for this bill:
       %ul
         = render @bill.citations
+      How did we get all this other info? Actually, it was tough, but we got it. About
+      = succeed '.' do
+        = link_to('our data sources', page_path('about'))
