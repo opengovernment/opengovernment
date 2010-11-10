@@ -44,6 +44,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :about, 'About OpenGovernment.org', page_path("about")
       primary.item :policy, 'Privacy Policy', page_path("privacy")
       primary.item :help, 'Help', page_path("help")
+      primary.item :contact, 'Contact Us', page_path("contact")
     else
     
       if controller_name == 'subjects'
@@ -65,17 +66,9 @@ SimpleNavigation::Configuration.run do |navigation|
       if defined?(@vote)
         primary.item :vote, 'Vote', vote_path(@vote)
       end
-    
-      if controller_name == 'committees'
-        primary.item :committees, 'Committees', committees_path do |c|
-          c.item :upper, 'Upper Chamber', upper_committees_path
-          c.item :lower, 'Lower Chamber', lower_committees_path
-          c.item :joint, 'Joint', joint_committees_path
-        end
-      end
 
       if defined?(@bill) || defined?(@vote) || defined?(@action)
-        primary.item :bill, 'Bill', bill_path(@bill.session, @bill), :class => 'bill' do |m|
+        primary.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
           m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
           m.item :mentions, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
@@ -84,30 +77,35 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
           m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
         end
-      else
-        primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills'
       end
 
       if defined?(@person)
-          primary.item :person, 'Person', person_path(@person), :class => "person #{@person.gender_class}" do |m|
-            m.item :overview, 'Overview', person_path(@person)
-            m.item :votes, 'Votes', votes_person_path(@person)
-            m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
-            m.item :tweets, 'Social Media Mentions', social_person_path(@person)
-            m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
-            m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
-            m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
-          end
-      else
-        primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people'
+        primary.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
+          m.item :overview, 'Overview', person_path(@person)
+          m.item :votes, 'Votes', votes_person_path(@person)
+          m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
+          m.item :tweets, 'Social Media Mentions', social_person_path(@person)
+          m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
+          m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
+          m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
+        end
+      end
+
+      primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills'
+      primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |p|
+        p.item :upper, "#{current_place.legislature.upper_chamber.name}", people_path
+        p.item :lower, "#{current_place.legislature.lower_chamber.name}", lower_people_path
+        p.item :upper, "#{current_place.legislature.upper_chamber.name} Committees", upper_committees_path
+        p.item :lower, "#{current_place.legislature.lower_chamber.name} Committees", lower_committees_path
+        p.item :joint, "Joint Committees", joint_committees_path
       end
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
            
       primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
-        if defined?(@issue)
-          m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
-        end
+ #       if defined?(@issue)
+#          m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
+#        end
       end
 
   #   primary.item :votes, 'Votes', '#', :if => Proc.new { controller.controller_name == 'votes' } do |m|
@@ -116,9 +114,9 @@ SimpleNavigation::Configuration.run do |navigation|
    #     end
    #   end
       primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail' do |m|
-        if defined?(@industry)
-          m.item :industry, @industry.name, money_trail_path(@industry)
-        end
+  #      if defined?(@industry)
+  #        m.item :industry, @industry.name, money_trail_path(@industry)
+   #     end
       end
 
       # Add an item which has a sub navigation (same params, but with block)

@@ -6,7 +6,13 @@
 
 %p Developer forum & site discussion: <a href="http://groups.google.com/group/opengovernment/">OpenGovernment Google Group</a>
 
-%p Email list: <a href="http://crm.ppolitics.org/">OpenGovernment site updates</a>
+%p Email list:
+
+%form(action="http://crm.ppolitics.org/civicrm/mailing/subscribe" method="post")
+  %p
+    %input(name="email" type="text" id="email")
+    %input(name="mark_x_3" type="hidden" value="1")
+    %input(name="_qf_Subscribe_next" value="Subscribe" type="submit")
 
 %p Social media: <a href="http://twitter.com/open_gov">@open_gov</a> on Twitter; <a href="http://identi.ca/opengovernment">@opengovernment</a> on Identi.ca; pending the imminent creation of a new OG-specific group, <a href="http://www.facebook.com/OpenCongress">OpenCongress</a> on Facebook; <a href="http://www.joindiaspora.com/">Diaspora</a> profile coming soon, you better believe it. 
 
