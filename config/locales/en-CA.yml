@@ -28,8 +28,8 @@ en-CA:
       miro_url: 'http://caopengov.mirocommunity.org/'
     index:
       intro: |
-        This is a list of all bills in the current California state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will generally not have any more official actions.<br><br>
-        A new California state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
+        <! -- In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will generally not have any more official actions.-->
+        This is a list of all bills in the current 2009 - 2010 California state legislature. A new legislature will convene in January 2011, after which date new bills introduced will appear here automatically. Bill pages display official government information combined with news coverage (and more) to help figure out its current status and... well, just what the heck it means. Also, you'll find free tools to track that bill, share it on social media, and easily contact your elected officials. 
   people: 
       index:
         intro: |
