@@ -30,13 +30,14 @@ en-CA:
       intro: |
         This is a list of all bills in the current California state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will generally not have any more official actions.<br><br>
         A new California state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
+    show:
+      missing_bill_text: 'Links to California full bill text are coming soon.'
   people: 
       index:
         intro: |
           This is a list of all members of the California state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on these bills.<br><br>
           A new California state legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in different ways.
-    
-    
+
   issues:
     index:
       intro: |

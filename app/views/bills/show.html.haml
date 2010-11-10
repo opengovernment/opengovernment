@@ -41,6 +41,8 @@
         - @bill.versions.each do |version|
           %li= link_to_document(version)
 
+      = t '.missing_bill_text'
+
     %h2 Subject Areas
     - if @bill.subjects.any?
       %ul.lined
