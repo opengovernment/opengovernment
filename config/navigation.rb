@@ -44,6 +44,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :about, 'About OpenGovernment.org', page_path("about")
       primary.item :policy, 'Privacy Policy', page_path("privacy")
       primary.item :help, 'Help', page_path("help")
+      primary.item :contact, 'Contact Us', page_path("contact")
     else
     
       if controller_name == 'subjects'
@@ -66,14 +67,6 @@ SimpleNavigation::Configuration.run do |navigation|
         primary.item :vote, 'Vote', vote_path(@vote)
       end
     
-      if controller_name == 'committees'
-        primary.item :committees, 'Committees', committees_path do |c|
-          c.item :upper, 'Upper Chamber', upper_committees_path
-          c.item :lower, 'Lower Chamber', lower_committees_path
-          c.item :joint, 'Joint', joint_committees_path
-        end
-      end
-
       if defined?(@bill) || defined?(@vote) || defined?(@action)
         primary.item :bill, 'Bill', bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
@@ -99,7 +92,13 @@ SimpleNavigation::Configuration.run do |navigation|
             m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
           end
       else
-        primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people'
+        primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |p|
+          p.item :upper, "#{current_place.legislature.upper_chamber.name}", people_path
+          p.item :lower, "#{current_place.legislature.lower_chamber.name}", lower_people_path
+          p.item :upper, "#{current_place.legislature.upper_chamber.name} Committees", upper_committees_path
+          p.item :lower, "#{current_place.legislature.lower_chamber.name} Committees", lower_committees_path
+          p.item :joint, "Joint Committees", joint_committees_path
+        end
       end
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
