@@ -40,6 +40,14 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.
     #
+    
+
+
+    # OpenGovernment's navigation is only ever two levels deep.
+    # Some third-level navigation is defined in this file, and it
+    # never appears. But by defining it, we can highlight the appropriate level 1..2 items
+    # when we want to.
+
     if controller_name == 'pages'
       primary.item :about, 'About OpenGovernment.org', page_path("about")
       primary.item :policy, 'Privacy Policy', page_path("privacy")
@@ -58,24 +66,30 @@ SimpleNavigation::Configuration.run do |navigation|
       if defined?(@sig)
           primary.item :sig, 'Special Interest Group', sig_path(@sig)
       end
-    
-      if defined?(@action)
-        primary.item :action, 'Action', action_path(@action)
-      end
 
       if defined?(@vote)
-        primary.item :vote, 'Vote', vote_path(@vote)
+        bill = @vote.bill
+      elsif defined?(@action)
+        bill = @action.bill
+      elsif defined?(@bill)
+        bill = @bill
       end
 
-      if defined?(@bill) || defined?(@vote) || defined?(@action)
-        primary.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
-          m.item :overview, 'Overview', bill_path(@bill.session, @bill)
-          m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
-          m.item :mentions, 'News & Blog Coverage', news_bill_path(@bill.session, @bill)
-          m.item :tweets, 'Social Media Mentions', social_bill_path(@bill.session, @bill)
-          m.item :videos, 'Videos', videos_bill_path(@bill.session, @bill), :class => 'inactive'
-          m.item :money_trail, 'Money Trail', money_trail_bill_path(@bill.session, @bill), :class => 'inactive'
-          m.item :discuss, 'Comments', discuss_bill_path(@bill.session, @bill), :style => "display: none;"
+      if defined?(@vote) || defined?(@action) || defined?(@bill)
+        primary.item :bill, bill.bill_number, bill_path(bill.session, bill), :class => 'bill' do |m|
+          m.item :overview, 'Overview', bill_path(bill.session, bill)
+          m.item :votes, 'Votes and Actions', votes_bill_path(bill.session, bill) do |v|
+            if defined?(@vote)
+              v.item :vote, 'Vote', vote_path(@vote)
+            elsif defined?(@action)
+              v.item :action, 'Action', action_path(@action)
+            end
+          end
+          m.item :mentions, 'News & Blog Coverage', news_bill_path(bill.session, bill)
+          m.item :tweets, 'Social Media Mentions', social_bill_path(bill.session, bill)
+          m.item :videos, 'Videos', videos_bill_path(bill.session, bill), :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trail_bill_path(bill.session, bill), :class => 'inactive'
+          m.item :discuss, 'Comments', discuss_bill_path(bill.session, bill), :style => "display: none;"
         end
       end
 

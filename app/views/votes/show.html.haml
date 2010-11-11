@@ -20,11 +20,14 @@
 %hr
 
 .grid_2.alpha.details
-  %span= @vote.date
+  %br
+  = @vote.date.to_html
   %br
   %span= "In the " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '') + @vote.chamber.name
 
 .grid_10.summary.alpha
+  %span
+    %strong= @vote.passed? ? "Passed" : "Failed"
   %p= @vote.bill.title
 
 %hr.push_bottom
