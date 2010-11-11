@@ -1,12 +1,10 @@
-%hr.grid_16
-  - if @contributions.empty?
-    %p Sorry, no contributions matched.
-  - else
-    %nav.grid_4#left_nav    
-    %div.search_results.grid_12
-      %ul.contributions
-        - @contributions.each do |contribution|
-          %li[contribution]
-            != contribution.contributor_name
+- if @contributions.empty?
+  %p Sorry, no contributions matched.
+- else
+  .search_results
+    %ul.contributions
+      - @contributions.each do |contribution|
+        %li[contribution]
+          != contribution.contributor_name
 
-      = will_paginate @contributions
+    = will_paginate @contributions

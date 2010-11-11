@@ -1,12 +1,7 @@
 - embed_disqus("person-#{@person.id}")
 
-- content_for :left_nav do
-  = render_navigation
-
+- content_for :below_left_nav do
   %ul.user
-    %li.discuss
-      %a= link_to('Comments', discuss_person_path(@person, :anchor => 'disqus_thread'))
-  
     %li.race_tracker
       %a{:href => 'http://www.opencongress.org/wiki/Project:OpenGovernment'}
         Follow #{@person.full_name.possessive} campaign on

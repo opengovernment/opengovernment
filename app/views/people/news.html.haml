@@ -8,7 +8,6 @@
 
 %hr.push_bottom
 
-
 - if @person.mentions.empty?
   %div.no_results
     At the moment, we're finding no news or blog mentions of this legislator (using the search query, e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog Search). But you can start building public knowledge here for this elected official.<br><br>
@@ -19,10 +18,9 @@
 
 - else
 
-  .grid_12.alpha.omega
-    %p 
-      Here are all the news and blog mentions found for this legislator (e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog searches). You can add to this page and help build public knowledge about this person. Simply mention this member by his or her official title and full name in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this specific person by title and name as above, and if your letter is published on the Web, a link to that page will be gathered here for everyone to access. We've done our best to optimize our automated search processes for this person, but occasionally even our state-of-the-art search robots bring in irrelevant links, such as other people with similar names -- so if you see irrelevant links below, it's no big deal, please carry on. Actually, if you care to take a moment to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous links cleaned-up and out-of-the-way as quickly as possible. Now, here's what we found by way of real-world news & blog context for this person:
-      = @person.full_name
+  %p
+    Here are all the news and blog mentions found for this legislator (e.g., "Senator Firstname Lastname") from our daily automated search of the Web (via Google News and Blog searches). You can add to this page and help build public knowledge about this person. Simply mention this member by his or her official title and full name in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this specific person by title and name as above, and if your letter is published on the Web, a link to that page will be gathered here for everyone to access. We've done our best to optimize our automated search processes for this person, but occasionally even our state-of-the-art search robots bring in irrelevant links, such as other people with similar names -- so if you see irrelevant links below, it's no big deal, please carry on. Actually, if you care to take a moment to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous links cleaned-up and out-of-the-way as quickly as possible. Now, here's what we found by way of real-world news & blog context for
+    = @person.full_name
 
   %hr
 
