@@ -74,7 +74,7 @@
         - else
           .grid_4
             %nav#left_nav
-              = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
+              = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
             = yield :after_left_nav
 
           .grid_12
