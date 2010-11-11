@@ -14,7 +14,7 @@ module VotesHelper
 
   def vote_chart_image_tag(vote)
 
-    height, width = 100, 300
+    height, width = 100, 602
     bar_height = 20
 
     vote_types = ['yes', 'no', 'other']

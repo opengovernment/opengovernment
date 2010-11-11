@@ -16,7 +16,16 @@ margin-right: 10px;
 }
 
 
+.summary{
+font-size: 18px;
+line-height: 1.4em;
+padding: 5px 5px;
+margin: 0;
+}
 
+.summary p {
+  margin: 0;
+}
 
 .vote_results div{
   display: inline;
@@ -39,11 +48,13 @@ margin-right: 10px;
 
 .roll_call td {
   padding: 3px 5px 3px 0;
+  min-width: 35px;
 }
 
 /* Make room for the party icon */
 .roll_call td.person {
   padding-left: 14px !important;
+  min-width: 130px;
   font-size: 12px;
 }
 
