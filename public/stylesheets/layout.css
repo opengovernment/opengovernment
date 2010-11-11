@@ -1,9 +1,5 @@
 
 
-.home.home .find_box{
-margin: 0 -16px !important;
-}
-
 
 
 .smaller *{
@@ -71,7 +67,8 @@ margin: 0 !important;
 
 
 h2.grid_14.push_1{
-font-size: 28px;
+font-size: 30px;
+font-weight: normal
 
 }
 
@@ -112,48 +109,6 @@ background: url(/images/map.gif) center -50px no-repeat;
 
 
 
-.wave .find_box{
-background: 0;
-width: 300px;
-float: left;
-border: none;
-margin: 0 0 0 20px;
-height: 200px;
-}
-
-
-
-.wave .find_box .auto_find{
-top: 120px;
-left: 0;
-margin: 0;
-}
-
-
-
-
-.wave .find_box #find_my_rep label{
-padding-bottom: 20px;
-float: left;
-}
-
-
-
-.wave .find_box #find_my_rep{
-padding: 0;
-margin: 0;
-
-}
-
-
-
-.wave .find_box input#q{
-width: 162px !important;
-}
-
-.wave .find_box .find_button{
-
-}
 
 
 
@@ -335,7 +290,7 @@ border-bottom: 1px solid #b8cfd1;
 }
 
 
-#left_nav ul li#person.selected ul{
+#left_nav ul li.selected ul{
 background: #dde9ea;
 border-right: 1px solid #b8cfd1;
 }
@@ -355,6 +310,7 @@ border-right: 1px solid #b8cfd1;
 font-size: 11px;
 padding: 10px 0 10px 22px;
 display: block;
+clear: left;
 background: url(/images/sprites.png) left -165px no-repeat;
 }
 
@@ -434,16 +390,16 @@ padding: 6px 8px;
 
 .search input#q{
 border: 0;
-padding: 5px 8px;
+padding: 7px 8px;
   border: 0;
   width: 180px;
   float: left;
 
  margin-top: 1px;
-  box-shadow:inset 0 0 10px #999;
-  -moz-box-shadow:inset 0 1px 1px #999;
-  -webkit-box-shadow:inset 0 0 10px #999;
-  
+
+  -moz-box-shadow: inset 0 1px 1px #333;
+  -webkit-box-shadow:0 1px 0px #333, inset 0 0 10px #333;
+  box-shadow: 0 0 10px #333, inset 0 0 10px #333;  
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;

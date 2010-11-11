@@ -389,8 +389,16 @@ clear: none;
 
 
 .popup .addresses{
-margin-bottom: 120px;
+float: left;
+margin: 0;
+
 }
+
+.popup .addresses li{
+width: 198px;
+margin-bottom: 20px;
+}
+
 
 
 .sign{
@@ -407,13 +415,23 @@ padding: 10px 0;
 clear: both;
 }
 
+ul.reps{
+width: 660px;
+
+float: left;
+padding: 0;
+margin: 0 -10px;
+}
+
 
 .bills.show .rep{
 padding: 10px 0;
-width: 610px;
-border: 1px solid #ddd;
+border-top: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
 padding: 20px;
 background: #eee;
+float: left;
+width: 100%;
 }
 
 
