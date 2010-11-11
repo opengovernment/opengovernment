@@ -42,23 +42,12 @@
 
 .grid_12.alpha
   %h2 Ratings
-  .grid_6.alpha
-    %table.ratings
-      %thead
-        %tr
-          %th Person
-          %th District
-          %th Rating
-          %th Year
-      %tbody
-        = render @ratings[0...@ratings.size/2]
-  .grid_6.omega
-    %table.ratings
-      %thead
-        %tr
-          %th Person
-          %th District
-          %th Rating
-          %th Year
-      %tbody
-        = render @ratings[@ratings.size/2..@ratings.size]
+  %table.ratings
+    %thead
+      %tr
+        %th Person
+        %th Category
+        %th Rating
+        %th District
+    %tbody
+      = render @ratings

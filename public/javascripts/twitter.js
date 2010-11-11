@@ -5,7 +5,7 @@ function TwitterAPI(){}
 TwitterAPI.search = function(q, callback){
 	requestURL = "http://search.twitter.com/search.json?q=" + escape(q) + "&callback=?";
 	$.getJSON(requestURL, callback);
-}
+};
 
 TwitterAPI.refresh = function(q, limit) {
   TwitterAPI.search(q, function(json, status){
@@ -33,7 +33,7 @@ TwitterAPI.refresh = function(q, limit) {
     }
 
   });
-}
+};
 
 TwitterAPI.hook = function(q, limit) {
   $(document).ready(function() {
@@ -41,4 +41,4 @@ TwitterAPI.hook = function(q, limit) {
   });
 
   setInterval(function() { TwitterAPI.refresh(q, limit);  }, 30000);
-}
+};

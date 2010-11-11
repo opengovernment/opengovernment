@@ -40,7 +40,7 @@ function create_dropdown_menu(anchor_div, menu_div) {
         $(anchor_div).removeClass("subhover");
       }, 1200);
 
-      $(this).find("a").data("destroyHandle", t)
+      $(this).find("a").data("destroyHandle", t);
       return false;
     }
   );
@@ -62,8 +62,8 @@ $(document).ready(function() {
 
   // Modals.
   $('a.modal').colorbox({
-      transition:'none',
-      opacity: .75,
+      transition: 'none',
+      opacity: 0.6,
       scrolling: false
   });
 

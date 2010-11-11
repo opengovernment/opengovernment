@@ -14,4 +14,4 @@ Tracker = {
 
     $('body').append('<img src="/tracking.gif?' + jQuery.param(env) + '"/>');
   }
-}
+};

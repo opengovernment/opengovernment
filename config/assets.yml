@@ -16,7 +16,6 @@ stylesheets:
     - public/stylesheets/people.css
     - public/stylesheets/sharing.css
     - public/stylesheets/tipsy.css
-
     - public/stylesheets/type.css
     - public/stylesheets/vote.css
 

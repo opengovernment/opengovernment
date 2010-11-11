@@ -4,6 +4,6 @@ function BitlyAPI(login, apiKey) {
 }
 
 BitlyAPI.prototype.shorten = function(link, callback) {
-  requestURL = "http://api.bit.ly/v3/shorten?login=" + this.login + "&apiKey=" + this.apiKey + "&longUrl=" + link + "&format=json&callback=?"
+  requestURL = "http://api.bit.ly/v3/shorten?login=" + this.login + "&apiKey=" + this.apiKey + "&longUrl=" + link + "&format=json&callback=?";
   $.getJSON(requestURL, callback);
 }
