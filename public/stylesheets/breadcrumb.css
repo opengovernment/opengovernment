@@ -47,19 +47,35 @@ text-decoration: underline;
 }
 
 /* State selector menu */
-ul.state-select{  
-  list-style: none;  
+.state-select{  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
   left: -1px;  
   margin: 0;
+  padding: 10px 0 0 0;  
+  display: block !important;  
+
+height: 202px;
+
+  width: 249px;  
+  top: 37px;
+  z-index: 9999999;
+
+}
+
+
+.state-select ul{  
+  list-style: none;  
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+  margin: 0;
   padding: 5px;  
+
 -moz-border-radius: 5px;
-  display: none;  
+  display: block;  
 
   width: 237px;  
-  top: 37px;
+
 border: 1px solid #ccc;
-  z-index: 9999999;
+
 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
@@ -72,7 +88,8 @@ border: 1px solid #ccc;
 
 
 
-ul.state-select li{  
+
+.state-select li{  
   list-style: none;
   background: none !important;
   border: 1px solid #ddd;
@@ -83,7 +100,7 @@ padding: 0;
 }
 
 
-ul.state-select li a{  
+.state-select li a{  
   float: left;
   margin: 0;
   padding: 8px 0 8px 15px !important;

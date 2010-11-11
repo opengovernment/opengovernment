@@ -351,12 +351,15 @@ padding-bottom: 20px;
 .search{
 padding: 10px 0 0 0;
 height: 28px;
+position: absolute;
+right: -27px;
 }
 
 
 .search #search_type{
 float: left;
-margin: 4px 15px 0 0;
+margin: 6px 15px 0 0;
+
 }
 
 
@@ -392,7 +395,7 @@ padding: 6px 8px;
 border: 0;
 padding: 7px 8px;
   border: 0;
-  width: 180px;
+  width: 209px;
   float: left;
 
  margin-top: 1px;
@@ -400,12 +403,18 @@ padding: 7px 8px;
   -moz-box-shadow: inset 0 1px 1px #333;
   -webkit-box-shadow:0 1px 0px #333, inset 0 0 10px #333;
   box-shadow: 0 0 10px #333, inset 0 0 10px #333;  
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  
-  background: -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
- 
+
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+
+  -webkit-border-radius-bottom-right: 0px;
+  -webkit-border-radius-top-right: 0px;
+
+    background: url(/images/search.png) 10px 9px no-repeat; 
+  background: url(/images/search.png) 10px 9px no-repeat, -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
+
+  background: url(/images/search.png) 10px 9px no-repeat, -webkit-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */ 
+
 }
 
 
@@ -422,7 +431,7 @@ float: right;
 
 
 .search_button input{
-padding: 5px 10px;
+padding: 7px 10px;
 margin: 0px;
 float: right;
 cursor: pointer;
@@ -438,15 +447,17 @@ outline: none;
   
   text-shadow: 0 1px 0px #fff;
   
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-radius-bottom-right: 3px;
+  -webkit-border-radius-top-right: 3px;
+
   
   
   border: 1px solid #a7c3c9;
   border-top: 1px solid #c6d9de;
   border-bottom: 1px solid #4e7179;
-  
+  border-left: 0;
   
   -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
