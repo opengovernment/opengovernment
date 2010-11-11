@@ -1,10 +1,11 @@
-.grid_4.alpha
-  .contributor_name= contribution.contributor_name.try(:titleize)
-  %time.contribution_date{:datetime => contribution.date}= contribution.date.to_s
-  .metadata.small.quiet
-    .contributor_city= contribution.contributor_city.try(:titleize)
-    .contributor_state= contribution.state.try(:abbrev)
-    .contributor_occupation= contribution.contributor_occupation.try(:titleize)
-    .contributor_employer= contribution.contributor_employer.try(:titleize)
-.grid_2.omega
-  .amount= number_to_currency(contribution.amount)
+%li
+  .grid_4.alpha
+    .contributor_name= contribution.contributor_name.try(:titleize)
+    %time.contribution_date{:datetime => contribution.date}= contribution.date.to_s
+    .metadata.small.quiet
+      %span.contributor_city= contribution.contributor_city.try(:titleize)
+      %span.contributor_state= contribution.state.try(:abbrev)
+      .contributor_occupation= contribution.contributor_occupation.try(:titleize)
+      %span.contributor_employer= contribution.contributor_employer.try(:titleize)
+  .grid_2.omega
+    .amount= number_to_currency(contribution.amount)

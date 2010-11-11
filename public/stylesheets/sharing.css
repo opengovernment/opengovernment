@@ -218,7 +218,7 @@ font-size: 12px;
 
 .write_buttons label{
 float: left;
-
+padding: 6px 20px 0 0!important;
 }
 
 .write_buttons #q{
@@ -233,9 +233,8 @@ width: 60px !important;
 float: left;
 clear: none !important;
 width: 202px !important;
-margin: 0 0 0px -16px;
+margin: 10px 0 0px -16px !important;
 padding: 10px 0;
-margin-top: 7px;
 }
 
 

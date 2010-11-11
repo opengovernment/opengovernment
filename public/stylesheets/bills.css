@@ -1,13 +1,23 @@
 
 
-.bills.index .intro{
+.bills .intro{
 padding-right: 250px;
-background: #fff url(/images/intros/bills.gif) 490px center no-repeat;
+background: #fff url(/images/intros/bills.gif) 490px 10px no-repeat;
+}
+
+
+
+.bill_actions{
+margin-bottom: 30px;
 }
 
 
 
 
+.bill_actions td{
+border-bottom: 1px solid #eee;
+padding: 10px 0 !important;
+}
 
 
 /*///////////////////////////
@@ -28,6 +38,7 @@ border: 1px solid #eee;
 clear: none;
 position: relative;
 background: #f5fdfe;
+margin-top: 20px;
 }
 
 

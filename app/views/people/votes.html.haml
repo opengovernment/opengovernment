@@ -4,34 +4,23 @@
 
 = render(:partial => 'nav')
 
-.grid_12
 
-  %h1
-    Votes by #{@person.official_name}
-    .subhead
-      (most recent first)
+%h1
+  Votes by #{@person.official_name}
+  .subhead
+    (most recent first)
+%hr
+
+- if @roll_calls.total_entries > 0
+  = will_paginate @roll_calls
   %hr
+  %table.vote-summary
 
-  - if @roll_calls.total_entries > 0
-    = will_paginate @roll_calls
-    %table.vote_summary
-      %thead
-        %tr
-          %th(rowspan=2) Date
-          %th(rowspan=2) Bill & Motion
-          %th(rowspan=2) #{@person.last_name}'s vote
-          %th(colspan=4) Votes
-          %th(rowspan=2) Outcome
-        %tr
-          %th Total
-          %th Yes
-          %th No
-          %th Other
-      %tbody
-      - @roll_calls.each do |roll_call|
-        = render roll_call.vote, :bill => roll_call.vote.bill, :roll_call => roll_call
+    %tbody
+    - @roll_calls.each do |roll_call|
+      = render roll_call.vote, :bill => roll_call.vote.bill, :roll_call => roll_call
 
-    = will_paginate @roll_calls
+  = will_paginate @roll_calls
 
-  - else
-    %p Sorry, we have no voting history for #{@person.official_name}
+- else
+  %p Sorry, we have no voting history for #{@person.official_name}

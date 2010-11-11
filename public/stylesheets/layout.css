@@ -674,7 +674,7 @@ display: block;
 ///////////////////////////*/
 
 .fourohfour{
-font-size: 300px;
+font-size: 100px;
 display: block;
 width: 900px;
 text-align: center;
@@ -684,7 +684,7 @@ font-weight: bold;
 overflow: hidden;
 height: 70px;
 color: #c3d3e4;
-text-shadow: 10px 10px 0px #6e8499;
+text-shadow: 5px 5px 0px #6e8499;
 }
 
 
@@ -890,6 +890,7 @@ background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ *
 
 
 
+.centered *{ text-align: center !important;}
 
 
 /*///////////////////////////
