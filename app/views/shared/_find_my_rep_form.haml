@@ -9,7 +9,6 @@
   </form>
 - unless defined?(narrow)
   .auto_find
-    = link_to 'Auto-Find My Current Location', 'javascript:findMe();'
 .finding(style='display: none;')
 
 :javascript  
@@ -26,7 +25,9 @@
     }
 
     var mouse_on_q = false;
-    $(document).ready(function(){ 
+    $(document).ready(function(){
+      $('.auto_find').append("#{escape_javascript(link_to 'Auto-Find My Current Location', 'javascript:findMe();')}")
+
       $('#find_my_rep').find('input#q').focus(function() {
         $('.auto_find').show();
         mouse_on_q = true;
