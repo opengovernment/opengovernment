@@ -1,9 +1,8 @@
-%h2 #{@state.name} #{@committee.type_fm} #{@committee.name}
+%h2 Members of #{@state.name} #{@committee.type_fm} #{@committee.name}
 
 %hr
 
 .grid_6.alpha
-  %h2 Members
   %ul
     - @committee.members.each do |member|
       %li= link_to(member.official_name, person_path(member))
