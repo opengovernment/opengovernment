@@ -408,9 +408,9 @@ padding: 6px 8px;
 
 .search input#q{
 border: 0;
-padding: 7px 8px;
+padding: 7px 8px 7px 30px;
   border: 0;
-  width: 209px;
+  width: 187px;
   float: left;
 
  margin-top: 1px;

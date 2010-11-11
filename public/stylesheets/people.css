@@ -16,7 +16,8 @@ background: #fff url(/images/intros/people.gif) right center no-repeat;
 
 body.people.index ul.lined,
 body.districts.search ul.lined,
-body.people ul.lined{
+body.people.lower ul.lined,
+body.people.upper ul.lined{
 margin-left: -38px !important;
 width: 764px;
 clear: both;
