@@ -22,6 +22,10 @@ en:
         A major action for a bill, as we define it, includes either movement between committees or roll call vote
         on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
         this bill's status in the legislative process.
+    social:
+      intro: |
+        Here are the social media mentions found for this bill at this time. This includes Tweets with hashtag #txbill and also the hashtag with this bill's specific number, e.g. #hb1 or #sb362. 
+        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores -- so if you see irrelevant Tweets below, please disregard them. Coming soon we'll bring in mentions from other closed social media services like Facebook, open-source tools like Identi.ca and Diaspora, and more.
   people:
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."

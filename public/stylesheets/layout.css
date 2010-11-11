@@ -174,7 +174,7 @@ width: 162px !important;
   
   
 /* No background on the homepage */
-.home.index .main, .home.home .main, .votes.show .main {
+.home.index .main, .home.home .main {
   background: #fff;
 }
 

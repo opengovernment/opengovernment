@@ -64,10 +64,16 @@ SimpleNavigation::Configuration.run do |navigation|
       end
 
       if defined?(@vote)
-        primary.item :vote, 'Vote', vote_path(@vote)
-      end
-
-      if defined?(@bill) || defined?(@vote) || defined?(@action)
+        primary.item :bill, @vote.bill.bill_number, bill_path(@vote.bill.session, @vote.bill), :class => 'bill' do |m|
+          m.item :vote, 'Vote', vote_path(@vote)
+          m.item :overview, 'Overview', bill_path(@vote.bill.session, @vote.bill)
+          m.item :mentions, 'News & Blog Coverage', news_bill_path(@vote.bill.session, @vote.bill)
+          m.item :tweets, 'Social Media Mentions', social_bill_path(@vote.bill.session, @vote.bill)
+          m.item :videos, 'Videos', videos_bill_path(@vote.bill.session, @vote.bill), :class => 'inactive'
+          m.item :money_trail, 'Money Trail', money_trail_bill_path(@vote.bill.session, @vote.bill), :class => 'inactive'
+          m.item :discuss, 'Comments', discuss_bill_path(@vote.bill.session, @vote.bill), :style => "display: none;"
+        end
+      elsif defined?(@bill)
         primary.item :bill, @bill.bill_number, bill_path(@bill.session, @bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(@bill.session, @bill)
           m.item :votes, pluralize(@bill.votes.count, 'Vote') + ' and ' + pluralize(@bill.actions.count, 'Action'), votes_bill_path(@bill.session, @bill)
