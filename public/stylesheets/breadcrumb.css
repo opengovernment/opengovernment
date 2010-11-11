@@ -10,7 +10,7 @@ margin-top: -2px;
   float: left;
   line-height: 3em;
   list-style: none;
-padding-right: 26px;
+padding-right: 0px;
 position: relative;
 }
 
@@ -36,6 +36,19 @@ text-decoration: underline;
 }
 
 
+li.topnav {
+padding: 0 50px 0 0 !important;
+border-right: 1px solid #ccc;
+margin-right: 10px;
+}
+
+
+
+li.topnav a{
+padding: 0 10px 0 0 !important;
+}
+
+
 .breadcrumb li:hover, .breadcrumb a.subhover{
   z-index: 120;
 
@@ -49,7 +62,7 @@ text-decoration: underline;
 /* State selector menu */
 .state-select{  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
-  left: -22px;  
+  left: -24px;  
   margin: 0;
   padding: 8px;  
   display: none;  
@@ -144,7 +157,7 @@ ul.breadcrumb li span.subhover
 
 
 
-.dropdown{
+li.topnav .dropdown{
   background: url(/images/sprites.png) -7px -314px no-repeat;
   position: absolute;
 
