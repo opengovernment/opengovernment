@@ -10,7 +10,7 @@ class StatesController < ApplicationController
 
       @state_key_votes = Bill.where(:votesmart_key_vote => true, :state_id => @state.id).limit(5)
     else
-      render :template => 'states/unsupported'
+      render :template => 'states/unsupported', :layout => 'home'
     end
   end
 
