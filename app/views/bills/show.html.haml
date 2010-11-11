@@ -18,7 +18,7 @@
 .clear
 
 .grid_6.alpha
-  %h2 #{@sponsors.count} Sponsors
+  %h2= pluralize(@sponsors.count, 'Sponsor')
   = link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal')
   = sponsor_mugs(@sponsors, :limit => 10)
   %ul.lined

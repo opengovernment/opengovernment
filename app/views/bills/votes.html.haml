@@ -1,32 +1,31 @@
 - title("#{@bill.state.name} #{@bill.chamber.name} Bill #{@bill.bill_number} Votes and Actions")
 
-= render :partial => 'wrapper'
+= render 'wrapper'
 
-.grid_12
-  %h2 Votes
-  - if @bill.votes.size > 0
-    %table.vote-summary.grid_12.alpha
+%h2 Votes
+- if @bill.votes.size > 0
+  %table.vote-summary.grid_12.alpha
 
-      %tbody
-        = render @bill.votes
-  - else
-    We have no votes for this bill.
+    %tbody
+      = render @bill.votes
+- else
+  We have no votes for this bill.
 
-  .space.clear
+.space.clear
 
 
-  %h2 Actions
-  - if @bill.actions.size > 0
-    .sort
-      %ul.sorts
-        %li.sort_label
-          Filter
-        %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions (#{@bill.major_actions.count})", major_actions_bill_path(@bill.session, @bill), :remote => true}
-        %li.last{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions (#{@bill.actions.count})", actions_bill_path(@bill.session, @bill), :remote => true}
-        %li.spin(style="display: none;")
-    .grid_12.alpha
-      #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
-      %p= t '.major_action', :default => :en
-  - else
-    %p= t '.no_actions'
+%h2 Actions
+- if @bill.actions.size > 0
+  .sort
+    %ul.sorts
+      %li.sort_label
+        Filter
+      %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions (#{@bill.major_actions.count})", major_actions_bill_path(@bill.session, @bill), :remote => true}
+      %li.last{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions (#{@bill.actions.count})", actions_bill_path(@bill.session, @bill), :remote => true}
+      %li.spin(style="display: none;")
+  .grid_12.alpha
+    #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
+    %p= t '.major_action', :default => :en
+- else
+  %p= t '.no_actions'
 

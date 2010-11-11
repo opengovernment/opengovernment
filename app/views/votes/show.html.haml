@@ -16,29 +16,24 @@
   end
 
 %h1
-  %strong= "#{@vote.bill.bill_number} - Motion: #{@vote.motion}"
+  %span.state-and-chamber
+    %strong= "Vote in the #{@state.name} #{@vote.chamber.name} " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '')
+  %span
+    = @vote.bill.bill_number
+    &mdash;
+    = "Motion: #{@vote.motion}"
 %hr
 
-.grid_2.alpha.details
-  %br
+.grid_1.alpha.details
   = @vote.date.to_html
-  %br
-  %span= "In the " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '') + @vote.chamber.name
 
-.grid_10.summary.alpha
-  %span
-    %strong= @vote.passed? ? "Passed" : "Failed"
+.grid_11.summary.omega
+  %strong= @vote.passed? ? "Passed" : "Failed"
   %p= @vote.bill.title
 
-%hr.push_bottom
+%hr
 
-
-.grid_6.alpha
-  %h2 Geography of the Vote
-  = vote_legend_img
-  = vote_map_img(@state, @vote.id)
-
-.grid_6.vote_chart.omega
+.grid_12.vote_chart.alpha.omega
   %h2 Vote Breakdown
   %table
     %tr
@@ -56,6 +51,13 @@
       %td.last.label #{@vote.other_count}
     %caption(align='bottom')= "* 'Needed to pass' is not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
 
+%hr
+
+.grid_12.alpha.omega
+  %h2 Geography of the Vote
+  = vote_legend_img
+  = vote_map_img(@state, @vote.id)
+
 #votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
 
 .grid_12.alpha
@@ -64,7 +66,7 @@
     %p Sorry, no roll call is available for this vote.
   - else
     - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-      .grid_4
+      .grid_4.alpha
         %table.roll_call
           %caption(align='top') #{vote_type.capitalize} Votes
           %thead
