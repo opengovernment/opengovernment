@@ -1,0 +1,4 @@
+%li
+  - surround '',',' do
+    = sponsor.sponsor_id? ? link_to(sponsor.sponsor.full_name, person_path(sponsor.sponsor)) : sponsor.sponsor_name
+  = sponsor.kind_fm
