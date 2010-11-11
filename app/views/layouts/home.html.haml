@@ -1,6 +1,4 @@
 - content_for :content do
-  - if content_for?(:title)
-    %h1.grid_13.alpha= yield(:title)
   = yield
 
 = render :file => 'layouts/application'

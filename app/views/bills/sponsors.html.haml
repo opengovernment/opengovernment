@@ -1,0 +1,9 @@
+%h2 All Sponsors of #{@bill.bill_number}
+
+.grid_3
+  %ul.lined
+    = render :partial => 'sponsor', :collection => @sponsors[0...@sponsors.size/2]
+
+.grid_3
+  %ul.lined
+    = render :partial => 'sponsor', :collection => @sponsors[@sponsors.size/2..@sponsors.size]
