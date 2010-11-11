@@ -74,8 +74,8 @@ SimpleNavigation::Configuration.run do |navigation|
       elsif defined?(@bill)
         bill = @bill
       end
-      
-      if defined?(bill)
+
+      if defined?(@vote) || defined?(@action) || defined?(@bill)
         primary.item :bill, bill.bill_number, bill_path(bill.session, bill), :class => 'bill' do |m|
           m.item :overview, 'Overview', bill_path(bill.session, bill)
           m.item :votes, 'Votes and Actions', votes_bill_path(bill.session, bill) do |v|
