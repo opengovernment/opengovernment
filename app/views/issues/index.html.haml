@@ -4,25 +4,24 @@
 
 = render :partial => 'shared/appeal'
 
-.grid_12
-  %h1
-    = "#{@state.name} Issues"
-  
-  %hr
+%h1
+  = "#{@state.name} Issues"
 
-  %p.intro= t '.intro'
+%hr
 
-  %p.intro 
-  
-  %hr
+%p.intro= t '.intro'
 
-  %h2 Project Vote Smart Issue Areas
+%p.intro 
 
-  %ul.lined
-    = render(:partial => 'shared/issue', :collection => @issues)
+%hr
 
-  %h2 Bill Subjects
-  %ul.lined
-    = render @subjects
-  
-  %strong.all_subjects= link_to(raw('All Subjects &rarr;'), subjects_path)
+%h2 Project Vote Smart Issue Areas
+
+%ul.lined
+  = render(:partial => 'shared/issue', :collection => @issues)
+
+%h2 Bill Subjects
+%ul.lined
+  = render @subjects
+
+%strong.all_subjects= link_to(raw('All Subjects &rarr;'), subjects_path)
