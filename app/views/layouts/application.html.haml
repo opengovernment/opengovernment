@@ -36,8 +36,10 @@
       %header
         #account.grid_9.alpha
           .grid_8.alpha.omega
-            %strong= link_to 'OpenGovernment', home_url(:subdomain => false) 
-
+            %strong
+              = link_to 'OpenGovernment', home_url(:subdomain => false)  
+              %span.beta Beta
+ 
             %ul.breadcrumb
               %li.topnav
                 %a{:href => root_url(:subdomain => current_place_subdomain)}

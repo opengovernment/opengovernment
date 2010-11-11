@@ -165,9 +165,32 @@ background: url(/images/map.gif) center -50px no-repeat;
 
 
 #account strong{
-padding-right: 10px;
+padding: 0px !important;
 font-size: 16px;
 margin-left: -20px;
+float: left;
+}
+
+
+
+#account strong a{
+padding: 0px !important;
+float: left;
+margin-right: 10px;
+}
+
+
+
+.beta{
+font-weight: normal;
+font-size: 11px;
+background: #ededed;
+padding: 3px 6px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+ margin-top: -3px;
+margin-right: 25px;
 float: left;
 }
 
@@ -484,7 +507,8 @@ outline: none;
   
   border: 1px solid #a7c3c9;
   border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
+  border-bottom: 1px solid #4e7179;  border-left: 0;
+
   
   
   -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
