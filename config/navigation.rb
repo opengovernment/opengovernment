@@ -89,7 +89,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :tweets, 'Social Media Mentions', social_bill_path(bill.session, bill)
           m.item :videos, 'Videos', videos_bill_path(bill.session, bill), :class => 'inactive'
           m.item :money_trail, 'Money Trail', money_trail_bill_path(bill.session, bill), :class => 'inactive'
-          m.item :discuss, 'Comments', discuss_bill_path(bill.session, bill), :style => "display: none;"
+          m.item :disqus, 'Comments', discuss_bill_path(bill.session, bill, :anchor => 'disqus_thread')
         end
       end
 
@@ -101,7 +101,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :tweets, 'Social Media Mentions', social_person_path(@person)
           m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
-          m.item :discuss, 'Comments', discuss_person_path(@person), :style => "display: none;"
+          m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
         end
       end
 

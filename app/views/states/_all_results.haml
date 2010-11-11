@@ -1,73 +1,62 @@
-%hr.grid_16
-  %nav.grid_4#left_nav
-    %p.filter
-    %ul
-      %li
-        %a{:href => url_for(params.merge({:search_type => 'bills'}).except(:page))}
-          Bills
-          - surround '(',')' do
-            = @bills.total_entries rescue 0
-      %li
-        %a{:href => url_for(params.merge({:search_type => 'people'}).except(:page))}
-          People
-          - surround '(',')' do
-            = @legislators.total_entries rescue 0
-      %li
-        %a{:href => url_for(params.merge({:search_type => 'committees'}).except(:page))}
-          Committees
-          - surround '(',')' do
-            = @committees.total_entries rescue 0
-      %li
-        %a{:href => url_for(params.merge({:search_type => 'contributions'}).except(:page))}
-          Contributions
-          - surround '(',')' do
-            = @contributions.total_entries rescue 0
+%nav#sort
+  %p.filter
+  %ul
+    %li
+      %a{:href => url_for(params.merge({:search_type => 'bills'}).except(:page))}
+        Bills
+        - surround '(',')' do
+          = @bills.total_entries rescue 0
+    %li
+      %a{:href => url_for(params.merge({:search_type => 'people'}).except(:page))}
+        People
+        - surround '(',')' do
+          = @legislators.total_entries rescue 0
+    %li
+      %a{:href => url_for(params.merge({:search_type => 'committees'}).except(:page))}
+        Committees
+        - surround '(',')' do
+          = @committees.total_entries rescue 0
+    %li
+      %a{:href => url_for(params.merge({:search_type => 'contributions'}).except(:page))}
+        Contributions
+        - surround '(',')' do
+          = @contributions.total_entries rescue 0
 
 
-  .grid_12
-    - unless @bills.empty?
-      %div.search_results.last
-        %h2= link_to('Bills', bills_path)
-        %ul.bills.lined.and_spaced
-          - @bills.each do |bill|
-            = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
-        = will_paginate @bills, :class => "pagination"
+- unless @bills.empty?
+  %div.search_results.last
+    %h2= link_to('Bills', bills_path)
+    %ul.bills.lined.and_spaced
+      - @bills.each do |bill|
+        = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
+    = will_paginate @bills, :class => "pagination"
 
-    - unless @legislators.empty?
-      %aside.search_sidebar
-        %p.sort
+- unless @legislators.empty?
+  %div.search_results.last
+    %h2= link_to('People', people_path)
+    %ul.legislators
+      - @legislators.each do |leg|
+        %li[leg]
+          != link_to(leg.full_name, person_path(leg))
+    = will_paginate @legislators
 
-      %div.search_results.last
-        %h2= link_to('People', people_path)
-        %ul.legislators
-          - @legislators.each do |leg|
-            %li[leg]
-              != link_to(leg.full_name, person_path(leg))
-        = will_paginate @legislators
-
-    - unless @committees.empty?
-      %aside.search_sidebar
-        %p.sort
-
-      %div.search_results.last
-        %h2 Committees
-        %ul.committees
-          - @committees.each do |committee|
-            %li[committee]
-              != link_to(committee.name, committee_path(committee))
-        = will_paginate @committees
+- unless @committees.empty?
+  %div.search_results.last
+    %h2 Committees
+    %ul.committees
+      - @committees.each do |committee|
+        %li[committee]
+          != link_to(committee.name, committee_path(committee), :class => 'modal')
+    = will_paginate @committees
 
 
-    - unless @contributions.empty?
-      %aside.search_sidebar
-        %p.sort
-
-      %div.search_results.last
-        %h2 Contributions
-        %ul.contributions
-          - @contributions.each do |contribution|
-            %li[contribution]
-              != contribution.contributor_name
-        = will_paginate @contributions
+- unless @contributions.empty?
+  %div.search_results.last
+    %h2 Contributions
+    %ul.contributions
+      - @contributions.each do |contribution|
+        %li[contribution]
+          != contribution.contributor_name
+    = will_paginate @contributions
 
 

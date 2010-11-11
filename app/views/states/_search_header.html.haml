@@ -1,16 +1,13 @@
 - case @search_type
   - when "all"
-    .grid_12
-      %h1
-        Searching all of 
-        = @state.name
+    %h1
+      Searching all of 
+      = @state.name
   - else
-    .grid_12
-      %h1
-        Searching
-        = @state.name
-        = @search_type.titleize
-
+    %h1
+      Searching
+      = @state.name
+      = @search_type.titleize
 
 %span.results_count 
   - if @query.blank?

@@ -1,5 +1,0 @@
-- embed_disqus("bill-#{@bill.id}")
-
-- content_for :below_left_nav do 
-  %ul
-    %li.discuss= link_to('Comments', discuss_bill_path(@bill.session, @bill, :anchor => 'disqus_thread'))
