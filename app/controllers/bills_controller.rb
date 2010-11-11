@@ -21,9 +21,15 @@ class BillsController < ApplicationController
   end
 
   def show
-    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
+    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name").limit(10)
+    @sponsor_count = @bill.sponsorships.count
     @votes = @bill.votes
     @actions = @bill.actions
+  end
+  
+  def sponsors
+    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
+    render :layout => 'popup'
   end
 
   def votes

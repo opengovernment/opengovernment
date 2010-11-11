@@ -18,8 +18,9 @@
 .clear
 
 .grid_6.alpha
-  %h2 Sponsors
-  = sponsor_mugs(@sponsors)
+  %h2 #{@sponsors.count} Sponsors
+  = link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal')
+  = sponsor_mugs(@sponsors, :limit => 10)
   %ul.lined
     - @sponsors.each do |s|
       - if !s.sponsor_id || s.sponsor.photo_url.blank?
