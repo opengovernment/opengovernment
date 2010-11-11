@@ -1,4 +1,17 @@
 
+
+.home.home .find_box{
+margin: 0 -16px !important;
+}
+
+.home.home #find_my_rep #q{
+  width: 230px;
+  padding-left: 25px;
+  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+  }
+  
+
+
 /*///////////////////////////
 
 ~ Find YOur Districts
@@ -24,7 +37,7 @@ float: right;
   overflow: auto;
   padding: 18px 0px 10px;
   background: #f9f9f9;
-  margin: 0px -26px 0 -26px;
+  margin: 0px -26px 0 -39px;
   }
 
 
@@ -34,26 +47,20 @@ float: right;
   top: 17px;
   right: 20px;
 
-  background: #fff;
-  display: block !important;
-
-  border-bottom: 0;
-
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
   
   text-shadow: 0 1px 0px #fff;
-
-  margin-left: 15px;
+ 
 
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
   
   
-  border: 1px solid #999;
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #777;
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
   
   
   -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
@@ -62,24 +69,21 @@ float: right;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
   
-
 }
 
 
 
 .auto_find a{
   display: block !important;
-  padding: 6px 15px 5px 30px;
+  padding: 6px 20px 4px 38px;
   background: #fff;
   font-size: 11px;
   text-shadow: #d5ebef 0px 1px 0px;
   
   background: url(/images/sprites.png) 12px -218px no-repeat;
   
-  font-weight: bold;
-  text-transform: uppercase;
   
   }
 
@@ -97,14 +101,14 @@ float: right;
 
 
 #find_my_rep #q{
-  width: 230px;
+  width: 97px;
   padding-left: 25px;
   background: #fff url(/images/sprites.png) 8px -218px no-repeat;
   }
   
 
 #find_my_rep label{
-  padding: 6px 20px 0 0px;
+  padding: 6px 20px 0 15px;
   float: left;
   margin:0 0 0px;
   font-size: 13px;
@@ -118,34 +122,38 @@ float: right;
 
 
 .find_button input{
+  background: #fff;
+  display: block !important;
+
+  border-bottom: 0;
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
   
   text-shadow: 0 1px 0px #fff;
-  
-  padding: 6px 20px;
 
-  margin-left: 15px;
+float: left;
+  margin-left: 15px !important;
 
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
   
   
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #777;
   
-  
-  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+-moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
   
+    padding: 6px 23px;
+
   }
 
 
