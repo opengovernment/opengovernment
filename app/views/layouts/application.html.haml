@@ -43,9 +43,11 @@
                 %a{:href => root_url(:subdomain => current_place_subdomain)}
                   = current_place_name || "Select a State"
                 %a#dropdown{:class => 'dropdown', :href => '#'}
-                %ul.state-select
-                  - State.loadable.each do |state|
-                    %li= link_to state.name, state_url(state)
+                .state-select
+                  %span.triangle
+                  %ul
+                    - State.loadable.each do |state|
+                      %li= link_to state.name, state_url(state)
 
 
 
