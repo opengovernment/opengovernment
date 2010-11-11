@@ -9,47 +9,47 @@
   </form>
 - unless defined?(narrow)
   .auto_find
+  :javascript  
+    if (navigator.geolocation) {
+      function findMe() {
+          $('.finding').show();
+          navigator.geolocation.getCurrentPosition(fillForm);
+      }
+
+      function fillForm(position) {
+        $('.finding').hide();
+        $('#find_my_rep').find('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+        $('#find_my_rep').submit();
+      }
+
+      var mouse_on_q = false;
+      $(document).ready(function(){
+        $('.auto_find').append("#{escape_javascript(link_to 'Auto-Find My Current Location', 'javascript:findMe();')}")
+
+        $('#find_my_rep').find('input#q').focus(function() {
+          $('.auto_find').show();
+          mouse_on_q = true;
+        });
+
+        $('#find_my_rep').find('input#q').blur(function() {
+          mouse_on_q = false;
+        });
+
+        $('.auto_find').hover(function() {
+          mouse_on_q = true;
+        }, function() {
+          mouse_on_q = false;
+        });
+
+        // Close the menu when someone clicks outside of it.
+        $('body').mouseup(function(){ 
+            if(! mouse_on_q) {
+              $('.auto_find').hide();
+            }
+        });
+
+      });
+    }
 .finding(style='display: none;')
 
-:javascript  
-  if (navigator.geolocation) {
-    function findMe() {
-        $('.finding').show();
-        navigator.geolocation.getCurrentPosition(fillForm);
-    }
-
-    function fillForm(position) {
-      $('.finding').hide();
-      $('#find_my_rep').find('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
-      $('#find_my_rep').submit();
-    }
-
-    var mouse_on_q = false;
-    $(document).ready(function(){
-      $('.auto_find').append("#{escape_javascript(link_to 'Auto-Find My Current Location', 'javascript:findMe();')}")
-
-      $('#find_my_rep').find('input#q').focus(function() {
-        $('.auto_find').show();
-        mouse_on_q = true;
-      });
-
-      $('#find_my_rep').find('input#q').blur(function() {
-        mouse_on_q = false;
-      });
-    
-      $('.auto_find').hover(function() {
-        mouse_on_q = true;
-      }, function() {
-        mouse_on_q = false;
-      });
-
-      // Close the menu when someone clicks outside of it.
-      $('body').mouseup(function(){ 
-          if(! mouse_on_q) {
-            $('.auto_find').hide();
-          }
-      });
-
-    });
-  }
 .div.clearfix
