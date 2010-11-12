@@ -48,6 +48,7 @@ gem "will_paginate", "~> 3.0.pre2"
 # Attachments & assets
 gem 'paperclip'
 gem 'jammit'
+gem 'jquery-rails'
 
 # HAML!
 gem 'haml', '>= 3.0.19'

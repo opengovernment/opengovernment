@@ -26,7 +26,7 @@ stylesheets:
   
 javascripts:
   common:
-    - public/javascripts/jquery.rails.js
+    - public/javascripts/rails.js
     - public/javascripts/jquery.timeago.js
     - public/javascripts/jquery.tipsy.js
     - public/javascripts/jquery.colorbox.js
