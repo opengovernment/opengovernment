@@ -48,13 +48,15 @@ en:
       feed_title: '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
       author_name: 'OpenGovernment'
       author_uri: 'http://opengovernment.org'
+    show:
+      no_tweets: "No tweets were found for %{hashtags}."
   people:
     index:
       title: 'Members of the %{legislature_name}'
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."
-      no_tweets: "Sorry, there were no tweets found for %{hashtags}."
-      
+      no_tweets: "No tweets were found for %{hashtags}."
+
   support:
     array:
       words_connector: ", "
