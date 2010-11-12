@@ -61,6 +61,7 @@ gem "httparty"
 gem "hpricot"
 gem 'hpricot_scrub', :git => 'http://github.com/UnderpantsGnome/hpricot_scrub.git'
 gem "chronic" # Complex date string parsing
+gem 'json'
 # gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 
 # Indexing and Search

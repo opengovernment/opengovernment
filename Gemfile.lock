@@ -261,6 +261,7 @@ DEPENDENCIES
   httparty
   jammit
   jquery-rails
+  json
   launchy
   linecache
   machinist
