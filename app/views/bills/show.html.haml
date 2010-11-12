@@ -31,6 +31,15 @@
             = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
           = s.kind_fm
 
+  %h2 Subject Areas
+  - if @bill.subjects.any?
+    %ul.lined
+      - @bill.subjects.each do |subject|
+        %li= link_to(subject.name, subject_path(subject))
+  - else
+    %p None.
+
+
 .grid_6.omega
   - if @bill.versions.any?
     %h2 Bill Text
@@ -40,14 +49,6 @@
         %li= link_to_document(version)
 
     = t '.missing_bill_text'
-
-  %h2 Subject Areas
-  - if @bill.subjects.any?
-    %ul.lined
-      - @bill.subjects.each do |subject|
-        %li= link_to(subject.name, subject_path(subject))
-  - else
-    %p None.
 
   - if @bill.documents.any?
     %h2 Documents
