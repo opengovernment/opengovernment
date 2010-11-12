@@ -1,9 +1,8 @@
-- title("Members of the #{@state.legislature.name}")
+- title(t('.title', :legislature_name => @state.legislature.name))
 
 = render 'shared/appeal'
 
-%h1
-  = "Members of the #{@state.legislature.name}"
+%h1= t('.title', :legislature_name => @state.legislature.name)
 
 %hr
 

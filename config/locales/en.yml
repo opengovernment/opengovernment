@@ -18,6 +18,8 @@ en:
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
       last_election_date: "No data for last election date."
   bills:
+    index:
+      title: 'Bills in the %{legislature_name}'
     money_trail:
       title: "Money Trail data isn't quite ready!"
       details: |
@@ -47,6 +49,8 @@ en:
       author_name: 'OpenGovernment'
       author_uri: 'http://opengovernment.org'
   people:
+    index:
+      title: 'Members of the %{legislature_name}'
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."
       no_tweets: "Sorry, there were no tweets found for %{hashtags}."

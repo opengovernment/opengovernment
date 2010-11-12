@@ -1,9 +1,8 @@
-- title("#{@state.name} Bills")
+- title(t('.title', :legislature_name => @state.legislature.name))
 
 = render :partial => 'shared/appeal'
 
-%h1
-  = "#{@state.name} Bills"
+%h1= t '.title', :legislature_name => @state.legislature.name
 
 %hr
 
