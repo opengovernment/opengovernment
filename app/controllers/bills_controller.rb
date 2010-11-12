@@ -33,7 +33,7 @@ class BillsController < ApplicationController
   end
   
   def documents
-    @documents = @bill.documents.paginate :page => params[:page]
+    @documents = @bill.documents.paginate :page => params[:page], :per_page => 40
     render :layout => 'popup'
   end
 

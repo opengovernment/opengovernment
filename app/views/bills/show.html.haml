@@ -54,7 +54,7 @@
   - if @bill.documents.any?
     .document_preview
       %h2 #{@bill.documents.size} Documents
-      = link_to('See all', documents_bill_path(@bill.session, @bill), :class => 'modal see_all')
+      = link_to('See all', documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
 
       %ul.lined.documents
         = render :partial => 'document', :collection => @bill.documents.limit(5)

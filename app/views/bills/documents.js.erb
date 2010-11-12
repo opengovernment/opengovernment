@@ -1,2 +1,2 @@
-$("#bill_documents").html("<%= escape_javascript(render('documents', :documents => @documents))%>");
-$.colorbox.resize();
+$(".documents_more_link").remove();
+$("#bill_documents").append("<%= escape_javascript(render('documents', :documents => @documents))%>");

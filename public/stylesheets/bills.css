@@ -131,6 +131,18 @@ margin-left: 10px;
   padding: 5px 0 0px;
 }
 
+#bill_documents {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 335px;
+}
+
+ul.bill_documents {
+  width: 300px;
+  padding: 0 !important;
+  margin-bottom: 0;
+}
+
 .sponsor_mug {
   padding-left: 1px;
 }

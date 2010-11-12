@@ -67,6 +67,13 @@ $(document).ready(function() {
       scrolling: false
   });
 
+  $('a.compact_modal').colorbox({
+      transition: 'none',
+      opacity: 0.6,
+      scrolling: false,
+      height: 400
+  });
+
   $('a[data-remote]').live('ajax:loading', function() {
     $(this).closest('ul').find(".spin").show();
     }
