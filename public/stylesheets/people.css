@@ -104,7 +104,9 @@ border-right: 1px solid #efefef;
 padding-bottom: 10px;
 }
 
-
+li.race_tracker {
+  padding-top: 10px;
+}
 
 /* Rating party color boxes */
 .rating_person.rating_dem {

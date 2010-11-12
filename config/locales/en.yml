@@ -1,6 +1,13 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 en:
+  site:
+    name: "OpenGovernment"
+    tagline: "revealing state and local government data"
+    select_state: "Select a State"
+    greeting: "Hello"
+    sign_out: "Sign out"
+    sign_in: 'Sign in'
   home:
     index:
       intro: "Welcome to OpenGovernment.org!"
@@ -26,6 +33,19 @@ en:
       intro: |
         Here are the social media mentions found for this bill at this time. This includes Tweets with hashtag #txbill and also the hashtag with this bill's specific number, e.g. #hb1 or #sb362. 
         We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores -- so if you see irrelevant Tweets below, please disregard them. Coming soon we'll bring in mentions from other closed social media services like Facebook, open-source tools like Identi.ca and Diaspora, and more.
+    track:
+      track: 'Track'
+      all_actions: 'All Actions'
+      major_actions: 'Major Action'
+      email_alerts: 'Email Alerts'
+    write:
+      write: 'Write'
+      find_your_rep: 'Find Your %{chamber_name}'
+      location_prompt: 'ZIP Code'
+    rss:
+      feed_title: '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
+      author_name: 'OpenGovernment'
+      author_uri: 'http://opengovernment.org'
   people:
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."

@@ -18,7 +18,7 @@
     <!--[if lt IE 9]>
     %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
     <![endif]-->
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"
     = include_javascripts :common
 
@@ -27,7 +27,7 @@
         = yield :js_hook
 
     = yield :head
-    %title= "OpenGovernment - " + (content_for?(:title) ? yield(:title) : "revealing state government data")
+    %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
   %body{:class => page_class}
 
     %div.container_16
@@ -37,13 +37,13 @@
         #account.grid_9.alpha
           .grid_8.alpha.omega
             %strong
-              = link_to 'OpenGovernment', home_url(:subdomain => false)  
+              = link_to t('site.name'), home_url(:subdomain => false)  
               %span.beta Beta
  
             %ul.breadcrumb
               %li.topnav
                 %a{:href => root_url(:subdomain => current_place_subdomain)}
-                  = current_place_name || "Select a State"
+                  = current_place_name || t('site.select_state')
                 %a#dropdown{:class => 'dropdown', :href => '#'}
                 .state-select
                   %span.triangle
@@ -51,19 +51,17 @@
                     - State.loadable.each do |state|
                       %li= link_to state.name, state_url(state)
 
-
-
             - if current_user
-              Hello,
+              = succeed(',') do
+                = t('site.greeting')
               %a.account(href="#content" title="Username") #{current_user.login}.
-              = link_to('Sign out', destroy_user_session_path)
+              = link_to(t('site.sign_out'), destroy_user_session_path)
             - else
-              = link_to('Sign in', new_user_session_path, :class => 'modal')
+              = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
             %a.help{:href => page_path('help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search
             = render :partial => 'shared/search_form'
-
 
     %div.container_16.main.boxxed
       - unless flash.empty?

@@ -18,10 +18,11 @@
 - status_bar(@bill)
 .clear
 
-.grid_6.alpha
+.grid_6.alpha.sponsor_preview
   %h2= pluralize(@sponsors.count, 'Sponsor')
-  = link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal')
-  = sponsor_mugs(@sponsors, :limit => 10)
+  .see_all= link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal')
+  .sponsor_mugs
+    = sponsor_mugs(@sponsors, :limit => 10)
   %ul.lined
     - @sponsors.each do |s|
       - if !s.sponsor_id || s.sponsor.photo_url.blank?

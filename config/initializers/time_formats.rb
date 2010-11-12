@@ -7,9 +7,9 @@ Time::DATE_FORMATS.merge!(
   :timetag => '<time datetime="%Y-%m-%d" class="fancy-date"><span class="date-month">%b</span><span class="date-day">%e</span><span class="date-year">%Y</span></time>',
   :pretty => lambda do |d|
       if d.year == Time.now.year
-        d.strftime("%B %e")
+        d.strftime("%b %e")
       else
-        d.strftime("%B %e, %Y")
+        d.strftime("%b %e, %Y")
       end
     end
 )

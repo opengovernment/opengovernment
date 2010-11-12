@@ -4,7 +4,7 @@
   %span.state-and-chamber
     = "#{@bill.state.name} #{@bill.chamber.name} Bill "
   %span
-    = "#{@bill.bill_number}"
+    = "#{@bill.bill_number}:"
     = @bill.title
 
 - if defined?(show_tools)
@@ -12,28 +12,27 @@
     = render 'shared/share_tools', :message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url
     .hov.track_buttons
       %h4.button
-        %span Track
+        %span= t('bills.track.track')
         .arrow
       .drop.button
         %ul
           %li.rss 
-            = link_to "All actions", actions_bill_path(@bill.session, @bill, :format => :atom)
-            = link_to "Major actions", major_actions_bill_path(@bill.session, @bill, :format => :atom)
+            = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
+            = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
           %li.email 
             %a
               %span
-              Email Alerts 
+              = t('bills.track.email_alerts') 
               %span.soon (coming soon)
 
     .hov.write_buttons
       %h4.button
-        %span Write
+        %span= t('bills.write.write')
         .arrow
       .drop.button
         = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
-        %strong Find Your #{@bill.chamber.title}
-        %label(for='q')
-          ZIP Code
+        %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
+        %label(for='q')= t 'bills.write.location_prompt'
         = text_field_tag :q, params[:q], :autocomplete => 'off'
         .find_button
           = submit_tag 'Find'
