@@ -3,7 +3,7 @@
 %h1
   %span.state-and-chamber
     = "#{@bill.state.name} #{@bill.chamber.name} Bill "
-  %span
+  %span{:class => @bill.title.length > 300 ? 'long_bill_title' : ''}
     = "#{@bill.bill_number}:"
     = @bill.title
 

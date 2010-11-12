@@ -1,4 +1,9 @@
-
+h1 .long_bill_title {
+  display: block;
+  max-height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .bills .intro{
 padding-right: 250px;
