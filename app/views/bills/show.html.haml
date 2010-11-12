@@ -21,7 +21,7 @@
 .grid_6.alpha
   .sponsor_preview
     %h2= pluralize(@sponsors.count, 'Sponsor')
-    .see_all= link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal')
+    = link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
     .sponsor_mugs
       = sponsor_mugs(@sponsors, :limit => 10)
     %ul.lined
@@ -52,11 +52,12 @@
     = t '.missing_bill_text'
 
   - if @bill.documents.any?
-    %h2 Documents
+    .document_preview
+      %h2 #{@bill.documents.size} Documents
+      = link_to('See all', documents_bill_path(@bill.session, @bill), :class => 'modal see_all')
 
-    %ul.lined
-      - @bill.documents.each do |document|
-        %li= link_to_document(document)
+      %ul.lined.documents
+        = render :partial => 'document', :collection => @bill.documents.limit(5)
 
 .space
 

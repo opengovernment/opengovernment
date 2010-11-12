@@ -31,6 +31,11 @@ class BillsController < ApplicationController
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
     render :layout => 'popup'
   end
+  
+  def documents
+    @documents = @bill.documents.paginate :page => params[:page]
+    render :layout => 'popup'
+  end
 
   def votes
     @actions = @bill.major_actions

@@ -45,6 +45,7 @@ OpenGov::Application.routes.draw do
         get :major_actions
         get :actions
         get :sponsors
+        get :documents
       end
       shallow do
         resources :actions, :only => [:show]

@@ -1,0 +1,16 @@
+.grid_8
+  .grid_4.alpha
+    %ul.lined
+      = render :partial => 'document', :collection => @documents[0...@documents.size/2]
+
+  .grid_4.omega
+    %ul.lined
+      = render :partial => 'document', :collection => @documents[@documents.size/2..@documents.size]
+
+%br(clear='both')
+
+.grid_8
+  = will_paginate @documents
+  -# Hack to support ajax in pagination links.
+  :javascript
+    $('.pagination a').attr('data-remote', 'true');
