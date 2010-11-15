@@ -49,7 +49,7 @@
                   %span.triangle
                   %ul
                     - State.loadable.each do |state|
-                      %li= link_to state.name, state_url(state)
+                      %li.state_name= link_to state.name, state_url(state)
 
             - if current_user
               = succeed(',') do

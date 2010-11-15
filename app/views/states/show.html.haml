@@ -1,8 +1,5 @@
 - title(@state.name)
 
-.find_box
-  = render :partial => 'shared/find_my_rep_form'
-
 
 = render :partial => 'shared/appeal'
 
@@ -12,7 +9,8 @@
   = @state.name
 %hr
 
-
+.find_box
+  = render :partial => 'shared/find_my_rep_form'
 
 %p.intro= t '.intro'
 
