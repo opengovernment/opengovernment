@@ -50,12 +50,20 @@ en:
       author_uri: 'http://opengovernment.org'
     show:
       no_tweets: "No tweets were found for %{hashtags}."
+  actions:
+    show:
+      intro: "This page displays an official legislative action for this bill. Go back to view all actions, or major actions only. How can you use this page? Well, if you're blogging about this bill, you can use this URL as a permalink to this specific action. The important thing is that it's now easier than ever to access information about bills and votes in your state government." 
   people:
     index:
       title: 'Members of the %{legislature_name}'
     show:
       wikipedia_missing: "No biography was found on Wikipedia for %{name}."
       no_tweets: "No tweets were found for %{hashtags}."
+    links:
+      website_one: "Website One"
+      website_two: "Website Two"
+      webmail: "Web E-Mail"
+      youtube: "YouTube"
 
   support:
     array:
