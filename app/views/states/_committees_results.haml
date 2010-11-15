@@ -8,12 +8,6 @@
         - ["upper", "lower", "joint"].each do |type|
           %li
             = link_to type, state_search_path(params.merge({ :committee_type => type }))
-    %p.sort
-      Sort by:
-      %ul
-        - Committee::SORTABLE_BY.each do |name, column|
-          %li
-            = link_to name, state_search_path(params.merge({:order => column}))
 
   .search_results
     %ul.committees

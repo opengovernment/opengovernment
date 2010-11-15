@@ -529,6 +529,30 @@ background: -moz-linear-gradient(top,  #d6e8eb,  #ecf9fc); /* for firefox 3.6+ *
 }
 
 
+.search_results_search_form .search_button {
+  position: relative;
+  top: -30px;
+}
+
+.search_results_search_form input#q {
+  float: none;
+  margin-top: 5px;
+  width: 500px;
+}
+
+.results_count, .search_help {
+  font-size: 11px;
+}
+
+.results_count {
+  padding-left: 130px;
+}
+
+.search_help {
+  float: right;
+  padding-right: 30px;
+}
+
 
 /*///////////////////////////
 

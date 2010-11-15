@@ -1,25 +1,26 @@
+%nav#sort
+  %p.filter
+    %h3 Session:
+    %ul.session_filter
+      %li= link_to 'All', state_search_path(params.except(:session_id))
+      - @state.legislature.sessions.each do |s|
+        %li
+          = link_to s.name, state_search_path(params.merge({ :session_id => s.id }))
+  %p.sort
+    %h3 Sort by:
+    %ul.bills
+      - Bill::SORTABLE_BY.each do |name, column|
+        %li
+          = link_to name, state_search_path(params.merge({:order => column}))
+
 - if @bills.empty?
   %p Sorry, no bills matched.
 - else
-  %nav#sort
-    %p.filter
-      %h3 Session:
-      %ul.session_filter
-        - @state.legislature.sessions.each do |s|
-          %li
-            = link_to s.name, state_search_path(params.merge({ :session_id => s.id }))
-    %p.sort
-      %h3 Sort by:
-      %ul.bills
-        - Bill::SORTABLE_BY.each do |name, column|
-          %li
-            = link_to name, state_search_path(params.merge({:order => column}))
+  %h2= link_to('Bills', bills_path)
+  = will_paginate @bills, :class => "pagination"
 
-    %h2= link_to('Bills', bills_path)
-    = will_paginate @bills, :class => "pagination"
+  .search_results
+    %ul.bills.bills.lined.and_spaced
+      = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => false}
 
-    .search_results
-      %ul.bills.bills.lined.and_spaced
-        = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => false}
-
-    = will_paginate @bills, :class => "pagination"
+  = will_paginate @bills, :class => "pagination"
