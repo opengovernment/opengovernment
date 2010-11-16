@@ -8,7 +8,8 @@
   %li.stumble
     %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&amp;title=#{u title}"} StumbleUpon   
   %li.facebook
-    %a{:href => "http://www.facebook.com/share.php?u=#{u url}&amp;title=#{u title}"} Facebook
+    %iframe(src="http://www.facebook.com/plugins/like.php?href=#{u url}&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true")
+
 
 :ruby
   footer_javascript do (%Q|
