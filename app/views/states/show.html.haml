@@ -98,14 +98,37 @@
 
   %hr.push_top
 
-  .grid_12.alpha.key_votes
-    %h2 Key Votes
-    .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-    %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+  .grid_8.alpha.bills
+    :ruby
+      javascript do
+        (%q|
+          $(function() {
+          		$( "#bill_tabs" ).tabs();
+          	});
+        |)
+      end
 
-    %p
-      %ul.lined.and_spaced
-        = render :partial => 'shared/bill', :collection => @state_key_votes, :locals => {:hide_key_vote => true}
-    %a.large{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
+    %h2 Bills
+    #bill_tabs
+      %ul
+        %li
+          %a{:href => '#recent_bills'} Recent
+        %li
+          %a{:href => '#key_votes'} Key Votes
+      
+      #recent_bills
+        %p
+          %ul.lined.and_spaced
+            = render @recent_bills
+        %a.large{:href => bills_path(:sort => 'recent')} All Recent Bills &rarr;
+
+      #key_votes
+        .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
+        %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+
+        %p
+          %ul.lined.and_spaced
+            = render @key_votes, :locals => {:hide_key_vote => true}
+        %a.large{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
 
   %p.grid_12.alpha= raw t '.background'
