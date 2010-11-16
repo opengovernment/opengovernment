@@ -20,32 +20,10 @@
 
 %a.search_help{:href => page_path("about")} Search Help
 
-%nav#sort
-  %p.filter
-  %ul
-    %li
-      %a{:href => url_for(params.merge({:search_type => 'all'}).except(:page))}
-        Everything
-        - surround '(',')' do
-          = @total_entries rescue 0
-    %li
-      %a{:href => url_for(params.merge({:search_type => 'bills'}).except(:page))}
-        Bills
-        - surround '(',')' do
-          = @bills.total_entries rescue 0
-    %li
-      %a{:href => url_for(params.merge({:search_type => 'legislators'}).except(:page))}
-        People
-        - surround '(',')' do
-          = @legislators.total_entries rescue 0
-    %li
-      %a{:href => url_for(params.merge({:search_type => 'committees'}).except(:page))}
-        Committees
-        - surround '(',')' do
-          = @committees.total_entries rescue 0
-    %li
-      %a{:href => url_for(params.merge({:search_type => 'contributions'}).except(:page))}
-        Contributions
-        - surround '(',')' do
-          = @contributions.total_entries rescue 0
-
+%nav
+  %ul.search_filter
+    - @search_counts.each do |type, total_entries|
+      %li{:class => (@search_type == type.to_s ? 'active' : nil)}
+        %a{:href => url_for(params.merge({:search_type => type}).except(:page))}
+          = type.to_s.titleize
+          = (total_entries rescue 0).to_s.parenthesize

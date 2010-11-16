@@ -55,6 +55,8 @@ class Role < ActiveRecord::Base
   end
 
   def self.party_fm(party)
+    nil if party.blank?
+
     case party
       when "Democrat"
         "D"

@@ -3,6 +3,10 @@ class String
     self + (self[-1,1] == 's' ? %q{'} : %q{'s})
   end
   
+  def parenthesize
+    '(' + self + ')' unless self.blank?
+  end
+  
   # For a string like "1/2", returns a float 0.5
   def to_frac
     numerator, denominator = split('/').map(&:to_f)

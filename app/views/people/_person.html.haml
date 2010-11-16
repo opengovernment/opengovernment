@@ -9,13 +9,12 @@
         != person.full_name
   
       .person_district
-        = person.try(:district_name)
+        = person[:district_name]
         - if person.district_office_city
           out of
           = person.district_office_city
         .person_party
-          = surround '(', ')' do
-            = Role.party_fm(person.try(:party))
+          = Role.party_fm(person[:party]).to_s.parenthesize
     .grid_4  
       - if MongoMapper.connected?
         .person_views #{person.views} Views
