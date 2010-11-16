@@ -5,7 +5,7 @@
 %h2 Money Trail
 - if @person.contributions.any?
   .small.quiet.grid_12.alpha
-    Data provided by the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml">about the data</a>.
+    Data provided by the non-partisan <a href="http://www.followthemoney.org/" target="_blank">Follow The Money</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml" target="_blank">about the data</a>.
   .grid_6.alpha
     %h3 All By Sector
     = render :partial => 'sector', :collection => @sectors
@@ -15,5 +15,6 @@
 
 - else
   .grid_12.alpha
-    No data is available for this Member at this time via the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>. Together we can make this info available and build transparency in government-- see <a href="/pages/help">how you can help</a>. 
-    == .
+    We believe the public should be able to easily access the latest campaign contribution information for every elected official. Money plays a pervasive role in the legislative process, and we need nothing less than total transparency around special interest groups making political donations to this member.<br><br>
+    Unfortunately, state governments do not make donation data available in ways that are sufficiently timely, much less in ways that are fully open. As a result of this shortcoming, no Money Trail data is available for this Member at this time via the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>.<br><br>
+    With your support, we can work to bring this vital money-in-politics information into the light-- see <a href="/pages/help">how you can help</a>.
