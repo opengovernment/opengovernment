@@ -12,6 +12,7 @@ stylesheets:
     - public/stylesheets/colorbox.css
     - public/stylesheets/html5.css
     - public/stylesheets/jquery-ui-1.8.4.css
+    - public/stylesheets/jquery-ui-tabs.css
     - public/stylesheets/layout.css
     - public/stylesheets/people.css
     - public/stylesheets/sharing.css

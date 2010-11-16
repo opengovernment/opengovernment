@@ -8,7 +8,9 @@ class StatesController < ApplicationController
       @legislature = @state.legislature
       @most_recent_session = Session.most_recent(@legislature).first
 
-      @state_key_votes = Bill.where(:votesmart_key_vote => true, :state_id => @state.id).limit(5)
+      bill = Bill.where(:state_id => @state.id).limit(5)
+      @key_votes = bill.where(:votesmart_key_vote => true)
+      @recent_bills = bill.order('last_action_at desc')
     else
       render :template => 'states/unsupported', :layout => 'home'
     end
