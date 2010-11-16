@@ -38,7 +38,13 @@ class BillsController < ApplicationController
   end
 
   def votes
-    @actions = @bill.major_actions
+    if params[:actions] == 'all'
+      @actions = @bill.actions
+      @actions_shown = :all
+    else
+      @actions = @bill.major_actions
+      @actions_shown = :major
+    end
   end
 
   def actions

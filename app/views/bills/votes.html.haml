@@ -20,8 +20,8 @@
     %ul.sorts
       %li.sort_label
         Filter
-      %li{:class => (@actions_shown == :major ? 'active' : '')} #{link_to "Major Actions (#{@bill.major_actions.count})", major_actions_bill_path(@bill.session, @bill), :remote => true}
-      %li.last{:class => (@actions_shown == :all ? 'active' : '')} #{link_to "All Actions (#{@bill.actions.count})", actions_bill_path(@bill.session, @bill), :remote => true}
+      %li{:class => (@actions_shown == :major ? 'active' : nil)} #{link_to "Major Actions (#{@bill.major_actions.count})", major_actions_bill_path(@bill.session, @bill), :remote => true}
+      %li.last{:class => (@actions_shown == :all ? 'active' : nil)} #{link_to "All Actions (#{@bill.actions.count})", actions_bill_path(@bill.session, @bill), :remote => true}
       %li.spin(style="display: none;")
   .grid_12.alpha
     #bill_actions= render :partial => 'actions_table', :locals => {:actions => @actions}
