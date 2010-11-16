@@ -2,7 +2,7 @@ en-CA:
   states:
     show:
       intro: |
-       <em><strong>Learn</strong> about bills in the state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
+       <em><strong>Learn</strong> about bills and votes in the state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
       state_population: |
         2009 est. pop.: 36,961,664 people (cit. <a href="http://quickfacts.census.gov/qfd/states/06000.html" target="_blank">Census.gov)
       state_pop_per_upper_chamber_member: "924,041 people in CA"
