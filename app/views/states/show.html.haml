@@ -9,10 +9,10 @@
   = @state.name
 %hr
 
+%p.intro= t '.intro'
+
 .find_box
   = render :partial => 'shared/find_my_rep_form'
-
-%p.intro= t '.intro'
 
 .grid_12.alpha
   .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)

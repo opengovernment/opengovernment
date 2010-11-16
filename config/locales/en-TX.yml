@@ -2,7 +2,7 @@ en-TX:
   states:
     show:
         intro: |
-          <strong>Learn</strong> about bills and key votes in the Texas state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
+          <strong>Learn</strong> about bills in the Texas legislature. <strong>Track</strong> key votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
           To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Texas state government works.
 
         background: |
@@ -51,23 +51,21 @@ en-TX:
       miro_url: 'http://txopengov.mirocommunity.org/'
     index:
       intro: |
-        This is a list of all bills in the Texas state legislature. By state law, the legislature is only in 'regular session'
+        This is a list of all bills in the current 2009 - 2010 Texas state legislature. <!--By state law, the legislature is only in 'regular session'
         (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st Texas
         legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the legislature will generally not take any more actions on the bills below.
+        scheduled periodically through the end of 2010, the legislature will generally not take any more actions on the bills below.-->A new Texas legislature, the 82nd, will convene on Jan. 11th, 2011, after which date newly introduced bills will appear here automatically.<br><br>
+        Bill pages display official government information combined with news coverage, blog posts, and more to help make them more accessible. 
         
-        A new Texas state legislature, the 82nd, will convene on Jan. 11th, 2011, after which date new bills will be introduced
-        and appear here automatically. Until then, you can use the sort-by options below to view bills in different ways.
-
   people:
     index:
       intro: |
-        This is a list of all members of the Texas state legislature. By state law, the legislature is only in 'regular session'
+        This is a list of all members of the current 2009 - 2010 Texas state legislature. <!--By state law, the legislature is only in 'regular session'
         (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st
         Texas legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the members below will generally not introduce any new legislation.
-        A new Texas state legislature (the 82nd) will convene on Jan. 11, 2011, after which date new and returning members will be sworn in
-        and appear here automatically. Until then, you use the sort-by options below to view members in different ways. 
+        scheduled periodically through the end of 2010, the members below will generally not introduce any new legislation.-->
+        The next Texas legislature (the 82nd) will convene on Jan. 11, 2011, after which date new and returning members will appear here automatically.
+        Member pages display their official government information combined with free tools to track their legislative actions, contact their offices, and more.
 
   issues:
     index:

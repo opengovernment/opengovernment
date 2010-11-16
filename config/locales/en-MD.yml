@@ -2,7 +2,7 @@ en-MD:
   states:
     show:
       intro:   |
-            <strong>Learn</strong> about bills and key votes in the Maryland state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
+            <strong>Learn</strong> about bills in the Maryland legislature. <strong>Track</strong> votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
             To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Maryland state government works.
       state_population: |
         2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)
@@ -31,13 +31,14 @@ en-MD:
       miro_url: 'http://mdopengov.mirocommunity.org/'
     index: 
       intro: |
-         This is a list of all bills in the current Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will not have any more official actions.<br><br>
-            A new Maryland state legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically. Until then, you can use the sort-by options below to view the most-current bills in different ways.
+         This is a list of all bills in the current 2009 - 2010 Maryland state legislature. A new legislature will convene in January 2011, after which date newly introduced bills will appear here automatically.<br><br>
+         Bill pages display official government information combined with news coverage, blog posts, and more to help make them more accessible. 
+        
   people: 
     index:
       intro: |
-        This is a list of all members of the Maryland state legislature. In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 13th - April 12th.  As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on bills.<br><br>
-            A new Maryland state legislature will convene in January 2011, after which date new & returning members will be sworn in and appear here automatically. Until then, you can use the sort-by options below to view members in different ways.
+        This is a list of all members of the current 2009 - 2010 Maryland state legislature. The next legislature will convene in January 2011, after which date new & returning members will appear here automatically.<br><br>
+            Member pages display their official government information combined with free tools to track their legislative actions, contact their offices, and more.
 
   issues:
     index:

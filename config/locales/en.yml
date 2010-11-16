@@ -23,8 +23,9 @@ en:
     money_trail:
       title: "Money Trail data isn't quite ready!"
       details: |
-        Sorry, we don't have any money trail data for bills yet. With your support, however, we can get this vital
-        data in place!
+        We believe it is important for the public to be able to easily access information about which special interest groups support or oppose this legislation with their campaign contributions. Unfortunately, state governments do not disclose contribution data in ways that are sufficiently timely or fully open. As a result, the process of finding out which entities support and oppose this bill is more difficult and time-intensive than it needs to be... and the public is kept in the dark about the systemic influence of money in the political process, usually until after key votes are already cast.<br><br>
+        In the future, our goal is to work with our data partners for campaign contribution information -- the <a href="http://www.followthemoney.org/" target="_blank">National Institute on Money in State Politics</a> and <a href="http://maplight.org/" target="_blank">MAPLight</a>, both non-profit and non-partisan organizations -- to create more versions of state-level transparency sites like <strong><a href="http://maplight.org/california" target="_blank">MAPLight California</a></strong>. In addition, we seek support to integrate state-level elected officials with the rich open data sets of interlocks at <a href="http://littlesis.org/" target="_blanks">LittleSis</a>, another non-profit and open-source project for citizen watchdogging.<br><br>
+        For now, see <a href="/pages/help">how you can help</a> support our work and get this vital data -- on which special interest groups are supporting and opposing individual bills in state legislatures via their political donations -- in place for the public benefit on the open Web. 
     votes:
       no_actions: "We have no actions for this bill."
       major_action: |
@@ -34,7 +35,7 @@ en:
     social:
       intro: |
         Here are the social media mentions found for this bill at this time. This includes Tweets with hashtag #txbill and also the hashtag with this bill's specific number, e.g. #hb1 or #sb362. 
-        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores -- so if you see irrelevant Tweets below, please disregard them. Coming soon we'll bring in mentions from other closed social media services like Facebook, open-source tools like Identi.ca and Diaspora, and more.
+        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as those including sports scores or similarly-titled bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
     track:
       track: 'Track'
       all_actions: 'All Actions'
