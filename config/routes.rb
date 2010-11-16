@@ -22,6 +22,7 @@ OpenGov::Application.routes.draw do
         get :money_trail
         get :discuss
         get :contact
+        get :videos
       end
     end
 

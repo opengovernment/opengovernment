@@ -1,7 +1,7 @@
 - title("Tweets about #{@person.official_name}")
 - tweets(@person.full_name, 10)
 
-= render(:partial => 'wrapper')
+= render('wrapper')
 
 .grid_12
   %p= t '.intro', :search_term => @person.full_name
