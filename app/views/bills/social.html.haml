@@ -3,7 +3,7 @@
 
 = render 'wrapper'
 
-%p= t '.intro'
+%p= t '.intro', :search_term => @bill.to_hashtags
 
 #twitter(style="display: none;")
   %h2 Tweets
