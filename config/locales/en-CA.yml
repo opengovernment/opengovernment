@@ -1,4 +1,6 @@
 en-CA:
+  videos:
+    miro_url: 'http://caopengov.mirocommunity.org/'
   states:
     show:
       intro: |
@@ -23,8 +25,6 @@ en-CA:
       background: |
         Here are more links with background the CA state legislature and the best explanations of how it works: Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a>; Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a>; OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a>; OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA-relevant political blogs in the left-hand sidebar. This free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>. 
   bills:
-    videos:
-      miro_url: 'http://caopengov.mirocommunity.org/'
     index:
       intro: |
         <! -- In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the bills below will generally not have any more official actions.-->

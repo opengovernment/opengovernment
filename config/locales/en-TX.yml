@@ -1,4 +1,6 @@
 en-TX:
+  videos:
+    miro_url: 'http://txopengov.mirocommunity.org/'
   states:
     show:
         intro: |
@@ -47,8 +49,6 @@ en-TX:
         lower_chamber_term_limit: "no term limits"
         
   bills:
-    videos:
-      miro_url: 'http://txopengov.mirocommunity.org/'
     index:
       intro: |
         This is a list of all bills in the current 2009 - 2010 Texas state legislature. <!--By state law, the legislature is only in 'regular session'

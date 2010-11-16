@@ -1,4 +1,6 @@
 en-WI:
+  videos:
+    miro_url: 'http://wiopengov.mirocommunity.org/'
   states:
     show:
       intro: |
@@ -29,8 +31,6 @@ en-WI:
       background: | 
         Here are more links with background on the Wisconsin state legislature and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Wisconsin_Legislature">Wikipedia</a>; <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Legislature">Ballotpedia</a>, including the 2010 elections in the <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Assembly_elections,_2010">Assembly</a>; OpenCongress <a href="http://www.opencongress.org/states/WI">WI state page</a>, including two federal U.S. <a href="http://www.opencongress.org/people/senators#WI">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#WI">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Wisconsin">WI state page</a>, including blogroll of WI-state political blogs</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more WI-relevant political blogs in the left-hand sidebar. This free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
   bills:
-    videos:
-      miro_url: 'http://wiopengov.mirocommunity.org/'
     index: 
       intro: |
         This is a list of all bills in the current 2009 - 2010 Wisconsin state legislature. <!--In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from Jan. 19th - April 22nd. As a result, while committee meetings are scheduled through the end of the year, the bills below will not have any more official actions.--> The next legislature will convene in January 2011, after which date newly introduced bills will appear here automatically.<br><br>
