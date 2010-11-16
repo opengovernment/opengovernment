@@ -175,8 +175,9 @@ module OpenGov
           )
         end
 
-        if bill.subjects?
-          bill.subjects.each do |subject|
+        if bill[:subjects] || bill[:"+subjects"]
+          subjects = bill[:subjects] || bill[:"+subjects"]
+          subjects.each do |subject|
             s = Subject.find_or_create_by_name(subject.strip)
             @bill.subjects << s
           end
