@@ -38,7 +38,6 @@
           .grid_9.alpha.omega
             %strong
               = link_to t('site.name'), home_url(:subdomain => false)  
-              %span.beta Beta
  
             %ul.breadcrumb
               %li.topnav
@@ -50,6 +49,7 @@
                   %ul
                     - State.loadable.each do |state|
                       %li.state_name= link_to state.name, state_url(state)
+            %span.beta Beta
 
             - if current_user
               = succeed(',') do

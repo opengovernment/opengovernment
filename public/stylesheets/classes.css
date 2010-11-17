@@ -327,7 +327,38 @@ padding: 15px 30px 15px 26px !important;
   
   
   
+ul.small_tabs{
+float: left;
+margin: 0;
+width: 100%;
+}
 
 
+ul.small_tabs li{
+clear: none !important;
+float: left;
+display: inline !important;
+}
 
+ul.small_tabs li a{
+font-size: 16px;
+font-weight: normal;
+padding: 10px 10px 10px 0;
+display: block;
+text-decoration: underline;
+}
+
+
+ul.small_tabs li.ui-tabs-selected a{
+text-decoration: none;
+font-weight: bold;
+cursor: default;
+}
+
+ul.small_tabs li.divide{
+width: 5px !important;
+border-right: 1px solid #36676f;
+margin-right: 15px;
+margin-top: 11px;
+}
 
