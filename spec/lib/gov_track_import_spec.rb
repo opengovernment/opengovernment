@@ -20,7 +20,7 @@ describe GovTrackImporter do
 
   context "#import" do
     before do
-      @raw_data = Hpricot(File.read(@data_file))
+      @raw_data = Nokogiri::XML(File.read(@data_file))
       @people = @raw_data.search('//person')
     end
 

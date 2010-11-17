@@ -33,8 +33,8 @@ module OpenGov
       c.url = mention.url
       c.weight = mention.weight
       # Remove HTML tags from mention title and excerpt
-      c.title = Hpricot(mention.title).scrub
-      c.excerpt = Hpricot(mention.excerpt).scrub
+      c.title = Loofah.fragment(mention.title).text
+      c.excerpt = Loofah.fragment(mention.excerpt).text
       c.search_source = source
       c.save!
     end
