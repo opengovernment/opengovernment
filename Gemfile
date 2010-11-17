@@ -3,17 +3,17 @@ source 'http://rubygems.org'
 gem 'rails'
 
 # ActiveRecord requires a database adapter.
-gem "pg"
-gem "mongo_mapper"
-gem "bson_ext"
+gem 'pg'
+gem 'mongo_mapper'
+gem 'bson_ext'
 
 # Rails.cache
 gem 'memcache-client'
 # gem 'memcached'
 
 # Deployment
-gem "capistrano"
-gem "capistrano-ext"
+gem 'capistrano'
+gem 'capistrano-ext'
 
 # Config
 gem 'settingslogic'
@@ -22,19 +22,19 @@ gem 'settingslogic'
 gem 'formtastic', '~> 1.1.0'
 
 # Authentication
-gem "devise"
-gem "ruby_parser"
+gem 'devise'
+gem 'ruby_parser'
 
 # GIS & Geocoding
-gem "GeoRuby"
-gem "geokit"
+gem 'GeoRuby'
+gem 'geokit'
 gem 'geoip'
 
 # Breadcrumbs & navigation
-gem "simple-navigation"
+gem 'simple-navigation'
 
 # Static pages
-gem "high_voltage"
+gem 'high_voltage'
 
 # Background tasks
 
@@ -43,7 +43,7 @@ gem "high_voltage"
 gem 'delayed_job', '~> 2.1.0.pre2'
 
 # Simple pagination
-gem "will_paginate", "~> 3.0.pre2"
+gem 'will_paginate', '~> 3.0.pre2'
 
 # Attachments & assets
 gem 'paperclip'
@@ -51,18 +51,18 @@ gem 'jammit'
 gem 'jquery-rails'
 
 # HAML!
-gem 'haml', '>= 3.0.19'
+gem 'haml'
 
 #Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
 
 # Importing & parsing stuff
-gem "httparty"
-gem "hpricot"
-gem 'hpricot_scrub', :git => 'http://github.com/UnderpantsGnome/hpricot_scrub.git'
-gem "chronic" # Complex date string parsing
+gem 'httparty'
+gem 'nokogiri'
+gem 'loofah'
+gem 'chronic' # Complex date string parsing
 gem 'json'
-# gem "govkit", :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
+# gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 
 # Indexing and Search
 gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphinx.git',
@@ -83,10 +83,10 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-rails'
-  gem "autotest"
-  gem "autotest-rails"
-  gem "factory_girl_rails"
-  gem "machinist"
-  gem "linecache"
-  gem "ruby-debug"
+  gem 'autotest'
+  gem 'autotest-rails'
+  gem 'factory_girl_rails'
+  gem 'machinist'
+  gem 'linecache'
+  gem 'ruby-debug'
 end
