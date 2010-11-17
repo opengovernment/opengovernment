@@ -177,6 +177,19 @@ margin-left: 13px !important;
 }
 
 
+.track_buttons h4 span{
+background: url('/images/track_write.png') no-repeat 7px -25px;
+padding-left: 24px !important;
+}
+
+
+.write_buttons h4 span{
+background: url('/images/track_write.png') no-repeat 8px 8px;
+padding-left: 27px !important;
+}
+
+
+
 .support_buttons{
 padding: 10px 30px 0 0;
 }
@@ -255,7 +268,7 @@ height: 47px;
 
 .hov{
 float: left;
-width: 90px;
+
 padding: 0;
 margin: 10px 0 10px 40px;
 position: relative;
@@ -311,9 +324,10 @@ box-shadow: 0 1px 0px #dbdbdb;
 
 
 .hov h4 span{
-padding-right: 20px;
+
 float: left;
-padding: 6px 10px 0px;
+padding: 6px 10px 0 10px;
+
 }
 
 

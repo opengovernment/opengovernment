@@ -1,9 +1,27 @@
 
+.beta{
+font-weight: normal;
+font-size: 11px;
+background: #ededed;
+padding: 3px 10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+ margin: -3px 25px 0 10px;
+float: left;
+}
+
+.help,
+#account .modal{
+float: right;
+}
+
 
 .breadcrumb{
   float: left;
-
+border-left: 1px solid #ccc;
 margin-top: -2px;
+padding-left: 10px;
 }
 
 .breadcrumb li{
@@ -18,8 +36,8 @@ position: relative;
   float: left;
   list-style: none;
   text-decoration: none;
-font-size: 13px;
-  line-height: 1.6em;
+font-size: 16px;
+  line-height: 1.3em;
   margin: 0 !important;
 
 }
@@ -37,8 +55,8 @@ text-decoration: underline;
 
 
 li.topnav {
-padding: 0 50px 0 0 !important;
-border-right: 1px solid #ccc;
+padding: 0 0px 0 0 !important;
+
 margin-right: 10px;
 }
 
