@@ -29,15 +29,15 @@ en-CA:
       title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
         Bills are difficult to understand, but help is finally here. We make bills more accessible by combining official government information with news coverage, blog posts, and more. On bill pages below, you'll find free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next California legislature will convene in January 2011, after which date newly introduced bills will appear here automatically with updated actions.
+        The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
     show:
       missing_bill_text: 'Links to California full bill text are coming soon.'
   people:
     index:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
       intro: |
-        Get connected with senators and assemblymembers in the Calfornia legislature. We make people more accessible by combining their official government information with news coverage, campaign contribution data, and more. On member pages below, you'll find free tools to track their votes on bills, share them over social media, and easily contact their offices.<br><br>
-        The next California legislature will convene in January 2011, after which date new and returning members will appear here automatically with their latest legislative actions.
+        We make California senators and assemblymembers more accessible by combining their official government information with news coverage, campaign contribution data, and more. On member pages below, you'll find free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
+        The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions. 
   issues:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
