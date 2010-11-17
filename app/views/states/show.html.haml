@@ -27,6 +27,15 @@
   .grid_6.omega
     = raw t '.state_population'
 
+
+  %p
+    %strong Next Election:
+    = raw t '.next_election_date'
+
+  %p
+    %strong Last Election:
+    = raw t '.last_election_date'
+
   .space
 
   :ruby
@@ -108,17 +117,13 @@
               = link_to "#{number_with_delimiter(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path
             = link_to "#{Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path
   
-          %p
-            %strong Last Election:
-            = raw t '.last_election_date'
+
             %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
             %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
   
-          %p
-            %strong Next Election:
-            = raw t '.next_election_date'
+
             %br
             =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
   
@@ -126,8 +131,7 @@
             =t (chamber.type == 'UpperChamber' ? '.upper_chamber_active_session_date' : '.lower_chamber_active_session_date')
       
             %br
-            %strong Next Session:
-            = raw t '.next_session_start_date'
+
   
           %p
             Legislators serve #{chamber.term_length}-year terms, with
