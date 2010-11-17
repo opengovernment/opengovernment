@@ -7,5 +7,9 @@
 %p In the future, our goal is to aggregate useful video about every bill, issue, and member of state government here on OpenGovernment, all freely-licensed and made available in open standards to share & remix -- see <a href="/pages/help" target="_blank">how you can help</a>. 
 
 %p Until such video is liberated, we're using the free and open-source Miro Community software to create a crowdsourced hub of publicly-available video content for each state government. Head over there to see what's new and add videos of which you know for everyone to access for educational and watchdogging purposes:
-%a{:href => t('videos.miro_url')}= @bill.state.name
-
+%a.mc{:href => t('videos.miro_url')}
+  Watch
+  = @bill.state.name
+  Videos at the
+  %br
+  mini-site provided by

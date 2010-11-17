@@ -39,6 +39,7 @@ position: relative;
 font-size: 16px;
   line-height: 1.3em;
   margin: 0 !important;
+color: #215357;
 
 }
 
@@ -85,7 +86,7 @@ padding: 0 10px 0 0 !important;
   padding: 8px;  
   display: none;  
 
-height: 190px;
+height: 194px;
 
 
   width: 237px;  
@@ -149,10 +150,10 @@ padding: 0;
 .state-select li a{  
   float: left;
   margin: 0;
-  padding: 8px 0 8px 15px !important;
+  padding: 11px 0 11px 15px !important;
   background: #fff !important;
   width: 220px;  
-
+font-size: 12px;
 }
 
 
