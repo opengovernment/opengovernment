@@ -30,7 +30,7 @@ class GovTrackImporter
     print "\nImporting people."
 
     File.open(File.join(@data_dir, @file_name)) do |file|
-      @doc = Hpricot(file)
+      @doc = Nokogiri::HTML(file)
     end
 
     @people = @doc.search("//person")
