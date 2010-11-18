@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/freelancing-god/thinking-sphinx.git
-  revision: 3d244df371ef739f690a76fd18ad9bbb76e68dd0
+  revision: a9311199a3f8eb63a8203c3ccd80f2f6e61a1491
   branch: rails3
   specs:
     thinking-sphinx (2.0.0)
@@ -76,7 +76,7 @@ GEM
     chronic (0.3.0)
     closure-compiler (0.3.3)
     columnize (0.3.2)
-    configuration (1.1.0)
+    configuration (1.2.0)
     crack (0.1.8)
     cucumber (0.9.4)
       builder (~> 2.1.2)
