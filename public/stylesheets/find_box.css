@@ -2,6 +2,7 @@
 
 .home.home .find_box{
 margin: 0 -16px !important;
+  border-top: none;
 }
 
 .home.home #find_my_rep #q{
@@ -33,11 +34,12 @@ float: right;
 
 .find_box{
   position: relative;
+  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   overflow: auto;
   padding: 18px 0px 10px;
   background: #f9f9f9;
-  margin: 0px -26px 0 -39px;
+  margin: 0px -26px 20px -39px;
   }
 
 
@@ -81,7 +83,7 @@ float: right;
   background: #fff;
   font-size: 11px;
   text-shadow: #d5ebef 0px 1px 0px;
-  
+  text-decoration: none;
   background: url(/images/sprites.png) 12px -218px no-repeat;
   
   

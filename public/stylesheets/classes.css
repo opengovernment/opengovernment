@@ -17,6 +17,7 @@
   float: right;
   font-weight: bold;
   font-size: 14px;
+margin: 20px;
   }
 
 
@@ -52,7 +53,7 @@
 
 
 .intro{
-  padding: 30px 0 10px;
+  padding: 10px 0 0px;
   font-size: 13px;
   line-height: 1.5em;
   }
@@ -379,6 +380,23 @@ ul.small_tabs li.divide{
   margin-bottom: 20px;
   }
 
+.tab_cont .small.quiet{
+padding: 10px 20px;
+margin: 0;
+float: left;
+}
+
+
+.tab_cont .what{
+padding: 10px 20px;
+margin: 0;
+float: right;
+}
+
+
+.tab_cont.pad{
+padding: 20px;
+  }
 
 .tab_cont ul{
   padding: 0;
@@ -408,5 +426,32 @@ ul.small_tabs li.divide{
   background: transparent url(/images/mc.png) 240px 0 no-repeat !important;
   }
   
+.big_list{
+height: 60px;
+width: 935px;
+padding-left: 57px;
+margin: 20px 0 0 -16px;
+background: #eee;
+border-bottom: 1px solid #ddd;
+border-top: 1px solid #ddd;
+}
 
 
+.big_list li{
+float: left;
+clear: none;
+}
+
+
+
+.big_list li a{
+float: left;
+clear: none;
+padding: 20px 30px;
+font-size: 18px;
+}
+
+
+
+
+  
