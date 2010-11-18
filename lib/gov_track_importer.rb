@@ -59,25 +59,24 @@ class GovTrackImporter
     roles = person_xml.search("//role")
     
     # We want them to have at least one role that starts within the last 10 years, otherwise don't import them.
-    if roles.any? { |r| Date.valid_date!(r['startdate']) && Date.strptime(r['startdate'], "%Y-%m-%d") > 10.years.ago.to_date }
+    if roles.any? { |r| parse_govtrack_date(r['startdate']) > 10.years.ago.to_date }
 
       @person = person_already_exists?(person_xml)
       attrs = person_xml.attributes
       @person.suffix = ''
-      @person.first_name = attrs['firstname']
-      @person.last_name = attrs['lastname']
-      @person.middle_name = attrs['middlename']
-      @person.gender = attrs['gender']
+      @person.first_name = attrs['firstname'].value
+      @person.last_name = attrs['lastname'].value
+      @person.middle_name = attrs['middlename'].value
+      @person.gender = attrs['gender'].value
 
-      date = attrs['birthday']
-      @person.birthday = Date.valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
-      @person.religion = attrs['religion']
+      @person.birthday = parse_govtrack_date(attrs['birthday'].value)
+      @person.religion = attrs['religion'].value
 
-      @person.votesmart_id = attrs['pvsid']
-      @person.opensecrets_id = attrs['osid']
-      @person.bioguide_id = attrs['bioguideid']
-      @person.youtube_id = attrs['youtubeid']
-      @person.metavid_id = attrs['metavidid']
+      @person.votesmart_id = attrs['pvsid'].value
+      @person.opensecrets_id = attrs['osid'].value
+      @person.bioguide_id = attrs['bioguideid'].value
+      @person.youtube_id = attrs['youtubeid'].value
+      @person.metavid_id = attrs['metavidid'].value
 
       if @person.save
         roles.each do |role|
@@ -91,11 +90,18 @@ class GovTrackImporter
     end
   end
 
+  def parse_govtrack_date(date)
+    Date.valid_date!(date) && Date.strptime(date, "%Y-%m-%d")
+  end
+
   def make_role(role_xml)
     role = role_already_exists?(role_xml)
     attrs = role_xml.attributes
+    party = attrs['party'].value
+    type = attrs['type'].value
+    state = State.find_by_abbrev(attrs['state'].value)
 
-    role.party = case attrs['party']
+    role.party = case party
       when 'Democrat', 'D'
         'Democrat'
       when 'Republican', 'R'
@@ -104,15 +110,13 @@ class GovTrackImporter
         'Independent'
       end
 
-    state = State.find_by_abbrev(attrs['state'])
-
-    if attrs['type'] == 'sen'
+    if type == 'sen'
       role.chamber = UpperChamber::US_SENATE
-      role.senate_class = attrs['class']
+      role.senate_class = attrs['class'].value
       role.state = state
-    elsif attrs['type'] == 'rep'
+    elsif type == 'rep'
       role.chamber = LowerChamber::US_HOUSE
-      role.district = LowerChamber::US_HOUSE.districts.for_state(state.id).numbered(attrs['district']).first
+      role.district = LowerChamber::US_HOUSE.districts.for_state(state.id).numbered(attrs['district'].value).first
     end
 
     role
@@ -120,17 +124,15 @@ class GovTrackImporter
 
   protected
   def person_already_exists?(person_xml)
-    gid = person_xml.attributes['id']
+    gid = person_xml.attributes['id'].value
     Person.find_by_govtrack_id(gid) || Person.new(:govtrack_id => gid)
   end
 
   def role_already_exists?(role_xml)
     attrs = role_xml.attributes
 
-    startdate = attrs['startdate']
-    startdate = Date.valid_date!(startdate) && Date.strptime(startdate, "%Y-%m-%d")
-    enddate = attrs['enddate']
-    enddate = Date.valid_date!(enddate) && Date.strptime(enddate, "%Y-%m-%d")
+    startdate = parse_govtrack_date(attrs['startdate'].value)
+    enddate = parse_govtrack_date(attrs['enddate'].value)
 
     options = {:person_id => @person.id, :start_date => startdate}
 
