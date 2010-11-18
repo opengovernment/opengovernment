@@ -9,7 +9,7 @@
     = link_to("Show all subjects instead", {:all => 't'})
 
 %nav.faceted.by_letter
-  - ('A'..'Z').each do |letter|
+  - @letters.sort.each do |letter|
     - if @letter == letter
       %em= letter
     - else

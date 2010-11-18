@@ -3,16 +3,18 @@ class SubjectsController < ApplicationController
   before_filter :get_subject, :only => :show
 
   def index
-    @min_bills = 10
+    @min_bills = 5
     @letter = params[:letter] || 'A'
     page = params[:page] || 1
     
     if params[:all]
       @subjects = Subject.for_state(@state)
+      @letters = @subjects.select('upper(substring(subjects.name from 1 for 1)) as letter').group('upper(substring(subjects.name from 1 for 1))').map { |x| x.letter }
     else
-      @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills])
+      @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills.id) > ?", @min_bills])
+      @letters = Subject.find_by_sql(["SELECT letter from (select upper(substring(subjects.name from 1 for 1)) as letter, subjects.*, count(bills.id) from subjects inner join bills_subjects on subjects.id = bills_subjects.subject_id inner join bills on bills.id = bills_subjects.bill_id where bills.state_id = ? group by upper(substring(subjects.name from 1 for 1)), subjects.id, subjects.name, subjects.code, subjects.created_at, subjects.updated_at having count(bills.id) > ?) popular_subjects group by letter", @state.id, @min_bills]).map { |x| x.letter }
     end
-    
+
     @subjects = @subjects.where(["upper(subjects.name) like ?", @letter + '%']).paginate(:page => params[:page])
   end
 
