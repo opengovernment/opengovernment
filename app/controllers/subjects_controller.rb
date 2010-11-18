@@ -11,7 +11,20 @@ class SubjectsController < ApplicationController
       @letters = @subjects.select('upper(substring(subjects.name from 1 for 1)) as letter').group('upper(substring(subjects.name from 1 for 1))').map { |x| x.letter }
     else
       @subjects = Subject.for_state(@state).with_bill_count.having(["count(bills.id) > ?", @min_bills])
-      @letters = Subject.find_by_sql(["SELECT letter from (select upper(substring(subjects.name from 1 for 1)) as letter, subjects.*, count(bills.id) from subjects inner join bills_subjects on subjects.id = bills_subjects.subject_id inner join bills on bills.id = bills_subjects.bill_id where bills.state_id = ? group by upper(substring(subjects.name from 1 for 1)), subjects.id, subjects.name, subjects.code, subjects.created_at, subjects.updated_at having count(bills.id) > ?) popular_subjects group by letter", @state.id, @min_bills]).map { |x| x.letter }
+      @letters = Subject.find_by_sql(["
+          SELECT
+            letter from (
+              SELECT upper(substring(subjects.name from 1 for 1)) as letter,
+                subjects.*,
+                count(bills.id)
+              FROM
+                subjects
+                inner join bills_subjects on subjects.id = bills_subjects.subject_id
+                inner join bills on bills.id = bills_subjects.bill_id
+              WHERE bills.state_id = ?
+              GROUP BY upper(substring(subjects.name from 1 for 1)), subjects.id, subjects.name, subjects.code, subjects.created_at, subjects.updated_at HAVING count(bills.id) > ?
+            ) popular_subjects
+          GROUP BY letter", @state.id, @min_bills]).map { |x| x.letter }
     end
 
     @letter = params[:letter] || @letters.first
