@@ -59,7 +59,6 @@ gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-o
 # Importing & parsing stuff
 gem 'httparty'
 gem 'nokogiri'
-gem 'loofah'
 gem 'chronic' # Complex date string parsing
 gem 'json'
 # gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)

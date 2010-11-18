@@ -32,9 +32,6 @@ module OpenGov
       c = owner.mentions.find_or_initialize_by_source_and_date(mention.source, Date.valid_date!(mention.date))
       c.url = mention.url
       c.weight = mention.weight
-      # Remove HTML tags from mention title and excerpt
-      c.title = Loofah.fragment(mention.title).text
-      c.excerpt = Loofah.fragment(mention.excerpt).text
       c.search_source = source
       c.save!
     end
