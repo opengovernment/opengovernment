@@ -59,3 +59,11 @@ To prepare the test database: `RAILS_ENV=test rake db:prepare`.
 Then, to run all tests: `rake`.
 
 You can use autotest or spork. To fire up the spork-based drb server, run `script/spec_server`
+
+# Troubleshooting
+
+Many bill versions and documents in state legislatures have FTP URLs associated with them. Ruby 1.8.7's Net::FTP does not negotiate passive FTP and will hang if you are using iptables without the `ip_conntrack_ftp` module.
+
+In `/etc/sysconfig/iptables-config`, add it to `IPTABLES_MODULES`:
+    IPTABLES_MODULES="ip_conntrack_netbios_ns ip_conntrack_ftp"
+
