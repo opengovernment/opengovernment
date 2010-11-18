@@ -33,9 +33,7 @@ class GovTrackImporter
       @doc = Nokogiri::HTML(file)
     end
 
-    @people = @doc.search("//person")
-
-    @people.each_with_index do |person, i|
+    @doc.search("//person").each_with_index do |person, i|
       if i % 10 == 0
         print '.'
         $stdout.flush
@@ -56,7 +54,7 @@ class GovTrackImporter
 
   def import_person(person_xml)
 
-    roles = person_xml.search("//role")
+    roles = person_xml.css("role")
     
     # We want them to have at least one role that starts within the last 10 years, otherwise don't import them.
     if roles.any? { |r| parse_govtrack_date(r['startdate']) > 10.years.ago.to_date }
@@ -64,19 +62,19 @@ class GovTrackImporter
       @person = person_already_exists?(person_xml)
       attrs = person_xml.attributes
       @person.suffix = ''
-      @person.first_name = attrs['firstname'].value
-      @person.last_name = attrs['lastname'].value
-      @person.middle_name = attrs['middlename'].value
-      @person.gender = attrs['gender'].value
+      @person.first_name = attrs['firstname'].try(:value)
+      @person.last_name = attrs['lastname'].try(:value)
+      @person.middle_name = attrs['middlename'].try(:value)
+      @person.gender = attrs['gender'].try(:value)
 
-      @person.birthday = parse_govtrack_date(attrs['birthday'].value)
-      @person.religion = attrs['religion'].value
+      @person.birthday = parse_govtrack_date(attrs['birthday'].try(:value))
+      @person.religion = attrs['religion'].try(:value)
 
-      @person.votesmart_id = attrs['pvsid'].value
-      @person.opensecrets_id = attrs['osid'].value
-      @person.bioguide_id = attrs['bioguideid'].value
-      @person.youtube_id = attrs['youtubeid'].value
-      @person.metavid_id = attrs['metavidid'].value
+      @person.votesmart_id = attrs['pvsid'].try(:value)
+      @person.opensecrets_id = attrs['osid'].try(:value)
+      @person.bioguide_id = attrs['bioguideid'].try(:value)
+      @person.youtube_id = attrs['youtubeid'].try(:value)
+      @person.metavid_id = attrs['metavidid'].try(:value)
 
       if @person.save
         roles.each do |role|
@@ -97,8 +95,8 @@ class GovTrackImporter
   def make_role(role_xml)
     role = role_already_exists?(role_xml)
     attrs = role_xml.attributes
-    party = attrs['party'].value
-    type = attrs['type'].value
+    party = attrs['party'].try(:value)
+    type = attrs['type'].try(:value)
     state = State.find_by_abbrev(attrs['state'].value)
 
     role.party = case party
@@ -112,7 +110,7 @@ class GovTrackImporter
 
     if type == 'sen'
       role.chamber = UpperChamber::US_SENATE
-      role.senate_class = attrs['class'].value
+      role.senate_class = attrs['class'].try(:value)
       role.state = state
     elsif type == 'rep'
       role.chamber = LowerChamber::US_HOUSE
