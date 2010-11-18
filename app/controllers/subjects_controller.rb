@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   before_filter :get_subject, :only => :show
 
   def index
-    @min_bills = 5
+    @min_bills = 4
     page = params[:page] || 1
     
     if params[:all]
