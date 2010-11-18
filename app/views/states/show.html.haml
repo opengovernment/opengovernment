@@ -59,9 +59,8 @@
         %a{:href => '#key_votes'} Key Votes
 
     #recent_bills.tab_cont
-      %p
-        %ul.lined.and_spaced
-          = render @recent_bills
+      %ul
+        = render @recent_bills
       %a.more{:href => bills_path(:sort => 'recent')} All Recent Bills &rarr;
       .clear
 
@@ -69,9 +68,8 @@
       .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
       %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
   
-      %p
-        %ul.lined.and_spaced
-          = render @key_votes, :locals => {:hide_key_vote => true}
+      %ul
+        = render @key_votes, :locals => {:hide_key_vote => true}
       %a.more{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
       .clear  
 
@@ -117,20 +115,16 @@
               = link_to "#{number_with_delimiter(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path
             = link_to "#{Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path
   
-
+            %br
             %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
-            %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
   
 
-            %br
             =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
   
-          %p
             =t (chamber.type == 'UpperChamber' ? '.upper_chamber_active_session_date' : '.lower_chamber_active_session_date')
       
-            %br
 
   
           %p
