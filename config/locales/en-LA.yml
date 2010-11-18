@@ -1,6 +1,4 @@
 en-LA:
-  videos:
-    miro_url: 'http://laopengov.mirocommunity.org/'
   states:    
     show:
       intro: |
@@ -28,25 +26,33 @@ en-LA:
       background: |
         Here are some links with background on the Louisiana state legislature and explanations of how it works: <a href="http://en.wikipedia.org/wiki/Louisiana_State_Legislature">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Louisiana_State_Legislature">Ballotpedia</a>; OpenCongress state page for <a href="http://www.opencongress.org/states/LA">Louisiana</a>, with links to federal <a href="http://www.opencongress.org/people/senators#L">senators</a> and <a href="http://www.opencongress.org/people/representatives#L">representatives</a>; OpenCongress Wiki blogroll of <a href="http://www.opencongress.org/wiki/Louisiana">LA state political blogs</a>; and the National Council of State Legislatures official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more LA state blogs in the left-hand sidebar.<br><br>
         How did we get the above information? It took our non-profit team a lot of work. Almost no state legislative chamber makes its data available in ways that are compliant with the community-generated Eight Principles of Open Government Data. As a result of this significant shortcoming, we created OpenGovernment to fill the need for a public resource web application for government transparency and civic engagement. All state-level legislative data was obtained via a time-intensive process known as "scraping", headed up by volunteers from the Open States Project -- a process that is vastly sub-optimal compared to governments actually making public data available via more efficient & acceptable methods, viz. a real-time open API and bulk download access. The contextual data of news & blog coverage, social media mentions, campaign contribution info, and issue-area analysis are aggregated uniquely by the open-source GovKit API. Last but not least, the welcoming web design, user-friendly interface, and helpful site copy are also products of OpenGovernment, the team behind OpenCongress, licensed freely for you to share and remix. All that said, this free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.  
-  bills:
+        
+  bills: 
     index:
+      title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
-        <!--In 2010, the legislature was only in regular session -- meaning, where bills were introduced and voted on -- from March 29th - June 21st. As a result, while each chamber of the legislature still holds committee hearings through the end of the year, the bills below will not have any more actions.-->
-        This is a list of all bills in the current 2009 - 2010 Louisiana state legislature. A new legislature will convene in January 2011, after which date newly introduced bills will appear here automatically.<br><br>
-        Bill pages display official government information combined with news coverage, blog posts, and more to help make them more accessible. 
-                
+        Connect with bills in Louisiana. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
+        The next Louisiana legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+    videos: 
+      intro: |
+        <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But if you're brave enough to take a look at those official government sites, they're obviously poorly done... almost amusingly so, if the legislative process wasn't so important to the public interest. The House makes video available via a decidedly baffling, un-user-friendly website in the widely-discounted .asx video format. The Senate is worse, if possible: "We recommend using Windows Media Player...". In brief, Louisiana is far, far behind technical best practices in publishing and displaying online video for the public. 
+  
   people: 
     index:
       intro: |
-       <!--In 2010, the legislature was only in regular session -- meaning, where bills are introduced and voted on -- from January through August. As a result, while the legislature still holds committee meetings through the end of the year, the members below will not be taking any more official actions or votes on these bills.-->
-         This is a list of all members of the current 2009 - 2010 Louisiana state legislature. A new legislature will convene in January 2011, after which date new & returning members will appear here automatically.<br><br>
-         Member pages display their official government information combined with free tools to track their legislative actions, contact their offices, and more.
-         
+        Connect with senators and representatives in Louisiana. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
+        The next Louisiana legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.
+    videos: 
+      intro: | 
+        <em>Editorial note</em>: as far as what's out there now, some official video for members of the Louisana legislature is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But if you're brave enough to take a look at those official government sites, they're obviously poorly done... almost amusingly so, if the legislative process wasn't so important to the public interest. The House makes video available via a decidedly baffling, un-user-friendly website in the widely-discounted .asx video format. The Senate is worse, if possible: "We recommend using Windows Media Player...". In brief, Louisiana is far, far behind technical best practices in publishing and displaying online video for the public.    
+  
   issues:
     index:
+      title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        This is a list of all issue areas -- here referred to as "subjects" -- for legislation in the Louisana state legislature. State legislatures generate many thousands of subjects every regular session and officially assign them to individual legislative items -- sometimes many subjects per bill, sometimes zero. <br><br> To make this bill-to-issue system more intelligible, the first list below is the 46 major legislative issue areas as determined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a>. With volunteer <a href="/pages/help">help</a>, we seek to manually match every official bill subject to one of the below 46 issue areas. The resulting info on OpenGovernment will make it far easier to find bills that are relevant to the real-world political issues you care about. Until that project is completed, below that list on this page is displayed the most-frequent bill subjects in Lousiana, those that are applied to bills ten or more times. Click the link to "view all" subjects to see the full list of many thousands of individual, idiosyncratic bill subjects and their associated bills.<br><br>
-              The next Louisiana legislature will convene in January 2011, after which date new bills will be introduced and appear here automatically under our customized issue area categories. Until then, use the sort-by options below to view issues and bills from the most recent legislature in different ways.
+        The bill "subjects" below are officially assigned to legislation by the Louisana state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
+        In the future, to make bills in Louisiana more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Louisana legislature, those applied to bills four times or more.<br><br>                
+        The next Louisiana legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
 
   money_trails:
     index:
@@ -54,10 +60,12 @@ en-LA:
         This page lists all publicly-available information about campaign contributions made to members of the Louisiana state
                           legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                           agencies with which candidates must file their campaign finance reports.<br><br>
-                          The newly-elected CA legislature will convene in January 2011, after which time up-to-date campaign
+                          The newly-elected Louisiana legislature will convene in January 2011, after which time up-to-date campaign
                           contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from the last legislature by viewing the three tiers of contributors listed below: <em>sectors</em>,
                          <em>industries</em>, and <em>businesses</em>.<br><br> The Money Trail on OpenGovernment
                             makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and members of the legislature to mandate real-time financial disclosure and fair elections for a trustworthy degree of transparency in government. 
-        
-        
+    
+  videos:
+    miro_url: 'http://laopengov.mirocommunity.org/'
+
         

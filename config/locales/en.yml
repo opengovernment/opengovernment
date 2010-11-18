@@ -54,6 +54,8 @@ en:
   actions:
     show:
       intro: "This page displays an official legislative action for this bill. Go back to view all actions, or major actions only. How can you use this page? Well, if you're blogging about this bill, you can use this URL as a permalink to this specific action. The important thing is that it's now easier than ever to access information about bills and votes in your state government." 
+    videos: |
+      Not many states make video truly accessible, is the problem. 
   people:
     index:
       title: 'Members of the %{legislature_name}'
