@@ -124,17 +124,17 @@ float: right;
 .find_button input{
   background: #fff;
   display: block !important;
-
+  
   border-bottom: 0;
-
+  
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
   
   text-shadow: 0 1px 0px #fff;
-
-float: left;
+  
+  float: left;
   margin-left: 15px !important;
-
+  
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
@@ -144,7 +144,7 @@ float: left;
   border-top: 1px solid #bbb;
   border-bottom: 1px solid #777;
   
--moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   
@@ -152,8 +152,8 @@ float: left;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
   
-    padding: 6px 23px;
-
+  padding: 6px 23px;
+  
   }
 
 

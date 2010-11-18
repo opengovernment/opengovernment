@@ -1,4 +1,5 @@
 %li[bill]
-  = link_to truncate(bill.title_fm, :length => 140), bill_path(bill.session, bill)
+  .bill_titles
+    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 70))
   - if bill.first_action_at
-    = ' Introduced ' + bill.try(:first_action_at).to_s(:pretty)
+    %span.introduced= ' Introduced ' + bill.try(:first_action_at).to_s(:pretty)

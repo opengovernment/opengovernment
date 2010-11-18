@@ -3,26 +3,26 @@ h1 .long_bill_title {
   max-height: 140px;
   overflow-y: auto;
   overflow-x: hidden;
-}
+  }
 
 .bills .intro{
-padding-right: 250px;
-background: #fff url(/images/intros/bills.gif) 490px 10px no-repeat;
-}
+  padding-right: 250px;
+  background: #fff url(/images/intros/bills.gif) 490px 10px no-repeat;
+  }
 
 
 
 .bill_actions{
-margin-bottom: 30px;
-}
+  margin-bottom: 30px;
+  }
 
 
 
 
 .bill_actions td{
-border-bottom: 1px solid #eee;
-padding: 10px 0 !important;
-}
+  border-bottom: 1px solid #eee;
+  padding: 10px 0 !important;
+  }
 
 
 /*///////////////////////////
@@ -38,57 +38,57 @@ padding: 10px 0 !important;
 
 
 .status_bar{
-border: 1px solid #eee;
--moz-border-radius: 3px;
-clear: none;
-position: relative;
-background: #f5fdfe;
-margin-top: 20px;
-}
+  border: 1px solid #eee;
+  -moz-border-radius: 3px;
+  clear: none;
+  position: relative;
+  background: #f5fdfe;
+  margin-top: 20px;
+  }
 
 
 .status_bar li{
-clear: none;
-}
+  clear: none;
+  }
 
 
 .status_bar a{
-display: block;
-height: 27px;
-padding: 6px 15px 0px 15px;
-font-size: 11px;
-background: url(/images/status_right.png) right 0 no-repeat;
-}
+  display: block;
+  height: 27px;
+  padding: 6px 15px 0px 15px;
+  font-size: 11px;
+  background: url(/images/status_right.png) right 0 no-repeat;
+  }
 
 
 .law{
-float: right;
-position: absolute;
-right: -1px;
-top: -4px;
-color: #eee;
-border: 1px solid #eee;
-padding: 10px 7px;
-background: #fff;
-font-size: 11px;
-text-transform: uppercase;
--moz-border-radius: 2px;
-}
+  float: right;
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  color: #eee;
+  border: 1px solid #eee;
+  padding: 10px 7px;
+  background: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  -moz-border-radius: 2px;
+  }
 
 
 
 
 
 .is_law .law{
-color: #999;
-border: 1px solid #aaa;
-}
+  color: #999;
+  border: 1px solid #aaa;
+  }
 
 
 
 .session{
-float: right;
-margin-top: 10px;
+  float: right;
+  margin-top: 10px;
   }
 
 
@@ -97,123 +97,122 @@ margin-top: 10px;
 #bills ul li:hover a{ text-decoration: underline;}
 
 .bill{
-padding-bottom: 15px !important;
-margin-bottom: 15px !important;
-}
+  padding-bottom: 15px !important;
+  margin-bottom: 15px !important;
+  }
 
 .bill_title{
-font-size: 14px;
-color: #444;
+  font-size: 14px;
+  color: #444;
   line-height: 1.3em;
   }
 
 
 .bill_link{
-font-size: 14px;
-padding-right: 5px;
+  padding-right: 5px;
   }
   
 
 .bill_status{ 
   font-size: 11px;
   color: #666;
-margin-top: 15px;
-background: #f3f7f7;
-margin-left: 10px; 
+  margin-top: 15px;
+  background: #f3f7f7;
+  margin-left: 10px; 
   float: left;
   width:400px;
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-}
+  }
 
 
 .bill_status div{
   padding: 0px 0 5px;
-}
+  }
 
 .bill_status div.top{
   padding: 5px 0 0px;
-}
+  }
 
 #bill_documents {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 335px;
-}
+  }
 
 ul.bill_documents {
   width: 300px;
   padding: 0 !important;
   margin-bottom: 0;
-}
+  }
 
 .sponsor_mug {
   padding-left: 1px;
-}
+  }
 
 .sponsor_preview h2, .document_preview h2 {
   display: inline;
-}
+  }
 
 a.see_all {
   padding-left: 5px;
   display: inline;
-}
+  }
 
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 20px 0 0 0;
-}
+  }
 
 .sponsor_mugs{
-float: left;
-width: 255px;
-padding: 0 0 0 20px;
-}
+  float: left;
+  width: 255px;
+  padding: 0 0 0 20px;
+  }
 
 .sponsor_mugs span{
-}
+  }
 
 .sponsor_mugs a{
-padding: 1px !important;
-margin: 0 10px 0px 0px;
-box-shadow: 0 1px 1px #999;
+  padding: 1px !important;
+  margin: 0 10px 0px 0px;
+  box-shadow: 0 1px 1px #999;
   -moz-box-shadow: 0 1px 1px #666;
   -webkit-box-shadow: 0 1px 1px #999;
-
-float: left;
- overflow: hidden !important;
- 
- border-radius: 2px;
+  
+  float: left;
+  overflow: hidden !important;
+  
+  border-radius: 2px;
   -moz-border-radius: 1px !important;
   -webkit-border-radius: 1px;
-
-background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
-}
+  
+  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+  }
 
 .sponsor_mugs img{
   border: 1px solid #fff;
-}
+  }
 
 
 #bill_actions td {
   padding: 5px 0;
-}
+  }
 
 
 .action_status{
 padding: 10px 0;
-}
+  }
 
 .action_date {
   float: left;
   padding: 20px 20px 0 0;
-}
+  }
 
 p.action_text {
   font-size: 20px;
   padding: 20px 0;
-}
+  }
 
 .sponsor_mugs span {
   display: block;
@@ -221,4 +220,4 @@ p.action_text {
   font-size: 10px;
   color: #666;
   clear: both;
-}
+  }
