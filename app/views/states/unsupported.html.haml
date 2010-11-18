@@ -5,11 +5,23 @@
   %br
   %p.sign
     %strong Leave us your e-mail address to stay informed with updates as we get closer to rolling-out OpenGovernment - #{@state.name}:
-  = form_tag(state_subscriptions_path)
-  = hidden_field_tag :id, @state.id
-  = text_field_tag :email
-  = submit_tag "Subscribe"
-  </form>
+
+    %form(action="http://crm.ppolitics.org/civicrm/profile/create&amp;gid=10&amp;reset=1" method="post" name="Edit" id="Edit")
+      %input(name="postURL" type="hidden" value="")
+      %input(name="cancelURL" type="hidden" value="http://crm.ppolitics.org/civicrm/profile?reset=1&amp;gid=10")
+      %input(name="add_to_group" type="hidden" value="3")
+      %input(name="_qf_default" type="hidden" value="Edit:cancel")
+      %label(for="email-Primary")
+        Email (Primary)
+        %span(class="crm-marker" title="This field is required.")*
+      %input(maxlength="64" size="30" name="email-Primary" type="text" id="email-Primary" class="form-text big required")
+      %br
+      %label(for="postal_code-Primary") Postal Code (Primary)
+      %br
+      %input(maxlength="12" size="12" name="postal_code-Primary" type="text" id="postal_code-Primary" class="form-text twelve")
+      %br
+      %input(class="form-submit default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next")
+      %input(class="form-submit default" name="_qf_Edit_cancel" value="Cancel" type="submit" id="_qf_Edit_cancel")
 
 .grid_12
   %h1 Sorry, OpenGovernment #{@state.name} isn't ready yet!
