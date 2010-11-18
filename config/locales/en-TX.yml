@@ -49,38 +49,39 @@ en-TX:
         lower_chamber_term_limit: "no term limits"
         
   bills:
+    title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-        This is a list of all bills in the current 2009 - 2010 Texas state legislature. <!--By state law, the legislature is only in 'regular session'
-        (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st Texas
-        legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the legislature will generally not take any more actions on the bills below.-->A new Texas legislature, the 82nd, will convene on Jan. 11th, 2011, after which date newly introduced bills will appear here automatically.<br><br>
-        Bill pages display official government information combined with news coverage, blog posts, and more to help make them more accessible. 
-        
+        Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
+        The next Texas legislature will convene on Jan. 11th, 2011, after which date bills will appear here with continual updates of their latest actions. 
+    videos: 
+      intro: | 
+        <em>Editorial note</em>: as far as what's out there now for video on bills in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general.
+         
   people:
+    title: 'Members of the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-        This is a list of all members of the current 2009 - 2010 Texas state legislature. <!--By state law, the legislature is only in 'regular session'
-        (meaning, where bills are introduced and voted on) for a period of 140 days every two years. The current 81st
-        Texas legislature was in regular session from approx. March to July of 2009, and while committee hearings are
-        scheduled periodically through the end of 2010, the members below will generally not introduce any new legislation.-->
-        The next Texas legislature (the 82nd) will convene on Jan. 11, 2011, after which date new and returning members will appear here automatically.
-        Member pages display their official government information combined with free tools to track their legislative actions, contact their offices, and more.
+       Connect with senators and representatives in Texas. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
+       The next Texas legislature will convene on Jan. 11th, 2011, after which date new and returning members will appear here with continual updates of their latest actions.
+    videos: 
+      intro: | 
+        <em>Editorial note</em>: as far as what's out there now for video on elected officials in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this person and legislators in general.    
 
   issues:
     index:
+      title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        This is a list of all issue areas -- here referred to as "subjects" -- for legislation in the Texas state legislature. State legislatures generate many thousands of subjects every regular session and officially assign them to individual legislative items -- sometimes many subjects per bill, sometimes zero. <br><br> To make this bill-to-issue system more intelligible, the first list below is the 46 major legislative issue areas as determined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a>. With volunteer <a href="/pages/help">help</a>, we seek to manually match every official bill subject to one of the below 46 issue areas. The resulting info on OpenGovernment will make it far easier to find bills that are relevant to the real-world political issues you care about. Until that project is completed, below that list on this page is displayed the most-frequent bill subjects in Texas, those that are applied to bills ten or more times. Click the link to "view all" subjects to see the full list of many thousands of individual, idiosyncratic bill subjects and their associated bills.<br><br>
-        The next Texas legislature will convene on Jan. 11, 2011, after which date new bills will be introduced and appear here automatically under our customized issue area categories. Until then, use the sort-by options below to view issues and bills from the most recent legislature in different ways.
+        The bill "subjects" below are officially assigned to legislation by the Texas state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
+        In the future, to make bills in Texas more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Texas legislature, those applied to bills four times or more.<br><br>                
+           The next Texas legislature will convene on Jan. 11th, 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
 
   money_trails:
     index:
       intro: |
-        This page lists all publicly-available information about campaign contributions made to members of the TX state
-        legislature. Data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
-        agencies with which candidates must file their campaign finance reports. The Money Trail on OpenGovernment
-        makes it possible to connect the dots between bills, key votes, issue areas, and campaign contributions in state legislatures.<br>
-        The next election for the Texas legislature (for all 150 Assemblymembers and half of the 32 Senators) will occur on Nov. 2, 2010.
-        The newly-elected legislature will convene on Jan. 11, 2011, after which time up-to-date campaign
-        contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from this session by viewing the three tiers of contributions listed below: sectors,
-        industries, and businesses. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics.
+       This page lists all publicly-available information about campaign contributions made to members of the California state
+                 legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure agencies with which candidates must file their campaign finance reports.<br><br>
+                 The newly-elected Texas legislature will convene in January 2011, after which time up-to-date campaign
+                 contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from the last legislature by viewing the three tiers of contributors listed below: <em>sectors</em>,
+                <em>industries</em>, and <em>businesses</em>.<br><br> The Money Trail on OpenGovernment
+                   makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and members of the legislature to mandate real-time financial disclosure and fair elections for a trustworthy degree of transparency in government.

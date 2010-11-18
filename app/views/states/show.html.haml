@@ -3,8 +3,6 @@
 
 = render :partial => 'shared/appeal'
 
-.find_box
-  = render :partial => 'shared/find_my_rep_form'
 
 %h1.grid_9.alpha
   Welcome to OpenGovernment -
@@ -13,6 +11,8 @@
 
 %p.intro= t '.intro'
 
+.find_box
+  = render :partial => 'shared/find_my_rep_form'
 
 .grid_12.alpha
   .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
@@ -20,23 +20,21 @@
 
   %h2= @state.legislature.name
 
-  .italic.grid_6.alpha
+  .italic.grid_8.alpha
     = raw t '.current_session'
-
-
-  .grid_6.omega
+    %br
     = raw t '.state_population'
 
 
-  %p
+  .grid_4.omega
     %strong Next Election:
     = raw t '.next_election_date'
+    %br
 
-  %p
     %strong Last Election:
     = raw t '.last_election_date'
 
-  .space
+  .clear.space
 
   :ruby
     javascript do
@@ -82,7 +80,7 @@
 
     - @state.chambers.each do |chamber|
       %div{:id => (chamber.type == 'UpperChamber' ? 'upper' : 'lower')}
-        %div.tab_cont
+        %div.tab_cont.pad
           .grid_6.alpha.district_map
             = leg_map_img(@state, chamber)
   
