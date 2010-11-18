@@ -13,11 +13,11 @@ module ApplicationHelper
   # javascript that can't be accomplished via rails-ujs.
   # <script> tags should not be passed in with the js.
   def javascript
-    hook_for(:js_hook) { yield }
+    hook_for(:js_hook) { raw yield }
   end
-  
+
   def footer_javascript
-    hook_for(:js_footer) { yield }
+    hook_for(:js_footer) { raw yield }
   end
 
   # A slightly more sophisticated content_for.
