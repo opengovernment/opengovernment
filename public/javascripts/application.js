@@ -63,13 +63,13 @@ $(document).ready(function() {
   // Modals.
   $('a.modal').colorbox({
       transition: 'none',
-      opacity: 0.6,
+      opacity: 0.8,
       scrolling: false
   });
 
   $('a.compact_modal').colorbox({
       transition: 'none',
-      opacity: 0.6,
+      opacity: 0.8,
       scrolling: false,
       height: 400
   });

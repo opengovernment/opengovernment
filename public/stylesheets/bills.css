@@ -151,7 +151,7 @@ ul.bill_documents {
   padding-left: 1px;
   }
 
-.sponsor_preview h2, .document_preview h2 {
+.sponsor_preview h2, .document_preview h2, .committee_preview h2 {
   display: inline;
   }
 
@@ -160,7 +160,7 @@ a.see_all {
   display: inline;
   }
 
-.sponsor_preview .sponsor_mugs, .document_preview .documents {
+.sponsor_preview .sponsor_mugs, .document_preview .documents, .committee_preview .committees {
   padding: 20px 0 0 0;
   }
 

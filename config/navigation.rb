@@ -49,10 +49,11 @@ SimpleNavigation::Configuration.run do |navigation|
     # when we want to.
 
     if controller_name == 'pages'
-      primary.item :about, 'About OpenGovernment.org', page_path("about")
-      primary.item :policy, 'Privacy Policy', page_path("privacy")
-      primary.item :help, 'Help', page_path("help")
-      primary.item :contact, 'Contact Us', page_path("contact")
+      primary.item :about, 'About OpenGovernment.org', page_url("about", :subdomain => false)
+      primary.item :policy, 'Privacy Policy', page_url("privacy", :subdomain => false)
+      primary.item :wishes, 'Wish List', page_url("wish-list", :subdomain => false)
+      primary.item :help, 'Help', page_url("help", :subdomain => false)
+      primary.item :contact, 'Contact Us', page_url("contact", :subdomain => false)
     else
 
       if controller_name == 'subjects'
@@ -103,17 +104,28 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :money_trail, 'Money Trail', money_trail_person_path(@person)
           m.item :videos, 'Videos', videos_person_path(@person)
           m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
+          m.item :committees, 'Committees', committees_person_path(@person), :style => 'display: none;'
         end
       end
 
       primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills'
       primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |p|
         if defined?(current_place)
-          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)}", people_path
-          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)}", lower_people_path
-          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path
-          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)} Committees", lower_committees_path
-          p.item :joint, "Joint Committees", joint_committees_path
+          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path do |c|
+            if defined?(@committee) && @committee[:type] == 'UpperCommittee'
+              c.item :committee, 'Committee', committee_path(@committee)
+            end
+          end
+          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)} Committees", lower_committees_path do |c|
+            if defined?(@committee) && @committee[:type] == 'LowerCommittee'
+              c.item :committee, 'Committee', committee_path(@committee)
+            end
+          end
+          p.item :joint, "Joint Committees", joint_committees_path do |c|
+            if defined?(@committee) && @committee[:type] == 'JointCommittee'
+              c.item :committee, 'Committee', committee_path(@committee)
+            end
+          end
         end
       end
 

@@ -415,5 +415,7 @@ background: url(/images/sprites.png) 9px -391px no-repeat;
 }
 
 
-
+.share_callout {
+  padding: 10px 0 0 40px;
+}
 

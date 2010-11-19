@@ -21,22 +21,6 @@
 
   %h2= @state.legislature.name
 
-  .italic.grid_8.alpha
-    = raw t '.current_session'
-    %br
-    = raw t '.state_population'
-
-
-  .grid_4.omega
-    %strong Next Election:
-    = raw t '.next_election_date'
-    %br
-
-    %strong Last Election:
-    = raw t '.last_election_date'
-
-  .clear.space
-
   :ruby
     javascript do
       (%q|
@@ -132,6 +116,24 @@
           %clear
   
 .space
+
+
+.grid_12.alpha
+  .italic.grid_8.alpha
+    = raw t '.current_session'
+    %br
+    = raw t '.state_population'
+
+
+  .grid_4.omega
+    %strong Next Election:
+    = raw t '.next_election_date'
+    %br
+
+    %strong Last Election:
+    = raw t '.last_election_date'
+
+.clear.space
 
 
 %p.grid_12.alpha= raw t '.background'

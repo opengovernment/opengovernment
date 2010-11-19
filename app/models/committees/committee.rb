@@ -17,17 +17,6 @@ class Committee < ActiveRecord::Base
     [id, name.parameterize].join('-')
   end
 
-  def self.subclass_from_votesmart_type(t)
-    case t
-    when "S"
-      ::UpperCommittee
-    when "H"
-      ::LowerCommittee
-    when "J"
-      ::JointCommittee
-    end
-  end
-  
   def self.subclass_from_openstates_chamber(t)
     case t
     when "lower"
@@ -40,12 +29,11 @@ class Committee < ActiveRecord::Base
   end
 
   def type_fm
-    case votesmart_type_id
-    when 'S'
+    if self.class == ::LowerCommittee
       legislature.upper_chamber.short_name
-    when 'H'
+    elsif self.class == ::UpperCommittee
       legislature.lower_chamber.short_name
-    when 'J'
+    elsif self.class == ::JointCommittee
       'Joint'
     end
   end

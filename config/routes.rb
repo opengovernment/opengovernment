@@ -23,6 +23,7 @@ OpenGov::Application.routes.draw do
         get :discuss
         get :contact
         get :videos
+        get :committees
       end
     end
 

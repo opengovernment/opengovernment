@@ -59,11 +59,12 @@
     - @person.roles.each do |role|
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
-  .grid_4
-    %h2 Committees
-    - if @person.committees.size > 0
-      %ul.lined
-        - @person.committees.each do |committee|
+  .grid_4.committee_preview
+    %h2 #{@person.committees.count} Committees
+    - if @person.committees.count > 0
+      = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
+      %ul.lined.committees
+        - @person.committees.limit(3).each do |committee|
           %li
             = committee.type_fm
             = link_to(committee.name, committee_path(committee), :class => 'modal')
@@ -74,7 +75,7 @@
     #twitter(style="display: none;")
       %h2 Twitter Mentions
       %ul.lined#tweets
-  
+      %a= link_to('More &rarr;'.html_safe, social_person_path(@person))
 .space.clear
 
 %hr.push_top

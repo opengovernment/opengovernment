@@ -61,7 +61,7 @@
             %a.help{:href => page_path('OG_help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search
-            = render :partial => 'shared/search_form'
+            = render 'shared/search_form'
 
     %div.container_16.main.boxxed
       - unless flash.empty?
@@ -87,7 +87,7 @@
 
     .clearfix
 
-    = render :partial => 'layouts/footer'
+    = render 'layouts/footer'
     .clearfix
     
     %script(type='text/javascript' charset='UTF-8')
