@@ -1,25 +1,48 @@
 class PeopleController < ApplicationController
-  before_filter :find_person, :except => [:index, :upper, :lower, :search]
-  before_filter :setup_sort, :only => [:index, :upper, :lower]
+  before_filter :find_person, :except => [:index, :search]
   before_filter :get_state
 
   # /states/texas/people
   def index
-    upper
-  end
+    # Setup sort.
+    @sort = params[:sort] || 'name'
 
-  def upper
-    @chamber = @state.upper_chamber
-    @current_tab = :upper
+    # check our MongoMapper connection
+    if @sort == 'views' && !MongoMapper.connected?
+      @sort = 'name'
+    end
 
-    render_people
-  end
+    @sorts = ActiveSupport::OrderedHash.new
+    @sorts[:name] = 'Name'
+    @sorts[:district] = 'District'
+    @sorts[:views] = 'Most Viewed'
+    @sorts[:mentions] = 'Most In The News'
 
-  def lower
-    @chamber = @state.lower_chamber
-    @current_tab = :lower
+    # Choose chamber
+    if params[:chamber] && params[:chamber] == 'lower'
+        @chamber = @state.lower_chamber
+        @current_tab = :lower
+    else
+      @chamber = @state.upper_chamber
+      @current_tab = :upper
+    end
 
-    render_people
+    @people =
+      case @sort
+        when 'views'
+          # This is gnarly. We have to generate a case statement for PostgreSQL in order to
+          # get the people out in page view order. AND we need an SQL in clause for the people.
+
+          # It does result in only one SQL call, though.
+          # Good thing this is only ever limited to 10 or 20 people.
+
+          countable_ids = Page.most_viewed('Person').collect(&:countable_id)
+
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
+        else
+          people_by_facets
+      end
+
   end
 
   def votes
@@ -108,38 +131,4 @@ class PeopleController < ApplicationController
     end
   end
 
-  def setup_sort
-    @sort = params[:sort] || 'name'
-
-    # check our MongoMapper connection
-    if @sort == 'views' && !MongoMapper.connected?
-      @sort = 'name'
-    end
-
-    @sorts = ActiveSupport::OrderedHash.new
-    @sorts[:name] = 'Name'
-    @sorts[:district] = 'District'
-    @sorts[:views] = 'Most Viewed'
-    @sorts[:mentions] = 'Most In The News'
-  end
-
-  def render_people
-    @people =
-      case @sort
-        when 'views'
-          # This is gnarly. We have to generate a case statement for PostgreSQL in order to
-          # get the people out in page view order. AND we need an SQL in clause for the people.
-
-          # It does result in only one SQL call, though.
-          # Good thing this is only ever limited to 10 or 20 people.
-
-          countable_ids = Page.most_viewed('Person').collect(&:countable_id)
-
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
-        else
-          people_by_facets
-      end
-
-    render :template => 'people/index'
-  end
 end

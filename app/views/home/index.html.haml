@@ -20,18 +20,11 @@
 .clear
 
 %ul.big_list
+  - State.loadable.each do |state|
+    %li
+      %a{:href => state_url(state)}= state.name
   %li
-    %a California
-  %li
-    %a Louisiana 
-  %li
-    %a Maryland
-  %li
-    %a Texas
-  %li
-    %a Wisconsin 
-  %li
-    %a More to Come 
+    %a More to Come
 
 .illo
   %h2 Do more with OpenGovernment 
