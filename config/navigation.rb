@@ -49,10 +49,11 @@ SimpleNavigation::Configuration.run do |navigation|
     # when we want to.
 
     if controller_name == 'pages'
-      primary.item :about, 'About OpenGovernment.org', page_path("about")
-      primary.item :policy, 'Privacy Policy', page_path("privacy")
-      primary.item :help, 'Help', page_path("help")
-      primary.item :contact, 'Contact Us', page_path("contact")
+      primary.item :about, 'About OpenGovernment.org', page_url("about", :subdomain => false)
+      primary.item :policy, 'Privacy Policy', page_url("privacy", :subdomain => false)
+      primary.item :wishes, 'Wish List', page_url("wish-list", :subdomain => false)
+      primary.item :help, 'Help', page_url("help", :subdomain => false)
+      primary.item :contact, 'Contact Us', page_url("contact", :subdomain => false)
     else
 
       if controller_name == 'subjects'

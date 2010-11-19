@@ -4,7 +4,13 @@
       = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
     = yield :below_left_nav
 
-  .grid_12
+  .grid_12  
+    %aside.full_lined
+      .share_callout
+        %strong Spread the word
+        about OpenGovernment...
+      = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+
     - if content_for?(:title)
       %h1.grid_13.alpha= yield(:title)
     = yield
