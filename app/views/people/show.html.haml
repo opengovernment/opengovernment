@@ -75,7 +75,7 @@
     #twitter(style="display: none;")
       %h2 Twitter Mentions
       %ul.lined#tweets
-  
+      %a= link_to('More &rarr;'.html_safe, social_person_path(@person))
 .space.clear
 
 %hr.push_top
