@@ -2,8 +2,8 @@
   .grid_4
     %h4 About Us 
     %ul
-      %li= link_to 'About OpenGovernment', '/pages/about'
-      %li= link_to 'Our Data Sources', '/pages/about/#our_data_sources'
+      %li= link_to 'About OpenGovernment', page_url('about', :subdomain => false)
+      %li= link_to 'Our Data Sources', page_url('about', :anchor => 'our_data_sources', :subdomain => false)
       %li= link_to 'Blog', 'http://blog.opengovernment.org'
       %li= link_to 'User Support / Contact Us', 'http://support.opencongress.org/anonymous_requests/new'
       %li= link_to 'Join Our Email List', 'http://crm.ppolitics.org/' 
@@ -11,19 +11,19 @@
   .grid_4
     %h4 More OpenGovernment 
     %ul
-      %li= link_to 'Social Media Accounts', '/pages/contact'
+      %li= link_to 'Social Media Accounts', page_url('contact', :subdomain => false)
       %li= link_to 'Wiki Community Project', 'http://www.opencongress.org/wiki/Project:OpenGovernment'
-      %li= link_to 'Tools / Resources / Goodies', 'http://app.opengovernment.org/pages/resources'
-      %li= link_to 'Developers / API / Code', '/pages/about/#developer_hub'
-      %li= link_to 'Wish List / Roadmap / Stuff We Need', '/pages/about/#wish_list'
+      %li= link_to 'Tools / Resources / Goodies', page_url('resources', :subdomain => false)
+      %li= link_to 'Developers / API / Code', page_url('about', :anchor => 'developer_hub', :subdomain => false)
+      %li= link_to 'Wish List / Roadmap / Stuff We Need', page_url('wish-list', :subdomain => false)
   
   .grid_4
     %h4 Get Involved
     %ul
-      %li= link_to 'Volunteer', '/pages/help'
+      %li= link_to 'Volunteer', page_url('help', :subdomain => false)
       %li= link_to 'Donate', 'http://www.opencongress.org/donate'
-      %li= link_to 'How To Use OpenGovernment', '/pages/about/#how_to_use_og'
-      %li= link_to 'Bring OG To Your State & City', '/pages/help'
+      %li= link_to 'How To Use OpenGovernment', page_url('about', :anchor => 'how_to_use_og', :subdomain => false)
+      %li= link_to 'Bring OG To Your State & City', page_url('help', :subdomain => false)
       %li= link_to 'OpenCongress - U.S. Congress', 'http://www.opencongress.org/'
 
   .grid_4
@@ -40,6 +40,6 @@
 
 .sub_footer
   .grid_16
-    %p <a href="http://opengovernment.org/">OpenGovernment</a> is a free, libre, and open-source joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. Official government data comes from the community-driven <a href="http://openstates.sunlightlabs.com/">Open States Project</a>, with other info aggregated uniquely by the open-source <a href="https://github.com/opengovernment/govkit#readme">GovKit</a>.
+    %p <a href="http://opengovernment.org/">OpenGovernment</a> is a free, libre, and open-source joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. Official government data comes from the community-driven <a href="http://openstates.sunlightlabs.com/">Open States Project</a>, with other info aggregated by the open-source <a href="https://github.com/opengovernment/govkit#readme">GovKit</a>.
       
   .clearfix
