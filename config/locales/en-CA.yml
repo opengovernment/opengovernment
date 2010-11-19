@@ -6,12 +6,12 @@ en-CA:
   states:
     show:
       intro: |
-       <em><strong>Learn</strong> about bills in the state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
-      state_population: |
-        2009 est. pop.: 36,961,664 people (cit. <a href="http://quickfacts.census.gov/qfd/states/06000.html" target="_blank">Census.gov</a>)
+       <strong>Learn</strong> about bills and key votes. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
+       To get started, enter your zip code below to find out who represents you. Or, click on the links at left to browse official government information combined with news & blog coverage from around the Web. 
+      state_population:     
       state_pop_per_upper_chamber_member: "924,041 people in CA"
       state_pop_per_lower_chamber_member: "462,021 people in CA"
-      last_election_date: "Nov. 2nd, 2010" 
+      last_election_date: "Nov. 2nd, 2010"
       current_session: "2009-2010 session"
       upper_chamber_active_session_date: "Most recent regular session: Jan. 12th - Aug. 31st, 2010"
       last_election_upper_chamber_open_seats: 
@@ -31,8 +31,8 @@ en-CA:
     index:
       title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
-        Connect with bills in California. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+        Connect with bills in California. We combine official government information with news and blog coverage from around the Web to make it easier to understand. On bill pages below, you'll also find free tools to track their status, share them over social media, and contact your elected officials.<br><br>
+        <em>(The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     show:
       missing_bill_text: 'Links to California full bill text are coming soon.'
     videos: 
@@ -43,8 +43,8 @@ en-CA:
     index:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
       intro: |
-        Connect with senators and assemblymembers in California. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions. 
+        Connect with senators and assemblymembers in California. We combine their official government information with news and blog coverage, campaign contribution data, and more to make their work more open and accessible. On member pages below, you'll find free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
+        <em>(The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, the most-central repository of official online video from members of the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this member and members of the CA legislature in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
