@@ -1,12 +1,25 @@
-%h2 Members of #{@state.name} #{@committee.type_fm} #{@committee.name}
+- if request.xhr?
+  %h2
+    Members of #{@state.name}
+    = link_to("#{@committee.type_fm} #{@committee.name}", committee_path(@committee))
+- else
+  %h2 Members of #{@state.name} #{@committee.type_fm} #{@committee.name}
 
 %hr
 
 .grid_6.alpha
   %ul
-    - @committee.members.each do |member|
-      %li= link_to(member.official_name, person_path(member))
-
+    - @committee.committee_memberships.each do |membership|
+      %li
+        - if membership.person_id
+          = succeed ',' do
+            = link_to(membership.person.official_name, person_path(membership.person))
+          = membership.role.titleize
+        - else
+          = succeed ',' do
+            = membership.full_name
+          = membership.role.titleize
+      
 -#  .grid_6.omega
 -#    %h2 Basic Info
 -#    %p
