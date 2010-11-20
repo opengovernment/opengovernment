@@ -62,9 +62,13 @@ class HomeController < ApplicationController
     if (sub = Subdomain.from_ip(request.ip)) && State.find_by_slug(sub).try(:supported?)
       redirect_to(url_for(:subdomain => sub)) and return
     end
+
+    @states = State.loadable
   end
   
   def home
+    @states = State.loadable
+
     render :template => 'home/index'
   end
 

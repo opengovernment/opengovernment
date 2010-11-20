@@ -214,3 +214,28 @@ li.topnav {
   display: inline;
   padding-right: 10px;
   }
+
+/* Home page stuff */
+
+.supported_states_list p {
+  margin-bottom: 0;
+}
+
+.notify_me {
+  margin-top: 10px;
+}
+
+.notify_me p {
+  display: inline;
+  line-height: 27px;
+}
+
+.notify_me .signup_form {
+  display: inline-block;
+  width: 450px;
+}
+
+.notify_me label {
+  padding-right: 10px;
+  font-size: 15px;
+}
