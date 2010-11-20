@@ -217,16 +217,9 @@ li.topnav {
 
 /* Home page stuff */
 
-.supported_states_list p {
-  margin-bottom: 0;
-}
-
-.notify_me {
-  margin-top: 10px;
-}
-
 .notify_me p {
   display: inline;
+  font-size: 14px;
   line-height: 27px;
 }
 
@@ -238,4 +231,6 @@ li.topnav {
 .notify_me label {
   padding-right: 10px;
   font-size: 15px;
+  font-weight: bold;
+  color: #777;
 }
