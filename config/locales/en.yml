@@ -60,7 +60,8 @@ en:
     index:
       title: 'Members of the %{legislature_name}'
     show:
-      wikipedia_missing: "No biography was found on Wikipedia for %{name}."
+      wikipedia_missing: |
+        We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
       no_tweets: "No tweets were found for %{hashtags}."
     news:
       no_results: |
