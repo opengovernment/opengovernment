@@ -340,25 +340,23 @@ li.discuss{
 ///////////////////////////*/
 
 
-.search{
+.search_form {
   padding: 10px 0 0 0;
   height: 28px;
   position: absolute;
   right: -27px;
-  }
+}
 
-
-.search #search_type{
+.search_form #search_type {
   float: left;
   margin: 6px 15px 0 0;
-  }
+}
 
-
-.field{
+.field {
   border: 0;
   padding: 0px;
   margin: 0;
-  }
+}
 
 
 input#q{
@@ -399,7 +397,7 @@ input#q{
 
 
 
-.search .search_button{
+.search_button{
   margin: 0;
   padding: 0 !important;
   float: right;
@@ -469,31 +467,38 @@ input#q{
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #d6e8eb,  #ecf9fc); /* for firefox 3.6+ */
   }
+  
+.search_results_search_form {
+  padding-bottom: 5px;
+}
 
-
-.search_results_search_form .search_button {
-  position: relative;
-  top: -30px;
-  }
+.search_results_search_form .field {
+  display: inline;
+  padding-left: 10px;
+}
 
 .search_results_search_form input#q {
   float: none;
   margin-top: 5px;
   width: 500px;
-  }
+}
 
 .results_count, .search_help {
   font-size: 11px;
   }
 
 .results_count {
+  position: relative;
+  top: -5px;
   padding-left: 130px;
-  }
+}
 
 .search_help {
+  position: relative;
+  top: -5px;
   float: right;
-  padding-right: 30px;
-  }
+  padding-right: 85px;
+}
 
 
 /*///////////////////////////

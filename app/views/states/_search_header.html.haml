@@ -1,5 +1,5 @@
 - case @search_type
-  - when "all"
+  - when "everything"
     %h1
       Searching all of 
       = @state.name
@@ -12,13 +12,13 @@
 .search_results_search_form
   = render 'shared/search_form'
 
-%span.results_count 
-  - if @query.blank?
-    All results.
-  - else
-    #{@total_entries} results for #{@query}
+  %span.results_count 
+    - if @query.blank?
+      All results.
+    - else
+      #{@total_entries} results for #{@query}
 
-%a.search_help{:href => page_path("about")} Search Help
+  %a.search_help{:href => page_path("about")} Search Help
 
 %ul.sorts
   - @search_counts.each do |type, total_entries|

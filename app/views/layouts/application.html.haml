@@ -60,7 +60,7 @@
               = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
             %a.help{:href => page_path('OG_help'), :title => "Help Center"} Help
         - if current_place
-          .grid_7.omega.search
+          .grid_7.omega.search_form
             = render 'shared/search_form'
 
     %div.container_16.main.boxxed
