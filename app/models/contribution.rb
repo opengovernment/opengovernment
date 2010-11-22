@@ -1,3 +1,4 @@
+
 class Contribution < ActiveRecord::Base
   belongs_to :person
   belongs_to :corporate_entity
