@@ -1,5 +1,7 @@
-- title(@sig.name)
-
+- if @categories_available.size == 1
+  - title("#{@sig.name.possessive} #{@year} Ratings")
+- else
+  - title("#{@sig.name.possessive} #{@year} #{@category} Ratings")
 
 %h1
   = @sig.name
@@ -38,16 +40,36 @@
     - if @year == year
       %em= year
     - else
-      = link_to(year, params.merge(:year => year))
+      = link_to(year, params.merge(:year => year).except(:category))
+
+- unless @categories_available.size == 1
+  %nav.faceted.by_category
+    - @categories_available.each do |category|
+      - if @category == category
+        %em= category
+      - else
+        = link_to(category, params.merge(:category => category))
 
 .grid_12.alpha
-  %h2 Ratings
+  %h2 #{@year} #{@category} Ratings
+
+.grid_6.alpha
   %table.ratings
     %thead
       %tr
         %th Person
-        %th Category
         %th Rating
         %th District
     %tbody
-      = render @ratings
+      = render @ratings[0..@ratings.size/2]
+
+.grid_6.alpha
+  %table.ratings
+    %thead
+      %tr
+        %th Person
+        %th Rating
+        %th District
+    %tbody
+      = render @ratings[@ratings.size/2..@ratings.size]
+

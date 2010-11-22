@@ -1,6 +1,5 @@
 %tr
   %td.rating_person(class="rating_#{rating.person.roles.first.party_abbr}")
     = link_to(rating.person.full_name, person_path(rating.person))
-  %td= rating.rating_name
   %td= rating.rating
   %td= rating.person.roles.first.district_fm
