@@ -165,8 +165,8 @@ a.see_all {
   display: inline;
   }
 
-.sponsor_preview .sponsor_mugs, .document_preview .documents, .committee_preview .committees, .people_news_preview .people_mugs {
-  padding: 20px 0 0 0;
+.sponsor_preview .sponsor_mugs, .document_preview .documents, .people_news_preview .people_mugs {
+  padding: 0;
   }
 
 .sponsor_mugs{
