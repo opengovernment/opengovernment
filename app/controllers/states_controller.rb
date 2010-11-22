@@ -11,6 +11,10 @@ class StatesController < ApplicationController
       bill = Bill.where(:state_id => @state.id).limit(5)
       @key_votes = bill.where(:votesmart_key_vote => true)
       @recent_bills = bill.order('last_action_at desc')
+
+      # TODO: This is less than ideal. We're calling some stored procedures here because
+      # we don't have a better way (like outer joining to the current roles view).
+      @hot_people = Person.search :with => {:chamber_id => [@legislature.upper_chamber.id, @legislature.lower_chamber.id]}, :order => 'mentions_count desc', :per_page => 10, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
     else
       render :template => 'states/unsupported', :layout => 'home'
     end

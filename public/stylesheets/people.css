@@ -136,3 +136,9 @@ table.ratings td.rating_person {
 table.ratings td {
   padding: 2px 0;
 }
+
+ul.people_mugs li {
+  display: inline;
+  padding-right: 3px;
+}
+

@@ -155,12 +155,17 @@ ul.bill_documents {
   display: inline;
   }
 
+ .people_news_preview h3 {
+   display: inline;
+   float: none;
+ }
+
 a.see_all {
   padding-left: 5px;
   display: inline;
   }
 
-.sponsor_preview .sponsor_mugs, .document_preview .documents, .committee_preview .committees {
+.sponsor_preview .sponsor_mugs, .document_preview .documents, .committee_preview .committees, .people_news_preview .people_mugs {
   padding: 20px 0 0 0;
   }
 

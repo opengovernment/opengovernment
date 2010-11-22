@@ -662,7 +662,17 @@ p.donate a{
 
 ///////////////////////////*/
 
+#bill_tabs h3 {
+  border: none;
+  float: none;
+  line-height: 1.7em;
+  display: inline;
+}
 
+#bill_tabs ul {
+  display: inline;
+  float: none;
+}
 
 .tabs{
   float: left;
@@ -672,9 +682,7 @@ p.donate a{
   margin: 0 0px 0 -39px;
   width: 725px;
   background: #eff5f6;
-  }
-
-
+}
 
 
 .tabs li{

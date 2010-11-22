@@ -19,11 +19,16 @@
       (%q|
         $(function() {
             $("#chamber_tabs").tabs();
-        		$( "#bill_tabs" ).tabs();
+        		$("#bill_tabs").tabs();
         	});
       |)
     end
-
+  
+  .people_news_preview
+    %h3 People in the News
+    = link_to('See all', people_path(:sort => 'mentions'), :class => 'see_all')
+    %ul.people_mugs
+      = render :partial => 'people/mug', :collection => @hot_people
 
 .grid_8.alpha.bills
   
