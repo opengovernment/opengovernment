@@ -152,7 +152,7 @@ ul.bill_documents {
   }
 
 .sponsor_preview h2, .document_preview h2, .committee_preview h2 {
-  display: inline;
+  display: inline-block;
   }
 
  .people_news_preview h3 {

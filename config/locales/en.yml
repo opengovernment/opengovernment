@@ -34,7 +34,7 @@ en:
         this bill's status in the legislative process.
     social:
       intro: |
-        Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_terms}.
+        Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.
         We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as those including sports scores or similarly-titled bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
     track:
       track: 'Track'
