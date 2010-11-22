@@ -65,6 +65,7 @@ en-TX:
       intro: |
        Connect with senators and representatives in Texas. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
        <em>(The next Texas legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
+    videos:
       intro: | 
         <em>Editorial note</em>: as far as what's out there now for video on elected officials in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this person and legislators in general.    
 
@@ -79,7 +80,7 @@ en-TX:
   money_trails:
     index:
       intro: |
-       This page lists all publicly-available information about campaign contributions made to members of the California state
+       This page lists all publicly-available information about campaign contributions made to members of the Texas state
                  legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure agencies with which candidates must file their campaign finance reports.<br><br>
                  The newly-elected Texas legislature will convene in January 2011, after which time up-to-date campaign
                  contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from the last legislature by viewing the three tiers of contributors listed below: <em>sectors</em>,
