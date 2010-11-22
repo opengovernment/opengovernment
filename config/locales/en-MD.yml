@@ -4,10 +4,12 @@ en-MD:
   states:
     show:
       intro:   |
-            <strong>Learn</strong> about bills in the Maryland legislature. <strong>Track</strong> votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
-            To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Maryland state government works.
+        <br>
+        Welcome to OpenGovernment - Maryland, a free public resource that helps make government more transparent and accessible.<br><br>
+          <strong>Find</strong> bills in the Maryland legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
+        Enter your zip code below to see all of your elected officials in Maryland. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved.
       state_population: |
-        2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)
+        2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)</a>
       current_session: "2009-2010"
       state_pop_per_upper_chamber_member: "121,266 people in MD"
       state_pop_per_lower_chamber_member: "40,137 people in MD"
@@ -26,24 +28,31 @@ en-MD:
       next_session_start_date: 
       lower_chamber_term_limit: 
       background: | 
-        Here are more links about the Maryland General Assembly and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a>; OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a>; OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a>; and the National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more MD political sites in the left-hand sidebar. This free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
+        Here are more links about the Maryland General Assembly and the best explanations of how it works: 
+          <ul>
+            <li>Maryland General Assembly on <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a></li>
+            <li>... and on <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a></li>
+            <li>OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a></li>
+            <li>OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a></li>
+            <li>The National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more Maryland-relevant political sites in the left-hand sidebar.</li>
+          ... this free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
  
   bills:
     index: 
       title: 'Bills in the %{legislature_name} (2007 - 2010)'
       intro: |
-        Connect with bills in Maryland. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next Maryland legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+        Connect with bills in Maryland. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
+        <em>(The next Maryland legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.</em>)
     videos: 
       intro: | 
-        <em>Editorial note</em>: as far as what's out there now, as of this writing: there is no official site of online video for bills in the MD state legislature of which we're aware, but they do make <a href="http://mlis.state.md.us/asp/listen.asp" target="_blank">audio</a> available online via an almost-marvelously behind-the-times webpage. So at the moment, a lot of digging and research is still required to find video of MD legislative proceedings, e.g. committee hearings and votes. What a shortcoming. '
+        <em>Editorial note</em>: as far as what's out there now, as of this writing: there is no official site of online video for bills in the Maryland state legislature of which we're aware, but they do make <a href="http://mlis.state.md.us/asp/listen.asp" target="_blank">audio</a> available online via an almost-marvelously behind-the-times webpage. So at the moment, a lot of digging and research is still required to find video of MD legislative proceedings, e.g. committee hearings and votes. What a shortcoming. '
         
   people:
     title: 'Members of the %{legislature_name} (2007 - 2010)'
     index:
       intro: |
         Connect with senators and delegates in Maryland. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        The next Maryland legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.
+        <em>(The next Maryland legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       index: 
         intro: | 
@@ -53,14 +62,14 @@ en-MD:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2007 - 2010)'
       intro: |
-       The bill "subjects" below are officially assigned to legislation by the Maryland state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
-       In the future, to make bills in Maryland more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Maryland legislature, those applied to bills four times or more.<br><br>                
-       The next Maryland legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
-                  
+       The bill "subjects" below are officially assigned to legislation by the Maryland state legislature. Individual subjects are sometimes very broad and other times very specific, and there is no predictable methodology by which they are applied to bills.<br><br>
+       In the future, to make political issues in Maryland more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Maryland legislature -- those applied to bills four times or more -- with a link at the bottom of the page to "View All".<br><br>                
+       <em>(The next Maryland legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.)</em>
+       
   money_trails:
     index:
       intro: |
-       This page lists all publicly-available information about campaign contributions made to members of the California state
+       This page lists all publicly-available information about campaign contributions made to members of the Maryland state
                  legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                  agencies with which candidates must file their campaign finance reports.<br><br>
                  The newly-elected Maryland legislature will convene in January 2011, after which time up-to-date campaign

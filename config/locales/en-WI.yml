@@ -5,14 +5,16 @@ en-WI:
   states:
     show:
       intro: |
-        <strong>Learn</strong> about bills in the Wisconsin legislature. <strong>Track</strong> votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
-        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Wisconsin state government works.
+       <br>
+          Welcome to OpenGovernment - Wisconsin, a free public resource that helps make government more transparent and accessible.<br><br>
+          <strong>Find</strong> bills in the Wisconsin legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
+          Enter your zip code below to see all of your elected officials in Wisconsin. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved.
       state_population: | 
-        <a href="2009 est. pop.: 5,654,774 people (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)
+        <a href="2009 est. pop.: 5,654,774 people (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)</a>
       state_pop_per_upper_chamber_member: "171,357 people in WI"
       state_pop_per_lower_chamber_member: "57,702 people in WI"
       current_session: "2009 - 2010"
-      last_election_date: "Nov. 2nd, 2010"
+      last_election_date: "Nov. 2nd, 2008"
       last_election_upper_chamber_open_seats: 
       last_election_upper_chamber_incumbent_seats: 
       upper_chamber_active_session_date: "Most recent regular session: Jan. 19th - Apr. 22nd, 2010"
@@ -36,18 +38,18 @@ en-WI:
     title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index: 
       intro: |
-        Connect with bills in Wisconsin. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next Wisconsin legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+        Connect with bills in Wisconsin. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
+           <em>(The next Wisconsin legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
-        <em>Editorial note</em>: Wisconsin does fairly well in making video re: legislation in state government available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the problematic Windows Media Format. While their site's web design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the WI leg. still does not appear to make their video accessible in ways that are fully automatic (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). 
-  
+        <em>Editorial note</em>: Wisconsin does fairly well in making video regarding state legislation available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the closed Windows Media format. While their site's overall design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the Wisconsin legislature still does not appear to make their video accessible in ways that comply with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Gov Data</a>. 
+        
   people: 
     title: 'Members of the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-        Connect with senators and assemblymembers in Wisconsin. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        The next Wisconsin legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.
+        Connect with senators and assemblymembers in Wisconsin. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
+        <em>(The next Wisconsin legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: Wisconsin does fairly well in making video re: members of state government available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the problematic Windows Media Format. While their site's web design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the WI leg. still does not appear to make their video accessible in ways that are fully automatic (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format).        
@@ -56,8 +58,8 @@ en-WI:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009-2010)'
       intro: |
-        The bill "subjects" below are officially assigned to legislation by the Wisconsin state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
-        In the future, to make bills in Wisconsin more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Wisconsin legislature, those applied to bills four times or more.<br><br>                
+        The bill "subjects" below are officially assigned to legislation by the Wisconsin state legislature. Individual subjects are sometimes very broad and other times very specific, and there is no predictable methodology by which they are applied to bills.<br><br>
+        In the future, to make bills in Wisconsin more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Wisconsin legislature, those applied to bills four times or more.<br><br>                
         The next Wisconsin legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
 
   money_trails:

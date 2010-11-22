@@ -6,12 +6,14 @@ en-CA:
   states:
     show:
       intro: |
-       <em><strong>Learn</strong> about bills in the state legislature. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.</em><br><br>
-      state_population: |
-        2009 est. pop.: 36,961,664 people (cit. <a href="http://quickfacts.census.gov/qfd/states/06000.html" target="_blank">Census.gov</a>)
-      state_pop_per_upper_chamber_member: "924,041 people in CA"
-      state_pop_per_lower_chamber_member: "462,021 people in CA"
-      last_election_date: "Nov. 2nd, 2010" 
+       <br>
+       Welcome to OpenGovernment, a free public resource that helps make government more transparent and accessible.<br><br>
+       <strong>Find</strong> bills in the California legislature or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
+       Enter your zip code below to see all of your elected officials in California. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved. 
+      state_population:     
+      state_pop_per_upper_chamber_member: "924,041 people"
+      state_pop_per_lower_chamber_member: "462,021 people"
+      last_election_date: "Nov. 2nd, 2010"
       current_session: "2009-2010 session"
       upper_chamber_active_session_date: "Most recent regular session: Jan. 12th - Aug. 31st, 2010"
       last_election_upper_chamber_open_seats: 
@@ -25,14 +27,22 @@ en-CA:
       next_election_lower_chamber_seats_available: 
       lower_chamber_active_session_date: "Most recent regular session: Jan. 12th - Aug. 31st, 2010"
       background: |
-        Here are more links with background the CA state legislature and the best explanations of how it works: Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a>; Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a>; OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a>; OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a>; and the National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA-relevant political blogs in the left-hand sidebar. This free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>. 
+        Here are more links with background on the California state legislature and the best explanations of how it works: 
+        <ul>
+        <li>Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a></li>
+        <li>Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a></li>
+        <li>OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a></li>
+        <li>OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a></li>
+        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA political blogs in the left-hand sidebar</li><br>
+        ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>. 
         
   bills:
     index:
       title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
-        Connect with bills in California. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+       Connect with bills in California. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
+       <em>(The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
+    videos:
     show:
       missing_bill_text: 'Links to California full bill text are coming soon.'
     videos: 
@@ -43,8 +53,8 @@ en-CA:
     index:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
       intro: |
-        Connect with senators and assemblymembers in California. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions. 
+        Connect with senators and assemblymembers in California. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
+        <em>(The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, the most-central repository of official online video from members of the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this member and members of the CA legislature in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -53,9 +63,9 @@ en-CA:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        The bill "subjects" below are officially assigned to legislation by the California state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology. California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than that.
-        In the future, to make bills in California more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the California legislature, those applied to bills four times or more.<br><br>                
-        The next California legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.                
+        The bill "subjects" below are officially assigned to legislation by the California state legislature. Individual subjects are sometimes very broad and other times very specific, and there is no predictable methodology by which they are applied to bills. In fact, California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than twice.<br><br>
+        In the future, to make political issues in California more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the California legislature -- those applied to bills four times or more -- with a link at the bottom of the page to "View All".<br><br>                
+        <em>(The next California legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.)</em>                
   
   money_trails:
      index:

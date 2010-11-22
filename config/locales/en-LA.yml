@@ -2,8 +2,11 @@ en-LA:
   states:    
     show:
       intro: |
-        <strong>Learn</strong> about bills in the Louisiana legislature. <strong>Track</strong> votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
-        To get started, enter your zip code above to find out who represents you. Click on the links at left to browse official government information combined with news & blog coverage from around the Web. Scroll down for more educational resources about how the Louisiana state government works.
+        <br>
+        Welcome to OpenGovernment - Louisiana, a free public resource that helps make government more transparent and accessible.<br><br>
+        <strong>Find</strong> bills in the Louisiana legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
+        Enter your zip code below to see all of your elected officials in Louisiana. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved. 
+      state_population:
       current_session: "2009-2010"
       state_population: |
         2009 est. pop.: 4,492,076 (cit. <a href="http://quickfacts.census.gov/qfd/states/22000.html" target="_blank">Census.gov</a>)
@@ -24,27 +27,34 @@ en-LA:
       next_session_start_date: 
       lower_chamber_term_limit: "no term limits"
       background: |
-        Here are some links with background on the Louisiana state legislature and explanations of how it works: <a href="http://en.wikipedia.org/wiki/Louisiana_State_Legislature">Wikipedia</a>; <a href="http://www.ballotpedia.org/wiki/index.php/Louisiana_State_Legislature">Ballotpedia</a>; OpenCongress state page for <a href="http://www.opencongress.org/states/LA">Louisiana</a>, with links to federal <a href="http://www.opencongress.org/people/senators#L">senators</a> and <a href="http://www.opencongress.org/people/representatives#L">representatives</a>; OpenCongress Wiki blogroll of <a href="http://www.opencongress.org/wiki/Louisiana">LA state political blogs</a>; and the National Council of State Legislatures official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more LA state blogs in the left-hand sidebar.<br><br>
-        How did we get the above information? It took our non-profit team a lot of work. Almost no state legislative chamber makes its data available in ways that are compliant with the community-generated Eight Principles of Open Government Data. As a result of this significant shortcoming, we created OpenGovernment to fill the need for a public resource web application for government transparency and civic engagement. All state-level legislative data was obtained via a time-intensive process known as "scraping", headed up by volunteers from the Open States Project -- a process that is vastly sub-optimal compared to governments actually making public data available via more efficient & acceptable methods, viz. a real-time open API and bulk download access. The contextual data of news & blog coverage, social media mentions, campaign contribution info, and issue-area analysis are aggregated uniquely by the open-source GovKit API. Last but not least, the welcoming web design, user-friendly interface, and helpful site copy are also products of OpenGovernment, the team behind OpenCongress, licensed freely for you to share and remix. All that said, this free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.  
+        Here are some links with background on the Louisiana state legislature and explanations of how it works:
+        <ul>
+          <li>Louisiana legislature on <a href="http://en.wikipedia.org/wiki/Louisiana_State_Legislature">Wikipedia</a></li>
+          <li>... and on <a href="http://www.ballotpedia.org/wiki/index.php/Louisiana_State_Legislature">Ballotpedia</a></li>
+          <li>OpenCongress state page for <a href="http://www.opencongress.org/states/LA">Louisiana</a>, with links to federal <a href="http://www.opencongress.org/people/senators#L">senators</a> and <a href="http://www.opencongress.org/people/representatives#L">representatives</a></li>
+          <li>OpenCongress Wiki blogroll of <a href="http://www.opencongress.org/wiki/Louisiana">LA state political blogs</a></li>
+          <li>The National Council of State Legislatures official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more LA state blogs in the left-hand sidebar.</li>
+          <br><br>
+          How did we get the above information? Read more <a href="/pages/about">about us</a> and <a href="/pages/about/#our_data_sources">our data sources</a>. 
         
   bills: 
     index:
       title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
         Connect with bills in Louisiana. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next Louisiana legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.
+        <em>(The next Louisiana legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: |
-        <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But if you're brave enough to take a look at those official government sites, they're obviously poorly done... almost amusingly so, if the legislative process wasn't so important to the public interest. The House makes video available via a decidedly baffling, un-user-friendly website in the widely-discounted .asx video format. The Senate is worse, if possible: "We recommend using Windows Media Player...". In brief, Louisiana is far, far behind technical best practices in publishing and displaying online video for the public. 
+        <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But clearly, the design of these video sites is un-user-friendly. The House makes video available via an un-user-friendly website in the obscure .asx video format. The Senate still uses a closed format for its video files: "We recommend using Windows Media Player...". In brief, the Louisiana legislature is far, far behind technical best practices in publishing and displaying online video for the public. 
   
   people: 
     index:
       intro: |
-        Connect with senators and representatives in Louisiana. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        The next Louisiana legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.
+        Connect with members of the Louisiana legislature. We make sentaors and representatives more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
+        <em.(The next Louisiana legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
-        <em>Editorial note</em>: as far as what's out there now, some official video for members of the Louisana legislature is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But if you're brave enough to take a look at those official government sites, they're obviously poorly done... almost amusingly so, if the legislative process wasn't so important to the public interest. The House makes video available via a decidedly baffling, un-user-friendly website in the widely-discounted .asx video format. The Senate is worse, if possible: "We recommend using Windows Media Player...". In brief, Louisiana is far, far behind technical best practices in publishing and displaying online video for the public.    
+        <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisiana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But clearly, the design of these video sites is un-user-friendly. The House makes video available via an un-user-friendly website in the obscure .asx video format. The Senate still uses a closed format for its video files: "We recommend using Windows Media Player...". In brief, the Louisiana legislature is far, far behind technical best practices in publishing and displaying online video for the public.    
   
   issues:
     index:
