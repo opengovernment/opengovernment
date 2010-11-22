@@ -3,13 +3,6 @@
 
 = render :partial => 'shared/appeal'
 
-
-%h1.grid_9.alpha
-  Connect with the 
-  = @state.name 
-  legislature.
-%hr
-
 %p.intro= t '.intro'
 
 .find_box
@@ -83,10 +76,11 @@
                 = pluralize(chamber.people.other.count, 'Other')
               - else
                 = pluralize(chamber.people.republicans.count, 'Republican')            
+            %br
             %br            
-            Each legislator represents approx.
+            Each represents approx.
             =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
-  
+            and serves four-year terms with a two-term limit.
   
           %p
             %strong Committees:
@@ -99,21 +93,20 @@
             = link_to "#{Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path
   
             %br
-            %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
   
 
             =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
   
-            =t (chamber.type == 'UpperChamber' ? '.upper_chamber_active_session_date' : '.lower_chamber_active_session_date')
+            <!--=t (chamber.type == 'UpperChamber' ? '.upper_chamber_active_session_date' : '.lower_chamber_active_session_date')-->
       
 
-  
+          <!--
           %p
             Legislators serve #{chamber.term_length}-year terms, with
             =t (chamber.type == 'UpperChamber' ? '.upper_chamber_term_limit' : '.lower_chamber_term_limit')
-          %clear
+          %clear-->
   
 .space
 

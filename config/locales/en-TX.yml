@@ -4,11 +4,12 @@ en-TX:
   states:
     show:
         intro: |
-          <strong>Learn</strong> about bills in the Texas legislature. <strong>Track</strong> key votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
-          To get started, enter your zip code below to find out who represents you. Or, click on the links at left to browse official government information combined with news & blog coverage from around the Web. 
-          
+         <br>
+            Welcome to OpenGovernment - Texas, a free public resource that helps make government more transparent and accessible.<br><br>
+            <strong>Find</strong> bills in the Texas legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
+            Enter your zip code below to see all of your elected officials in Texas. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved.
         background: |
-          More background on the Texas state legislature and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Texas_Legislature">Wikipedia</a>; <a href="http://ballotpedia.org/wiki/index.php/Texas">Ballotpedia</a>, including the 2010 elections for the <a href="http://www.ballotpedia.org/wiki/index.php/Texas_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Texas_House_of_Representatives_elections,_2010">House of Representatives</a>; <a href="http://www.opencongress.org/states/TX">OpenCongress TX</a>; <a href="http://www.opencongress.org/wiki/Texas">OpenCongress Wiki TX state blogroll</a>; and the National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring more TX-relevant sites in the left-hand sidebar. This free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
+          More background on the Texas state legislature and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Texas_Legislature">Wikipedia</a>; <a href="http://ballotpedia.org/wiki/index.php/Texas">Ballotpedia</a>, including the 2010 elections for the <a href="http://www.ballotpedia.org/wiki/index.php/Texas_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Texas_House_of_Representatives_elections,_2010">House of Representatives</a>; <a href="http://www.opencongress.org/states/TX">OpenCongress TX</a>; <a href="http://www.opencongress.org/wiki/Texas">OpenCongress Wiki TX state blogroll</a>; and the National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring more TX-relevant sites in the left-hand sidebar. This free public resource is still in early development -- much more data & many features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
 
         state_upper_chamber: "32 Senators: 12 Democrats, 20 Republicans, 0 Other."
         state_lower_chamber: "150 Assemblymembers: 73 Democrats, 77 Republicans, 0 Other."
@@ -52,8 +53,8 @@ en-TX:
     title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-        Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
-        The next Texas legislature will convene on Jan. 11th, 2011, after which date bills will appear here with continual updates of their latest actions. 
+         Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
+           <em>(The next Texas legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now for video on bills in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general.
@@ -62,9 +63,8 @@ en-TX:
     title: 'Members of the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-       Connect with senators and representatives in Texas. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-       The next Texas legislature will convene on Jan. 11th, 2011, after which date new and returning members will appear here with continual updates of their latest actions.
-    videos: 
+       Connect with senators and representatives in Texas. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
+       <em>(The next Texas legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
       intro: | 
         <em>Editorial note</em>: as far as what's out there now for video on elected officials in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this person and legislators in general.    
 
