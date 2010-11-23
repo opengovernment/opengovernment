@@ -88,7 +88,7 @@ SimpleNavigation::Configuration.run do |navigation|
           end
           m.item :mentions, 'News & Blog Coverage', news_bill_path(bill.session, bill)
           m.item :tweets, 'Social Media Mentions', social_bill_path(bill.session, bill)
-          m.item :money_trail, 'Money Trail', money_trail_bill_path(bill.session, bill), :class => 'inactive'
+          m.item :money_trail, 'Interest Groups', money_trail_bill_path(bill.session, bill), :class => 'inactive'
           m.item :videos, 'Videos', videos_bill_path(bill.session, bill)
           m.item :disqus, 'Comments', discuss_bill_path(bill.session, bill, :anchor => 'disqus_thread')
         end
@@ -143,7 +143,7 @@ SimpleNavigation::Configuration.run do |navigation|
    #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
    #     end
    #   end
-      primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail' do |m|
+      primary.item :money_trail, 'Canpaign Contributions', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail' do |m|
   #      if defined?(@industry)
   #        m.item :industry, @industry.name, money_trail_path(@industry)
    #     end
