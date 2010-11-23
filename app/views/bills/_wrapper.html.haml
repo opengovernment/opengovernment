@@ -9,7 +9,7 @@
 
 - if defined?(show_tools)
   %aside.take_action.full_lined
-    = render 'shared/share_tools', :message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url
+    = render 'shared/share_tools', :message => "Share", :title => "I'm reading about #{@bill.to_hashtags} on OpenGovernment.org", :url => request.url
     .hov.track_buttons
       %h4.button
         %span= t('bills.track.track')

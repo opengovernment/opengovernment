@@ -8,7 +8,7 @@
 
 - if defined?(show_tools)
   %aside.take_action.full_lined
-    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
     .hov.track_buttons
       %h4.button
         %span Track

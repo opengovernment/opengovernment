@@ -37,7 +37,11 @@ class Person < ActiveRecord::Base
   has_many :sponsored_bills, :class_name => 'Bill', :through => :bill_sponsorships, :source => :bill
 
   has_many :contributions, :order => "amount desc", :limit => 20
-  has_many :ratings, :order => "timespan desc"
+  has_many :ratings, :order => "timespan desc" do
+    def for_category(category)
+      joins(:special_interest_group).where(["special_interest_groups.category_id = ?", category.id])
+    end
+  end
 
   # These queries also assume that contributions are ONLY associated
   # with Businesses.

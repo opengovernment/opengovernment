@@ -105,6 +105,7 @@ SimpleNavigation::Configuration.run do |navigation|
           m.item :videos, 'Videos', videos_person_path(@person)
           m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
           m.item :committees, 'Committees', committees_person_path(@person), :style => 'display: none;'
+          m.item :ratings, 'Ratings', ratings_person_path(@person), :style => 'display: none;'
         end
       end
 
