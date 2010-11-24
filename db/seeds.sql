@@ -262,21 +262,6 @@ CREATE OR REPLACE VIEW v_tagged_sigs AS
   tt.taggable_type = 'Category' and tt.taggable_id = c.id and
   tt.context = 'issues' and t.id = tt.tag_id;
 
-DROP VIEW v_ratings;
-CREATE OR REPLACE VIEW v_ratings AS
-  select 
-    ratings.*,
-    CASE WHEN ratings.rating similar to E'\\d+' then rating::integer
-    WHEN rating = 'F' then 0
-    WHEN rating = 'D' then 60
-    WHEN rating = 'C' then 70
-    WHEN rating = 'B' then 80
-    WHEN rating = 'A' then 90
-    WHEN rating = 'A+' then 100
-    WHEN rating = 'A-' or rating = 'B+' then 85
-    ELSE null END as normalized_rating
-  FROM ratings;
-
 -- Used for geoserver district maps.
 -- Restricted by session_id, this view should alwyas show only
 -- the people in that session who represent geographic districts (not senators)

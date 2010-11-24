@@ -126,24 +126,20 @@
         %tr
           %th
           %th Number of ratings
-          %th Average
         - @rating_categories[0..(@rating_categories.size/2)-1].each do |rating_category|
           %tr
             %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
             %td= rating_category.entries
-            %td= (rating_category.average_rating.nil? ? 'N/A' : "#{rating_category.average_rating.to_i}%")
 
   .grid_6.omega
     %table.ratings_summary
       %tr
         %th
         %th Number of ratings
-        %th Average
       - @rating_categories[@rating_categories.size/2..@rating_categories.size].each do |rating_category|
         %tr
           %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
           %td= rating_category.entries
-          %td= (rating_category.average_rating.nil? ? 'N/A' : "#{rating_category.average_rating.to_i}%")
 
 - else
   %p.grid_12.alpha No data found for this person at this time via <a href="http://votesmart.org/" target="_blank">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href="/pages/help">how you can help</a>.
