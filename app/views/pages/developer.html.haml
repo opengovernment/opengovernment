@@ -1,0 +1,37 @@
+.grid_12.alpha
+  %h1 OpenGovernment for Developers
+
+.grid_8.alpha
+  %h2 Background
+
+  %p We maintain two of the open source projects behind opengovernment.org: <a href="http://github.com/opengovernment/opengovernment">OpenGovernment</a>, a Ruby on Rails application that powers this website, and <a href="http://github.com/opengovernment/govkit">GovKit</a>, a Ruby Gem that wraps common open government APIs from around the web.
+
+  %p Here's a map of our little corner of the open government datascape.
+
+  = image_tag('pages/datascape.png')
+
+  %h2 Getting Started
+  
+  %p We're free and open source, and we're <em>always</em> looking for developers to get involved. We work with large datasets, mapping, and dynamic visualizations in an effort to make government more accessible and open. Want to help define what's possible with open government data?
+
+  %p
+    %strong If you want to improve this site's features,
+    get started by downloading and setting up OpenGovernment on your machine. Our <a href="https://github.com/opengovernment/opengovernment/blob/master/README.md">README</a> on GitHub contains complete installation instructions. We maintain an <a href="https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment/overview">Issue Tracker</a> at Lighthouse, and you can drop by the IRC channel anytime: chat.freenode.net channel #opengovernment
+
+  %p
+    %strong If you want to add your state to OpenGovernment,
+    we pull the core state-level data from Sunlight Labs' Open State Project. So the best approach is to get involved with Sunlight Labs' Open State project.  They are looking for contributors! Open State maintains <a href="https://github.com/sunlightlabs/openstates">scrapers</a> (written in Python) that bring state legislative data into a common data format for their API. They then host the scraped data.
+
+.grid_4.omega
+  %h2 Quick Links
+  %ul
+    %li <a href="http://github.com/opengovernment">GitHub repositories</a>
+    %li <a href="http://groups.google.com/group/opengovernment/">Developer discussion group</a>
+    %li <a href="https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment/overview">Issue Tracker</a>
+    %li IRC: chat.freenode.net channel #opengovernment
+
+  %h2 Contact Us
+  %p
+    Just getting involved?
+    %br
+    #{mail_to('develop@opencongress.org', 'Send a note to Carl Tashian', :encode => 'javascript')}, PPF's Director of Technology, and say hello. 

@@ -54,6 +54,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :wishes, 'Wish List', page_url("wish-list", :subdomain => false)
       primary.item :help, 'Help', page_url("help", :subdomain => false)
       primary.item :contact, 'Contact Us', page_url("contact", :subdomain => false)
+      primary.item :developer, 'Developer Hub', page_url('developer', :subdomain => false)
     else
 
       if controller_name == 'subjects'
