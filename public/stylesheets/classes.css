@@ -421,9 +421,9 @@ padding: 20px;
   font-size: 16px;
   line-height: 1.2em;
   font-weight: bold;
-  padding: 24px 0;
-  margin-top: 40px;
-  background: transparent url(/images/mc.png) 240px 0 no-repeat !important;
+  width: 423px;
+  height: 83px;
+  background: transparent url(/images/miro_community_logo.png) 0 0 no-repeat !important;
   }
   
 .big_list{
