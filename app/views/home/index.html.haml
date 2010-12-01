@@ -6,40 +6,32 @@
 
 .grid_14
   .push_1
-    %br
-    %p Welcome to OpenGovernment, a resource for government transparency at the state and local levels. We're free, open-source, non-profit and non-partisan.
+    %p Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source. 
 
 
 .grid_14.push_1
   .grid_7.alpha.bigger.supported_states_list
-    %h3 We've started with five state legislatures:
     .grid_3.alpha
       %ul
         - @states[0...(@states.size/2)+1].each do |state|
           %li
-            %a{:href => state_url(state)}= state.name
+            %a{:href => state_url(state), :class => "state-#{state.abbrev}"}= state.name
     .grid_3.omega
       %ul.bill_documents
         - @states[(@states.size/2)+1..@states.size].each do |state|
           %li
-            %a{:href => state_url(state)}= state.name
-        %li
-          %a More to Come
+            %a{:href => state_url(state), :class => "state-#{state.abbrev}"}= state.name
+    
 
   .grid_7.omega.notify_me
-    %h3 To be notified when we launch OpenGovernment near you:
     .signup_form
       %form(action="http://crm.ppolitics.org/civicrm/profile/create&amp;gid=10&amp;reset=1" method="post" name="Edit" id="Edit")
         %input(name="postURL" type="hidden" value="")
         %input(name="cancelURL" type="hidden" value="http://crm.ppolitics.org/civicrm/profile?reset=1&amp;gid=10")
         %input(name="add_to_group" type="hidden" value="3")
         %input(name="_qf_default" type="hidden" value="Edit:cancel")
-        %label(for="email") Email
-        %input(maxlength="64" size="30" name="email-Primary" type="text" id="email" class="form-text big required")
-        %br
-        %label(for="postal_code" class="postal_code") Postal Code
-        %input(maxlength="12" size="12" name="postal_code-Primary" type="text" id="postal_code" class="form-text twelve")
-        %br
+        %input(maxlength="64" size="30" name="email-Primary" type="text" placeholder="Email" id="email" class="form-text big required")
+        %input(maxlength="12" size="12" name="postal_code-Primary" type="text" placeholder="Postal Code" id="postal_code" class="form-text twelve")
         %input(class="form-submit default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next")
 
 .find_box

@@ -1,3 +1,5 @@
+
+
 .smaller *{
   font-size: 12px !important;
   }
@@ -62,9 +64,25 @@
 
 
 h2.grid_14.push_1{
-  font-size: 30px;
-  font-weight: normal
+  font-size: 28px;
+  font-weight: normal;
+text-align: center;
+border-bottom: none;
+padding-bottom: 0;
+line-height: 1em;
   }
+
+
+.grid_14 .push_1{
+margin: 0 !important;
+padding: 0;
+  }
+
+.grid_14 .push_1 p{
+margin: 5px 0 40px !important;
+text-align: center !important;
+  }
+
 
 .grid_7.bigger{
   font-size: 17px;
@@ -163,20 +181,26 @@ h2.grid_14.push_1{
   margin-left: -20px;
   line-height: 1em;
   float: left;
+margin-top: -5px;
   }
   
 
 
 #account strong a{
-  padding: 0px !important;
+  padding: 25px 0 0 0px !important;
   float: left;
-  margin-right: 10px;
   text-decoration: none;
   color: #215357;
+  background: url(/images/opengovernment.png) 0px 0px no-repeat; 
+height: 0;
+width: 205px;
+overflow: hidden;
   }
 
 
-
+#account strong a:hover{
+  background: url(/images/opengovernment.png) 0px -42px no-repeat; 
+  }
 
 
 /*///////////////////////////
