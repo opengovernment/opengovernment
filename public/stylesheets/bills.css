@@ -165,9 +165,13 @@ a.see_all {
   display: inline;
   }
 
-.sponsor_preview .sponsor_mugs, .document_preview .documents, .people_news_preview .people_mugs {
+.sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
   }
+
+.people_news_preview ul.people_mugs {
+  padding-top: 7px;
+}
 
 .sponsor_mugs{
   float: left;

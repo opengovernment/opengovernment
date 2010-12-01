@@ -9,7 +9,7 @@ namespace :sync do
     OpenGov::Fetch::States.process
   end
 
-  desc "Fetch bill full text and associated documents"
+  desc "Fetch votesmart photos for missing candidates"
   task :photos => :environment do
     OpenGov::Photos.import!
   end

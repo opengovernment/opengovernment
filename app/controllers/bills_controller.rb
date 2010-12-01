@@ -93,7 +93,7 @@ class BillsController < ApplicationController
 
         bills.find_in_explicit_order('bills.id', countable_ids)
       when 'keyvotes'
-        bills.where(:votesmart_key_vote => true, :chamber_id => @state.legislature.chambers)
+        bills.where(:votesmart_key_vote => true)
       else
         bills.order('last_action_at desc').limit(10)
     end

@@ -55,13 +55,25 @@ cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
-border-top: 1px solid #ddd;
-border-bottom: 1px solid #ddd;
-padding-left: 14px;
-margin: 0;
-
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
 }
 
+.popup h2, .popup h3 {
+  padding-left: 14px;
+}
+
+.popup h3 {
+  color: #36676F;
+  border: none;
+}
+
+.popup table {
+  width: 680px;
+  margin-left: 14px;
+  margin-top: 10px;
+}
 
 .popup p{
 clear: both;

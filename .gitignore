@@ -6,6 +6,7 @@ tmp/*
 db/*_structure.rb
 db/sphinx/*
 public/assets/*
+public/system/*
 .bundle/*
 data/*
 vendor/bundle/*

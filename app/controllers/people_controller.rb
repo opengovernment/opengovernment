@@ -62,6 +62,7 @@ class PeopleController < ApplicationController
         render :template => 'people/votes'
       end
       format.html do
+        @rating_categories = SpecialInterestGroup.find_by_sql(["select c.id, c.name, count(r.id) as entries from categories c, special_interest_groups sigs, ratings r where c.id = sigs.category_id and r.sig_id = sigs.id and r.person_id = ? group by c.name, c.id", @person.id])
         @latest_votes = @person.votes.latest
         @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
       end
@@ -92,6 +93,11 @@ class PeopleController < ApplicationController
     end
 
     render :layout => 'popup'
+  end
+
+  def ratings
+    resource_not_found unless @category = Category.find(params[:category_id])
+    @ratings = Rating.includes(:special_interest_group).where(:"special_interest_groups.category_id" => @category.id, :person_id => @person.id)
   end
 
   protected

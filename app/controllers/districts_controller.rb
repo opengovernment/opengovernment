@@ -7,8 +7,10 @@ class DistrictsController < ApplicationController
 
       if @state && @state.supported?
         return
+      elsif @state
+        render :template => 'states/unsupported', :layout => 'home'
       else
-        render :template => "shared/unsupported"
+        render :template => 'shared/unsupported'
       end
     end
   end

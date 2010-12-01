@@ -1,9 +1,13 @@
 
 /* Overrides*/
- th, td, caption{
+th, td, caption{
    padding-left: 0;
-   }
- 
+}
+
+body td {
+  padding: 5px 3px;
+} 
+
 
 /* Pagination */
 .pagination, nav.faceted {

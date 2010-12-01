@@ -58,9 +58,16 @@ function create_dropdown_menu(anchor_div, menu_div) {
 $(document).ready(function() {
   create_dropdown_menu("a#dropdown", ".state-select");
 
+  // Hover tooltips
+  // http://onehackoranother.com/projects/jquery/tipsy/
   $('a[rel=tipsy],span[rel=tipsy]').tipsy();
 
+  // For backwards-compatible placeholder attribute in input fields
+  // http://plugins.jquery.com/plugin-tags/placeholder
+  $('input').placeholder();
+
   // Modals.
+  // http://colorpowered.com/colorbox/
   $('a.modal').colorbox({
       transition: 'none',
       opacity: 0.8,
@@ -74,6 +81,7 @@ $(document).ready(function() {
       height: 400
   });
 
+  // Show the spinner on AJAX calls
   $('a[data-remote]').live('ajax:loading', function() {
     $(this).closest('ul').find(".spin").show();
     }

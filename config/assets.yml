@@ -31,6 +31,7 @@ javascripts:
     - public/javascripts/jquery.timeago.js
     - public/javascripts/jquery.tipsy.js
     - public/javascripts/jquery.colorbox.js
+    - public/javascripts/jquery.placeholder.js
     - public/javascripts/tracker.js
     - public/javascripts/application.js
     - public/javascripts/twitter.js

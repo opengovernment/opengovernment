@@ -24,6 +24,7 @@ OpenGov::Application.routes.draw do
         get :contact
         get :videos
         get :committees
+        get :ratings
       end
     end
 

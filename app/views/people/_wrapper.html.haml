@@ -8,7 +8,7 @@
 
 - if defined?(show_tools)
   %aside.take_action.full_lined
-    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
     .hov.track_buttons
       %h4.button
         %span Track
@@ -27,7 +27,8 @@
       %span.button
         %span= link_to('Contact this person', {:action => :contact}, :class => 'modal')
 
-    .support_buttons
+    -# TODO: These are turned off for now. Please implement.
+    .support_buttons(style="display: none;")
       %a.support.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
         %span I Support this Rep!
       %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
