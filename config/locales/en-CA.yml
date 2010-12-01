@@ -7,9 +7,8 @@ en-CA:
     show:
       intro: |
        <br>
-       Welcome to OpenGovernment - California, a free public resource that helps make government more transparent and accessible.<br><br>
-       <strong>Find</strong> bills in the California legislature or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
-       Enter your zip code below to see all of your elected officials in California. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved. 
+       OpenGovernment is a free public resource that makes the California legislature more transparent and user-friendly.<br><br>
+       <strong>Find</strong> bills and campaign contributions. <strong>Track</strong> key votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
       state_pop_per_lower_chamber_member: "462,021 people"
