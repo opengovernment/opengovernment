@@ -1,96 +1,80 @@
-.venn{
-  width: 714px; 
-  background: transparent url(/images/about.png) 0 0 no-repeat !important;
-  margin: 40px 0 40px -13px;
-  height: 590px;
+
+.home.home .find_box {
+  display: inline-block;
+  width: 990px;
+padding: 20px 0;
+  margin: 0 0 -10px -16px !important;
+}
+
+.home.home #find_my_rep #q{
+  width: 230px;
+  padding-left: 25px;
+  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+  }
+  
+
+.home.index .main{
+  background: url(/images/header.jpg) 0px 0px no-repeat;
+}
+
+.home.home #find_my_rep {
+padding-left: 70px;
+}
+
+
+.home.home .auto_find {
+margin-right: 40px;
+margin-top: 1px;
+}
+
+
+/*///////////////////////////
+
+~ Find YOur Districts
+
+///////////////////////////*/
+
+
+
+.find_form{
+
+}
+
+.auto_find{
+float: right;
+}
+
+
+
+
+.find_box{
+  position: relative;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  overflow: auto;
+  padding: 18px 0px 10px;
+  background: #f9f9f9;
+  margin: 0px -26px 20px -39px;
   }
 
 
-
-.supported_states_list{
-height: 244px;
-}
-
-
-.supported_states_list li a{
-display: block;
-font-size: 20px;
-padding-left: 32px;
-line-height: 3.5em;
-background: transparent url(/images/states.png) 0 24px no-repeat !important;
-}
-
-
-
-
-.supported_states_list li a.state-LA{
-background: transparent url(/images/states.png) 0 -34px no-repeat !important;
-}
-
-
-.supported_states_list li a.state-MD{
-background: transparent url(/images/states.png) 0 -88px no-repeat !important;
-}
-
-.supported_states_list li a.state-TX{
-background: transparent url(/images/states.png) 0 -200px no-repeat !important;
-}
-
-
-.supported_states_list li a.state-WI{
-background: transparent url(/images/states.png) 0 -142px no-repeat !important;
-}
-
-
-
-.signup_form{
-margin: 160px 0 0 50px;
-width: 400px !important;
-}
-
-input#email{
-font-size: 12px;
-padding: 9px;
-margin: 0;
-width: 155px;
-border: 0;
-margin-left: 10px;
-background: none;
-
-float: left;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-input#postal_code{
-font-size: 12px;
-border: 0;
-padding: 9px;
-float: left;
-margin: 0 0 0 20px !important;
-width: 80px;
-background: none;
-float: left;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-
-input#_qf_Edit_next{
+.auto_find{
+  position: absolute;
+  right: 81px;
+  top: 19px;
+  right: 20px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
   
   text-shadow: 0 1px 0px #fff;
- padding: 7px; 20px;
+ 
 
-margin: 3px 0 0 25px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
   
-font-size: 12px;  
-
+  
   border: 1px solid #a7c3c9;
   border-top: 1px solid #c6d9de;
   border-bottom: 1px solid #4e7179;
@@ -107,452 +91,94 @@ font-size: 12px;
 }
 
 
-/*///////////////////////////////////////////////////
 
-~ Classes
-
-///////////////////////////////////////////////////*/
-
-
-.more{
-  float: right;
-  font-weight: bold;
-  font-size: 14px;
-margin: 20px;
-  }
-
-
-.spin{
-  background: transparent url(/images/pulse.gif) 0 0 no-repeat !important;
-  height: 31px;
-  width: 31px;  
-  position: absolute;
-  top: 75px !important;
-  right: 20px;
-  z-index: 999;
-  }
-
-
-
-#flash{
-  background: #efefef;
-  padding: 20px;
-  margin: 0 -16px 0;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #fff,  #eee); /* for firefox 3.6+ */
+.auto_find a{
+  display: block !important;
+  padding: 6px 20px 4px 38px;
+  background: #fff;
+  font-size: 11px;
+  text-shadow: #d5ebef 0px 1px 0px;
+  text-decoration: none;
+  background: url(/images/sprites.png) 12px -218px no-repeat;
   
   
   }
 
-#flash #flash_error{
-  color: red;
-  font-weight: bold;
-  text-align: center;
+
+.auto_find a:hover{
+  text-decoration: none;
   }
 
 
 
-.intro{
-  padding: 10px 0 0px;
+
+#find_my_rep{
+  padding: 0px 24px;
+  }
+
+
+#find_my_rep #q{
+  width: 97px;
+  padding-left: 25px;
+  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+  }
+  
+
+#find_my_rep label{
+  padding: 6px 20px 0 15px;
+  float: left;
+  margin:0 0 0px;
   font-size: 13px;
-  line-height: 1.5em;
+  line-height:1.3em;
+  color: #36676f;
+  clear: both; 
+  font-weight: normal;
+  
   }
 
 
 
-/*///////////// ~  Standard Button  ~ /////////////*/
-
-
-.button{
-
+.find_button input{
+  background: #fff;
+  display: block !important;
+  
+  border-bottom: 0;
+  
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
   
   text-shadow: 0 1px 0px #fff;
   
+  float: left;
+  margin-left: 15px !important;
+  
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
   
   
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #777;
   
-  
-  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
+  
+  padding: 6px 23px;
   
   }
 
 
-.rounded{
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
+.finding{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 218px;
+  top: 20px;
+  background: url(/images/location_spinner.gif) no-repeat;
   }
-
-
-
-/*///////////// ~  Type Stuff  ~ /////////////*/
-
-
-.bold{ font-weight: bold;}
-
-.no-deco{ text-decoration: none;}
-
-.italic{font-style: italic;}
-
-
-
-.red{
-  color: red;
-}
-
-
-/*///////////// ~  Margins  ~ /////////////*/
-
-.margin-top{ margin-top: 13px;}
-
-.margin-bottom{ margin-bottom: 13px;}
-
-.no-margin{ margin: 0;}
-
-
-.push_bottom { margin-bottom: 10px;}
-
-.push_top {padding-top: 10px}
-
-
-
-/*///////////// ~  Paddings  ~ /////////////*/
-
-
-
-
-
-
-/*///////////// ~  Floating  ~ /////////////*/
-
-.floatright{ float: right;}
-
-.floatleft{ float: left;}
-
-
-
-
-/*///////////// ~  Cancellations  ~ /////////////*/
-
-
-
-.space {background:#fff;color:#fff;visibility:hidden; height: 35px;}
-
-
-
-
-
-.full_lined{
-  border-top: 1px solid #ddeded;
-  border-bottom: 1px solid #ddeded;
-  float: left;
-  margin: 0 0px 0 -39px !important;
-  width: 764px !important;
-  background: #f4f9fa;
-  }
-
-
-
-/*///////////// ~  Standard List  ~ /////////////*/
-
-
-ul.lined{
-  margin: 0 0 20px !important;
-  padding:0;
-  }
-
-ul.lined li{
-  border-bottom: 1px solid #f4f9fa;
-  margin: 0 0 5px;
-  padding: 0px 0 5px;
-  line-height: 1.4em;
-  }
-
-
-ul.lined li:first-letter{
-  text-transform: uppercase;
-  }
-
-
-ul.lined.and_spaced li{
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  }
-
-ul.lined.and_spaced.with_titles li a{
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  }
-
-
-
-
-/*
-.money_trails ul.lined li{
-  padding-left: 20px;
-  background: #fff url(/images/cash.gif) left 2px no-repeat;
-  }
-
-.issues ul.lined li{
-  padding-left: 20px;
-  background: #fff url(/images/issues.gif) left 2px no-repeat;
-  }
-
-*/
-
-
-.boxxed{
-  border: 1px solid #fff;
-  -moz-box-shadow: 0px 1px 2px #6d6a58;
-  -webkit-box-shadow: 0px 1px 2px #6d6a58;
-  box-shadow: 0px 1px 2px #6d6a58;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
-  }
-
-
-
-
-
-
-
-.tip{
-  background: #c3d3e4;
-  padding: 30px 0;
-  font-style: italic;
-  font-weight: bold;
-  color: #4c647a;
-  font-size: 14px;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  margin: 0 0 15px;
-  -webkit-box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  box-shadow:inset 0px 0px 1px #ccc, inset 0px 1px 2px #777, inset 0px 5px 9px #eee, 0px 1px 2px #fff;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f5f5', endColorstr='#f7fbfb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #f4f5f5,  #f7fbfb); /* for firefox 3.6+ */
-  }
-
-
-.vote_smart_keyvote{ color: #999; font-size: 11px;}
-
-
-
-.subhead, .state-and-chamber {
-  color: #888;
-  display: block;
-  padding-bottom: .5em;
-  font-size: 12px;
-  }
-
-
-
-
-
-
-/*///////////// ~  Calendar  ~ /////////////*/
-
-
-.fancy-date{
-  border: 1px solid #f0f0f0;
-  display: block;
-  text-shadow: 0 1px 0px #fff;
-  width: 40px;
-  background: #f6f6f6;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  }
-
-
-.date-month,
-.date-day,
-.date-year{
-  display: block;
-  text-align: center;
-  }
-
-.date-month{
-  font-weight: bold;
-  font-size: 10px;
-  padding: 5px 0 0;
-  text-transform: uppercase;
-  }
-
-
-.date-day{
-  font-weight: bold;
-  font-size: 15px;
-  padding: 0;
-  text-transform: uppercase;
-  }
-
-.date-year{
-  font-size: 10px;
-  padding: 0 0 5px;
-  text-transform: uppercase;
-  }
-
-
-
-.race_tracker a{
-  font-size: 12px !important;
-  border: 0 !important;
-  display: block;
-  margin-left: -26px;
-  line-height: 1.4em;
-  padding: 15px 30px 15px 26px !important;
-  }
-  
-  
-  
-ul.small_tabs{
-  float: left;
-  width: 100%;
-  }
-
-
-ul.small_tabs li{
-  clear: none !important;
-  float: left;
-  display: inline !important;
-  }
-
-ul.small_tabs li a{
-  font-size: 14px;
-  font-weight: normal;
-  padding: 8px 20px 8px 20px;
-  display: block;
-  text-decoration: underline;
-  }
-
-
-ul.small_tabs li.ui-tabs-selected a{
-  text-decoration: none;
-  font-weight: bold;
-  cursor: default;
-  background: #f8f8f8;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-radius-top-left: 4px;
-  -webkit-border-radius-top-right: 4px;
-  border-radius-topleft: 4px;
-  border-radius-topright: 4px;
-  -moz-box-shadow:inset 0 1px 1px #ddd;
-  -webkit-box-shadow:inset 0 1px 1px #ddd;
-  box-shadow:inset 0 1px 1px #ddd;
-  }
-
-
-ul.small_tabs li.divide{
-  width: 5px !important;
-  border-right: 1px solid #36676f;
-  margin-right: 15px;
-  margin-top: 11px;
-  }
-
-.tab_cont{
-  background: #f8f8f8;
-  clear: both;
-  -moz-box-shadow:inset 0 -1px 1px #ddd;
-  -webkit-box-shadow:inset 0 -1px 1px #ddd;
-  box-shadow:inset 0 0 -1px 1px #ddd;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-radius-top-right: 4px;
-  margin-bottom: 20px;
-  }
-
-.tab_cont .small.quiet{
-padding: 10px 20px;
-margin: 0;
-float: left;
-}
-
-
-.tab_cont .what{
-padding: 10px 20px;
-margin: 0;
-float: right;
-}
-
-
-.tab_cont.pad{
-padding: 20px;
-  }
-
-.tab_cont ul{
-  padding: 0;
-  margin: 0;
-  }
-
-
-.tab_cont ul li{
-  padding: 10px 20px !important;
-  margin: 0 !important;
-  border-bottom: 1px solid #ddd;
-  }
-
-
-.tab_cont ul li span.introduced{
-  display: block;
-  font-size: 11px;
-  }
-
-.mc{
-  display: block;
-  font-size: 16px;
-  line-height: 1.2em;
-  font-weight: bold;
-  padding: 24px 0;
-  margin-top: 40px;
-  background: transparent url(/images/mc.png) 240px 0 no-repeat !important;
-  }
-  
-.big_list{
-height: 60px;
-width: 935px;
-padding-left: 57px;
-margin: 20px 0 0 -16px;
-background: #eee;
-border-bottom: 1px solid #ddd;
-border-top: 1px solid #ddd;
-}
-
-
-.big_list li{
-float: left;
-clear: none;
-}
-
-
-
-.big_list li a{
-float: left;
-clear: none;
-padding: 20px 30px;
-font-size: 18px;
-}
-
-
-
-
-  
