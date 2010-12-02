@@ -13,12 +13,14 @@ Before you install the app, you will need to download and install the following:
   * [GeoServer](http://geoserver.org/display/GEOS/Welcome), if you want to see vote maps
   * [MongoDB](http://mongodb.org/) for page view count support
 
-## Easy Install
+# Easy Install
 
 We could really use some Chef recipes or something that would ease the install process. Can you help with this?
 Meanwhile...
 
-## Full install
+# Full install
+
+## Prerequisites:
 
 ### on Ubuntu 10.10:
 
@@ -43,7 +45,41 @@ These are used by gems like nokogiri or by our install scripts:
 
     sudo apt-get install sphinxsearch
 
-#### GeoServer
+#### ImageMagick
+
+    sudo apt-get install imagemagick
+
+#### Ruby & Bundler
+
+    sudo apt-get install ruby-full rubygems
+
+For the ffi gem, you'll need:
+
+    sudo apt-get install libffi-ruby
+
+Then install bundler:
+
+    sudo gem install bundler
+
+The bundle executable may not be in your path. If not, run:
+
+    sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle
+    
+#### MongoDB (optional, for page view tracking)
+
+For Ubuntu 10.10, add this line to your `/etc/apt/sources.list`:
+
+    deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
+
+Then run:
+
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    sudo apt-get update
+    sudo apt-get install mongodb-stable
+
+That should do it, but there are [full instructions on MongoDB's site](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages) in case you need them.
+
+#### GeoServer (optional, for vote maps)
 
 These are the prerequisites for GeoServer:
 
@@ -68,41 +104,7 @@ And restart tomcat:
 GeoServer should now be available at `[http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)`
 Below, there are full instructions on setting up GeoServer to work with OpenGovernment.
 
-#### ImageMagick
-
-    sudo apt-get install imagemagick libmagick9-dev
-
-#### Ruby & Bundler
-
-    sudo apt-get install ruby-full rubygems
-
-For the ffi gem, you'll need:
-
-    sudo apt-get install libffi-ruby
-
-Then install bundler:
-
-    sudo gem install bundler
-
-The bundle executable may not be in your path. If not, run:
-
-    sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle
-
-#### MongoDB
-
-For Ubuntu 10.10, add this line to your `/etc/apt/sources.list`:
-
-    deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
-
-Then run:
-
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-    sudo apt-get update
-    sudo apt-get install mongodb-stable
-
-That should do it, but there are [full instructions on MongoDB's site](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages) in case you need them.
-
-### Mac:
+### On Mac:
 
 #### Basics / Build Tools
 
@@ -116,7 +118,10 @@ Then run:
     sudo port install sphinx +postgresql84
     sudo gem install bundler 
 
-# General Installation
+## General Installation
+
+Once you've satisfied the prerequisites, this should work on all platforms.
+
   * Get a copy of the code:
         git clone http://github.com/opengovernment/opengovernment.git
         cd opengovernment
@@ -130,19 +135,12 @@ Then run:
         rake install
   * You can provide a comma-separated list of state abbreviations in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the tasks/fixtures/states.yml file.
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets. It typically takes at least an hour. You can always install the test database fixtures if you don't want to wait for the full install.
-  * Once the install is complete, start the server:
-        rails server
 
-OpenGovernment uses subdomains, so to access the site you'll find the `127localhost.com` domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, `http://tx.127localhost.com:3000`, you should see the Texas OpenGovernment subsite.
+## GeoServer Setup (optional, for vote maps)
 
-# Thinking Sphinx installation (for search functionality)
-You should already have the `thinkingsphinx` gem installed via the bundle.
-    rake ts:start
-will start the Sphinx server.
+Once you have GeoServer running, there are further setup steps.
 
-# GeoServer Setup (for vote maps)
-
-After starting the server, you'll want to [sign in to your local GeoServer](http://localhost:8080/geoserver/web/):
+You'll want to [sign in to your local GeoServer](http://localhost:8080/geoserver/web/):
     GeoServer: http://localhost:8080/geoserver/web/
     Default username: admin
     Default p/w: geoserver
@@ -154,6 +152,18 @@ Add a new Store for OpenGovernment. Here are the details:
     Database User & PW should match your database.yml
 
 You'll want to add two new Layers to the `og` Store as well. You'll only need to set the name and title on these--all other settings can remain default. The layers should be called `v_district_people` and `v_district_votes`.
+
+## Start your engines
+
+Once the install is complete, build the Sphinx index and start the Sphinx server:
+
+    rake ts:rebuild
+
+Then start Rails:
+
+    bin/rails s
+
+OpenGovernment uses subdomains, so to access the site you'll find the `127localhost.com` domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, `http://tx.127localhost.com:3000`, you should see the Texas OpenGovernment site.
 
 # Tests
 To prepare the test database: `RAILS_ENV=test rake db:prepare`.
