@@ -110,8 +110,8 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
 
-      primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills'
-      primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people' do |p|
+      primary.item :bills, 'Bills', bills_url(:subdomain => current_place_subdomain), :class => 'bills primary-nav-bills primary-nav'
+      primary.item :people, 'People', people_url(:subdomain => current_place_subdomain), :class => 'people primary-nav-people primary-nav' do |p|
         if defined?(current_place)
           p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path do |c|
             if defined?(@committee) && @committee[:type] == 'UpperCommittee'
@@ -133,7 +133,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
 
-      primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues' do |m|
+      primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues primary-nav-issues primary-nav' do |m|
 #       if defined?(@issue)
 #          m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
 #       end
@@ -144,7 +144,7 @@ SimpleNavigation::Configuration.run do |navigation|
    #       m.item :vote, 'Vote on ' + @vote.bill.bill_number, vote_path(@vote), :class => "vote #{@vote.outcome_class}", :highlights_on => /\/votes/
    #     end
    #   end
-      primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail' do |m|
+      primary.item :money_trail, 'Money Trail', money_trails_url(:subdomain => current_place_subdomain), :class => 'money_trail primary-nav-money_trail primary-nav' do |m|
   #      if defined?(@industry)
   #        m.item :industry, @industry.name, money_trail_path(@industry)
    #     end
