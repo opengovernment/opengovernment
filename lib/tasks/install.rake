@@ -126,6 +126,7 @@ namespace :db do
   namespace :seed do
     desc "Install db/ddl.sql items"
     task :ddl => :environment do
+      puts "NOTE: You may safely ignore PostgreSQL 'does not exist' errors"
       seeds_fn = File.dirname(__FILE__) + '/../../db/seeds/ddl.sql'
       if File.exists?(seeds_fn)
         load_pgsql_files(seeds_fn)
