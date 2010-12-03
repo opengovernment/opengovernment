@@ -1,5 +1,5 @@
--- Any executes from migrations must go in here, or they
--- will not be run when someone installs the app.
+-- Any triggers, indices, views from migrations should go here so they're run as part
+-- of rake db:prepare.
 
 -- We create this table here because we're not using spatial_adapter anymore
 -- (due to bugs & performance issues).
