@@ -1,9 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
-  name: 
-  votesmart_id: 1
-
-two:
-  name: 
+  id: 1
+  name: Test Category
   votesmart_id: 1

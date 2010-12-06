@@ -1,7 +1,10 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  citeable_id: 1
+  citeable_type: Person
+  url: http://www.legdir.legis.state.tx.us/MemberInfo.aspx?Chamber=H&Code=A2935
+  retrieved: <%= Time.now %>
+two:
+  citeable_id: 1
+  citeable_type: Bill
+  url: http://www.legis.state.la.us/billdata/byinst.asp?sessionid=09rs&billtype=HB&billno=759
+  retrieved: <%= Time.now %>

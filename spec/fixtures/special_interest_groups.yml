@@ -1,31 +1,27 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  contact_name: 
-  city: 
-  address: 
-  name: 
-  zip: 
-  state_id: 
-  url: 
-  phone_one: 
-  votesmart_id: 
-  phone_two: 
-  description: 
-  email: MyString
-  fax: MyString
-
+lpn:
+  id: 1
+  contact_name: Contact Name
+  city: Austin
+  address: 123 Main St.
+  name: Life Priority Network
+  zip: 70040
+  state_id: 47
+  url: http://sigwebsite.org
+  phone_one: (123) 823-1281
+  votesmart_id: 353
+  description:  "Life Priority Network is dedicated to restoring legal protection for the preborn child; maintaining legal protection for the elderly, infirmed, and disabled; and proclaiming mankind's God-given unalienable right to life."
+  email: Info@LifePriority.net
 two:
-  contact_name: 
-  city: 
-  address: 
-  name: 
-  zip: 
-  state_id: 
-  url: 
+  id: 2
+  contact_name: Person
+  city: Austin
+  address: 234 College Ave.
+  name: Applied Research Center
+  zip: 72272
+  state_id: 47
+  url: http://arc.org
   phone_one: 
-  votesmart_id: 
+  votesmart_id: 338
   phone_two: 
-  description: 
-  email: MyString
-  fax: MyString
+  description: "Advancing racial justice through research, advocacy and journalism.  The Applied Research Center (ARC) understands that pressing political conflicts demand a serious treatment of racial equity that addresses both a history of injustice and contemporary problems. We see racism, and demand concrete change from our most powerful public institutions to build a fair and equal society. ARC's vision for racial justice is changing the way our society talks about and understands racial inequity. ARC conducts resarch to expose the subtle racism of laws and regulations that result in real hardship for Black, Latino, Asian and Native communities."
+  email: arc@arc.org

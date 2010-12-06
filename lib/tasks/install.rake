@@ -43,6 +43,7 @@ end
 
 
 task :install => ["opengov:install"]
+task :install_dev => ["opengov:install_dev"]
 
 namespace :opengov do
   task :prepare do
@@ -72,6 +73,13 @@ namespace :opengov do
     Rake::Task['db:prepare'].invoke
     Rake::Task['fetch:all'].invoke
     Rake::Task['load:all'].invoke
+  end
+
+  desc "Set up an initial dev environment (with minimal data import)"
+  task :install_dev => :environment do
+    Rake::Task['db:prepare'].invoke
+    Rake::Task['fetch:geoip'].invoke
+    Rake::Task['load:dev'].invoke
   end
 
 end
@@ -119,7 +127,7 @@ namespace :db do
   task :reset_dev => :environment do
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:reset'].invoke
-    Rake::Task['load:fixtures:test'].invoke
+    Rake::Task['load:dev'].invoke
     puts "Success!"
   end
 
@@ -243,6 +251,12 @@ namespace :load do
     puts "\n---------- Fetch VoteSmart photos and attach them to people"
     Rake::Task['sync:photos'].invoke
   end
+  
+  desc "Load test fixtues and key imported data into the dev environment"
+  task :dev => :environment do
+    Rake::Task['load:fixtures:test'].invoke
+    OpenGov::Ratings.import_categories
+  end    
 
   namespace :fixtures do
     desc "Load fixtures for dev / testing"

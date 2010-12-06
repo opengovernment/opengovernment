@@ -1,8 +1,19 @@
 kay_appropriations:
   committee: appropriations
   session: tx81
-  person: kay
+  role: "Chairperson"
+  person: kirk
 garnet_education:
   committee: education
   session: tx81
   person: garnet
+garnet_appropriations:
+  committee: education
+  session: tx81
+  person: garnet
+  role: "Co-chair"
+other_education:
+  committee: education
+  session: tx81
+  full_name: "Edward Rooney"
+  role: "Chairperson"

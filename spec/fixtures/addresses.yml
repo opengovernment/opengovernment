@@ -1,0 +1,18 @@
+kirk_cap:
+  person: kirk
+  line_one: Post Office Box 942849, Room 2148
+  city: Austin
+  state: tx
+  postal_code: 94249-0035
+  phone_one: 805-564-1649
+  fax_one: 805-564-1651
+  votesmart_type: Capitol
+kirk_dist:
+  person: kirk
+  line_one: 101 West Anapamu Street, Suite A
+  city: Waco
+  state: tx
+  postal_code: 93101
+  phone_one: 916-319-2035
+  fax_one: 805-483-8182
+  votesmart_type: District
