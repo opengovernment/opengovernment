@@ -3,7 +3,9 @@
 
 = render :partial => 'shared/appeal'
 
-%p.intro= t '.intro'
+.intro
+  %div
+  %p= t '.intro'
 
 .find_box
   = render :partial => 'shared/find_my_rep_form'

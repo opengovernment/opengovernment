@@ -5,9 +5,15 @@ h1 .long_bill_title {
   overflow-x: hidden;
   }
 
-.bills .intro{
+.bills .intro p{
   padding-right: 250px;
-  background: #fff url(/images/intros/bills.gif) 490px 10px no-repeat;
+  }
+
+
+.bills .intro div{
+width: 200px;
+height: 300px;
+  background: url(/images/intros/bills.png) 0px 0px no-repeat;
   }
 
 

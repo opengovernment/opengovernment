@@ -7,6 +7,15 @@
 ///////////////////////////////////////////////////*/
 
 
+
+.standard{
+padding-left: 13px;
+}
+.standard,.standard li{
+list-style-type: disc !important;
+}
+
+
 .more{
   float: right;
   font-weight: bold;
@@ -47,9 +56,25 @@ margin: 20px;
 
 
 .intro{
-  padding: 10px 0 0px;
+  padding: 20px 0 20px 38px;
   font-size: 13px;
   line-height: 1.5em;
+  background: transparent url(/images/intro.jpg) 0 0 no-repeat !important;
+  margin: 0 0 0 -38px;
+border-top: 1px solid #e9efe7;
+  width: 725px;
+position: relative;
+  }
+
+.intro p{
+  padding: 0px 0 10px 0px;
+margin: 0;
+  }
+
+.intro div{
+  position: absolute;
+right: 0;
+top: -30px;
   }
 
 
