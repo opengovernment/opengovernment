@@ -1,117 +1,41 @@
-.venn{
-  width: 714px; 
-  background: transparent url(/images/about.png) 0 0 no-repeat !important;
-  margin: 40px 0 40px -13px;
-  height: 590px;
+.issues.index .intro p{
+  padding-right: 250px;
+  }
+
+
+.issues.index .intro div{
+width: 230px;
+height: 300px;
+  background: url(/images/intros/issues.png) 0px 15px no-repeat;
   }
 
 
 
-.supported_states_list{
-height: 244px;
-}
+.money_trails.index .intro p{
+  padding-right: 250px;
+  }
 
 
-.supported_states_list li a{
-display: block;
-font-size: 20px;
-padding-left: 32px;
-line-height: 3.5em;
-background: transparent url(/images/states.png) 0 24px no-repeat !important;
-}
-
-
-
-
-.supported_states_list li a.state-LA{
-background: transparent url(/images/states.png) 0 -34px no-repeat !important;
-}
-
-
-.supported_states_list li a.state-MD{
-background: transparent url(/images/states.png) 0 -88px no-repeat !important;
-}
-
-.supported_states_list li a.state-TX{
-background: transparent url(/images/states.png) 0 -200px no-repeat !important;
-}
-
-
-.supported_states_list li a.state-WI{
-background: transparent url(/images/states.png) 0 -142px no-repeat !important;
-}
-
-
-
-.signup_form{
-margin: 160px 0 0 50px;
-width: 400px !important;
-}
-
-input#email{
-font-size: 12px;
-padding: 9px;
-margin: 0;
-width: 155px;
-border: 0;
-margin-left: 10px;
-background: none;
-
-float: left;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-input#postal_code{
-font-size: 12px;
-border: 0;
-padding: 9px;
-float: left;
-margin: 0 0 0 20px !important;
-width: 80px;
-background: none;
-float: left;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-
-input#_qf_Edit_next{
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold !important;
-  
-  text-shadow: 0 1px 0px #fff;
- padding: 7px; 20px;
-
-margin: 3px 0 0 25px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-font-size: 12px;  
-
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
-  
-  
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
-  
-}
-
+.money_trails.index .intro div{
+width: 230px;
+height: 300px;
+  background: url(/images/intros/money.png) 20px 15px no-repeat;
+  }
 
 /*///////////////////////////////////////////////////
 
 ~ Classes
 
 ///////////////////////////////////////////////////*/
+
+
+
+.standard{
+padding-left: 13px;
+}
+.standard,.standard li{
+list-style-type: disc !important;
+}
 
 
 .more{
@@ -153,10 +77,32 @@ margin: 20px;
 
 
 
+.states.show .intro{border: none;
+  }
+
+
 .intro{
-  padding: 10px 0 0px;
+  padding: 20px 0 20px 38px;
   font-size: 13px;
   line-height: 1.5em;
+  background: transparent url(/images/intro.jpg) 0 0 no-repeat !important;
+  margin: 0 0 0 -38px;
+border-top: 1px solid #e9efe7;
+border-bottom: 1px solid #e9efe7;
+
+  width: 725px;
+position: relative;
+  }
+
+.intro p{
+  padding: 0px 0 10px 0px;
+margin: 0;
+  }
+
+.intro div{
+  position: absolute;
+right: 0;
+top: -30px;
   }
 
 
@@ -554,5 +500,22 @@ font-size: 18px;
 
 
 
-
+.states.show .sponsor_mugs{
+padding: 20px 0 20px 0;
+}
   
+
+.states.show .sponsor_mugs li{
+float: left;
+clear: none;
+padding: 0;
+}
+  
+
+.states.show .sponsor_mugs li a{
+margin-right: 20px;
+}
+
+.no-border{
+border: 0;
+}

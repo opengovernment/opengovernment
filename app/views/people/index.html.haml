@@ -4,12 +4,14 @@
 
 %h1= t('.title', :legislature_name => @state.legislature.name)
 
-%hr
+.intro
+  %div
+  %p= t '.intro'
 
-%p.intro= t '.intro'
 
 .find_box
   = render 'shared/find_my_rep_form', :narrow => true
+
 
 %ul.tabs
   %li

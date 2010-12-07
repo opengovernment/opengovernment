@@ -1,9 +1,14 @@
+.people.index .intro p{
+  padding-right: 250px;
+  }
 
 
-.people.index .intro{
-padding-right: 250px;
-background: #fff url(/images/intros/people.gif) right center no-repeat;
-}
+.people.index .intro div{
+width: 200px;
+height: 300px;
+  background: url(/images/intros/people.png) 10px 15px no-repeat;
+  }
+
 
 
 /*///////////////////////////
