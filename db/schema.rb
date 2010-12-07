@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 69) do
+ActiveRecord::Schema.define(:version => 70) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -51,12 +51,6 @@ ActiveRecord::Schema.define(:version => 69) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
-  end
-
-  create_table "bill_sources", :force => true do |t|
-    t.integer  "bill_id"
-    t.datetime "retrieved"
-    t.string   "url"
   end
 
   create_table "bill_sponsorships", :force => true do |t|
@@ -192,16 +186,6 @@ ActiveRecord::Schema.define(:version => 69) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
-  create_table "industries", :force => true do |t|
-    t.string   "business_name"
-    t.string   "industry_name"
-    t.string   "sector_name"
-    t.integer  "nimsp_industry_code"
-    t.integer  "nimsp_sector_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "legislatures", :force => true do |t|
     t.string  "name"
     t.integer "state_id"
@@ -335,13 +319,6 @@ ActiveRecord::Schema.define(:version => 69) do
   create_table "subjects", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "subscriptions", :force => true do |t|
-    t.string   "email"
-    t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

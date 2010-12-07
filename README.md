@@ -131,10 +131,29 @@ Once you've satisfied the prerequisites, this should work on all platforms.
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Create your database role and give it superuser privileges:
         psql# CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB
-  * Run the following:
-        rake install
+
+### Importing the full dataset
+
+To import the full dataset, run `rake install`.
+
+  * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
   * You can provide a comma-separated list of state abbreviations in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the tasks/fixtures/states.yml file.
-  * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets. It typically takes at least an hour. You can always install the test database fixtures if you don't want to wait for the full install.
+
+### OR import test data
+
+Alternatively, you can quickly get up and running with `rake install_dev`. This will import YAML fixtures and give you enough of a database to browse the site.
+
+## Start your engines
+
+Once the install is complete, build the Sphinx index and start the Sphinx server:
+
+    rake ts:rebuild
+
+Then start Rails:
+
+    bin/rails s
+
+OpenGovernment uses subdomains, so to access the site you'll find the `127localhost.com` domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, `http://tx.127localhost.com:3000`, you should see the Texas OpenGovernment site.
 
 ## GeoServer Setup (optional, for vote maps)
 
@@ -152,18 +171,6 @@ Add a new Store for OpenGovernment. Here are the details:
     Database User & PW should match your database.yml
 
 You'll want to add two new Layers to the `og` Store as well. You'll only need to set the name and title on these--all other settings can remain default. The layers should be called `v_district_people` and `v_district_votes`.
-
-## Start your engines
-
-Once the install is complete, build the Sphinx index and start the Sphinx server:
-
-    rake ts:rebuild
-
-Then start Rails:
-
-    bin/rails s
-
-OpenGovernment uses subdomains, so to access the site you'll find the `127localhost.com` domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, `http://tx.127localhost.com:3000`, you should see the Texas OpenGovernment site.
 
 # Tests
 To prepare the test database: `RAILS_ENV=test rake db:prepare`.

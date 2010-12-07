@@ -20,16 +20,6 @@ class StatesController < ApplicationController
     end
   end
 
-  def subscribe
-    if request.post?
-      @state.subscriptions.build(:email => params[:email])
-      if @state.save
-        redirect_to(root_path) and return
-      end
-    else
-    end
-  end
-
   def search
     @query = params[:q] || ""
     @search_type = params[:search_type] || "everything"

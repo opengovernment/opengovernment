@@ -6,7 +6,6 @@ OpenGov::Application.routes.draw do
   constraints(Subdomain) do
     match '/' => 'states#show'
     match '/search' => 'states#search', :as => 'state_search'
-    match '/subscriptions' => 'states#subscribe', :as => 'state_subscriptions'
 
     resources :people, :only => [:show, :index] do
       collection do

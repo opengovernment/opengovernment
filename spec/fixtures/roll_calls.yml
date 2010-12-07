@@ -1,7 +1,24 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  vote: vote_19031
+  person: kirk
+  vote_type: yes
+two:
+  vote: vote_19031
+  person: dawnna
+  vote_type: no
+tree:
+  vote: vote_19031
+  person: garnet
+  vote_type: other
+one2:
+  vote: vote_18129
+  person: kirk
+  vote_type: no
+two2:
+  vote: vote_18129
+  person: dawnna
+  vote_type: no
+tree2:
+  vote: vote_18129
+  person: garnet
+  vote_type: other

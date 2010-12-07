@@ -1,15 +1,21 @@
 kirk:
+  id: 1
   first_name: "Kirk"
   last_name: "Watson"
   openstates_id: 370
   votesmart_id: 57991
+  photo_url: http://www.legdir.legis.state.tx.us/FlashCardDocs/images/Senate/small/A1610.jpg
+  webmail: http://www.senate.state.tx.us/75r/Senate/members/dist14/dist14.htm#form
+  website_one: http://www.senate.state.tx.us/75r/senate/members/dist14/dist14.htm
   updated_at: "25 Mar 2010 00:10:57"
+  email: 
 dawnna:
   first_name: "Dawnna"
   last_name: "Dukes"
   votesmart_id: 5448
   nimsp_candidate_id: 99973
   openstates_id: 400
+  photo_url: http://www.legdir.legis.state.tx.us/FlashCardDocs/images/House/small/A2665.jpg
   updated_at: "25 Mar 2010 00:46:14"
 john:
   first_name: "John"
@@ -20,6 +26,7 @@ john:
   votesmart_id: 15375
   opensecrets_id: "N00024852"
   bioguide_id: "C001056"
+  photo_url: http://votesmart.org/canphoto/15375.jpg
   metavid_id: "John_Cornyn"
   youtube_id: "senjohncornyn"
 kay:
@@ -43,6 +50,7 @@ lloyd:
   votesmart_id: 21689
   govtrack_id: 400111
   metavid_id: "Lloyd_Doggett"
+  photo_url: http://votesmart.org/canphoto/21689.jpg
   youtube_id: "doggett"
   bioguide_id: "D000399"
 garnet:
@@ -50,6 +58,7 @@ garnet:
   last_name: "Coleman"
   middle_name: "F."
   openstates_id: 439
+  photo_url: http://www.legdir.legis.state.tx.us/FlashCardDocs/images/House/small/A2435.jpg
   nimsp_candidate_id: 99959
 lee:
   first_name: "Sheila"

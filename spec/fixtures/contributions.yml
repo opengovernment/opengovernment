@@ -1,0 +1,33 @@
+one:
+  person: kirk
+  state: tx
+  business_id: 3
+  contributor_state_id: 35
+  contributor_occupation: 'FARM EQUIPMENT DEALER'
+  contributor_employer: 'ST JOSEPH EQUIPMENT INC'
+  contributor_name: 'SCHAMS, WILLIAM'
+  contributor_city: 'LA CROSSE'
+  contributor_zipcode: '54601-2614'
+  date: 2008-09-29
+  amount: 150
+two:
+  person: kirk
+  state: tx
+  date: 2009-10-20
+  amount: 3000
+  business_id: 3
+  contributor_state_id: 35
+  contributor_occupation: 'FARM EQUIPMENT DEALER'
+  contributor_employer: 'ST JOSEPH EQUIPMENT INC'
+  contributor_name: 'SCHAMS, WILLIAM'
+  contributor_city: 'LA CROSSE'
+  contributor_zipcode: '54601-2614'
+three:
+  person: kirk
+  business_id: 3
+  contributor_state_id: 6
+  contributor_name: 'JOHN DEERE & CO'
+  contributor_zipcode: 61265-8010
+  contributor_city: MOLINE
+  amount: 250
+  date: 2010-10-18

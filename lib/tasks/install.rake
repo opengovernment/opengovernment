@@ -1,5 +1,6 @@
 # Configuration
 require 'yaml'
+require 'active_record/fixtures'
 
 # Some helper methods so that we can remove a task preloaded by another .rake file.
 Rake::TaskManager.class_eval do
@@ -42,6 +43,7 @@ end
 
 
 task :install => ["opengov:install"]
+task :install_dev => ["opengov:install_dev"]
 
 namespace :opengov do
   task :prepare do
@@ -73,6 +75,13 @@ namespace :opengov do
     Rake::Task['load:all'].invoke
   end
 
+  desc "Set up an initial dev environment (with minimal data import)"
+  task :install_dev => :environment do
+    Rake::Task['db:prepare'].invoke
+    Rake::Task['fetch:geoip'].invoke
+    Rake::Task['load:dev'].invoke
+  end
+
 end
 
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
@@ -82,14 +91,12 @@ namespace :db do
     # TODO: This is a big tricksy. I'd rather find a smoother way to get the CI
     # server not to run db:test:prepare when trying to run tests.
     remove_task :"db:test:prepare"
-    desc "Noop"
-    task :prepare do
-      puts "Run RAILS_ENV=test rake db:drop db:prepare instead."
-    end
+    
+    task :prepare => ["db:reset"]
   end
 
-  desc "Prepare the database: load schema, load sql seeds, load postgis tables"
-  task :prepare => :environment do
+  desc "Create database w/postgis, full schema, and additional DDL"
+  task :prepare_without_fixtures => :environment do
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
@@ -100,18 +107,48 @@ namespace :db do
       Rake::Task['db:schema:load'].invoke
     end
 
-    puts "\n---------- Loading seed data file"
-    Rake::Task['db:sqlseed'].invoke
-
-    puts "\n---------- Loading database fixtures"
-    Rake::Task['load:fixtures'].execute
+    puts "\n---------- Loading additional DDL"
+    Rake::Task['db:seed:ddl'].invoke
   end
 
-  desc "Install db/seeds.sql items"
-  task :sqlseed => :environment do
-    seeds_fn = File.join(Rails.root, 'db', 'seeds.sql')
-    if File.exists?(seeds_fn)
-      load_pgsql_files(seeds_fn)
+  desc "Prepare the database: load postgis, schema, DDL, and "
+  task :prepare => :environment do
+    Rake::Task['db:prepare_without_fixtures'].invoke
+
+    puts "\n---------- Loading database fixtures"
+    Rake::Task['load:fixtures:seed'].execute
+  end
+
+  desc 'Drop and create the current RAILS_ENV database'
+  task :reset => :environment do
+    puts "Resetting the database for #{Rails.env}".upcase
+    Rake::Task['db:drop'].invoke
+    Rake::Task['db:prepare_without_fixtures'].invoke
+    Rake::Task['load:fixtures'].invoke
+  end
+
+  desc 'Drop, create, and seed the current RAILS_ENV database using test fixtures from spec/fixtures'
+  task :reset_dev => :environment do
+    puts "Resetting the database for #{Rails.env}".upcase
+    Rake::Task['db:reset'].invoke
+    Rake::Task['load:dev'].invoke
+    puts "Success!"
+  end
+
+  namespace :seed do
+    desc "Install db/ddl.sql items"
+    task :ddl => :environment do
+      puts "NOTE: You may safely ignore PostgreSQL 'does not exist' errors"
+      seeds_fn = File.dirname(__FILE__) + '/../../db/seeds/ddl.sql'
+      if File.exists?(seeds_fn)
+        load_pgsql_files(seeds_fn)
+      end
+    end
+    
+    desc "Load seed data for dev environment"
+    task :dev => :environment do
+      puts "Seeding the #{Rails.env} database."
+      require File.dirname(__FILE__) + '/../../db/seeds/dev'
     end
   end
 
@@ -218,27 +255,47 @@ namespace :load do
     puts "\n---------- Fetch VoteSmart photos and attach them to people"
     Rake::Task['sync:photos'].invoke
   end
+  
+  desc "Load test fixtues and key imported data into the dev environment"
+  task :dev => :environment do
+    Rake::Task['load:fixtures:test'].invoke
+    OpenGov::Ratings.import_categories
+  end    
 
-  # These tasks are listed in the order that we need the data to be inserted.
-  task :fixtures => :environment do
-    require 'active_record/fixtures'
-
-    if Rails.env == 'test'
+  namespace :fixtures do
+    desc "Load fixtures for dev / testing"
+    task :test => :environment do
       Fixtures.reset_cache
       fixtures_folder = File.join(Rails.root, 'spec', 'fixtures')
       fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
       Fixtures.create_fixtures(fixtures_folder, fixtures)
-    else
+
+      # Force a reload of the DistrictType class, so we get the proper constants
+      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
+    end
+
+    desc "Load fixtures for full production/staging import"
+    task :seed => :environment do
       Dir.chdir(Rails.root)
       Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'chambers')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
+
+      # Force a reload of the DistrictType class, so we get the proper constants
+      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
-    # Force a reload of the DistrictType class, so we get the proper constants
-    class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
+  end
+
+  desc "Load test fixtures if RAILS_ENV=test, else load production/staging fixtures"
+  task :fixtures => :environment do
+    if Rails.env == 'test'
+      Rake::Task['load:fixtures:test'].invoke
+    else
+      Rake::Task['load:fixtures:seed'].invoke
+    end
   end
 
   desc "Fetch and load legislatures from Open State data"
@@ -304,6 +361,7 @@ namespace :load do
     OpenGov::Ratings.import!
   end
 
+  desc "Fetch and import Census Bureau congressional and legislative district boundaries"
   task :districts => :environment do
     Dir.glob(File.join(Settings.districts_dir, '*.shp')).each do |shpfile|
       OpenGov::Districts::import!(shpfile)

@@ -1,15 +1,30 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  rating: 
-  timespan: 
-  sig_id: 
-  votesmart_id: 
-  rating_text: MyString
-
+  rating: 3
+  rating_text: Senator Patricia Wiggins supported the interests of the Life Priority Network 3 percent in 2003.
+  rating_name: Life Priority Network
+  timespan: 2003
+  sig_id: 1
+  votesmart_id: 2590
 two:
-  rating: 
-  timespan: 
-  sig_id: 
-  votesmart_id: 
-  rating_text: MyString
+  rating_text: Senator Patricia Wiggins supported the interests of the Applied Research Center 100 percent in 2009.
+  rating_name: Overall
+  rating: 100
+  timespan: 2009
+  sig_id: 2
+  votesmart_id: 4810
+three:
+  rating_text: Senator Patricia Wiggins supported the interests of the Applied Research Center 100 percent in 2009.
+  rating_name: Leadership
+  rating: 100
+  timespan: 2009
+  sig_id: 2
+  votesmart_id: 4811
+four:
+  rating_text: Senator Patricia Wiggins supported the interests of the Applied Research Center 100 percent in 2009.
+  rating_name: Criminal Justice
+  rating: 100
+  timespan: 2009
+  sig_id: 2
+  votesmart_id: 4811
