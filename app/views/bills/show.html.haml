@@ -14,9 +14,12 @@
   = render 'shared/view_counts', :page => @bill
 
 %hr
-%h2 Status
+%h2.no-border Status
 - status_bar(@bill)
 .clear
+
+%hr
+
 
 .grid_6.alpha
   .sponsor_preview
@@ -31,7 +34,7 @@
             - surround '',',' do
               = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
             = s.kind_fm
-
+  %br
   %h2 Subject Areas
   - if @bill.subjects.any?
     %ul.lined

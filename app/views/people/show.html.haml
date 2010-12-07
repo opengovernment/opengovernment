@@ -34,7 +34,7 @@
     %p
       = @person.bio_data
       %br
-      = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}")
+      = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}", :class => 'more')
 
 .space.clear
 
@@ -75,7 +75,7 @@
     #twitter(style="display: none;")
       %h2 Twitter Mentions
       %ul.lined#tweets
-      %a= link_to('More &rarr;'.html_safe, social_person_path(@person))
+      %a= link_to('More &rarr;'.html_safe, social_person_path(@person), :class => 'more')
 .space.clear
 
 %hr.push_top
@@ -86,7 +86,7 @@
   %br
   %ul.lined
     = render @person.bill_sponsorships.limit(5)
-  = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person))
+  = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person), :class => 'more')
 
 .grid_6.omega
   %h2 Votes
@@ -106,7 +106,7 @@
               = vote.date
 
     %p
-      != link_to("View All #{number_with_delimiter(@person.votes.count)} Votes &rarr;".html_safe, votes_person_path(@person))
+      != link_to("View All #{number_with_delimiter(@person.votes.count)} Votes &rarr;".html_safe, votes_person_path(@person), :class => 'more')
   - else
     %p We have no committee membership information for #{@person.full_name} at this time, but with your support, we can find it and publish it here on the open Web &mdash; see <a href="/pages/help">how you can help</a>. 
     

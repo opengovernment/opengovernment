@@ -1,4 +1,26 @@
+.issues.index .intro p{
+  padding-right: 250px;
+  }
 
+
+.issues.index .intro div{
+width: 230px;
+height: 300px;
+  background: url(/images/intros/issues.png) 0px 15px no-repeat;
+  }
+
+
+
+.money_trails.index .intro p{
+  padding-right: 250px;
+  }
+
+
+.money_trails.index .intro div{
+width: 230px;
+height: 300px;
+  background: url(/images/intros/money.png) 20px 15px no-repeat;
+  }
 
 /*///////////////////////////////////////////////////
 
@@ -55,6 +77,10 @@ margin: 20px;
 
 
 
+.states.show .intro{border: none;
+  }
+
+
 .intro{
   padding: 20px 0 20px 38px;
   font-size: 13px;
@@ -62,6 +88,8 @@ margin: 20px;
   background: transparent url(/images/intro.jpg) 0 0 no-repeat !important;
   margin: 0 0 0 -38px;
 border-top: 1px solid #e9efe7;
+border-bottom: 1px solid #e9efe7;
+
   width: 725px;
 position: relative;
   }
@@ -472,5 +500,22 @@ font-size: 18px;
 
 
 
-
+.states.show .sponsor_mugs{
+padding: 20px 0 20px 0;
+}
   
+
+.states.show .sponsor_mugs li{
+float: left;
+clear: none;
+padding: 0;
+}
+  
+
+.states.show .sponsor_mugs li a{
+margin-right: 20px;
+}
+
+.no-border{
+border: 0;
+}
