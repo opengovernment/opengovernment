@@ -427,8 +427,28 @@ li.discuss{
   }
   
 
+/* Left nav icons */
+#left_nav ul li.primary-nav a {
+  background-image: url(/images/primary_nav_icons.gif);
+  background-repeat: no-repeat;
+  padding-left: 38px;
+}
 
+#left_nav ul li.primary-nav-bills a {
+  background-position: 16px 16px;
+}
 
+#left_nav ul li.primary-nav-people a {
+  background-position: 16px -32px;
+}
+
+#left_nav ul li.primary-nav-issues a {
+  background-position: 16px -76px;
+}
+
+#left_nav ul li.primary-nav-money_trail a {
+  background-position: 16px -120px;
+}
 
 
 /*///////////////////////////

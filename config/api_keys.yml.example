@@ -4,9 +4,14 @@
 # Sunlight labs: http://services.sunlightlabs.com/docs/Sunlight_Congress_API/
 # Follow The Money: http://www.followthemoney.org/services/
 # Project Vote Smart: http://www.votesmart.org/services_api.php
+# OpenCongress: http://www.opencongress.org/api
+# Technorati: http://technorati.com/developers/ 
+#
 google_maps: your_maps_key
 sunlight_labs: your_sunlight_labs_key
 follow_the_money: your_ftm_key
 yahoo: your_yahoo_key
 votesmart: your_votesmart_key
 disqus_shortname: your_disqus_shortname
+opencongress: your_opencongress_key
+technorati: your_technorati_key
