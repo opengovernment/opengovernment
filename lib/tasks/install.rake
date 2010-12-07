@@ -91,14 +91,12 @@ namespace :db do
     # TODO: This is a big tricksy. I'd rather find a smoother way to get the CI
     # server not to run db:test:prepare when trying to run tests.
     remove_task :"db:test:prepare"
-    desc "Noop"
-    task :prepare do
-      puts "Run RAILS_ENV=test rake db:drop db:prepare instead."
-    end
+    
+    task :prepare => ["db:reset"]
   end
 
-  desc "Prepare the database: load schema, load sql seeds, load postgis tables"
-  task :prepare => :environment do
+  desc "Create database w/postgis, full schema, and additional DDL"
+  task :prepare_without_fixtures => :environment do
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
@@ -111,6 +109,11 @@ namespace :db do
 
     puts "\n---------- Loading additional DDL"
     Rake::Task['db:seed:ddl'].invoke
+  end
+
+  desc "Prepare the database: load postgis, schema, DDL, and "
+  task :prepare => :environment do
+    Rake::Task['db:prepare_without_fixtures'].invoke
 
     puts "\n---------- Loading database fixtures"
     Rake::Task['load:fixtures:seed'].execute
@@ -120,9 +123,10 @@ namespace :db do
   task :reset => :environment do
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:drop'].invoke
-    Rake::Task['db:prepare'].invoke
+    Rake::Task['db:prepare_without_fixtures'].invoke
+    Rake::Task['load:fixtures'].invoke
   end
-  
+
   desc 'Drop, create, and seed the current RAILS_ENV database using test fixtures from spec/fixtures'
   task :reset_dev => :environment do
     puts "Resetting the database for #{Rails.env}".upcase
@@ -270,6 +274,7 @@ namespace :load do
       class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
+    desc "Load fixtures for full production/staging import"
     task :seed => :environment do
       Dir.chdir(Rails.root)
       Fixtures.create_fixtures('lib/tasks/fixtures', 'legislatures')
@@ -284,7 +289,7 @@ namespace :load do
 
   end
 
-
+  desc "Load test fixtures if RAILS_ENV=test, else load production/staging fixtures"
   task :fixtures => :environment do
     if Rails.env == 'test'
       Rake::Task['load:fixtures:test'].invoke
@@ -356,6 +361,7 @@ namespace :load do
     OpenGov::Ratings.import!
   end
 
+  desc "Fetch and import Census Bureau congressional and legislative district boundaries"
   task :districts => :environment do
     Dir.glob(File.join(Settings.districts_dir, '*.shp')).each do |shpfile|
       OpenGov::Districts::import!(shpfile)
