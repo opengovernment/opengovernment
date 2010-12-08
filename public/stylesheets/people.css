@@ -50,6 +50,8 @@ clear: both;
   }
 
 .lined li.person a:hover .small_thumbnail{
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7fbfb', endColorstr='#c5e4ea'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #f7fbfb,  #c5e4ea); /* for firefox 3.6+ */
   }
 

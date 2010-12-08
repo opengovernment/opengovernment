@@ -342,8 +342,8 @@ z-index: 1001;
 -webkit-box-shadow: inset 0 1px 0px #fff;
 box-shadow: inset 0 1px 0px #fff;
 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eaf8fb'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eaf8fb)); /* for webkit browsers */
 background: -moz-linear-gradient(top,  #fff,  #eaf8fb); /* for firefox 3.6+ */
 
 

@@ -52,8 +52,8 @@ cursor: pointer;
 
 
 .popup h2{
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#fff'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
