@@ -67,7 +67,7 @@ The bundle executable may not be in your path. If not, run:
     
 #### MongoDB (optional, for page view tracking)
 
-For Ubuntu 10.10, add this line to your `/etc/apt/sources.list`:
+For Ubuntu 10.10, add this line to `/etc/apt/sources.list`:
 
     deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
 
@@ -77,7 +77,7 @@ Then run:
     sudo apt-get update
     sudo apt-get install mongodb-stable
 
-That should do it, but there are [full instructions on MongoDB's site](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages) in case you need them.
+That should do it, but [other Ubuntus are covered on MongoDB's site](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages).
 
 #### GeoServer (optional, for vote maps)
 

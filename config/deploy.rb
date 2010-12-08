@@ -7,6 +7,10 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
+set :whenever_command, "bundle exec whenever"
+set :whenever_roles, :app
+require 'whenever/capistrano'
+
 set :stages, %w(staging production)
 set :default_stage, 'production'
 set :user, 'cappy'

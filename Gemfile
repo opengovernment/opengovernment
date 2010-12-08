@@ -36,11 +36,9 @@ gem 'simple-navigation'
 # Static pages
 gem 'high_voltage'
 
-# Background tasks
-
-# This won't work with mongomapper v0.8.2.
-# This commit fixes the bug: http://github.com/german/mongomapper/commit/9bed12e78880a4ddce90ca4a846090773bc8538d
-gem 'delayed_job', '~> 2.1.0.pre2'
+# Background tasks & recurring jobs
+gem 'delayed_job', '~> 2.1'
+gem 'whenever', :require => false
 
 # Simple pagination
 gem 'will_paginate', '~> 3.0.pre2'
