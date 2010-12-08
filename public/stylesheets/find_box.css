@@ -81,11 +81,11 @@ float: right;
   
   
   -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ecf9fc', endColorstr='#d6e8eb'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
   
 }
@@ -162,8 +162,8 @@ float: right;
   border-bottom: 1px solid #777;
   
   -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
@@ -178,7 +178,7 @@ float: right;
   position: absolute;
   width: 18px;
   height: 18px;
-  right: 218px;
-  top: 20px;
+  right: 258px;
+  top: 22px;
   background: url(/images/location_spinner.gif) no-repeat;
   }

@@ -128,8 +128,8 @@ height: 300px;
   float: left;
   width:400px;
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
+  box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
   }
 
 
@@ -191,9 +191,9 @@ a.see_all {
 .sponsor_mugs a{
   padding: 1px !important;
   margin: 0 10px 0px 0px;
-  box-shadow: 0 1px 1px #999;
+  box-shadow: 0 1px 1px #666;
   -moz-box-shadow: 0 1px 1px #666;
-  -webkit-box-shadow: 0 1px 1px #999;
+  -webkit-box-shadow: 0 1px 1px #666;
   
   float: left;
   overflow: hidden !important;

@@ -62,8 +62,8 @@ margin: 20px;
   background: #efefef;
   padding: 20px;
   margin: 0 -16px 0;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #fff,  #eee); /* for firefox 3.6+ */
   
   
@@ -128,8 +128,8 @@ top: -30px;
   
   
   -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
