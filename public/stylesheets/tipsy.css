@@ -26,11 +26,11 @@ z-index: 100000;
   
   
   -moz-box-shadow: 0 1px 2px #aaa, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #dbdbdb, inset 0 1px 0px #fff;
+  -webkit-box-shadow:  0 1px 2px #aaa, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 2px #aaa, inset 0 1px 0px #fff;
   
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#d6e8eb'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d6e8eb)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #d6e8eb); /* for firefox 3.6+ */
   }
 
@@ -44,8 +44,12 @@ z-index: 100000;
   .tipsy-n .tipsy-arrow { top: -1px; left: 50%; margin-left: -4px; }
     .tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
     .tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
-  .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+
     .tipsy-sw .tipsy-arrow { bottom: -2px; left: 10px; background-position: bottom left; }
     .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
   .tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
   .tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
+
+.tipsy-s .tipsy-inner { padding: 20px; line-height: 1.5em;}
+
+  .tipsy-s .tipsy-arrow {display: none;  }

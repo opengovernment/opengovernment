@@ -1,9 +1,14 @@
+.people.index .intro p{
+  padding-right: 250px;
+  }
 
 
-.people.index .intro{
-padding-right: 250px;
-background: #fff url(/images/intros/people.gif) right center no-repeat;
-}
+.people.index .intro div{
+width: 200px;
+height: 300px;
+  background: url(/images/intros/people.png) 10px 15px no-repeat;
+  }
+
 
 
 /*///////////////////////////
@@ -45,6 +50,8 @@ clear: both;
   }
 
 .lined li.person a:hover .small_thumbnail{
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7fbfb', endColorstr='#c5e4ea'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #f7fbfb,  #c5e4ea); /* for firefox 3.6+ */
   }
 

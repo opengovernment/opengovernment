@@ -61,6 +61,7 @@ $(document).ready(function() {
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/
   $('a[rel=tipsy],span[rel=tipsy]').tipsy();
+ $('a[rel=tipsy-south],span[rel=tipsy-south]').tipsy({gravity: 's'});
 
   // For backwards-compatible placeholder attribute in input fields
   // http://plugins.jquery.com/plugin-tags/placeholder

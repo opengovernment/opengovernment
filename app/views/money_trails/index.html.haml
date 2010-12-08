@@ -4,11 +4,10 @@
   = @state.name
   Money Trail
 
-%hr
+.intro
+  %div
+  %p= t '.intro'
 
-%p.intro= t '.intro'
-
-%hr
 
 .grid_6.alpha
   = render :partial => 'sector', :collection => @sectors[0...@sectors.size/2]

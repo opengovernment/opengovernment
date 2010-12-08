@@ -49,6 +49,7 @@ module OpenGov
           :last_name => fs_person.last_name,
           :votesmart_id => fs_person[:votesmart_id],
           :nimsp_candidate_id => fs_person[:nimsp_candidate_id],
+          :transparencydata_id => fs_person[:transparencydata_id],
           :middle_name => fs_person.middle_name,
           :suffix => fs_person[:suffixes],
           :updated_at => Date.valid_date!(fs_person.updated_at),

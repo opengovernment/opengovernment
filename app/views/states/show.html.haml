@@ -3,7 +3,9 @@
 
 = render :partial => 'shared/appeal'
 
-%p.intro= t '.intro'
+.intro
+  %div
+  %p= t '.intro'
 
 .find_box
   = render :partial => 'shared/find_my_rep_form'
@@ -25,10 +27,12 @@
     end
   
   .people_news_preview
-    %h3 People in the News
-    = link_to('See all', people_path(:sort => 'mentions'), :class => 'see_all')
-    %ul.people_mugs
-      = render :partial => 'people/mug', :collection => @hot_people
+    .grid_12.alpha
+      %h3 People in the News
+      = link_to('See all', people_path(:sort => 'mentions'), :class => 'see_all')
+    .grid_12.alpha
+      %ul.sponsor_mugs.grid_12.alpha
+        = render :partial => 'people/mug', :collection => @hot_people
 
 .grid_8.alpha.bills
   
