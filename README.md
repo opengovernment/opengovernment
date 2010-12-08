@@ -132,14 +132,14 @@ Once you've satisfied the prerequisites, this should work on all platforms.
   * Create your database role and give it superuser privileges:
         psql# CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB
 
-### Importing the full dataset
+### Importing the full dataset (takes 2+ hours)
 
 To import the full dataset, run `rake install`.
 
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
   * You can provide a comma-separated list of state abbreviations in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the tasks/fixtures/states.yml file.
 
-### OR import test data
+### OR import test data right away
 
 Alternatively, you can quickly get up and running with `rake install_dev`. This will import YAML fixtures and give you enough of a database to browse the site.
 
@@ -173,7 +173,7 @@ Add a new Store for OpenGovernment. Here are the details:
 You'll want to add two new Layers to the `og` Store as well. You'll only need to set the name and title on these--all other settings can remain default. The layers should be called `v_district_people` and `v_district_votes`.
 
 # Tests
-To prepare the test database: `RAILS_ENV=test rake db:prepare`.
+To prepare the test database: `RAILS_ENV=test rake db:test:prepare`.
 Then, to run all tests: `rake`.
 
 You can use autotest or spork. To fire up the spork-based drb server, run `script/spec_server`
