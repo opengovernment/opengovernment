@@ -45,14 +45,13 @@
 
 
 .grid_6.omega
+  %h2 Bill Text
   - if @bill.versions.any?
-    %h2 Bill Text
-
     %ul.lined
       - @bill.versions.each do |version|
         %li= link_to_document(version)
 
-    = t '.missing_bill_text'
+  = t '.missing_bill_text'
 
   - if @bill.documents.any?
     .document_preview
