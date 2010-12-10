@@ -47,15 +47,14 @@ margin: 20px;
 
 
 .spin{
-  background: transparent url(/images/pulse.gif) 0 0 no-repeat !important;
+  background: transparent url(/images/spinner.gif) 0 0 no-repeat !important;
   height: 31px;
   width: 31px;  
   position: absolute;
   top: 75px !important;
   right: 20px;
   z-index: 999;
-  }
-
+}
 
 
 #flash{
