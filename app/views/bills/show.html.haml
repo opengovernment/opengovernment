@@ -51,7 +51,7 @@
       - @bill.versions.each do |version|
         %li= link_to_document(version)
 
-  = t '.missing_bill_text'
+  = t '.bill_text_intro'
 
   - if @bill.documents.any?
     .document_preview

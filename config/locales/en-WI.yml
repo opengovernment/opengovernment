@@ -6,7 +6,7 @@ en-WI:
     show:
       intro: |
         <br>Welcome to OpenGovernment, a free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Wisconsin.<br><br>
-        We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the Wisconsin legislature.
+        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
       state_population: | 
         <a href="2009 est. pop.: 5,654,774 people (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)</a>
       state_pop_per_upper_chamber_member: "171,357 people in WI"
@@ -32,11 +32,17 @@ en-WI:
       background: | 
         Here are more links with background on the Wisconsin state legislature and the best explanations of how it works:
         <ul class="standard">
+        <li>Official Wisconsin Department of Justice <a href="http://www.doj.state.wi.us/dls/spar.asp#opmeet">Open Meetings Information</a>. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li>
+        <li><a href="http://www.wispirg.org/">WISPIRG</a> ("an independent, state-based, citizen-funded organization that advocates for the public interest") article on <a href="http://www.wispirg.org/home/reports/report-archives/tax-and-budget/tax-and-budget-reports/wisconsin-spending-transparency-2.0">Wisconsin Spending Transparency 2.0</li>
+        <li><a href="http://www.rcfp.org/ogg/index.php?op=browse&state=WI">Open Government Guide - Wisconsin</a>, with a focus on open records, from <a href="http://www.rcfp.org/">The Reporters Committee for Freedom of the Press</a>, a "national resource in free speech issues".</li>
         <li><a href="http://en.wikipedia.org/wiki/Wisconsin_Legislature">Wikipedia</a></li>
         <li><a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Legislature">Ballotpedia</a>, including the 2010 elections in the <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Wisconsin_State_Assembly_elections,_2010">Assembly</a></li>
         <li>OpenCongress <a href="http://www.opencongress.org/states/WI">WI state page</a>, including two federal U.S. <a href="http://www.opencongress.org/people/senators#WI">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#WI">representatives</a></li>
-        <li>OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Wisconsin">Wisconsin state page</a>, including blogroll of WI-relevant political blogs</li>
-        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more Wisconsin-relevant political blogs in the left-hand sidebar.</li>
+        <li>OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Wisconsin">Wisconsin state page</a>, including an extensive blogroll of Wisconsin political blogs</li>
+        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more WI political blogs in the left-hand sidebar.</li>
+        <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+          <li><a href="http://sunshinereview.org/index.php/Wisconsin">Sunshine Review - Wisconsin</a>, a non-profit organization dedicated to state and local government transparency.</li>
+          <li><a href="http://www.commoncause.org/wi">Common Cause - Wisconsin</a>, a non-profit, non-partisan citizens' lobby organization.</li>
         </ul>
          ... this free public resource is still in early development -- many more data & features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
          How did we get the above information? Well, the Wisconsin legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
@@ -47,6 +53,9 @@ en-WI:
       intro: |
         Connect with bills in Wisconsin. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
            <em>(The next Wisconsin legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
+    show: 
+      bill_text_intro: |
+        <em>(Files are in .pdf)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: Wisconsin does fairly well in making video regarding state legislation available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the closed Windows Media format. While their site's overall design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the Wisconsin legislature still does not appear to make their video accessible in ways that comply with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Gov Data</a>. 

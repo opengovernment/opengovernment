@@ -7,7 +7,8 @@ en-CA:
     show:
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for California.<br><br>
-        We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the California legislature.
+        
+        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
       state_pop_per_lower_chamber_member: "462,021 people"
@@ -27,11 +28,16 @@ en-CA:
       background: |
         Here are more links with background on the California state legislature and the best explanations of how it works: 
         <ul class="standard">
+        <li><a href="http://www.transparency.ca.gov/home.aspx">Reporting Transparency</a>, the official California government site for transparency. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li> 
         <li>Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a></li>
         <li>Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a></li>
         <li>OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a></li>
         <li>OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a></li>
         <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA political blogs in the left-hand sidebar</li>
+        <li><a href="http://www.calwatchdog.com/">CalWatchDog</a>, "an independent, Sacramento-based journalism venture providing original investigative reports and news stories covering California state government."</li>
+        <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+        <li><a href="http://sunshinereview.org/index.php/California">Sunshine Review - California</a>, a non-profit organization dedicated to state and local government transparency.</li>
+        <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846185">Common Cause - California</a>, a non-profit, non-partisan citizens' lobby organization.</li>        
         </ul>
         ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
         How did we get the above information? Well, the California legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
@@ -45,7 +51,8 @@ en-CA:
        <em>(The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     videos:
     show:
-      missing_bill_text: 'Links to California full bill text are coming soon.'
+      bill_text_intro: |
+        <em>Links to California full bill text are coming soon.</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  

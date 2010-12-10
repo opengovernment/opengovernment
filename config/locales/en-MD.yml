@@ -5,7 +5,7 @@ en-MD:
     show:
       intro:   |
        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Maryland.<br><br>
-       We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the Maryland legislature.
+       <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
       state_population: |
         2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)</a>
       current_session: "2009-2010"
@@ -28,11 +28,15 @@ en-MD:
       background: | 
         Here are more links about the Maryland General Assembly and the best explanations of how it works: 
           <ul class="standard">
+          <li>Official <a href="http://www.spending.dbm.maryland.gov/">Maryland Funding Accountability & Transparency</a> site, "a public web site which allows citizens of Maryland and visitors to search and view summary information on payments made to vendors that received $25,000 or more for the respective fiscal year." See also <a href="http://www.statestat.maryland.gov/">StateStat</a>, "a performance-measurement and management tool implemented by Governor Martin O'Malley to make our state government more accountable and more efficient", and <a href="http://www.governor.maryland.gov/blog/?cat=31">related post</a> on Governor O’Malley’s Blog. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li>
           <li>Maryland General Assembly on <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a></li>
-            <li>... and on <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a></li>
-            <li>OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a></li>
+          <li>... and on <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_General_Assembly">Ballotpedia</a>, including the 2010 elections in the <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_State_Senate_elections,_2010">Senate</a> and <a href="http://www.ballotpedia.org/wiki/index.php/Maryland_House_of_Delegates_elections,_2010">House of Delegates</a></li>
+          <li>OpenCongress <a href="http://www.opencongress.org/states/MD">state page</a> for Maryland, including two federal U.S. <a href="http://www.opencongress.org/people/senators#M">senators</a> and eight federal <a href="http://www.opencongress.org/people/representatives#MD">representatives</a></li>
             <li>OpenCongress Wiki <a href="http://www.opencongress.org/wiki/Maryland">state page for MD</a>, including blogroll of MD-state political blogs</a></li>
-            <li>The National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, including more Maryland-relevant political sites in the left-hand sidebar.</li>
+            <li>The National Council of State Legislature's official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, feat. more MD political blogs in the left-hand sidebar.</li>
+            <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+            <li><a href="http://sunshinereview.org/index.php/Maryland">Sunshine Review - Maryland</a>, a non-profit organization dedicated to state and local government transparency.</li>
+            <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4847585">Common Cause - Maryland </a>, a non-profit, non-partisan citizens' lobby organization.</li>
             </ul>
           ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
           How did we get the above information? Well, the Maryland legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
@@ -43,6 +47,9 @@ en-MD:
       intro: |
         Connect with bills in Maryland. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
         <em>(The next Maryland legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.</em>)
+    show: 
+      bill_text_intro: |
+        <em>(Files are in .pdf)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, as of this writing: there is no official site of online video for bills in the Maryland state legislature of which we're aware, but they do make <a href="http://mlis.state.md.us/asp/listen.asp" target="_blank">audio</a> available online via an almost-marvelously behind-the-times webpage. So at the moment, a lot of digging and research is still required to find video of MD legislative proceedings, e.g. committee hearings and votes. What a shortcoming. '
