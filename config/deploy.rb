@@ -10,6 +10,7 @@ require 'bundler/capistrano'
 set :whenever_command, "bundle exec whenever"
 set :whenever_roles, :app
 require 'whenever/capistrano'
+require 'delayed/recipes'
 
 set :stages, %w(staging production)
 set :default_stage, 'production'
@@ -60,3 +61,4 @@ after 'deploy:update', 'deploy:cleanup'
 after 'deploy:update_code', 'deploy:link_shared'
 after 'deploy:cleanup', 'sphinx:rebuild'
 after 'deploy:update_code', 'deploy:jammit'
+after 'deploy:update_code', 'delayed_job:restart'
