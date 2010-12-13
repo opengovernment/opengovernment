@@ -6,9 +6,9 @@ en-CA:
   states:
     show:
       intro: |
-       <br>
-       OpenGovernment is a free public resource that makes the California legislature more transparent and user-friendly.<br><br>
-       <strong>Find</strong> bills and campaign contributions. <strong>Track</strong> key votes on the issues you care about. <strong>Contact</strong> your elected officials.<br><br>
+        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for California.<br><br>
+        
+        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
       state_pop_per_lower_chamber_member: "462,021 people"
@@ -27,13 +27,21 @@ en-CA:
       lower_chamber_active_session_date: "Most recent regular session: Jan. 12th - Aug. 31st, 2010"
       background: |
         Here are more links with background on the California state legislature and the best explanations of how it works: 
-        <ul>
+        <ul class="standard">
+        <li><a href="http://www.transparency.ca.gov/home.aspx">Reporting Transparency</a>, the official California government site for transparency. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li> 
         <li>Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/California_State_Senate">Senate</a> and <a href="http://en.wikipedia.org/wiki/California_State_Assembly">Assembly</a></li>
         <li>Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a></li>
         <li>OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a></li>
         <li>OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a></li>
-        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA political blogs in the left-hand sidebar</li><br>
-        ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>. 
+        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA political blogs in the left-hand sidebar</li>
+        <li><a href="http://www.calwatchdog.com/">CalWatchDog</a>, "an independent, Sacramento-based journalism venture providing original investigative reports and news stories covering California state government."</li>
+        <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+        <li><a href="http://sunshinereview.org/index.php/California">Sunshine Review - California</a>, a non-profit organization dedicated to state and local government transparency.</li>
+        <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846185">Common Cause - California</a>, a non-profit, non-partisan citizens' lobby organization.</li>        
+        </ul>
+        ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
+        How did we get the above information? Well, the California legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
+        
         
   bills:
     index:
@@ -43,7 +51,8 @@ en-CA:
        <em>(The next California legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
     videos:
     show:
-      missing_bill_text: 'Links to California full bill text are coming soon.'
+      bill_text_intro: |
+        <em>Links to California full bill text are coming soon.</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -52,7 +61,7 @@ en-CA:
     index:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
       intro: |
-        Connect with senators and assemblymembers in California. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
+        Connect with senators and assemblymembers in California. We combine official government information with news coverage, blog posts, campaign contribution data, and social media from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
         <em>(The next California legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
     videos: 
       intro: | 
@@ -62,8 +71,8 @@ en-CA:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        The bill "subjects" below are officially assigned to legislation by the California state legislature. Individual subjects are sometimes very broad and other times very specific, and there is no predictable methodology by which they are applied to bills. In fact, California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than twice.<br><br>
-        In the future, to make political issues in California more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the California legislature -- those applied to bills four times or more -- with a link at the bottom of the page to "View All".<br><br>                
+        The issue areas below, here called "bill subjects," are officially assigned to legislation by the California state legislature. Individual subjects are sometimes very broad and other times very specific. In fact, California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than twice.<br><br>
+        In the future, to make political issues in California more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the California legislature: those applied to bills four times or more. Click the link at the bottom of the page to "View All".<br><br>                
         <em>(The next California legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.)</em>                
   
   money_trails:
@@ -72,10 +81,10 @@ en-CA:
           This page lists all publicly-available information about campaign contributions made to members of the California state
                   legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                   agencies with which candidates must file their campaign finance reports.<br><br>
+          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this information proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and elected officials to mandate timely financial disclosure, strong ethics laws, and comprehensive electoral reform for fair elections in order to establish a trustworthy degree of transparency in government.<br><br>
                   The newly-elected CA legislature will convene in January 2011, after which time up-to-date campaign
                   contribution info will appear here as soon as it's available. Until then, you can follow the Money Trail from the last legislature by viewing the three tiers of contributors listed below: <em>sectors</em>,
-                 <em>industries</em>, and <em>businesses</em>.<br><br> The Money Trail on OpenGovernment
-                    makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and members of the legislature to mandate real-time financial disclosure and fair elections for a trustworthy degree of transparency in government. 
+                 <em>industries</em>, and <em>businesses</em>. 
   
   districts:
     search:

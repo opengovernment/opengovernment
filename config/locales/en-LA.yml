@@ -1,11 +1,9 @@
 en-LA:
   states:    
     show:
-      intro: |
-        <br>
-        Welcome to OpenGovernment - Louisiana, a free public resource that helps make government more transparent and accessible.<br><br>
-        <strong>Find</strong> bills in the Louisiana legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
-        Enter your zip code below to see all of your elected officials in Louisiana. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved. 
+      intro: | 
+        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Louisiana.<br><br>
+        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
       state_population:
       current_session: "2009-2010"
       state_population: |
@@ -28,14 +26,19 @@ en-LA:
       lower_chamber_term_limit: "no term limits"
       background: |
         Here are some links with background on the Louisiana state legislature and explanations of how it works:
-        <ul>
+          <ul class="standard">
+          <li>Official Louisiana Transparency and Accountability Portal, <a href="http://wwwprd.doa.louisiana.gov/LaTrac/portal.cfm">LaTrac</a>, whose "primary mission is to make Louisiana's state government finances, and operations transparent and accountable to Louisiana's citizens." This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li>
           <li>Louisiana legislature on <a href="http://en.wikipedia.org/wiki/Louisiana_State_Legislature">Wikipedia</a></li>
           <li>... and on <a href="http://www.ballotpedia.org/wiki/index.php/Louisiana_State_Legislature">Ballotpedia</a></li>
           <li>OpenCongress state page for <a href="http://www.opencongress.org/states/LA">Louisiana</a>, with links to federal <a href="http://www.opencongress.org/people/senators#L">senators</a> and <a href="http://www.opencongress.org/people/representatives#L">representatives</a></li>
           <li>OpenCongress Wiki blogroll of <a href="http://www.opencongress.org/wiki/Louisiana">LA state political blogs</a></li>
           <li>The National Council of State Legislatures official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more LA state blogs in the left-hand sidebar.</li>
-          <br><br>
-          How did we get the above information? Read more <a href="/pages/about">about us</a> and <a href="/pages/about/#our_data_sources">our data sources</a>. 
+           <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+           <li><a href="http://sunshinereview.org/index.php/Louisiana">Sunshine Review - Louisana</a>, a non-profit organization dedicated to state and local government transparency.</li>
+           <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846237">Common Cause - Louisiana</a>, a non-profit, non-partisan citizens' lobby organization.</li>       
+          <ul><br><br>
+          ... this non-profit public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
+          How did we get the above information? Well, the Louisiana legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
         
   bills: 
     index:
@@ -43,6 +46,8 @@ en-LA:
       intro: |
         Connect with bills in Louisiana. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
         <em>(The next Louisiana legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
+    show: |
+      bill_text_intro: <em>(Files are in .pdf)
     videos: 
       intro: |
         <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But clearly, the design of these video sites is un-user-friendly. The House makes video available via an un-user-friendly website in the obscure .asx video format. The Senate still uses a closed format for its video files: "We recommend using Windows Media Player...". In brief, the Louisiana legislature is far, far behind technical best practices in publishing and displaying online video for the public. 
@@ -60,9 +65,7 @@ en-LA:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        The bill "subjects" below are officially assigned to legislation by the Louisana state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
-        In the future, to make bills in Louisiana more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Louisana legislature, those applied to bills four times or more.<br><br>                
-        The next Louisiana legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
+        The Louisiana state legislature does not assign issue areas to legislation. As a workaround, OpenGovernment editors will work to manually assign one or more of the 46 legislative issue areas from the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> to major bills in the Louisiana legislature. We seek to make bills more widely intelligible -- read <a href="/pages/help">how you can help</a>. 
 
   money_trails:
     index:

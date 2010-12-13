@@ -4,13 +4,26 @@ en-TX:
   states:
     show:
         intro: |
-         <br>
-            Welcome to OpenGovernment - Texas, a free public resource that helps make government more transparent and accessible.<br><br>
-            <strong>Find</strong> bills in the Texas legislature, or browse those most in the news. <strong>Track</strong> key votes and campaign contributions for all the issues you care about. <strong>Contact</strong> the people who represent you.<br><br>
-            Enter your zip code below to see all of your elected officials in Texas. Or, click the links at left to view official government information combined with helpful news and blog coverage, plus free tools to get involved.
+          <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Texas.<br><br>
+          <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
         background: |
-          More background on the Texas state legislature and the best explanations of how it works: <a href="http://en.wikipedia.org/wiki/Texas_Legislature">Wikipedia</a>; <a href="http://ballotpedia.org/wiki/index.php/Texas">Ballotpedia</a>, including the 2010 elections for the <a href="http://www.ballotpedia.org/wiki/index.php/Texas_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Texas_House_of_Representatives_elections,_2010">House of Representatives</a>; <a href="http://www.opencongress.org/states/TX">OpenCongress TX</a>; <a href="http://www.opencongress.org/wiki/Texas">OpenCongress Wiki TX state blogroll</a>; and the National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring more TX-relevant sites in the left-hand sidebar. This free public resource is still in early development -- much more data & many features are still to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.
-
+          More background on the Texas state legislature and the best explanations of how it works:
+          <ul class="standard">
+          <li>Official <a href="https://www.oag.state.tx.us/open/pia/pia.shtml">Open Government Laws</a> from the Texas Attorney General. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Texas_Legislature">Wikipedia</a></li>
+          <li><a href="http://ballotpedia.org/wiki/index.php/Texas">Ballotpedia</a>, including the 2010 elections for the <a href="http://www.ballotpedia.org/wiki/index.php/Texas_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Texas_House_of_Representatives_elections,_2010">House of Representatives</a></li>
+          <li><a href="http://www.opencongress.org/states/TX">OpenCongress - Texas</a> page, featuring two federal senators and 32 representatives, including what people from Texas are tracking</li>
+          <li><a href="http://www.opencongress.org/wiki/Texas">OpenCongress Wiki - Texas state blogroll</a></li>
+          <li>The National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring TX-relevant sites in the left-hand sidebar</li>
+          <li><a href="http://www.texaswatchdog.org/">Texas Watchdog</a></li>
+          <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
+          <li><a href="http://sunshinereview.org/index.php/Texas">Sunshine Review - Texas</a>, a non-profit organization dedicated to state and local government transparency.</li>
+          <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846323">Common Cause - Texas</a>, a non-profit, non-partisan citizens' lobby organization.</li>
+          <li><a href="http://www.texastransparency.org/">Texas Transparency</a>, including a section, <a href="http://www.texastransparency.org/moneygoes/">Where the Money Goes</a>.</li>
+          </ul>
+          ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
+          How did we get the above information? Well, the Texas legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
+          
         state_upper_chamber: "32 Senators: 12 Democrats, 20 Republicans, 0 Other."
         state_lower_chamber: "150 Assemblymembers: 73 Democrats, 77 Republicans, 0 Other."
 
@@ -53,8 +66,11 @@ en-TX:
     title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
-         Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
+        Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
            <em>(The next Texas legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>
+    show: 
+      bill_text_intro: | 
+        <em>(Links above go to official .gov website)</em>
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now for video on bills in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general.
