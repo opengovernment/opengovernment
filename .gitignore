@@ -13,6 +13,8 @@ vendor/bundle/*
 vendor/bundler_gems/*
 vendor/cache/*
 config/development.sphinx.conf
+config/initializers/rack-bug.rb
+config/initializers/secret_token.rb
 spec/fixtures/data/people.xml
 webrat.log
 rerun.txt
