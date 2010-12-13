@@ -1,8 +1,8 @@
 namespace :generate do
-  desc 'Generates a Session Secret Token'
-  task :secret_token do
+  desc 'Generates a Session Secret Token and other app tokens'
+  task :app_tokens do
     path = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
-    secret = ActiveSupport::SecureRandom.hex(40)
+    secret_token = ActiveSupport::SecureRandom.hex(40)
     File.open(path, 'w') do |f|
       f.write <<"EOF"
 # Be sure to restart your server when you modify this file.
@@ -11,17 +11,10 @@ namespace :generate do
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Rails.application.config.secret_token = '#{secret}'
+Rails.application.config.secret_token = '#{secret_token}'
 EOF
     end
-    
-    path = File.join(Rails.root, 'config', 'initializers', 'rack-bug.rb')
-    secret = ActiveSupport::SecureRandom.base64(30)
-    File.open(path, 'w') do |f|
-      f.write << "EOF"
-Rails.application.config.middleware.use 'Rack::Bug', :secret_key => '#{secret}'
-EOF
-    end
+
   end
 
 end
