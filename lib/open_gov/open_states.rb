@@ -7,17 +7,38 @@ module OpenGov
     end
 
     def self.fetch_one(state)
-      FileUtils.mkdir_p(Settings.openstates_dir)
-      Dir.chdir(Settings.openstates_dir)
+      if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
+        FileUtils.mkdir_p(Settings.openstates_dir)
+        Dir.chdir(Settings.openstates_dir)
 
-      openstates_fn = "#{state.abbrev.downcase}.zip"
-      curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''
+        puts "---------- Downloading the OpenStates data for #{state.name}"
+        `rm -f api/{committees,legislators}/#{state.abbrev.upcase}*`
+        `rm -rf api/#{state.abbrev.downcase}`
 
-      puts "---------- Downloading the OpenStates data for #{state.name}"
-      `rm -f api/{committees,legislators}/#{state.abbrev.upcase}*`
-      `rm -rf api/#{state.abbrev.downcase}`
-      `curl #{curl_ops} -LOf http://openstates.sunlightlabs.com/data/#{openstates_fn}`
-      `unzip -qu #{openstates_fn} 2>/dev/null`
+        # If available from OpenStates, use the latest_dump_url and latest_dump_date.
+        openstates_url = fs_state[:latest_dump_url] || "http://openstates.sunlightlabs.com/data/#{state.abbrev}.zip"
+        openstates_fn = File.basename(openstates_url)
+        openstates_date = (fs_state[:latest_dump_date] && fs_state[:latest_dump_date].to_time) || Time.now
+
+        unless File.exists?(openstates_fn) && openstates_date > File.mtime(openstates_fn)
+          tries = 3
+          begin
+            curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''
+            `curl #{curl_ops} -LOf #{openstates_url}`
+            tries -= 1
+          end while !system("unzip -qt #{openstates_fn} || (rm -f #{openstates_fn} && false)") && tries > 0
+
+          if tries == 0
+            puts "Could not download valid openstates data for #{state.name}; skipping"
+          end
+        else
+          puts "The local copy of the data is already fresh; skipping download."
+        end
+
+        `unzip -qu #{openstates_fn} 2>/dev/null`
+      else
+        puts "Could not fetch metadata from OpenStates for #{state.abbrev}; skipping."
+      end
     end
   end
 end
