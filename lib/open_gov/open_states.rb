@@ -16,9 +16,14 @@ module OpenGov
         `rm -rf api/#{state.abbrev.downcase}`
 
         # If available from OpenStates, use the latest_dump_url and latest_dump_date.
-        openstates_url = fs_state[:latest_dump_url] || "http://openstates.sunlightlabs.com/data/#{state.abbrev}.zip"
+        openstates_url = fs_state[:latest_dump_url]
         openstates_fn = File.basename(openstates_url)
         openstates_date = (fs_state[:latest_dump_date] && fs_state[:latest_dump_date].to_time) || Time.now
+
+        if openstates_url.blank?
+          puts "No latest_dump_url returned for #{state.name}; skipping download."
+          return
+        end
 
         unless File.exists?(openstates_fn) && openstates_date > File.mtime(openstates_fn)
           tries = 3
@@ -37,7 +42,7 @@ module OpenGov
 
         `unzip -qu #{openstates_fn} 2>/dev/null`
       else
-        puts "Could not fetch metadata from OpenStates for #{state.abbrev}; skipping."
+        puts "Could not fetch metadata from OpenStates for #{state.abbrev}; skipping download."
       end
     end
   end
