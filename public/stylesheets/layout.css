@@ -48,7 +48,7 @@ margin: 162px 0 0 50px;
 width: 400px !important;
 }
 
-input#email{
+.signup_form input#email{
 font-size: 12px;
 padding: 9px;
 margin: 0;
@@ -62,7 +62,7 @@ float: left;
 }
 
 
-input#postal_code{
+.signup_form input#postal_code{
 font-size: 12px;
 border: 0;
 padding: 9px;
@@ -76,7 +76,7 @@ float: left;
 
 
 
-input#_qf_Edit_next{
+.signup_form input#_qf_Edit_next{
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;

@@ -20,37 +20,37 @@ body td {
   -webkit-border-radius:55px;
   margin: 10px 0 10px;
   min-height: 22px;
-  }
+}
 
 .pagination span.disabled {
   color: #AAA;
-  }
+}
 
 .pagination span.current {
   font-weight: bold;
   background: transparent url('/images/apple-circle.gif') no-repeat 50% 50%;
-  }
+}
 
 .pagination a, nav.faceted a {
   text-decoration: none;
   color: black;
-  }
+}
 
 .pagination a:hover, .pagination a:focus, nav.faceted a:hover, nav.faceted a:focus {
   text-decoration: none;
-  }
+}
 
 .match {
   border-bottom: 1px dotted red;
   padding-bottom: 0.1em;
-  }
+}
 
 /* Text meant only for screen readers */
 
 .screen-reader-text {
 	position: absolute;
 	left: -9000em;
-  }
+}
 
 .pagination em, nav.faceted em {
   cursor: default;
