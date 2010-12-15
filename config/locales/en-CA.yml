@@ -6,9 +6,8 @@ en-CA:
   states:
     show:
       intro: |
-        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for California.<br><br>
-        
-        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
+        <strong>Follow</strong> bills, votes, and money in the California legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
+        OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for California.
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
       state_pop_per_lower_chamber_member: "462,021 people"
@@ -55,7 +54,7 @@ en-CA:
         <em>Links to California full bill text are coming soon.</em>
     videos: 
       intro: | 
-        <em>Editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
+        <em>California- editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video available in ways that are <a href="http://www.opengovdata.org/">fully open</a>. So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
   
   people:
     index:
@@ -71,10 +70,9 @@ en-CA:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
       intro: |
-        The issue areas below, here called "bill subjects," are officially assigned to legislation by the California state legislature. Individual subjects are sometimes very broad and other times very specific. In fact, California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than twice.<br><br>
+        The issue areas below, here called "bill subjects," are officially assigned to legislation by the California state government. California is unique among the five states in this beta version of OpenGovernment in that there are thousands of subjects applied to bills only once or twice, and only about a dozen subjects applied to bills more frequently than twice.<br><br>
         In the future, to make political issues in California more intelligible, we seek to map every bill subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the California legislature: those applied to bills four times or more. Click the link at the bottom of the page to "View All".<br><br>                
-        <em>(The next California legislature will convene in January 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.)</em>                
-  
+          
   money_trails:
      index:
         intro: |

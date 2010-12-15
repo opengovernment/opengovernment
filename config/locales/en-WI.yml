@@ -5,8 +5,8 @@ en-WI:
   states:
     show:
       intro: |
-        <br>Welcome to OpenGovernment, a free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Wisconsin.<br><br>
-        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
+       <strong>Follow</strong> bills, votes, and money in the Wisconsin legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
+       OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Wisconsin.
       state_population: | 
         <a href="2009 est. pop.: 5,654,774 people (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)</a>
       state_pop_per_upper_chamber_member: "171,357 people in WI"
