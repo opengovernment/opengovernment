@@ -2,8 +2,8 @@ en-LA:
   states:    
     show:
       intro: | 
-        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for Louisiana.<br><br>
-        <strong>Find</strong> bills, key votes, and campaign contributions. <strong>Track</strong> the issues you care about. <strong>Contact</strong> your elected officials.
+        <strong>Follow</strong> bills, votes, and money in the Louisiana legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
+        OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Louisiana.
       state_population:
       current_session: "2009-2010"
       state_population: |

@@ -15,7 +15,7 @@ en:
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for [state].<br><br>
         We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the %{legislature_name}.
-      state_population: "No population data."
+      state_population: 
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
       last_election_date: "No data for last election date."
@@ -27,7 +27,7 @@ en:
       details: |
         We believe it is important for the public to be able to easily access information about which special interest groups support or oppose this legislation with their campaign contributions. Unfortunately, state governments do not disclose contribution data in ways that are sufficiently timely or fully open. As a result, the process of finding out which entities support and oppose this bill is more difficult and time-intensive than it needs to be... and the public is kept in the dark about the systemic influence of money in the political process, usually until after key votes are already cast.<br><br>
         In the future, our goal is to work with our data partners for campaign contribution information -- the <a href="http://www.followthemoney.org/" target="_blank">National Institute on Money in State Politics</a> and <a href="http://maplight.org/" target="_blank">MAPLight</a>, both non-profit and non-partisan organizations -- to create more versions of state-level transparency sites like <strong><a href="http://maplight.org/california" target="_blank">MAPLight California</a></strong>. In addition, we seek open-source volunteer programming time and non-profit funding support to link state-level elected officials with the rich open data sets at an allied non-profit project, <a href="http://littlesis.org/" target="_blanks">LittleSis.org</a>, building "a free database detailing the connections between powerful people and organizations."<br><br>
-        For now, see <a href="/pages/help">how you can help</a> support our work and get this vital data -- on which special interest groups are supporting and opposing individual bills in state legislatures via their political donations -- in place for the public benefit on the open Web. 
+        Do you know of existing money-in-politics resources for this state that we can display here for the public benefit on the open Web? <a href="/pages/contact">Let us know.</a>. Until then, see <a href="/pages/help">how you can help</a> support our work and get this vital data -- on which special interest groups are supporting and opposing individual bills in state legislatures via their political donations -- in place. 
     news:
           no_results: |
             At the moment, we're finding no mentions of the search term "%{search_term}" in our daily automated search of the Web (via <a href="http://news.google.com/" target="_blank">Google News</a> and <a href="http://blogsearch.google.com/" target="_blank">Blog Search</a>). There may be relevant news articles & blog posts out there on the Web that refer to this bill by a slightly different name or title -- in which case, they're not included here, but our goal is to aggregate as much relevant info as possible. If you know of any, <a href="/pages/contact">contact us</a> with the specific links, and we'll display them here for everyone to access.<br><br>
@@ -43,8 +43,8 @@ en:
         this bill's status in the legislative process.
     social:
       intro: |
-        Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.
-        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as those including sports scores or similarly-titled bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
+        Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.<br><br>
+        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores or similarly-numbered bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions of this bill from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
     track:
       track: 'Track'
       all_actions: 'All Actions'
