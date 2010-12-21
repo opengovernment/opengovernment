@@ -1,6 +1,5 @@
-class PeopleController < ApplicationController
+class PeopleController < SubdomainController
   before_filter :find_person, :except => [:index, :search]
-  before_filter :get_state
 
   # /states/texas/people
   def index
@@ -109,7 +108,7 @@ class PeopleController < ApplicationController
   private
   def people_by_facets
     if people_in_chamber
-      @facets.for(:chamber_id => @chamber.id)
+      @facets.for(:chamber_ids => @chamber.id, :session_ids => current_session.id)
     else
       []
     end
@@ -130,7 +129,7 @@ class PeopleController < ApplicationController
     begin
       # TODO: This is less than ideal. We're calling some stored procedures here because
       # we don't have a better way (like outer joining to the current roles view).
-      @facets = Person.facets :with => {:chamber_id => @chamber.id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
+      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
     rescue Riddle::ConnectionError
       flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
       return nil

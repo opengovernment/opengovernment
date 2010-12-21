@@ -118,13 +118,15 @@ class Person < ActiveRecord::Base
 
   define_index do
     indexes first_name, middle_name, last_name, :sortable => true
+
     has email
+    has roles(:session_id), :as => :session_ids, :facet => true
+    has roles(:chamber_id), :as => :chamber_ids, :facet => true
 
     # Trigger the join on mentions before indexing the count
     has mentions(:id), :as => :mentions_ids
     has 'COUNT(mentions.id)', :as => :mentions_count, :type => :integer
 
-    has chamber(:id), :as => :chamber_id, :facet => true
     has 'current_district_order_for(people.id)', :as => :district_order, :type => :string
     has 'current_state_for(people.id)', :as => :state_id, :type => :integer
   end

@@ -23,7 +23,11 @@ class Role < ActiveRecord::Base
           :conditions => ['? between vr.start_date and vr.end_date', date]
         } }
   scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
+  scope :for_session, lambda { |s| {:conditions => {:session_id => s} } }
   scope :for_state, lambda { |s| { :conditions => ['roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?', s, s] } }
+  scope :democrats, where("party = 'Democrat'")
+  scope :republicans, where("party = 'Republican'")
+  scope :others, where("party not in ('Democrat','Republican')")
   scope :current, on_date(Date.today)
   scope :by_last_name, joins(:person).order('people.last_name')
 

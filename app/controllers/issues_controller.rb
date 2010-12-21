@@ -1,6 +1,5 @@
-class IssuesController < ApplicationController
+class IssuesController < SubdomainController
   before_filter :get_issue, :only => [:show]
-  before_filter :get_state
 
   def index
     @min_bills = 5

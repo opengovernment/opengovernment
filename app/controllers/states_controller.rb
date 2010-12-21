@@ -1,20 +1,29 @@
-class StatesController < ApplicationController
-  before_filter :get_state
-
+class StatesController < SubdomainController
   def show
     if @state.supported?
       session[:preferred_location] = request.subdomains.first
-      
-      @legislature = @state.legislature
-      @most_recent_session = Session.most_recent(@legislature).first
 
-      bill = Bill.where(:state_id => @state.id).limit(5)
+      @available_sessions = Session.major.where("legislature_id = ?", @state.legislature).order("start_year desc, parent_id nulls first")
+
+      bill = Bill.where(:session_id => @session).limit(5)
       @key_votes = bill.where(:votesmart_key_vote => true)
       @recent_bills = bill.order('last_action_at desc')
 
-      # TODO: This is less than ideal. We're calling some stored procedures here because
-      # we don't have a better way (like outer joining to the current roles view).
-      @hot_people = Person.search :with => {:chamber_id => [@legislature.upper_chamber.id, @legislature.lower_chamber.id]}, :order => 'mentions_count desc', :per_page => 10, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
+      @hot_people = Person.find_by_sql(["select
+          p.*,
+          current_district_name_for(p.id) as district_name,  
+          current_party_for(p.id) as party
+        from
+          people p left outer join roles r on (r.person_id = p.id)
+          join (select count(*) mentions_count, owner_id as person_id from mentions
+                  where owner_type = 'Person'
+                  group by owner_id) m on m.person_id = p.id
+        where
+          r.session_id = ?
+        order by m.mentions_count desc
+        limit 10
+      ", @session.id])
+
     else
       render :template => 'states/unsupported', :layout => 'home'
     end

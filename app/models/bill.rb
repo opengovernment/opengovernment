@@ -79,8 +79,8 @@ class Bill < ActiveRecord::Base
     bill_number + ': ' + title
   end
 
-  def self.find_by_session_name_and_param(session, param)
-    for_session_named(session.titleize).find_by_bill_number(param.titleize.upcase)
+  def self.find_by_slug(param)
+    find_by_bill_number(param.titleize.upcase)
   end
 
   def self.by_state_and_issue(state_id, issue, limit = 10)

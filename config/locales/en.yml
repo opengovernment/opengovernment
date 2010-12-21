@@ -21,7 +21,7 @@ en:
       last_election_date: "No data for last election date."
   bills:
     index:
-      title: 'Bills in the %{legislature_name}'
+      title: 'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
       title: "Money Trail data isn't quite ready!"
       details: |
@@ -67,7 +67,7 @@ en:
       Not many states make video truly accessible, is the problem. 
   people:
     index:
-      title: 'Members of the %{legislature_name}'
+      title: 'Members of the %{legislature_name} (%{session_name})'
     show:
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.

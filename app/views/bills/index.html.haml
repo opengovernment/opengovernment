@@ -1,8 +1,8 @@
-- title(t('.title', :legislature_name => @state.legislature.name))
+- title(t('.title', :legislature_name => @state.legislature.name, :session_name => current_session_name))
 
 = render :partial => 'shared/appeal'
 
-%h1= t '.title', :legislature_name => @state.legislature.name
+%h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name
 
 
 .intro
@@ -12,17 +12,17 @@
 
 %ul.tabs
   %li
-    %a{:href => bills_path(:sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
+    %a{:href => bills_path(@session, :sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
   %li.divider &#124;
 
   %li
-    %a{:href => bills_upper_path(:sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
-      
+    %a{:href => upper_bills_path(@session, :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
+
   %li.divider &#124;  
 
   %li
-    %a{:href => bills_lower_path(:sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
+    %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
 
 .sort.grid_12.alpha
   %ul.sorts

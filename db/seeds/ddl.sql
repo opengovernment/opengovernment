@@ -212,8 +212,8 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
     and exists (select id from roles r where r.session_id = s.id)) recent
   where recent.rnum = 1;
 
-DROP VIEW v_most_recent_roles;
-CREATE OR REPLACE VIEW v_most_recent_roles AS
+DROP VIEW v_all_roles;
+CREATE OR REPLACE VIEW v_all_roles AS
   SELECT
     r.id as role_id,
     r.person_id,
@@ -234,10 +234,18 @@ CREATE OR REPLACE VIEW v_most_recent_roles AS
     coalesce(r.end_date, end_of(s.end_year)) as end_date,
     coalesce(r.state_id, d.state_id) as state_id
   FROM
-    (select *, row_number() over (partition by person_id order by end_date desc) as rnum
-    from roles ro) r
+    roles r
     left outer join sessions s on (r.session_id = s.id)
-    left outer join districts d on (d.id = r.district_id)
+    left outer join districts d on (d.id = r.district_id);
+
+DROP VIEW v_most_recent_roles;
+CREATE OR REPLACE VIEW v_most_recent_roles AS
+  SELECT
+    ar.*
+  FROM
+    v_all_roles ar
+    left outer join (select id, row_number() over (partition by person_id order by end_date desc) as rnum
+    from roles ro) r on (r.id = ar.role_id)
   where r.rnum = 1;
 
 DROP VIEW v_tagged_actions;

@@ -1,21 +1,21 @@
-class BillsController < ApplicationController
-  before_filter :get_state
+class BillsController < SubdomainController
+  before_filter :redirect_if_subsession, :only => [:index, :upper, :lower]
   before_filter :get_bill, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
 
   def index
-    @bills = scope_bills(Bill.for_state(@state))
+    @bills = scope_bills(Bill.for_session_including_children(@session.primary_id))
     @current_tab = :all
   end
 
   def upper
-    @bills = scope_bills(Bill.for_state(@state).in_chamber(@state.legislature.upper_chamber))
+    @bills = scope_bills(Bill.for_session_including_children(@session).in_chamber(@state.legislature.upper_chamber))
     @current_tab = :upper
     render :template => 'bills/index'
   end
   
   def lower
-    @bills = scope_bills(Bill.for_state(@state).in_chamber(@state.legislature.lower_chamber))
+    @bills = scope_bills(Bill.for_session_including_children(@session).in_chamber(@state.legislature.lower_chamber))
     @current_tab = :lower
     render :template => 'bills/index'
   end
@@ -101,9 +101,17 @@ class BillsController < ApplicationController
 
   def get_bill
     if params[:id]
-      @bill = @state && @state.bills.find_by_session_name_and_param(params[:session], params[:id])
+      @bill = @session && @session.bills.find_by_slug(params[:id])
     end
 
     @bill || resource_not_found
+  end
+  
+  def redirect_if_subsession
+    # Indices are only available for primary sessions, not
+    # subsessions.
+    if current_session.parent_id
+      return redirect_to(url_for(params.merge({:session => current_session.parent})))
+    end
   end
 end

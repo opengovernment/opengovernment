@@ -1,24 +1,22 @@
-- title(t('.title', :legislature_name => @state.legislature.name))
+- title(t('.title', :legislature_name => @state.legislature.name, :session_name => current_session_name))
 
 = render 'shared/appeal'
 
-%h1= t('.title', :legislature_name => @state.legislature.name)
+%h1= t('.title', :legislature_name => @state.legislature.name, :session_name => current_session_name)
 
 .intro
   %div
   %p= t '.intro'
 
-
 .find_box
   = render 'shared/find_my_rep_form', :narrow => true
 
-
 %ul.tabs
   %li
-    = link_to @state.upper_chamber.name, url_for(:chamber => 'upper', :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')
+    = link_to @state.upper_chamber.name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')
   %li.divider &#124;  
   %li
-    = link_to @state.lower_chamber.name, url_for(:chamber => 'lower', :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')
+    = link_to @state.lower_chamber.name, url_for(params.merge({:chamber => 'lower'})), :class => (@current_tab == :lower ? 'active' : '')
 
 .sort.grid_12.alpha
   %ul.people_sorts.sorts

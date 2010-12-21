@@ -76,6 +76,8 @@
         - else
           = yield :before_left_nav
           .grid_4
+            - if !default_session?
+              %p.prior_session #{current_session_name} session; #{link_to 'return to current', root_path}
             %nav#left_nav
               = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
             = yield :below_left_nav

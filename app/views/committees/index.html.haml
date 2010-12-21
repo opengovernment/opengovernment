@@ -10,7 +10,7 @@
   - if @committees.size > 0
     - @committees.each do |committee|
       %li
-        = link_to(committee.name, committee_path(committee), :class => "modal")
+        = link_to(committee.name, committee_path(:id => committee), :class => "modal")
   - else
     %p Sorry, we didn't find any committees.
 = will_paginate @committees

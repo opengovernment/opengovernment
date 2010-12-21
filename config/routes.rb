@@ -4,15 +4,9 @@ OpenGov::Application.routes.draw do
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
   constraints(Subdomain) do
-    match '/' => 'states#show'
     match '/search' => 'states#search', :as => 'state_search'
 
-    resources :people, :only => [:show, :index] do
-      collection do
-        get :upper
-        get :lower
-        get :search
-      end
+    resources :people, :only => [:show] do
       member do
         get :news
         get :sponsored_bills
@@ -28,38 +22,55 @@ OpenGov::Application.routes.draw do
     end
 
     resources :sigs, :only => [:index, :show]
-    resources :issues, :only => [:index, :show]
     resources :subjects, :only => [:index, :show]
     resources :money_trails, :only => [:index, :show], :path => 'money_trail'
 
-    match '/bills', :to => 'bills#index', :as => 'bills'
-    match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
-    match '/bills/lower', :to => 'bills#lower', :as => 'bills_lower'
+#    match '/bills', :to => 'bills#index', :as => 'bills'
+#    match '/bills/upper', :to => 'bills#upper', :as => 'bills_upper'
+#    match '/bills/lower', :to => 'bills#lower', :as => 'bills_lower'
 
-    resources :bills, :only => [:show], :path => '/sessions/:session/bills' do
-      member do
-        get :news
-        get :money_trail
-        get :social
-        get :votes
-        get :videos
-        get :discuss
-        get :major_actions
-        get :actions
-        get :sponsors
-        get :documents
-      end
-      shallow do
-        resources :actions, :only => [:show]
-        resources :votes, :only => [:show]
-      end
-    end
+    match '/' => 'states#show'
 
-    resources :committees, :only => [:show, :index] do
-      collection do
-        get :upper
-        get :lower
-        get :joint
+    scope '(/sessions/:session)' do
+      match '/' => 'states#show', :as => 'state'
+
+      resources :people, :only => [:index] do
+        collection do
+          get :search
+        end
+      end
+      
+      resources :bills, :only => [:show, :index] do
+        collection do
+          get :upper
+          get :lower
+        end
+        member do
+          get :news
+          get :money_trail
+          get :social
+          get :votes
+          get :videos
+          get :discuss
+          get :major_actions
+          get :actions
+          get :sponsors
+          get :documents
+        end
+        shallow do
+          resources :actions, :only => [:show]
+          resources :votes, :only => [:show]
+        end
+      end
+
+      resources :issues, :only => [:index, :show]
+
+      resources :committees, :only => [:show, :index] do
+        collection do
+          get :upper
+          get :lower
+          get :joint
+        end
       end
     end
   end

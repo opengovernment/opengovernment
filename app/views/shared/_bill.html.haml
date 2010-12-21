@@ -15,12 +15,13 @@
     .recent_vote.grid_3.alpha.top
       != pluralize(bill.votes.count, 'vote')
       on this bill
-    
+
+    - if bill.session.parent_id?
+      .bill_session= 'Session ' + bill.session.try(:name)
 
     .recent_action.grid_4.omega
       Most recent action:
       != bill.last_action_at
-
 
     - if MongoMapper.connected?
       .view_count.grid_3.alpha

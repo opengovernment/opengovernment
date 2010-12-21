@@ -1,5 +1,4 @@
-class CommitteesController < ApplicationController
-  before_filter :get_state
+class CommitteesController < SubdomainController
 
   def index
     @committees = @state.committees.paginate :page => params[:page], :order => params[:order] || 'name'

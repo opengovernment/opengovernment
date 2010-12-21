@@ -1,5 +1,4 @@
 class SubjectsController < ApplicationController
-  before_filter :get_state
   before_filter :get_subject, :only => :show
 
   def index

@@ -1,5 +1,4 @@
-class MoneyTrailsController < ApplicationController
-  before_filter :get_state
+class MoneyTrailsController < SubdomainController
   before_filter :get_industry, :only => [:show]
 
   def index

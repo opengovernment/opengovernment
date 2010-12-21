@@ -196,6 +196,7 @@ end
 desc "Fetch Data: districts, bills"
 namespace :fetch do
   task :setup => :environment do
+    puts "Setup for fetch"
     FileUtils.mkdir_p(Settings.data_dir)
     Dir.chdir(Settings.data_dir)
   end

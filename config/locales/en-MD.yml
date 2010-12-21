@@ -43,8 +43,7 @@ en-MD:
           How did we get the above information? Well, the Maryland legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
  
   bills:
-    index: 
-      title: 'Bills in the %{legislature_name} (2007 - 2010)'
+    index:
       intro: |
         Connect with bills in Maryland. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
         <em>(The next Maryland legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.</em>)
@@ -56,7 +55,6 @@ en-MD:
         <em>Editorial note</em>: as far as what's out there now, as of this writing: there is no official site of online video for bills in the Maryland state legislature of which we're aware, but they do make <a href="http://mlis.state.md.us/asp/listen.asp" target="_blank">audio</a> available online via an almost-marvelously behind-the-times webpage. So at the moment, a lot of digging and research is still required to find video of MD legislative proceedings, e.g. committee hearings and votes. What a shortcoming. '
         
   people:
-    title: 'Members of the %{legislature_name} (2007 - 2010)'
     index:
       intro: |
         Connect with senators and delegates in Maryland. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>

@@ -12,12 +12,36 @@ class Session < ActiveRecord::Base
 
   validates_uniqueness_of :name, :scope => :legislature_id
 
-  has_many :sub_sessions, :class_name => 'Session', :foreign_key => 'parent_id', :dependent => :destroy
+  has_many :children, :class_name => 'Session', :foreign_key => 'parent_id', :dependent => :destroy
+  belongs_to :parent, :class_name => 'Session'
+
+  # Return the parent and all children for this session.
+  def family
+    parent_id? ? [parent, *parent.children] : [self, *children]
+  end
+
+  def primary_id
+    parent_id? ? parent_id : self[:id]
+  end
+
+  def primary
+    parent_id? ? parent : self
+  end
+
+  def latest?
+    most_recent_session = Session.most_recent(self.legislature_id)
+
+    if most_recent_session.try(:first).try(:id) == self[:id]
+      true
+    else
+      false
+    end
+  end
 
   def to_param
     name.parameterize
   end
-  
+
   def name_fm
     "#{name} " + (start_year == end_year ? "(#{start_year})" : "(#{start_year} &ndash; #{end_year})")
   end

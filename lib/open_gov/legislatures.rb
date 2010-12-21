@@ -35,7 +35,7 @@ module OpenGov
             :end_year => t.end_year
           )
 
-          @session.sub_sessions.delete_all
+          @session.children.delete_all
 
           t.sessions.each do |s|
             next if s == @session.name

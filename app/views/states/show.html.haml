@@ -16,6 +16,10 @@
 
   %h2= @state.legislature.name
 
+  %ul
+    - @available_sessions.each do |session|
+      %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name, state_path(:session => session)
+
   :ruby
     javascript do
       (%q|
@@ -25,7 +29,7 @@
         	});
       |)
     end
-  
+
   .people_news_preview
     .grid_12.alpha
       %h3 People in the News
@@ -46,16 +50,16 @@
     #recent_bills.tab_cont
       %ul
         = render @recent_bills
-      %a.more{:href => bills_path(:sort => 'recent')} All Recent Bills &rarr;
+      %a.more{:href => bills_path(params[:session], :sort => 'recent')} All Recent Bills &rarr;
       .clear
 
     #key_votes.tab_cont
       .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
       %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
-  
+
       %ul
         = render @key_votes, :locals => {:hide_key_vote => true}
-      %a.more{:href => bills_path(:sort => 'keyvotes')} All Key Votes &rarr;
+      %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')} All Key Votes &rarr;
       .clear  
 
 .grid_4.omega
@@ -66,25 +70,26 @@
           %a{:href => (chamber.type == 'UpperChamber' ? '#upper' : '#lower')}= chamber.short_name
 
     - @state.chambers.each do |chamber|
+      - session_roles = chamber.roles.for_session(@session.family)
       %div{:id => (chamber.type == 'UpperChamber' ? 'upper' : 'lower')}
         %div.tab_cont.pad
           .grid_6.alpha.district_map
             = leg_map_img(@state, chamber)
-  
+
           %p
             %strong Legislators:
-            = link_to chamber.people.count, (chamber.type == 'UpperChamber' ? upper_people_path : lower_people_path)
+            = link_to session_roles.count, (chamber.type == 'UpperChamber' ? people_path(current_session.primary, :chamber => 'upper') : people_path(current_session.primary, :chamber => 'lower'))
             = chamber.title.pluralize
             %br            
             = surround '(', ')' do
               = succeed ',' do
-                = pluralize(chamber.people.democrats.count, 'Democrat')
-              - if chamber.people.other.count > 0
+                = pluralize(session_roles.democrats.count, 'Democrat')
+              - if session_roles.others.count > 0
                 = succeed ',' do
-                  = pluralize(chamber.people.republicans.count, 'Republican')
-                = pluralize(chamber.people.other.count, 'Other')
+                  = pluralize(session_roles.republicans.count, 'Republican')
+                = pluralize(session_roles.others.count, 'Other')
               - else
-                = pluralize(chamber.people.republicans.count, 'Republican')            
+                = pluralize(session_roles.republicans.count, 'Republican')            
             %br
             %br            
             Each represents approx.
@@ -98,24 +103,14 @@
             = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
             %br
             = succeed ',' do
-              = link_to "#{number_with_delimiter(Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path
-            = link_to "#{Bill.for_session_including_children(@most_recent_session).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path
+              = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.parent).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path(params[:session])
+            = link_to "#{Bill.for_session_including_children(@session.parent).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path(params[:session], :sort => 'keyvotes')
   
             %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
   
-
             =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
-  
-            <!--=t (chamber.type == 'UpperChamber' ? '.upper_chamber_active_session_date' : '.lower_chamber_active_session_date')-->
-      
-
-          <!--
-          %p
-            Legislators serve #{chamber.term_length}-year terms, with
-            =t (chamber.type == 'UpperChamber' ? '.upper_chamber_term_limit' : '.lower_chamber_term_limit')
-          %clear-->
   
 .space
 

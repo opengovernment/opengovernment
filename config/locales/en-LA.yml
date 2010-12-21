@@ -42,7 +42,6 @@ en-LA:
         
   bills: 
     index:
-      title: 'Bills in the %{legislature_name} (2009 - 2010)'
       intro: |
         Connect with bills in Louisiana. We make state legislation more accessible by combining official government information with news coverage, blog posts, and more. Bill pages below offer free tools to track their status, share them over social media, and easily contact your elected officials.<br><br>
         <em>(The next Louisiana legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.)</em>

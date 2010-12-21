@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_filter :get_state
+  before_filter :get_state_and_session
   before_filter :get_vote
 
   def get_vote

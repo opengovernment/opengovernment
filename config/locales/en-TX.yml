@@ -63,7 +63,6 @@ en-TX:
         lower_chamber_term_limit: "no term limits"
         
   bills:
-    title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
         Connect with bills in Texas. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
@@ -76,7 +75,6 @@ en-TX:
         <em>Editorial note</em>: as far as what's out there now for video on bills in Texas, the state legislature offers fairly extensive audio & video archives on pages for the <a href="http://www.senate.state.tx.us/bin/live.php" target="_blank">Senate</a> and <a href="http://www.house.state.tx.us/video-audio/" target="_blank">House of Representatives</a>, though in the terribly out-of-date "Real Media" video format. As best we can tell, the Texas legislature does not make video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general.
          
   people:
-    title: 'Members of the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
        Connect with senators and representatives in Texas. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>

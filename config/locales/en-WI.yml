@@ -48,7 +48,6 @@ en-WI:
          How did we get the above information? Well, the Wisconsin legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
     
   bills:
-    title: 'Bills in the %{legislature_name} (2009 - 2010)'
     index: 
       intro: |
         Connect with bills in Wisconsin. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
@@ -61,7 +60,6 @@ en-WI:
         <em>Editorial note</em>: Wisconsin does fairly well in making video regarding state legislation available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the closed Windows Media format. While their site's overall design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the Wisconsin legislature still does not appear to make their video accessible in ways that comply with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Gov Data</a>. 
         
   people: 
-    title: 'Members of the %{legislature_name} (2009 - 2010)'
     index:
       intro: |
         Connect with senators and assemblymembers in Wisconsin. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
