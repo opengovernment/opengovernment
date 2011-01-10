@@ -4,6 +4,7 @@ en-LA:
       intro: | 
         <strong>Follow</strong> bills, votes, and money in the Louisiana legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
         OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Louisiana.
+      current_session_intro: "The 2010 session ended on June 21, 2011, and the 2011 session begins on April 25, 2011. Most bills are introduced in March and April."
       state_population:
       current_session: "2009-2010"
       state_population: |

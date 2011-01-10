@@ -8,6 +8,7 @@ en-CA:
       intro: |
         <strong>Follow</strong> bills, votes, and money in the California legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
         OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for California.
+      current_session_intro: "The 2011-2012 session began on Jan 3rd, 2011. Last year, most bills were introduced in February."
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
       state_pop_per_lower_chamber_member: "462,021 people"

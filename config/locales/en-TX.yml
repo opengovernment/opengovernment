@@ -6,6 +6,7 @@ en-TX:
         intro: |
          <strong>Follow</strong> bills, votes, and money in the Texas legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
          OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Texas.
+        current_session_intro: "The 82nd Texas Legislature began on Jan 11, 2011. Last year, most bills were introduced in March."
         background: |
           More background on the Texas state legislature and the best explanations of how it works:
           <ul class="standard">

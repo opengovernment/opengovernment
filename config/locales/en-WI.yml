@@ -7,6 +7,7 @@ en-WI:
       intro: |
        <strong>Follow</strong> bills, votes, and money in the Wisconsin legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
        OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Wisconsin.
+      current_session_intro: "The 2011-2012 session began on Jan 11, 2011. Last year, most bills were introduced in February and March."
       state_population: | 
         <a href="2009 est. pop.: 5,654,774 people (cit. <a href="http://quickfacts.census.gov/qfd/states/55000.html">Census.gov)</a>
       state_pop_per_upper_chamber_member: "171,357 people in WI"

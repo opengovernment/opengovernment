@@ -15,6 +15,8 @@
 
 
   %h2= @state.legislature.name
+  - if default_session?
+    %p= t '.current_session_intro'
 
   %ul
     - @available_sessions.each do |session|

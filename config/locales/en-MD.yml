@@ -6,6 +6,7 @@ en-MD:
       intro:   |
        <strong>Follow</strong> bills, votes, and money in the Maryland legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br> 
        OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Maryland.
+      current_session_intro: "The 2011 session began on January 12, 2011. Last year, most bills were introduced in February."
       state_population: |
         2009 est. pop: 5,699,478 (cit. <a href="http://quickfacts.census.gov/qfd/states/24000.html">Census.gov)</a>
       current_session: "2009-2010"
