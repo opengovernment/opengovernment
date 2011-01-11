@@ -1,6 +1,16 @@
 OpenGovernment is a Ruby on Rails application for aggregating and presenting open government data.
 
-# Prerequisites
+# Overview
+
+This project runs on [OpenGovernment.org](http://opengovernment.org) and was started by the [Participatory Politics Foundation](http://ppolitics.org).
+
+We welcome new developers to get involved. Read our [Contributors Guide](CONTRIBUTING.md) for details.
+  * Mailing list: Join our [developer list](http://groups.google.com/group/opengovernment/).
+  * IRC: Find us in chat.freenode.net channel [#opengovernment](irc://chat.freenode.net/opengovernment).
+  * [Pivotal Tracker](http://pivotaltracker.com/projects/64842) is our day-to-day project management space
+  * Bugs? [Lighthouse](https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment/overview) is where they go.
+
+# Installation: Prerequisites
 Before you install the app, you will need to download and install the following:
 
   * [Git](http://git-scm.com/)
