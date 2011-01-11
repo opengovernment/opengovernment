@@ -1,8 +1,8 @@
 # How to contribute
 
-OMG I am so excited that you're reading this. Being a non-profit, we need volunteer developers to help OpenGovernment come to fruition.
+We need volunteer developers to help this project come to fruition.
 
-So, where should you dive in? If you haven't already, come find us in IRC. We want you working on things you're excited about.
+So, where should you dive in? If you haven't already, come find us in IRC ([#opengovernment](irc://chat.freenode.net/opengovernment) on freenode). We want you working on things you're excited about.
 
 Here are some important resources:
 
@@ -13,11 +13,11 @@ Here are some important resources:
 
 ## Testing
 
-We have a handful of Cucumber features, but most of our testbed consists of RSpec examples. Please write examples for new code you create.
+We have a handful of Cucumber features, but most of our testbed consists of RSpec examples. Please write RSpec examples for new code you create.
 
 ## Submitting changes
 
-When you have an update for us, please send a [GitHub Pull Request](http://help.github.com/pull-requests/) to us with a clear list of what you've done. When you send a pull request, we will love you forever if you include RSpec examples. We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+Please send a [GitHub Pull Request to opengovernment](https://github.com/opengovernment/opengovernment/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, we will love you forever if you include RSpec examples. We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
 
