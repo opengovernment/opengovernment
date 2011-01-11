@@ -5,6 +5,7 @@ OMG I am so excited that you're reading this. Being a non-profit, we need volunt
 So, where should you dive in? If you haven't already, come find us in IRC. We want you working on things you're excited about.
 
 Here are some important resources:
+
   * Mailing list: Join our [developer list](http://groups.google.com/group/opengovernment/).
   * IRC: Find us in chat.freenode.net channel [#opengovernment](irc://chat.freenode.net/opengovernment).
   * [Pivotal Tracker](http://pivotaltracker.com/projects/64842) is our day-to-day project management space
@@ -27,6 +28,7 @@ Always write a clear log message for your commits. One-line messages are fine fo
 ## Coding conventions
 
 Start reading our code and you'll get the hang of it. We optimize for readability:
+
   * We indent using two spaces (soft tabs)
   * We use HAML for all views
   * We avoid logic in views, putting HTML generators into helpers
