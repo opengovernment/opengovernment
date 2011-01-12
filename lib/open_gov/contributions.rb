@@ -5,20 +5,35 @@ module OpenGov
 
       Contribution.delete_all
 
-      Person.with_nimsp_candidate_id.each do |person|
+      Person.with_transparencydata_id.each do |person|
         puts "Importing contributions for #{person.full_name}"
 
         begin
-          contributions = GovKit::FollowTheMoney::Contribution.find(person.nimsp_candidate_id)
-        rescue Crack::ParseError => e
-          puts e.class.to_s + ": Invalid JSON for person " + person.nimsp_candidate_id.to_s
-        rescue GovKit::ResourceNotFound => e
-          puts "Skipping #{person.full_name}--No contributions found."
-        end
+          entity = GovKit::TransparencyData::Entity.find_by_id(person.transparencydata_id)
+          entity.external_ids.each do |eid|
+            # Fetch the NIMSP external ids only.
+            page = 0
+            if eid[:namespace] == 'urn:nimsp:recipient'
+              page += 1
+              begin
+                contributions = GovKit::TransparencyData::Contribution.find(:transaction_namespace => 'urn:nimsp:transaction', :recipient_ext_id => eid[:id])
+
+                rescue Crack::ParseError => e
+                  puts e.class.to_s + ": Invalid JSON for person " + person.transparencydata_id
+                  contributions = []
+                  break
+                rescue GovKit::ResourceNotFound => e
+                  contributions = []
+                  break
+                end
+
+              end while contributions.size > 0
+            end
+          end
 
         contributions ||= []
 
-        puts "Fetched #{contributions.size} contributions from FollowTheMoney"
+        puts "Fetched #{contributions.size} contributions from TransparencyData"
 
         puts "Importing contributions..\n\n"
 

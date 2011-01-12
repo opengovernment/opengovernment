@@ -59,6 +59,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'chronic' # Complex date string parsing
 gem 'json'
+gem 'fastercsv'
 # gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 
 # Indexing and Search
