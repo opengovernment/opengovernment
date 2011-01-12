@@ -1,15 +1,17 @@
 # How to contribute
 
-We need volunteer developers to help this project come to fruition.
+I'm really glad you're reading this, because we need volunteer developers to help this project come to fruition.
 
-So, where should you dive in? If you haven't already, come find us in IRC ([#opengovernment](irc://chat.freenode.net/opengovernment) on freenode). We want you working on things you're excited about.
+If you haven't already, come find us in IRC ([#opengovernment](irc://chat.freenode.net/opengovernment) on freenode). We want you working on things you're excited about.
 
 Here are some important resources:
 
-  * Mailing list: Join our [developer list](http://groups.google.com/group/opengovernment/).
-  * IRC: Find us in chat.freenode.net channel [#opengovernment](irc://chat.freenode.net/opengovernment).
-  * [Pivotal Tracker](http://pivotaltracker.com/projects/64842) is our day-to-day project management space
+  * [OpenGovernment for Developers](http://opengovernment.org/pages/developer) tells you where we are,
+  * [Our roadmap](http://opengovernment.org/pages/wish-list) is the 10k foot view of where we're going, and
+  * [Pivotal Tracker](http://pivotaltracker.com/projects/64842) is our day-to-day project management space.
+  * Mailing list: Join our [developer list](http://groups.google.com/group/opengovernment/)
   * Bugs? [Lighthouse](https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment/overview) is where to report them
+  * IRC: chat.freenode.net channel [#opengovernment](irc://chat.freenode.net/opengovernment). We're usually there during business hours.
 
 ## Testing
 
