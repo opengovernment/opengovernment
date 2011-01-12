@@ -171,8 +171,12 @@ class Person < ActiveRecord::Base
     normalized_names.join(' ').gsub(' ', '_')
   end
 
+  def opencongress_url
+    govtrack_id.blank? ? nil : 'http://www.opencongress.org/people/show/' + govtrack_id.to_s
+  end
+
   def youtube_url
-    youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
+    youtube_id.blank? ? nil : 'http://www.youtube.com/user/' + youtube_id
   end
 
   def state_id
