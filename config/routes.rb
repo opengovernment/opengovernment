@@ -3,6 +3,8 @@ OpenGov::Application.routes.draw do
 
   match '/us_map(.:format)' => 'home#us_map', :as => 'us_map', :defaults => {:format => "html"}
 
+  match '/people/govtrack/:govtrack_id' => 'home#person_from_govtrack_id'
+
   constraints(Subdomain) do
     match '/search' => 'states#search', :as => 'state_search'
 

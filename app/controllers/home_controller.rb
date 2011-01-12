@@ -71,5 +71,17 @@ class HomeController < ApplicationController
 
     render :template => 'home/index'
   end
+  
+  # This is here and not in PersonController because PesonController is subdomained, and we need this
+  # available without a subdomain.
+  # eg. http://opengovernment.org/people/govtrack/300011
+  # Lookup a person by GovTrack ID and redirect to people#show
+  def person_from_govtrack_id
+    if person = Person.find_by_govtrack_id(params[:govtrack_id])
+      redirect_to(person_url(person, :subdomain => State.find(person.state_id).try(:abbrev).try(:downcase))) and return
+    else
+      resource_not_found
+    end
+  end
 
 end
