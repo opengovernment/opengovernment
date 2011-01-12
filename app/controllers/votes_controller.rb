@@ -1,4 +1,4 @@
-class VotesController < ApplicationController
+class VotesController < SubdomainController
   before_filter :get_state_and_session
   before_filter :get_vote
 
