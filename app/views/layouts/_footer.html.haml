@@ -1,5 +1,14 @@
 %div.footer.container_16
   .grid_4
+    %h4 Our Principles 
+    %ul
+      %li Free for everyone
+      %li Open-source 
+      %li Open standards
+      %li Not-for-profit 
+      %li Non-partisan 
+
+  .grid_4
     %h4 About Us 
     %ul
       %li= link_to 'About Us', page_url('about', :subdomain => false)
@@ -25,21 +34,19 @@
       %li= link_to 'How To Use OpenGovernment', page_url('about', :anchor => 'about', :subdomain => false)
       %li= link_to 'OpenGovernment for All 50 States', page_url('help', :subdomain => false)
       %li= link_to 'Our sibling: OpenCongress.org', 'http://www.opencongress.org/'
+      %li= link_to 'Badges', page_url('badges', :subdomain => false)
 
-  .grid_4
-    %h4 Our Principles 
-    %ul
-      %li Free for everyone
-      %li Open-source 
-      %li Open standards
-      %li Not-for-profit 
-      %li Non-partisan 
+
 
   .clearfix
 
 
-.sub_footer
-  .grid_16
+.sub_footer.container_16
+  .grid_12.alpha
     %p <a href="http://opengovernment.org/">OpenGovernment</a> is a free, libre, and open-source joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. Official government data comes from the community-driven <a href="http://openstates.sunlightlabs.com/">Open States Project</a>, with other info aggregated by the open-source <a href="https://github.com/opengovernment/govkit#readme">GovKit</a>.
-      
+
+  .grid_4.omega.by
+    %a.ppf by PPF
+    %a.sunlight and the Sunlight Foundation      
+
   .clearfix

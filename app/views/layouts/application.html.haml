@@ -62,6 +62,11 @@
         - if current_place
           .grid_7.omega.search_form
             = render 'shared/search_form'
+        - else
+          .grid_4.push_3.omega.by
+            %a.ppf by PPF
+            %a.sunlight and the Sunlight Foundation
+              
 
     %div.container_16.main.boxxed
       - unless flash.empty?
