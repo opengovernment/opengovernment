@@ -18,10 +18,6 @@
   - if default_session?
     %p= t '.current_session_intro'
 
-  %ul
-    - @available_sessions.each do |session|
-      %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name, state_path(:session => session)
-
   :ruby
     javascript do
       (%q|
