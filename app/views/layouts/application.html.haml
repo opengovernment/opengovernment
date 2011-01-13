@@ -24,7 +24,7 @@
     
     -# JS dropdowns for state and session selection
     - dropdown('a#dropdown', '.state-select')
-    - if @available_sessions.size > 1
+    - unless content_for?(:content) || @available_sessions.empty?
       - dropdown('a#session_dropdown', '.session-select')
 
     - if content_for? :js_hook
