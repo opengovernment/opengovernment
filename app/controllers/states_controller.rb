@@ -3,8 +3,6 @@ class StatesController < SubdomainController
     if @state.supported?
       session[:preferred_location] = request.subdomains.first
 
-      @available_sessions = Session.major.where("legislature_id = ?", @state.legislature).order("start_year desc, parent_id nulls first")
-
       bill = Bill.where(:session_id => @session).limit(5)
       @key_votes = bill.where(:votesmart_key_vote => true)
       @recent_bills = bill.order('last_action_at desc')
