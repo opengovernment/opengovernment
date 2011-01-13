@@ -11,7 +11,7 @@
 %hr
 
 .grid_1.alpha.details
-  = @vote.date.to_html
+  = @vote.date.try(:to_html)
 
 .grid_11.summary.omega
   %strong= @vote.passed? ? "Passed" : "Failed"

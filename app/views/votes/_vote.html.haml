@@ -2,7 +2,7 @@
 -# If no bill is passed in, show the motion without the bill number and title.
 -# If a person is passed in, show the person's vote as a column.
 %tr{:class => vote.committee? ? 'committee-vote' : ''}
-  %td.vote_date= vote.date.to_html
+  %td.vote_date= vote.date.try(:to_html)
 
   %td.vote-motion
     - if defined?(bill)
@@ -21,7 +21,7 @@
       %strong= roll_call.vote_type.capitalize
   %td.votes
     %span.total-votes.rounded= vote.total_count
-    %span.small-label total votes
+    %span.small-label all votes
   %td.votes{:class => vote.passed? ? 'vote-passed' : ''}
     %span.vote-yes.rounded= vote.yes_count.round
     %span.small-label yes votes
