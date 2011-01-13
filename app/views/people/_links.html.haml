@@ -7,4 +7,6 @@
 - if person.email?
   %li!= mail_to(person.email, nil, :encode => 'hex')
 - if person.youtube_id?
-  %li!= t('.youtube') + ": " + link_to(person.youtube_id, @person.youtube_url)
+  %li!= t('.youtube') + ": " + link_to(person.youtube_id, person.youtube_url)
+- if !person.opencongress_url.blank?
+  %li= link_to t('.opencongress', :full_name => person.full_name), person.opencongress_url

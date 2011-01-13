@@ -106,7 +106,7 @@ class Person < ActiveRecord::Base
   end
 
   scope :with_votesmart_id, :conditions => ['votesmart_id is not null']
-  scope :with_nimsp_candidate_id, :conditions => ['nimsp_candidate_id is not null']
+  scope :with_transparencydata_id, :conditions => ['votesmart_id is not null']
   scope :with_photo_url, :conditions => ['photo_url is not null']
   scope :with_current_role, :include => :current_roles
 
@@ -171,8 +171,12 @@ class Person < ActiveRecord::Base
     normalized_names.join(' ').gsub(' ', '_')
   end
 
+  def opencongress_url
+    govtrack_id.blank? ? nil : 'http://www.opencongress.org/people/show/' + govtrack_id.to_s
+  end
+
   def youtube_url
-    youtube_id.blank? ? nil : "http://www.youtube.com/user/" + youtube_id
+    youtube_id.blank? ? nil : 'http://www.youtube.com/user/' + youtube_id
   end
 
   def state_id

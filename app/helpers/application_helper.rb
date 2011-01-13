@@ -41,6 +41,21 @@ module ApplicationHelper
       end
   end
 
+  def dialog(dialog_selector, dialog_link_selector)
+    javascript do
+      (%Q|
+      $(document).ready(function() {
+        $("#{dialog_selector}").dialog({
+          autoOpen: false
+        });
+        $('#{dialog_link_selector}').click(function() {  
+          $('#{dialog_selector}').dialog('open');  
+        });
+      });
+    |)
+    end
+  end
+
   def tweets(q, limit = 5)
     javascript do
     (%Q|

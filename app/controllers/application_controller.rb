@@ -42,8 +42,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def resource_not_found
-    flash[:error] = "Sorry. We were not able to locate what you were looking for.."
-    redirect_to(home_url(:subdomain => false))
+    render 'public/404.html', :layout => false, :status => 404
   end
 
   private

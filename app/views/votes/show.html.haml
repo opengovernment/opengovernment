@@ -1,19 +1,5 @@
 - title("Vote on #{@vote.bill.bill_number}")
-:ruby
-  javascript do
-    (%q|
-    $(document).ready(function() {
-      $("#votes_needed_dialog").dialog({
-                  autoOpen: false
-              });
-      $('#votes_needed_why').click(function() {  
-                          $('#votes_needed_dialog').dialog('open');  
-                      });
-
-
-    });
-  |)
-  end
+- dialog('#votes_needed_dialog', '#votes_needed_why')
 
 %h1
   %span.state-and-chamber
@@ -25,7 +11,7 @@
 %hr
 
 .grid_1.alpha.details
-  = @vote.date.to_html
+  = @vote.date.try(:to_html)
 
 .grid_11.summary.omega
   %strong= @vote.passed? ? "Passed" : "Failed"

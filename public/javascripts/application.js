@@ -56,8 +56,6 @@ function create_dropdown_menu(anchor_div, menu_div) {
 }
 
 $(document).ready(function() {
-  create_dropdown_menu("a#dropdown", ".state-select");
-
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/
   $('a[rel=tipsy],span[rel=tipsy]').tipsy();

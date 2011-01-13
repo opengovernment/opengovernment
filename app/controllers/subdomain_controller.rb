@@ -20,6 +20,7 @@ class SubdomainController < ApplicationController
     return resource_not_found unless @state
     
     @session = lookup_session(params[:session])
+    @available_sessions = Session.major.where("legislature_id = ?", @state.legislature).order("start_year desc, parent_id nulls first")
   end
 
 end

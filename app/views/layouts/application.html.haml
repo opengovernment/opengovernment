@@ -21,13 +21,20 @@
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"
     = include_javascripts :common
+    
+    -# JS dropdowns for state and session selection
+    - dropdown('a#dropdown', '.state-select')
+    - unless content_for?(:content) || @available_sessions.empty?
+      - dropdown('a#session_dropdown', '.session-select')
 
     - if content_for? :js_hook
       %script(type='text/javascript' charset='UTF-8')
         = yield :js_hook
 
     = yield :head
+
     %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
+
   %body{:class => page_class}
 
     %div.container_16
@@ -64,8 +71,8 @@
             = render 'shared/search_form'
         - else
           .grid_4.push_3.omega.by
-            %a.ppf by PPF
-            %a.sunlight and the Sunlight Foundation
+            %a.ppf{:href => 'http://participatorypolitics.org/'} by PPF
+            %a.sunlight{:href => 'http://sunlightfoundation.org/'} and the Sunlight Foundation
               
 
     %div.container_16.main.boxxed
@@ -82,7 +89,16 @@
           = yield :before_left_nav
           .grid_4
             - if !default_session?
-              %p.prior_session #{current_session_name} session; #{link_to 'return to current', root_path}
+              %p.prior_session #{current_session_name} session
+            - else
+              %p.current_session #{current_session_name} session
+            - if @available_sessions.size > 1
+              %a#session_dropdown{:class => 'dropdown', :href => '#'}
+              .session-select
+                %span.triangle
+                %ul
+                  - @available_sessions.each do |session|
+                    %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name, state_path(:session => session)
             %nav#left_nav
               = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
             = yield :below_left_nav

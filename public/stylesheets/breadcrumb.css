@@ -42,6 +42,7 @@ display: none !important;
   line-height: 1.3em;
   margin: 0 !important;
   color: #215357;
+
   
   }
 
@@ -185,7 +186,7 @@ li.topnav .dropdown{
 
 
 
-.dropdown:hover{
+.topnav .dropdown:hover{
   background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fff);
   border: 1px solid #aaa !important;
   -moz-border-radius: 3px !important;
@@ -197,7 +198,7 @@ li.topnav .dropdown{
   }
 
 
-.dropdown.subhover{
+li.topnav .dropdown.subhover{
   background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
   border: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
@@ -214,3 +215,85 @@ li.topnav .dropdown{
   padding-left: 40px;
   }
 
+
+
+
+
+.prior_session{
+border-bottom: 1px solid #ccc;
+margin: 0 0 0  -26px;
+width: 206px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+  
+  
+padding: 5px 10px;
+}
+
+
+.current_session{
+border-bottom: 1px solid #ccc;
+margin: 0 0 0  -26px;
+width: 202px;
+padding: 5px 10px 5px 15px;
+}
+
+.prior_session a{
+float: right;
+}
+
+.sponsor_preview{
+padding-bottom: 20px;
+}
+
+
+.content .grid_4 .dropdown{
+height: 27px;
+width: 220px;
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+  background: url(/images/sprites.png) 190px -312px no-repeat;
+}
+
+
+
+
+.session-select{
+display: none;
+padding: 0 !important;
+margin: 0 0 0 -25px !important;
+
+width: 224px;
+}
+
+.session-select ul{
+width: 225px;
+margin: 0;
+}
+
+
+.session-select ul li{
+
+}
+
+.session-select ul li a{
+display: block;
+padding: 3px 0 3px 20px;
+  background: #dde9ea;
+  border-bottom: 1px solid #b8cfd1;
+
+}
+
+
+.session-select .triangle{
+display: none;
+}
+
+
+
+a#session_dropdown.dropdown.subhover{
+  background: url(/images/sprites.png) 190px -486px no-repeat;
+}

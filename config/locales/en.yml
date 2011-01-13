@@ -85,6 +85,7 @@ en:
       website_two: "Website Two"
       webmail: "Web E-Mail"
       youtube: "YouTube"
+      opencongress: "%{full_name} on OpenCongress"
     social:
       intro: |
         Here are the mentions found at this time via Twitter search for this member's full name: %{search_term}. If you tweet about this member using his or her full name, your tweet will automatically appear here in less than 24 hours.<br><br>
