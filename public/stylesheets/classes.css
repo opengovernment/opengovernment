@@ -537,7 +537,7 @@ margin-left: 32px;
 
 
 .by a.ppf:hover{
-  background: transparent url(/images/by-ppf.png) 0 -53px no-repeat !important;
+  background: transparent url(/images/by-ppf.png) 0 -50px no-repeat !important;
 }
 
 
@@ -551,7 +551,7 @@ width: 76px;
 
 
 .by a.sunlight:hover{
-  background: transparent url(/images/by-ppf.png) -102px -53px no-repeat !important;
+  background: transparent url(/images/by-ppf.png) -102px -50px no-repeat !important;
 }
 
 
