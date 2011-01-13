@@ -185,7 +185,7 @@ li.topnav .dropdown{
 
 
 
-.dropdown:hover{
+.topnav .dropdown:hover{
   background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fff);
   border: 1px solid #aaa !important;
   -moz-border-radius: 3px !important;
@@ -213,4 +213,52 @@ li.topnav .dropdown{
 .current{
   padding-left: 40px;
   }
+
+
+
+
+
+.prior_session{
+border-bottom: 1px solid #ccc;
+margin: 0 0 0  -26px;
+width: 206px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+  
+  
+padding: 5px 10px;
+}
+
+
+.current_session{
+border-bottom: 1px solid #ccc;
+margin: 0 0 0  -26px;
+width: 202px;
+padding: 5px 10px 5px 15px;
+}
+
+.prior_session a{
+float: right;
+}
+
+.sponsor_preview{
+padding-bottom: 20px;
+}
+
+
+.content .grid_4 .dropdown{
+height: 27px;
+width: 220px;
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+  background: url(/images/sprites.png) 190px -312px no-repeat;
+}
+
+
+
+
+
 
