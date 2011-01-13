@@ -42,6 +42,7 @@ display: none !important;
   line-height: 1.3em;
   margin: 0 !important;
   color: #215357;
+
   
   }
 
@@ -197,7 +198,7 @@ li.topnav .dropdown{
   }
 
 
-.dropdown.subhover{
+li.topnav .dropdown.subhover{
   background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
   border: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
@@ -260,5 +261,39 @@ left: 0;
 
 
 
+.session-select{
+display: none;
+padding: 0 !important;
+margin: 0 0 0 -25px !important;
+
+width: 224px;
+}
+
+.session-select ul{
+width: 225px;
+margin: 0;
+}
 
 
+.session-select ul li{
+
+}
+
+.session-select ul li a{
+display: block;
+padding: 3px 0 3px 20px;
+  background: #dde9ea;
+  border-bottom: 1px solid #b8cfd1;
+
+}
+
+
+.session-select .triangle{
+display: none;
+}
+
+
+
+a#session_dropdown.dropdown.subhover{
+  background: url(/images/sprites.png) 190px -486px no-repeat;
+}
