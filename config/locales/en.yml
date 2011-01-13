@@ -93,6 +93,9 @@ en:
   issues: 
     index: 
       title: 'Issue Areas in the %{legislature_name}'
+      intro: |
+        The %{legislature_name} officially assigns issue areas to legislation, but generally, the systems used across all 50 U.S. states are unstandardized and byzantine. Below we're showing the issue areas used most frequently in this state, those assigned to bills four or more times. Click the link at the bottom of the page to view all of the many thousands of bill subjects -- some very specific, others very broad.<br><br>
+        Our goal is to make bills easier to find and follow through issue areas. Towards this end, we seek non-profit funding support to manually assign the most-viewed bills in this state to one or more of the 46 legislative issue areas as determined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read <a href="/pages/help">how you can help</a>.
   support:
     array:
       words_connector: ", "

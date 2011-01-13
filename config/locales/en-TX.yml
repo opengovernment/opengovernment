@@ -87,11 +87,8 @@ en-TX:
   issues:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
-      intro: |
-        The bill "subjects" below are officially assigned to legislation by the Texas state legislature. Individual subjects can be very broad, or very specific, and are applied to bills using an unclear methodology -- sometimes more than a dozen subjects per bill, sometimes none.<br><br>
-        In the future, to make bills in Texas more intelligible, we seek to map every subject to one of the 46 legislative issue areas defined by the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> -- read more about <a href="/pages/help">how you can help</a>. Until then, below we're displaying the most-frequently used subjects in the Texas legislature, those applied to bills four times or more.<br><br>                
-           The next Texas legislature will convene on Jan. 11th, 2011, after which date new subjects will be introduced and appear here automatically as they are applied to bills.
-
+      intro: 
+          
   money_trails:
     index:
       intro: |

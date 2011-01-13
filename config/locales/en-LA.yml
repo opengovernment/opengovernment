@@ -64,8 +64,7 @@ en-LA:
   issues:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
-      intro: |
-        The Louisiana state legislature does not assign issue areas to legislation. As a workaround, OpenGovernment editors will work to manually assign one or more of the 46 legislative issue areas from the non-partisan <a href="http://votesmart.org/issue_rating.php" target="_blank">Project VoteSmart</a> to major bills in the Louisiana legislature. We seek to make bills more widely intelligible -- read <a href="/pages/help">how you can help</a>. 
+      intro: 
 
   money_trails:
     index:
