@@ -152,8 +152,8 @@ ALTER TABLE roll_calls
  FOREIGN KEY (person_id) REFERENCES people (id);
 
 ALTER TABLE contributions
- ADD CONSTRAINT contributions_business_id_fk
- FOREIGN KEY (business_id) REFERENCES businesses (id);
+ ADD CONSTRAINT contributions_code_fk
+ FOREIGN KEY (business_id) REFERENCES corporate_entities (transparencydata_code);
 
 ALTER TABLE bills
  ADD CONSTRAINT bills_session_id_fk
