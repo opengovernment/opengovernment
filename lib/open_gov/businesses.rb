@@ -4,40 +4,41 @@ module OpenGov
     # so we don't have to delete all contributions when we load businesses (the second time)
 
     def self.fetch
-      businesses = GovKit::TransparencyData::Categories.all
-      puts "Fetched #{businesses.size} businesses from FollowTheMoney"
-      businesses
+      industries = GovKit::TransparencyData::Categories.all
+      puts "Fetched #{industries.size} industries from TransparencyData"
+      industries
     end
 
     def self.import!
-      businesses = fetch
+      industries = fetch
       puts "Deleting existing businesses and contributions.."
       Contribution.delete_all
       CorporateEntity.delete_all
 
-      businesses.each do |business|
-        import_business(business)
+      industries.each do |industry|
+        import_industry(industry)
       end
     end
 
-    def self.import_business(bus)
-      puts "Importing: #{bus[:name]}"
- 
-      Industry.transaction do
-        industry = Industry.find_or_create_by_name(bus[:industry])
-        industry.save
+    def self.import_industry(row)
+      puts "Importing: #{row[:name]}"
 
+      industry = Industry.find_or_initialize_by_name(row[:name].titleize)
+      industry.parent_name = row[:industry].titleize
+      industry.transparencydata_code = row[:code]
+      industry.transparencydata_order = row[:order]
+      industry.save
 #        industry = Industry.find_or_create_by_nimsp_code(bus.imsp_industry_code) 
 #        industry.name = bus.industry_name
 #        industry.sector_id = sector.id
 #        industry.save
 #
-        business = Business.find_or_initialize_by_name(bus[:name])
+#        business = Business.find_or_initialize_by_name(bus[:name])
 #        business.sector_id = sector.id
-        business.industry_id = industry.id
-        business.transparencydata_'m thcode = bus[:code]
-        business.save
-      end
+#        business.industry_id = industry.id
+#        business.transparencydata_code = bus[:code]
+#        business.transparencydata_order = bus[:order]
+#        business.save
     end
   end
 end

@@ -161,14 +161,16 @@ ActiveRecord::Schema.define(:version => 72) do
     t.integer  "state_id"
   end
 
-  create_table "corporate_entities", :force => true do |t|
+  create_table "corporate_entities", :id => false, :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
     t.integer  "sector_id"
     t.integer  "industry_id"
-    t.string   "transparencydata_code", :limit => 5
+    t.string   "transparencydata_code",  :limit => 5
+    t.string   "transparencydata_order", :limit => 3
+    t.string   "parent_name"
   end
 
   create_table "delayed_jobs", :force => true do |t|

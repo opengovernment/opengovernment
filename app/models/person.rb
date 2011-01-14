@@ -106,7 +106,7 @@ class Person < ActiveRecord::Base
   end
 
   scope :with_votesmart_id, :conditions => ['votesmart_id is not null']
-  scope :with_transparencydata_id, :conditions => ['votesmart_id is not null']
+  scope :with_transparencydata_id, :conditions => ['transparencydata_id is not null']
   scope :with_photo_url, :conditions => ['photo_url is not null']
   scope :with_current_role, :include => :current_roles
 

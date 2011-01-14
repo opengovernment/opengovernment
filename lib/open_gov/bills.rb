@@ -61,13 +61,13 @@ module OpenGov
       build_people_hash
 
       puts "\nUpdating Open State bill data for #{state.name} from remote API"
-      
+
       if state.bills.count > 0
         bills = GovKit::OpenStates::Bill.latest(Bill.where(:state_id => state.id).maximum(:updated_at).to_date, :state => state.abbrev.downcase)
       else
         puts "You have no existing bills to update. Please import an initial set of bills for this state."
       end
-  
+
       if bills.empty?
         puts "No bills found \n"
       else
