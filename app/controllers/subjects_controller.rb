@@ -1,4 +1,4 @@
-class SubjectsController < ApplicationController
+class SubjectsController < SubdomainController
   before_filter :get_subject, :only => :show
 
   def index
