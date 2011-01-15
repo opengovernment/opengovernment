@@ -10,20 +10,15 @@
 - if defined?(show_tools)
   %aside.take_action.full_lined
     = render 'shared/share_tools', :message => "Share", :title => "I'm reading about #{@bill.to_hashtags} on OpenGovernment.org", :url => request.url
-    .hov.track_buttons
-      %h4.button
-        %span= t('bills.track.track')
-        .arrow
-      .drop.button
-        %ul
-          %li.rss 
-            = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
-            = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
-          %li.email 
-            %a
-              %span
-              = t('bills.track.email_alerts') 
-              %span.soon (coming soon)
+    %ul.track_buttons
+      %li.rss 
+        = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
+        = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
+      %li.email 
+        %a
+          %span.icon
+          = t('bills.track.email_alerts') 
+          %span.soon (coming soon)
 
     .hov.write_buttons
       %h4.button

@@ -8,12 +8,13 @@
 
 /* Styles for sharing buttons */
 
-ul.share {
+ul.share{
   list-style: none !important;
   padding: 4px;
-  margin: 10px 0 15px 34px !important;
+  margin: 10px 0 0px 34px !important;
   height: 20px;
 float: left;
+
   }
 
 
@@ -64,6 +65,7 @@ ul.share li a {
 }
 
 .share .digg a {
+display: none;
   background: url('/images/share.png') no-repeat -90px top;
 }
 
@@ -116,29 +118,39 @@ ul.share li a {
   }
 
 
-.hov.track_buttons ul li{
-  display: block !important;
-  float: none !important;
-  }
+.track_buttons li.rss,.track_buttons li.email  {
+float: left;  
+clear: none !important;
+}
 
-.hov.track_buttons ul li.rss a{
+.track_buttons{
+margin-left: 13px !important;
+float: left;
+
+}
+
+
+.track_buttons li.rss a{
   display: block !important;
-  float: none !important;
+  float: left !important;
   padding-left: 30px;
   background: url('/images/share.png') no-repeat -495px 0px;
-  margin: 15px;
+  margin: 13px 20px 0 0;
+  text-decoration: none !important;
+
   }
 
 
-.hov.track_buttons ul li.email a{
+.track_buttons li.email a{
   display: block !important;
-  float: none !important;
-  margin: 15px;
+  float: left !important;
+  margin: 5px 0 0 0;
   }
 
 
-li.email a span{
+li.email a span.icon{
   padding-left: 25px;
+  margin-top: 8px;
   height: 20px;
   margin-right: 5px;
   float: left;
@@ -152,6 +164,8 @@ font-weight: normal;
 padding-left: 29px;
   background: none;
 margin-top: -5px;  
+display: block;
+width: 90px;
 }
 
 
@@ -172,9 +186,6 @@ display: block;
   }
 
 
-.track_buttons{
-margin-left: 13px !important;
-}
 
 
 .track_buttons h4 span{
@@ -342,9 +353,9 @@ z-index: 1001;
 -webkit-box-shadow: inset 0 1px 0px #fff;
 box-shadow: inset 0 1px 0px #fff;
 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eaf8fb'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eaf8fb)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #fff,  #eaf8fb); /* for firefox 3.6+ */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eee'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
 
 
 }
