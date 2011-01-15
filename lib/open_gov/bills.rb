@@ -125,11 +125,13 @@ module OpenGov
           return
         end
 
-        bill.sources.each do |source|
-          @bill.citations << Citation.new(
-            :url => source.url,
-            :retrieved => Date.valid_date!(source.retrieved)
-          )
+        if bill[:sources]
+          bill.sources.each do |source|
+            @bill.citations << Citation.new(
+              :url => source.url,
+              :retrieved => Date.valid_date!(source.retrieved)
+            )
+          end
         end
 
         bill.actions.each do |action|

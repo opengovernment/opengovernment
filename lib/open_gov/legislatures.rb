@@ -7,7 +7,7 @@ module OpenGov
     end
 
     def self.import_one(state)
-      puts "Creating legislature & sessions for #{state.abbrev}"
+      puts "Importing legislature & sessions for #{state.abbrev}"
       if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
         leg = Legislature.find_or_create_by_state_id(state.id)
 
@@ -35,7 +35,7 @@ module OpenGov
             :end_year => t.end_year
           )
 
-          @session.children.delete_all
+#          @session.children.destroy_all
 
           t.sessions.each do |s|
             next if s == @session.name

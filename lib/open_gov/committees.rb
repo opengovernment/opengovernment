@@ -2,9 +2,9 @@ module OpenGov
   class Committees < Resources  
     COMMITTEE_DIR = File.join(Settings.openstates_dir, "api", "committees")
 
-    def self.import!
+    def self.import!(options = {})
       State.loadable.each do |state|
-        import_state(state)
+        import_state(state, options)
       end
     end
 
@@ -13,18 +13,15 @@ module OpenGov
         puts "Local Open States committee data not found in #{COMMITTEE_DIR}; fetching remotely instead."
         return import_state(state, :remote => true)
       end
-      
-      # Always import VoteSmart from remote data.
-      # Currently disabled because OpenStates no longer provides votesmart committee ids.
-      # import_all_from_votesmart(state)
-      
+
       if options[:remote]
         # Counters
         i = 0
 
         puts "---------- Loading #{state.name} committee data from remote OpenStates data."
         GovKit::OpenStates::Committee.search(:state => state.abbrev).each do |search_result|
-          if committee = GovKit::OpenStates::Committee.find(search_result.id)
+#          puts "fetching committee #{search_result[:id]}..."
+          if committee = GovKit::OpenStates::Committee.find(search_result[:id])
             i = i + 1
             import_openstates_committee(committee, state)
           else
@@ -32,7 +29,7 @@ module OpenGov
           end
         end
 
-        puts "OpenStates: Imported #{i} committees from remote data"
+        puts "OpenStates: Imported #{i} committees in #{state.abbrev} from remote data"
       else
         # Import from local data
         puts "---------- Loading #{state.name} committee data from local OpenStates data."
@@ -50,9 +47,6 @@ module OpenGov
     end
 
     def self.import_openstates_committee(os_com, state)
-        # Prerequisite: We've already fetched the committee via VoteSmart.
-        # We are keying off of that committee here, and augmenting the data.
-        # The true purpose of this method is to create committee memberships.
         legislature_id = state.legislature.id
         subclass = Committee.subclass_from_openstates_chamber(os_com.chamber)
 
@@ -65,6 +59,9 @@ module OpenGov
               committee.parent = subclass.find_by_openstates_id(os_com[:parent_id])
             end
             committee.save
+
+            # Delete all memberships for now, since we can't associate them with specific sessions.
+            committee.committee_memberships.destroy_all
 
             os_com.members.each do |os_role|
               if os_role[:leg_id] && person = Person.find_by_openstates_id(os_role[:leg_id])
@@ -84,30 +81,6 @@ module OpenGov
 
         end # transaction
     end
-    
-    def self.import_all_from_votesmart(state)
-      committees = GovKit::VoteSmart::Committee.find_by_type_and_state(nil, state.abbrev)
-      puts "---------- Loading #{state.name} committee metadata from VoteSmart."
-      i = 0
 
-      # This should be an array of Committee objects.
-      committees.committee.each do |committee|
-
-        i = i + 1
-
-        details = GovKit::VoteSmart::Committee.find(committee.committeeId)
-
-        c = Committee.subclass_from_votesmart_type(committee.committeetypeId).find_or_initialize_by_votesmart_id(committee.committeeId)
-        c.update_attributes!(
-          :name => committee.name,
-          :url => details.contact.url,
-          :legislature_id => state.legislature.id,
-          :votesmart_parent_id => (committee.parentId.to_i > 0 ? committee.parentId.to_i : nil),
-          :votesmart_type_id => committee.committeetypeId
-        )
-      end
-
-      puts "Imported #{i} committees."
-    end
   end
 end

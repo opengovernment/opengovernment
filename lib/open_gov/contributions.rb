@@ -54,7 +54,7 @@ module OpenGov
     end
 
     def self.make_contribution(person, con)
-      if category = Industry.find(con.contributor_category)
+      begin
         contribution = Contribution.create(
           :person_id => person.id,
           :state_id => person.state_id,
@@ -68,7 +68,7 @@ module OpenGov
           :contributor_name => con.contributor_name,
           :contributor_zipcode => con.contributor_zipcode
         )
-      else
+      rescue UniqueConstraint => e
         puts "Could not find contributor category with code #{con.contributor_category}; skipping."
       end
     end
