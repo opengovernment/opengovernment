@@ -4,9 +4,9 @@ en-TX:
   states:
     show:
         intro: |
-         <strong>Follow</strong> bills, votes, and money in the Texas legislature. <strong>Contact</strong> your elected officials about issues in your community.<br><br>
-         OpenGovernment is a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for Texas.
-        current_session_intro: "The 82nd Texas Legislature began on Jan 11, 2011. Last year, most bills were introduced in March."
+            Welcome to OpenGovernment, a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for the Texas legislature.<br><br>
+             <strong>Track</strong> bills, votes, and members of the TX Senate and House of Representatives. <strong>Follow</strong> the money trail and the issues you care about. <strong>Contact</strong> all of your elected officials. Click a category at left to get started, or find out who represents you below.
+        current_session_intro: "The 82nd Texas Legislature began on January 11th, 2011, and ends on May 30th, 2011. Last year, the vast majority of bills were introduced in March, followed by February and April."
         background: |
           More background on the Texas state legislature and the best explanations of how it works:
           <ul class="standard">
@@ -15,12 +15,15 @@ en-TX:
           <li><a href="http://ballotpedia.org/wiki/index.php/Texas">Ballotpedia</a>, including the 2010 elections for the <a href="http://www.ballotpedia.org/wiki/index.php/Texas_State_Senate_elections,_2010">Senate</a> and <a href="http://ballotpedia.org/wiki/index.php/Texas_House_of_Representatives_elections,_2010">House of Representatives</a></li>
           <li><a href="http://www.opencongress.org/states/TX">OpenCongress - Texas</a> page, featuring two federal senators and 32 representatives, including what people from Texas are tracking</li>
           <li><a href="http://www.opencongress.org/wiki/Texas">OpenCongress Wiki - Texas state blogroll</a></li>
-          <li>The National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring TX-relevant sites in the left-hand sidebar</li>
+          <li><a href="http://www.govloop.com/">GovLoop</a> - social networking for government, including employees from federal, state, and local government.</li>
+                    <li>The National Conference of State Legislatures' official blog, <a href="http://ncsl.typepad.com/the_thicket/">The Thicket</a>, featuring TX-relevant sites in the left-hand sidebar</li>
           <li><a href="http://www.texaswatchdog.org/">Texas Watchdog</a></li>
           <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
           <li><a href="http://sunshinereview.org/index.php/Texas">Sunshine Review - Texas</a>, a non-profit organization dedicated to state and local government transparency.</li>
           <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846323">Common Cause - Texas</a>, a non-profit, non-partisan citizens' lobby organization.</li>
           <li><a href="http://www.texastransparency.org/">Texas Transparency</a>, including a section, <a href="http://www.texastransparency.org/moneygoes/">Where the Money Goes</a>.</li>
+          <li><a href="http://www.law.cornell.edu/states/texas.html">Texas State Laws</a> online on the Cornell University <a href="http://www.law.cornell.edu/states/" target="_blank">Legal Information Institute</a> (LII).</li>    
+          </li>Official <a href="http://www.usa.gov/Agencies/State_and_Territories.shtml">State Government portal</a> from USA.gov.</li>
           </ul>
           ... this free public resource is still in early development -- much more to come, and you can <strong><a href="/pages/help">help us grow</a></strong>.<br><br>
           How did we get the above information? Well, the Texas legislature does not make its data available in ways that are fully open, but we worked around it. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
