@@ -244,8 +244,8 @@ CREATE OR REPLACE VIEW v_most_recent_roles AS
     ar.*
   FROM
     v_all_roles ar
-    left outer join (select id, row_number() over (partition by person_id order by end_date desc) as rnum
-    from roles ro) r on (r.id = ar.role_id)
+    left outer join (select role_id as id, row_number() over (partition by person_id order by end_date desc) as rnum
+    from v_all_roles ro) r on (r.id = ar.role_id)
   where r.rnum = 1;
 
 DROP VIEW v_tagged_actions;
