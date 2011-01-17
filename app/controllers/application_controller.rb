@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
 
     unless legislature.blank?
       unless param.blank?
-        return Session.where(["legislature_id = ? and upper(sessions.name) = upper(?)", legislature.id, param.titleize]).try(:first) || resource_not_found
+        return Session.where(["legislature_id = ? and upper(sessions.name) like upper(?)", legislature.id, param.gsub(/-/,'_')]).try(:first) || resource_not_found
       else
         return Session.most_recent(legislature).first
       end
