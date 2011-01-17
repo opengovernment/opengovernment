@@ -13,5 +13,7 @@ class DistrictsController < ApplicationController
         render :template => 'shared/unsupported'
       end
     end
+
+    render :layout => 'home'
   end
 end
