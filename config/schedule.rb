@@ -5,9 +5,9 @@
 
 # Whenever Examples: https://github.com/javan/whenever/wiki/instructions-and-examples
 
-every 1.day do
-  rake "sync:openstates sync:photos"
-end
+#every 1.day do
+#  rake "sync:openstates sync:photos"
+#end
 
 # GeoIP data is updated upstream monthly.
 every 1.month do
