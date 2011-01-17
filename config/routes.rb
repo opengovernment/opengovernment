@@ -9,6 +9,9 @@ OpenGov::Application.routes.draw do
     match '/search' => 'states#search', :as => 'state_search'
 
     resources :people, :only => [:show] do
+      collection do
+        get :search
+      end
       member do
         get :news
         get :sponsored_bills

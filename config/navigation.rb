@@ -108,8 +108,8 @@ SimpleNavigation::Configuration.run do |navigation|
         end
       end
 
-      primary.item :bills, 'Bills', bills_path(params[:session], :subdomain => current_place_subdomain), :class => 'bills primary-nav-bills primary-nav'
-      primary.item :people, 'People', people_path(params[:session], :subdomain => current_place_subdomain), :class => 'people primary-nav-people primary-nav' do |p|
+      primary.item :bills, 'Bills', bills_url(params[:session], :subdomain => current_place_subdomain), :class => 'bills primary-nav-bills primary-nav'
+      primary.item :people, 'People', people_url(params[:session], :subdomain => current_place_subdomain), :class => 'people primary-nav-people primary-nav' do |p|
         if defined?(current_place)
           p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path do |c|
             if defined?(@committee) && @committee[:type] == 'UpperCommittee'

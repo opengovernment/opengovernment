@@ -4,6 +4,7 @@ class DistrictsController < ApplicationController
 
     if @point
       @state = State.find_by_abbrev(@point.state)
+      @available_sessions = Session.major.complete.where("legislature_id = ?", @state.legislature).order("start_year desc, parent_id nulls first")
 
       if @state && @state.supported?
         return
@@ -14,6 +15,5 @@ class DistrictsController < ApplicationController
       end
     end
 
-    render :layout => 'home'
   end
 end
