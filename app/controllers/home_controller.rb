@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
-
   layout 'home'
-  
+
   DEFAULT_STATE_COLOR = '#DDDDDD'
   SUPPORTED_STATE_COLOR = '#FCFBE6'
   STATE_BORDER_COLOR = '#608BBF'

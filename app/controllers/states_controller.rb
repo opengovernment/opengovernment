@@ -8,18 +8,22 @@ class StatesController < SubdomainController
       @recent_bills = bill.order('last_action_at desc')
 
       @hot_people = Person.find_by_sql(["select
-          p.*,
-          current_district_name_for(p.id) as district_name,  
-          current_party_for(p.id) as party
-        from
-          people p left outer join roles r on (r.person_id = p.id)
-          join (select count(*) mentions_count, owner_id as person_id from mentions
-                  where owner_type = 'Person'
-                  group by owner_id) m on m.person_id = p.id
-        where
-          r.session_id = ?
-        order by m.mentions_count desc
-        limit 10
+        p.*,
+        current_district_name_for(p.id) as district_name,  
+        current_party_for(p.id) as party,
+        m.mentions_count
+      from
+        people p join (
+          select
+            count(*) mentions_count,
+            owner_id
+          from mentions m join roles r on (r.person_id = m.owner_id)
+          where m.owner_type = 'Person'
+            and r.session_id = ?
+          group by owner_id
+          order by mentions_count desc
+          limit 10) m
+        on m.owner_id = p.id
       ", @session.id])
 
     else
