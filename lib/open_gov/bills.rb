@@ -76,7 +76,7 @@ module OpenGov
             print '.'
             $stdout.flush
           end
-          import_bill(bill, state, {})
+          import_bill(GovKit::OpenStates::Bill.find(state.abbrev, bill[:session], bill[:bill_id], bill[:chamber]), state, {})
         end
       end
     end
@@ -112,7 +112,7 @@ module OpenGov
         unless @bill.new_record?
           @bill.actions.delete_all
           @bill.sponsors.delete_all
-          @bill.citations.delete_all
+          @bill.citations.destroy_all
           @bill.versions.destroy_all
           @bill.documents.destroy_all
           @bill.votes.destroy_all

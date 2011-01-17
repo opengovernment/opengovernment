@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 72) do
+ActiveRecord::Schema.define(:version => 73) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 72) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "state_id"
+    t.string   "transparencydata_id",    :limit => 50
   end
 
   create_table "corporate_entities", :id => false, :force => true do |t|
