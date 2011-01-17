@@ -120,10 +120,9 @@ top: -30px;
   -webkit-border-radius: 3px;
   border-radius:3px;
   
-  
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #666;
   
   
   -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
@@ -132,7 +131,7 @@ top: -30px;
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#ddddd'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
   
   }
 
@@ -144,6 +143,9 @@ top: -30px;
   }
 
 
+.button a{
+text-decoration: none !important;
+}
 
 /*///////////// ~  Type Stuff  ~ /////////////*/
 
@@ -529,15 +531,15 @@ height: 0;
 
 .by a.ppf{
 padding-top: 50px;
-width: 105px;
-margin-left: 32px;
-  background: transparent url(/images/by-ppf.png) 0 0 no-repeat !important;
+width: 85px;
+margin-left: 47px;
+  background: transparent url(/images/by-ppf.png) -20px 0 no-repeat !important;
 }
 
 
 
 .by a.ppf:hover{
-  background: transparent url(/images/by-ppf.png) 0 -50px no-repeat !important;
+  background: transparent url(/images/by-ppf.png) -20px -50px no-repeat !important;
 }
 
 

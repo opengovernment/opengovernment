@@ -10,9 +10,9 @@ h1 {
 
 font-size: 23px;
 margin: 0;
-padding: 28px 0px;  
+padding: 20px 0px 25px;  
 position: relative;
-line-height: 1em;
+line-height: 1.2em;
 }
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}

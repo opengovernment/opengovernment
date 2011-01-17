@@ -486,6 +486,11 @@ li.discuss{
 }
 
 
+li#person.person a{
+background: url(/images/primary_nav_icons.gif) 16px -29px no-repeat;
+}
+
+
 /*///////////////////////////
 
 ~ Views
@@ -548,7 +553,6 @@ li.discuss{
 input#q{
   border: 0;
   padding: 6px 8px;
-  border: 0;
   width: 180px;
   float: left;
   margin-top: 1px;
@@ -562,20 +566,25 @@ input#q{
   }
 
 
-.search input#q{
-  border: 0;
+.search_form input#q{
+  border: 0 !important;
   padding: 7px 8px 7px 30px;
-  border: 0;
   width: 187px;
   float: left;
   margin-top: 1px;
+
+
   -moz-box-shadow:inset 0 1px 1px #333;
   -webkit-box-shadow:inset 0 1px 1px #333;
   box-shadow:inset 0 1px 1px #333; 
+
+
   -moz-border-radius-topright: 0px;
   -moz-border-radius-bottomright: 0px;
   -webkit-border-radius-bottom-right: 0px;
   -webkit-border-radius-top-right: 0px;
+
+
   background: url(/images/search.png) 10px 9px no-repeat; 
   background: url(/images/search.png) 10px 9px no-repeat, -moz-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */
   background: url(/images/search.png) 10px 9px no-repeat, -webkit-linear-gradient(top,  #eee,  #fff); /* for firefox 3.6+ */ 
