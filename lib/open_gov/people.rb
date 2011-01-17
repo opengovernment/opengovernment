@@ -51,6 +51,8 @@ module OpenGov
           person = Person.new(:openstates_id => fs_person.leg_id)
         end
 
+#        puts fs_person.leg_id
+
         person.attributes = {
           :first_name => fs_person.first_name,
           :last_name => fs_person.last_name,
@@ -62,8 +64,6 @@ module OpenGov
           :updated_at => Date.valid_date!(fs_person.updated_at),
           :photo_url => fs_person.photo_url? ? fs_person.photo_url : nil
         }
-
-        puts person.full_name
 
         person.save! if person.changed?
 
@@ -82,7 +82,11 @@ module OpenGov
         
         # Unfortunately old_roles is a hash and roles is an array.
         # This may need to change if/when old_roles becomes an array.
-        all_roles = fs_person[:old_roles].attributes.values | fs_person[:roles]
+        if fs_person[:old_roles]
+          all_roles = fs_person[:old_roles].attributes.values | fs_person[:roles]
+        else
+          all_roles = fs_person[:roles]
+        end
 
         all_roles.flatten.each do |fs_role|
           legislature = state.legislature
