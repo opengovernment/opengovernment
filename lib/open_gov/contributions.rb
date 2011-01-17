@@ -20,17 +20,16 @@ module OpenGov
             contributions = []
 
             # Fetch the NIMSP external ids only.
-            puts "fetching '#{eid[:namespace]}' '#{eid[:id]}' page #{page}"
+            # puts "fetching '#{eid[:namespace]}' '#{eid[:id]}'"
             if eid[:namespace].eql?(IMSP_NAMESPACE)
               # Loop to get all contributions
               begin
                 page += 1
                 begin
                   contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :page => page)
-                  Contribution.transaction do
-                    contributions.each do |contribution|
-                      make_contribution(person, contribution)
-                    end
+
+                  contributions.each do |contribution|
+                    make_contribution(person, contribution)
                   end
                   # process them.
                 rescue Crack::ParseError => e
@@ -48,8 +47,6 @@ module OpenGov
         end
 
         puts "Fetched #{total} contributions from TransparencyData"
-
-        puts "Importing contributions..\n\n"
       end
     end
 
@@ -66,10 +63,11 @@ module OpenGov
           :date => Date.valid_date!(con.date),
           :contributor_city => con.contributor_city,
           :contributor_name => con.contributor_name,
-          :contributor_zipcode => con.contributor_zipcode
+          :contributor_zipcode => con.contributor_zipcode,
+          :transparencydata_id => con.transaction_id,
         )
-      rescue UniqueConstraint => e
-        puts "Could not find contributor category with code #{con.contributor_category}; skipping."
+      rescue ActiveRecord::InvalidForeignKey => e
+        puts "Could not find contributor category with code #{con.contributor_category} on transaction #{con.transaction_id}; skipping."
       end
     end
   end
