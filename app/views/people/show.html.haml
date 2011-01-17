@@ -32,7 +32,7 @@
     %p= t '.wikipedia_missing', :name => @person.full_name
   - else
     %p
-      = @person.bio_data
+      = raw @person.bio_data
       %br
       = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}", :class => 'more')
 
