@@ -47,11 +47,9 @@ en-LA:
   bills: 
     index:
       intro: |
-      Connect with bills in Louisiana. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>
-      On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.
-         
-    show: |
-      bill_text_intro: <em>(Files are in .pdf)
+        Connect with bills in Louisiana. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.  
+    show:
+      bill_text_intro: "<em>(Files are in .pdf)</em>"
     videos: 
       intro: |
         <em>Editorial note</em>: as far as what's out there now, some official video for legislation in Louisana is available on two video sites for the state <a href="http://house.legis.state.la.us/H_Video/Hse_Video_OnDemand.htm" target="_blank">House of Representatives</a> (including, to their credit, a <a href="http://rss.icerocket.com/xmlfeed?id=1294">video RSS feed</a> in the open XML standard, bravo) and <a href="http://senate.legis.state.la.us/video" target="_blank">Senate</a> (no feed found, unfortunately). But clearly, the design of these video sites is un-user-friendly. The House makes video available via an un-user-friendly website in the obscure .asx video format. The Senate still uses a closed format for its video files: "We recommend using Windows Media Player...". In brief, the Louisiana legislature is far, far behind technical best practices in publishing and displaying online video for the public. 

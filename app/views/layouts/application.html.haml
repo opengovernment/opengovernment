@@ -95,7 +95,7 @@
                 %span.triangle
                 %ul
                   - @available_sessions.each do |session|
-                    %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name, state_path(:session => session)
+                    %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
             %nav#left_nav
               = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
             = yield :below_left_nav

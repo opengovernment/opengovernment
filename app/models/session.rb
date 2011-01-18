@@ -43,7 +43,12 @@ class Session < ActiveRecord::Base
   end
 
   def name_fm
-    "#{name} " + (start_year == end_year ? "(#{start_year})" : "(#{start_year} &ndash; #{end_year})")
+    # Fix session names that look like 20092010.
+    if name =~ /^(\d{4})(\d{4})$/
+      "#{$1}-#{$2}"
+    else
+      name
+    end
   end
 
   def special_number

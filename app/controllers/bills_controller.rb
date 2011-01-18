@@ -110,7 +110,7 @@ class BillsController < SubdomainController
   def redirect_if_subsession
     # Indices are only available for primary sessions, not
     # subsessions.
-    if current_session.parent_id
+    if current_session[:parent_id]
       return redirect_to(url_for(params.merge({:session => current_session.parent})))
     end
   end

@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_session_name
-    current_session.try(:name)
+    current_session.try(:name_fm)
   end
 
   def current_place
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
 
     unless legislature.blank?
       unless param.blank?
-        return Session.where(["legislature_id = ? and upper(sessions.name) = upper(?)", legislature.id, param.titleize]).try(:first) || resource_not_found
+        return Session.where(["legislature_id = ? and upper(sessions.name) like upper(?)", legislature.id, param.gsub(/-/,'_')]).try(:first) || resource_not_found
       else
         return Session.most_recent(legislature).first
       end

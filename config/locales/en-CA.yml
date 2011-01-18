@@ -49,8 +49,7 @@ en-CA:
   bills:
     index:
       intro: |
-       Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>
-       On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed. 
+       Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed. 
     videos:
     show:
       bill_text_intro: |
@@ -80,7 +79,7 @@ en-CA:
           This page lists all publicly-available information about campaign contributions made to members of the California state
                   legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                   agencies with which candidates must file their campaign finance reports.<br><br>
-          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. This open resource is intended to build public knowledge about the pervasive role of money in politics and mitigate systemic corruption in state government. There are three tiers of contributors listed below: <em>sectors</em>, <em>industries</em>, and <em>businesses</em>. 
+          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. We hope this info helps build public knowledge about the pervasive role of money in politics.
   
   districts:
     search:
