@@ -189,10 +189,11 @@ class Person < ActiveRecord::Base
 
   def sync_photo!
     self.photo = do_download_remote_image
-    self.save(false)
+    self.save!
   end
 
   def refresh_photo?
+    # Only refresh the photo if it's newly added or changed.
     !self.photo_url.blank? && (self.photo_url_changed? || !self.photo?)
   end
 
