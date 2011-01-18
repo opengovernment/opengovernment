@@ -171,11 +171,11 @@ top: -30px;
   
   
   -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 2px #888;
-  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 1px #888;
+  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
+  box-shadow:  0 1px 0px #fff, inset 0 1px 1px #888;
   
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #ddd,  #eee); /* for firefox 3.6+ */
   
   }

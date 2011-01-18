@@ -5,15 +5,12 @@
 
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     %meta(name="apple-mobile-web-app-capable" content="yes")
-    %meta(name="viewport" content="user-scalable=no, width=device-width")
     %link(rel="apple-touch-icon-precomposed" href="/images/home_screen.png")
 
     = csrf_meta_tag
     = include_stylesheets :common, :other
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin'
-    <!--[if !IE]>-->
-    <link type="text/css" rel="stylesheet" media="only screen and (max-width: 480px)" href="/stylesheets/iphone.css">
-    <!--<![endif]-->
+
 
     <!--[if lt IE 9]>
     %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")

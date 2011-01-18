@@ -78,32 +78,10 @@ float: left;
 
 .signup_form input#_qf_Edit_next{
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold !important;
-  
-  text-shadow: 0 1px 0px #fff;
- padding: 7px; 20px;
+
 
 margin: 3px 0 0 25px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-font-size: 12px;  
 
-  border: 1px solid #a7c3c9;
-  border-top: 1px solid #c6d9de;
-  border-bottom: 1px solid #4e7179;
-  
-  
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow:0 1px 0px #ddd, inset 0 1px 0px #fff;
-  
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ecf9fc', endColorstr='#d6e8eb'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
-  
 }
 
 
@@ -959,6 +937,23 @@ margin-bottom: 20px;
 }
 
 
+
+.visit_blog{
+background: url(/images/blog.png) 0 0 no-repeat;
+display: block;
+position: absolute;
+right: 20px;
+top: 98px;
+width: 130px;
+height: 0;
+padding-top: 130px;
+overflow: hidden;
+}
+
+
+.visit_blog:hover{
+background: url(/images/blog.png) 0 -133px no-repeat;
+}
 
 
 
