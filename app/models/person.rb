@@ -207,8 +207,9 @@ class Person < ActiveRecord::Base
     def io.original_filename; base_uri.path.split('/').last; end
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e
+    # eg. 404
     puts "OpenURL error: #{e}"
-    # catch url errors with validations instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
+    raise
   rescue SystemCallError => e
     # eg. connection reset by peer
     puts "System call error: #{e}"
