@@ -11,16 +11,16 @@ height: 300px;
 
 
 
-.money_trails.index .intro p{
-  padding-right: 250px;
-  }
-
-
 .money_trails.index .intro div{
 width: 230px;
 height: 300px;
   background: url(/images/intros/money.png) 20px 15px no-repeat;
   }
+
+.money_trails.index .intro p{
+  padding-right: 250px;
+  }
+
 
 /*///////////////////////////////////////////////////
 
@@ -135,6 +135,58 @@ top: -30px;
   
   }
 
+
+
+.button:hover{
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #666;
+  
+  
+  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+  
+  }
+
+
+.button:active{
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  border: 1px solid #999;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #ccc;
+  
+  
+  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
+  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 2px #888;
+  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 1px #888;
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #ddd,  #eee); /* for firefox 3.6+ */
+  
+  }
+
+
+
+
+.button.medium{
+padding: 6px 12px;
+  cursor: pointer;
+  }
 
 .rounded{
   border-radius: 4px;
