@@ -51,7 +51,7 @@ en:
       major_actions: 'Major Action'
       email_alerts: 'Email Alerts'
     write:
-      write: 'Contact'
+      write: 'Write'
       find_your_rep: 'Find Your %{chamber_name}'
       location_prompt: 'ZIP Code'
     rss:
