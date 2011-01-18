@@ -49,8 +49,7 @@ en-CA:
   bills:
     index:
       intro: |
-       Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>
-       On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed. 
+       Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed. 
     videos:
     show:
       bill_text_intro: |
