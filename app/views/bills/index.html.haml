@@ -19,7 +19,7 @@
   %li
     %a{:href => upper_bills_path(@session, :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
 
-  %li.divider &#124;  
+  %li.divider &#124;
 
   %li
     %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
@@ -30,10 +30,14 @@
       Sort by
     - @sorts.each do |k, v|
       %li
-        = link_to(v, url_for(:sort => k), :class => (k.to_s == @sort ? 'active' : nil))
+        = link_to(v, url_for(:session => @session, :sort => k), :class => (k.to_s == @sort ? 'active' : nil))
 .space.clear
 
-%ul.lined.and_spaced#bill_list
-  = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => (['keyvotes','mentions'].include?(@sort) ? true : false)}
+- if @bills.empty?
+  %p= t '.bill_list_empty'
+- else
+  %ul.lined.and_spaced#bill_list
+    = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => (['keyvotes','mentions'].include?(@sort) ? true : false)}
+
 
 %a.more{:href => search_path(:search_type => 'bills')} Browse All Bills &rarr;
