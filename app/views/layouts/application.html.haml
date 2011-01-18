@@ -3,17 +3,17 @@
   %head
     %meta(charset="utf-8")
 
-    %meta(name="apple-mobile-web-app-status-bar-style" content="black")
-    %meta(name="apple-mobile-web-app-capable" content="yes")
-    %link(rel="apple-touch-icon-precomposed" href="/images/home_screen.png")
+    %meta(name='apple-mobile-web-app-status-bar-style' content='black')
+    %meta(name='apple-mobile-web-app-capable' content='yes')
+    %link(rel='apple-touch-icon-precomposed' href='/images/home_screen.png')
 
     = csrf_meta_tag
     = include_stylesheets :common, :other
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin'
-
+    :javascript
+      var _sf_startpt=(new Date()).getTime()
 
     <!--[if lt IE 9]>
-    %script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+    %script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
     <![endif]-->
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"
@@ -29,6 +29,7 @@
         = yield :js_hook
 
     = yield :head
+
 
     %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
 
@@ -112,3 +113,23 @@
     
     %script(type='text/javascript' charset='UTF-8')
       = yield :js_footer
+
+
+    :javascript
+      var _sf_async_config={uid:8875,domain:"opengovernment.org"};
+      (function(){
+        function loadChartbeat() {
+          window._sf_endpt=(new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src',
+             (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+             "js/chartbeat.js");
+          document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+           loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+
