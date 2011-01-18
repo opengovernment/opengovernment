@@ -128,6 +128,10 @@ class Person < ActiveRecord::Base
     normalized_names = [first_name, last_name].map { |name| name.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n, '') }
     normalized_names.join(' ').gsub(' ', '_')
   end
+  
+  def wikipedia_url
+    'http://en.wikipedia.org/wiki/' + wiki_name
+  end
 
   def opencongress_url
     govtrack_id.blank? ? nil : 'http://www.opencongress.org/people/show/' + govtrack_id.to_s

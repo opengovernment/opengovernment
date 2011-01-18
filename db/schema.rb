@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 74) do
+ActiveRecord::Schema.define(:version => 75) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -238,6 +238,7 @@ ActiveRecord::Schema.define(:version => 74) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "transparencydata_id"
+    t.string   "bio_url"
   end
 
   create_table "ratings", :force => true do |t|

@@ -31,10 +31,9 @@
   - if @person.bio_data.blank?
     %p= t '.wikipedia_missing', :name => @person.full_name
   - else
-    %p
-      = raw @person.bio_data
-      %br
-      = link_to(raw('More &rarr;'), "http://en.wikipedia.org/wiki/#{@person.wiki_name}", :class => 'more')
+    = raw @person.bio_data
+    %br
+    = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
 
 .space.clear
 

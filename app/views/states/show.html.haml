@@ -93,7 +93,7 @@
             Each represents approx.
             =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
             and serves four-year terms with a two-term limit.
-  
+
           %p
             %strong Committees:
             = succeed ',' do
@@ -109,9 +109,8 @@
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
   
             =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
-  
-.space
 
+.space
 
 .grid_12.alpha
   .italic.grid_8.alpha
