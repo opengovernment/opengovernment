@@ -1,5 +1,5 @@
-.corporate_identity
+.industry
   .floatright
-    = number_to_currency(corporate_entity.amount)
+    = number_to_currency(industry.amount)
 
-  %span= link_to(corporate_entity.name, money_trail_path(corporate_entity))
+  %span= link_to(industry.name, money_trail_path(industry))

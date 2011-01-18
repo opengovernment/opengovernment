@@ -1,18 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 ag:
   id: 1
-  type: Sector
   name: Agriculture
-  nimsp_code: 1
 serv:
   id: 2
-  type: Industry
   name: 'Agricultural Services & Products'
-  nimsp_code: 7
-  sector_id: 1
 machinery:
   id: 3
-  type: Business
   name: 'Farm machinery & equipment'
-  sector_id: 1
-  industry_id: 2

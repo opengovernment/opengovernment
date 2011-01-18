@@ -44,7 +44,7 @@ class Person < ActiveRecord::Base
   end
 
   # These queries also assume that contributions are ONLY associated
-  # with Businesses.
+  # with Industries.
 
   has_many :business_contributions, :foreign_key => "person_id",
            :class_name => "Contribution",

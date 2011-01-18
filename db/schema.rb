@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 73) do
+ActiveRecord::Schema.define(:version => 74) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(:version => 73) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "person_id"
-    t.string   "business_id",            :limit => 10
+    t.string   "industry_id",            :limit => 10
     t.integer  "contributor_state_id"
     t.string   "contributor_occupation"
     t.string   "contributor_employer"
@@ -161,20 +161,6 @@ ActiveRecord::Schema.define(:version => 73) do
     t.integer  "state_id"
     t.string   "transparencydata_id",    :limit => 50
   end
-
-  create_table "corporate_entities", :id => false, :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
-    t.integer  "sector_id"
-    t.integer  "industry_id"
-    t.string   "transparencydata_code",  :limit => 10
-    t.string   "transparencydata_order", :limit => 10
-    t.string   "parent_name"
-  end
-
-  add_index "corporate_entities", ["transparencydata_code"], :name => "transparencydata_code_un", :unique => true
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -190,6 +176,17 @@ ActiveRecord::Schema.define(:version => 73) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "industries", :id => false, :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "transparencydata_code",  :limit => 10
+    t.string   "transparencydata_order", :limit => 10
+    t.string   "parent_name"
+  end
+
+  add_index "industries", ["transparencydata_code"], :name => "transparencydata_code_un", :unique => true
 
   create_table "legislatures", :force => true do |t|
     t.string  "name"
