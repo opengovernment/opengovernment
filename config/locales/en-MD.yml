@@ -49,8 +49,9 @@ en-MD:
   bills:
     index:
       intro: |
-        Connect with bills in Maryland. We make state legislation more accessible by combining official government information with news coverage, blog posts, social media, and more. Bill pages below offer free tools to track their status, share them with your community, and easily contact your elected officials.<br><br>
-        <em>(The next Maryland legislature will convene in January 2011, after which date bills will appear here with continual updates of their latest actions.</em>)
+        Connect with bills in Maryland. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>
+           On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.
+           
     show: 
       bill_text_intro: |
         <em>(Files are in .pdf)</em>
@@ -79,7 +80,4 @@ en-MD:
        This page lists all publicly-available information about campaign contributions made to members of the Maryland state
                  legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                  agencies with which candidates must file their campaign finance reports.<br><br>
-                 The newly-elected Maryland legislature will convene in January 2011, after which time up-to-date campaign
-                 contribution info will appear here as soon as it's available. <br><br> The Money Trail on OpenGovernment
-                   makes it possible to connect the dots between bills, key votes, and campaign donations in state legislatures. We hope this page proves useful for political bloggers, issue-based groups, and citizen watchdogs to build public knowledge about the pervasive role of money in politics. In addition, we hope this information motivates citizens and members of the legislature to mandate real-time financial disclosure and fair elections for a trustworthy degree of transparency in government.
-
+         The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. This open resource is intended to build public knowledge about the pervasive role of money in politics and mitigate systemic corruption in state government. There are three tiers of contributors listed below: <em>sectors</em>, <em>industries</em>, and <em>businesses</em>.
