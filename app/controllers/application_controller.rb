@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_session_name
-    current_session.try(:name)
+    current_session.try(:name_fm)
   end
 
   def current_place
