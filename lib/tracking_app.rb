@@ -14,6 +14,7 @@ class TrackingApp
   end
 
   def self.store
+
     if key = valid_cache_key(@request.params['object_type'], @request.params['object_id'], @request.ip)
 
       if Rails.cache.read(key)
@@ -32,7 +33,10 @@ class TrackingApp
 
         page.mark_hit
       end
+    else
+      Rails.logger.warn "Invalid cache key (#{@request.params['object_type']}, #{@request.params['object_id']}, #{@request.ip})"
     end
+
   end
 
   # Validate that we've received a correct object_type and id, and

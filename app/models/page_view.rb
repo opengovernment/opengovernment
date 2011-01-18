@@ -10,7 +10,7 @@ class PageView
 
   protected
   def set_countable_type
-    countable_type = Page.find(page_id).countable_type
+    self[:countable_type] = Page.find(page_id).countable_type
   end
 
 end

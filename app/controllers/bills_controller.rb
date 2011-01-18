@@ -106,7 +106,7 @@ class BillsController < SubdomainController
 
     @bill || resource_not_found
   end
-  
+
   def redirect_if_subsession
     # Indices are only available for primary sessions, not
     # subsessions.
