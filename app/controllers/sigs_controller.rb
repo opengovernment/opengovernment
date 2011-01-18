@@ -1,4 +1,4 @@
-class SigsController < ApplicationController
+class SigsController < SubdomainController
   before_filter :find_sig, :only => [:show]
 
   def index
