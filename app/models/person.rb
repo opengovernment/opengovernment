@@ -43,48 +43,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  # These queries also assume that contributions are ONLY associated
-  # with Industries.
-
-  has_many :business_contributions, :foreign_key => "person_id",
-           :class_name => "Contribution",
-           :finder_sql => %q{
-              SELECT b.name, sum(c.amount) as amount
-              FROM corporate_entities b
-              inner join contributions c on c.business_id = b.id
-              where c.person_id = #{id}
-              group by b.name
-              order by amount desc
-              limit 20
-          }
-
-  has_many :industry_contributions, :foreign_key => "person_id",
-           :class_name => "Contribution",
-           :finder_sql => %q{
-             SELECT i.id, i.name, sum(c.amount) as amount
-             FROM corporate_entities b
-             inner join contributions c on c.business_id = b.id
-             inner join corporate_entities i on i.id = b.industry_id
-             where c.person_id = #{id}
---             and i.type = 'Industry'
-             group by i.id, i.name
-             order by amount desc
-             limit 20
-          }
-
-  has_many :sector_contributions, :foreign_key => "person_id",
-           :class_name => "Contribution",
-           :finder_sql => %q{
-             SELECT s.id, s.name, sum(c.amount) as amount
-             FROM corporate_entities b
-             inner join contributions c on c.business_id = b.id
-             inner join corporate_entities s on s.id = b.sector_id
-             where c.person_id = #{id}
-             group by s.id, s.name
-             order by amount desc
-             limit 20
-          }
-
   has_many :roll_calls do
     def yes
       find(:all, :conditions => {:vote_type => 'yes'})
