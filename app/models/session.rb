@@ -43,9 +43,11 @@ class Session < ActiveRecord::Base
   end
 
   def name_fm
-    # Fix session names that look like 20092010.
+    # Fix session names that look like 20092010 (2009-2010) or 81 (81st).
     if name =~ /^(\d{4})(\d{4})$/
       "#{$1}-#{$2}"
+    elsif name =~ /^(\d{2,3})$/
+      $1.to_i.ordinalize
     else
       name
     end
