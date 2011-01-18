@@ -10,7 +10,7 @@
 
 
 .grid_6.alpha
-  = render :partial => 'sector', :collection => @industries[0...@industries.size/2]
+  = render :partial => 'industry', :collection => @industries[0...@industries.size/2]
 
 .grid_6.omega
-  = render :partial => 'sector', :collection => @industries[@industries.size/2..@industries.size]
+  = render :partial => 'industry', :collection => @industries[@industries.size/2..@industries.size]

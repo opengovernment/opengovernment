@@ -69,7 +69,7 @@ class PeopleController < SubdomainController
   end
 
   def money_trail
-    @sectors = Sector.aggregates_for_person(@person).all
+    @industries = Industry.aggregates_for_person(@person).order('amount desc').limit(50)
     @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
   end
 

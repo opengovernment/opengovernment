@@ -17,7 +17,7 @@ class Industry < ActiveRecord::Base
     end
   end
 
-  scope :with_contribution_amounts, joins(:contributions).select("industries.transparencydata_code, industries.name, sum(contributions.amount) as amount").group("industries.transparencydata_code, industries.name")
+  scope :with_contribution_amounts, joins(:contributions).select('industries.transparencydata_code, industries.name, sum(contributions.amount) as amount').group('industries.transparencydata_code, industries.transparencydata_order, industries.name')
   scope :aggregates_for_state, lambda { |id| with_contribution_amounts.where(["contributions.state_id = ?", id]) }
   scope :aggregates_for_person, lambda { |id| with_contribution_amounts.where(["contributions.person_id = ?", id]) }
 

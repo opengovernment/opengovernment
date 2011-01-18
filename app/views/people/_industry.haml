@@ -1,1 +1,5 @@
-%li= render :partial => 'corporate_entity', :locals => {:corporate_entity => industry}
+%li.grid_6.alpha
+  .grid_4.alpha
+    = industry.name
+  .grid_2.omega
+    = number_to_currency(industry.amount)
