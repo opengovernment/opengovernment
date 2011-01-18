@@ -64,7 +64,7 @@ module OpenGov
           :contributor_city => con.contributor_city,
           :contributor_name => con.contributor_name,
           :contributor_zipcode => con.contributor_zipcode,
-          :transparencydata_id => con.transaction_id,
+          :transparencydata_id => con.transaction_id
         )
       rescue ActiveRecord::InvalidForeignKey => e
         puts "Could not find contributor category with code #{con.contributor_category} on transaction #{con.transaction_id}; skipping."
