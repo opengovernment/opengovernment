@@ -75,11 +75,12 @@ module OpenGov
       Rating.delete_all
 
       State.loadable.each do |state|
-        puts "Importing Ratings for .. #{state.name}"
+        puts "------- Importing Ratings in #{state.name}"
 
         state.chambers.each do |chamber|
           chamber.people.with_votesmart_id.each do |person|
-            puts "Importing Ratings for .. #{person.full_name} (#{person.votesmart_id})"
+            print "Importing Ratings for #{person.full_name}..."
+            i = 0
             state.special_interest_groups.each do |sig|
               begin
                 remote_ratings = [*GovKit::VoteSmart::Rating.find(person.votesmart_id, sig.votesmart_id)]
@@ -91,11 +92,13 @@ module OpenGov
                   rating.timespan = rr.timespan
                   rating.sig_id = SpecialInterestGroup.find_by_votesmart_id(rr.sigId).id
                   rating.save
+                  i += 1
                 end
               rescue GovKit::ResourceNotFound
-                puts "No ratings by #{sig.name} (#{sig.votesmart_id})"
+                # puts "No ratings by #{sig.name} (#{sig.votesmart_id})"
               end
             end # sigs
+            puts " #{pluralize(i, 'rating')}."
           end # people
         end # chambers
       end # states
