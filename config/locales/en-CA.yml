@@ -51,10 +51,10 @@ en-CA:
       intro: |
         Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>
         On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed. 
+
     videos:
     show:
-      bill_text_intro: |
-        <em>Links to California full bill text are coming soon.</em>
+      bill_text_intro: 
     videos: 
       intro: | 
         <em>California- editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video available in ways that are <a href="http://www.opengovdata.org/">fully open</a>. So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -80,7 +80,7 @@ en-CA:
           This page lists all publicly-available information about campaign contributions made to members of the California state
                   legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                   agencies with which candidates must file their campaign finance reports.<br><br>
-          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. This open resource is intended to build public knowledge about the pervasive role of money in politics and mitigate systemic corruption in state government. There are three tiers of contributors listed below: <em>sectors</em>, <em>industries</em>, and <em>businesses</em>. 
+          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. We hope this info helps build public knowledge about the pervasive role of money in politics.
   
   districts:
     search:

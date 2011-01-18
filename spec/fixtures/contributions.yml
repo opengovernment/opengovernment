@@ -1,7 +1,7 @@
 one:
   person: kirk
   state: tx
-  business_id: 3
+  industry_id: 3
   contributor_state_id: 35
   contributor_occupation: 'FARM EQUIPMENT DEALER'
   contributor_employer: 'ST JOSEPH EQUIPMENT INC'
@@ -15,7 +15,7 @@ two:
   state: tx
   date: 2009-10-20
   amount: 3000
-  business_id: 3
+  industry_id: 3
   contributor_state_id: 35
   contributor_occupation: 'FARM EQUIPMENT DEALER'
   contributor_employer: 'ST JOSEPH EQUIPMENT INC'
@@ -24,7 +24,7 @@ two:
   contributor_zipcode: '54601-2614'
 three:
   person: kirk
-  business_id: 3
+  industry_id: 3
   contributor_state_id: 6
   contributor_name: 'JOHN DEERE & CO'
   contributor_zipcode: 61265-8010
