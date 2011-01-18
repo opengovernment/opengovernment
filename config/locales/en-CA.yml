@@ -51,7 +51,7 @@ en-CA:
       intro: |
        Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed.
       bill_list_empty: |
-        The California session began recently and there are no bills here yet. You may <a href="/sessions/20092010/bills">browse the previous session's bills instead</a>.
+        The California session began recently and there are no bills here yet. You may <a href="/sessions/20092010/bills">browse the previous session's bills instead</a> -- for example, bills <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=mentions">most in the news</a> last year, or those rated <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=keyvotes">key votes</a> by Project VoteSmart. 
     videos:
     show:
       bill_text_intro: |

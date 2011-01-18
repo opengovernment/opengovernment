@@ -45,22 +45,45 @@
 
 %p As of November 2010, OpenGovernment has information for five state legislatures: California, Louisiana, Maryland, Texas, and Wisconsin. (Why these five states? The shortest answer is: these data problems are time- and work-intensive to solve, and it made sense for technical reasons to start with these five particular legislatures, which include two of the three biggest most-populous states in the country in CA and TX.) Over the course of the next year, we seek to roll out OpenGovernment to the remaining 45 U.S. state legislatures, and with additional resources, to more than a dozen major cities across the country. If you live in one of these five states, get started using OpenGovernment to track, understand, and contact your elected officials. If you don't live in one of these five states, please <a href="http://crm.ppolitics.org/">join our e-mail list</a> to receive project updates, as a version of OpenGovernment for your state is in the works -- <a href="/pages/help">you can help</a> speed it along and make it better, and until then you can explore our current offerings. We're a small team, easy to reach and eager to talk, that welcomes your questions and feedback -- let us know what you think! <a href="/pages/contact">Contact us.</a>
 
-%h2#our_data_sources <a href="/pages/about/our_data_sources">Our Data Sources</a> 
+%p A note of background: state governments generally do not comply with the open standards of the <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Government Data</a> in publishing their legislative data, of which they are the primary source and gatekeepers to the public, the community-driven <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has had to obtain official government information largely through a sub-optimal technical method known as <a href="http://en.wikipedia.org/wiki/Web_scraping" target="_blank">web scraping</a>. (This is the same process that brings data from the U.S. Congress into <a href="http://www.opencongress.org/" target="_blank">OpenCongress</a> -- read more <a href="http://www.opencongress.org/about#data_sources" target="_blank">about</a> those data sources.) Because state governments (indeed, government entities at most every level) are not up to contemporary technical best practices in making data accessible on the open Web, it's far more difficult than it needs to be for OpenGovernment to display bill & vote information, and it's not -- yet -- possible to provide details of legislative actions like roll call results in real-time to the public. This is a tremendous deficit to open public knowledge in our democracy and the effort to combat systemic corruption in government. In the near future, we're optimistic that open technology will do even more to ensure a sufficiently trustworthy degree of transparency in state & local legislative chambers. At the moment, we've tackled this challenge with the open-source community, and brought together, as best possible within our current resources, the following data sources on OpenGovernment.org: 
 
+%h2#our_data_sources <a href="/pages/about/our_data_sources">Our Data Sources</a> 
 
 .data.floatleft
   = image_tag('pages/datascape.png')
 
+%p At its core, OpenGovernment is a web application for aggregating and displaying government information alongside social wisdom from around the Web, campaign contribution data, and free public participation tools.   
 
-%p OpenGovernment is based on OpenCongress -- we combine official government information with news coverage, blog posts, and more to give you the real story behind what's happening in government. The information displayed on OpenGovernment is uniquely aggregated by the open-source <a href="https://github.com/opengovernment/govkit">GovKit</a> API wrapper.
+%p The information displayed on OpenGovernment is uniquely aggregated by the open-source <a href="https://github.com/opengovernment/govkit">GovKit</a> API wrapper, which can be remixed for government at any level: state, city, local, international, and more. We're eager to scale up and roll out OpenGovernment to all 50 U.S. states and beyond -- find out <a href="/pages/help">how you can help</a> fund our non-profit work and bring a version of OpenGovernment to your area.
 
-%p Please note: because state governments do not comply with the <a href="http://www.opengovdata.org/" target="_blank">Eight Principles of Open Government Data</a>, the community-driven <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has had to obtain official government information largely through a sub-optimal technical method known as <a href="http://en.wikipedia.org/wiki/Web_scraping" target="_blank">web scraping</a>. (This is the same process that brings data from the U.S. Congress into <a href="http://www.opencongress.org/" target="_blank">OpenCongress</a> -- read more <a href="http://www.opencongress.org/about#data_sources" target="_blank">about</a> those data sources.) Because state governments generally are not up to contemporary technical best practices in making data accessible on the open Web, it's far more difficult than it needs to be for OpenGovernment to display legislative information, and it's not possible to provide details of legislative actions like roll call results in real-time to the public. This is a tremendous deficit to contemporary public knowledge. In the near future, we're optimistic that open technology will do even more to ensure radical transparency. At the moment, we've tackled this challenge with the open-source community, and brought together, as best possible within our current resources, the following data sources on OpenGovernment.org: 
+% %p OpenGovernment, in other words, is based on the OpenCongress model of transparency: combining official legislative information with news coverage, blog posts, social media mentions, public comment forums, community wiki projects, and more to give you the real story behind what's happening in government. In summary, our open data sources are the following: 
+%ol
+  %li 
+    %p Official state government data from the <a href=\"http://openstates.sunlightlabs.com/\">Open States Project</a>
+  %li 
+    %p News and blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a> 
+  %li 
+    %p Campaign contribution data from <a href="http://www.followthemoney.org/">FollowTheMoney.org</a>, via <a href="http://transparencydata.com/" target="_blank">TransparencyData</a>
+  %li 
+    %p Issue group ratings and legislator contact information from <a href="http://votesmart.org/">Project VoteSmart</a>
+  %li 
+    %p Social media mentions from the <a href="http://apiwiki.twitter.com/w/page/22554648/FrontPage">Twitter API</a>
+  %li 
+    %p Legislator biographies from <a href="http://www.wikipedia.org/">Wikipedia</a>
+  %li 
+    %p Video - to be crowdsourced for each state on <a href="http://www.mirocommunity.org/">Miro Community</a>. 
+  %li 
+    %p U.S. Congressional data from <a href="http://thomas.loc.gov/">THOMAS</a> via our data partner <a href="http://govtrack.us/">GovTrack</a> and the <a href="http://www.opencongress.org/api">OpenCongress API</a>. 
+  %li 
+    %p Geographic maps of districts from the <a href="http://www.census.gov/" target="_blank">U.S. Census Bureau</a>
+    
+%p ... in more detail, and with a look ahead to our near-future open-source development roadmap, more about our data sources: 
 
 %ol
   %li 
-    %p The primary source for all legislative information on OpenGovernment is an official state government website, e.g., a state Senate or Assembly website with a .gov URL suffix. This mishmash of data is then standardized and delivered to OpenGovernment by the <a href=\"http://openstates.sunlightlabs.com/\">Open States Project</a> of Sunlight Labs and its volunteer community, consisting of the following: bills, members, actions, votes, committees, and more. The data stream from Open States forms the legislative backbone of the site. 
+    %p The primary source for all legislative information on OpenGovernment is an official state government website, e.g., a state Senate or Assembly website with a .gov URL suffix. This mishmash of data is then standardized and delivered to OpenGovernment by the <a href=\"http://openstates.sunlightlabs.com/\">Open States Project</a> coordinated by <a href="http://sunlightlabs.com/" target="_blank">Sunlight Labs</a> and its terrific volunteer community, consisting of the following: bills, members, actions, votes, committees, and more. This data stream of official legislative actions from Open States forms the legislative backbone of the site. 
   %li 
-    %p News and blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a>, using aggregators as seen on OpenCongress. 
+    %p News and blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a>, using aggregators as developed previously on OpenCongress and optimized for state-level legislation. 
   %li 
     %p Campaign contribution data from the non-profit, non-partisan website of the National Institute on Money in State Politics (NIMSP), <a href="http://www.followthemoney.org/">FollowTheMoney.org</a>, via <a href="http://transparencydata.com/" target="_blank">TransparencyData</a>. Forthcoming, we seek to bring in much more state-level money-in-politics data from <a href="http://maplight.org/">MAPLight</a>, as seen in their <a href="http://maplight.org/california" target="_blank">MAPLight - California</a> state site, as well as the terrific public accountability wiki project, <a href="http://littlesis.org/" target="_blank">LittleSis</a>. 
   %li 
@@ -73,8 +96,9 @@
     %p Video - to be crowdsourced for each state on the <a href="http://www.mirocommunity.org/">Miro Community</a> platform, a project of the non-profit <a href="http://pculture.org/">Participatory Culture Foundation</a>. 
   %li 
     %p U.S. Congressional data from <a href="http://thomas.loc.gov/">THOMAS</a> and other sources via our data partner <a href="http://govtrack.us/">GovTrack</a>, also via the <a href="http://www.opencongress.org/api">OpenCongress API</a>,the <a href="http://sunlightlabs.com/projects/sunlight-labs-api/" target="_blank">Sunlight Labs Congress API</a>, and the <a href="http://www.opencongress.org/wiki/Project:OpenGovernment">OG Community Project</a> on the <a href="http://www.opencongress.org/wiki/Wiki_Home">OpenCongress Wiki</a> (built on semantic MediaWiki).
+  %li 
     %p Geographic maps of districts from the U.S. Census Bureau, with planned enhancements to come (viz., making the maps dynamic, as seen in typical Google Maps) via the open-source <a href="http://geoserver.org/" target="_blank">GeoServer</a>.
-  %li  
+    
 %p ... there are lots of ways you can <a href="/pages/help">help us</a> add more useful data sources, liberate more public data from state legislatures, and remix the open data we've already liberated for greater transparency and accountability. <a href="/pages/contact">Get in touch</a>. 
 
 %h2#how_to_use_og <a href="/pages/about/how_to_use_og">How To Use OpenGovernment</a>

@@ -71,7 +71,7 @@ en-TX:
       intro: |
        Connect with bills in Texas. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.
       bill_list_empty: |
-        The Texas session began recently and there are no bills here yet. You may <a href="/sessions/81/bills">browse the previous session's bills instead</a>.
+        The Texas session began recently and there are no bills here yet. You may <a href="/sessions/81/bills">browse the previous session's bills instead</a> -- for example, those bills <a href="http://tx.opengovernment.org/sessions/81/bills?sort=mentions">most in the news</a> last year, or those rated <a href="http://tx.opengovernment.org/sessions/81/bills?sort=keyvotes">key votes</a> by Project VoteSmart.
     show: 
       bill_text_intro: | 
         <em>(Links above go to official .gov website)</em>
