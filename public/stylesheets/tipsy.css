@@ -29,7 +29,6 @@ z-index: 100000;
   -webkit-box-shadow:  0 1px 2px #aaa, inset 0 1px 0px #fff;
   box-shadow: 0 1px 2px #aaa, inset 0 1px 0px #fff;
   
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#d6e8eb'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d6e8eb)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #d6e8eb); /* for firefox 3.6+ */
   }

@@ -94,7 +94,6 @@ li.topnav a{
   border-top: 1px solid #ccc;
 
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#efefef'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#efefef)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #efefef); /* for firefox 3.6+ */
  
@@ -154,7 +153,6 @@ li.topnav a{
 
 .state-select li a:hover{  
   text-shadow: 0 2px 0px #fff;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff') !important; /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)) !important; /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #f6f6f6,  #fff) !important; /* for firefox 3.6+ */
   }
@@ -223,7 +221,6 @@ li.topnav .dropdown.subhover{
 border-bottom: 1px solid #ccc;
 margin: 0 0 0  -26px;
 width: 206px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffff', endColorstr='#eeeeee'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
   
