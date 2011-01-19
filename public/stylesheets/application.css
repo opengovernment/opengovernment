@@ -60,7 +60,6 @@ body td {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7fbfb', endColorstr='#ffffff'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#fff)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #f7fbfb, #fff); /* for firefox 3.6+ */
   }
@@ -93,7 +92,6 @@ nav.faceted a:hover {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f7fbfb'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
   }
@@ -108,7 +106,6 @@ nav.faceted a:active {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7fbfb', endColorstr='#fff'); /* for IE */
   background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#fff)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #f7fbfb, #fff); /* for firefox 3.6+ */
   }
