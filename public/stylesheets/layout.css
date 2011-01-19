@@ -410,7 +410,7 @@ li.discuss{
 
 #left_nav ul li.selected ul li a{
   margin: 0;
-  padding: 8px 0 8px 35px;
+  padding: 8px 0 8px 45px !important;
   background: none;
   }
 
@@ -464,10 +464,14 @@ li.discuss{
 }
 
 
-li#person.person a{
-background: url(/images/primary_nav_icons.gif) 16px -29px no-repeat;
+li#person.person a.selected{
+padding-left: 35px;
+background: #fbfcfd url(/images/primary_nav_icons.gif) 16px -29px no-repeat !important;
 }
 
+li#person.person ul li a.selected{
+background: #cddcde !important;
+}
 
 /*///////////////////////////
 
