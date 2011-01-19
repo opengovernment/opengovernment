@@ -14,7 +14,8 @@ ul.share{
   margin: 10px 0 0px 34px !important;
   height: 20px;
 float: left;
-
+width: 210px;
+overflow: hidden;
   }
 
 
@@ -145,6 +146,8 @@ float: left;
   display: block !important;
   float: left !important;
   margin: 5px 0 0 0;
+
+width: 110px;
   }
 
 
@@ -172,7 +175,7 @@ width: 90px;
 .write_buttons,
 .write_button {
   float: left;
-  margin: 10px 0 10px 13px !important;
+  margin: 10px 0 10px 0px !important;
   }
 
 

@@ -25,8 +25,6 @@
   .sponsor_preview
     %h2= pluralize(@sponsors.count, 'Sponsor')
     = link_to('See all', sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
-    .sponsor_mugs
-      = sponsor_mugs(@sponsors, :limit => 10)
     %ul.lined
       - @sponsors.each do |s|
         - if !s.sponsor_id || s.sponsor.photo_url.blank?
@@ -34,6 +32,9 @@
             - surround '',',' do
               = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
             = s.kind_fm
+
+    .sponsor_mugs
+      = sponsor_mugs(@sponsors, :limit => 10)
   %br
   %h2 Subject Areas
   - if @bill.subjects.any?
