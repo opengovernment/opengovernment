@@ -30,9 +30,9 @@ class Committee < ActiveRecord::Base
 
   def type_fm
     if self.class == ::LowerCommittee
-      legislature.upper_chamber.short_name
-    elsif self.class == ::UpperCommittee
       legislature.lower_chamber.short_name
+    elsif self.class == ::UpperCommittee
+      legislature.upper_chamber.short_name
     elsif self.class == ::JointCommittee
       'Joint'
     end
