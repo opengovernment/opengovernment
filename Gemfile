@@ -67,8 +67,12 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :require => 'thinking_sphinx',
      :branch => 'rails3'
 
-group :development, :test do 
- gem 'silent-postgres' # Quieter postgres log messages
+group :development do
+  gem 'silent-postgres' # Quieter postgres log messages
+  gem 'rails_complete'
+  gem 'wirble'
+  gem 'hirb'
+  gem 'awesome_print'
 end
 
 # Bundle gems used only in certain environments:
