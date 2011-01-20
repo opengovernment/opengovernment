@@ -17,11 +17,11 @@ module OpenGov
     # after that, we always want to use import_state(state)
     def self.import!(options = {})
       State.loadable.each do |state|
-        import_one(state, options)
+        import_state(state, options)
       end
     end
 
-    def self.import_one(state, options = {})
+    def self.import_state(state, options = {})
       build_people_hash
 
       if options[:remote]
@@ -31,7 +31,7 @@ module OpenGov
 
         unless File.exists?(state_dir)
           puts "Local Open State API data for #{state.name} is missing."
-          return import_one(state, :remote => true)
+          return import_state(state, :remote => true)
         end
 
         puts "\nLoading local Open State data for #{state.name}."

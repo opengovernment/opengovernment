@@ -302,7 +302,7 @@ namespace :load do
   desc "Fetch and load legislatures from Open State data"
   task :legislatures => :environment do
     with_states do |state|
-      state ? OpenGov::Legislatures.import_one(state) : OpenGov::Legislatures.import!
+      state ? OpenGov::Legislatures.import_state(state) : OpenGov::Legislatures.import!
     end
   end
 
@@ -316,8 +316,8 @@ namespace :load do
     puts "Loading bills from Open State data"
     with_states do |state|
       if state
-        OpenGov::Bills.import_one(state)
-        OpenGov::KeyVotes.import_one(state)
+        OpenGov::Bills.import_state(state)
+        OpenGov::KeyVotes.import_state(state)
       else
         OpenGov::Bills.import!
         OpenGov::KeyVotes.import!
@@ -327,7 +327,9 @@ namespace :load do
 
   desc "Fetch and load committees from OpenStates"
   task :committees => :environment do
-    OpenGov::Committees.import!
+    with_states do |state|
+      state ? OpenGov::Committees.import_state(state) : OpenGov::Committees.import!
+    end 
   end
 
   desc "Fetch and load industries from FollowTheMoney"
@@ -337,13 +339,15 @@ namespace :load do
 
   desc "Fetch and load contributions from FollowTheMoney"
   task :contributions => :environment do
-    OpenGov::Contributions.import!
+    with_states do |state|
+      state ? OpenGov::Contributions.import_state(state) : OpenGov::Contributions.import!
+    end
   end
 
   desc "Fetch and load people from OpenStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     with_states do |state|
-      state ? OpenGov::People.import_one(state) : OpenGov::People.import!
+      state ? OpenGov::People.import_state(state) : OpenGov::People.import!
     end
 
     Dir.chdir(Rails.root)

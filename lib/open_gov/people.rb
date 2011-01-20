@@ -4,11 +4,11 @@ module OpenGov
 
     def self.import!(options = {})
       State.loadable.each do |state|
-        import_one(state, options)
+        import_state(state, options)
       end
     end
 
-    def self.import_one(state, options = {})
+    def self.import_state(state, options = {})
       if options[:remote]
         # Counters
         i = 0
@@ -22,7 +22,7 @@ module OpenGov
       else
         unless File.exists?(LEG_DIR)
           puts "Local Open States data not found in #{LEG_DIR}; fetching remotely instead."
-          return import_one(state, :remote => true)
+          return import_state(state, :remote => true)
         end
 
         state_legs = File.join(LEG_DIR, "#{state.abbrev}*")

@@ -88,7 +88,7 @@ class BillsController < SubdomainController
         # get the people out in page view order. AND we need an SQL in clause for the people.
 
         # It does result in only one SQL call, though.
-        # Good thing this is only ever limited to 10 or 20 people.
+        # Good thing this is only ever limited to 10 or 20 items.
         countable_ids = Page.most_viewed('Bill').collect(&:countable_id)
 
         bills.find_in_explicit_order('bills.id', countable_ids)

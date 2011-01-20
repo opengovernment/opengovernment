@@ -4,12 +4,18 @@ module OpenGov
     # This value for transaction_namespace= in TD API cals limits our queries with TransparencyData to the NIMSP dataset.
     IMSP_NAMESPACE = 'urn:nimsp:recipient'
     
-    def self.import!
-      puts "Deleting existing contributions.."
+    def self.import!(options = {})
+      State.loadable.each do |state|
+        import_state(state, options)
+      end
+    end
 
-      Contribution.delete_all
+    def self.import_state(state, options = {})
+      puts "Deleting existing contributions in #{state.abbrev}."
 
-      Person.with_transparencydata_id.each do |person|
+      Contribution.delete_all(['person_id in (select person_id from roles where state_id = ? or (district_id in (select id from districts where state_id = ?)))', state.id, state.id])
+
+      Person.find_by_sql(['SELECT distinct people.* FROM "roles" INNER JOIN "people" ON "people"."id" = "roles"."person_id" WHERE (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?) AND (people.transparencydata_id is not null)', state.id, state.id]).each do |person|
         puts "Importing contributions for #{person.full_name}"
         total = 0
 

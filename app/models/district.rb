@@ -5,7 +5,7 @@ class District < Place
   belongs_to :chamber
   validates_presence_of :state_id, :name
 
-  scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n] } }
+  scope :numbered, lambda { |n| { :conditions => ["trim(leading '0' from census_sld) = ?", n.gsub(/^0+/, '')] } }
   scope :for_x_y, lambda { |lat, lng| { :conditions => ["ST_Contains(geom, ST_GeomFromText('POINT(? ?)', ?))", lng, lat, SRID] } }
   scope :for_state, lambda { |n| { :conditions => ['state_id = ?', n] } }
   

@@ -46,5 +46,5 @@ class Chamber < ActiveRecord::Base
 
   validates_uniqueness_of :name, :scope => :legislature_id
   validates_uniqueness_of :type, :scope => :legislature_id
-  validates_numericality_of :term_length, :only_integer => true
+  validates_numericality_of :term_length, :only_integer => true, :allow_nil => true
 end
