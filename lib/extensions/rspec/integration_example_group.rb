@@ -47,6 +47,12 @@ module RSpec::Rails
       end
     end
 
-    RSpec.configure &include_self_when_dir_matches('spec','integration')
+    # RSpec.configure &include_self_when_dir_matches('spec','integration')
+    RSpec.configure do |c|
+      c.include self, :example_group => {
+        :file_path => /spec\/integration/
+      }
+    end
+
   end
 end

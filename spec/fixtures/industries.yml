@@ -1,10 +1,13 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# read about fixtures at http://ar.rubyonrails.org/classes/fixtures.html
 ag:
-  id: 1
   name: Agriculture
+  transparencydata_code:  'A0000'
+  transparencydata_order: 'A11'
 serv:
-  id: 2
   name: 'Agricultural Services & Products'
+  transparencydata_code:  'A4000'
+  transparencydata_order: 'A07'
 machinery:
-  id: 3
   name: 'Farm machinery & equipment'
+  transparencydata_code:  'A4200'
+  transparencydata_order: 'A07'

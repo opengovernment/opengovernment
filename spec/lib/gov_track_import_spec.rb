@@ -30,7 +30,7 @@ describe GovTrackImporter do
       end.should change(Person, :count).by(@people.size)
 
       @people.each do |person|
-        Person.find_by_govtrack_id(person.attributes['id']).should_not == nil
+        Person.find_by_govtrack_id(person.attributes['id'].to_s).should_not == nil
       end
     end
   end
