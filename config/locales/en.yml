@@ -8,6 +8,10 @@ en:
     greeting: "Hello"
     sign_out: "Sign out"
     sign_in: 'Sign in'
+  state:
+    blue_party_label: 'Democrat'
+    red_party_label: 'Republican'
+    grey_party_label: 'Other'
   home:
     index:
   states:

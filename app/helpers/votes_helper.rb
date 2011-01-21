@@ -18,7 +18,9 @@ module VotesHelper
     bar_height = 20
 
     vote_types = ['yes', 'no', 'other']
-    parties = [Legislature::MAJOR_PARTIES, nil].flatten
+
+    major_parties = [t('state.blue_party_label'), t('state.red_party_label')]
+    parties = [major_parties, nil].flatten
 
     # Gather the votes for each party and type
     votes = []
@@ -29,7 +31,7 @@ module VotesHelper
       vote_types.each do |vote_type|
         if party.nil?
           # Sadly, all other parties get lumped together
-          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party not in (?) and vote_type = ?", vote.id, Legislature::MAJOR_PARTIES, vote_type]) + Vote.count_by_sql(["select v.#{vote_type}_count - (select count(*) from v_district_votes dv where dv.vote_id = ? and dv.vote_type = ?) as missing_votes from votes v where v.id = ?", vote.id, vote_type, vote.id])
+          y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party not in (?) and vote_type = ?", vote.id, major_parties, vote_type]) + Vote.count_by_sql(["select v.#{vote_type}_count - (select count(*) from v_district_votes dv where dv.vote_id = ? and dv.vote_type = ?) as missing_votes from votes v where v.id = ?", vote.id, vote_type, vote.id])
         else
           y << Vote.count_by_sql(["select count(*) from v_district_votes where vote_id = ? and party = ? and vote_type = ?", vote.id, party, vote_type])
         end 

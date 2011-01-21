@@ -1,0 +1,5 @@
+en-MN:
+  state:
+    blue_party_label: 'Democratic-Farmer-Laborer'
+    red_party_label: 'Republican'
+    grey_party_label: 'Other'

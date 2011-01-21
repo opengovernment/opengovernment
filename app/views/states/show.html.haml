@@ -81,13 +81,13 @@
             %br            
             = surround '(', ')' do
               = succeed ',' do
-                = pluralize(session_roles.democrats.count, 'Democrat')
+                = pluralize(session_roles.democrats.count, t('state.blue_party_label'))
               - if session_roles.others.count > 0
                 = succeed ',' do
-                  = pluralize(session_roles.republicans.count, 'Republican')
-                = pluralize(session_roles.others.count, 'Other')
+                  = pluralize(session_roles.republicans.count, t('state.red_party_label'))
+                = pluralize(session_roles.others.count, t('state.grey_party_label'))
               - else
-                = pluralize(session_roles.republicans.count, 'Republican')            
+                = pluralize(session_roles.republicans.count, t('state.red_party_label'))            
             %br
             %br            
             Each represents approx.
