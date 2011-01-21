@@ -61,7 +61,7 @@ module OpenGov
         set_table_name table_name
       end
 
-      # All tables will have at least:
+      # All district shapefiles will have at least:
       # - state (fips_code)
       # - the_geom (geometry)
       # - lsad (district type)
