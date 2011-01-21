@@ -17,8 +17,8 @@ en:
   states:
     show:
       intro: |
-        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for [state].<br><br>
-        We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the %{legislature_name}.
+        <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>
+        We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the legislature.
       state_population: 
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
