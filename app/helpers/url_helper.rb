@@ -29,10 +29,12 @@ module UrlHelper
 
   def with_subdomain(subdomain)  
     subdomain = (subdomain || '')
-    subdomain = HOME_SUBDOMAIN if subdomain.empty? && defined?(HOME_SUBDOMAIN)
     subdomain += '.' unless subdomain.empty?
 
-    [subdomain, request.domain, request.port_string].join  
+    # Using HOST here instead of request.domain because
+    # HOST can be 'staging.opengovernment.org' whereas request.domain in that case
+    # would be simply 'opengovernment.org'
+    [subdomain, HOST, request.port_string].join  
   end
   
   def url_for(options = nil)    

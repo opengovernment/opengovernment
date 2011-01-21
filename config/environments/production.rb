@@ -38,6 +38,7 @@ OpenGov::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   HOST = ENV['HOST'] || 'opengovernment.org'
+  HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
   config.action_mailer.default_url_options = {:host => HOST}
 end

@@ -20,7 +20,8 @@ OpenGov::Application.configure do
 
   config.cache_store = :mem_cache_store, { :namespace => 'opengovernment_development' }
 
-  HOST = 'localhost'
+  HOST = '127localhost.com'  
+  HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
   config.action_mailer.default_url_options = {:host => "#{HOST}:3000"}
 

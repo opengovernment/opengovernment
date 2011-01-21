@@ -30,7 +30,7 @@ OpenGov::Application.configure do
   #   </VirtualHost>
   #
   HOST = ENV['HOST'] || 'staging.opengovernment.org'
-#  HOME_SUBDOMAIN = HOST.sub(/\..*$/,'')
+  HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
   config.action_mailer.default_url_options = { :host => HOST }  
 end
