@@ -68,9 +68,9 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :branch => 'rails3'
 
 group :development do
-  gem 'silent-postgres' # Quieter postgres log messages
-  gem 'rails_complete'
-  gem 'wirble'
+  gem 'silent-postgres'	# Quieter postgres log messages
+  gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
+  gem 'wirble'		# IRB goodies; http://pablotron.org/software/wirble/ for install	
   gem 'hirb'
   gem 'awesome_print'
 end
