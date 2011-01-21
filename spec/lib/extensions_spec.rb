@@ -27,7 +27,7 @@ end
 
 describe "Integer" do
   describe "scale" do
-    it "should be foo" do
+    it "should properly scale an integer" do
       # No change in scale
       Integer.scale(1, 1, 1).should == 1
 
@@ -46,8 +46,8 @@ end
 
 describe "Time" do
   describe "beginning_of_hour" do
-    it "should also be foo" do
-    Time.mktime(1991, 1, 1, 2, 31, 22).beginning_of_hour.should == Time.mktime(1991, 1, 1, 2)
+    it "it should truncate the time to the hour" do
+      Time.mktime(1991, 1, 1, 2, 31, 22).beginning_of_hour.should == Time.mktime(1991, 1, 1, 2)
     end
   end
 end
