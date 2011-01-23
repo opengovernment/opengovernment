@@ -4,10 +4,10 @@
   %a{:href => 'http://www.opencongress.org/register'} to register (it's free and only takes a minute)
   and then use your OC username and password to sign-in here. Coming soon, we'll offer a full set of "My OpenGovernment" personal profiles and useful features, plus OpenID login, because we're big boosters of open standards.<br><br>s
   (If you've forgotten your OpenCongress username or password, you can retrieve it <a href="http://www.opencongress.org/account/forgot_password">retrieve it</a> by entering your email address.)
-  
+
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
-    = f.label :login, "OpenCongress username"
+    = f.label :email, "OpenCongress username"
     %br/
     = f.text_field :email
   %p
