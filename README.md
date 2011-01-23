@@ -147,7 +147,9 @@ Once you've satisfied the prerequisites, this should work on all platforms.
         bundle install
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Create your database role and give it superuser privileges:
-        psql# CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB
+        psql postgres
+        CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB;
+        \q
 
 ### Importing the full dataset (takes 2+ hours)
 
