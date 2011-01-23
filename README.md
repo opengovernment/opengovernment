@@ -122,6 +122,12 @@ Below, there are full instructions on setting up GeoServer to work with OpenGove
 Start by installing [Xcode](http://developer.apple.com/technologies/tools/xcode.html)
 Then [download MacPorts](http://www.macports.org/).
 
+If you're using rvm:
+
+    rvm install ree # recommended
+    rvm --create ree@og
+    rvm use ree@og
+
 Then run:
     # Install MacPorts items
     sudo port selfupdate
