@@ -17,3 +17,7 @@ set :production_dbhost,   "localhost"
 
 set :environment_database, defer { production_database }
 set :environment_dbhost, defer { production_dbhost }
+
+set :whenever_command, "bundle exec whenever"
+set :whenever_roles, :app
+require 'whenever/capistrano'

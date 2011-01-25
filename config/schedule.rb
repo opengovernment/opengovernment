@@ -5,6 +5,8 @@
 
 # Whenever Examples: https://github.com/javan/whenever/wiki/instructions-and-examples
 
+# For OpenGovernment, whenver is only installed on production (see config/deploy/production.rb)
+
 #every 1.day do
 #  rake "sync:openstates sync:photos"
 #end

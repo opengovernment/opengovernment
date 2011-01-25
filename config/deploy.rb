@@ -7,9 +7,6 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
-set :whenever_command, "bundle exec whenever"
-set :whenever_roles, :app
-require 'whenever/capistrano'
 require 'delayed/recipes'
 
 set :stages, %w(staging production)
@@ -41,7 +38,7 @@ namespace :deploy do
 
   desc 'Compile CSS & JS for public/assets/ (see assets.yml)'
   task :jammit do
-    run "cd #{current_release}; bundle exec jammit"
+    system "cd {Rails.root}; bundle exec jammit; bundle exec jammit-s3"
   end
 
   desc 'Restart Passenger'
