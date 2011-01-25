@@ -38,7 +38,7 @@ namespace :deploy do
 
   desc 'Compile CSS & JS for public/assets/ (see assets.yml)'
   task :jammit do
-    system "cd {Rails.root}; bundle exec jammit; bundle exec jammit-s3"
+    run "cd #{current_release}; bundle exec jammit; bundle exec jammit-s3"
   end
 
   desc 'Restart Passenger'
