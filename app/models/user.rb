@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :rememberable, :token_authenticatable, :timeoutable
 
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation, :remember_me
 
   # hook called after token authentication (in our case, SSO)
   def after_token_authentication
