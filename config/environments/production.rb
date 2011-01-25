@@ -32,13 +32,20 @@ OpenGov::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = 'http://d3uj2bm0ssocsl.cloudfront.net'
-
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   HOST = ENV['HOST'] || 'opengovernment.org'
   HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
+
+  # Enable serving of images, stylesheets, and javascripts from an asset server
+  # Don't use cloudfront for paperclip attachments. (yet)
+  config.action_controller.asset_host = Proc.new { |source|
+       if source.starts_with?('/system')
+         "http://#{HOST}"
+       else
+         'http://d3uj2bm0ssocsl.cloudfront.net'
+       end
+     }
 
   config.action_mailer.default_url_options = {:host => HOST}
 end
