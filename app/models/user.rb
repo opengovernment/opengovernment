@@ -22,15 +22,15 @@ class User < ActiveRecord::Base
   end
 
   devise :database_authenticatable, :rememberable, :token_authenticatable, :timeoutable
-  
-  attr_accessible :email, :password, :password_confirmation
-  
+
+  attr_accessible :login, :email, :password, :password_confirmation
+
   # hook called after token authentication (in our case, SSO)
   def after_token_authentication
     # immediately change the auth_token so it can't be used again
     update_attribute('authentication_token', Digest::SHA1.hexdigest("--#{Time.now.utc}--#{encrypted_password}--#{id}--#{rand}--"))
   end
-  
+
   def self.find_for_database_authentication(conditions)
     value = conditions[authentication_keys.first]
     where(["login = :value OR email = :value", { :value => value }]).first

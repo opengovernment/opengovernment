@@ -27,11 +27,11 @@ end
 # Session
 
 Then /^I should be signed in$/ do
-  assert controller.signed_in?
+  response.should have_selector('a', :content => 'Sign in', :count => 0)
 end
 
 Then /^I should be signed out$/ do
-  assert ! controller.signed_in?
+  response.should have_selector('a', :content => 'Sign in')
 end
 
 When /^session is cleared$/ do
@@ -95,7 +95,7 @@ end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   When %{I go to the sign in page}
-  And %{I fill in "Email" with "#{email}"}
+  And %{I fill in "OpenCongress username" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I press "Sign in"}
 end
