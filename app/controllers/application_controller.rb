@@ -45,6 +45,11 @@ class ApplicationController < ActionController::Base
     render 'public/404.html', :layout => false, :status => 404
   end
 
+  # Is this a request from a robot?
+  def is_megatron?
+    request.user_agent =~ /\b(Baidu|Gigabot|Googlebot|libwww-perl|lwp-trivial|msnbot|SiteUptime|Slurp|WordPress|ZIBB|ZyBorg)\b/i
+  end
+
   private
   def lookup_state(subdomain)
     return State.find_by_slug(subdomain) || State.find_by_slug(subdomain.sub(/\..*$/,''))

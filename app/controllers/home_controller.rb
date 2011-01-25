@@ -52,14 +52,17 @@ class HomeController < ApplicationController
   end
 
   def index
-    # Do they have a preferred location cookie?
-    if session[:preferred_location]
-      redirect_to(url_for(:subdomain => session[:preferred_location])) and return
-    end
+    # Bots don't redirect.
+    if !is_megatron?
+      # Do they have a preferred location cookie?
+      if session[:preferred_location]
+        redirect_to(url_for(:subdomain => session[:preferred_location])) and return
+      end
 
-    # Send them somewhere via geoip, if possible
-    if (sub = Subdomain.from_ip(request.ip)) && State.find_by_slug(sub).try(:supported?)
-      redirect_to(url_for(:subdomain => sub)) and return
+      # Send them somewhere via geoip, if possible
+      if (sub = Subdomain.from_ip(request.ip)) && State.find_by_slug(sub).try(:supported?)
+        redirect_to(url_for(:subdomain => sub)) and return
+      end
     end
 
     @states = State.loadable
