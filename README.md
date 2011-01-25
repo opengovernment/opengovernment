@@ -122,6 +122,12 @@ Below, there are full instructions on setting up GeoServer to work with OpenGove
 Start by installing [Xcode](http://developer.apple.com/technologies/tools/xcode.html)
 Then [download MacPorts](http://www.macports.org/).
 
+If you're using rvm:
+
+    rvm install ree # recommended
+    rvm --create ree@og
+    rvm use ree@og
+
 Then run:
     # Install MacPorts items
     sudo port selfupdate
@@ -141,14 +147,16 @@ Once you've satisfied the prerequisites, this should work on all platforms.
         bundle install
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Create your database role and give it superuser privileges:
-        psql# CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB
+        psql postgres
+        CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB;
+        \q
 
 ### Importing the full dataset (takes 2+ hours)
 
 To import the full dataset, run `rake install`.
 
   * Rake install will set up the database, install the PostGIS SQL components, install fixtures, and download and install datasets.
-  * You can provide a comma-separated list of state abbreviations in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the tasks/fixtures/states.yml file.
+  * You can provide a comma-separated list of state abbreviations in a LOAD_STATES env variable to rake install. Otherwise, the default "loadable" states will be loaded, as specified in the lib/tasks/fixtures/states.yml file.
 
 ### OR import test data right away
 
