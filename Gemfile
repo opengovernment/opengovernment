@@ -92,4 +92,6 @@ group :test do
   gem 'webrat', '~> 0.7.3'
   gem 'linecache'
   gem 'ruby-debug'
+  gem 'vcr', '~> 1.5.1'
+  gem 'webmock', '~> 1.6.2'
 end
