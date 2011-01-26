@@ -13,6 +13,15 @@ GIT
   specs:
     acts-as-taggable-on (2.0.6)
 
+GIT
+  remote: http://github.com/railsjedi/jammit-s3.git
+  revision: 41e26a5bbf77f9a2772ba963512d75e1b04f1d81
+  specs:
+    jammit-s3 (0.5.4.3)
+      jammit (>= 0.5.4)
+      mimemagic (>= 0.1.7)
+      s3 (>= 0.3.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -126,10 +135,6 @@ GEM
     jammit (0.6.0)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
-    jammit-s3 (0.5.4.3)
-      jammit (>= 0.5.4)
-      mimemagic (>= 0.1.7)
-      s3 (>= 0.3.7)
     jnunemaker-validatable (1.8.4)
       activesupport (>= 2.3.4)
     jquery-rails (0.2.6)
@@ -275,7 +280,7 @@ DEPENDENCIES
   high_voltage
   hirb
   httparty
-  jammit-s3
+  jammit-s3!
   jquery-rails
   json
   launchy
