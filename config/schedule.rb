@@ -9,7 +9,12 @@
 
 every 1.day do
   rake "sync:openstates"
-  rake "sync:photos"
+
+  # sync:photos syncs people photo URLs with votesmart API.
+  # Unfortunately, when we run sync:photos it causes sync:openstates to repopulate people.photo_url (often with nulls)
+  # later on. So I'm turning this off for now.
+  # rake "sync:photos"
+
   rake "load:mentions"
 end
 
