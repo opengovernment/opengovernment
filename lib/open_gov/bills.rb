@@ -64,7 +64,13 @@ module OpenGov
 
       if state.bills.count > 0
         latest_updated_date = Bill.where(:state_id => state.id).maximum(:openstates_updated_at).to_date
-        bills = GovKit::OpenStates::Bill.latest(latest_updated_date, :state => state.abbrev.downcase)
+
+        begin
+          bills = GovKit::OpenStates::Bill.latest(latest_updated_date, :state => state.abbrev.downcase)
+        rescue GovKit::ResourceNotFound
+          puts "No updates for #{state.name}."
+          return
+        end
       else
         puts "You have no existing bills to update. Please import an initial set of bills for this state."
         return
