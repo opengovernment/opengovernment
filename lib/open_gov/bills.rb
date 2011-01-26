@@ -63,7 +63,7 @@ module OpenGov
       puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
       if state.bills.count > 0
-        bills = GovKit::OpenStates::Bill.latest(Bill.where(:state_id => state.id).maximum(:updated_at).to_date, :state => state.abbrev.downcase)
+        bills = GovKit::OpenStates::Bill.latest(Bill.where(:state_id => state.id).maximum(:openstates_updated_at).to_date, :state => state.abbrev.downcase)
       else
         puts "You have no existing bills to update. Please import an initial set of bills for this state."
       end
@@ -92,6 +92,7 @@ module OpenGov
         @bill.title = bill.title
         @bill.session_id = session.id
         @bill.alternate_titles = bill[:alternate_titles]
+        @bill.openstates_updated_at = bill[:updated_at]
 
         # Exclude types 'bill'
         @bill_types = bill[:type] || []
