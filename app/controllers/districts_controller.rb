@@ -4,8 +4,9 @@ class DistrictsController < ApplicationController
 
     if @point
       @state = State.find_by_abbrev(@point.state)
-      @available_sessions = Session.major.complete.where("legislature_id = ?", @state.legislature).order("start_year desc, parent_id nulls first")
-
+      @available_sessions = (@state ?
+        @state.sessions.major.complete.order("start_year desc") :
+        [])
       if @state && @state.supported?
         return
       elsif @state

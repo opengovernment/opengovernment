@@ -21,3 +21,10 @@ Feature: My District
      And I should see "Kay Hutchison"
      And I should see "Lloyd Doggett"
      And I should see "District 25"
+
+  @uses_geocoder
+  Scenario: Find my district (bogus zipcode)
+     When I am on the homepage
+      And I fill in "q" with "00000"
+      And I press "Find"
+        # TODO: Then what should I see?

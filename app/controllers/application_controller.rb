@@ -54,9 +54,9 @@ class ApplicationController < ActionController::Base
   def lookup_state(subdomain)
     return State.find_by_slug(subdomain) || State.find_by_slug(subdomain.sub(/\..*$/,''))
   end
-  
+
   def lookup_session(param = nil)
-    legislature = @state.legislature
+    legislature = @state && @state.legislature
 
     unless legislature.blank?
       unless param.blank?
