@@ -21,3 +21,12 @@ set :environment_dbhost, defer { production_dbhost }
 set :whenever_command, "bundle exec whenever"
 set :whenever_roles, :app
 require 'whenever/capistrano'
+
+namespace :deploy do
+  desc 'Upload Jammit assets to S3'
+  task :jammit_s3 do
+    run "cd #{current_release}; bundle exec jammit-s3"
+  end
+end
+
+after 'deploy:jammit', 'deploy:jammit_s3'
