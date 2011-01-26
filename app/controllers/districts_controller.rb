@@ -12,9 +12,13 @@ class DistrictsController < ApplicationController
       elsif @state
         render :template => 'states/unsupported', :layout => 'home'
       else
-        render :template => 'shared/unsupported'
+        flash[:error] = "Sorry, we can't find that address."
+        begin
+          redirect_to :back
+        rescue RedirectBackError
+          redirect_to(root_url)
+        end
       end
     end
-
   end
 end

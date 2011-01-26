@@ -1,28 +1,28 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://maps.google.com:80/maps/geo?key=ABQIAAAADDt3c67AeuMaKI2-uJ9EPRQUkyqWUvtutC3pg8KWrWDvjAMMoBSPonwyWSjDefaWvIV0BHw0ozeAnw&oe=utf-8&output=xml&q=3306%20French%20Place,%20Austin,%20TX%2078722
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    uri: !ruby/regexp /http:\/\/maps\.google\.com:80\/maps\/geo\?key=[^&]+&oe=utf\-8&output=xml&q=3306%20French%20Place,%20Austin,%20TX%2078722/
+    body:
+    headers:
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - text/xml; charset=UTF-8
-      server: 
+      server:
       - mafe
-      date: 
+      date:
       - Wed, 26 Jan 2011 05:38:27 GMT
-      x-xss-protection: 
+      x-xss-protection:
       - 1; mode=block
-      cache-control: 
+      cache-control:
       - private, x-gzip-ok=""
-      vary: 
+      vary:
       - Accept-Language
-      transfer-encoding: 
+      transfer-encoding:
       - chunked
     body: |
       <?xml version="1.0" encoding="UTF-8" ?>
@@ -43,30 +43,30 @@
       </Response></kml>
 
     http_version: "1.1"
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://maps.google.com:80/maps/geo?key=ABQIAAAADDt3c67AeuMaKI2-uJ9EPRQUkyqWUvtutC3pg8KWrWDvjAMMoBSPonwyWSjDefaWvIV0BHw0ozeAnw&oe=utf-8&output=xml&q=00000
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    uri: !ruby/regexp /http:\/\/maps\.google\.com:80\/maps\/geo\?key=[^&]+&oe=utf\-8&output=xml&q=00000/
+    body:
+    headers:
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      content-type: 
+    headers:
+      content-type:
       - text/xml; charset=UTF-8
-      x-xss-protection: 
+      x-xss-protection:
       - 1; mode=block
-      date: 
+      date:
       - Wed, 26 Jan 2011 19:00:44 GMT
-      server: 
+      server:
       - mafe
-      vary: 
+      vary:
       - Accept-Language
-      cache-control: 
+      cache-control:
       - private, x-gzip-ok=""
-      transfer-encoding: 
+      transfer-encoding:
       - chunked
     body: |
       <?xml version="1.0" encoding="UTF-8" ?>
@@ -79,34 +79,34 @@
       </Response></kml>
 
     http_version: "1.1"
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://api.local.yahoo.com:80/MapsService/V1/geocode?appid=your_yahoo_key&location=00000
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    uri: !ruby/regexp /http:\/\/api\.local\.yahoo\.com:80\/MapsService\/V1\/geocode\?appid=[^&]+&location=00000/
+    body:
+    headers:
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 400
       message: Bad Request
-    headers: 
-      p3p: 
+    headers:
+      p3p:
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      content-type: 
+      content-type:
       - text/xml; charset=utf-8
-      date: 
+      date:
       - Wed, 26 Jan 2011 20:26:48 GMT
-      cache-control: 
+      cache-control:
       - private
-      vary: 
+      vary:
       - Accept-Encoding
-      transfer-encoding: 
+      transfer-encoding:
       - chunked
     body: |
       <?xml version="1.0" encoding="UTF-8"?>
       <Error xmlns="urn:yahoo:api">
-      		The following errors were detected:
-      		<Message>unable to parse location</Message>
+                The following errors were detected:
+                <Message>unable to parse location</Message>
       </Error>
       <!-- ws04.ydn.ac4.yahoo.com uncompressed/chunked Wed Jan 26 12:26:48 PST 2011 -->
 

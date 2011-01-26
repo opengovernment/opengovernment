@@ -27,4 +27,4 @@ Feature: My District
      When I am on the homepage
       And I fill in "q" with "00000"
       And I press "Find"
-        # TODO: Then what should I see?
+     Then I should see "can't find that address"
