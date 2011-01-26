@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
   belongs_to :bill
   belongs_to :chamber
-  has_many :roll_calls, :dependent => :destroy
+  has_many :roll_calls, :dependent => :delete_all
 
   default_scope :order => 'votes.date desc'
 
