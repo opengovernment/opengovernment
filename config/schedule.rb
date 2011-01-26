@@ -7,9 +7,11 @@
 
 # For OpenGovernment, whenver is only installed on production (see config/deploy/production.rb)
 
-#every 1.day do
-#  rake "sync:openstates sync:photos"
-#end
+every 1.day do
+  rake "sync:openstates"
+  rake "sync:photos"
+  rake "load:mentions"
+end
 
 # GeoIP data is updated upstream monthly.
 every 1.month do
