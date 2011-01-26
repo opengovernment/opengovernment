@@ -244,10 +244,6 @@ GEM
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
-    webrat (0.7.3)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     whenever (0.6.2)
       aaronh-chronic (>= 0.3.9)
       activesupport (>= 2.3.4)
@@ -269,7 +265,7 @@ DEPENDENCIES
   bson_ext
   capistrano
   capistrano-ext
-  capybara
+  capybara (~> 0.4.1)
   chronic
   cucumber (~> 0.10.0)
   cucumber-rails (~> 0.3.2)
@@ -308,7 +304,6 @@ DEPENDENCIES
   thinking-sphinx!
   vcr (~> 1.5.1)
   webmock (~> 1.6.2)
-  webrat (~> 0.7.3)
   whenever
   will_paginate (~> 3.0.pre2)
   wirble

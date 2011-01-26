@@ -43,3 +43,71 @@
       </Response></kml>
 
     http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://maps.google.com:80/maps/geo?key=ABQIAAAADDt3c67AeuMaKI2-uJ9EPRQUkyqWUvtutC3pg8KWrWDvjAMMoBSPonwyWSjDefaWvIV0BHw0ozeAnw&oe=utf-8&output=xml&q=00000
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset=UTF-8
+      x-xss-protection: 
+      - 1; mode=block
+      date: 
+      - Wed, 26 Jan 2011 19:00:44 GMT
+      server: 
+      - mafe
+      vary: 
+      - Accept-Language
+      cache-control: 
+      - private, x-gzip-ok=""
+      transfer-encoding: 
+      - chunked
+    body: |
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <kml xmlns="http://earth.google.com/kml/2.0"><Response>
+        <name>00000</name>
+        <Status>
+          <code>602</code>
+          <request>geocode</request>
+        </Status>
+      </Response></kml>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.local.yahoo.com:80/MapsService/V1/geocode?appid=your_yahoo_key&location=00000
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 400
+      message: Bad Request
+    headers: 
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      content-type: 
+      - text/xml; charset=utf-8
+      date: 
+      - Wed, 26 Jan 2011 20:26:48 GMT
+      cache-control: 
+      - private
+      vary: 
+      - Accept-Encoding
+      transfer-encoding: 
+      - chunked
+    body: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <Error xmlns="urn:yahoo:api">
+      		The following errors were detected:
+      		<Message>unable to parse location</Message>
+      </Error>
+      <!-- ws04.ydn.ac4.yahoo.com uncompressed/chunked Wed Jan 26 12:26:48 PST 2011 -->
+
+    http_version: "1.1"
