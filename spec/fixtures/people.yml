@@ -1,5 +1,4 @@
 kirk:
-  id: 1
   first_name: "Kirk"
   last_name: "Watson"
   openstates_id: 370

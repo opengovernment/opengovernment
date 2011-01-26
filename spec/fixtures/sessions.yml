@@ -1,5 +1,4 @@
 tx80:
-  id: 1
   name: "80"
   start_year: 2005
   end_year: 2009
@@ -9,9 +8,8 @@ tx80x1:
   start_year: 2008
   end_year: 2009
   legislature: tx
-  parent_id: 1
+  parent: tx80
 tx81:
-  id: 3
   name: "81"
   start_year: 2009
   end_year: 2015
@@ -21,7 +19,7 @@ tx81x1:
   start_year: 2009
   end_year: 2010
   legislature: tx
-  parent_id: 3
+  parent: tx81
 us111:
   name: "111th Congress"
   start_year: 2009

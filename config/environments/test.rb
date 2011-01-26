@@ -32,4 +32,5 @@ OpenGov::Application.configure do
   # config.active_record.schema_format = :sql
 
   HOST = 'test.opengovernment.com'
+  HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 end

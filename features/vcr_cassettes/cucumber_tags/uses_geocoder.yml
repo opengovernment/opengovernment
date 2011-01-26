@@ -1,0 +1,45 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://maps.google.com:80/maps/geo?key=ABQIAAAADDt3c67AeuMaKI2-uJ9EPRQUkyqWUvtutC3pg8KWrWDvjAMMoBSPonwyWSjDefaWvIV0BHw0ozeAnw&oe=utf-8&output=xml&q=3306%20French%20Place,%20Austin,%20TX%2078722
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset=UTF-8
+      server: 
+      - mafe
+      date: 
+      - Wed, 26 Jan 2011 05:38:27 GMT
+      x-xss-protection: 
+      - 1; mode=block
+      cache-control: 
+      - private, x-gzip-ok=""
+      vary: 
+      - Accept-Language
+      transfer-encoding: 
+      - chunked
+    body: |
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <kml xmlns="http://earth.google.com/kml/2.0"><Response>
+        <name>3306 French Place, Austin, TX 78722</name>
+        <Status>
+          <code>200</code>
+          <request>geocode</request>
+        </Status>
+        <Placemark id="p1">
+          <address>3306 French Pl, Austin, TX 78722, USA</address>
+          <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>TX</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Travis</SubAdministrativeAreaName><Locality><LocalityName>Austin</LocalityName><Thoroughfare><ThoroughfareName>3306 French Pl</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>78722</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+          <ExtendedData>
+            <LatLonBox north="30.2925066" south="30.2862114" east="-97.7144904" west="-97.7207856" />
+          </ExtendedData>
+          <Point><coordinates>-97.7176380,30.2893590,0</coordinates></Point>
+        </Placemark>
+      </Response></kml>
+
+    http_version: "1.1"
