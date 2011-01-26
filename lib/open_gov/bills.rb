@@ -63,14 +63,17 @@ module OpenGov
       puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
       if state.bills.count > 0
-        bills = GovKit::OpenStates::Bill.latest(Bill.where(:state_id => state.id).maximum(:openstates_updated_at).to_date, :state => state.abbrev.downcase)
+        latest_updated_date = Bill.where(:state_id => state.id).maximum(:openstates_updated_at).to_date
+        bills = GovKit::OpenStates::Bill.latest(latest_updated_date, :state => state.abbrev.downcase)
       else
         puts "You have no existing bills to update. Please import an initial set of bills for this state."
+        return
       end
 
       if bills.empty?
         puts "No bills found \n"
       else
+        puts "Importing/updating #{bills.size} bills updated since #{latest_updated_date.to_s}"
         bills.each_with_index do |bill, i|
           if i % 10 == 0
             print '.'
@@ -205,7 +208,7 @@ module OpenGov
 
           ['yes', 'no', 'other'].each do |vote_type|
             vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => vote_type, :person => Person.find_by_openstates_id(rcall.leg_id.to_s)) if rcall.leg_id
+              v.roll_calls.create(:vote_type => vote_type, :person_id => @@people[rcall.leg_id.to_s]) if rcall.leg_id
             end
           end
         end

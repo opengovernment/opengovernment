@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 76) do
+ActiveRecord::Schema.define(:version => 77) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(:version => 76) do
   end
 
   create_table "bills", :force => true do |t|
-    t.string   "title",              :limit => 64000
+    t.string   "title",                 :limit => 64000
     t.integer  "state_id"
     t.integer  "session_id"
     t.string   "openstates_id"
@@ -83,15 +83,16 @@ ActiveRecord::Schema.define(:version => 76) do
     t.integer  "chamber_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "votesmart_key_vote",                  :default => false, :null => false
+    t.boolean  "votesmart_key_vote",                     :default => false, :null => false
     t.integer  "votesmart_id"
     t.datetime "first_action_at"
     t.datetime "last_action_at"
     t.string   "kind_one"
     t.string   "kind_two"
     t.string   "kind_three"
-    t.string   "alternate_titles",   :limit => 20000
-    t.string   "short_title",        :limit => 1000
+    t.string   "alternate_titles",      :limit => 20000
+    t.string   "short_title",           :limit => 1000
+    t.datetime "openstates_updated_at"
   end
 
   create_table "bills_subjects", :force => true do |t|
@@ -210,9 +211,9 @@ ActiveRecord::Schema.define(:version => 76) do
   add_index "mentions", ["owner_id", "owner_type", "date"], :name => "citations_owner_date_idx"
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",                          :null => false
+    t.string   "first_name",                            :null => false
     t.string   "middle_name"
-    t.string   "last_name",                           :null => false
+    t.string   "last_name",                             :null => false
     t.string   "openstates_id"
     t.integer  "nimsp_candidate_id"
     t.integer  "votesmart_id"
@@ -227,18 +228,19 @@ ActiveRecord::Schema.define(:version => 76) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "website_one",         :limit => 2000
-    t.string   "website_two",         :limit => 2000
-    t.string   "webmail",             :limit => 2000
+    t.string   "website_one",           :limit => 2000
+    t.string   "website_two",           :limit => 2000
+    t.string   "webmail",               :limit => 2000
     t.string   "email"
     t.string   "photo_url"
-    t.string   "bio_data",            :limit => 8000
+    t.string   "bio_data",              :limit => 8000
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "transparencydata_id"
     t.string   "bio_url"
+    t.datetime "openstates_updated_at"
   end
 
   create_table "ratings", :force => true do |t|
