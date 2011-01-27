@@ -59,7 +59,7 @@ SimpleNavigation::Configuration.run do |navigation|
         if defined?(@subject)
           primary.item :subject, 'Bill Subject', subject_path(params[:session], @subject, :subdomain => current_place_subdomain)
         else
-          primary.item :subjects, 'Bill Subjects', subjects_path
+          primary.item :subjects, 'Bill Subjects', subjects_path(params[:session])
         end
       end
 
