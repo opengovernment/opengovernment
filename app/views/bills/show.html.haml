@@ -40,7 +40,7 @@
   - if @bill.subjects.any?
     %ul.lined
       - @bill.subjects.each do |subject|
-        %li= link_to(subject.name, subject_path(subject))
+        %li= link_to(subject.name, subject_path(@bill.session, subject))
   - else
     %p None.
 

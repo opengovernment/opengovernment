@@ -57,7 +57,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
       if controller_name == 'subjects'
         if defined?(@subject)
-          primary.item :subject, 'Bill Subject', subject_path(@subject, :subdomain => current_place_subdomain)
+          primary.item :subject, 'Bill Subject', subject_path(params[:session], @subject, :subdomain => current_place_subdomain)
         else
           primary.item :subjects, 'Bill Subjects', subjects_path
         end
@@ -131,7 +131,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
 
-      primary.item :issues, 'Issues', issues_url(:subdomain => current_place_subdomain), :class => 'issues primary-nav-issues primary-nav' do |m|
+      primary.item :issues, 'Issues', issues_url(params[:session], :subdomain => current_place_subdomain), :class => 'issues primary-nav-issues primary-nav' do |m|
 #       if defined?(@issue)
 #          m.item :issue, @issue.name, issue_path(@issue), :class => "issue #{@issue.name.parameterize}"
 #       end

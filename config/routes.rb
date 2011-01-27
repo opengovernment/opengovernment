@@ -27,7 +27,6 @@ OpenGov::Application.routes.draw do
     end
 
     resources :sigs, :only => [:index, :show]
-    resources :subjects, :only => [:index, :show]
     resources :money_trails, :only => [:index, :show], :path => 'money_trail'
 
 #    match '/bills', :to => 'bills#index', :as => 'bills'
@@ -69,6 +68,7 @@ OpenGov::Application.routes.draw do
       end
 
       resources :issues, :only => [:index, :show]
+      resources :subjects, :only => [:index, :show]
 
       resources :committees, :only => [:show, :index] do
         collection do
