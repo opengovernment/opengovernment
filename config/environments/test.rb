@@ -31,5 +31,6 @@ OpenGov::Application.configure do
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
 
-  HOST = 'test.opengovernment.com'
+  HOST = 'www.example.com'
+  HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 end

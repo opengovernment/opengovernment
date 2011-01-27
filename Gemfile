@@ -82,14 +82,15 @@ group :test do
   gem 'launchy'    # So you can do "Then show me the page"
   gem 'rspec-rails', '>= 2.0.0.rc'
   gem 'spork'
-  gem 'capybara'
+  gem 'capybara', '~> 0.4.1'
   gem 'cucumber', '~> 0.10.0'
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'autotest'
   gem 'autotest-rails'
   gem 'factory_girl_rails'
   gem 'machinist'
-  gem 'webrat', '~> 0.7.3'
   gem 'linecache'
   gem 'ruby-debug'
+  gem 'vcr', '~> 1.5.1'
+  gem 'webmock', '~> 1.6.2'
 end

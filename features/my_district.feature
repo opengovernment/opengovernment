@@ -3,19 +3,28 @@ Feature: My District
    As a follower of politics
    I want to see an accurate list of people who represent me on the state and federal level.
 
-   Scenario: Find my district
-   Given the usual test setup
-   When I am on the homepage
-   And I fill in "Address" with "3306 French Place, Austin, TX 78722"
-   And I press "Find"
-   Then I should see "District 25"
-   And I should see "District 46"
-   And I should see "District 14"
+  @uses_geocoder
+  Scenario: Find my district
+    When I am on the homepage
+       # The label is unwieldy, so we have to use the input ID.
+     And I fill in "q" with "3306 French Place, Austin, TX 78722"
+     And I press "Find"
 
-   Scenario: Find my state representatives
-   And I should see "Kirk Watson" within "#state-upper"
-   And I should see "Dawnna M. Dukes" within "#state-lower"
+       # state representatives
+    Then I should see "Kirk Watson"
+     And I should see "District 14"
+     And I should see "Dawnna Dukes"
+     And I should see "District 46"
 
-   Scenario: Find my Congressional representatives
-   And I should see "John Cornyn" within "#us-upper"
-   And I should see "Lloyd A. Doggett" within "#us-lower"
+       # Congressional representatives
+     And I should see "John Cornyn"
+     And I should see "Kay Hutchison"
+     And I should see "Lloyd Doggett"
+     And I should see "District 25"
+
+  @uses_geocoder
+  Scenario: Find my district (bogus zipcode)
+     When I am on the homepage
+      And I fill in "q" with "00000"
+      And I press "Find"
+     Then I should see "can't find that address"

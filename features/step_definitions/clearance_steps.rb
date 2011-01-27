@@ -27,11 +27,11 @@ end
 # Session
 
 Then /^I should be signed in$/ do
-  response.should have_selector('a', :content => 'Sign in', :count => 0)
+  all('a', :text => 'Sign in').should be_blank
 end
 
 Then /^I should be signed out$/ do
-  response.should have_selector('a', :content => 'Sign in')
+  all('a', :text => 'Sign in').should be_present
 end
 
 When /^session is cleared$/ do
