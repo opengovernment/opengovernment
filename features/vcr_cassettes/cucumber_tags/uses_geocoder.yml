@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: !ruby/regexp /http:\/\/maps\.google\.com:80\/maps\/geo\?key=[^&]+&oe=utf\-8&output=xml&q=3306%20French%20Place,%20Austin,%20TX%2078722/
+    uri: !ruby/regexp /http:\/\/maps\.google\.com:80\/maps\/geo\?.*q=3306\+French\+Place%2C\+Austin%2C\+TX\+78722.*/
     body:
     headers:
   response: !ruby/struct:VCR::Response

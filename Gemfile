@@ -94,5 +94,5 @@ group :test do
   gem 'linecache'
   gem 'ruby-debug'
   gem 'vcr', '~> 1.5.1'
-  gem 'webmock', '~> 1.6.2'
+  gem 'fakeweb', '~> 1.3.0'
 end
