@@ -35,7 +35,7 @@ class PeopleController < SubdomainController
           # It does result in only one SQL call, though.
           # Good thing this is only ever limited to 10 or 20 people.
 
-          countable_ids = Page.most_viewed('Person').collect(&:countable_id)
+          countable_ids = Page.most_viewed(request.subdomain, 'Person').collect(&:countable_id)
 
           Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
         else
