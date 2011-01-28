@@ -5,16 +5,16 @@
 
 # Whenever Examples: https://github.com/javan/whenever/wiki/instructions-and-examples
 
-# For OpenGovernment, whenver is only installed on production (see config/deploy/production.rb)
+# For OpenGovernment, whenever is only installed on production (see config/deploy/production.rb)
 
-every 1.day do
+env :MAILTO, 'develop@opengovernment.org'
+
+set :job_template, "bash -l -c 'rvm use ree@og && :job'"
+
+# OpenStates' data should be updated by 4am ET.
+# Our server is in central time zone.
+every 1.day, :at => '3am' do
   rake "sync:openstates"
-
-  # sync:photos syncs people photo URLs with votesmart API.
-  # Unfortunately, when we run sync:photos it causes sync:openstates to repopulate people.photo_url (often with nulls)
-  # later on. So I'm turning this off for now.
-  # rake "sync:photos"
-
   rake "load:mentions"
 end
 
