@@ -18,7 +18,7 @@ class TrackingApp
     if key = valid_cache_key(@request.params['object_type'], @request.params['object_id'], @request.ip)
 
       if Rails.cache.read(key)
-        # Allow only one page hit per page per IP per hour.
+        # Allow only one page hit per page per IP per hour in production mode.
         return
       else
         Rails.cache.write(key, true, :expires_in => 1.hour.from_now)
@@ -28,7 +28,8 @@ class TrackingApp
         page ||= Page.create({
           :countable_id => @request.params['object_id'],
           :countable_type => @request.params['object_type'],
-          :url => @request.params['u']
+          :url => @request.params['u'],
+          :subdomain => @request.host.split('.').try(:first)
         })
 
         page.mark_hit

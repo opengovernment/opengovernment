@@ -89,7 +89,7 @@ class BillsController < SubdomainController
 
         # It does result in only one SQL call, though.
         # Good thing this is only ever limited to 10 or 20 items.
-        countable_ids = Page.most_viewed('Bill').collect(&:countable_id)
+        countable_ids = Page.most_viewed(request.subdomain, 'Bill').collect(&:countable_id)
 
         bills.find_in_explicit_order('bills.id', countable_ids)
       when 'keyvotes'

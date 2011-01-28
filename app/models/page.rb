@@ -6,6 +6,8 @@ class Page
   key :countable_id, Integer, :required => true, :indexed => true
   key :countable_type, String, :required => true, :indexed => true
 
+  attr_accessor :subdomain
+
   scope :by_object, lambda {|object_type, object_id| where({:countable_id => object_id, :countable_type => object_type}) }
 
   validate :should_be_unique
@@ -47,14 +49,14 @@ class Page
   def mark_hit
     raise if new_record?
 
-    if page_view = PageView.first_or_create({:page_id => id, :hour => Time.now.beginning_of_hour})
+    if page_view = PageView.first_or_create({:page_id => id, :subdomain => subdomain, :hour => Time.now.beginning_of_hour})
       page_view.total += 1
       page_view.save
     end
   end
 
-  def self.most_viewed(object_type, limit = 10)
-    opts = { :query => {'countable_type' => object_type } }
+  def self.most_viewed(subdomain, object_type, limit = 10)
+    opts = { :query => {'countable_type' => object_type, 'subdomain' => subdomain } }
 
     top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
 

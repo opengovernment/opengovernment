@@ -14,5 +14,7 @@ class Legislature < ActiveRecord::Base
 
   has_many :sessions
 
-  CONGRESS = Legislature.find_by_name("United States Congress")
+  def self.congress
+    find_by_name("United States Congress")
+  end
 end

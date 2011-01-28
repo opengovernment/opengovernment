@@ -4,6 +4,7 @@ class PageView
   key :total, Integer, :required => true, :default => 0
 #  key :uniques, Integer
   key :countable_type, String, :indexed => true, :required => true
+  key :subdomain, String, :indexed => true, :requied => true
   key :page_id, Object, :required => true
 
   before_validation :set_countable_type

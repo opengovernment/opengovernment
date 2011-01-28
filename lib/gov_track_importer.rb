@@ -9,6 +9,7 @@ class GovTrackImporter
     @file_name = File.basename(@data_url)
     @refresh_data = options[:refresh_data] || false
     @data_dir = options[:data_dir] || Settings.data_dir
+    @us_house = LowerChamber.us_house
   end
 
   def fetch_data
@@ -113,8 +114,8 @@ class GovTrackImporter
       role.senate_class = attrs['class'].try(:value)
       role.state = state
     elsif type == 'rep'
-      role.chamber = LowerChamber::US_HOUSE
-      role.district = LowerChamber::US_HOUSE.districts.for_state(state.id).numbered(attrs['district'].value).first
+      role.chamber = @us_house
+      role.district = @us_house.districts.for_state(state.id).numbered(attrs['district'].value).first
     end
 
     role

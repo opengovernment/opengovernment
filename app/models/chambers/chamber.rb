@@ -17,7 +17,7 @@ class Chamber < ActiveRecord::Base
   has_and_belongs_to_many :people, :join_table => 'v_all_roles', :select => "distinct people.*"
 
   def self.federal
-    [LowerChamber.US_HOUSE, UpperChamber.US_SENATE]
+    [LowerChamber.us_house, UpperChamber.us_senate]
   end
 
   # Using the state and districts associated with this chamber,
