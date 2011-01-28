@@ -6,6 +6,7 @@ class PageView
   key :countable_type, String, :indexed => true, :required => true
   key :subdomain, String, :indexed => true, :requied => true
   key :page_id, Object, :required => true
+  belongs_to :page
 
   before_validation :set_countable_type
 
