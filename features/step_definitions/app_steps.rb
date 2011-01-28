@@ -1,3 +1,12 @@
+def parse_person_name(name)
+  if name =~ /,/
+    name.split(/,/, 2).reverse
+  else
+    name =~ /^(.*) ([^ ]*)$/
+    [$1, $2]
+  end
+end
+
 Given /^the usual test setup/ do
   #setup_districts
 end
