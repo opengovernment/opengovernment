@@ -53,7 +53,7 @@ gem 'jquery-rails'
 # HAML!
 gem 'haml'
 
-#Tagging
+# Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
 
 # Importing & parsing stuff

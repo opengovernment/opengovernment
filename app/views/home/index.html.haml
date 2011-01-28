@@ -1,14 +1,13 @@
 
 .space
 
-<a class="visit_blog" href="http://blog.opengovernment.org">Visit the Blog</a>
+%a(class="visit_blog" href="http://blog.opengovernment.org") Visit the Blog
 
 %h2.grid_14.push_1 Finally, a version of OpenCongress for your state legislature
 
 .grid_14
   .push_1
     %p Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source. 
-
 
 .grid_14.push_1
   .grid_7.alpha.bigger.supported_states_list
@@ -22,7 +21,6 @@
         - @states[(@states.size/2)+1..@states.size].each do |state|
           %li
             %a{:href => state_url(state), :class => "state-#{state.abbrev}"}= state.name
-    
 
   .grid_7.omega.notify_me
     .signup_form
