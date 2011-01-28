@@ -29,15 +29,7 @@ class PeopleController < SubdomainController
     @people =
       case @sort
         when 'views'
-          # This is gnarly. We have to generate a case statement for PostgreSQL in order to
-          # get the people out in page view order. AND we need an SQL in clause for the people.
-
-          # It does result in only one SQL call, though.
-          # Good thing this is only ever limited to 10 or 20 people.
-
-          countable_ids = Page.most_viewed(request.subdomain, 'Person').collect(&:countable_id)
-
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").find_in_explicit_order('people.id', countable_ids)
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => 10)
         else
           people_by_facets
       end

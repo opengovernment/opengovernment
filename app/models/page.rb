@@ -55,13 +55,19 @@ class Page
     end
   end
 
-  def self.most_viewed(subdomain, object_type, limit = 10)
-    opts = { :query => {'countable_type' => object_type, 'subdomain' => subdomain } }
+  def self.most_viewed(object_type, ops = {})
+    ops[:limit] ||= 10
 
-    top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
+    mr_opts = { :query => {'countable_type' => object_type } }
+
+    if ops[:subdomain]
+      mr_opts[:query]['subdomain'] = ops[:subdomain]
+    end
+
+    top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, mr_opts )
 
     # p['value'] contains the total hit count, but we're not using it right now.
-    top_views.find.sort([['value','descending']]).limit(limit).collect { |p| Page.find(p['_id']) }
+    top_views.find.sort([['value','descending']]).limit(ops[:limit]).collect { |p| Page.find(p['_id']) }
   end
 
   protected

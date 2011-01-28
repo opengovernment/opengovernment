@@ -84,14 +84,7 @@ class BillsController < SubdomainController
       when 'mentions'
         bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc").limit(10)
       when 'views'
-        # This is gnarly. We have to generate a case statement for PostgreSQL in order to
-        # get the people out in page view order. AND we need an SQL in clause for the people.
-
-        # It does result in only one SQL call, though.
-        # Good thing this is only ever limited to 10 or 20 items.
-        countable_ids = Page.most_viewed(request.subdomain, 'Bill').collect(&:countable_id)
-
-        bills.find_in_explicit_order('bills.id', countable_ids)
+        bills.most_viewed(:subdomain => request.subdomain, :limit => 10)
       when 'keyvotes'
         bills.where(:votesmart_key_vote => true)
       else
