@@ -1,2 +1,7 @@
 production:
   bin_path: '/usr/local/bin'
+development:
+  port: 9312
+test:
+  port: 9313
+  sql_range_step: 10000000
