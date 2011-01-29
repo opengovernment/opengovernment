@@ -19,3 +19,11 @@ Feature: Search
      And I fill in "q" with "john"
      And I press "Search"
     Then I should be on the person page for "John Cornyn"
+
+  Scenario: Search with ^ and $ characters
+    When I visit subdomain "tx"
+     And I go to the home page
+     And I fill in "q" with "$caret^"
+     And I press "Search"
+    Then I should be on the search page
+     And I should see "0 results"

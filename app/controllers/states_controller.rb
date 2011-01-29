@@ -32,7 +32,7 @@ class StatesController < SubdomainController
   end
 
   def search
-    @query = params[:q] || ""
+    @query = params[:q].gsub(/([$^])/, '') || ""
     @search_type = params[:search_type] || "everything"
     @committee_type = params[:committee_type] || "all"
 
