@@ -6,26 +6,32 @@ module OpenGov
     end
 
     def self.import_bills
-      puts "Importing mentions for bills.."
+      puts "Importing mentions for bills with key votes.."
       Bill.with_key_votes.each do |bill|
-        puts "#{bill.bill_number}.."
-        raw_mentions = bill.raw_mentions
-
-        raw_mentions[:google_news].map { |c| make_mention(bill, c, "Google News") }
-        raw_mentions[:google_blogs].map { |c| make_mention(bill, c, "Google Blogs") }
-
-        bill.save!
+        make_mentions(bill)
+      end
+      
+      puts "Importing mentions for bills most viewed..."
+      Bill.without_key_votes.most_viewed(:since => 30.days.ago, :limit => 100).each do |bill|
+        make_mentions(bill)
       end
     end
 
     def self.import_people
-      puts "Importing mentions for people..."
+      puts "Importing mentions for people with current roles..."
       Person.with_current_role.each do |person|
-        puts "#{person.full_name}..."
-        raw_mentions = person.raw_mentions
-        raw_mentions[:google_news].map { |c| make_mention(person, c, "Google News") }
-        raw_mentions[:google_blogs].map { |c| make_mention(person, c, "Google Blogs") }
+        make_mentions(person)
       end
+    end
+
+    def self.make_mentions(obj)
+      puts "#{obj.to_param}"
+      raw_mentions = obj.raw_mentions
+
+      raw_mentions[:google_news].map { |c| make_mention(obj, c, "Google News") }
+      raw_mentions[:google_blogs].map { |c| make_mention(obj, c, "Google Blogs") }
+
+      obj.save!
     end
 
     def self.make_mention(owner, mention, source)
