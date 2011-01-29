@@ -64,6 +64,10 @@ class Page
       mr_opts[:query]['subdomain'] = ops[:subdomain]
     end
 
+    if ops[:since]
+      mr_opts[:query]['hour'] = { '$gt' => ops[:since].try(:utc) }
+    end
+
     top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, mr_opts )
 
     # p['value'] contains the total hit count, but we're not using it right now.

@@ -8,7 +8,7 @@ module Trackable
 
       # It does result in only one SQL call, though.
       # Good thing this is only ever limited to 10 or 20 items.
-      countable_ids = Page.most_viewed(self.to_s, :limit => ops[:limit], :subdomain => ops[:subdomain]).collect(&:countable_id)
+      countable_ids = Page.most_viewed(self.to_s, :limit => ops[:limit], :subdomain => ops[:subdomain], :since => ops[:since]).collect(&:countable_id)
 
       return if countable_ids.empty?
 
