@@ -9,7 +9,7 @@
     - if @point.precision != "address"
       = "We couldn't find your exact address, but we found your #{@point.precision}."
 
-  - [@state.legislature, Legislature::CONGRESS].each do |leg|
+  - [@state.legislature, Legislature.congress].each do |leg|
     %h3[leg]= leg.name
     - [leg.upper_chamber, leg.lower_chamber].each do |chamber|
       %h4[chamber]= chamber.name

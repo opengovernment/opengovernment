@@ -32,7 +32,7 @@ module OpenGov
               begin
                 page += 1
                 begin
-                  contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :page => page)
+                  contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
 
                   contributions.each do |contribution|
                     make_contribution(person, contribution)

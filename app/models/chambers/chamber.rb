@@ -28,7 +28,7 @@ class Chamber < ActiveRecord::Base
     places.each do |place|
       if place.kind_of?(District) && place.chamber == self
         places_and_people << [place, place.current_legislators]
-      elsif place.kind_of?(State) && self == ::UpperChamber::US_SENATE
+      elsif place.kind_of?(State) && self == ::UpperChamber.us_senate
         places_and_people << [place, place.senators]
       end
     end
