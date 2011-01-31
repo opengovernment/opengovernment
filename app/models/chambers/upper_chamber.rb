@@ -6,7 +6,7 @@ class UpperChamber < Chamber
     a.has_many :sub_committees
   end
 
-  def us_senate
+  def self.us_senate
     find(:first, :conditions => {:legislature_id => Legislature.congress})
   end
 
