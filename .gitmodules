@@ -1,4 +1,6 @@
 [submodule "vendor/plugins/govkit"]
 	path = vendor/plugins/govkit
 	url = http://github.com/opengovernment/govkit.git
-
+[submodule "install"]
+	path = install
+	url = http://github.com/opengovernment/opengovernment-install.git
