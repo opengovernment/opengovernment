@@ -18,6 +18,9 @@ module NavigationHelpers
       new_password_path
     when /the admin list of states/i
       admin_states_path
+    when /the person page for "(.*)"/i
+      person_path(
+        Person.find_by_first_name_and_last_name(*parse_person_name($1)))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
