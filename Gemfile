@@ -90,7 +90,6 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'factory_girl_rails'
-  gem 'machinist'
   gem 'linecache'
   gem 'ruby-debug'
   gem 'vcr', '~> 1.5.1'
