@@ -15,7 +15,7 @@ class SubjectsController < SubdomainController
 
   def get_subject
     @subject = Subject.find(params[:id])
-    @subject_bills = @subject.bills.where(["bills.session_id = ?", @session.id]).paginate(:page => params[:page])
+    @subject_bills = @subject.bills.where(["bills.session_id in (?)", @session.family]).paginate(:page => params[:page])
     @subject || resource_not_found
   end  
 end
