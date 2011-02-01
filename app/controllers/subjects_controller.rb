@@ -4,8 +4,8 @@ class SubjectsController < SubdomainController
   def index
     @min_bills = 1
     page = params[:page] || 1
-    
-    @subjects = Subject.for_session(@session)
+
+    @subjects = Subject.for_sessions(@session.family)
     @letters = @subjects.select('upper(substring(subjects.name from 1 for 1)) as letter').group('upper(substring(subjects.name from 1 for 1))').map { |x| x.letter }
 
     @letter = params[:letter] || @letters.first
