@@ -9,14 +9,14 @@
   %p
     = f.label :email, "OpenCongress username"
     %br/
-    = f.text_field :email
+    = f.text_field :email, :class => 'field'
   %p
     = f.label :password
     %br/
-    = f.password_field :password
+    = f.password_field :password, :class => 'field'
   - if devise_mapping.rememberable?
     %p
       = f.check_box :remember_me
       = f.label :remember_me
-  %p= f.submit "Sign in"
+  %p= f.submit "Sign in", :class => 'button'
 = render :partial => "devise/shared/links"

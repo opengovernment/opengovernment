@@ -153,8 +153,14 @@ li.topnav a{
 
 .state-select li a:hover{  
   text-shadow: 0 2px 0px #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)) !important; /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f6f6)) !important; /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #f6f6f6,  #fff) !important; /* for firefox 3.6+ */
+  }
+
+
+.state-select li a:active{  
+  background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#fff)) !important; /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #fff,  #f6f6f6) !important; /* for firefox 3.6+ */
   }
 
 
@@ -185,26 +191,30 @@ li.topnav .dropdown{
 
 
 .topnav .dropdown:hover{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #fff);
+  background: url(/images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
   border: 1px solid #aaa !important;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
   border-radius:3px;
-  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
+  box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
   }
 
 
 li.topnav .dropdown.subhover{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
-  border: 1px solid #ccc !important;
+  background: url(/images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
+
+  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
+  border: 1px solid #999 !important;
+border-bottom: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
   border-radius:3px;
-  -moz-box-shadow: 0 1px 0px #fefefe, inset 0 1px 1px #ddd;
-  -webkit-box-shadow: 0 1px 0px #fefefe, inset 0 1px 1px #ddd;
-  box-shadow:  0 1px 0px #fefefe, inset 0 1px 1px #ddd;
+  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
+  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
+  box-shadow:  0 1px 0px #eee, inset 0 1px 1px #aaa;
   }
 
 

@@ -131,9 +131,9 @@ top: -30px;
   border-bottom: 1px solid #666;
   
   
-  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
@@ -153,9 +153,9 @@ top: -30px;
   border-bottom: 1px solid #666;
   
   
-  -moz-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #a7c3c9, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
@@ -187,9 +187,31 @@ top: -30px;
 
 
 .button.medium{
-padding: 6px 12px;
+  padding: 6px 12px;
   cursor: pointer;
   }
+
+
+.button.large{
+  padding: 8px 12px;
+  cursor: pointer;
+  }
+
+
+.button a{
+  text-decoration: none !important;
+  }
+
+
+.button.cap{
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  }
+
+
+
 
 .rounded{
   border-radius: 4px;
@@ -198,9 +220,8 @@ padding: 6px 12px;
   }
 
 
-.button a{
-text-decoration: none !important;
-}
+
+
 
 /*///////////// ~  Type Stuff  ~ /////////////*/
 
