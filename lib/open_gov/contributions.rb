@@ -31,34 +31,38 @@ module OpenGov
         puts "Importing contributions for #{person.full_name}"
         total = 0
 
-        entity = GovKit::TransparencyData::Entity.find_by_id(person.transparencydata_id)
-        entity.external_ids.each do |eid|
-          page = 0
-          contributions = []
+        begin
+          entity = GovKit::TransparencyData::Entity.find_by_id(person.transparencydata_id)
+          entity.external_ids.each do |eid|
+            page = 0
+            contributions = []
 
-          # Fetch the NIMSP external ids only.
-          # puts "fetching '#{eid[:namespace]}' '#{eid[:id]}'"
-          if eid[:namespace].eql?(IMSP_NAMESPACE)
-            # Loop to get all contributions
-            begin
-              page += 1
+            # Fetch the NIMSP external ids only.
+            # puts "fetching '#{eid[:namespace]}' '#{eid[:id]}'"
+            if eid[:namespace].eql?(IMSP_NAMESPACE)
+              # Loop to get all contributions
               begin
-                contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
+                page += 1
+                begin
+                  contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
                 
-                contributions.each do |contribution|
-                  make_contribution(person, contribution)
+                  contributions.each do |contribution|
+                    make_contribution(person, contribution)
+                  end
+                  # process them.
+                rescue Crack::ParseError => e
+                  puts e.class.to_s + ": Invalid JSON for person " + person.transparencydata_id
+                  break
+                rescue GovKit::ResourceNotFound => e
+                  puts "Got resource not found."
+                  break
                 end
-                # process them.
-              rescue Crack::ParseError => e
-                puts e.class.to_s + ": Invalid JSON for person " + person.transparencydata_id
-                break
-              rescue GovKit::ResourceNotFound => e
-                puts "Got resource not found."
-                break
-              end
-              total += contributions.size
-            end while contributions.size >= 1000
+                total += contributions.size
+              end while contributions.size >= 1000
+            end
           end
+        rescue GovKit::ResourceNotFound => e
+          puts "Resource not found on entity lookup: #{person.transparencydata_id}"
         end
 
         puts "Fetched #{total} contributions from TransparencyData"
