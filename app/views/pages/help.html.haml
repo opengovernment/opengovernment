@@ -16,11 +16,11 @@
 
 %p Join our low-volume e-mail list to stay in touch as we roll out OpenGovernment to all 50 states: 
 
-%form(action="http://crm.ppolitics.org/civicrm/mailing/subscribe" method="post")
-  %p
-    %input(name="email" type="text" id="email")
-    %input(name="mark_x_3" type="hidden" value="1")
-    %input(name="_qf_Subscribe_next" value="Subscribe" type="submit")
+%form(action="http://crm.ppolitics.org/civicrm/mailing/subscribe" method="post" class="rounded padding floatleft border background margin-right")
+  %input(name="mark_x_3" type="hidden" value="1")
+
+  %input(name="email" type="text" id="email" class="field cap")
+  %input(name="_qf_Subscribe_next" value="Subscribe" type="submit" class="button medium cap")
 
 %p ...we'll e-mail you about once a month with news & updates as we work to take OG national. While you're here, you can help <strong>spread the word</strong> about this new public resource with your community by clicking the "share this" icons at the top of this page. 
 

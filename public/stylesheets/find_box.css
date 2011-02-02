@@ -6,11 +6,6 @@ padding: 20px 0;
   margin: 0 0 -10px -16px !important;
 }
 
-.home.home #find_my_rep #q{
-  width: 230px;
-  padding-left: 25px;
-  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
-  }
   
 
 .home.home .main{
@@ -20,6 +15,22 @@ padding: 20px 0;
 .home.home #find_my_rep {
 padding-left: 70px;
 }
+
+
+
+.home.home #find_my_rep label{
+  padding: 6px 50px 0 15px;
+  float: left;
+  margin:0 0 0px;
+  font-size: 16px;
+  line-height:1.3em;
+  color: #36676f;
+  clear: both; 
+  font-weight: normal;
+  
+  }
+
+
 
 
 .home.home .auto_find {
@@ -52,7 +63,7 @@ float: right;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   overflow: auto;
-  padding: 18px 0px 10px;
+  padding: 18px 0px 18px;
   background: #f9f9f9;
   margin: 0px -26px 20px -39px;
   }
@@ -84,8 +95,8 @@ float: right;
   -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
-  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); 
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); 
   
 }
 
@@ -119,12 +130,33 @@ float: right;
 #find_my_rep #q{
   width: 97px;
   padding-left: 25px;
-  background: #fff url(/images/sprites.png) 8px -218px no-repeat;
+margin: 0 20px 0 0 !important;
+float: left;
+width: 100px !important;
+
+  background: url(/images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+  background: url(/images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #ddd,  #efefef);
+
   }
   
 
+
+#find_my_rep #q:focus{
+  width: 97px;
+  padding-left: 25px;
+margin: 0 20px 0 0 !important;
+float: left;
+width: 100px !important;
+
+  background: url(/images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); 
+  background: url(/images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
+
+  }
+  
+
+
 #find_my_rep label{
-  padding: 6px 20px 0 15px;
+  padding: 7px 20px 0 15px;
   float: left;
   margin:0 0 0px;
   font-size: 13px;
@@ -164,8 +196,8 @@ float: right;
   -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
   
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); 
+  background: -moz-linear-gradient(top,  #fff,  #ddd); 
   
   padding: 6px 23px;
   
