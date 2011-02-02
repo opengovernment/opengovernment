@@ -3,7 +3,7 @@ class IssuesController < SubdomainController
 
   def index
     @min_bills = 1
-    @subjects = Subject.for_session(@session).order("subjects.name").with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).limit(100)
+    @subjects = Subject.for_sessions(@session.family).order("subjects.name").with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).limit(100)
 
     respond_to do |format|
       @issues = ActsAsTaggableOn::Tag.all

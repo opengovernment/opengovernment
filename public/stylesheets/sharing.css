@@ -428,7 +428,23 @@ background: url(/images/sprites.png) 9px -391px no-repeat;
 }
 
 
-.share_callout {
-  padding: 10px 0 0 40px;
+
+.share_top{
+border-top: 0 !important;
+margin-bottom: 20px !important;
 }
+
+
+
+.share_callout {
+  padding: 11px 0 0 40px;
+float: left;
+}
+
+.share_top ul.share{
+margin: 5px 0 5px 15px !important;
+}
+
+
+
 

@@ -3,9 +3,8 @@
   %label(for='q')
     %strong Find Your District
     Enter address or ZIP
-  = text_field_tag :q, params[:q], :autocomplete => 'off'
-  .find_button
-    = submit_tag 'Find'
+  = text_field_tag :q, params[:q], :autocomplete => 'off', :class => 'field'
+  = submit_tag 'Find', :class => 'button medium'
   </form>
 - unless defined?(narrow)
   .auto_find
