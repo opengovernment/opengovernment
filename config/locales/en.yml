@@ -76,6 +76,16 @@ en:
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
       no_tweets: "No tweets were found for %{hashtags}."
+    money_trail:
+      title: 'Money Trail'
+      citation: |
+        Data provided by the non-partisan <a href="http://www.followthemoney.org/" target="_blank">Follow The Money</a>, via <a href="http://transparencydata.com" target="_blank">TransparencyData</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml" target="_blank">about the data</a>.
+      no_results: |
+        We believe the public should be able to easily access the latest campaign contribution information for every elected official. Money plays a pervasive role in the legislative process, and we need nothing less than total transparency around special interest groups making political donations to this member.<br><br>
+        Unfortunately, state governments do not make donation data available in ways that are sufficiently timely, much less in ways that are fully open. As a result of this shortcoming, no Money Trail data is available for this Member at this time via the non-partisan <a href="http://www.followthemoney.org/">Follow The Money</a>.<br><br>
+        With your support, we can work to bring this vital money-in-politics information into the light-- see <a href="/pages/help">how you can help</a>.
+      industry_title: "All By Industry"
+      top_title: "Top Individual Contributions"
     news:
       no_results: |
         At the moment, we're finding no mentions of the search term "%{search_term}" in our daily automated search of the Web (via <a href="http://news.google.com/" target="_blank">Google News</a> and <a href="http://blogsearch.google.com/" target="_blank">Blog Search</a>). There may be relevant news articles & blog posts out there on the Web that refer to this person by a slightly different name or title -- in which case, they're not included here, but our goal is to aggregate as much relevant info as possible. If you know of any, <a href="/pages/contact">contact us</a> with the specific links, and we'll display them here for everyone to access.<br><br>
