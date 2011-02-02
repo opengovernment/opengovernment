@@ -16,13 +16,29 @@ en:
     index:
   states:
     show:
+      people_in_the_news: "People in the News"
+      see_all_people_link: "See All"
+      recent_bills: "Recent Bills"
+      key_votes: "Key Votes"
+      from_vote_smart: "From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>."
+      whats_a_key_vote: "What's a key vote?"
+      all_key_votes: "All Key Votes &rarr;"
+      legislators: "Legislators"
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>
         We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the legislature.
       state_population: 
+      each_chamber_represents: "Each represents approx."
+      term_limits: "and serves four-year terms with a two-term limit."
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
+      committees: 'Committees:'
+      committee: 'Committee'
+      joint_committee: 'Joint Committee'
+      bills: "Bills"
       last_election_date: "No data for last election date."
+      next_election: "Next Election"
+      last_election: "Last Election"
   bills:
     index:
       title: 'Bills in the %{legislature_name} (%{session_name})'
