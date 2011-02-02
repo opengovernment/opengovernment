@@ -64,6 +64,8 @@ form label.hint { display: block; color:#666; margin:0.25em 0 0 0; font-weight: 
   -moz-border-radius-bottomright: 0px;
   -webkit-border-bottom-right-radius: 0px;
   -webkit-border-top-right-radius: 0px;
+margin: 0 !important;
+float: left;
   }
 
 
