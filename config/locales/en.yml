@@ -8,6 +8,7 @@ en:
     greeting: "Hello"
     sign_out: "Sign out"
     sign_in: 'Sign in'
+    view_counts_not_available: "View counts currently not available. Please check later."
   state:
     blue_party_label: 'Democrat'
     red_party_label: 'Republican'
@@ -74,12 +75,34 @@ en:
       write: 'Write'
       find_your_rep: 'Find Your %{chamber_name}'
       location_prompt: 'ZIP Code'
+      find_button: "Find"
     rss:
       feed_title: '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
       author_name: 'OpenGovernment'
       author_uri: 'http://opengovernment.org'
     show:
+      bill: "Bill"
+      coming_soon: "(coming soon)"
+      session: "Session:"
+      status: 'Status'
+      sponsor: 'Sponsor'
+      see_all: 'See all'
+      subject_areas: "Subject Areas"
+      none: "None."
+      bill_text: "Bill Text"
+      documents: "Documents"
+      recent_actions: "Recent Actions"
+      date: 'Date'
+      chamber: 'Chamber'
+      action: 'Action'
+      recent_votes: "Recent Votes"
+      all: 'All'
+      vote: 'Vote'
+      twitter_mentions: "Twitter Mentions"
       no_tweets: "No tweets were found for %{hashtags}."
+      primary_sources_for: "Primary sources for this bill:"
+      how_did_we_get: "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
+      our_data_sources: "our data sources"
   actions:
     show:
       intro: "This page displays an official legislative action for this bill. Go back to view all actions, or major actions only. How can you use this page? Well, if you're blogging about this bill, you can use this URL as a permalink to this specific action. The important thing is that it's now easier than ever to access information about bills and votes in your state government." 

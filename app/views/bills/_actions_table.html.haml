@@ -1,8 +1,8 @@
 %table.bill_actions
   %tr
-    %th Date
-    %th Chamber
-    %th Action
+    %th= t 'bills.show.date'
+    %th= t 'bills.show.chamber'
+    %th= t 'bills.show.action'
   - actions.each do |action|
     %tr{:class => (action.major? ? "major" : "")}
       %td
