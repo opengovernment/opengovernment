@@ -7,12 +7,12 @@ module OpenGov
 
     def self.import_bills
       puts "Importing mentions for bills with key votes.."
-      Bill.with_key_votes.each do |bill|
+      Bill.with_key_votes.in_a_current_session.each do |bill|
         make_mentions(bill)
       end
       
       puts "Importing mentions for bills most viewed..."
-      Bill.without_key_votes.most_viewed(:since => 30.days.ago, :limit => 100).each do |bill|
+      Bill.without_key_votes.in_a_current_session.most_viewed(:since => 30.days.ago, :limit => 100).each do |bill|
         make_mentions(bill)
       end
     end
