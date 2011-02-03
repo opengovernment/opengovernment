@@ -372,25 +372,56 @@ overflow: hidden;
 #left_nav ul li ul a{
   margin: 0;
   display: block;
-  padding-left: 10px;
+  padding: 5px 10px !important;
+font-size: 12px;
+line-height: 1.3em;
   }
   
 
 
-#left_nav ul li.selected{
-  font-weight: bold;
+#left_nav ul li#overview a{
+-moz-border-radius-topleft: 8px;
+-moz-border-radius-topright: 8px;
   }
 
+#left_nav ul li#disqus a{
+-moz-border-radius-bottomleft: 8px;
+-moz-border-radius-bottomright: 8px;
+  }
+
+
+
+
+#left_nav ul li.selected{
+  font-weight: bold;
+width: 227px;
+padding: 0;
+  background: #fbfcfd;
+  }
+
+
+
+#left_nav ul li.selected li.selected{
+  font-weight: bold;
+width: inherit;
+
+  }
 
 
 
 #left_nav ul li.selected a{
   background: #fbfcfd;
+  border-bottom: 0 !important;
   }
 
 nav#left_nav ul li.selected ul {
   font-weight: normal;
+  margin: 0 15px 10px 15px;
+  -moz-border-radius: 8px;
+  background: #dde9ea;
   }
+
+
 
 li.discuss{
   padding: 8px 0 8px 0px;
@@ -413,7 +444,7 @@ li.discuss{
 
 #left_nav ul li.selected ul li a{
   margin: 0;
-  padding: 8px 0 8px 45px !important;
+  padding: 8px 0 8px 10px !important;
   background: none;
   }
 
@@ -437,10 +468,6 @@ li.discuss{
   }
 
 
-#left_nav ul li.selected ul{
-  background: #dde9ea;
-  border-right: 1px solid #b8cfd1;
-  }
   
 
 /* Left nav icons */
