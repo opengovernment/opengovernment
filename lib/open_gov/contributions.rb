@@ -1,33 +1,41 @@
 module OpenGov
   class Contributions < Resources
 
-    @@states = {}
-
-    def self.build_state_hash
-      # Cache all of the ids of people so we don't have to keep looking them up.
-      if @@states.size == 0
-        State.all.each do |s|
-          @@states[s.abbrev.upcase] = s.id
-        end
-      end
-    end
-    
     # This value for transaction_namespace= in TD API cals limits our queries with TransparencyData to the NIMSP dataset.
     IMSP_NAMESPACE = 'urn:nimsp:recipient'
-    
-    def self.import!(options = {})
+
+    def import(options = {})
       State.loadable.each do |state|
         import_state(state, options)
       end
     end
 
-    def self.import_state(state, options = {})
-      build_state_hash
-      
-      Person.find_by_sql(['SELECT distinct people.* FROM "roles" INNER JOIN "people" ON "people"."id" = "roles"."person_id" WHERE (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?) AND (people.transparencydata_id is not null)', state.id, state.id]).each do |person|
+    def import_state(state, options = {})      
+      Person.find_by_sql(['SELECT distinct people.id FROM "roles" INNER JOIN "people" ON "people"."id" = "roles"."person_id" WHERE (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?) AND (people.transparencydata_id is not null)', state.id, state.id]).each do |person|
+        # Import each person's contributions asynchronously.
+        if options[:immediate] == true
+          import_person(person.id)
+        else
+          self.delay.import_person(person.id)
+        end
+      end
+    end
+
+    def import!
+      import(:immediate => true)
+    end
+
+    def import_state!(state, options = {})
+      import_state(options.merge(:immediate => true))
+    end
+
+    def import_person(person_id)
+      cache_states
+
+      if person = Person.find(person_id, :conditions => 'transparencydata_id is not null')
         puts "Deleting contributions for #{person.full_name}"
         Contribution.delete_all(:person_id => person.id)        
-        
+
         puts "Importing contributions for #{person.full_name}"
         total = 0
 
@@ -45,7 +53,7 @@ module OpenGov
                 page += 1
                 begin
                   contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
-                
+              
                   contributions.each do |contribution|
                     make_contribution(person, contribution)
                   end
@@ -71,13 +79,13 @@ module OpenGov
 
     private
 
-    def self.make_contribution(person, con)
+    def make_contribution(person, con)
       begin
         contribution = Contribution.create(
           :person_id => person.id,
           :state_id => person.state_id,
           :industry_id => con.contributor_category,
-          :contributor_state_id => @@states[con.contributor_state.upcase],
+          :contributor_state_id => @states[con.contributor_state.upcase],
           :contributor_occupation => con.contributor_occupation,
           :contributor_employer => con.contributor_employer,
           :amount => con.amount,
@@ -91,5 +99,17 @@ module OpenGov
         puts "Could not find contributor category with code #{con.contributor_category} on transaction #{con.transaction_id}; skipping."
       end
     end
+  
+    def cache_states
+      # Cache all of the ids of people so we don't have to keep looking them up.
+      @states ||= {}
+
+      if @states.size == 0
+        State.all.each do |s|
+          @states[s.abbrev.upcase] = s.id
+        end
+      end
+    end
+
   end
 end

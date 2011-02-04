@@ -337,10 +337,10 @@ namespace :load do
     OpenGov::Industries.import!
   end
 
-  desc "Fetch and load contributions from FollowTheMoney"
+  desc "Asynchronously fetch and load contributions from FollowTheMoney"
   task :contributions => :environment do
     with_states do |state|
-      state ? OpenGov::Contributions.import_state(state) : OpenGov::Contributions.import!
+      state ? OpenGov::Contributions.new.import_state(state) : OpenGov::Contributions.new.import
     end
   end
 
