@@ -2,7 +2,7 @@
 
 %h1
   %span.state-and-chamber
-    = "#{@bill.state.name} #{@bill.chamber.name} Bill "
+    = "#{@bill.state.name} #{@bill.chamber.name} #{t('bills.show.bill')} "
   %span{:class => @bill.title.length > 300 ? 'long_bill_title' : ''}
     = "#{@bill.bill_number}:"
     = @bill.title
@@ -18,7 +18,7 @@
         %a
           %span.icon
           = t('bills.track.email_alerts') 
-          %span.soon (coming soon)
+          %span.soon= t 'bills.show.coming_soon'
 
     .hov.write_buttons
       %h4.button
@@ -30,7 +30,7 @@
         %label(for='q')= t 'bills.write.location_prompt'
         = text_field_tag :q, params[:q], :autocomplete => 'off'
         .find_button
-          = submit_tag 'Find'
+          = submit_tag t('bills.write.find_button')
         </form>
         %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
         -# Form results appear in a colorbox, not a separate page.

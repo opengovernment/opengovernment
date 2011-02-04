@@ -30,8 +30,8 @@
 
   .people_news_preview
     .grid_12.alpha
-      %h3 People in the News
-      = link_to('See all', people_path(:sort => 'mentions'), :class => 'see_all')
+      %h3= t '.people_in_the_news'
+      = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all')
     .grid_12.alpha
       %ul.sponsor_mugs.grid_12.alpha
         = render :partial => 'people/mug', :collection => @hot_people
@@ -41,9 +41,11 @@
   #bill_tabs
     %ul.small_tabs
       %li
-        %a{:href => '#recent_bills'} Recent Bills
+        %a{:href => '#recent_bills'} 
+          =t '.recent_bills'
       %li
-        %a{:href => '#key_votes'} Key Votes
+        %a{:href => '#key_votes'} 
+          =t '.key_votes'
 
     #recent_bills.tab_cont
       %ul
@@ -52,12 +54,12 @@
       .clear
 
     #key_votes.tab_cont
-      .small.quiet From the non-partisan <a href="http://votesmart.org">Project Vote Smart</a>.
-      %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote") What's a key vote?
+      .small.quiet= t '.from_vote_smart'
+      %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote")= t '.whats_a_key_vote'
 
       %ul
         = render @key_votes, :locals => {:hide_key_vote => true}
-      %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')} All Key Votes &rarr;
+      %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
       .clear  
 
 .grid_4.omega
@@ -75,7 +77,7 @@
             = leg_map_img(@state, chamber)
 
           %p
-            %strong Legislators:
+            %strong= t '.legislators'
             = link_to session_roles.count, (chamber.type == 'UpperChamber' ? people_path(current_session.primary, :chamber => 'upper') : people_path(current_session.primary, :chamber => 'lower'))
             = chamber.title.pluralize
             %br            
@@ -89,20 +91,19 @@
               - else
                 = pluralize(session_roles.republicans.count, t('state.red_party_label'))            
             %br
-            %br            
-            Each represents approx.
-            =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member')
-            and serves four-year terms with a two-term limit.
+            %br= t '.each_chamber_represents'
+            =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member') 
+            =t '.term_limits'
 
           %p
-            %strong Committees:
+            %strong= t '.committees'
             = succeed ',' do
-              = link_to pluralize(chamber.primary_committees.count, 'Committee'), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
-            = link_to pluralize(@state.joint_committees.count, 'Joint Committee'), joint_committees_path
+              = link_to pluralize(chamber.primary_committees.count, t('.committee')), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
+            = link_to pluralize(@state.joint_committees.count, t('.joint_committee')), joint_committees_path
             %br
             = succeed ',' do
-              = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.parent).in_chamber(chamber).count, :delimiter => ',')} Bills", bills_path(params[:session])
-            = link_to "#{Bill.for_session_including_children(@session.parent).in_chamber(chamber).with_key_votes.count} Key Votes", bills_path(params[:session], :sort => 'keyvotes')
+              = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.parent).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])
+            = link_to "#{Bill.for_session_including_children(@session.parent).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
   
             %br
             =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
@@ -119,11 +120,11 @@
     = raw t '.state_population'
 
   .grid_4.omega
-    %strong Next Election:
+    %strong= t '.next_election'
     = raw t '.next_election_date'
     %br
 
-    %strong Last Election:
+    %strong= t '.last_election'
     = raw t '.last_election_date'
 
 .clear.space
