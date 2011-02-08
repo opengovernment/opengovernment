@@ -85,19 +85,26 @@ en:
       coming_soon: "(coming soon)"
       session: "Session:"
       status: 'Status'
-      sponsor: 'Sponsor'
+      sponsors:
+        one: 'One Sponsor'
+        other: '%{count} Sponsors'
       see_all: 'See all'
       subject_areas: "Subject Areas"
       none: "None."
       bill_text: "Bill Text"
-      documents: "Documents"
+      documents:
+        one: "One Document"
+        other: "%{count} Documents"
       recent_actions: "Recent Actions"
       date: 'Date'
       chamber: 'Chamber'
-      action: 'Action'
+      actions:
+        one: 'One Action'
+        other: '%{count} Actions'
       recent_votes: "Recent Votes"
-      all: 'All'
-      vote: 'Vote'
+      votes:
+        one: 'One Vote'
+        other: '%{count} Votes'
       twitter_mentions: "Twitter Mentions"
       no_tweets: "No tweets were found for %{hashtags}."
       primary_sources_for: "Primary sources for this bill:"

@@ -10,7 +10,7 @@
 
 .grid_12.alpha
   %span.session 
-    = t('.session')
+    = t '.session'
     #{raw @bill.session.name_fm}
 
   = render 'shared/view_counts', :page => @bill
@@ -25,7 +25,7 @@
 
 .grid_6.alpha
   .sponsor_preview
-    %h2= pluralize(@sponsors.count, t('.sponsor'))
+    %h2= t('.sponsors', :count => @sponsors.count)
     = link_to(t('.see_all'), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
     %ul.lined
       - @sponsors.each do |s|
@@ -38,7 +38,7 @@
     .sponsor_mugs
       = sponsor_mugs(@sponsors, :limit => 10)
   %br
-  %h2= t ('.subject_areas') 
+  %h2= t '.subject_areas'
   - if @bill.subjects.any?
     %ul.lined
       - @bill.subjects.each do |subject|
@@ -59,7 +59,7 @@
 
   - if @bill.documents.any?
     .document_preview
-      %h2 #{@bill.documents.size}= t '.documents' 
+      %h2= t('.documents', :count => @bill.documents.size)
       = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
 
       %ul.lined.documents
@@ -72,7 +72,7 @@
     %h2= t '.recent_actions' 
     #bill_actions
       = render 'actions_table', :actions => @actions.limit(2)
-      = link_to(raw("All #{pluralize(@actions.size, 'Action')} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more')
+      = link_to(raw("#{t('.actions', :count => @actions.size)} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more')
 
 %hr.push_top
 
@@ -83,7 +83,7 @@
       %tbody
         = render @votes
 
-    = link_to(raw("#{t('.all')} #{pluralize(@votes.size, t('.vote'))} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more')
+    = link_to(raw("#{t('.votes', :count => @votes.size)} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more')
 
 .space
 
@@ -97,8 +97,7 @@
 
 - if @bill.citations.any?
   .citations
-    %p
-      = t '.primary_sources_for'
+    %p= t '.primary_sources_for'
     %ul
       = render @bill.citations
     = t '.how_did_we_get'
