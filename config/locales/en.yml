@@ -99,12 +99,12 @@ en:
       date: 'Date'
       chamber: 'Chamber'
       actions:
-        one: 'One Action'
-        other: '%{count} Actions'
+        one: '1 Action'
+        other: 'All %{count} Actions'
       recent_votes: "Recent Votes"
       votes:
-        one: 'One Vote'
-        other: '%{count} Votes'
+        one: '1 Vote'
+        other: 'All %{count} Votes'
       twitter_mentions: "Twitter Mentions"
       no_tweets: "No tweets were found for %{hashtags}."
       primary_sources_for: "Primary sources for this bill:"

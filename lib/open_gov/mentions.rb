@@ -10,7 +10,7 @@ module OpenGov
       Bill.with_key_votes.in_a_current_session.each do |bill|
         make_mentions(bill)
       end
-      
+
       puts "Importing mentions for bills most viewed..."
       Bill.without_key_votes.in_a_current_session.most_viewed(:since => 30.days.ago, :limit => 100).each do |bill|
         make_mentions(bill)
