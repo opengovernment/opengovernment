@@ -325,6 +325,17 @@ namespace :load do
     end
   end
 
+  desc "Match key votes from Votesmart"
+  task :keyvotes => :environment do
+    with_states do |state|
+      if state
+        OpenGov::KeyVotes.import_state(state)
+      else
+        OpenGov::KeyVotes.import!
+      end
+    end
+  end
+
   desc "Fetch and load committees from OpenStates"
   task :committees => :environment do
     with_states do |state|
