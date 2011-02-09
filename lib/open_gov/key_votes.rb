@@ -22,7 +22,7 @@ module OpenGov
         begin
           # Assumption: the bills returned for a given year were introduced during that year.
           if bills = GovKit::VoteSmart::Bill.find_by_year_and_state(year, state.abbrev)
-            bills.bill.each do |bill|
+            [*bills.bill].each do |bill|
               og_session = bill_type = bill_number = nil
 
               Rails.logger.debug "Trying #{bill.billNumber}"
