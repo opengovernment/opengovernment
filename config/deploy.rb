@@ -36,26 +36,27 @@ namespace :deploy do
     run "ln -s #{shared_path}/db/sphinx #{current_release}/db/sphinx"
   end
 
-  desc 'Compile CSS & JS for public/assets/ (see assets.yml)'
-  task :jammit do
-    run "cd #{current_release}; bundle exec jammit"
-  end
-
   desc 'Restart Passenger'
   task :restart do
     run "touch #{deploy_to}/current/tmp/restart.txt"
+  end
+
+  desc 'Compile CSS & JS for public/assets/ (see assets.yml)'
+  task :jammit do
+    run "cd #{current_release}; bundle exec jammit"
   end
 end
 
 # Deploy hooks...
 
+
 #
 # Delete all but the last 4 releases:
 #
 set :keep_releases, 4
-after 'deploy:cleanup', 'sphinx:shared_sphinx_folder'
 after 'deploy:update', 'deploy:cleanup'
 after 'deploy:update_code', 'deploy:link_shared'
-after 'deploy:cleanup', 'sphinx:rebuild'
 after 'deploy:update_code', 'deploy:jammit'
 after 'deploy:update_code', 'delayed_job:restart'
+after 'deploy:cleanup', 'sphinx:rebuild'
+after 'deploy:cleanup', 'sphinx:shared_sphinx_folder'

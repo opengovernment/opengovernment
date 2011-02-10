@@ -37,15 +37,25 @@ OpenGov::Application.configure do
   HOST = ENV['HOST'] || 'opengovernment.org'
   HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  # Don't use cloudfront for paperclip attachments. (yet)
-  config.action_controller.asset_host = Proc.new { |source|
-       if source.starts_with?('/system')
-         "http://#{HOST}"
-       else
-         'http://d3uj2bm0ssocsl.cloudfront.net'
-       end
-     }
+  # Enable serving of images, stylesheets, and javascripts from CloudFront
+  config.action_controller.asset_host = Proc.new { |source, request|
+    "#{request.ssl? ? 'https' : 'http'}://d20tbjzc77cxpv.cloudfront.net"
+  }
+
+  # This is the cache-busting code for CloudFront. CloudFront ignores the date stamp that Rails typically
+  # adds to asset URLs for cache busting, so we have to add a subdirectory to the asset path based on
+  # the current git revision.
+  #
+  # This corresponds to an Apache rewrite rule that effectively ignores the /r-{RELEASE_NUMBER}/ part:
+  # 
+  #  RewriteRule ^/r-.+/(images|javascripts|stylesheets|system|assets)/(.*)$ /$1/$2 [L]
+
+  # Use the git revision of this release
+  RELEASE_NUMBER = %x{cat REVISION | cut -c -7}.rstrip
+
+  config.action_controller.asset_path = proc { |asset_path|  
+    "/r-#{RELEASE_NUMBER}#{asset_path}"  
+  }
 
   config.action_mailer.default_url_options = {:host => HOST}
 end
