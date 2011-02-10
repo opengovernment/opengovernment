@@ -8,7 +8,9 @@
     = @bill.title
 
 - if defined?(show_tools)
+
   %aside.take_action.full_lined
+    %h4.pad Share this
     = render 'shared/share_tools', :message => "Share", :title => "I'm reading about #{@bill.to_hashtags} on OpenGovernment.org", :url => request.url
     %ul.track_buttons
       %li.rss 

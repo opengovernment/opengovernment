@@ -768,7 +768,7 @@ p.donate a{
 .tabs li a:hover,
 .sorts li a:hover{
   text-decoration: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); /* for firefox 3.6+ */
   }
 
@@ -787,7 +787,7 @@ p.donate a{
   -moz-box-shadow:inset 0 1px 1px #888, 0 1px 0 #fbfdfd;
   -webkit-box-shadow:inset 0 1px 1px #888, 0 1px 0 #fbfdfd;
   box-shadow:inset 0 1px 1px #888, 0 1px 0 #fbfdfd;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#c5cfd1), to(#e7eeef)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #c5cfd1,  #e7eeef); /* for firefox 3.6+ */
   }
 

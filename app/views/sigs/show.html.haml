@@ -8,16 +8,19 @@
   .subhead
     = @sig.category.name
 
-%hr
+%hr.push_bottom
 
 .sig_description
   = @sig.description
+
+%br
 
 %div.vcard[@sig]
   %h2
     %span.type> Contact Information
   - unless @sig.email.blank?
     .sig_email= mail_to @sig.email, 'E-Mail', :class => 'email', :encode => :javascript
+    %br
   - unless @sig.address.blank?
     %div.street-address!= @sig.address
     %span.locality>= @sig.city
@@ -33,7 +36,7 @@
       %span.grid_1.alpha.type> FAX
       %span.grid_2.omega.value #{@sig.fax}
 
-%hr
+%hr.push_top
 
 %nav.faceted.by_year
   - @years_available.each do |year|

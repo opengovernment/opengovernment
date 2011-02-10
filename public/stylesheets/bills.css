@@ -182,7 +182,7 @@ a.see_all {
 .sponsor_mugs{
   float: left;
   width: 255px;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 0px;
   }
 
 .sponsor_mugs span{
@@ -236,3 +236,19 @@ p.action_text {
   color: #666;
   clear: both;
   }
+
+
+
+.bills .sponsor_mugs img {
+  display: block;
+  padding-top: 3px;
+  font-size: 10px;
+  color: #666;
+  clear: both;
+  }
+
+
+
+
+
+

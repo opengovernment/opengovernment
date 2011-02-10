@@ -6,6 +6,13 @@
   .bill_titles
     != link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 500))
 
+
+  .sponsor_mugs
+    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
+      = bill.actions.last.try(:kind_fm).try(:titleize)
+    = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
+
+
   .bill_status.rounded
 
     .introduced.grid_4.omega.top
@@ -16,8 +23,9 @@
       != pluralize(bill.votes.count, 'vote')
       on this bill
 
-    - if bill.session.parent_id?
-      .bill_session= 'Session ' + bill.session.try(:name)
+    .introduced.grid_7.omega.top
+      - if bill.session.parent_id?
+        .bill_session= 'Session ' + bill.session.try(:name)
 
     .recent_action.grid_4.omega
       Most recent action:
@@ -27,7 +35,3 @@
       .view_count.grid_3.alpha
         = pluralize(bill.views, 'view')
 
-  .sponsor_mugs
-    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
-      = bill.actions.last.try(:kind_fm).try(:titleize)
-    = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)

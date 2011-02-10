@@ -563,10 +563,12 @@ padding: 20px;
   display: block;
   font-size: 16px;
   line-height: 1.2em;
+
   font-weight: bold;
-  width: 423px;
-  height: 83px;
-  background: transparent url(/images/miro_community_logo.png) 0 0 no-repeat !important;
+  width: 693px;
+padding-top: 20px;
+  height: 73px;
+  background: transparent url(/images/miro_community_logo.png) right top no-repeat !important;
   }
   
 .big_list{
@@ -780,6 +782,8 @@ background: transparent url(/images/grow.png) 1px 3px no-repeat !important;
 display: none;
 }
 
-
+.small_line{
+line-height: 1.3em !important;
+}
 
 
