@@ -90,7 +90,7 @@ dd {margin-left:1.5em;}
 
 tfoot {font-style:italic;}
 caption {background:#eee;}
-.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+.small {font-size: 11px; margin-top: 5px; color: gray;}
 .large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
 .hide {display:none;}
 .quiet {color:#666;}

@@ -85,7 +85,7 @@ li.topnav a{
   margin: 0;
   padding: 8px;  
   display: none;  
-  height: 194px;
+
   width: 237px;  
   top: 27px;
   z-index: 9999999;
@@ -119,7 +119,7 @@ li.topnav a{
 
 .state-select ul{  
   list-style: none;  
-  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+
   margin: 0;
   display: block;  
   border-top: 1px solid #e8e8e8;

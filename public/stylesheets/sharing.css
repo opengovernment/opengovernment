@@ -10,8 +10,8 @@
 
 ul.share{
   list-style: none !important;
-  padding: 4px;
-  margin: 10px 0 0px 34px !important;
+  padding: 4px 0;
+  margin: 10px 0 30px -3px !important;
   height: 20px;
 float: left;
 width: 210px;
@@ -35,13 +35,9 @@ ul.share li a {
   float: left !important;
   }
 
-.write_buttons .facebook a,
-.share .facebook a {
-  background: url('/images/share.png') no-repeat left top;
-}
-
-.share .facebook a:hover {
-  background: url('/images/share.png') no-repeat left -30px;
+.facebook{
+top: 88px;
+position: absolute;
 }
 
 .share .twitter {
@@ -125,7 +121,7 @@ clear: none !important;
 }
 
 .track_buttons{
-margin-left: 13px !important;
+margin-left: 0px !important;
 float: left;
 
 }
@@ -277,7 +273,11 @@ padding: 10px 0;
 
 
 .take_action{
-height: 47px;
+float: right;
+margin-right: -25px !important;
+width: 150px !important;
+padding-left: 20px;
+position: relative;
 }
 
 .hov{
@@ -446,5 +446,8 @@ margin: 5px 0 5px 15px !important;
 }
 
 
-
+h4.pad{
+padding: 10px 0 10px 0px;
+width: 143px;
+}
 
