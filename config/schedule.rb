@@ -16,6 +16,7 @@ set :job_template, "bash -l -c 'rvm use ree@og && :job'"
 every 1.day, :at => '3am' do
   rake "sync:openstates"
   rake "load:mentions"
+  rake "load:keyvotes"
 end
 
 # GeoIP data is updated upstream monthly.
