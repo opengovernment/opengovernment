@@ -747,7 +747,7 @@ background: 0
 
 
 .ui-icon-closethick{
-background: transparent url(/images/close.png) 1px 3px no-repeat !important;
+background: transparent url(../images/close.png) 1px 3px no-repeat !important;
 top: 0 !important;
 left: 0 !important;
 }
@@ -773,7 +773,7 @@ height: 0px;
 padding-top: 110px;
 z-index: 999999999;
 overflow: hidden;
-background: transparent url(/images/grow.png) 1px 3px no-repeat !important;
+background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
 }
 
 
