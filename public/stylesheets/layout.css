@@ -1,6 +1,6 @@
 .venn{
   width: 714px; 
-  background: transparent url(/images/about.png) 0 0 no-repeat !important;
+  background: transparent url(../images/about.png) 0 0 no-repeat !important;
   margin: 40px 0 40px -13px;
   height: 590px;
   }
@@ -17,28 +17,28 @@ display: block;
 font-size: 20px;
 padding-left: 32px;
 line-height: 3.5em;
-background: transparent url(/images/states.png) 0 24px no-repeat !important;
+background: transparent url(../images/states.png) 0 24px no-repeat !important;
 }
 
 
 
 
 .supported_states_list li a.state-LA{
-background: transparent url(/images/states.png) 0 -34px no-repeat !important;
+background: transparent url(../images/states.png) 0 -34px no-repeat !important;
 }
 
 
 .supported_states_list li a.state-MD{
-background: transparent url(/images/states.png) 0 -88px no-repeat !important;
+background: transparent url(../images/states.png) 0 -88px no-repeat !important;
 }
 
 .supported_states_list li a.state-TX{
-background: transparent url(/images/states.png) 0 -200px no-repeat !important;
+background: transparent url(../images/states.png) 0 -200px no-repeat !important;
 }
 
 
 .supported_states_list li a.state-WI{
-background: transparent url(/images/states.png) 0 -142px no-repeat !important;
+background: transparent url(../images/states.png) 0 -142px no-repeat !important;
 }
 
 
@@ -102,7 +102,7 @@ margin: 3px 0 0 25px;
 
 
 .wave{
-  background: #a6b9bc url(/images/wave_top.gif) left 0 no-repeat;
+  background: #a6b9bc url(../images/wave_top.gif) left 0 no-repeat;
   min-height: 300px;
   margin: 0 -16px;
   padding-top: 70px;
@@ -112,7 +112,7 @@ margin: 3px 0 0 25px;
 .wave h2{
   width: 312px;
   margin: 0px auto 0; 
-  background: url(/images/begin.gif) left 0 no-repeat;
+  background: url(../images/begin.gif) left 0 no-repeat;
   height: 0 !important;
   overflow: hidden;
   line-height: 3em;
@@ -132,7 +132,7 @@ margin: 3px 0 0 25px;
 .illo h2{
   width: 503px;
   margin: 0px auto 0 !important; 
-  background: url(/images/do_more.gif) center no-repeat;
+  background: url(../images/do_more.gif) center no-repeat;
   height: 0 !important;
   overflow: hidden;
   line-height: 3em;
@@ -142,7 +142,7 @@ margin: 3px 0 0 25px;
 
 
 .illo p{
-  background: #f6f8fa url(/images/illo.png) 24px 0 no-repeat;
+  background: #f6f8fa url(../images/illo.png) 24px 0 no-repeat;
   width: 100%;
 height: 400px;
   margin: 0 !important;
@@ -230,7 +230,7 @@ text-align: center !important;
   overflow: hidden;
   float: left;
   margin-left: 26px;
-  background: url(/images/menu.gif) center top no-repeat;
+  background: url(../images/menu.gif) center top no-repeat;
   }
 
 .map{
@@ -240,7 +240,7 @@ text-align: center !important;
   overflow: hidden;
   float: left;
   margin-left: 20px;
-  background: url(/images/map.gif) center -50px no-repeat;
+  background: url(../images/map.gif) center -50px no-repeat;
   }
   
   
@@ -259,7 +259,7 @@ text-align: center !important;
 
 
 .main{
-  background: #fff url(/images/side.png) -2px top repeat-y;
+  background: #fff url(../images/side.png) -2px top repeat-y;
   padding-bottom: 50px;
   }
   
@@ -316,7 +316,7 @@ margin-top: -5px;
   float: left;
   text-decoration: none;
   color: #215357;
-  background: url(/images/opengovernment.png) 0px 0px no-repeat; 
+  background: url(../images/opengovernment.png) 0px 0px no-repeat; 
 height: 0;
 width: 205px;
 overflow: hidden;
@@ -324,7 +324,7 @@ overflow: hidden;
 
 
 #account strong a:hover{
-  background: url(/images/opengovernment.png) 0px -42px no-repeat; 
+  background: url(../images/opengovernment.png) 0px -42px no-repeat; 
   }
 
 
@@ -426,7 +426,7 @@ nav#left_nav ul li.selected ul {
 li.discuss{
   padding: 8px 0 8px 0px;
   /*
-  background: url(/images/sprites.png) left -444px no-repeat;
+  background: url(../images/sprites.png) left -444px no-repeat;
   */
   font-size: 14px;
   }
@@ -472,7 +472,7 @@ li.discuss{
 
 /* Left nav icons */
 #left_nav ul li.primary-nav a {
-  background-image: url(/images/primary_nav_icons.gif);
+  background-image: url(../images/primary_nav_icons.gif);
   background-repeat: no-repeat;
   padding-left: 38px;
 }
@@ -496,7 +496,7 @@ li.discuss{
 
 li#person.person a.selected{
 padding-left: 35px;
-background: #fbfcfd url(/images/primary_nav_icons.gif) 16px -29px no-repeat !important;
+background: #fbfcfd url(../images/primary_nav_icons.gif) 16px -29px no-repeat !important;
 }
 
 li#person.person ul li a.selected{
@@ -514,7 +514,7 @@ background: #cddcde !important;
   padding: 10px 0 10px 22px;
   display: block;
   clear: left;
-  background: url(/images/sprites.png) left -165px no-repeat;
+  background: url(../images/sprites.png) left -165px no-repeat;
   }
 
 
@@ -543,18 +543,18 @@ background: #cddcde !important;
 /*
 .gender-unknown{
 padding-left: 20px;
-background: url(/images/sprites.png) left -30px no-repeat;
+background: url(../images/sprites.png) left -30px no-repeat;
 }
 
 .gender-male{
 padding-left: 20px;
-background: url(/images/sprites.png) left 2px no-repeat;
+background: url(../images/sprites.png) left 2px no-repeat;
 }
 
 
 .gender-female{
 padding-left: 20px;
-background: url(/images/sprites.png) left -61px no-repeat;
+background: url(../images/sprites.png) left -61px no-repeat;
 }
 
 */
@@ -564,7 +564,7 @@ background: url(/images/sprites.png) left -61px no-repeat;
 font-weight: bold;
 /*
 padding-left: 15px;
-background: url(/images/sprites.png) left -149px no-repeat;
+background: url(../images/sprites.png) left -149px no-repeat;
 */
 }
 
@@ -950,7 +950,7 @@ margin-bottom: 20px;
 
 
 .visit_blog{
-background: url(/images/blog.png) 0 0 no-repeat;
+background: url(../images/blog.png) 0 0 no-repeat;
 display: block;
 position: absolute;
 right: 20px;
@@ -963,7 +963,7 @@ overflow: hidden;
 
 
 .visit_blog:hover{
-background: url(/images/blog.png) 0 -133px no-repeat;
+background: url(../images/blog.png) 0 -133px no-repeat;
 }
 
 

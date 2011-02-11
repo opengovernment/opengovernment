@@ -28,7 +28,7 @@ body td {
 
 .pagination span.current {
   font-weight: bold;
-  background: transparent url('/images/apple-circle.gif') no-repeat 50% 50%;
+  background: transparent url(../images/apple-circle.gif) no-repeat 50% 50%;
 }
 
 .pagination a, nav.faceted a {

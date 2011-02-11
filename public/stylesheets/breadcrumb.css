@@ -112,7 +112,7 @@ li.topnav a{
   height: 16px; 
   width: 25px;
   z-index: 999999999;
-  background: url(/images/gray_triangle.png) 0 0 no-repeat;
+  background: url(../images/gray_triangle.png) 0 0 no-repeat;
   }
 
 
@@ -172,7 +172,7 @@ ul.breadcrumb li span.subhover
 
 
 li.topnav .dropdown{
-  background: url(/images/sprites.png) -7px -314px no-repeat;
+  background: url(../images/sprites.png) -7px -314px no-repeat;
   position: absolute;
   z-index: 9999999;
   top: -1px;
@@ -191,8 +191,8 @@ li.topnav .dropdown{
 
 
 .topnav .dropdown:hover{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
+  background: url(../images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
+  background: url(../images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
   border: 1px solid #aaa !important;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
@@ -204,9 +204,9 @@ li.topnav .dropdown{
 
 
 li.topnav .dropdown.subhover{
-  background: url(/images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
+  background: url(../images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
 
-  background: url(/images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
+  background: url(../images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
   border: 1px solid #999 !important;
 border-bottom: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
@@ -262,7 +262,7 @@ display: block;
 position: absolute;
 top: 0;
 left: 0;
-  background: url(/images/sprites.png) 190px -312px no-repeat;
+  background: url(../images/sprites.png) 190px -312px no-repeat;
 }
 
 
@@ -302,5 +302,5 @@ display: none;
 
 
 a#session_dropdown.dropdown.subhover{
-  background: url(/images/sprites.png) 190px -486px no-repeat;
+  background: url(../images/sprites.png) 190px -486px no-repeat;
 }
