@@ -38,7 +38,7 @@ OpenGov::Application.configure do
   HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
   # Enable serving of images, stylesheets, and javascripts from CloudFront
-  config.action_controller.asset_host = Proc.new { |source, request|
+  config.asset_host = Proc.new { |source, request|
     "#{request.ssl? ? 'https' : 'http'}://d20tbjzc77cxpv.cloudfront.net"
   }
 
@@ -53,7 +53,7 @@ OpenGov::Application.configure do
   # Use the git revision of this release
   RELEASE_NUMBER = %x{cat REVISION | cut -c -7}.rstrip
 
-  config.action_controller.asset_path = proc { |asset_path|  
+  config.asset_path = Proc.new { |asset_path|  
     "/r-#{RELEASE_NUMBER}#{asset_path}"  
   }
 
