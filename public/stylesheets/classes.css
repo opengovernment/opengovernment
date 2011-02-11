@@ -6,7 +6,7 @@
 .issues.index .intro div{
 width: 230px;
 height: 300px;
-  background: url(/images/intros/issues.png) 0px 15px no-repeat;
+  background: url(../images/intros/issues.png) 0px 15px no-repeat;
   }
 
 
@@ -14,7 +14,7 @@ height: 300px;
 .money_trails.index .intro div{
 width: 230px;
 height: 300px;
-  background: url(/images/intros/money.png) 20px 15px no-repeat;
+  background: url(../images/intros/money.png) 20px 15px no-repeat;
   }
 
 .money_trails.index .intro p{
@@ -54,7 +54,7 @@ margin: 20px;
 
 
 .spin{
-  background: transparent url(/images/spinner.gif) 0 0 no-repeat !important;
+  background: transparent url(../images/spinner.gif) 0 0 no-repeat !important;
   height: 31px;
   width: 31px;  
   position: absolute;
@@ -89,7 +89,7 @@ font-size: 16px;
   padding: 20px 0 20px 38px;
   font-size: 13px;
   line-height: 1.5em;
-  background: transparent url(/images/intro.jpg) 0 0 no-repeat !important;
+  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;
   margin: 0 0 0 -38px;
 border-top: 1px solid #e9efe7;
 border-bottom: 1px solid #e9efe7;
@@ -350,12 +350,12 @@ ol.lined li{
 /*
 .money_trails ul.lined li{
   padding-left: 20px;
-  background: #fff url(/images/cash.gif) left 2px no-repeat;
+  background: #fff url(../images/cash.gif) left 2px no-repeat;
   }
 
 .issues ul.lined li{
   padding-left: 20px;
-  background: #fff url(/images/issues.gif) left 2px no-repeat;
+  background: #fff url(../images/issues.gif) left 2px no-repeat;
   }
 
 */
@@ -568,7 +568,7 @@ padding: 20px;
   width: 693px;
 padding-top: 20px;
   height: 73px;
-  background: transparent url(/images/miro_community_logo.png) right top no-repeat !important;
+  background: transparent url(../images/miro_community_logo.png) right top no-repeat !important;
   }
   
 .big_list{
@@ -630,13 +630,13 @@ height: 0;
 padding-top: 50px;
 width: 85px;
 margin-left: 47px;
-  background: transparent url(/images/by-ppf.png) -20px 0 no-repeat !important;
+  background: transparent url(../images/by-ppf.png) -20px 0 no-repeat !important;
 }
 
 
 
 .by a.ppf:hover{
-  background: transparent url(/images/by-ppf.png) -20px -50px no-repeat !important;
+  background: transparent url(../images/by-ppf.png) -20px -50px no-repeat !important;
 }
 
 
@@ -644,13 +644,13 @@ margin-left: 47px;
 padding-top: 50px;
 width: 76px;
 
-  background: transparent url(/images/by-ppf.png) -102px 0 no-repeat !important;
+  background: transparent url(../images/by-ppf.png) -102px 0 no-repeat !important;
 }
 
 
 
 .by a.sunlight:hover{
-  background: transparent url(/images/by-ppf.png) -102px -50px no-repeat !important;
+  background: transparent url(../images/by-ppf.png) -102px -50px no-repeat !important;
 }
 
 
