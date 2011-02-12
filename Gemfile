@@ -69,6 +69,9 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :require => 'thinking_sphinx',
      :branch => 'rails3'
 
+# Exception logging
+gem 'hoptoad_notifier'
+
 group :development do
   gem 'silent-postgres'	# Quieter postgres log messages
   gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions

@@ -121,6 +121,9 @@ GEM
     high_voltage (0.9.3)
     highline (1.6.1)
     hirb (0.3.6)
+    hoptoad_notifier (2.4.5)
+      activesupport
+      builder
     httparty (0.7.3)
       crack (= 0.1.8)
     i18n (0.5.0)
@@ -264,6 +267,7 @@ DEPENDENCIES
   haml
   high_voltage
   hirb
+  hoptoad_notifier
   httparty
   jammit
   jquery-rails

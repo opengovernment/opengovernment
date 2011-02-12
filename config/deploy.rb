@@ -64,3 +64,6 @@ after 'deploy:update_code', 'deploy:jammit'
 after 'deploy:update_code', 'delayed_job:restart'
 after 'deploy:cleanup', 'sphinx:rebuild'
 after 'deploy:cleanup', 'sphinx:shared_sphinx_folder'
+
+require 'config/boot'
+require 'hoptoad_notifier/capistrano'
