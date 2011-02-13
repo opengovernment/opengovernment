@@ -1,4 +1,4 @@
-- title("Bills sponsored by #{@person.full_name}")
+- title("#{t('.title')} #{@person.full_name}")
 
 
 
@@ -7,15 +7,15 @@
 
 .grid_12
   %h1
-    Bills Sponsored by #{@person.official_name}
+    = "#{t('.title')} #{@person.official_name}"
     .subhead
-      (most recent first)
+      = "#{t('.most_recent_first')}"
   
 
   %hr
 
   - if @sponsorships.empty?
-    %h2= "#{@person.full_name} has no sponsored bills."
+    %h2= "#{@person.full_name} #{t('.has_no_bills')}"
 
   - else
     %p= sponsorship_vitals_for(@person)
