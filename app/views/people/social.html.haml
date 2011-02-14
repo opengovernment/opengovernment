@@ -1,4 +1,4 @@
-- title("Tweets about #{@person.official_name}")
+- title("#{t('.tweets_about')} #{@person.official_name}")
 - tweets(@person.full_name, 10)
 
 = render('wrapper')
@@ -7,9 +7,9 @@
   %p= t '.intro', :search_term => @person.full_name
     
   #twitter(style="display: none;")
-    %h2 Tweets
+    %h2= t('.tweets')
     .grid_12.alpha
       #notweets(style="display: none;")
-        %p Well, no social media mentions found for this legislator recently via Twitter search. But you can add your voice to this page! Simply Tweet about this person using the member's full name as above, and a link to your update will automatically appear here within 24 hours or so for everyone to access.
+        %p= t('.no_mentions') 
       %ul.lined#tweets
     

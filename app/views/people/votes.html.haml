@@ -1,4 +1,4 @@
-- title("Votes by #{@person.official_name}")
+- title("#{t('.votes_by')} #{@person.official_name}")
 
 
 
@@ -6,9 +6,9 @@
 
 
 %h1
-  Votes by #{@person.official_name}
+  = "#{t('.votes_by')} #{@person.official_name}"
   .subhead
-    (most recent first)
+    = t '.most_recent_first'
 %hr
 
 - if @roll_calls.total_entries > 0
@@ -23,4 +23,4 @@
   = will_paginate @roll_calls
 
 - else
-  %p Sorry, we have no voting history for #{@person.official_name}
+  %p #{t('.no_voting_history_for')} #{@person.official_name}

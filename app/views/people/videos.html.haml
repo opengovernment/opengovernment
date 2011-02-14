@@ -1,20 +1,20 @@
-- title("Videos for #{@person.official_name}")
+- title("#{t('.videos_for')} #{@person.official_name}")
 
 = render 'wrapper'
 
-%p We believe that online video is a vitally important and often overlooked medium for engaging with our government at every level. Unfortunately, almost every contemporary branch of state government in the United States is pitifully behind-the-times in complying with basic best practices of publishing official video content on the open Web. State legislatures do not make video streams of their proceedings (e.g., legislative actions and committee hearings) available in ways that are fully open, much less sufficiently user-friendly.
+%p= t '.video_is_important'
 
 %p= t '.intro'
 
-%p In the future, our goal is to aggregate useful video about every bill, issue, and member of state government here on OpenGovernment, all freely-licensed and made available in open standards to share & remix -- see <a href="/pages/help" target="_blank">how you can help</a>. 
+%p= t '.in_the_future'
 
-%p Until such video is liberated, we're using the free and open-source Miro Community software to create a crowdsourced hub of publicly-available video content for each state government. Head over there to see what's new and add videos of which you know for everyone to access for educational and watchdogging purposes:
+%p= t '.until_such_time'
 
 %a.mc{:href => t('videos.miro_url')}
   %br
 
 %a{:href => t('videos.miro_url')}
-  Videos for:
+  = t '.videos_for'
   = @person.official_name
 
   %br

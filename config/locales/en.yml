@@ -119,10 +119,33 @@ en:
     index:
       title: 'Members of the %{legislature_name} (%{session_name})'
     show:
+      wikipedia_bio: "Wikipedia Bio"
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
+      office_addresses: "Office Addresses"
+      sorry_no_info_for: "Sorry, no address information is available for"
+      roles: "Roles"
+      committees: "Committees"
+      no_committee_info_for: "We have no committee membership information for"
+      at_this_time: "at this time, but with your support, we can find it and publish it here on the open Web -- see <a href='/pages/help'>how you can help</a>."
+      all_sponsored_bills: "All Sponsored Bills &rarr;"
+      sponsored_bills: "Sponsored Bills"
+      votes: "Votes"
+      motion: "motion"
+      view_all: "View All"
+      votes_arr: "Votes &rarr;"
+      no_sponsorship_info_for: "We have no bill sponsorship information for"
+      no_vote_info_for: "We have no vote information for"
+      interest_group_ratings: "Interest Group Ratings"
+      from_vote_smart: "From the non-partisan <a href=\"http://www.votesmart.org\">Project Vote Smart</a>."
+      number_of_ratings: "Number of ratings"
+      no_ratings_data_found: "No ratings data found for this person at this time via <a href=\"http://votesmart.org/\" target=\"_blank\">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href=\"/pages/help\">how you can help</a>."
+      primary_sources: "Primary sources for this person:"
+      how_did_we_get: "How did we get all this other info? It wasn't easy, but we got it. About"
+      twitter_mentions: "Twitter Mentions"
       no_tweets: "No tweets were found for %{hashtags}."
     money_trail:
+      title_bar: "Money Trail for"
       title: 'Money Trail'
       citation: |
         Data provided by the non-partisan <a href="http://www.followthemoney.org/" target="_blank">Follow The Money</a>, via <a href="http://transparencydata.com" target="_blank">TransparencyData</a>. Read more <a href="http://www.followthemoney.org/Institute/about_data.phtml" target="_blank">about the data</a>.
@@ -140,17 +163,62 @@ en:
       results_intro: |
         Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for this legislator: "%{search_term}". You can add to this page and help build public knowledge about this person. Simply mention this member by his or her official title and full name in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this specific person by title and name as above, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
         We've done our best to optimize our automated search processes for this person, but occasionally even our state-of-the-art search robots bring in irrelevant links, such as other people with similar names -- so if you see irrelevant links below, please disregard. If you care to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous links cleaned-up as quickly as possible. Now, here's what we found by way of real-world news & blog context for %{full_name}
+      coverage: "News &amp; Blog Coverage for"
+      coverage_title_bar: "News and Blog Coverage"
     links:
       website_one: "Website One"
       website_two: "Website Two"
       webmail: "Web E-Mail"
       youtube: "YouTube"
       opencongress: "%{full_name} on OpenCongress"
+    person:
+      news_and_blog_entries: "News & blog entries, past 30 days"
+    sponsorship_vitals:
+      ranks: "Ranks"
+      out_of: "out of"
+      bills_sponsored: " bills sponsored or co-sponsored"
+      no_sponsorship_info: "No sponsorship information available"
     social:
+      tweets_about: "Tweets about"
       intro: |
         Here are the mentions found at this time via Twitter search for this member's full name: %{search_term}. If you tweet about this member using his or her full name, your tweet will automatically appear here in less than 24 hours.<br><br>
         We've done our best to optimize our search processes for this member, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as other people with the same name -- so if you see any such below, please disregard. If you care to help, simply <a href="/pages/contact">send us an email</a> with the URL of this webpage and we'll get the extraneous Tweets cleaned-up.<br><br>
         With more resources, we could do more to expand our social media search into social networking services such as Facebook and install a customized version of <a href="http://thinkupapp.com/" target="_blank">ThinkUp</a> for this state government-- read <a href="/pages/help">how you can help</a>. Do you know this member's officially-sanctioned Twitter or Facebook accounts for us to display here? Help us find them via our <a href="https://www.drumbeat.org/project/opengovernment-needs-open-data" target="_blank">Drumbeat</a> volunteer project. For now, here's what we found by way of real-world context for this person:
+      tweets: "Tweets"
+      no_mentions: "Well, no social media mentions found for this legislator recently via Twitter search. But you can add your voice to this page! Simply Tweet about this person using the member's full name as above, and a link to your update will automatically appear here within 24 hours or so for everyone to access."
+    sponsored_bills: 
+      title: "Bills Sponsored by"
+      most_recent_first: "(most recent first)"
+      has_no_bills: "has no sponsored bills."
+    wrapper:
+      all_votes: "All Votes - RSS"
+      email_alerts: "Email Alerts"
+      coming_soon: "(coming soon)"
+      contact_this_person: 'Contact this person'
+    committees:
+      memberships_for: "Committee memberships for"
+      of: 'of'
+    contact:
+      contact: "Contact"
+      here_is_contact_info: "Here is the contact info that this person has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent. (If you're not sure if this person represents you, you can easily find out your elected officials from our homepage, and then contact them.)"
+      short_communications: "Short communications that mention a specific bill, vote, or issue area typically work best. Or simply let this elected official know you're watching their actions using OpenGovernment."
+      addresses: "Addresses"
+      sorry_no_addresses: "Sorry, we found no addresses. We believe it should be easy to see this person's official office addresses in the capitol and his or her district, but the government does not make data about addresses available in ways that are fully open. So, <a href=\"/pages/help\">help us find this info</a> to display it here for everyone on the open Web!  "
+      public_schedule: "Public Schedule - we believe it should be easy to see a calendar of this elected official's recent and upcoming public events, but the government does not make this data available in ways that are fully open. So, <a href=\"/pages/help\">help us find it</a>! "
+      social_media: "Social media - we believe it should be easy to see a list of this elected official's social media presence -- e.g., Facebook and Twitter accounts -- but the government does not make this data available in ways that are fully open. So, <a href=\"/pages/help\">help us find it</a>!" 
+      members_official_contact_info: "Member's official contact info via the non-partisan <a href=\"http://votesmart.org/index.htm\" target=\"_blank\">Project VoteSmart</a>. Here on OpenGovernment, we seek to make the process of contacting elected officials even easier, more social, and more productive -- find out <a href=\"/pages/help\">how you can help</a>. Do you have contact info for this member to display here on the open Web? <a href=\"/pages/contact\">Let us know</a>."
+    discuss:
+      intro: "Use this public forum productively to share information about this legislator that may be relevant to other visitors. Peer-to-peer communication is powerful -- please don't use this forum to leave messages for this member (instead, send them to him or her directly). Short, specific comments that refer to individual bills by their official numbers work best here. Thanks for helping to build public knowledge about elected officials in our democracy."
+    videos:
+      video_is_important: "We believe that online video is a vitally important and often overlooked medium for engaging with our government at every level. Unfortunately, almost every contemporary branch of state government in the United States is pitifully behind-the-times in complying with basic best practices of publishing official video content on the open Web. State legislatures do not make video streams of their proceedings (e.g., legislative actions and committee hearings) available in ways that are fully open, much less sufficiently user-friendly."
+      in_the_future: "In the future, our goal is to aggregate useful video about every bill, issue, and member of state government here on OpenGovernment, all freely-licensed and made available in open standards to share & remix -- see <a href=\"/pages/help\" target=\"_blank\">how you can help</a>. "
+      until_such_time: "Until such video is liberated, we're using the free and open-source Miro Community software to create a crowdsourced hub of publicly-available video content for each state government. Head over there to see what's new and add videos of which you know for everyone to access for educational and watchdogging purposes:"
+      videos_for: "Videos for:"
+    votes:
+      votes_by: "Votes by"
+      most_recent_first: "(most recent first)"
+      no_voting_history_for: "Sorry, we have no voting history for"
+
   issues: 
     index: 
       title: 'Issue Areas in the %{legislature_name}'

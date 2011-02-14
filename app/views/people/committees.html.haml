@@ -1,11 +1,11 @@
-- title("Committee memberships for #{@person.official_name}")
+- title("#{t('.memberships_for')} #{@person.official_name}")
 
-%h2 Committee memberships for #{@person.official_name}
+%h2 #{t('.memberships_for')} #{@person.official_name}
 
 %ul
   - @person.committee_memberships.each do |membership|
     %li
       = membership.role.titleize
-      of
+      = t('.of')
       = membership.committee.type_fm
       = link_to(membership.committee.name, committee_path(membership.committee), :class => 'modal')
