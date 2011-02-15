@@ -85,7 +85,11 @@ module OpenGov
             print '.'
             $stdout.flush
           end
-          import_bill(GovKit::OpenStates::Bill.find(state.abbrev, bill[:session], bill[:bill_id], bill[:chamber]), state, {})
+          begin
+            import_bill(GovKit::OpenStates::Bill.find(state.abbrev, bill[:session], bill[:bill_id], bill[:chamber]), state, {})
+          rescue ArgumentError => e
+            puts "Failed to parse bill #{bill[:bill_id]}: #{e}"
+          end
         end
       end
     end
