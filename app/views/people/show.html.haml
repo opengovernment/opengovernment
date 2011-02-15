@@ -9,33 +9,35 @@
 
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
 
-%hr
 
-.grid_6.alpha
-  %h2 General Info
-
-  .grid_2.alpha
-    = photo_for(@person)
-
-  %ul.grid_4.omega
-    - if @person.birthday?
-      %li= "Born #{@person.birthday}"
-    - if @person.gender?
-      %li{:class => @person.gender} Gender: #{@person.gender}
-    - if @person.religion?
-      %li= "Religion: #{@person.religion}"
-    = render 'links', :person => @person
-
-.grid_6.omega
-  %h2 Wikipedia Bio
-  - if @person.bio_data.blank?
-    %p= t '.wikipedia_missing', :name => @person.full_name
-  - else
-    = raw @person.bio_data
-    %br
-    = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
-
-.space.clear
+.grid_9.alpha
+  %hr  
+  .grid_5.alpha
+    %h2 General Info
+  
+    .grid_2.alpha
+      = photo_for(@person)
+  
+    %ul.grid_2.omega
+      - if @person.birthday?
+        %li= "Born #{@person.birthday}"
+      - if @person.gender?
+        %li{:class => @person.gender} Gender: #{@person.gender}
+      - if @person.religion?
+        %li= "Religion: #{@person.religion}"
+      = render 'links', :person => @person
+  
+  .grid_4.omega
+    %h2 Wikipedia Bio
+    - if @person.bio_data.blank?
+      %p= t '.wikipedia_missing', :name => @person.full_name
+    - else
+      = raw @person.bio_data
+      %br
+      = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
+  
+  .space.clear
+  
 
 %hr.push_top
 

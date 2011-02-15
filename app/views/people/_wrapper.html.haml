@@ -8,6 +8,8 @@
 
 - if defined?(show_tools)
   %aside.take_action.full_lined
+    %h4.pad Share this
+
     = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
     %ul.track_buttons
       %li.rss
@@ -20,7 +22,7 @@
 
     .write_button
       %span.button
-        %span= link_to('Contact this person', {:action => :contact}, :class => 'modal')
+        %span= link_to('Contact', {:action => :contact}, :class => 'modal')
 
     -# TODO: These are turned off for now. Please implement.
     .support_buttons(style="display: none;")
