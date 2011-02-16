@@ -1,1 +1,279 @@
-../../lib/tasks/fixtures/states.yml
+ak:
+  abbrev: AK
+  name: Alaska
+  fips_code: 2
+  official_url: http://w3.legis.state.ak.us/
+al:
+  abbrev: AL
+  name: Alabama
+  fips_code: 1
+  official_url: http://www.legislature.state.al.us/
+ar:
+  abbrev: AR
+  name: Arkansas
+  fips_code: 5
+  official_url: http://www.arkleg.state.ar.us/
+as:
+  abbrev: AS
+  name: American Samoa
+  official_url: http://americansamoa.gov/
+az:
+  abbrev: AZ
+  name: Arizona
+  fips_code: 4
+  official_url: http://www.azleg.gov/
+ca:
+  abbrev: CA
+  name: California
+  fips_code: 6
+  launch_date: 2010-04-01
+  official_url: http://www.leginfo.ca.gov/
+co:
+  abbrev: CO
+  name: Colorado
+  fips_code: 8
+  official_url: http://www.leg.state.co.us/
+ct:
+  abbrev: CT
+  name: Connecticut
+  fips_code: 9
+  official_url: http://www.cga.ct.gov/
+dc:
+  abbrev: DC
+  name: District of Columbia
+  fips_code: 11
+  unicameral: true
+  official_url: http://www.dccouncil.washington.dc.us/
+de:
+  abbrev: DE
+  name: Delaware
+  fips_code: 10
+  official_url: http://legis.delaware.gov/
+fl:
+  abbrev: FL
+  name: Florida
+  fips_code: 12
+  official_url: http://www.leg.state.fl.us/
+ga:
+  abbrev: GA
+  name: Georgia
+  fips_code: 13
+  official_url: http://www.legis.state.ga.us/
+gu:
+  abbrev: GU
+  name: Guam
+  official_url: http://www.guamlegislature.com/
+hi:
+  abbrev: HI
+  name: Hawaii
+  fips_code: 15
+  official_url: http://www.capitol.hawaii.gov/
+ia:
+  abbrev: IA
+  name: Iowa
+  fips_code: 19
+  official_url: http://www.legis.state.ia.us/
+id:
+  abbrev: ID
+  name: Idaho
+  fips_code: 16
+  official_url: http://www.legislature.idaho.gov/
+il:
+  abbrev: IL
+  name: Illinois
+  fips_code: 17
+  official_url: http://www.illinois.gov/
+in:
+  abbrev: IN
+  name: Indiana
+  fips_code: 18
+  official_url: http://www.in.gov/legislative/
+ks:
+  abbrev: KS
+  name: Kansas
+  fips_code: 20
+  official_url: http://www.kslegislature.org/
+ky:
+  abbrev: KY
+  name: Kentucky
+  fips_code: 21
+  official_url: http://www.lrc.ky.gov/
+la:
+  abbrev: LA
+  name: Louisiana
+  fips_code: 22
+  launch_date: 2010-04-01
+  official_url: http://www.legis.state.la.us/
+ma:
+  abbrev: MA
+  name: Massachusetts
+  fips_code: 25
+  official_url: http://www.mass.gov/legis/
+md:
+  abbrev: MD
+  name: Maryland
+  fips_code: 24
+  launch_date: 2010-04-01
+  official_url: http://mlis.state.md.us/
+me:
+  abbrev: ME
+  name: Maine
+  fips_code: 23
+  official_url: http://www.maine.gov/legis/
+mi:
+  abbrev: MI
+  name: Michigan
+  fips_code: 26
+  official_url: http://www.legislature.mi.gov/
+mn:
+  abbrev: MN
+  name: Minnesota
+  fips_code: 27
+  official_url: http://www.leg.state.mn.us/
+mo:
+  abbrev: MO
+  name: Missouri
+  fips_code: 29
+  official_url: http://www.moga.mo.gov/
+ms:
+  abbrev: MS
+  name: Mississippi
+  fips_code: 28
+  official_url: http://billstatus.ls.state.ms.us/
+mt:
+  abbrev: MT
+  name: Montana
+  fips_code: 30
+  official_url: http://leg.mt.gov/css/default.asp
+nc:
+  abbrev: NC
+  name: North Carolina
+  fips_code: 37
+  official_url: http://www.ncga.state.nc.us/
+nd:
+  abbrev: ND
+  name: North Dakota
+  fips_code: 38
+  official_url: http://www.legis.nd.gov/
+ne:
+  abbrev: NE
+  name: Nebraska
+  fips_code: 31
+  unicameral: true
+  official_url: http://nebraskalegislature.gov/
+nh:
+  abbrev: NH
+  name: New Hampshire
+  fips_code: 33
+  official_url: http://www.gencourt.state.nh.us/
+nj:
+  abbrev: NJ
+  name: New Jersey
+  fips_code: 34
+  official_url: http://www.njleg.state.nj.us/
+nm:
+  abbrev: NM
+  name: New Mexico
+  fips_code: 35
+  official_url: http://legis.state.nm.us/lcs/
+nv:
+  abbrev: NV
+  name: Nevada
+  fips_code: 32
+  official_url: http://www.leg.state.nv.us/
+ny:
+  abbrev: NY
+  name: New York
+  fips_code: 36
+  official_url: http://assembly.state.ny.us/
+oh:
+  abbrev: OH
+  name: Ohio
+  fips_code: 39
+  official_url: http://www.legislature.state.oh.us/
+ok:
+  abbrev: OK
+  name: Oklahoma
+  fips_code: 40
+  official_url: http://www.lsb.state.ok.us/
+or:
+  abbrev: OR
+  name: Oregon
+  fips_code: 41
+  official_url: http://www.leg.state.or.us/
+pa:
+  abbrev: PA
+  name: Pennsylvania
+  fips_code: 42
+  official_url: http://www.legis.state.pa.us/
+pr:
+  abbrev: PR
+  name: Puerto Rico
+  fips_code: 72
+  official_url: http://www.oslpr.org/
+ri:
+  abbrev: RI
+  name: Rhode Island
+  fips_code: 44
+  official_url: http://www.rilin.state.ri.us/
+sc:
+  abbrev: SC
+  name: South Carolina
+  fips_code: 45
+  official_url: http://www.scstatehouse.gov/
+sd:
+  abbrev: SD
+  name: South Dakota
+  fips_code: 46
+  official_url: http://legis.state.sd.us/
+tn:
+  abbrev: TN
+  name: Tennessee
+  fips_code: 47
+  official_url: http://www.legislature.state.tn.us/
+tx:
+  abbrev: TX
+  name: Texas
+  fips_code: 48
+  launch_date: 2010-04-01  
+  official_url: http://www.capitol.state.tx.us/
+ut:
+  abbrev: UT
+  name: Utah
+  fips_code: 49
+  official_url: http://www.le.state.ut.us/
+va:
+  abbrev: VA
+  name: Virginia
+  fips_code: 51
+  official_url: http://legis.state.va.us/
+vi:
+  abbrev: VI
+  name: Virgin Islands
+  official_url: http://www.legvi.org/
+vt:
+  abbrev: VT
+  name: Vermont
+  fips_code: 50
+  official_url: http://www.leg.state.vt.us/
+wa:
+  abbrev: WA
+  name: Washington
+  fips_code: 53
+  official_url: http://www.leg.wa.gov/
+wi:
+  abbrev: WI
+  name: Wisconsin
+  fips_code: 55
+  launch_date: 2010-04-01
+  official_url: http://www.legis.state.wi.us/
+wv:
+  abbrev: WV
+  name: West Virginia
+  fips_code: 54
+  official_url: http://www.legis.state.wv.us/
+wy:
+  abbrev: WY
+  name: Wyoming
+  fips_code: 56
+  official_url: http://legisweb.state.wy.us/

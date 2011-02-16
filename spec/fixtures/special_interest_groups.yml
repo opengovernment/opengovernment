@@ -5,7 +5,7 @@ lpn:
   address: 123 Main St.
   name: Life Priority Network
   zip: 70040
-  state_id: 47
+  state: tx
   url: http://sigwebsite.org
   phone_one: (123) 823-1281
   votesmart_id: 353
@@ -18,7 +18,7 @@ two:
   address: 234 College Ave.
   name: Applied Research Center
   zip: 72272
-  state_id: 47
+  state: tx
   url: http://arc.org
   phone_one: 
   votesmart_id: 338
