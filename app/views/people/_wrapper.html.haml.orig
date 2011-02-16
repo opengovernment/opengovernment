@@ -22,7 +22,11 @@
 
     .write_button
       %span.button
+<<<<<<< HEAD
+        %span= link_to(t('.contact_this_person'), {:action => :contact}, :class => 'modal')
+=======
         %span= link_to('Contact', {:action => :contact}, :class => 'modal')
+>>>>>>> upstream/master
 
     -# TODO: These are turned off for now. Please implement.
     .support_buttons(style="display: none;")

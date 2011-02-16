@@ -8,9 +8,9 @@ set :branch, "production"
 set :deploy_to, "/web/opengovernment.org"
 set :environment_database, 'og_production'
 set :environment_dbhost, 'localhost'
-role :web, "bearclaw.opengovernment.org"
-role :app, "bearclaw.opengovernment.org"
-role :db,  "bearclaw.opengovernment.org", :primary => true
+role :web, "bearclaw.in.opengovernment.org"
+role :app, "bearclaw.in.opengovernment.org"
+role :db,  "bearclaw.in.opengovernment.org", :primary => true
 
 set :production_database, "og_production"
 set :production_dbhost,   "localhost"

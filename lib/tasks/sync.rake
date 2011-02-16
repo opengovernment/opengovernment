@@ -7,16 +7,28 @@ namespace :sync do
   desc "Open States API data"
 
   task :openstates => :environment do
-    # In case there are new legislative sessions or subsessions.
-    # This is always a remote call.
-    OpenGov::Legislatures.import!
+    with_states do |state|
+      if state
+        # This is always a remote call.
+        OpenGov::Legislatures.import_state(state)
 
-    # Updates to people and committees
-    OpenGov::People.import!(:remote => true)
-    OpenGov::Committees.import!(:remote => true)
+        OpenGov::People.import_state(state, :remote => true)
+        OpenGov::Committees.import_state(state, :remote => true)
+        OpenGov::Bills.import_state(state, :remote => true)
+      else
+        # In case there are new legislative sessions or subsessions.
+        # This is always a remote call.
+        OpenGov::Legislatures.import!
 
-    # Import any bills updated since last import
-    OpenGov::Bills.import!(:remote => true)
+        # Updates to people and committees
+        OpenGov::People.import!(:remote => true)
+        OpenGov::Committees.import!(:remote => true)
+
+        # Import any bills updated since last import
+        OpenGov::Bills.import!(:remote => true)
+      end
+    end
+
   end
 
   desc "Fetch votesmart photos for missing candidates"
