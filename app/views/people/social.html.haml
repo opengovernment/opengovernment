@@ -1,4 +1,4 @@
-- title("#{t('.tweets_about')} #{@person.official_name}")
+= title(t('.tweets_about', :official_name => @person.official_name))
 - tweets(@person.full_name, 10)
 
 = render('wrapper')

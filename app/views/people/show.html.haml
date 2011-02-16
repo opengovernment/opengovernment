@@ -45,7 +45,8 @@
     - if @person.addresses.size > 0
       = render :partial => "shared/address", :collection => @person.addresses
     - else
-      %p #{t('.sorry_no_info_for')}  #{@person.full_name} #{t('.at_this_time')}
+      %p
+        = t('.sorry_no_info_for', :full_name => @person.full_name)
       
 .space.clear
 
@@ -59,7 +60,8 @@
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
   .grid_4.committee_preview
-    %h2 #{@person.committees.count} #{t('.committees')}
+    %h2
+      = t('.committees', :count => @person.committees.count)
     - if @person.committees.count > 0
       = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
       %ul.lined.committees
@@ -68,7 +70,8 @@
             = committee.type_fm
             = link_to(committee.name, committee_path(committee), :class => 'modal')
     - else
-      %p #{t('.no_committee_info_for')} #{@person.full_name} #{t('.at_this_time')}
+      %p
+        = t('.no_committee_info', :full_name => @person.full_name)
 
   .grid_4.omega
     #twitter(style="display: none;")
@@ -105,9 +108,11 @@
               = vote.date
 
     %p
-      != link_to("#{t('.view_all')} #{number_with_delimiter(@person.votes.count)} #{t('.votes_arr')}".html_safe, votes_person_path(@person), :class => 'more')
+      != link_to(t('.view_all_votes', :count => number_with_delimiter(@person.votes.count)).html_safe, 
+                 votes_person_path(@person), :class => 'more')
   - else
-    %p #{t('.no_vote_info_for')} #{@person.full_name} #{t('.at_this_time')}
+    %p 
+      = t('.no_vote_info_for', :full_name => @person.full_name)
     
 
 .space.clear

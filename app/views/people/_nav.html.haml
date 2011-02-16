@@ -4,5 +4,4 @@
   %ul.user
     %li.race_tracker
       %a{:href => 'http://www.opencongress.org/wiki/Project:OpenGovernment'}
-        Follow #{@person.full_name.possessive} campaign on
-        OpenGovernment Wiki Project
+        = t('.follow_campaign_for', :full_name => @person.full_name.possessive)

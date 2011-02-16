@@ -1,4 +1,4 @@
-- title("#{@person.full_name} #{t('.coverage_title_bar')}")
+= title(t('.coverage_title_bar', :full_name => @person.full_name))
 
 = render(:partial => 'nav')
 

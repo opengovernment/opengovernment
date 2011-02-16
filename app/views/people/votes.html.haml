@@ -1,4 +1,4 @@
-- title("#{t('.votes_by')} #{@person.official_name}")
+= title(t('.votes_by', :official_name => @person.official_name))
 
 
 
@@ -6,7 +6,7 @@
 
 
 %h1
-  = "#{t('.votes_by')} #{@person.official_name}"
+  = t('.votes_by', :official_name => @person.official_name)
   .subhead
     = t '.most_recent_first'
 %hr
@@ -23,4 +23,5 @@
   = will_paginate @roll_calls
 
 - else
-  %p #{t('.no_voting_history_for')} #{@person.official_name}
+  %p
+    = t('.no_voting_history_for', :official_name => @person.official_name)

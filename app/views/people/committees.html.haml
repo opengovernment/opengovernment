@@ -1,6 +1,7 @@
-- title("#{t('.memberships_for')} #{@person.official_name}")
+= title(t('.committee_memberships_for', :official_name => @person.official_name))
 
-%h2 #{t('.memberships_for')} #{@person.official_name}
+%h2
+  =t('.committee_memberships_for', :official_name => @person.official_name)
 
 %ul
   - @person.committee_memberships.each do |membership|

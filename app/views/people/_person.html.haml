@@ -19,4 +19,6 @@
       - if MongoMapper.connected?
         .person_views #{person.views} Views
     .grid_4  
-      .person_mentions= "#{person.mentions.since(30.days.ago).count} #{t('.news_and_blog_entries')}"
+      .person_mentions
+        = person.mentions.since(30.days.ago).count 
+        = t('.news_and_blog_entries')

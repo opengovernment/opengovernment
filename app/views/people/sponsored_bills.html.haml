@@ -1,21 +1,20 @@
-- title("#{t('.title')} #{@person.full_name}")
-
+= title(t('.title', :full_name => @person.full_name))
 
 
 = render(:partial => 'nav')
   
-
 .grid_12
   %h1
-    = "#{t('.title')} #{@person.official_name}"
+    = t('.title', :full_name => @person.official_name)
     .subhead
-      = "#{t('.most_recent_first')}"
+      = t('.most_recent_first')
   
-
   %hr
 
   - if @sponsorships.empty?
-    %h2= "#{@person.full_name} #{t('.has_no_bills')}"
+    %h2
+      = @person.full_name
+      = t('.has_no_bills')
 
   - else
     %p= sponsorship_vitals_for(@person)
