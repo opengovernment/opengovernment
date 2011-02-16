@@ -14,12 +14,11 @@ gem 'bson_ext'
 gem 'memcache-client'
 # gem 'memcached'
 
-# Deployment
+# Configuration/deploy management
+gem 'settingslogic'
 gem 'capistrano'
 gem 'capistrano-ext'
-
-# Config
-gem 'settingslogic'
+gem 'whenever', :require => false
 
 # An alternative form builder
 gem 'formtastic', '~> 1.1.0'
@@ -39,9 +38,8 @@ gem 'simple-navigation'
 # Static pages
 gem 'high_voltage'
 
-# Background tasks & recurring jobs
+# Background tasks
 gem 'delayed_job', '~> 2.1'
-gem 'whenever', :require => false
 
 # Simple pagination
 gem 'will_paginate', '~> 3.0.pre2'
@@ -49,10 +47,11 @@ gem 'will_paginate', '~> 3.0.pre2'
 # Attachments & assets
 gem 'paperclip'
 gem 'jammit'
-gem 'jquery-rails'
+gem 'docsplit'
 
-# HAML!
+# Views & Javascript
 gem 'haml'
+gem 'jquery-rails'
 
 # Tagging
 gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'

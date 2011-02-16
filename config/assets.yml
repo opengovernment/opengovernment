@@ -24,7 +24,17 @@ stylesheets:
     - public/stylesheets/vote.css
     - public/stylesheets/twitter.css
     - public/stylesheets/find_box.css
-  
+
+  viewer:
+    - public/stylesheets/DV/components/reset.css
+    - public/stylesheets/DV/components/structure.css
+    - public/stylesheets/DV/components/ui.css
+    - public/stylesheets/DV/components/*.css
+    - public/stylesheets/DV/themes/plain.css
+
+  print:
+    - public/stylesheets/DV/print.css
+
 javascripts:
   common:
     - public/javascripts/rails.js
@@ -36,4 +46,25 @@ javascripts:
     - public/javascripts/application.js
     - public/javascripts/twitter.js
     - public/javascripts/bitly.js
-    
+
+  viewer:
+    - public/javascripts/DV/vendor/jquery-1.5.js
+    - public/javascripts/DV/vendor/jquery-ui-1.8.1.custom.min.js
+    - public/javascripts/DV/vendor/underscore.js
+    - public/javascripts/DV/vendor/jquery.acceptInput.js
+    - public/javascripts/DV/vendor/jquery.placeholder.js
+    - public/javascripts/DV/lib/initializer.js
+    - public/javascripts/DV/lib/*.js
+    - public/javascripts/DV/schema/*.js
+    - public/javascripts/DV/elements/*.js
+    - public/javascripts/DV/models/*.js
+    - public/javascripts/DV/events/events.js
+    - public/javascripts/DV/events/View*.js
+    - public/javascripts/DV/events/*.js
+    - public/javascripts/DV/helpers/helpers.js
+    - public/javascripts/DV/helpers/*.js
+    - public/javascripts/DV/states/*.js
+    - public/javascripts/DV/controllers/*.js
+
+  templates:
+    - public/javascripts/DV/views/*.jst
