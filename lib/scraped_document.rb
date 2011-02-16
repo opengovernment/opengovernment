@@ -13,7 +13,7 @@ module ScrapedDocument
 
   def sync_document!
     self.document = do_download_file
-    self.save(false)
+    self.save!
   end
 
   def refresh_document?
@@ -29,6 +29,7 @@ module ScrapedDocument
   def do_download_file
     io = open(URI.parse(url))
     def io.original_filename; base_uri.path.split('/').last; end
+    # (content type is assigned by open-uri)
     io.original_filename.blank? ? nil : io
   rescue OpenURI::HTTPError => e
     # eg. 404
