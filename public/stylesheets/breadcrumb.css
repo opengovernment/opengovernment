@@ -228,21 +228,24 @@ border-bottom: 1px solid #ccc !important;
 
 
 .prior_session{
-border-bottom: 1px solid #ccc;
 margin: 0 0 0  -26px;
 width: 206px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
-  
-  
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
 padding: 5px 10px;
+border-bottom: 1px solid #c7d8da;
+position: relative;
+z-index: 100;
 }
 
 
 .current_session{
-border-bottom: 1px solid #ccc;
+position: relative;
+z-index: 100;
+  background: url(../images/side.png) repeat;
 margin: 0 0 0  -26px;
-width: 202px;
+width: 200px;
+
 padding: 5px 10px 5px 15px;
 }
 
