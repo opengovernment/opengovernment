@@ -28,7 +28,7 @@
       = render 'links', :person => @person
   
   .grid_4.omega
-    %h2 Wikipedia Bio
+    %h2= t('.wikipedia_bio')
     - if @person.bio_data.blank?
       %p= t '.wikipedia_missing', :name => @person.full_name
     - else
@@ -42,12 +42,13 @@
 %hr.push_top
 
 .grid_12.alpha
-  %h2 Office Addresses
+  %h2= t('.office_addresses')
   %ul.addresses
     - if @person.addresses.size > 0
       = render :partial => "shared/address", :collection => @person.addresses
     - else
-      %p Sorry, no address information for #{@person.full_name} at this time, but <a href="/pages/help">you can help</a>. 
+      %p
+        = t('.sorry_no_info_for', :full_name => @person.full_name)
       
 .space.clear
 
@@ -56,12 +57,13 @@
 .grid_12.alpha
 
   .grid_4.alpha
-    %h2 Roles
+    %h2= t('.roles') 
     - @person.roles.each do |role|
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
   .grid_4.committee_preview
-    %h2 #{@person.committees.count} Committees
+    %h2
+      = t('.committees', :count => @person.committees.count)
     - if @person.committees.count > 0
       = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
       %ul.lined.committees
@@ -70,11 +72,12 @@
             = committee.type_fm
             = link_to(committee.name, committee_path(committee), :class => 'modal')
     - else
-      %p We have no committee membership information for #{@person.full_name} at this time, but with your support, we can find it and publish it here on the open Web -- see <a href="/pages/help">how you can help</a>. 
+      %p
+        = t('.no_committee_info', :full_name => @person.full_name)
 
   .grid_4.omega
     #twitter(style="display: none;")
-      %h2 Twitter Mentions
+      %h2= t('.twitter_mentions')
       %ul.lined#tweets
       = link_to('More &rarr;'.html_safe, social_person_path(@person), :class => 'more')
 .space.clear
@@ -82,15 +85,15 @@
 %hr.push_top
 
 .grid_6.alpha.sponsored_bills
-  %h2 Sponsored Bills
+  %h2= t('.sponsored_bills')
   = sponsorship_vitals_for(@person)
   %br
   %ul.lined
     = render @person.bill_sponsorships.limit(5)
-  = link_to("All Sponsored Bills &rarr;".html_safe, sponsored_bills_person_path(@person), :class => 'more')
+  = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more')
 
 .grid_6.omega
-  %h2 Votes
+  %h2= t('.votes')
   - if @latest_roll_calls
     %div
       %div
@@ -101,15 +104,17 @@
               = roll_call.vote_type.titleize
               on
               = link_to(vote.bill.bill_number, bill_path(vote.bill.session, vote.bill))
-              motion
+              = t('.motion')
               = succeed ',' do
                 = link_to(vote.motion, vote_path(vote.id))
               = vote.date
 
     %p
-      != link_to("View All #{number_with_delimiter(@person.votes.count)} Votes &rarr;".html_safe, votes_person_path(@person), :class => 'more')
+      != link_to(t('.view_all_votes', :count => @person.votes.count).html_safe, 
+                 votes_person_path(@person), :class => 'more')
   - else
-    %p We have no committee membership information for #{@person.full_name} at this time, but with your support, we can find it and publish it here on the open Web &mdash; see <a href="/pages/help">how you can help</a>. 
+    %p 
+      = t('.no_vote_info_for', :full_name => @person.full_name)
     
 
 .space.clear
@@ -117,8 +122,8 @@
 %hr.push_top
 
 .grid_12.alpha
-  %h2 Interest Group Ratings
-  .small.quiet.grid_24 From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
+  %h2= t('.interest_group_ratings') 
+  .small.quiet.grid_24= t('.from_vote_smart') 
 
 - if @rating_categories
   - if @rating_categories.size > 1
@@ -126,7 +131,7 @@
       %table.ratings_summary
         %tr
           %th
-          %th Number of ratings
+          %th= t('.number_of_ratings') 
         - @rating_categories[0..(@rating_categories.size/2)-1].each do |rating_category|
           %tr
             %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
@@ -136,23 +141,23 @@
     %table.ratings_summary
       %tr
         %th
-        %th Number of ratings
+        %th= t('.number_of_ratings')
       - @rating_categories[@rating_categories.size/2..@rating_categories.size].each do |rating_category|
         %tr
           %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
           %td= rating_category.entries
 
 - else
-  %p.grid_12.alpha No data found for this person at this time via <a href="http://votesmart.org/" target="_blank">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href="/pages/help">how you can help</a>.
+  %p.grid_12.alpha= t('.no_ratings_data_found') 
       
 
 - if @person.citations.any?
   .citations
     %p
-      Primary sources for this person:
+      = t('.primary_sources')
     %ul
       = render @person.citations
-    How did we get all this other info? It wasn't easy, but we got it. About
+    = t('.how_did_we_get')
     = succeed '.' do
       = link_to('our data sources', page_path('about'))
 

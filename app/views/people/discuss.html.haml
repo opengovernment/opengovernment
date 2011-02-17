@@ -1,8 +1,8 @@
-- title("Discuss #{@person.official_name}")
+= title(t('.discuss', :official_name => @person.official_name))
 
 = render(:partial => 'wrapper')
 
 .grid_12.alpha
-  .intro Use this public forum productively to share information about this legislator that may be relevant to other visitors. Peer-to-peer communication is powerful -- please don't use this forum to leave messages for this member (instead, send them to him or her directly). Short, specific comments that refer to individual bills by their official numbers work best here. Thanks for helping to build public knowledge about elected officials in our democracy. 
+  .intro= t('.intro')
   #disqus_thread
   = embed_disqus("person-#{@person.id}")

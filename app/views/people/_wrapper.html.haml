@@ -13,16 +13,16 @@
     = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
     %ul.track_buttons
       %li.rss
-        = link_to "All Votes - RSS", {:format => :atom}
+        = link_to t('.all_votes'), {:format => :atom}
       %li.email 
         %a
           %span.icon
-          Email Alerts 
-          %span.soon (coming soon)
+          = t('.email_alerts') 
+          %span.soon= t('.coming_soon')
 
     .write_button
       %span.button
-        %span= link_to('Contact', {:action => :contact}, :class => 'modal')
+        %span= link_to(t('.contact_this_person'), {:action => :contact}, :class => 'modal')
 
     -# TODO: These are turned off for now. Please implement.
     .support_buttons(style="display: none;")

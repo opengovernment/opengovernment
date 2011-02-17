@@ -1,5 +1,12 @@
 - if vitals
-  %h2= link_to(vitals.bill_count, sponsored_bills_person_url(@person)) + ' bills sponsored or co-sponsored'
-  .rank Ranks #{vitals.rank.to_i.ordinalize} out of #{vitals.total_sponsors} #{@person.chamber.title.pluralize}
+  %h2
+    = link_to(vitals.bill_count, sponsored_bills_person_url(@person)) 
+    = t('.bills_sponsored')
+  .rank 
+    = t('.ranks')
+    = vitals.rank.to_i.ordinalize
+    = t('.out_of')
+    = vitals.total_sponsors
+    = @person.chamber.title.pluralize
 - else
-  No sponsorship information available
+  = t('.no_sponsorship_info')
