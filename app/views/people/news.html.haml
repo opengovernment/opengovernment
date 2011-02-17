@@ -1,9 +1,9 @@
-- title("#{@person.full_name} News and Blog Coverage")
+= title(t('.coverage_title_bar', :full_name => @person.full_name))
 
 = render(:partial => 'nav')
 
 %h1
-  News &amp; Blog Coverage for
+  = t('.coverage')
   = @person.full_name
 
 %hr.push_bottom

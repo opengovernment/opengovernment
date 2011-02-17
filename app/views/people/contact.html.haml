@@ -1,26 +1,29 @@
-%h2 Contact #{@person.official_name}
+%h2
+  = t('.contact')
+  = @person.official_name
 
-%p Here is the contact info that this person has made publicly available. Most elected officials only respond to their constituents, so be sure to note in your communication if you are a constituent. (If you're not sure if this person represents you, you can easily find out your elected officials from our homepage, and then contact them.)
+%p= t('.here_is_contact_info')
 
-%p Short communications that mention a specific bill, vote, or issue area typically work best. Or simply let this elected official know you're watching their actions using OpenGovernment.
+%p= t('.short_communications')
 
 
 %ul.contact_options
   = render 'links', :person => @person
 
-%h2 Addresses
+%h2= t('.addresses')
 %ul.addresses
   - if @person.addresses.size > 0
     = render :partial => "shared/address", :collection => @person.addresses
   - else
-    %p Sorry, we found no addresses. We believe it should be easy to see this person's official office addresses in the capitol and his or her district, but the government does not make data about addresses available in ways that are fully open. So, <a href="/pages/help">help us find this info</a> to display it here for everyone on the open Web!  
+    %p= t('.sorry_no_addresses') 
 
 
 
 %p.public_schedule
-  Public Schedule - we believe it should be easy to see a calendar of this elected official's recent and upcoming public events, but the government does not make this data available in ways that are fully open. So, <a href="/pages/help">help us find it</a>! 
+  = t('.public_schedule')
 
 %p.social_media
-  Social media - we believe it should be easy to see a list of this elected official's social media presence -- e.g., Facebook and Twitter accounts -- but the government does not make this data available in ways that are fully open. So, <a href="/pages/help">help us find it</a>! 
+  = t('.social_media')
 
-%p Member's official contact info via the non-partisan <a href="http://votesmart.org/index.htm" target="_blank">Project VoteSmart</a>. Here on OpenGovernment, we seek to make the process of contacting elected officials even easier, more social, and more productive -- find out <a href="/pages/help">how you can help</a>. Do you have contact info for this member to display here on the open Web? <a href="/pages/contact">Let us know</a>. 
+%p 
+  = t('.members_official_contact_info')
