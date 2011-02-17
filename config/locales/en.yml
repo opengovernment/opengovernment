@@ -41,6 +41,13 @@ en:
       next_election: "Next Election"
       last_election: "Last Election"
   bills:
+    discuss: 
+      intro: "Use this public forum productively to share information about this bill that may be relevant to other visitors. Please don't use this forum to leave messages for your elected officials -- instead, contact them directly with your input. (You can find them easily here on OpenGovernment by entering your zip code on your state's homepage.) Specific comments about this bill work best here: its official text, its latest status, its actions, or its votes. Thank you for helping to build public knowledge about bills in state legislatures."
+    documents:
+      all_documents_for: "All Documents for %{bill_number}"
+    wrapper: 
+      share_this: "Share this"
+      im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
     index:
       title: 'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
@@ -50,12 +57,15 @@ en:
         In the future, our goal is to work with our data partners for campaign contribution information -- the <a href="http://www.followthemoney.org/" target="_blank">National Institute on Money in State Politics</a> and <a href="http://maplight.org/" target="_blank">MAPLight</a>, both non-profit and non-partisan organizations -- to create more versions of state-level transparency sites like <strong><a href="http://maplight.org/california" target="_blank">MAPLight California</a></strong>. In addition, we seek open-source volunteer programming time and non-profit funding support to link state-level elected officials with the rich open data sets at an allied non-profit project, <a href="http://littlesis.org/" target="_blanks">LittleSis.org</a>, building "a free database detailing the connections between powerful people and organizations."<br><br>
         Do you know of existing money-in-politics resources for this state that we can display here for the public benefit on the open Web? <a href="/pages/contact">Let us know.</a>. Until then, see <a href="/pages/help">how you can help</a> support our work and get this vital data -- on which special interest groups are supporting and opposing individual bills in state legislatures via their political donations -- in place. 
     news:
+          news_and_coverage_for: "%{state} %{bill_number} News and Blog Coverage"
           no_results: |
             At the moment, we're finding no mentions of the search term "%{search_term}" in our daily automated search of the Web (via <a href="http://news.google.com/" target="_blank">Google News</a> and <a href="http://blogsearch.google.com/" target="_blank">Blog Search</a>). There may be relevant news articles & blog posts out there on the Web that refer to this bill by a slightly different name or title -- in which case, they're not included here, but our goal is to aggregate as much relevant info as possible. If you know of any, <a href="/pages/contact">contact us</a> with the specific links, and we'll display them here for everyone to access.<br><br>
             In any case, you can help build public knowledge about this piece of legislation. If you can, publish a blog post that refers to this bill by his official title as listed just above, and if it's on the open Web where search engines can find it, a link to your post and an excerpt will automatically appear here within 24 hours. If you don't have access to a blog of your own, you can write a letter to the editor of your local newspaper or one of your state's political blogs, and if it's published on the Web, a link to that page will be swept up and displayed here.<br><br>
             Don't forget that just because we couldn't find There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
           results_intro: |
             Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for the search term: "%{search_term}". Remember, you can help build public knowledge about this bill. Simply mention this bill by its official title (as above) in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this bill, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
+          google_news: "Google News"
+          blogs: "Blogs"
     votes:
       no_actions: "We have no actions for this bill."
       major_action: |
@@ -63,9 +73,15 @@ en:
         on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
         this bill's status in the legislative process.
     social:
+      tweets_about: "Tweets about %{bill_number}"
       intro: |
         Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.<br><br>
         We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores or similarly-numbered bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions of this bill from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
+      no_mentions: "Well, no social media mentions found for this bill at this time. But you can be the first to let the open Web know that you're following this bill."
+      click_tweet_this: "Click the 'Tweet this' button to generate an update, hit publish, and your Tweet should appear here in a few minutes if you refresh the page."
+      theres_more_to_do: "There's lots more to do to make our government more open and improve our data sources for the public benefit-- read more about <a href=\"/pages/help\">how you can help</a>."
+    sponsors:
+      all_sponsors_of: "All Sponsors of %{bill_number}"
     track:
       track: 'Track'
       all_actions: 'All Actions'

@@ -1,6 +1,7 @@
-- title("All Documents for #{@bill.bill_number}")
+- title(t('.all_documents_for', :bill_number => @bill.bill_number))
 
-%h2 All Documents for #{@bill.bill_number}
+%h2
+  = t('.all_documents_for', :bill_number => @bill.bill_number)
 
 #bill_documents
   = render 'documents', :document => @documents

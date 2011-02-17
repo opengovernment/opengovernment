@@ -3,6 +3,7 @@
 = render :partial => 'wrapper'
 
 .grid_12.alpha
-  .intro Use this public forum productively to share information about this bill that may be relevant to other visitors. Please don't use this forum to leave messages for your elected officials -- instead, contact them directly with your input. (You can find them easily here on OpenGovernment by entering your zip code on your state's homepage.) Specific comments about this bill work best here: its official text, its latest status, its actions, or its votes. Thank you for helping to build public knowledge about bills in state legislatures. 
+  .intro 
+    = t('.intro')
   #disqus_thread
   = embed_disqus("bill-#{@bill.id}")
