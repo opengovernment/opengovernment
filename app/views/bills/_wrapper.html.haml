@@ -22,17 +22,17 @@
           = t('bills.track.email_alerts') 
           %span.soon= t 'bills.show.coming_soon'
 
-    .hov.write_buttons
-      %h4.button
+    .write_buttons.clearboth
+      %h4
         %span= t('bills.write.write')
-        .arrow
-      .drop.button
+        
+      .form
         = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
         %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
         %label(for='q')= t 'bills.write.location_prompt'
         = text_field_tag :q, params[:q], :autocomplete => 'off'
         .find_button
-          = submit_tag t('bills.write.find_button')
+          = submit_tag t('bills.write.find_button'), :class => 'button'
         </form>
         %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
         -# Form results appear in a colorbox, not a separate page.
