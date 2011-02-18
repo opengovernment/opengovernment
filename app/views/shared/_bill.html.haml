@@ -16,16 +16,17 @@
   .bill_status.rounded
 
     .introduced.grid_4.omega.top
-      Introduced:
+      = t '.introduced'
       != bill.first_action_at
 
     .recent_vote.grid_3.alpha.top
-      != pluralize(bill.votes.count, 'vote')
-      on this bill
+      != t '.votes_on_bill', :count => bill.votes.count
 
     .introduced.grid_7.omega.top
       - if bill.session.parent_id?
-        .bill_session= 'Session ' + bill.session.try(:name)
+        .bill_session
+          = t '.session' 
+          = bill.session.try(:name)
 
     .recent_action.grid_4.omega
       Most recent action:
@@ -33,5 +34,5 @@
 
     - if MongoMapper.connected?
       .view_count.grid_3.alpha
-        = pluralize(bill.views, 'view')
+        = t '.views', :count => bill.views
 

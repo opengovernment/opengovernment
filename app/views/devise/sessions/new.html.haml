@@ -1,22 +1,18 @@
-%h2 Sign in
-%p
-  For the time being, for technical reasons, OpenGovernment only supports sign-ins using the free accounts of our sibling site, OpenCongress. If you don't already have a "My OpenCongress" account, head over there
-  %a{:href => 'http://www.opencongress.org/register'} to register (it's free and only takes a minute)
-  and then use your OC username and password to sign-in here. Coming soon, we'll offer a full set of "My OpenGovernment" personal profiles and useful features, plus OpenID login, because we're big boosters of open standards.<br><br>
-  (If you've forgotten your OpenCongress username or password, you can retrieve it <a href="http://www.opencongress.org/account/forgot_password">retrieve it</a> by entering your email address.)
+%h2= t '.sign_in'
+%p= t '.only_oc_sign_ins'
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
-    = f.label :email, "OpenCongress username"
+    = f.label :email, t('.username')
     %br/
     = f.text_field :email, :class => 'field'
   %p
-    = f.label :password
+    = f.label :password, t('.password')
     %br/
     = f.password_field :password, :class => 'field'
   - if devise_mapping.rememberable?
     %p
       = f.check_box :remember_me
-      = f.label :remember_me
-  %p= f.submit "Sign in", :class => 'button'
+      = f.label :remember_me, t('.remember_me')
+  %p= f.submit t('.sign_in'), :class => 'button'
 = render :partial => "devise/shared/links"

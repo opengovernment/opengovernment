@@ -1,13 +1,13 @@
-
 .space
 
-%a(class="visit_blog" href="http://blog.opengovernment.org") Visit the Blog
+%a(class="visit_blog" href="http://blog.opengovernment.org")= t('.visit_the_blog')
 
-%h2.grid_14.push_1 Finally, a version of OpenCongress for your state legislature
+%h2.grid_14.push_1 
+  = t('.finally_a_version')
 
 .grid_14
   .push_1
-    %p Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source. 
+    %p= t('.welcome')
 
 .grid_14.push_1
   .grid_7.alpha.bigger.supported_states_list
@@ -39,10 +39,15 @@
 .clear
 
 .illo
-  %h2 Do more with OpenGovernment 
+  %h2 
+    = t('.do_more_with')
 
   %p
-    %span.learn{:title => 'Connect with all the bills, votes, and people in state government. OpenGovernment combines official government information with helpful info from around the Web to make it more user-friendly.', :rel => 'tipsy-south'} Learn
-    %span.track{:title => 'Keep in touch with all the bills you are following. Subscribe to RSS feeds for updates of bill actions and their key votes. View campaign contribution data for every state legislator, compare them with issue-group ratings, and follow the money trail.', :rel => 'tipsy-south'} Track 
-    %span.share{:title => 'Watchdog the issues you care about. Bill and people pages have built-in tools to share all the best info over social media with your community.', :rel => 'tipsy-south'} and Share
+    %span.learn{:title => t('.learn_title'), :rel => 'tipsy-south'} 
+      = t(".learn")
+    %span.track{:title => t('.track_title'), :rel => 'tipsy-south'} 
+      = t('.track')
+    %span.share{:title => t('.share_title'), :rel => 'tipsy-south'} 
+      = t('.and_share')
+
 
