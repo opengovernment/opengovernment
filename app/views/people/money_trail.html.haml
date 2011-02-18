@@ -1,8 +1,8 @@
-= title(t('.money_trail_for', :official_name => @person.official_name))
+= title(t '.money_trail_for', :official_name => @person.official_name )
 
 = render(:partial => 'wrapper')
 
-%h2= t('.money_trail_for', :official_name => @person.official_name)
+%h2= t '.money_trail_for', :official_name => @person.official_name 
 
 - if @person.contributions.any?
   .small.quiet.grid_12.alpha

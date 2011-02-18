@@ -1,16 +1,16 @@
 %div.footer.container_16
   .grid_4
-    %h4=   t('.our_principles')
+    %h4=   t '.our_principles'
     %ul
-      %li= t('.free_for_everyone') 
-      %li= t('.open_source')
-      %li= t('.open_standards')
-      %li= t('.not_for_profit')
-      %li= t('.non_partisan')
+      %li= t '.free_for_everyone'
+      %li= t '.open_source'
+      %li= t '.open_standards'
+      %li= t '.not_for_profit'
+      %li= t '.non_partisan'
 
   .grid_4
     %h4
-      =t('.about_us') 
+      =t '.about_us'
     %ul
       %li= link_to t('.about_us'),         page_url('about', :subdomain => false)
       %li= link_to t('.our_data_sources'), page_url('about', :anchor => 'our_data_sources', :subdomain => false)
@@ -20,7 +20,7 @@
   
   .grid_4
     %h4
-      = t('.more_open_gov')
+      = t '.more_open_gov'
     %ul
       %li= link_to t('.more_open_gov'),  page_url('contact', :subdomain => false)
       %li= link_to t('.twitter'),       'http://www.opencongress.org/wiki/Project:OpenGovernment'
@@ -31,7 +31,7 @@
   
   .grid_4
     %h4 
-      = t('.get_involved')
+      = t '.get_involved'
     %ul
       %li= link_to t('.volunteer'),          page_url('help', :subdomain => false)
       %li= link_to t('.donate'),            'http://www.opencongress.org/donate'
@@ -46,7 +46,7 @@
 
 .sub_footer.container_16
   .grid_12.alpha
-    %p= t('.og_is_free')
+    %p= t '.og_is_free'
 
   .grid_4.omega.by
     %a.ppf{:href => 'http://participatorypolitics.org/'} by PPF

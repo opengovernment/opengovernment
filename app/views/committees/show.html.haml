@@ -1,9 +1,14 @@
 - if request.xhr?
   %h2
-    Members of #{@state.name}
+    = t '.members_of'
+    = @state.name
     = link_to("#{@committee.type_fm} #{@committee.name}", committee_path(:id => @committee))
 - else
-  %h2 Members of #{@state.name} #{@committee.type_fm} #{@committee.name}
+  %h2 
+    = t '.members_of'
+    = @state.name
+    = @committee.type_fm
+    = @committee.name
 
 %hr
 

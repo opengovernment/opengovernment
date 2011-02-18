@@ -13,22 +13,26 @@
 .grid_9.alpha
   %hr  
   .grid_5.alpha
-    %h2 General Info
+    %h2= t '.general_info'
   
     .grid_2.alpha
       = photo_for(@person)
   
     %ul.grid_2.omega
       - if @person.birthday?
-        %li= "Born #{@person.birthday}"
+        %li
+          = t '.born'
+          = @person.birthday
       - if @person.gender?
         %li{:class => @person.gender} Gender: #{@person.gender}
       - if @person.religion?
-        %li= "Religion: #{@person.religion}"
+        %li
+          = t '.religion'
+          = @person.religion
       = render 'links', :person => @person
   
   .grid_4.omega
-    %h2 Wikipedia Bio
+    %h2= t '.wikipedia_bio'
     - if @person.bio_data.blank?
       %p= t '.wikipedia_missing', :name => @person.full_name
     - else
@@ -42,13 +46,13 @@
 %hr.push_top
 
 .grid_12.alpha
-  %h2= t('.office_addresses')
+  %h2= t '.office_addresses' 
   %ul.addresses
     - if @person.addresses.size > 0
       = render :partial => "shared/address", :collection => @person.addresses
     - else
       %p
-        = t('.sorry_no_info_for', :full_name => @person.full_name)
+        = t '.sorry_no_info_for', :full_name => @person.full_name
       
 .space.clear
 
@@ -57,13 +61,13 @@
 .grid_12.alpha
 
   .grid_4.alpha
-    %h2= t('.roles') 
+    %h2= t '.roles'
     - @person.roles.each do |role|
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
   .grid_4.committee_preview
     %h2
-      = t('.committees', :count => @person.committees.count)
+      = t '.committees', :count => @person.committees.count 
     - if @person.committees.count > 0
       = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
       %ul.lined.committees
@@ -73,11 +77,11 @@
             = link_to(committee.name, committee_path(committee), :class => 'modal')
     - else
       %p
-        = t('.no_committee_info', :full_name => @person.full_name)
+        = t '.no_committee_info', :full_name => @person.full_name 
 
   .grid_4.omega
     #twitter(style="display: none;")
-      %h2= t('.twitter_mentions')
+      %h2= t '.twitter_mentions' 
       %ul.lined#tweets
       = link_to('More &rarr;'.html_safe, social_person_path(@person), :class => 'more')
 .space.clear
@@ -85,7 +89,7 @@
 %hr.push_top
 
 .grid_6.alpha.sponsored_bills
-  %h2= t('.sponsored_bills')
+  %h2= t '.sponsored_bills' 
   = sponsorship_vitals_for(@person)
   %br
   %ul.lined
@@ -93,7 +97,7 @@
   = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more')
 
 .grid_6.omega
-  %h2= t('.votes')
+  %h2= t '.votes' 
   - if @latest_roll_calls
     %div
       %div
@@ -114,7 +118,7 @@
                  votes_person_path(@person), :class => 'more')
   - else
     %p 
-      = t('.no_vote_info_for', :full_name => @person.full_name)
+      = t '.no_vote_info_for', :full_name => @person.full_name 
     
 
 .space.clear
@@ -122,8 +126,8 @@
 %hr.push_top
 
 .grid_12.alpha
-  %h2= t('.interest_group_ratings') 
-  .small.quiet.grid_24= t('.from_vote_smart') 
+  %h2= t '.interest_group_ratings'  
+  .small.quiet.grid_24= t '.from_vote_smart'  
 
 - if @rating_categories
   - if @rating_categories.size > 1
@@ -131,7 +135,7 @@
       %table.ratings_summary
         %tr
           %th
-          %th= t('.number_of_ratings') 
+          %th= t '.number_of_ratings'  
         - @rating_categories[0..(@rating_categories.size/2)-1].each do |rating_category|
           %tr
             %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
@@ -141,23 +145,23 @@
     %table.ratings_summary
       %tr
         %th
-        %th= t('.number_of_ratings')
+        %th= t '.number_of_ratings' 
       - @rating_categories[@rating_categories.size/2..@rating_categories.size].each do |rating_category|
         %tr
           %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
           %td= rating_category.entries
 
 - else
-  %p.grid_12.alpha= t('.no_ratings_data_found') 
+  %p.grid_12.alpha= t '.no_ratings_data_found'  
       
 
 - if @person.citations.any?
   .citations
     %p
-      = t('.primary_sources')
+      = t '.primary_sources' 
     %ul
       = render @person.citations
-    = t('.how_did_we_get')
+    = t '.how_did_we_get' 
     = succeed '.' do
       = link_to('our data sources', page_path('about'))
 

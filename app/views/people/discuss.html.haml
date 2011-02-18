@@ -1,8 +1,8 @@
-= title(t('.discuss', :official_name => @person.official_name))
+= title(t '.discuss', :official_name => @person.official_name )
 
 = render(:partial => 'wrapper')
 
 .grid_12.alpha
-  .intro= t('.intro')
+  .intro= t '.intro'
   #disqus_thread
   = embed_disqus("person-#{@person.id}")

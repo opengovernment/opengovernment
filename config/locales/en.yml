@@ -2,35 +2,35 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 en:
   site:
-    name: "OpenGovernment"
-    tagline: "revealing state and local government data"
-    select_state: "Select a State"
-    greeting: "Hello"
-    sign_out: "Sign out"
-    sign_in: 'Sign in'
-    view_counts_not_available: "View counts currently not available. Please check later."
+    name:          OpenGovernment
+    tagline:       revealing state and local government data
+    select_state:  Select a State
+    greeting:      Hello
+    sign_out:      Sign out
+    sign_in:       Sign in
+    view_counts_not_available: View counts currently not available. Please check later.
   state:
-    blue_party_label: 'Democrat'
-    red_party_label: 'Republican'
-    grey_party_label: 'Other'
+    blue_party_label: Democrat
+    red_party_label:  Republican
+    grey_party_label: Other
   shared:
     appeal:
-      help_us: "help Us Open Gov!"
+      help_us: help Us Open Gov!
     bill:
-      introduced: "Introduced:"
+      introduced:       "Introduced:"
       votes_on_bill:
-        one:   "1 vote on this bill"
-        other: "%{count} votes on this bill"
+        one:            "1 vote on this bill"
+        other:          "%{count} votes on this bill"
       views:
-        one:   "1 view"
-        other: "%{count} views"
-      session: "Session"
+        one:            "1 view"
+        other:          "%{count} views"
+      session:          Session
     view_counts:
-      in_last_week:  "in the last 7 days"
-      in_last_month: "in the last month"
+      in_last_week:     in the last 7 days
+      in_last_month:    in the last month
       total_views:   
-        one:   1 view
-        other: "%{count} total views"
+        one:            1 view
+        other:         "%{count} total views"
   votes:
     show:
       vote_on:          "Vote on %{bill_number}"
@@ -43,65 +43,66 @@ en:
       yeslabel:         "Yes"
       nolabel:          "No"
       otherlabel:       Other
-      not_always_accurate: "* 'Needed to pass' is not always accurate."
-      why:              Why?
+      not_always_accurate:  "* 'Needed to pass' is not always accurate."
+      why:                   Why?
       geography_of_the_vote: Geography of the Vote
       data_quality_caveat:   Data quality caveat
       rules_are_complex:     The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
       full_role_call:        Full Roll Call
       no_roll_call:          Sorry, no roll call is available for this vote.
-      name:     Name
-      district: District
-      party:    Party
+      name:                  Name
+      district:              District
+      party:                 Party
   home:
     index:
-      welcome: Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source.
+      welcome:           Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source.
       finally_a_version: Finally, a version of OpenCongress for your state legislature
-      visit_the_blog: Visit the Blog!
-      do_more_with: Do more with OpenGovernment
-      learn_title: Connect with all the bills, votes, and people in state government. OpenGovernment combines official government information with helpful info from around the Web to make it more user-friendly.
-      track_title: Keep in touch with all the bills you are following. Subscribe to RSS feeds for updates of bill actions and their key votes. View campaign contribution data for every state legislator, compare them with issue-group ratings, and follow the money trail.
-      share_title: Watchdog the issues you care about. Bill and people pages have built-in tools to share all the best info over social media with your community.
-      learn: Learn
-      track: Track 
-      and_share: and Share
+      visit_the_blog:    Visit the Blog!
+      do_more_with:      Do more with OpenGovernment
+      learn_title:       Connect with all the bills, votes, and people in state government. OpenGovernment combines official government information with helpful info from around the Web to make it more user-friendly.
+      track_title:       Keep in touch with all the bills you are following. Subscribe to RSS feeds for updates of bill actions and their key votes. View campaign contribution data for every state legislator, compare them with issue-group ratings, and follow the money trail.
+      share_title:       Watchdog the issues you care about. Bill and people pages have built-in tools to share all the best info over social media with your community.
+      learn:             Learn
+      track:             Track 
+      and_share:         and Share
   states:
     show:
-      people_in_the_news: "People in the News"
-      see_all_people_link: "See All"
-      recent_bills: "Recent Bills"
-      key_votes: "Key Votes"
-      from_vote_smart: "From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>."
-      whats_a_key_vote: "What's a key vote?"
-      all_key_votes: "All Key Votes &rarr;"
-      legislators: "Legislators"
+      people_in_the_news:   People in the News
+      see_all_people_link:  See All
+      recent_bills:         Recent Bills
+      key_votes:            Key Votes
+      from_vote_smart:      From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>.
+      whats_a_key_vote:     What's a key vote?
+      all_key_votes:        All Key Votes &rarr;
+      legislators:          Legislators
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>
         We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the legislature.
+
       state_population: 
-      each_chamber_represents: "Each represents approx."
-      term_limits: "and serves four-year terms with a two-term limit."
+      each_chamber_represents:             Each represents approx.
+      term_limits:                         and serves four-year terms with a two-term limit.
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
-      committees: 'Committees:'
-      committee: 'Committee'
-      joint_committee: 'Joint Committee'
-      bills: "Bills"
-      last_election_date: "No data for last election date."
-      next_election: "Next Election"
-      last_election: "Last Election"
+      committees:                         'Committees:'
+      committee:                           Committee
+      joint_committee:                     Joint Committee
+      bills:                               Bills
+      last_election_date:                 "No data for last election date."
+      next_election:                       Next Election
+      last_election:                       Last Election
   bills:
     discuss: 
       intro: "Use this public forum productively to share information about this bill that may be relevant to other visitors. Please don't use this forum to leave messages for your elected officials -- instead, contact them directly with your input. (You can find them easily here on OpenGovernment by entering your zip code on your state's homepage.) Specific comments about this bill work best here: its official text, its latest status, its actions, or its votes. Thank you for helping to build public knowledge about bills in state legislatures."
     documents:
       all_documents_for: "All Documents for %{bill_number}"
     wrapper: 
-      share_this: "Share this"
+      share_this:        Share this
       im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
     index:
-      title: 'Bills in the %{legislature_name} (%{session_name})'
+      title:            'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
-      title: "Money Trail data isn't quite ready!"
+      title:            "Money Trail data isn't quite ready!"
       details: |
         We believe it is important for the public to be able to easily access information about which special interest groups support or oppose this legislation with their campaign contributions. Unfortunately, state governments do not disclose contribution data in ways that are sufficiently timely or fully open. As a result, the process of finding out which entities support and oppose this bill is more difficult and time-intensive than it needs to be... and the public is kept in the dark about the systemic influence of money in the political process, usually until after key votes are already cast.<br><br>
         In the future, our goal is to work with our data partners for campaign contribution information -- the <a href="http://www.followthemoney.org/" target="_blank">National Institute on Money in State Politics</a> and <a href="http://maplight.org/" target="_blank">MAPLight</a>, both non-profit and non-partisan organizations -- to create more versions of state-level transparency sites like <strong><a href="http://maplight.org/california" target="_blank">MAPLight California</a></strong>. In addition, we seek open-source volunteer programming time and non-profit funding support to link state-level elected officials with the rich open data sets at an allied non-profit project, <a href="http://littlesis.org/" target="_blanks">LittleSis.org</a>, building "a free database detailing the connections between powerful people and organizations."<br><br>
@@ -114,10 +115,10 @@ en:
             Don't forget that just because we couldn't find There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
           results_intro: |
             Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for the search term: "%{search_term}". Remember, you can help build public knowledge about this bill. Simply mention this bill by its official title (as above) in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this bill, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
-          google_news: "Google News"
-          blogs: "Blogs"
+          google_news:  Google News
+          blogs:        Blogs
     votes:
-      no_actions: "We have no actions for this bill."
+      no_actions:       We have no actions for this bill.
       major_action: |
         A major action for a bill, as we define it, includes either movement between committees or roll call vote
         on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
@@ -133,49 +134,54 @@ en:
     sponsors:
       all_sponsors_of: "All Sponsors of %{bill_number}"
     track:
-      track: 'Track'
-      all_actions: 'All Actions'
-      major_actions: 'Major Action'
-      email_alerts: 'Email Alerts'
+      track:           Track
+      all_actions:     All Actions
+      major_actions:   Major Action
+      email_alerts:    Email Alerts
     write:
-      write: 'Write'
-      find_your_rep: 'Find Your %{chamber_name}'
-      location_prompt: 'ZIP Code'
-      find_button: "Find"
+      write:           Write
+      find_your_rep:  "Find Your %{chamber_name}"
+      location_prompt: ZIP Code
+      find_button:     Find
     rss:
-      feed_title: '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
-      author_name: 'OpenGovernment'
-      author_uri: 'http://opengovernment.org'
+      feed_title:  '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
+      author_name:   'OpenGovernment'
+      author_uri:    'http://opengovernment.org'
     show:
-      bill: "Bill"
+      bill          Bill
       coming_soon: "(coming soon)"
-      session: "Session:"
-      status: 'Status'
+      session:     "Session:"
+      status:      'Status'
       sponsors:
-        one: 'One Sponsor'
+        one:     'One Sponsor'
         other: '%{count} Sponsors'
-      see_all: 'See all'
-      subject_areas: "Subject Areas"
-      none: "None."
-      bill_text: "Bill Text"
+      see_all:   'See all'
+      subject_areas: Subject Areas
+      none:          None.
+      bill_text:     Bill Text
       documents:
-        one: "One Document"
-        other: "%{count} Documents"
+        one:          "One Document"
+        other:      "%{count} Documents"
       recent_actions: "Recent Actions"
-      date: 'Date'
-      chamber: 'Chamber'
+      date:    Date
+      chamber: Chamber
       actions:
-        one: '1 Action'
+        one:   '1 Action'
         other: 'All %{count} Actions'
       recent_votes: "Recent Votes"
       votes:
-        one: '1 Vote'
-        other: 'All %{count} Votes'
-      twitter_mentions: "Twitter Mentions"
-      no_tweets: "No tweets were found for %{hashtags}."
+        one:               '1 Vote'
+        other:             'All %{count} Votes'
+      twitter_mentions:    "Twitter Mentions"
+      no_tweets:           "No tweets were found for %{hashtags}."
       primary_sources_for: "Primary sources for this bill:"
-      how_did_we_get: "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
-      our_data_sources: "our data sources"
+      how_did_we_get:      "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
+      our_data_sources:    "our data sources"
+  committees:
+    show:
+      members_of:           Members of
+    index:
+      committees:           "%{which_committee} Committees"
   actions:
     show:
       intro: "This page displays an official legislative action for this bill. Go back to view all actions, or major actions only. How can you use this page? Well, if you're blogging about this bill, you can use this URL as a permalink to this specific action. The important thing is that it's now easier than ever to access information about bills and votes in your state government." 
@@ -183,30 +189,33 @@ en:
       Not many states make video truly accessible, is the problem. 
   people:
     index:
-      title: 'Members of the %{legislature_name} (%{session_name})'
+      title:                'Members of the %{legislature_name} (%{session_name})'
     show:
-      wikipedia_bio: "Wikipedia Bio"
+      general_info:          General Info
+      wikipedia_bio:         Wikipedia Bio
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
-      office_addresses: "Office Addresses"
-      sorry_no_info_for: "Sorry, no address information is available for %{full_name} at this time."
-      roles: "Roles"
+      born:                  Born
+      religion:             "Religion:"
+      office_addresses:      Office Addresses
+      sorry_no_info_for:    "Sorry, no address information is available for %{full_name} at this time."
+      roles:                 Roles
       committees: 
-        one:   "One Committee"
-        other: "%{count} Committees"
-      no_committee_info: "We have no committee membership information for %{full_name} at this time, but with your support, we can find it and publish it here on the open Web -- see <a href='/pages/help'>how you can help</a>."
-      all_sponsored_bills: "All Sponsored Bills &rarr;"
-      sponsored_bills: "Sponsored Bills"
-      votes: "Votes"
-      motion: "motion"
+        one:                "One Committee"
+        other:            "%{count} Committees"
+      no_committee_info:   "We have no committee membership information for %{full_name} at this time, but with your support, we can find it and publish it here on the open Web -- see <a href='/pages/help'>how you can help</a>."
+      sponsored_bills:      Sponsored Bills
+      all_sponsored_bills:  All Sponsored Bills &rarr;
+      votes:                Votes
+      motion:               motion
       view_all_votes:
-        one:   "View The Vote &rarr;"
-        other: "View All %{count} Votes &rarr;"
-      no_sponsorship_info_for: "We have no bill sponsorship information for"
-      no_vote_info_for: "We have no vote information for %{full_name} at this time."
-      interest_group_ratings: "Interest Group Ratings"
-      from_vote_smart: "From the non-partisan <a href=\"http://www.votesmart.org\">Project Vote Smart</a>."
-      number_of_ratings: "Number of ratings"
+        one:               "View The Vote &rarr;"
+        other:             "View All %{count} Votes &rarr;"
+      no_sponsorship_info_for:  We have no bill sponsorship information for
+      no_vote_info_for:        "We have no vote information for %{full_name} at this time."
+      interest_group_ratings:   Interest Group Ratings
+      from_vote_smart:          From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
+      number_of_ratings:        Number of ratings"
       no_ratings_data_found: "No ratings data found for this person at this time via <a href=\"http://votesmart.org/\" target=\"_blank\">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href=\"/pages/help\">how you can help</a>."
       primary_sources: "Primary sources for this person:"
       how_did_we_get: "How did we get all this other info? It wasn't easy, but we got it. About"
@@ -263,7 +272,7 @@ en:
       all_votes: "All Votes - RSS"
       email_alerts: "Email Alerts"
       coming_soon: "(coming soon)"
-      contact_this_person: 'Contact this person'
+      contact: 'Contact'
     committees:
       committee_memberships_for: "Committee memberships for %{official_name}"
       of: 'of'
@@ -324,6 +333,10 @@ en:
       badges:            "Badges"
 
       og_is_free: '<a href="http://opengovernment.org/">OpenGovernment</a> is a free, libre, and open-source joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. Official government data comes from the community-driven <a href="http://openstates.sunlightlabs.com/">Open States Project</a>, with other info aggregated by the open-source <a href="https://github.com/opengovernment/govkit#readme">GovKit</a>.'
+
+    pages:
+      spread_the_word:   Spread the word
+      about_og:          about OpenGovernment...
 
   money_trails:
     index:
