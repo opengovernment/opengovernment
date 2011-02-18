@@ -98,23 +98,19 @@ letter-spacing: .03em;
   
         }
 
+#left_nav ul li.selected a.selected {
+    text-shadow: 0 1px 0 #cfdddf;
+    color: #333;
+    border-bottom: 0 !important;
+}               
 
-
-
-
-            #left_nav ul li.selected a.selected {
-                text-shadow: 0 1px 0 #cfdddf;
-                color: #333;
-                border-bottom: 0 !important;
-            }               
 nav#left_nav ul li.selected ul {
     font-weight: normal;
     margin: 0;
 }
 li.discuss {
     padding: 8px 0 8px 0px;
-    /*: ;
-    background: url(../images/sprites.png) left -444px no-repeat;*/
+    /* background: url(../images/sprites.png) left -444px no-repeat;*/
     font-size: 14px;
 }
 #left_nav ul li ul li {
@@ -174,11 +170,6 @@ border-bottom: 1px solid #809ea3;
     text-decoration: none
 }
 
-
-
-#left_nav ul li.selected a {
-
-}
 /* Left nav icons */
 #left_nav ul li.primary-nav a {
     background-image: url(../images/sidebar_icons.png);
@@ -186,16 +177,16 @@ border-bottom: 1px solid #809ea3;
     padding-left: 42px;
 }
 #left_nav ul li.primary-nav-bills a {
-    background-position: 13px 15px
+    background-position: 13px 15px;
 }
 #left_nav ul li.primary-nav-people a {
-    background-position: 13px -33px
+    background-position: 13px -33px;
 }
 #left_nav ul li.primary-nav-issues a {
-    background-position: 12px -79px
+    background-position: 12px -79px;
 }
 #left_nav ul li.primary-nav-money_trail a {
-    background-position: 12px -126px
+    background-position: 12px -126px;
 }
 
 
@@ -257,7 +248,7 @@ border-bottom: 0 !important;
     height: 590px;
 }
 .supported_states_list {
-    height: 244px
+    height: 244px;
 }
     .supported_states_list li a {
         display: block;
@@ -267,16 +258,16 @@ border-bottom: 0 !important;
         background: transparent url(../images/states.png) 0 24px no-repeat !important;
     }
     .supported_states_list li a.state-LA {
-        background: transparent url(../images/states.png) 0 -34px no-repeat !important
+        background: transparent url(../images/states.png) 0 -34px no-repeat !important;
     }
     .supported_states_list li a.state-MD {
-        background: transparent url(../images/states.png) 0 -88px no-repeat !important
+        background: transparent url(../images/states.png) 0 -88px no-repeat !important;
     }
     .supported_states_list li a.state-TX {
-        background: transparent url(../images/states.png) 0 -200px no-repeat !important
+        background: transparent url(../images/states.png) 0 -200px no-repeat !important;
     }
     .supported_states_list li a.state-WI {
-        background: transparent url(../images/states.png) 0 -142px no-repeat !important
+        background: transparent url(../images/states.png) 0 -142px no-repeat !important;
     }
 .signup_form {
     margin: 162px 0 0 50px;
@@ -305,10 +296,10 @@ border-bottom: 0 !important;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
     .signup_form input#_qf_Edit_next {
-        margin: 3px 0 0 25px
+        margin: 3px 0 0 25px;
     }
 .smaller * {
-    font-size: 12px !important
+    font-size: 12px !important;
 }
 .smaller strong {
     font-size: 12px;
@@ -355,7 +346,6 @@ border-bottom: 0 !important;
         .illo p .learn {
             width: 300px;
             margin: 0px 0 0 20px;
-            : ;
             float: left;
             height: 0;
             padding-top: 280px;
@@ -372,7 +362,6 @@ border-bottom: 0 !important;
         .illo p .share {
             width: 300px;
             margin: 0px 0 0 20px;
-            : ;
             float: left;
             height: 0;
             overflow: hidden;
@@ -434,10 +423,10 @@ h2.grid_14.push_1 {
 /* No background on the homepage */
 .home.index .main,
 .home.home .main {
-    background: #fff
+    background: #fff;
 }
 .home.home .main {
-    padding-bottom: 0px
+    padding-bottom: 0px;
 }
 /*///////////////////////////
 
@@ -445,7 +434,7 @@ h2.grid_14.push_1 {
 
 ///////////////////////////*/
 #account {
-    padding: 16px 0 0
+    padding: 16px 0 0;
 }
     #account p {
         margin: 0;
@@ -535,9 +524,8 @@ background: url(../images/sprites.png) left -61px no-repeat;
 */
 .bill_link {
     font-weight: bold;
-    /*: ;
-    padding-left: 15px;
-    background: url(../images/sprites.png) left -149px no-repeat;*/
+    /* padding-left: 15px;
+    background: url(../images/sprites.png) left -149px no-repeat; */
 }
 .committees_count {
     float: right;
