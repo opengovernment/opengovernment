@@ -15,15 +15,15 @@ letter-spacing: .03em;
     }
         #left_nav ul li {
             margin: 0;
-           background: url(../images/primary_nav_icons.gif) 16px 16px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)); /* for webkit browsers */
-            background: -moz-linear-gradient(top,  #ecf4f5,  #e2ecee), url(../images/primary_nav_icons.gif) 16px 16px no-repeat;
-                    -moz-box-shadow: inset 0 1px 0px #f4f9f9;
+            background: -webkit-gradient(linear, left top, left bottom, from(#ecf4f5), to(#e2ecee));
+            background: -moz-linear-gradient(top,  #ecf4f5,  #e2ecee);
+            -moz-box-shadow: inset 0 1px 0px #f4f9f9;
             border-bottom: 1px solid #c7d8da;
         }
         #left_nav ul li:hover {
             -moz-box-shadow: inset 0 1px 0px #fff;
-            -webkit-box-shadow: inset 0 1px 30px #fff;
-            box-shadow: inset 0 1px 30px #fff;
+            -webkit-box-shadow: inset 0 1px 0px #fff;
+            box-shadow: inset 0 1px 0px #fff;
 
  }
         #left_nav ul li a {
@@ -55,12 +55,15 @@ letter-spacing: .03em;
             width: 227px;
 
             padding: 0;
-            background: #fbfcfd;
             margin-bottom: 0 !important;
             float: left;
-            background: url(../images/primary_nav_icons.gif) 16px 16px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)); /* for webkit browsers */
-            background: -moz-linear-gradient(top,  #baced1,  #95b5bb), url(../images/primary_nav_icons.gif) 16px 16px no-repeat;
-            -moz-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
+
+            background: #fbfcfd;
+            background: -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)); /* for webkit browsers */
+            background: -moz-linear-gradient(top,  #baced1,  #95b5bb);
+            
+
+-moz-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
             -webkit-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
             box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
             border-bottom: 1px solid #5c878b;
