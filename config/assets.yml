@@ -1,8 +1,3 @@
-s3_bucket: a0.opengovernment.org
-s3_permission: public_read
-s3_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-s3_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-
 stylesheets:
   common:
     - public/stylesheets/reset.css
