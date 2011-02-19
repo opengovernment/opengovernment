@@ -33,4 +33,6 @@ OpenGov::Application.configure do
   HOST_SUBDOMAIN_COUNT = HOST.split('.').size - 2
 
   config.action_mailer.default_url_options = { :host => HOST }  
+  config.active_support.deprecation = :notify
+
 end
