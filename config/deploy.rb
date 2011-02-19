@@ -61,7 +61,12 @@ set :keep_releases, 4
 after 'deploy:update', 'deploy:cleanup'
 after 'deploy:update_code', 'deploy:link_shared'
 after 'deploy:update_code', 'deploy:jammit'
-after 'deploy:update_code', 'delayed_job:restart'
+
+after "deploy:stop",        "delayed_job:stop"
+after "deploy:start",       "delayed_job:start"
+after "deploy:update_code", "delayed_job:stop"
+after "deploy:restart",     "delayed_job:start"
+
 after 'deploy:cleanup', 'sphinx:rebuild'
 after 'deploy:cleanup', 'sphinx:shared_sphinx_folder'
 
