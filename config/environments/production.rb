@@ -22,7 +22,8 @@ OpenGov::Application.configure do
   # config.log_level = :debug
 
   # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+  config.logger = SyslogLogger.new
+  config.colorize_logging = false
   config.active_support.deprecation = :notify
 
   # Use a different cache store in production
