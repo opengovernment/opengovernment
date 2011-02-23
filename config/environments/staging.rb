@@ -1,3 +1,5 @@
+require 'syslog_logger'
+
 OpenGov::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
