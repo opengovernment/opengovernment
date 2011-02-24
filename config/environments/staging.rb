@@ -18,9 +18,6 @@ OpenGov::Application.configure do
   # Apache will already do this
   config.serve_static_assets = false
 
-  config.logger = SyslogLogger.new
-  config.colorize_logging = false
-
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
