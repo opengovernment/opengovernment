@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 77) do
+ActiveRecord::Schema.define(:version => 78) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(:version => 77) do
     t.string   "alternate_titles",      :limit => 20000
     t.string   "short_title",           :limit => 1000
     t.datetime "openstates_updated_at"
+    t.string   "openstates_md5sum",     :limit => 50
   end
 
   create_table "bills_subjects", :force => true do |t|
