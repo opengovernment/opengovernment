@@ -1,3 +1,9 @@
+# This is a model mixin providing some helper methods for page views.
+# This helps us do a high-level join of Mongo's records with the corresponding
+# model objects.
+#
+# Note: This module depends on the explicit_order extension, which is pgSQL-specific.
+#
 module Trackable
   module ClassMethods
     def most_viewed(ops = {})
