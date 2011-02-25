@@ -66,13 +66,13 @@ module OpenGov
       # - the_geom (geometry)
       # - lsad (district type)
 
-      # If table_name starts with sl:
+      # If table_name starts with sl (lower chamber):
       # - sldl (district number, or ZZZ for undistricted areas)
 
-      # If it starts with su:
+      # If it starts with su (upper chamber):
       # - sldu (district number, or ZZZ)
 
-      # and if it starts with cd:
+      # and if it starts with cd (congress):
       # - cd (district number, or 00 for at large)
       table_type = table_name[0, 2]
 
