@@ -2,114 +2,186 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 en:
   site:
-    name: "OpenGovernment"
-    tagline: "revealing state and local government data"
-    select_state: "Select a State"
-    greeting: "Hello"
-    sign_out: "Sign out"
-    sign_in: 'Sign in'
-    view_counts_not_available: "View counts currently not available. Please check later."
+    name:          OpenGovernment
+    tagline:       revealing state and local government data
+    select_state:  Select a State
+    greeting:      Hello
+    sign_out:      Sign out
+    sign_in:       Sign in
+    view_counts_not_available: View counts currently not available. Please check later.
   state:
-    blue_party_label: 'Democrat'
-    red_party_label: 'Republican'
-    grey_party_label: 'Other'
+    blue_party_label: Democrat
+    red_party_label:  Republican
+    grey_party_label: Other
+  shared:
+    appeal:
+      help_us: help Us Open Gov!
+    bill:
+      introduced:       "Introduced:"
+      votes_on_bill:
+        one:            "1 vote on this bill"
+        other:          "%{count} votes on this bill"
+      views:
+        one:            "1 view"
+        other:          "%{count} views"
+      session:          Session
+    view_counts:
+      in_last_week:     in the last 7 days
+      in_last_month:    in the last month
+      total_views:   
+        one:            1 view
+        other:         "%{count} total views"
+  votes:
+    show:
+      vote_on:          "Vote on %{bill_number}"
+      voteinthe:        Vote in the
+      committe_of_the: "committee of the %{name}"
+      motion:           Motion
+      passed:           Passed
+      failed:           Failed
+      vote_breakdown:   Vote Breakdown
+      yeslabel:         "Yes"
+      nolabel:          "No"
+      otherlabel:       Other
+      not_always_accurate:  "* 'Needed to pass' is not always accurate."
+      why:                   Why?
+      geography_of_the_vote: Geography of the Vote
+      data_quality_caveat:   Data quality caveat
+      rules_are_complex:     The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
+      full_role_call:        Full Roll Call
+      no_roll_call:          Sorry, no roll call is available for this vote.
+      name:                  Name
+      district:              District
+      party:                 Party
   home:
     index:
+      welcome:           Welcome to OpenGovernment, a public resource for government transparency at the state, city, and local levels. Free and open-source.
+      finally_a_version: Finally, a version of OpenCongress for your state legislature
+      visit_the_blog:    Visit the Blog!
+      do_more_with:      Do more with OpenGovernment
+      learn_title:       Connect with all the bills, votes, and people in state government. OpenGovernment combines official government information with helpful info from around the Web to make it more user-friendly.
+      track_title:       Keep in touch with all the bills you are following. Subscribe to RSS feeds for updates of bill actions and their key votes. View campaign contribution data for every state legislator, compare them with issue-group ratings, and follow the money trail.
+      share_title:       Watchdog the issues you care about. Bill and people pages have built-in tools to share all the best info over social media with your community.
+      learn:             Learn
+      track:             Track 
+      and_share:         and Share
   states:
     show:
-      people_in_the_news: "People in the News"
-      see_all_people_link: "See All"
-      recent_bills: "Recent Bills"
-      key_votes: "Key Votes"
-      from_vote_smart: "From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>."
-      whats_a_key_vote: "What's a key vote?"
-      all_key_votes: "All Key Votes &rarr;"
-      legislators: "Legislators"
+      people_in_the_news:   People in the News
+      see_all_people_link:  See All
+      recent_bills:         Recent Bills
+      key_votes:            Key Votes
+      from_vote_smart:      From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>.
+      whats_a_key_vote:     What's a key vote?
+      all_key_votes:        All Key Votes &rarr;
+      legislators:          Legislators
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>
         We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the legislature.
+
       state_population: 
-      each_chamber_represents: "Each represents approx."
-      term_limits: "and serves four-year terms with a two-term limit."
+      each_chamber_represents:             Each represents approx.
+      term_limits:                         and serves four-year terms with a two-term limit.
       state_pop_per_upper_chamber_member: "No pop. per upper chamber member data."
       state_pop_per_lower_chamber_member: "No pop. per lower chamber member data."
-      committees: 'Committees:'
-      committee: 'Committee'
-      joint_committee: 'Joint Committee'
-      bills: "Bills"
-      last_election_date: "No data for last election date."
-      next_election: "Next Election"
-      last_election: "Last Election"
+      committees:                         'Committees:'
+      committee:                           Committee
+      joint_committee:                     Joint Committee
+      bills:                               Bills
+      last_election_date:                 "No data for last election date."
+      next_election:                       Next Election
+      last_election:                       Last Election
   bills:
+    discuss: 
+      intro: "Use this public forum productively to share information about this bill that may be relevant to other visitors. Please don't use this forum to leave messages for your elected officials -- instead, contact them directly with your input. (You can find them easily here on OpenGovernment by entering your zip code on your state's homepage.) Specific comments about this bill work best here: its official text, its latest status, its actions, or its votes. Thank you for helping to build public knowledge about bills in state legislatures."
+    documents:
+      all_documents_for: "All Documents for %{bill_number}"
+    wrapper: 
+      share_this:        Share this
+      im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
     index:
-      title: 'Bills in the %{legislature_name} (%{session_name})'
+      title:            'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
-      title: "Money Trail data isn't quite ready!"
+      title:            "Money Trail data isn't quite ready!"
       details: |
         We believe it is important for the public to be able to easily access information about which special interest groups support or oppose this legislation with their campaign contributions. Unfortunately, state governments do not disclose contribution data in ways that are sufficiently timely or fully open. As a result, the process of finding out which entities support and oppose this bill is more difficult and time-intensive than it needs to be... and the public is kept in the dark about the systemic influence of money in the political process, usually until after key votes are already cast.<br><br>
         In the future, our goal is to work with our data partners for campaign contribution information -- the <a href="http://www.followthemoney.org/" target="_blank">National Institute on Money in State Politics</a> and <a href="http://maplight.org/" target="_blank">MAPLight</a>, both non-profit and non-partisan organizations -- to create more versions of state-level transparency sites like <strong><a href="http://maplight.org/california" target="_blank">MAPLight California</a></strong>. In addition, we seek open-source volunteer programming time and non-profit funding support to link state-level elected officials with the rich open data sets at an allied non-profit project, <a href="http://littlesis.org/" target="_blanks">LittleSis.org</a>, building "a free database detailing the connections between powerful people and organizations."<br><br>
         Do you know of existing money-in-politics resources for this state that we can display here for the public benefit on the open Web? <a href="/pages/contact">Let us know.</a>. Until then, see <a href="/pages/help">how you can help</a> support our work and get this vital data -- on which special interest groups are supporting and opposing individual bills in state legislatures via their political donations -- in place. 
     news:
+          news_and_coverage_for: "%{state} %{bill_number} News and Blog Coverage"
           no_results: |
             At the moment, we're finding no mentions of the search term "%{search_term}" in our daily automated search of the Web (via <a href="http://news.google.com/" target="_blank">Google News</a> and <a href="http://blogsearch.google.com/" target="_blank">Blog Search</a>). There may be relevant news articles & blog posts out there on the Web that refer to this bill by a slightly different name or title -- in which case, they're not included here, but our goal is to aggregate as much relevant info as possible. If you know of any, <a href="/pages/contact">contact us</a> with the specific links, and we'll display them here for everyone to access.<br><br>
             In any case, you can help build public knowledge about this piece of legislation. If you can, publish a blog post that refers to this bill by his official title as listed just above, and if it's on the open Web where search engines can find it, a link to your post and an excerpt will automatically appear here within 24 hours. If you don't have access to a blog of your own, you can write a letter to the editor of your local newspaper or one of your state's political blogs, and if it's published on the Web, a link to that page will be swept up and displayed here.<br><br>
             Don't forget that just because we couldn't find There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
           results_intro: |
             Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for the search term: "%{search_term}". Remember, you can help build public knowledge about this bill. Simply mention this bill by its official title (as above) in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this bill, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
+          google_news:  Google News
+          blogs:        Blogs
     votes:
-      no_actions: "We have no actions for this bill."
+      no_actions:       We have no actions for this bill.
       major_action: |
         A major action for a bill, as we define it, includes either movement between committees or roll call vote
         on final passage. It is intended to serve as a lower-traffic and more-intelligible stream of updates on
         this bill's status in the legislative process.
     social:
+      tweets_about: "Tweets about %{bill_number}"
       intro: |
         Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.<br><br>
         We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores or similarly-numbered bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions of this bill from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
+      no_mentions: "Well, no social media mentions found for this bill at this time. But you can be the first to let the open Web know that you're following this bill."
+      click_tweet_this: "Click the 'Tweet this' button to generate an update, hit publish, and your Tweet should appear here in a few minutes if you refresh the page."
+      theres_more_to_do: "There's lots more to do to make our government more open and improve our data sources for the public benefit-- read more about <a href=\"/pages/help\">how you can help</a>."
+    sponsors:
+      all_sponsors_of: "All Sponsors of %{bill_number}"
     track:
-      track: 'Track'
-      all_actions: 'All Actions'
-      major_actions: 'Major Action'
-      email_alerts: 'Email Alerts'
+      track:           Track
+      all_actions:     All Actions
+      major_actions:   Major Action
+      email_alerts:    Email Alerts
     write:
-      write: 'Write'
-      find_your_rep: 'Find Your %{chamber_name}'
-      location_prompt: 'ZIP Code'
-      find_button: "Find"
+      write:           Write
+      find_your_rep:  "Find Your %{chamber_name}"
+      location_prompt: ZIP Code
+      find_button:     Find
     rss:
-      feed_title: '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
-      author_name: 'OpenGovernment'
-      author_uri: 'http://opengovernment.org'
+      feed_title:  '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
+      author_name:   'OpenGovernment'
+      author_uri:    'http://opengovernment.org'
     show:
-      bill: "Bill"
+      bill          Bill
       coming_soon: "(coming soon)"
-      session: "Session:"
-      status: 'Status'
+      session:     "Session:"
+      status:      'Status'
       sponsors:
-        one: 'One Sponsor'
+        one:     'One Sponsor'
         other: '%{count} Sponsors'
-      see_all: 'See all'
-      subject_areas: "Subject Areas"
-      none: "None."
-      bill_text: "Bill Text"
+      see_all:   'See all'
+      subject_areas: Subject Areas
+      none:          None.
+      bill_text:     Bill Text
       documents:
-        one: "One Document"
-        other: "%{count} Documents"
+        one:          "One Document"
+        other:      "%{count} Documents"
       recent_actions: "Recent Actions"
-      date: 'Date'
-      chamber: 'Chamber'
+      date:    Date
+      chamber: Chamber
       actions:
-        one: '1 Action'
+        one:   '1 Action'
         other: 'All %{count} Actions'
       recent_votes: "Recent Votes"
       votes:
-        one: '1 Vote'
-        other: 'All %{count} Votes'
-      twitter_mentions: "Twitter Mentions"
-      no_tweets: "No tweets were found for %{hashtags}."
+        one:               '1 Vote'
+        other:             'All %{count} Votes'
+      twitter_mentions:    "Twitter Mentions"
+      no_tweets:           "No tweets were found for %{hashtags}."
       primary_sources_for: "Primary sources for this bill:"
-      how_did_we_get: "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
-      our_data_sources: "our data sources"
+      how_did_we_get:      "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
+      our_data_sources:    "our data sources"
+  committees:
+    show:
+      members_of:           Members of
+    index:
+      committees:           "%{which_committee} Committees"
   actions:
     show:
       intro: "This page displays an official legislative action for this bill. Go back to view all actions, or major actions only. How can you use this page? Well, if you're blogging about this bill, you can use this URL as a permalink to this specific action. The important thing is that it's now easier than ever to access information about bills and votes in your state government." 
@@ -117,30 +189,33 @@ en:
       Not many states make video truly accessible, is the problem. 
   people:
     index:
-      title: 'Members of the %{legislature_name} (%{session_name})'
+      title:                'Members of the %{legislature_name} (%{session_name})'
     show:
-      wikipedia_bio: "Wikipedia Bio"
+      general_info:          General Info
+      wikipedia_bio:         Wikipedia Bio
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
-      office_addresses: "Office Addresses"
-      sorry_no_info_for: "Sorry, no address information is available for %{full_name} at this time."
-      roles: "Roles"
+      born:                  Born
+      religion:             "Religion:"
+      office_addresses:      Office Addresses
+      sorry_no_info_for:    "Sorry, no address information is available for %{full_name} at this time."
+      roles:                 Roles
       committees: 
-        one:   "One Committee"
-        other: "%{count} Committees"
-      no_committee_info: "We have no committee membership information for %{full_name} at this time, but with your support, we can find it and publish it here on the open Web -- see <a href='/pages/help'>how you can help</a>."
-      all_sponsored_bills: "All Sponsored Bills &rarr;"
-      sponsored_bills: "Sponsored Bills"
-      votes: "Votes"
-      motion: "motion"
+        one:                "One Committee"
+        other:            "%{count} Committees"
+      no_committee_info:   "We have no committee membership information for %{full_name} at this time, but with your support, we can find it and publish it here on the open Web -- see <a href='/pages/help'>how you can help</a>."
+      sponsored_bills:      Sponsored Bills
+      all_sponsored_bills:  All Sponsored Bills &rarr;
+      votes:                Votes
+      motion:               motion
       view_all_votes:
-        one:   "View The Vote &rarr;"
-        other: "View All %{count} Votes &rarr;"
-      no_sponsorship_info_for: "We have no bill sponsorship information for"
-      no_vote_info_for: "We have no vote information for %{full_name} at this time."
-      interest_group_ratings: "Interest Group Ratings"
-      from_vote_smart: "From the non-partisan <a href=\"http://www.votesmart.org\">Project Vote Smart</a>."
-      number_of_ratings: "Number of ratings"
+        one:               "View The Vote &rarr;"
+        other:             "View All %{count} Votes &rarr;"
+      no_sponsorship_info_for:  We have no bill sponsorship information for
+      no_vote_info_for:        "We have no vote information for %{full_name} at this time."
+      interest_group_ratings:   Interest Group Ratings
+      from_vote_smart:          From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
+      number_of_ratings:        Number of ratings"
       no_ratings_data_found: "No ratings data found for this person at this time via <a href=\"http://votesmart.org/\" target=\"_blank\">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href=\"/pages/help\">how you can help</a>."
       primary_sources: "Primary sources for this person:"
       how_did_we_get: "How did we get all this other info? It wasn't easy, but we got it. About"
@@ -197,7 +272,7 @@ en:
       all_votes: "All Votes - RSS"
       email_alerts: "Email Alerts"
       coming_soon: "(coming soon)"
-      contact_this_person: 'Contact this person'
+      contact: 'Contact'
     committees:
       committee_memberships_for: "Committee memberships for %{official_name}"
       of: 'of'
@@ -226,8 +301,47 @@ en:
   issues: 
     index: 
       title: 'Issue Areas in the %{legislature_name}'
+      state_issues: '%{state_name} Issues'
+      bill_subjects: 'Bill Subjects'
       intro: |
         The %{legislature_name} officially assigns issue areas to legislation. Generally speaking, though, this system is difficult to navigate -- there are many thousands of unstandardized issues per legislature, and they're discouragingly byzantine.<br><br> To make issue areas more widely intelligible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has mapped individual bill subject areas to one of 44 master issue areas. Below we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
+  layouts:
+    footer:
+      our_principles:    "Our Principles"
+      free_for_everyone: "Free for everyone"
+      open_source:       "Open-source"
+      open_standards:    "Open standards"
+      not_for_profit:    "Not-for-profit"
+      non_partisan:      "Non-partisan"
+      about_us:          "About Us"
+      our_data_sources:  "Our Data Sources"
+      blog:              "Blog"
+      user_support:      "User Support / Contact Us"
+      join_our_email:    "Join Our Email List"
+      more_open_gov:     "More OpenGovernment"
+      twitter:           "Twitter& Facebook"
+      wiki_community:    "Wiki Communmnity Project"
+      tools:             "Tools / Resources / Goodies"
+      our_open_code:     "Our Open Code and Data"
+      wish_list:         "Wish List / What We Need"
+
+      get_involved:      "Get Involved"
+      volunteer:         "Volunteer"
+      donate:            "Donate"
+      og_for_all_states: "OpenGovernment for All 50 States"
+      our_sibling:       "Our siblings: OpenCongress.org"
+      badges:            "Badges"
+
+      og_is_free: '<a href="http://opengovernment.org/">OpenGovernment</a> is a free, libre, and open-source joint project of two non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. Official government data comes from the community-driven <a href="http://openstates.sunlightlabs.com/">Open States Project</a>, with other info aggregated by the open-source <a href="https://github.com/opengovernment/govkit#readme">GovKit</a>.'
+
+    pages:
+      spread_the_word:   Spread the word
+      about_og:          about OpenGovernment...
+
+  money_trails:
+    index:
+      state_money_trail: "%{state_name} Money Trail"
+
   support:
     array:
       words_connector: ", "
@@ -290,3 +404,296 @@ en:
           quadrillion: Quadrillion
 
 
+  pages:
+    about:
+      about_og:         "About opengovernment.org"
+      background:       "Background and Mission"
+      current_status:   "Current Status"
+      our_data_sources: "Our Data Sources"
+      how_to_use:       "How To Use OpenGovernment"
+      search_tips:      "Search Tips"
+      help_us:          "Help Us Open Government!"
+
+      background_and_mission_text:  |
+        <p>
+        OpenGovernment is a free and open-source public resource website for government transparency and civic engagement at the state and local levels. The site is a non-partisan joint project of two 501(c)3 non-profit organizations, the <a href="http://www.participatorypolitics.org/">Participatory Politics Foundation</a> and the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a>. OpenGovernment is independent from any government entity, candidate for office, or political party. The information contained on OpenGovernment pages, wherever applicable, is cited to a primary source-- while we aggregate many different data sources, we do not edit or manipulate government data in any way before presenting it here.
+        </p>
+        <p>
+        OpenGovernment comes from the team that brought you <a href="http://www.opencongress.org/" target="_blank">OpenCongress.org</a>, a leading web tool for government transparency in the federal U.S. Congress. Conceived in 2004, the main problem that OpenCongress sought to address was a lack of accessible information online about bills, votes, and issues in the U.S. Congress. The official website of Congress, <a href="http://thomas.loc.gov/" target="_blank">THOMAS</a>, published raw data about legislation, but not in ways that are compliant with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Government Data</a>, not in sufficiently timely ways, and not on webpages that were proven to be user-friendly. (More than 15 years after THOMAS' launch, it still doesn't come close to doing any of these things. The Library of Congress should move aggressively towards providing, among other things, bulk data access and a free API to the public.) 
+        </p>
+        <p>
+        OpenCongress addressed this problem -- as much as possible given the inherited technical limitations of Congressional data sources -- by combining official government information with news & blog coverage from around the open Web, campaign contribution info, public participation tools, and more. The resulting open-source OpenCongress web application enables individuals and organizations to track and share information about what's really happening in Congress. Since its launch in 2007, OpenCongress has grown to become the most-visited government transparency website in the United States, and is proud to be an active contributor to a burgeoning ecosystem of open-government resources online. Read more <a href="http://www.opencongress.org/about" target="_blank">about OpenCongress</a>.  
+        </p>
+        <p>
+        Ever since we conceived of OpenCongress in 2004, we foresaw that this model of aggregating disparate data sources into a user-friendly web interface could be productively applied to other entities: state legislatures, city councils, neighborhood associations, international institutions, governorships, secretaries of state, supreme courts, circuit judges, public-mission institutions such as schools & hospitals, foreign countries with more-or-less democratic systems of governance, and more. 
+        </p>
+        <p>
+        In other words, we often received the quite-sensible question, "When will there be an OpenCongress for my state?" Or, "... for my city?" Or, "... for my neighborhood?" Or, ... "for my country?" We're happy to say we're on-track to answer that question. We're working with the staff at Sunlight Labs and many volunteers on the community-driven <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a>, with the goal of establishing a data standard and collecting machine-readable data streams for all 50 U.S. State Legislatures. These data streams will provide official government info to <a href="https://github.com/opengovernment/govkit#readme" target="_blank">GovKit</a>, the open-source application that combines it with other publicly-available data sources and social wisdom from around the open Web. GovKit, in turn, will power the OpenGovernment website: essentially, free and non-partisan versions of OpenCongress for all fifty state legislatures and a dozen major cities, with even more local versions planned. We'll continue to encourage volunteers to remix the code for city, county, or municipal governments. Along the way, we've made our code more modular and better-documented, in order to make it possible for volunteers to make their own versions of OpenGovernment with an emphasis on the issues they and their communities care about. 
+        </p>
+        <p>
+        So while our code has always been 100% open, we now have an even better answer to the question, "How do I make an OpenCongress for my (state, city, town, or country)?" OpenGovernment was designed to bring the OpenCongress model of transparency down to state and local governments. 
+        </p>
+        <p>
+        The ultimate mission of OpenGovernment is to ensure that all three branches (executive, legislative, and judicial) at every level of government (federal, state, city, local, and more) comply with the <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Government Data</a>. Public data can and should be public, immediately and in full, and it can and should be made accessible to everyone online, so as to increase trust in the political process. From this foundation of open government data, an entire ecosystem of public-interest tools can grow and evolve. Transparency, in turn, can create new opportunities for meaningful civic engagement in our representative democracy. Greater day-to-day civic engagement and citizen watchdogging, we believe, will result in reduced corruption in government, better public policy outcomes, and stronger democratic institutions. 
+        </p>
+        <p>
+        Writing in early 2011, the situation with official websites for U.S. state legislatures is nearly exactly as it was with THOMAS in 2004. Unfortunately, almost no U.S. state government makes its data available in ways that are compliant with the Principles of Open Government Data, or even close. Out of the 49 bicameral state legislatures in the U.S. and one unicameral body (that of Nebraska), only one single chamber -- one entity out of 99, namely the New York State Senate -- makes its legislative data available in ways that sufficiently comply with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Eight Principles of Open Government Data</a>. Every other chamber of state government remains insistently closed-off from its constituents, refusing to release public data (legislative actions, votes, bill analysis -- not to mention campaign contributions) online in ways that are truly open, despite the readily available technical means to do so. State legislatures, in other words, make public data "<a href="http://www.defectivebydesign.org/" target="_blank">defective by design</a>". Open-source software, open standards, flexible copyright licensing, and easily-findable technical best practices make it possible for any branch of state government to comply with the Eight Principles in a relatively short period of time ... given, of course, that the political & institutional will exists to do so. And that's just to address the back-end data issues... on the front-end, the status quo for state-level government websites is a mishmash of non-standards-based, poorly-designed websites that don't do nearly enough to keep the public at large informed. They're simply unacceptably user-unfriendly. The proof of this is how rarely they're used (linked-to and discussed) even on more-or-less-niche political blogs, much less in casual political conversation. 
+        </p>
+        <p>
+        More background: There's too much money in politics, and not enough full public transparency buttressed by strong ethics rules and comprehensive electoral reform. As a result, trust in government institutions like the U.S. Congress is trending ever-lower, and voting rates are unacceptably depressed. As public opinion agency <a href="http://www.gallup.com/poll/141512/Congress-Ranks-Last-Confidence-Institutions.aspx target="_new">Gallup</a> put it in July, the "2010 Confidence in Institutions poll finds Congress ranking dead last out of the 16 institutions rated this year. Eleven percent of Americans say they have 'a great deal' or 'quite a lot' of confidence in Congress, down from 17% in 2009 and a percentage point lower than the previous low for Congress, recorded in 2008."
+        </p>
+        <p>
+        If we were tasked with re-designing American democracy for the 21st century, we would revamp these arcane systems and bring them up to widely-accepted technical standards. Keeping in touch with your elected officials in government should be as easy as keeping in touch with friends on a social networking website such as, say, Facebook. There's no compelling reason why this should not be the case unless you're a stakeholder in the status quo -- a lobbyist or a political insider or an elected official who depends on the system remaining "defective by design". Looking ahead, open-source software and the Internet (and libre data and flexible copyright licenses) give us the tools we need to make all public data available to the public, immediately and in full. Such a radical degree of transparency is first necessary in order to restore public trust in government and increase civic engagement.
+        </p>
+        <p>
+        OpenGovernment is a first step towards a solution. In the shorter-term, OpenGovernment is basically a version of OpenCongress for state legislatures, in early open-source development. We cleaned-up the OpenCongress code base for OpenGovernment, bringing over some parts and writing lots of new code in Ruby on Rails, making it better-documented and more modular. We also simplified the web design and foregrounded more of our user-friendly participation tools along with our unique data offerings. We offer OpenGovernment to the public commons as a free, libre, and open-source model for open standards and future government transparency projects -- contributions warmly welcomed and remixes encouraged. 
+        </p>
+
+      current_status_text:  |
+        <p>
+        As of November 2010, OpenGovernment has information for five state legislatures: California, Louisiana, Maryland, Texas, and Wisconsin. (Why these five states? The shortest answer is: these data problems are time- and work-intensive to solve, and it made sense for technical reasons to start with these five particular legislatures, which include two of the three biggest most-populous states in the country in CA and TX.) Over the course of the next year, we seek to roll out OpenGovernment to the remaining 45 U.S. state legislatures, and with additional resources, to more than a dozen major cities across the country. If you live in one of these five states, get started using OpenGovernment to track, understand, and contact your elected officials. If you don't live in one of these five states, please <a href="http://crm.ppolitics.org/">join our e-mail list</a> to receive project updates, as a version of OpenGovernment for your state is in the works -- <a href="/pages/help">you can help</a> speed it along and make it better, and until then you can explore our current offerings. We're a small team, easy to reach and eager to talk, that welcomes your questions and feedback -- let us know what you think! <a href="/pages/contact">Contact us.</a>
+        </p>
+        <p>
+        A note of background: state governments generally do not comply with the open standards of the <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Government Data</a> in publishing their legislative data, of which they are the primary source and gatekeepers to the public, the community-driven <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has had to obtain official government information largely through a sub-optimal technical method known as <a href="http://en.wikipedia.org/wiki/Web_scraping" target="_blank">web scraping</a>. (This is the same process that brings data from the U.S. Congress into <a href="http://www.opencongress.org/" target="_blank">OpenCongress</a> -- read more <a href="http://www.opencongress.org/about#data_sources" target="_blank">about</a> those data sources.) Because state governments (indeed, government entities at most every level) are not up to contemporary technical best practices in making data accessible on the open Web, it's far more difficult than it needs to be for OpenGovernment to display bill & vote information, and it's not -- yet -- possible to provide details of legislative actions like roll call results in real-time to the public. This is a tremendous deficit to open public knowledge in our democracy and the effort to combat systemic corruption in government. In the near future, we're optimistic that open technology will do even more to ensure a sufficiently trustworthy degree of transparency in state & local legislative chambers. At the moment, we've tackled this challenge with the open-source community, and brought together, as best possible within our current resources, the following data sources on OpenGovernment.org: 
+        </p>
+
+      our_data_sources_text: |
+          <p>
+          At its core, OpenGovernment is a web application for aggregating and displaying government information alongside social wisdom from around the Web, campaign contribution data, and free public participation tools.   
+          </p>
+          <p>
+          
+          The information displayed on OpenGovernment is uniquely aggregated by the open-source <a href="https://github.com/opengovernment/govkit">GovKit</a> API wrapper, which can be remixed for government at any level: state, city, local, international, and more. We're eager to scale up and roll out OpenGovernment to all 50 U.S. states and beyond -- find out <a href="/pages/help">how you can help</a> fund our non-profit work and bring a version of OpenGovernment to your area.
+          </p>
+          <p>
+          
+          OpenGovernment, in other words, is based on the OpenCongress model of transparency: combining official legislative information with news coverage, blog posts, social media mentions, public comment forums, community wiki projects, and more to give you the real story behind what's happening in government. In summary, our open data sources are the following: 
+          <ol class="lined and_spaced">
+            <li> 
+              <p>
+              Official state government data from the <a href="http://openstates.sunlightlabs.com/">Open States Project</a>
+              </p>
+            </li>
+            <li> 
+              <p>
+              News and blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a> 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Campaign contribution data from <a href="http://www.followthemoney.org/">FollowTheMoney.org</a>, via <a href="http://transparencydata.com/" target="_blank">TransparencyData</a>
+              </p>
+            </li>
+            <li> 
+              <p>
+              Issue group ratings and legislator contact information from <a href="http://votesmart.org/">Project VoteSmart</a>
+              </p>
+            </li>
+            <li> 
+              <p>
+              Social media mentions from the <a href="http://apiwiki.twitter.com/w/page/22554648/FrontPage">Twitter API</a>
+              </p>
+            </li>
+            <li> 
+              <p>
+              Legislator biographies from <a href="http://www.wikipedia.org/">Wikipedia</a>
+              </p>
+            </li>
+            <li> 
+              <p>
+              Video - to be crowdsourced for each state on <a href="http://www.mirocommunity.org/">Miro Community</a>. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              U.S. Congressional data from <a href="http://thomas.loc.gov/">THOMAS</a> via our data partner <a href="http://govtrack.us/">GovTrack</a> and the <a href="http://www.opencongress.org/api">OpenCongress API</a>. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Geographic maps of districts from the <a href="http://www.census.gov/" target="_blank">U.S. Census Bureau</a>
+              </p>
+            </li>
+          </ol>
+              
+          ... here's an annotated image of <a href="%{og_bill_page_features_jpg}">how they come together on a bill page</a> (link to .jpg, image forthcoming here). In more detail, and with a look ahead to our near-future open-source development roadmap, more about our data sources: 
+          
+          <ol class="lined and_spaced">
+            <li> 
+              <p>
+              The primary source for all legislative information on OpenGovernment is an official state government website, e.g., a state Senate or Assembly website with a .gov URL suffix. This mishmash of data is then standardized and delivered to OpenGovernment by the <a href="http://openstates.sunlightlabs.com/">Open States Project</a> coordinated by <a href="http://sunlightlabs.com/" target="_blank">Sunlight Labs</a> and its terrific volunteer community, consisting of the following: bills, members, actions, votes, committees, and more. This data stream of official legislative actions from Open States forms the legislative backbone of the site. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              News and blog coverage via <a href="http://news.google.com/">Google News</a> and <a href="http://blogsearch.google.com/">Blog Search</a>, using aggregators as developed previously on OpenCongress and optimized for state-level legislation. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Campaign contribution data from the non-profit, non-partisan website of the National Institute on Money in State Politics (NIMSP), <a href="http://www.followthemoney.org/">FollowTheMoney.org</a>, via <a href="http://transparencydata.com/" target="_blank">TransparencyData</a>. Forthcoming, we seek to bring in much more state-level money-in-politics data from <a href="http://maplight.org/">MAPLight</a>, as seen in their <a href="http://maplight.org/california" target="_blank">MAPLight - California</a> state site, as well as the terrific public accountability wiki project, <a href="http://littlesis.org/" target="_blank">LittleSis</a>. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Issue group ratings and official member contact information (where available) from the non-partisan <a href="http://votesmart.org/">Project VoteSmart API</a>. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Social media mentions from the <a href="http://apiwiki.twitter.com/w/page/22554648/FrontPage">Twitter API</a>, with other social media services (e.g. Facebook, the open-source application <a href="http://thinkupapp.com/" target="_blank">Think Up</a>, Identi.ca, Diaspora, and others) to come.
+              </p>
+            </li>
+            <li> 
+              <p>
+              Legislator biographies from <a href="http://www.wikipedia.org/">Wikipedia</a> and "how state gov works" resources via the <a href="http://ballotpedia.org/wiki/index.php/Main_Page">Ballotpedia</a> wiki 
+              </p>
+            </li>
+            <li> 
+              <p>
+              Video - to be crowdsourced for each state on the <a href="http://www.mirocommunity.org/">Miro Community</a> platform, a project of the non-profit <a href="http://pculture.org/">Participatory Culture Foundation</a>. 
+              </p>
+            </li>
+            <li> 
+              <p>
+              U.S. Congressional data from <a href="http://thomas.loc.gov/">THOMAS</a> and other sources via our data partner <a href="http://govtrack.us/">GovTrack</a>, also via the <a href="http://www.opencongress.org/api">OpenCongress API</a>,the <a href="http://sunlightlabs.com/projects/sunlight-labs-api/" target="_blank">Sunlight Labs Congress API</a>, and the <a href="http://www.opencongress.org/wiki/Project:OpenGovernment">OG Community Project</a> on the <a href="http://www.opencongress.org/wiki/Wiki_Home">OpenCongress Wiki</a> (built on semantic MediaWiki).
+              </p>
+            </li>
+            <li> 
+              <p>
+              Geographic maps of districts from the U.S. Census Bureau, with planned enhancements to come (viz., making the maps dynamic, as seen in typical Google Maps) via the open-source <a href="http://geoserver.org/" target="_blank">GeoServer</a>.
+              </p>
+            </li>
+          </ol>
+              
+          <p>
+          ... there are lots of ways you can <a href="/pages/help">help us</a> add more useful data sources, liberate more public data from state legislatures, and remix the open data we've already liberated for greater transparency and accountability. <a href="/pages/contact">Get in touch</a>. 
+          </p>
+
+      how_to_use_text: |
+          <p>
+          This "how to use OpenGovernment" resource will continually be fleshed out and expanded with more suggestions, illustrations of use cases, tutorials, and screenshots. Volunteer help is welcomed, please <a href="/pages/contact">get in touch</a>. 
+          </p>
+
+          <ol class="lined and_spaced">
+            <li>
+                <p>
+                Learn - use the "sort-by" buttons to browse bills and people in different ways: by most-viewed, most-in-the-news, and more. Your state government has likely had a website for over a decade, but when was the last time you actually used it? OpenGovernment seeks to provide the most user-friendly experience available in viewing state and local level political information. Click "bill text" to browse the actual text of bills, for example, those rated Key Votes by Project VoteSmart. 
+                </p>
+            </li>
+            <li>
+                <p>
+                Track - on pages for bills or people, click the "track" button at the top of the page to see offerings of RSS feeds that will keep you continually in touch with their latest actions. Coming soon, email alerts will offer another way of staying up-to-the-latest. 
+                </p>
+            </li>
+            <li>
+                <p>
+                Comment - on pages for bills or people, click "comment" in the left-hand sidebar to use peer-to-peer communication to build public knowledge about that bill. Specific comments about this bill work best here: its text, its status, its actions, or its votes.
+                </p>
+            </li>
+            <li>
+                <p>
+                Share - on pages for bills or people, click the "share" button at the top of the page to see one-click built-in social sharing tools. Tweeting & Facebooking a bill or person page is another way to harness the power of peer-to-peer communication to build a more open and accountable government in your state. 
+                </p>
+            </li>
+            <li>
+                <p>
+                Contact - on pages for bills or people, click the "contact" button at the top of the page to see a pop-up window with a variety of contact information for your elected officials -- to the extent available, everything from email addresses to phone numbers to district office addresses. Never before has it been easier to read the details of a bill, see its status, research the campaign contributions to your members, and get in touch with their offices. 
+                </p>
+            </li>
+            <li>
+                <p>
+                Organize - link to OpenGovernment pages for bills and people when e-mailing or blogging about politics with your online network. With our built-in tools, you can coordinate a call-in about key votes to your members and organize an email campaign letting them know you're watching what they do. 
+                </p>
+            </li>
+          </ol>
+
+      search_tips_text: |
+          <p>
+          Optimal formatting for querying bills by their official number will vary according to the different conventions of each U.S. state legislature -- that said, generally you can find a bill within a state on OG by searching just for its individual number and not including any letter prefix that may exist. 
+          </p>
+          
+          <p>
+          When searching for legislators, a direct hit on search will take you directly to that member's page. If you're looking for your elected officials, you can find them using the zip-code lookup box on your state's OG homepage. 
+          </p>
+          
+          <p>
+          Your input welcome here ... what terms are you searching for on OG and not finding? <a href="/pages/contact">Contact us</a> and let us know, we're continually tweaking and improving the site in response to real-world feedback. Your tips & use cases help make the site better for everyone. 
+          </p>
+
+    badges:
+      og_badges:    "OG Badges"
+      state_badges: "State Badges"
+      ppf_badges:   "PPF Badges"
+
+    contact:
+      contact_og: "Contact OpenGovernment.org"
+      were_a_small_team: |
+          <p>
+          We're a small non-profit team, easy to reach. We welcome your questions, feedback, and ideas. Let us know how you're using OpenGovernment, what features you'd most like to see, and if you're using our site in ways that we can highlight positively on our blog. 
+          </p>
+          
+          <p>
+          For general help & questions about this site, or to submit a bug report, file a ticket in our existing help desk system: <strong><a href="http://support.opencongress.org/anonymous_requests/new">OpenCongress ZenDesk</a></strong>. Filing a ticket is easy and is the most effective way to ensure we address your communication. Please keep in mind this is a beta version -- it's expected that some bugs may pop up, so just let us know where they are and we'll fix them as soon as possible. We have a long, long list of planned enhancements.
+          </p>
+          
+          <p>
+          For updates as we work to take OpenGovernment national, sign up for our low-volume mail list:
+          </p>
+
+      follow_us: |
+          <p>
+          Follow us on social media: 
+          </p>
+          
+          <ol>
+            <li>
+              <p>
+              Micro-publishing: <a href="http://twitter.com/open_gov">@open_gov</a> on Twitter and <a href="http://identi.ca/opengovernment">@opengovernment</a> on Identi.ca
+              </p>
+            </li>
+            <li>
+              <p>
+              Join our truly-brand-new <a href="http://www.facebook.com/davidrussellmoore#!/pages/OpenGovernment/165122773534162">OpenGovernment Page</a> on Facebook, with <a href="http://www.joindiaspora.com/">Diaspora</a> profile coming soon, as we're boosters of open standards and intent on mitigating the negative effects of the "<a href="http://techpresident.com/blog-entry/filter-bubble-and-news-you-need-know" target="_blank">filter bubble</a>" inherent in the daily use of closed social media services.
+              </p>
+            </li>
+          </ol>
+          
+          <p>
+          IRC: we hang out in #opengovernment on irc.freenode.net, or ping Freenode user: davidrussellmoor anytime. 
+          </p>
+          
+          <p>
+          E-mail: for general user support, please use the ZenDesk account above, it's the fastest way for us to get back to you & track new issues. For more detailed inquiries, partnership offers, media requests, or to obtain a copy of our non-profit fundraising prospectus, email David Moore, Executive Director, PPF: david [at] ppolitics d0t org. 
+          </p>
+          
+          <p>
+          Address & contact info: <a href="http://www.participatorypolitics.org/contact/">Participatory Politics Foundation</a> and <a href="http://sunlightfoundation.com/contact">Sunlight Foundation</a>. 
+          </p>
+          
+          <p>
+          For more detailed involvement, join our developer forum & site discussion: <a href="http://groups.google.com/group/opengovernment/">OpenGovernment Google Group</a> and volunteer at our <a href="https://www.drumbeat.org/project/opengovernment-needs-open-data">Drumbeat</a> project page. 
+          </p>
+          
+          <p>
+          If you're a volunteer developer with more detailed feature or user interface suggestions, register a free account with our <a href="https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment">Lighthouse App</a> project management system (the signup link is in the upper-right) and create a <a href="https://participatorypolitics.lighthouseapp.com/projects/47665-opengovernment/overview">new ticket</a>, assigned to username "drm". Our team will then slot it into our development wish-list accordingly. If you're so inclined, you can also peruse our publicly-available wishlist on our <a href="https://www.pivotaltracker.com/projects/64842" target="_blank">Pivotal Tracker</a> development system. 
+          </p>
+          
+          <p>
+          We seek to bring the OpenGovernment platform to all 50 U.S. states, major cities, many many neighborhoods, and other countries around the globe -- see how you can <a href="/pages/help">help us grow</a>. 
+          </p>
+
+
+  devise:
+    sessions:
+      new:
+        username:     "OpenCongress username"
+        password:     "Password"
+        remember_me:  "Remember me"
+        sign_in:      "Sign in"
+        only_oc_sign_ins: |
+            For the time being, for technical reasons, OpenGovernment only supports sign-ins using the free accounts of our sibling site, OpenCongress. If you don't already have a "My OpenCongress" account, head over there
+            <a href='http://www.opencongress.org/register'>to register (it's free and only takes a minute)</a>
+            and then use your OC username and password to sign-in here. Coming soon, we'll offer a full set of "My OpenGovernment" personal profiles and useful features, plus OpenID login, because we're big boosters of open standards.<br><br>
+            (If you've forgotten your OpenCongress username or password, you can <a href="http://www.opencongress.org/account/forgot_password">retrieve it</a> by entering your email address.)
+        

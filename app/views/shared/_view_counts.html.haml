@@ -1,10 +1,11 @@
 %span.views
   - if MongoMapper.connected?
-    = page.views
-    total views&nbsp;&nbsp;
+    = t '.total_views', :count => page.views
+    &nbsp;&nbsp;
     = page.views(1.week.ago.utc)
-    in the last 7 days&nbsp;&nbsp;
+    = t '.in_last_week'
+    &nbsp;&nbsp;
     = page.views(1.month.ago.utc)
-    in the last month.
+    = t '.in_last_month'
   - else
     = t 'site.view_counts_not_available'

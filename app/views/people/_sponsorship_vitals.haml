@@ -1,12 +1,12 @@
 - if vitals
   %h2
     = link_to(vitals.bill_count, sponsored_bills_person_url(@person)) 
-    = t('.bills_sponsored')
+    = t '.bills_sponsored'
   .rank 
-    = t('.ranks')
+    = t '.ranks'
     = vitals.rank.to_i.ordinalize
-    = t('.out_of')
+    = t '.out_of'
     = vitals.total_sponsors
     = @person.chamber.title.pluralize
 - else
-  = t('.no_sponsorship_info')
+  = t '.no_sponsorship_info'

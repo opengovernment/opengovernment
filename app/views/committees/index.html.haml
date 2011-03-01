@@ -1,8 +1,9 @@
-- title("#{@state.name} Committees")
+- title(t '.committees', :which_committee => @state.name)
 
 = render :partial => 'shared/appeal'
 
-%h1 #{@state.name} #{@committees.first && @committees.first.type_fm} Committees 
+%h1
+  = t '.committees', :which_committee => "#{@state.name} #{@committees.first && @committees.first.type_fm}"
 %hr
 
 = will_paginate @committees

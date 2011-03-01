@@ -1,29 +1,29 @@
 %h2
-  = t('.contact')
+  = t '.contact' 
   = @person.official_name
 
-%p= t('.here_is_contact_info')
+%p= t '.here_is_contact_info'
 
-%p= t('.short_communications')
+%p= t '.short_communications'
 
 
 %ul.contact_options
   = render 'links', :person => @person
 
-%h2= t('.addresses')
+%h2= t '.addresses'
 %ul.addresses
   - if @person.addresses.size > 0
     = render :partial => "shared/address", :collection => @person.addresses
   - else
-    %p= t('.sorry_no_addresses') 
+    %p= t '.sorry_no_addresses'
 
 
 
 %p.public_schedule
-  = t('.public_schedule')
+  = t '.public_schedule'
 
 %p.social_media
-  = t('.social_media')
+  = t '.social_media'
 
 %p 
-  = t('.members_official_contact_info')
+  = t '.members_official_contact_info'
