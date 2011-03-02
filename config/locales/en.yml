@@ -70,10 +70,13 @@ en:
       people_in_the_news:   People in the News
       see_all_people_link:  See All
       recent_bills:         Recent Bills
+      most_viewed_bills:    Most Viewed Bills
       key_votes:            Key Votes
       from_vote_smart:      From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>.
       whats_a_key_vote:     What's a key vote?
-      all_key_votes:        All Key Votes &rarr;
+      all_most_viewed_bills: More Most Viewed Bills &rarr;
+      all_recent_bills:     More Recent Bills &rarr;
+      all_key_votes:        More Key Votes &rarr;
       legislators:          Legislators
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>

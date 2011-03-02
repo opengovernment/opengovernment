@@ -6,6 +6,7 @@ class StatesController < SubdomainController
       bill = Bill.where(:session_id => @session.family).limit(5)
       @key_votes = bill.where(:votesmart_key_vote => true)
       @recent_bills = bill.order('last_action_at desc')
+      @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5)
 
       @hot_people = Person.find_by_sql(["select
         p.*,
