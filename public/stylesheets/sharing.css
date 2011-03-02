@@ -35,8 +35,15 @@ ul.share li a {
   float: left !important;
   }
 
-.facebook{
+.take_action .facebook{
 top: 88px;
+position: absolute;
+}
+
+
+.share_top .facebook{
+top: 9px;
+left: 630px;
 position: absolute;
 }
 
