@@ -3,21 +3,21 @@
 
 = render :partial => 'shared/appeal'
 
-.intro
-  %div
+
+
+
+%h1 
+  OpenGovernment -
+  =@state.legislature.name
+
+
+.display-none.grid_5.alpha
   %p= t '.intro'
 
-.find_box
-  = render :partial => 'shared/find_my_rep_form'
-
-.grid_12.alpha
-  .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
 
 
-  %h2= @state.legislature.name
-  - if default_session?
-    %p= t '.current_session_intro'
-
+.grid_7.alpha.bills
+  
   :ruby
     javascript do
       (%q|
@@ -28,16 +28,6 @@
       |)
     end
 
-  .people_news_preview
-    .grid_12.alpha
-      %h3= t '.people_in_the_news'
-      = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all')
-    .grid_12.alpha
-      %ul.sponsor_mugs.grid_12.alpha
-        = render :partial => 'people/mug', :collection => @hot_people
-
-.grid_8.alpha.bills
-  
   #bill_tabs
     %ul.small_tabs
       %li
@@ -61,6 +51,63 @@
         = render @key_votes, :locals => {:hide_key_vote => true}
       %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
       .clear  
+
+.grid_5.alpha
+
+.clear.space
+.grid_12.alpha
+  .find_box
+    = render :partial => 'shared/find_my_rep_form'
+.clear.space
+
+
+.grid_8.alpha
+  .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
+
+  %h2= @state.legislature.name
+
+  %br
+
+
+  .grid_3.alpha
+
+    .italic.grid_4.alpha
+      %strong= t '.current_session'
+      %br
+      = raw t '.state_population'
+    
+    %br
+    %br
+
+    %strong= t '.next_election'
+    = raw t '.next_election_date'
+    %br
+  
+    %strong= t '.last_election'
+    = raw t '.last_election_date'
+  
+
+
+  .grid_5.omega
+    - if default_session?
+      %p= t '.current_session_intro'
+  
+
+
+    %br
+    %br
+
+  
+  .people_news_preview
+    .grid_8.alpha
+      = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all floatright')
+
+      %h2= t '.people_in_the_news'
+    .grid_8.alpha
+      %ul.sponsor_mugs.grid_12.alpha
+        = render :partial => 'people/mug', :collection => @hot_people
+
+
 
 .grid_4.omega
   #chamber_tabs
@@ -118,23 +165,13 @@
               %br  
               =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
 
-.space
 
-.grid_12.alpha
-  .italic.grid_8.alpha
-    = raw t '.current_session'
-    %br
-    = raw t '.state_population'
 
-  .grid_4.omega
-    %strong= t '.next_election'
-    = raw t '.next_election_date'
-    %br
 
-    %strong= t '.last_election'
-    = raw t '.last_election_date'
+
+
 
 .clear.space
-
+%h2 More Links
 
 %p.grid_12.alpha= raw t '.background'
