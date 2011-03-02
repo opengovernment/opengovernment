@@ -599,7 +599,7 @@ font-size: 18px;
 
 
 .states.show .sponsor_mugs{
-padding: 20px 0 20px 0;
+
 }
   
 
@@ -611,7 +611,7 @@ padding: 0;
   
 
 .states.show .sponsor_mugs li a{
-margin-right: 20px;
+margin: 10px 20px 10px 0;
 }
 
 .no-border{

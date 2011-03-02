@@ -54,7 +54,25 @@
 
 .grid_5.alpha
 
-.clear.space
+
+
+.clear
+
+.people_news_preview
+  .grid_12.alpha
+    = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all floatright')
+    %h2= t '.people_in_the_news'
+
+  .grid_6.alpha
+    %ul.sponsor_mugs.grid_6.alpha
+      = render :partial => 'people/mug', :collection => @hot_people
+
+  .grid_6.omega
+    %br
+    %h3 QUIP QUIP QUIP QUIP
+    .small January 23rd, 2011
+    %p QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP
+  
 .grid_12.alpha
   .find_box
     = render :partial => 'shared/find_my_rep_form'
@@ -69,16 +87,16 @@
   %br
 
 
-  .grid_3.alpha
 
-    .italic.grid_4.alpha
-      %strong= t '.current_session'
-      %br
-      = raw t '.state_population'
-    
+  .italic.grid_4.alpha
+    %strong= t '.current_session'
+    %br
+    = raw t '.state_population'
+  
     %br
     %br
 
+  .grid_4.omega
     %strong= t '.next_election'
     = raw t '.next_election_date'
     %br
@@ -88,7 +106,7 @@
   
 
 
-  .grid_5.omega
+  .grid_7.alpha
     - if default_session?
       %p= t '.current_session_intro'
   
@@ -98,14 +116,6 @@
     %br
 
   
-  .people_news_preview
-    .grid_8.alpha
-      = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all floatright')
-
-      %h2= t '.people_in_the_news'
-    .grid_8.alpha
-      %ul.sponsor_mugs.grid_12.alpha
-        = render :partial => 'people/mug', :collection => @hot_people
 
 
 
