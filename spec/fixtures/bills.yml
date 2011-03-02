@@ -7,7 +7,7 @@ hb10:
   bill_number: HB 10
   kind_one: "bill"
   openstates_id:
-  state_id: 47
+  state: tx
 hb1000:
   created_at: 2010-05-10 23:26:12.896898
   chamber: txl
@@ -20,7 +20,7 @@ hb1000:
   bill_number: HB 1000
   openstates_id:
   votesmart_key_vote: t
-  state_id: 47
+  state: tx
 hb1001:
   created_at: 2010-05-10 23:26:12.936782
   chamber: txl
@@ -30,7 +30,7 @@ hb1001:
   session: tx81
   bill_number: HB 1001
   openstates_id:
-  state_id: 47
+  state: tx
 hb1002:
   created_at: 2010-05-10 23:26:12.966621
   chamber_id: txl
@@ -40,7 +40,7 @@ hb1002:
   session: tx81
   bill_number: HB 1002
   openstates_id:
-  state_id: 47
+  state: tx
 hb1003:
   created_at: 2010-05-10 23:26:13.009824
   chamber_id: txl
@@ -51,7 +51,7 @@ hb1003:
   kind_one: "bill"
   bill_number: HB1003
   openstates_id:
-  state_id: 47
+  state: tx
 hjr3:
   created_at: 2010-05-10 23:26:13.009824
   chamber_id: txl
@@ -61,5 +61,5 @@ hjr3:
   kind_one: "joint resolution"
   bill_number: HJR 3
   openstates_id:
-  state_id: 47
+  state: tx
 

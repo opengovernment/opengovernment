@@ -22,7 +22,7 @@ vote_18129:
   openstates_id: "18129"
   passed: t
   kind: "passage"
-  bill: HB1000
+  bill: hb1000
   no_count: "0"
 vote_18090:
   motion: to third reading
@@ -33,7 +33,6 @@ vote_18090:
   kind: "reading:3"
   updated_at: 2010-05-10 23:26:15.791316
   date: 2009-05-19 07:00:00
-  id: "3"
   openstates_id: "18090"
   bill: hb1001
   no_count: "0"
