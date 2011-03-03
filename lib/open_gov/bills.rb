@@ -213,7 +213,7 @@ module OpenGov
         end
 
         bill.votes.each do |vote|
-          v = Vote.find_or_create_by_openstates_id(vote.openstates_id)
+          v = Vote.find_or_create_by_openstates_id(vote.vote_id)
 
           v.attributes = {
             :yes_count => vote.yes_count,
