@@ -36,6 +36,10 @@ background: #eee;
 ///////////////////////////////////////////////////*/
 
 
+.league{
+font-family: "League";
+}
+
 
 .standard{
 padding-left: 13px;
@@ -243,6 +247,7 @@ background: #eee;
 
 .italic{font-style: italic;}
 
+.center{text-align: center;}
 
 
 .red{

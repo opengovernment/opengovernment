@@ -5,8 +5,7 @@
 
 
 
-
-%h1 
+%h1.margin-top.margin-bottom 
   OpenGovernment -
   =@state.legislature.name
 
@@ -52,8 +51,23 @@
       %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
       .clear  
 
-.grid_5.alpha
+.grid_5.omega.small_finally
 
+  %h2.center
+    Finally, a version of OpenCongress
+    .span.league.block for
+    your state legislature
+
+  %ul
+    %li.track 
+      %div.league Track 
+      %span bills, votes, and money 
+    %li.contact 
+      %div.league Contact 
+      %span all your elected officials 
+    %li.shareli
+      %div.league Share 
+      %span what's happening with your issues 
 
 
 .clear
