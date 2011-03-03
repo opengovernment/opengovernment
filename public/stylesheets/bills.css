@@ -242,7 +242,7 @@ a.see_all {
 
 .sponsor_mugs a:hover img{
   opacity: 1;
-background: #ccc;
+  background: url(../images/man.png) center no-repeat;
   }
 
 
@@ -254,7 +254,7 @@ height: 30px !important;
 display: block;
 margin-bottom: 2px;
   opacity: .4;
-background: #ccc;
+  background: url(../images/man.png) center no-repeat;
   }
 
 
