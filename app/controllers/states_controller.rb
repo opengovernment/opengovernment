@@ -23,7 +23,7 @@ class StatesController < SubdomainController
             and r.session_id = ?
           group by owner_id
           order by mentions_count desc
-          limit 10) m
+          limit 12) m
         on m.owner_id = p.id
       ", @session.id])
 

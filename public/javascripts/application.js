@@ -56,6 +56,7 @@ function create_dropdown_menu(anchor_div, menu_div) {
 }
 
 $(document).ready(function() {
+
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/
   $('a[rel=tipsy],span[rel=tipsy]').tipsy();
@@ -64,6 +65,22 @@ $(document).ready(function() {
   // For backwards-compatible placeholder attribute in input fields
   // http://plugins.jquery.com/plugin-tags/placeholder
   $('input').placeholder();
+
+  $('a[data-hover-hide]').hover(
+    function() {
+      var link = $(this), link_id = link.attr('data-hover-hide');  
+      $(link_id).hide();
+    },
+    function() {}
+  );
+  
+  $('a[data-hover-show]').hover(
+    function() {
+      var link = $(this), link_id = link.attr('data-hover-show');  
+      $(link_id).show();
+    },
+    function() {}
+  );
 
   // Modals.
   // http://colorpowered.com/colorbox/

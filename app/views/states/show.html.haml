@@ -75,14 +75,17 @@
 
   .grid_6.alpha
     %ul.sponsor_mugs.grid_6.alpha
-      = render :partial => 'people/mug', :collection => @hot_people
+      - @hot_people.each_with_index do |person, i|
+        %li= link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
 
-  .grid_6.omega
-    %br
-    %h3 QUIP QUIP QUIP QUIP
-    .small January 23rd, 2011
-    %p QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP
-  
+  .grid_6.omega.quip
+    - @hot_people.each_with_index do |person, i|
+      %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
+        %br
+        %h3= person.full_name
+        .small January 23rd, 2011
+        %p QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP
+
 .grid_12.alpha
   .find_box
     = render :partial => 'shared/find_my_rep_form'

@@ -1,1 +1,0 @@
-%li= link_to(photo_for(mug, :tiny), person_path(mug), :rel => 'tipsy', :title => mug.full_name + ' ' + ' (' + (mug[:party] ? (mug.try(:party).first + '-' + mug.try(:district_name)) : mug.current_role.try(:affiliation_fm)) + ')', :class => 'sponsor_mug')
