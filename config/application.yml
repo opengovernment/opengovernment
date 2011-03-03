@@ -6,7 +6,7 @@ defaults: &defaults
   mongo_database: og_<%= Rails.env %>
   geoserver_base_url: http://localhost:8080/geoserver
   enable_simple_admin_authentication: false
-  disqus_developer: 0
+  disqus_developer: 1
 
 development:
   <<: *defaults
@@ -27,6 +27,6 @@ production:
   openstates_dir: /data/opengovernment/openstates
   geoserver_base_url: http://opengovernment.org:8080/geoserver
   enable_simple_admin_authentication: true
-  disqus_developer: 1
+  disqus_developer: 0
 # Host is set via apache config env varaible HOST
 #  host: app.opengovernment.org

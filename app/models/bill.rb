@@ -80,6 +80,10 @@ class Bill < ActiveRecord::Base
     [kind_one, kind_two, kind_three].compact
   end
 
+  def long_id
+    [State.find(state_id).abbrev.downcase, session.to_param, bill_number.downcase.gsub(' ', '')].join('-')
+  end
+  
   def title_fm
     bill_number + ': ' + title
   end
