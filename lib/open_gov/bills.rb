@@ -213,7 +213,9 @@ module OpenGov
         end
 
         bill.votes.each do |vote|
-          v = @bill.votes.create(
+          v = Vote.find_or_create_by_openstates_id(vote.openstates_id)
+
+          v.attributes = {
             :yes_count => vote.yes_count,
             :no_count => vote.no_count,
             :other_count => vote.other_count,
@@ -224,7 +226,9 @@ module OpenGov
             :chamber => state.legislature.instance_eval("#{vote.chamber}_chamber"),
             :committee_name => vote[:committee],
             :threshold => vote['+threshold'].try(:to_frac)
-          )
+          }
+
+          @bill.votes << v
 
           ['yes', 'no', 'other'].each do |vote_type|
             vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|

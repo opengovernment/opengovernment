@@ -40,6 +40,10 @@ class Vote < ActiveRecord::Base
     needed_to_pass_frac * 100
   end
 
+  def to_param
+    openstates_id || id.to_s
+  end
+
   def needed_to_pass
     # This may ultimately depend on the state.
 
