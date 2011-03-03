@@ -33,13 +33,23 @@
         %a{:href => '#recent_bills'} 
           =t '.recent_bills'
       %li
+        %a{:href => '#most_viewed_bills'} 
+          =t '.most_viewed_bills'
+      %li
         %a{:href => '#key_votes'} 
           =t '.key_votes'
+
 
     #recent_bills.tab_cont
       %ul
         = render @recent_bills
-      %a.more{:href => bills_path(params[:session], :sort => 'recent')} All Recent Bills &rarr;
+      %a.more{:href => bills_path(params[:session], :sort => 'recent')}= t '.all_recent_bills'
+      .clear
+
+    #most_viewed_bills.tab_cont
+      %ul
+        = render @most_viewed_bills
+      %a.more{:href => bills_path(params[:session], :sort => 'views')}= t '.all_most_viewed_bills'
       .clear
 
     #key_votes.tab_cont
@@ -49,7 +59,7 @@
       %ul
         = render @key_votes, :locals => {:hide_key_vote => true}
       %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
-      .clear  
+      .clear
 
 .grid_5.omega.small_finally
 
