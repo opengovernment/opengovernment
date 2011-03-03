@@ -94,11 +94,13 @@
 
   .grid_6.omega.quip
     - @hot_people.each_with_index do |person, i|
-      %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
-        %br
-        %h3= person.full_name
-        .small January 23rd, 2011
-        %p QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP QUIP
+      - if mention = person.mentions.first
+        %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
+          %br
+          %h3= mention.title
+          .small= mention.date.to_s(:pretty)
+          %p= mention.excerpt
+          %p= person.full_name
 
 .grid_12.alpha
   .find_box
