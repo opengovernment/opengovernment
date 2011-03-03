@@ -97,9 +97,9 @@
       - if mention = person.mentions.first
         %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
           %br
-          %h3= mention.title
+          %h3=h link_to raw(mention.title), mention.url
           .small= mention.date.to_s(:pretty)
-          %p= mention.excerpt
+          %p= raw(mention.excerpt)
           %p= person.full_name
 
 .grid_12.alpha
