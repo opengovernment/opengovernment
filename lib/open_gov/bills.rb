@@ -101,8 +101,6 @@ module OpenGov
         # A bill number alone does not identify a bill; we also need a session ID.
         session = state.legislature.sessions.find_by_name(bill.session)
 
-        puts "Importing #{session.id} #{bill[:bill_id]}"
-
         @bill = Bill.find_or_initialize_by_session_id_and_bill_number(session.id, bill[:bill_id])
 
         # Identical bill contents; skip!

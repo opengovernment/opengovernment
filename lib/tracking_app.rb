@@ -1,3 +1,6 @@
+# This is a Rack app for asynchronously tracking page views on rails resources.
+# It is triggered via the track() view helper and tracker.js.
+#
 class TrackingApp
   def initialize(app, log = nil)
     @app = app

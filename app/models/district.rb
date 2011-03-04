@@ -16,7 +16,7 @@ class District < Place
 
   has_and_belongs_to_many :roles, :join_table => 'v_most_recent_roles'
   has_many :legislators, :through => :roles, :class_name => 'Person', :source => :person
-  has_and_belongs_to_many :current_legislators, :join_table => 'v_most_recent_roles', :class_name => 'Person', :conditions => 'current_date between v_most_recent_roles.start_date and v_most_recent_roles.end_date'
+  has_and_belongs_to_many :legislators, :join_table => 'v_most_recent_roles', :class_name => 'Person', :conditions => 'current_date between v_most_recent_roles.start_date and v_most_recent_roles.end_date'
 
   # The geographic SRID used for all Census bureau data
   SRID = 4269.freeze
@@ -31,6 +31,10 @@ class District < Place
 
   def description
     "This is #{state.name}'s #{chamber.name.downcase} District #{number}."
+  end
+
+  def as_json(options = {})
+    super(options.merge(:except => [:geom]))
   end
 
   # This returns the point object (GeoLoc)
