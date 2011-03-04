@@ -2,28 +2,24 @@ module OpenGov
   class Bills < Resources
     VOTES_DIR = File.join(Settings.openstates_dir, "api", "votes")
 
-    @@people = {}
-
-    def self.build_people_hash
+    def initialize
       # Cache all of the ids of people so we don't have to keep looking them up.
-      if @@people.size == 0
-        Person.all(:conditions => "openstates_id is not null").each do |p|
-          @@people[p.openstates_id] = p.id
-        end
+      @people = {}
+
+      Person.all(:conditions => "openstates_id is not null").each do |p|
+        @people[p.openstates_id] = p.id
       end
     end
 
     # TODO: The :remote => false option only applies to the intial import.
     # after that, we always want to use import_state(state)
-    def self.import!(options = {})
+    def import(options = {})
       State.loadable.each do |state|
         import_state(state, options)
       end
     end
 
-    def self.import_state(state, options = {})
-      build_people_hash
-
+    def import_state(state, options = {})
       if options[:remote]
         import_remote(state)
       else
@@ -57,9 +53,7 @@ module OpenGov
       end
     end
 
-    def self.import_remote(state)
-      build_people_hash
-
+    def import_remote(state)
       puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
       if state.bills.count > 0
@@ -94,14 +88,10 @@ module OpenGov
       end
     end
 
-    def self.import_bill(bill, state, options)
-      build_people_hash
-
+    def import_bill(bill, state, options)
       Bill.transaction do
         # A bill number alone does not identify a bill; we also need a session ID.
         session = state.legislature.sessions.find_by_name(bill.session)
-
-        puts "Importing #{session.id} #{bill[:bill_id]}"
 
         @bill = Bill.find_or_initialize_by_session_id_and_bill_number(session.id, bill[:bill_id])
 
@@ -198,7 +188,7 @@ module OpenGov
         # Same deal as with actions, above
         bill.sponsors.each do |sponsor|
           @bill.sponsorships << BillSponsorship.new(
-            :sponsor_id => sponsor.leg_id.blank? ? nil : @@people[sponsor.leg_id],
+            :sponsor_id => sponsor.leg_id.blank? ? nil : @people[sponsor.leg_id],
             :sponsor_name => sponsor[:name],
             :kind => sponsor[:type]
           )
@@ -232,7 +222,7 @@ module OpenGov
 
           ['yes', 'no', 'other'].each do |vote_type|
             vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => vote_type, :person_id => @@people[rcall.leg_id.to_s]) if rcall.leg_id
+              v.roll_calls.create(:vote_type => vote_type, :person_id => @people[rcall.leg_id.to_s]) if rcall.leg_id
             end
           end
         end
