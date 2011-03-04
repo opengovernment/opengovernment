@@ -316,11 +316,11 @@ namespace :load do
     puts "Loading bills from Open State data"
     with_states do |state|
       if state
-        OpenGov::Bills.import_state(state)
+        OpenGov::Bills.new.import_state(state)
         OpenGov::KeyVotes.import_state(state)
       else
-        OpenGov::Bills.import!
-        OpenGov::KeyVotes.import!
+        OpenGov::Bills.new.import
+        OpenGov::KeyVotes.new.import
       end
     end
   end
@@ -329,9 +329,9 @@ namespace :load do
   task :keyvotes => :environment do
     with_states do |state|
       if state
-        OpenGov::KeyVotes.import_state(state)
+        OpenGov::KeyVotes.new.import_state(state)
       else
-        OpenGov::KeyVotes.import!
+        OpenGov::KeyVotes.new.import!
       end
     end
   end

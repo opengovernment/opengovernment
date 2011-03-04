@@ -1,13 +1,13 @@
 module OpenGov
   class KeyVotes < Resources
-    def self.import!(options = {})
+    def import(options = {})
       State.loadable.each do |state|
         import_state(state)
       end
     end
 
     # Import all key votes for a given State
-    def self.import_state(state)  
+    def import_state(state)  
       puts "Marking Votesmart Key Votes for #{state.name}"
       i = 0
       
