@@ -14,7 +14,7 @@ namespace :sync do
 
         OpenGov::People.import_state(state, :remote => true)
         OpenGov::Committees.import_state(state, :remote => true)
-        OpenGov::Bills.import_state(state, :remote => true)
+        OpenGov::Bills.new.import_state(state, :remote => true)
       else
         # In case there are new legislative sessions or subsessions.
         # This is always a remote call.
@@ -25,7 +25,7 @@ namespace :sync do
         OpenGov::Committees.import!(:remote => true)
 
         # Import any bills updated since last import
-        OpenGov::Bills.import!(:remote => true)
+        OpenGov::Bills.new.import(:remote => true)
       end
     end
 
