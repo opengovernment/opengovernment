@@ -42,7 +42,7 @@ module OpenGov
       c.weight = mention.weight
       c.title = mention.title
       c.excerpt = mention.excerpt
-      c.search_source = source
+      c.search_source = truncate(source, :length => 254)
       c.save!
     end
   end
