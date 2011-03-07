@@ -34,7 +34,7 @@
 
     %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
 
-  %body{:class => page_class}
+  %body{:class => page_class + (current_place_subdomain.blank? ? '' : ' ' + current_place_subdomain)}
 
     %div.container_16
       %div.skip-link.screen-reader-text
