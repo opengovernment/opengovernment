@@ -10,19 +10,19 @@ namespace :sync do
     with_states do |state|
       if state
         # This is always a remote call.
-        OpenGov::Legislatures.import_state(state)
+        OpenGov::Legislatures.new.import_state(state)
 
-        OpenGov::People.import_state(state, :remote => true)
-        OpenGov::Committees.import_state(state, :remote => true)
+        OpenGov::People.new.import_state(state, :remote => true)
+        OpenGov::Committees.new.import_state(state, :remote => true)
         OpenGov::Bills.new.import_state(state, :remote => true)
       else
         # In case there are new legislative sessions or subsessions.
         # This is always a remote call.
-        OpenGov::Legislatures.import!
+        OpenGov::Legislatures.new.import
 
         # Updates to people and committees
-        OpenGov::People.import!(:remote => true)
-        OpenGov::Committees.import!(:remote => true)
+        OpenGov::People.new.import(:remote => true)
+        OpenGov::Committees.new.import(:remote => true)
 
         # Import any bills updated since last import
         OpenGov::Bills.new.import(:remote => true)
@@ -33,7 +33,7 @@ namespace :sync do
 
   desc "Fetch votesmart photos for missing candidates"
   task :photos => :environment do
-    OpenGov::Photos.import!
+    OpenGov::Photos.new.import
   end
 
 end

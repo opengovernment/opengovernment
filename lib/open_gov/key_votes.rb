@@ -10,7 +10,7 @@ module OpenGov
     def import_state(state)  
       puts "Marking Votesmart Key Votes for #{state.name}"
       i = 0
-      
+
       # Get all the years possible.
       # We're not getting session IDs here because we'll have to look
       # them up for each bill. The bills may, for example, be part of a special

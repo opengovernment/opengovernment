@@ -210,7 +210,7 @@ namespace :fetch do
   desc "Get the district SHP files for Congress and all active states"
   task :districts => :setup do
     with_states do |state|
-      state ? OpenGov::Districts.fetch_one(state) : OpenGov::Districts.fetch!
+      state ? OpenGov::Districts.new.fetch_one(state) : OpenGov::Districts.new.fetch
     end
   end
 
@@ -228,7 +228,7 @@ namespace :fetch do
     # Download the bills & legislator data from OpenStates.
 
     with_states do |state|
-      state ? OpenGov::OpenStates.fetch_one(state) : OpenGov::OpenStates.fetch!
+      state ? OpenGov::OpenStates.new.fetch_one(state) : OpenGov::OpenStates.new.fetch
     end
   end
 end
@@ -260,8 +260,8 @@ namespace :load do
   desc "Load test fixtues and key imported data into the dev environment"
   task :dev => :environment do
     Rake::Task['load:fixtures:test'].invoke
-    OpenGov::Ratings.import_categories
-  end    
+    OpenGov::Ratings.new.import_categories
+  end
 
   namespace :fixtures do
     desc "Load fixtures for dev / testing"
@@ -302,13 +302,13 @@ namespace :load do
   desc "Fetch and load legislatures from Open State data"
   task :legislatures => :environment do
     with_states do |state|
-      state ? OpenGov::Legislatures.import_state(state) : OpenGov::Legislatures.import!
+      state ? OpenGov::Legislatures.new.import_state(state) : OpenGov::Legislatures.new.import
     end
   end
 
   desc "Fetch and load mentions"
   task :mentions => :environment do
-    OpenGov::Mentions.import!
+    OpenGov::Mentions.new.import
   end
 
   desc "Load bills from Open State data"
@@ -317,7 +317,7 @@ namespace :load do
     with_states do |state|
       if state
         OpenGov::Bills.new.import_state(state)
-        OpenGov::KeyVotes.import_state(state)
+        OpenGov::KeyVotes.new.import_state(state)
       else
         OpenGov::Bills.new.import
         OpenGov::KeyVotes.new.import
@@ -331,7 +331,7 @@ namespace :load do
       if state
         OpenGov::KeyVotes.new.import_state(state)
       else
-        OpenGov::KeyVotes.new.import!
+        OpenGov::KeyVotes.new.import
       end
     end
   end
@@ -339,13 +339,13 @@ namespace :load do
   desc "Fetch and load committees from OpenStates"
   task :committees => :environment do
     with_states do |state|
-      state ? OpenGov::Committees.import_state(state) : OpenGov::Committees.import!
+      state ? OpenGov::Committees.new.import_state(state) : OpenGov::Committees.new.import
     end 
   end
 
   desc "Fetch and load industries from FollowTheMoney"
   task :industries => :environment do
-    OpenGov::Industries.import!
+    OpenGov::Industries.new.import
   end
 
   desc "Queue fetch and load of contributions from FollowTheMoney"
@@ -358,7 +358,7 @@ namespace :load do
   desc "Fetch and load people from OpenStates, GovTrack, VoteSmart, and Wikipedia"
   task :people => :environment do
     with_states do |state|
-      state ? OpenGov::People.import_state(state) : OpenGov::People.import!
+      state ? OpenGov::People.new.import_state(state) : OpenGov::People.new.import
     end
 
     Dir.chdir(Rails.root)
@@ -366,21 +366,21 @@ namespace :load do
 
     # These methods all act on all people with votesmart ids
     Dir.chdir(Rails.root)
-    OpenGov::Addresses.import!
+    OpenGov::Addresses.new.import
 
     puts "---------- Importing bios from Wikipedia."
-    OpenGov::Bios.import!
+    OpenGov::Bios.new.import
   end
 
   desc "Fetch and load people ratings VoteSmart"
   task :ratings => :environment do
-    OpenGov::Ratings.import!
+    OpenGov::Ratings.new.import
   end
 
   desc "Fetch and import Census Bureau congressional and legislative district boundaries"
   task :districts => :environment do
     Dir.glob(File.join(Settings.districts_dir, '*.shp')).each do |shpfile|
-      OpenGov::Districts::import!(shpfile)
+      OpenGov::Districts.new.import(shpfile)
     end
 
     class_refresh("District")

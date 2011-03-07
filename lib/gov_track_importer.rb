@@ -50,7 +50,6 @@ class GovTrackImporter
       end
     end
 
-    puts "\nThanks!"
   end
 
   def import_person(person_xml)

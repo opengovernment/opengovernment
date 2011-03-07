@@ -3,13 +3,13 @@ module OpenGov
     # TODO: This should be more cleanly separated from contributions --
     # so we don't have to delete all contributions when we load industries (the second time)
 
-    def self.fetch
+    def fetch
       industries = GovKit::TransparencyData::Categories.all
       puts "Fetched #{industries.size} industries from TransparencyData"
       industries
     end
 
-    def self.import!
+    def import
       industries = fetch
       puts "Deleting existing industries and contributions.."
       Contribution.delete_all
@@ -20,7 +20,7 @@ module OpenGov
       end
     end
 
-    def self.import_industry(row)
+    def import_industry(row)
       puts "Importing: #{row[:name]}"
 
       industry = Industry.find_or_initialize_by_name(row[:name].titleize)

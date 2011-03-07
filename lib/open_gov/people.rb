@@ -2,13 +2,13 @@ module OpenGov
   class People < Resources
     LEG_DIR = File.join(Settings.openstates_dir, "api", "legislators")
 
-    def self.import!(options = {})
+    def import(options = {})
       State.loadable.each do |state|
         import_state(state, options)
       end
     end
 
-    def self.import_state(state, options = {})
+    def import_state(state, options = {})
       if options[:remote]
         # Counters
         i = 0
@@ -40,12 +40,12 @@ module OpenGov
     
     private
 
-    def self.fetch_person(leg_id)
+    def fetch_person(leg_id)
 #      puts "Fetching #{leg_id}"
       GovKit::OpenStates::Legislator.find(leg_id)
     end
 
-    def self.import_person(fs_person, state)
+    def import_person(fs_person, state)
       Person.transaction do
         unless person = Person.find_by_openstates_id(fs_person.leg_id)
           person = Person.new(:openstates_id => fs_person.leg_id)
@@ -124,8 +124,8 @@ module OpenGov
         end
       end # transaction
     end # import_one
-    
-    def self.standardize_party(party_name)
+
+    def standardize_party(party_name)
       case party_name.downcase
       when 'democrat', 'd', 'democratic', 'dem'
         'Democrat'

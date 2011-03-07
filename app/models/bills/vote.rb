@@ -13,7 +13,7 @@ class Vote < ActiveRecord::Base
   def outcome_class
     passed ? 'vote-passed' : 'vote-failed'
   end
-  
+
   def total_count
     yes_count + no_count + other_count
   end
