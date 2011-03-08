@@ -258,6 +258,64 @@ margin-bottom: 2px;
   }
 
 
+
+.people_news_preview .sponsor_mugs a{
+opacity: .3;
+-webkit-transition: all .8s ease-in-out; 
+}
+
+
+.people_news_preview .sponsor_mugs a.active{
+opacity: 1;
+}
+
+
+.hot_person li.mention{
+
+
+}
+
+
+.hot_person li.mention a{
+padding-top: 5px;
+font-size: 13px;
+display: block;
+line-height: 1.3em;
+
+}
+
+
+
+.hot_person li.mention .date{
+padding-top: px;
+font-size: 10px;
+color: #666;
+float: right;
+}
+
+
+.hot_person li.mention .excerpt{
+padding-top: 10px;
+font-size: 11px;
+color: #333;
+float: right;
+line-height: 1.5em;
+}
+
+
+.hot_person li.mention .source{
+padding-top: 10px;
+padding-bottom: 30px;
+font-size: 10px;
+color: #888;
+float: right;
+line-height: 1.5em;
+}
+
+
+
+
+
 #bill_actions td {
   padding: 5px 0;
   }
