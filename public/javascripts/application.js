@@ -68,18 +68,16 @@ $(document).ready(function() {
 
   $('a[data-hover-hide]').hover(
     function() {
-      var link = $(this), link_id = link.attr('data-hover-hide');  
+      var link = $(this), link_id = link.attr('data-hover-hide');
       $(link_id).hide();
-    },
-    function() {}
+    }
   );
   
   $('a[data-hover-show]').hover(
     function() {
       var link = $(this), link_id = link.attr('data-hover-show');  
       $(link_id).show();
-    },
-    function() {}
+    }
   );
 
   // Modals.
