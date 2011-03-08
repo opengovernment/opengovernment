@@ -1,6 +1,6 @@
 module OpenGov
   class Photos < Resources
-    def self.import!
+    def import
       puts "Importing photos from VoteSmart"
       i, s = 0, 0
       Person.with_votesmart_id.with_current_role.where("photo_url is null").each do |person|

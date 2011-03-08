@@ -2,8 +2,8 @@ class IssuesController < SubdomainController
   before_filter :get_issue, :only => [:show]
 
   def index
-    @min_bills = 1
-    @subjects = Subject.for_sessions(@session.family).order("subjects.name").with_bill_count.having(["count(bills_subjects.id) > ?", @min_bills]).limit(100)
+    @subjects = Subject.with_session_bill_count(@session.family)
+    # for_sessions(@session.family).order("subjects.name").with_bill_count
 
     respond_to do |format|
       @issues = ActsAsTaggableOn::Tag.all

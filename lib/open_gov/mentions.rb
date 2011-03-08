@@ -1,11 +1,11 @@
 module OpenGov
   class Mentions < Resources
-    def self.import!
+    def import
       import_bills
       import_people
     end
 
-    def self.import_bills
+    def import_bills
       puts "Importing mentions for bills with key votes.."
       Bill.with_key_votes.in_a_current_session.each do |bill|
         make_mentions(bill)
@@ -17,14 +17,16 @@ module OpenGov
       end
     end
 
-    def self.import_people
+    def import_people
       puts "Importing mentions for people with current roles..."
       Person.with_current_role.each do |person|
         make_mentions(person)
       end
     end
 
-    def self.make_mentions(obj)
+    private
+
+    def make_mentions(obj)
       puts "#{obj.to_param}"
       raw_mentions = obj.raw_mentions
 
@@ -34,13 +36,13 @@ module OpenGov
       obj.save!
     end
 
-    def self.make_mention(owner, mention, source)
+    def make_mention(owner, mention, source)
       c = owner.mentions.find_or_initialize_by_source_and_date(mention.source, Date.valid_date!(mention.date))
       c.url = mention.url
       c.weight = mention.weight
       c.title = mention.title
       c.excerpt = mention.excerpt
-      c.search_source = source
+      c.search_source = truncate(source, :length => 254)
       c.save!
     end
   end

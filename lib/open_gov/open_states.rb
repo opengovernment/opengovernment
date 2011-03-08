@@ -1,12 +1,12 @@
 module OpenGov
   class OpenStates
-    def self.fetch!
+    def fetch
       State.loadable.each do |state|
         fetch_one(state)
       end
     end
 
-    def self.fetch_one(state)
+    def fetch_one(state)
       if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
         FileUtils.mkdir_p(Settings.openstates_dir)
         Dir.chdir(Settings.openstates_dir)

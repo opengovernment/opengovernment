@@ -20,7 +20,7 @@ module OpenGov
 
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
-    def self.fetch!
+    def fetch
       FileUtils.mkdir_p(Settings.districts_dir)
       Dir.chdir(Settings.districts_dir)
 
@@ -32,7 +32,7 @@ module OpenGov
       end
     end
     
-    def self.fetch_one(state)
+    def fetch_one(state)
       FileUtils.mkdir_p(Settings.districts_dir)
       Dir.chdir(Settings.districts_dir)
 
@@ -45,12 +45,12 @@ module OpenGov
       end
     end
 
-    def self.fetch_us_congress
+    def fetch_us_congress
       # Get the federal data.
       process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
     end
 
-    def self.import!(shpfile)
+    def import(shpfile)
       puts "Inserting shapefile #{File.basename(shpfile)}"
       OpenGov::Shapefile.process(shpfile, :drop_table => true)
 
@@ -127,7 +127,7 @@ module OpenGov
       OpenGov::Shapefile.cleanup(shpfile)
     end
 
-    def self.district_name_for(shape)
+    def district_name_for(shape)
       census_name_column = (shape[:cd] || shape[:name])
       fips_code = shape.state.to_i
 
@@ -146,7 +146,7 @@ module OpenGov
     end
 
     protected
-    def self.process_one(ga, fips_code, area_name)
+    def process_one(ga, fips_code, area_name)
       census_fn = census_fn_for(ga, fips_code)
       curl_ops = File.exists?(census_fn) ? "-z #{census_fn}" : ''
 
@@ -155,20 +155,20 @@ module OpenGov
       `unzip -u #{census_fn}`
     end
 
-    def self.census_url_for(ga, fips_code)
+    def census_url_for(ga, fips_code)
       # ga is geographic area - eg. "cd" for congressional district
       # Only provide congress number (eg. 110) if we're looking for congressional districts
       vintage_or_congress = (ga == AREA_CONGRESSIONAL_DISTRICT ? CONGRESS : VINTAGE)
       return eval('"' + CENSUS_SHP_URL + '"') + census_fn_for(ga, fips_code)
     end
 
-    def self.census_fn_for(ga, fips_code)
+    def census_fn_for(ga, fips_code)
       fips_code = "%02d" % fips_code
       vintage = (ga == AREA_CONGRESSIONAL_DISTRICT ? CONGRESS : ALT_VINTAGE)
       eval('"' + CENSUS_SHP_FN + '"')
     end
 
-    def self.shpfile_for(zipped_filename)
+    def shpfile_for(zipped_filename)
       zipped_filename.match(/^(.*)_shp.zip$/)[1] + ".shp"
     end
   end
