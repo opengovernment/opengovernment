@@ -8,6 +8,8 @@ module Trackable
   module ClassMethods
     def most_viewed(ops = {})
       ops[:limit] ||= 10
+      
+      return nil unless MongoMapper.connected?
 
       # This is gnarly. We have to generate a case statement for PostgreSQL in order to
       # get the people out in page view order. AND we need an SQL in clause for the people.
@@ -31,7 +33,7 @@ module Trackable
   end
 
   def views(since=nil)
-    return 0 unless page
+    return 0 unless MongoMapper.connected? && page
 
     if since
       page.view_count_since(since)
