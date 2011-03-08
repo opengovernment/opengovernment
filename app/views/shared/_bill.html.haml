@@ -32,7 +32,6 @@
       Most recent action:
       != bill.last_action_at
 
-    - if MongoMapper.connected?
-      .view_count.grid_3.alpha
-        = t '.views', :count => bill.views
+    .view_count.grid_3.alpha
+      = t '.views', :count => bill.views
 
