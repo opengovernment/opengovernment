@@ -23,7 +23,16 @@
         $(function() {
             $("#chamber_tabs").tabs();
         		$("#bill_tabs").tabs();
+
+            $('.sponsor_mug').hover(
+              function() {
+                $('.sponsor_mug').removeClass('active');
+                $(this).addClass('active');
+              }
+            );
+
         	});
+
       |)
     end
 
@@ -90,17 +99,13 @@
   .grid_6.alpha
     %ul.sponsor_mugs.grid_6.alpha
       - @hot_people.each_with_index do |person, i|
-        %li= link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
+        %li= link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug#{i == 0 ? ' active' : ''}", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
 
   .grid_6.omega.quip
     - @hot_people.each_with_index do |person, i|
       - if mention = person.mentions.first
-        %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
-          %br
-          %h3=h link_to raw(mention.title), mention.url
-          .small= mention.date.to_s(:pretty)
-          %p= raw(mention.excerpt)
-          %p= person.full_name
+        %ul{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
+          = render mention
 
 .grid_12.alpha
   .find_box
