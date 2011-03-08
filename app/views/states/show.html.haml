@@ -104,12 +104,8 @@
   .grid_6.omega.quip
     - @hot_people.each_with_index do |person, i|
       - if mention = person.mentions.first
-        %div{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
-          %br
-          %h3=h link_to raw(mention.title), mention.url
-          .small= mention.date.to_s(:pretty)
-          %p= raw(mention.excerpt)
-          %p= person.full_name
+        %ul{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
+          = render mention
 
 .grid_12.alpha
   .find_box
