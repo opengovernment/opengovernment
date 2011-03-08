@@ -27,7 +27,8 @@ class State < Place
 
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
 
-  has_and_belongs_to_many :senators, :join_table => 'v_most_recent_roles', :conditions => 'district_id is null', :class_name => 'Person'
+  # Senators, basically.
+  has_and_belongs_to_many :legislators, :join_table => 'v_most_recent_roles', :conditions => 'district_id is null', :class_name => 'Person'
 
   # For which states are we importing data?
   scope :loadable, :conditions => ['launch_date is not null'], :order => 'name'

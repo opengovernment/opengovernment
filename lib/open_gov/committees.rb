@@ -2,13 +2,13 @@ module OpenGov
   class Committees < Resources  
     COMMITTEE_DIR = File.join(Settings.openstates_dir, "api", "committees")
 
-    def self.import!(options = {})
+    def import(options = {})
       State.loadable.each do |state|
         import_state(state, options)
       end
     end
 
-    def self.import_state(state, options = {})
+    def import_state(state, options = {})
       unless options[:remote] || File.exists?(COMMITTEE_DIR)
         puts "Local Open States committee data not found in #{COMMITTEE_DIR}; fetching remotely instead."
         return import_state(state, :remote => true)
@@ -46,7 +46,7 @@ module OpenGov
     
     end
 
-    def self.import_openstates_committee(os_com, state)
+    def import_openstates_committee(os_com, state)
         legislature_id = state.legislature.id
         subclass = Committee.subclass_from_openstates_chamber(os_com.chamber)
 

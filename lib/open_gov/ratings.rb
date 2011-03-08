@@ -1,12 +1,12 @@
 module OpenGov
   class Ratings < Resources
-    def self.import!
+    def import
       import_categories
       import_sigs
       import_ratings
     end
 
-    def self.import_categories
+    def import_categories
       #puts "Deleting existing categories"
       #Category.delete_all
 
@@ -25,7 +25,7 @@ module OpenGov
       end
     end
 
-    def self.import_sigs
+    def import_sigs
       #puts "Deleting existing Special Interest Groups"
       #SpecialInterestGroup.delete_all
 
@@ -70,7 +70,7 @@ module OpenGov
       end
     end
 
-    def self.import_ratings
+    def import_ratings
       puts "Deleting existing ratings from Special Interest Groups"
       Rating.delete_all
 

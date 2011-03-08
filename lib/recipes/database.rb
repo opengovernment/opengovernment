@@ -52,8 +52,7 @@ namespace :db do
     end
   end
 
-  desc "EYCAP OVERRIDE: Sync your production database to your local workstation"
-  task :clone_to_local, :roles => :db, :only => {:primary => true} do
+  task :restore, :roles => :db, :only => {:primary => true} do
     # Find PostGIS
     if `pg_config` =~ /SHAREDIR = (.*)/
       postgis_dir = Dir.glob(File.join($1, 'contrib', 'postgis-*')).last || File.join($1, 'contrib')
@@ -62,14 +61,24 @@ namespace :db do
       raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
     end
 
+    development_info = YAML.load_file("config/database.yml")['development']
+
+    input_file_gz = ENV.has_key?('SQLGZ') ? ENV['SQLGZ'] : "/tmp/#{application}.sql.gz"
+    input_file_sql = File.basename(input_file_gz, '.gz')
+
+    run_str = "gunzip #{input_file_gz} && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} #{input_file_sql}"
+
+    %x!#{run_str}!
+  end
+
+  desc "EYCAP OVERRIDE: Sync your production database to your local workstation"
+  task :clone_to_local, :roles => :db, :only => {:primary => true} do
     backup_name unless exists?(:backup_file)
     dump
 
     get "#{backup_file}.gz", "/tmp/#{application}.sql.gz"
-    development_info = YAML.load_file("config/database.yml")['development']
-    run_str = "gunzip /tmp/#{application}.sql.gz && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} /tmp/#{application}.sql"
-
-    %x!#{run_str}!
+    restore
     run "rm -f #{backup_file}.gz"
   end
 end
+0

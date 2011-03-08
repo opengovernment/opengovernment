@@ -1,6 +1,6 @@
 module OpenGov
   class Addresses < Resources
-    def self.import!
+    def import
       puts "Importing addresses from VoteSmart"
       s, u = 0, 0
 
