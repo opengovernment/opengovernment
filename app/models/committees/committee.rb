@@ -28,6 +28,10 @@ class Committee < ActiveRecord::Base
     end
   end
 
+  def as_json(opts = {})
+    super(opts.merge(:methods => [:type_fm], :except => [:votesmart_type_id, :votesmart_id, :votesmart_parent_id, :legislature_id]))
+  end
+
   def type_fm
     if self.class == ::LowerCommittee
       legislature.lower_chamber.short_name
