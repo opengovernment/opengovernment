@@ -2,10 +2,13 @@ class BillsController < SubdomainController
   before_filter :redirect_if_subsession, :only => [:index, :upper, :lower]
   before_filter :get_bill, :except => [:index, :upper, :lower]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
+  respond_to :html, :json, :only => [:index, :show]
 
   def index
     @bills = scope_bills(Bill.for_session_including_children(@session.primary_id))
     @current_tab = :all
+
+    respond_with(@bills)
   end
 
   def upper
@@ -25,6 +28,8 @@ class BillsController < SubdomainController
     @sponsor_count = @bill.sponsorships.count
     @votes = @bill.votes
     @actions = @bill.actions
+
+    respond_with(@bill)
   end
   
   def sponsors

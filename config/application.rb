@@ -38,6 +38,8 @@ module OpenGov
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    config.active_record.include_root_in_json = false
+
     config.active_record.timestamped_migrations = false
 
     # Configure sensitive parameters which will be filtered from the log file.

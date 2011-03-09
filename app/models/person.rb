@@ -197,6 +197,18 @@ class Person < ActiveRecord::Base
     !self.photo_url.blank? && (self.photo_url_changed? || !self.photo?)
   end
 
+  def as_json(opts = {})
+    super(opts.merge({
+        :methods => :views,
+        :include => {
+          :roles => {:except => [:person_id, :district_id],
+              :include => {
+                :session => {},
+              }
+          }}
+    }))
+  end
+
   private
 
   def queue_photo_download

@@ -75,7 +75,7 @@ class Bill < ActiveRecord::Base
     #has mentions(:id), :as => :mentions_ids
     #has "COUNT(mentions.id)", :as => :mentions_count, :type => :integer
   end
-
+  
   def kinds
     [kind_one, kind_two, kind_three].compact
   end
@@ -99,6 +99,19 @@ class Bill < ActiveRecord::Base
 
   def to_hashtags
     "##{State.find(state_id).abbrev.downcase}bill ##{bill_number.downcase.gsub(' ', '')}"
+  end
+
+  def as_json(opts = {})
+    super(opts.merge({
+      :methods => :views,
+      :include => {
+        :actions => {:except => :bill_id },
+        :votes => {:except => :bill_id},
+        :documents => {},
+        :versions => {},
+        :subjects => {},
+        :sponsorships => {:except => [:id, :bill_id]},
+        :citations => {:except => [:id, :bill_id, :citeable_id, :citeable_type]} } }))
   end
 
   def to_param
