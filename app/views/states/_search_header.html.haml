@@ -9,16 +9,25 @@
       = @state.name
       = @search_type.titleize
 
-.search_results_search_form
+.grid_12.search_results_search_form.alpha
   = render 'shared/search_form'
 
-  %span.results_count 
+%br.clear
+%br
+
+.grid_12.alpha
+  .results_count.grid_6.alpha 
     - if @query.blank?
       All results.
     - else
       #{@total_entries} results for #{@query}
+  .grid_5.omega
+    %a.search_help{:href => page_path("about")} Search Help
 
-  %a.search_help{:href => page_path("about")} Search Help
+
+%br.clear
+%br
+
 
 %ul.sorts
   - @search_counts.each do |type, total_entries|

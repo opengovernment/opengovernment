@@ -823,7 +823,7 @@ background: url(../images/blog.png) 0px -133px no-repeat
 
 .small_finally h2{
 border: none !important;
-font-size: 13px;
+font-size: 15px;
 padding-top: 30px;
 margin-bottom: 30px;
 }
@@ -862,18 +862,37 @@ width:140px;
 margin: 0px 0 72px;
 }
 
+.track span{
+color: #83a0a4;
+}
+
 
 .contact{
 margin: 0px 0 65px;
 }
+
+.contact span{
+color: #a26361;
+}
+
+
 
 .shareli{
 padding-bottom: 10px;
 }
 
 
+.shareli span{
+color: #9abd92;
+}
 
 
+.more_links ul.standard{ 
+padding-top: 10px;
+}
 
+.more_links ul.standard li{ 
+clear: none !important;
+}
 
 

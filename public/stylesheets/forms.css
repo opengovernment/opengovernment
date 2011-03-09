@@ -136,16 +136,31 @@ border: 0;
   padding-bottom: 5px;
 }
 
+
+.search_results_search_form .button {
+float: left !important;
+margin-right: 15px !important;
+}
+
+
 .search_results_search_form .field {
   display: inline;
   padding-left: 10px;
+
+float: left !important;
 }
 
 .search_results_search_form input#q {
   float: none;
   margin-top: 5px;
   width: 500px;
+
 }
+
+.search_results_search_form select {
+  float: right;
+}
+
 
 .results_count, .search_help {
   font-size: 11px;
@@ -154,7 +169,6 @@ border: 0;
 .results_count {
   position: relative;
   top: -5px;
-  padding-left: 130px;
 }
 
 .search_help {
