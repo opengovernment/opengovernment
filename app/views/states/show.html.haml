@@ -200,22 +200,21 @@
     %strong= t '.next_election'
     = raw t '.next_election_date'
     %br
-  
+
     %strong= t '.last_election'
     = raw t '.last_election_date'
-  
+
 
 
   .grid_7.alpha
     - if default_session?
       %p= t '.current_session_intro'
-  
-
+      %p= state_bills_graph(@state)
 
     %br
     %br
 
-  
+
 
 
 
