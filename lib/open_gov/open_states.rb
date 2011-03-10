@@ -1,5 +1,5 @@
 module OpenGov
-  class OpenStates
+  class OpenStates < Resources
     def fetch
       State.loadable.each do |state|
         fetch_one(state)
@@ -28,8 +28,9 @@ module OpenGov
         unless File.exists?(openstates_fn) && openstates_date > File.mtime(openstates_fn)
           tries = 3
           begin
-            curl_ops = File.exists?(openstates_fn) ? "-z #{openstates_fn}" : ''
-            `curl #{curl_ops} -LOf #{openstates_url}`
+            curl_ops = File.exists?(openstates_fn) ? "-LOz #{openstates_fn}" : '-LO'
+
+            download(openstates_url, :curl_ops => curl_ops)
             tries -= 1
           end while !system("unzip -qt #{openstates_fn} || (rm -f #{openstates_fn} && false)") && tries > 0
 

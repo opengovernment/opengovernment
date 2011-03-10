@@ -1,5 +1,5 @@
 module OpenGov
-  class Districts < Resources
+  class Boundaries < Resources
     CONGRESS_FIPS_CODE = '99' # The special FIPS code used for federal/congressional data
 
     AREA_CONGRESSIONAL_DISTRICT = 'cd' # Abbreviations for geographic area codes (ga)
@@ -18,13 +18,19 @@ module OpenGov
     CENSUS_SHP_URL = 'http://www.census.gov/geo/cob/bdy/#{ga}/#{ga}#{vintage_or_congress}shp/'
     CENSUS_SHP_FN = '#{ga}#{fips_code}_#{vintage}_shp.zip'
 
+    # TODO: Update these in June for new 2011 data
+    CENSUS_STATES_URL = 'http://www.census.gov/geo/cob/bdy/st/st00shp/st99_d00_shp.zip'
+    STATES_VINTAGE = '00'
+    CENSUS_STATES_SHPFN = "st99_d#{STATES_VINTAGE}.shp"
+
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
     def fetch
-      FileUtils.mkdir_p(Settings.districts_dir)
-      Dir.chdir(Settings.districts_dir)
+      FileUtils.mkdir_p(Settings.shapefiles_dir)
+      Dir.chdir(Settings.shapefiles_dir)
 
       fetch_us_congress
+      fetch_state_boundaries
       
       # Get state legislature files, when available
       State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
@@ -33,8 +39,8 @@ module OpenGov
     end
     
     def fetch_one(state)
-      FileUtils.mkdir_p(Settings.districts_dir)
-      Dir.chdir(Settings.districts_dir)
+      FileUtils.mkdir_p(Settings.shapefiles_dir)
+      Dir.chdir(Settings.shapefiles_dir)
 
       {"upper" => AREA_STATE_UPPER, "lower" => AREA_STATE_LOWER}.each do |name, house|
 
@@ -46,11 +52,68 @@ module OpenGov
     end
 
     def fetch_us_congress
+      FileUtils.mkdir_p(Settings.shapefiles_dir)
+      Dir.chdir(Settings.shapefiles_dir)
+
       # Get the federal data.
       process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
     end
 
-    def import(shpfile)
+    def fetch_state_boundaries
+      FileUtils.mkdir_p(Settings.shapefiles_dir)
+      Dir.chdir(Settings.shapefiles_dir)
+
+      puts "---------- Downloading state boundary shapefile"
+      shpfile = download(CENSUS_STATES_URL, :unzip => true)
+    end
+
+    def import_states
+      # Import the single shapefile for state boundaries
+      shpfile = File.join(Settings.shapefiles_dir, CENSUS_STATES_SHPFN)
+
+      unless File.exists?(shpfile)
+        puts "File not found: #{shpfile}"
+        return
+      end
+      
+      OpenGov::Shapefile.process(shpfile, :drop_table => true)
+
+      table_name = File.basename(shpfile, '.shp')
+      puts "Migrating #{table_name} table into state_boundaries"
+
+      arTable = Class.new(ActiveRecord::Base) do
+        set_table_name table_name
+      end
+
+      # IDs are always 
+      StateBoundary.delete_all
+      
+      arTable.find(:all).each do |shape|
+        state = State.find_by_fips_code(shape.state.to_i)
+
+        # puts "#{shape.state}: #{state.abbrev}"
+
+        s = StateBoundary.new(
+          :state_id => state.id,
+          :vintage => STATES_VINTAGE,
+          :fips_code => shape.state.to_i,
+          :lsad => shape.lsad,
+          :region => shape.region,
+          :division => shape.division,
+          :geom => shape.the_geom
+        )
+        
+        s.save!
+      end
+    end
+
+    def import_districts
+      Dir.glob(File.join(Settings.shapefiles_dir, '{sl,su,cd}*.shp')).each do |shpfile|
+        import_districts(shpfile)
+      end
+    end
+
+    def import_districts(shpfile)
       puts "Inserting shapefile #{File.basename(shpfile)}"
       OpenGov::Shapefile.process(shpfile, :drop_table => true)
 
@@ -101,9 +164,9 @@ module OpenGov
 
           vintage = case table_type
             when AREA_STATE_LOWER, AREA_STATE_UPPER # State
-              OpenGov::Districts::VINTAGE
+              VINTAGE
             else # Federal
-              OpenGov::Districts::CONGRESS
+              CONGRESS
           end
 
           census_sld = shape[:cd] || shape[:sldl] || shape[:sldu]
@@ -148,11 +211,10 @@ module OpenGov
     protected
     def process_one(ga, fips_code, area_name)
       census_fn = census_fn_for(ga, fips_code)
-      curl_ops = File.exists?(census_fn) ? "-z #{census_fn}" : ''
+      curl_ops = File.exists?(census_fn) ? "-Lfz #{census_fn}" : '-Lf'
 
       puts "---------- Downloading the district shapefile for #{area_name}"
-      `curl #{curl_ops} -fO #{census_url_for(ga, fips_code)}`
-      `unzip -u #{census_fn}`
+      download(census_url_for(ga, fips_code), :curl_ops => curl_ops, :output_fn => census_fn, :unzip => true)
     end
 
     def census_url_for(ga, fips_code)

@@ -13,6 +13,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.datetime :launch_date
     end
 
+# This now happens in ddl.sql.
  #   create_table :districts do |t|
 #      t.string :name, :null => false
 #      t.string :census_sld
@@ -35,6 +36,6 @@ class CreatePlaces < ActiveRecord::Migration
 #    execute "ALTER TABLE districts DROP CONSTRAINT districts_state_fk;"
 #    remove_index :districts, :geom
 #    drop_table :districts
-#    drop_table :states
+    drop_table :states
   end
 end

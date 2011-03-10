@@ -202,15 +202,15 @@ namespace :fetch do
   end
 
   task :all do
-    Rake::Task['fetch:districts'].invoke
+    Rake::Task['fetch:boundaries'].invoke
     Rake::Task['fetch:openstates'].invoke
     Rake::Task['fetch:geoip'].invoke
   end
 
-  desc "Get the district SHP files for Congress and all active states"
-  task :districts => :setup do
+  desc "Get the SHP files for Congress, all active state SLDs, and all state boundaries"
+  task :boundaries => :setup do
     with_states do |state|
-      state ? OpenGov::Districts.new.fetch_one(state) : OpenGov::Districts.new.fetch
+      state ? OpenGov::Boundaries.new.fetch_one(state) : OpenGov::Boundaries.new.fetch
     end
   end
 
@@ -240,7 +240,7 @@ namespace :load do
 
     puts "\n---------- Loading legislatures and districts"
     Rake::Task['load:legislatures'].execute
-    Rake::Task['load:districts'].invoke
+    Rake::Task['load:boundaries'].invoke
     puts "\n---------- Loading people"
     Rake::Task['load:people'].invoke
     puts "\n---------- Loading committees and committee memberships"
@@ -377,13 +377,13 @@ namespace :load do
     OpenGov::Ratings.new.import
   end
 
-  desc "Fetch and import Census Bureau congressional and legislative district boundaries"
-  task :districts => :environment do
-    Dir.glob(File.join(Settings.districts_dir, '*.shp')).each do |shpfile|
-      OpenGov::Districts.new.import(shpfile)
-    end
-
+  desc "Import Census Bureau boundaries"
+  task :boundaries => :environment do
+    OpenGov::Boundaries.new.import_districts
     class_refresh("District")
+
+    OpenGov::Boundaries.new.import_states
+    class_refresh("StateBoundary")
   end
 
 end
