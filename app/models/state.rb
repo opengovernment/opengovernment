@@ -72,6 +72,15 @@ class State < Place
     (y[3]-y[1])/(y[2]-y[0])
   end
 
+  def as_json(opts = {})
+    super(opts.merge(:include => {
+      :legislature => {:include => {
+          :chambers => {:except => [:legislature_id]},
+          :sessions => {:except => [:legislature_id]}
+      }}
+    }))
+  end
+
   def unsupported?
     launch_date.blank?
   end

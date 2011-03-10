@@ -55,6 +55,17 @@ class BillsController < SubdomainController
     @actions_shown = :all
   end
 
+  def news
+    @mentions = @bill.mentions
+    @google_news_mentions = @bill.google_news_mentions
+    @google_blog_mentions = @bill.google_blog_mentions
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @mentions }
+    end
+  end
+
   def major_actions
     @actions = @bill.major_actions
     @actions_shown = :major
