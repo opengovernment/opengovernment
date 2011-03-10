@@ -198,7 +198,7 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts = {})
-    super(opts.merge({
+    opts ||= {
         :methods => [:views, :permalink],
         :include => {
           :roles => {:except => [:person_id, :district_id],
@@ -206,7 +206,9 @@ class Person < ActiveRecord::Base
                 :session => {},
               }
           }}
-    }))
+    }
+    
+    super(opts)
   end
 
 

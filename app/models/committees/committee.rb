@@ -29,7 +29,8 @@ class Committee < ActiveRecord::Base
   end
 
   def as_json(opts = {})
-    super(opts.merge(:methods => [:type_fm], :except => [:votesmart_type_id, :votesmart_id, :votesmart_parent_id, :legislature_id]))
+    opts ||= {:methods => [:type_fm], :except => [:votesmart_type_id, :votesmart_id, :votesmart_parent_id, :legislature_id]}
+    super(opts)
   end
 
   def type_fm
