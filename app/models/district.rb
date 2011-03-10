@@ -33,8 +33,9 @@ class District < Place
     "This is #{state.name}'s #{chamber.name.downcase} District #{number}."
   end
 
-  def as_json(options = {})
-    super(options.merge(:except => [:geom]))
+  def as_json(opts = {})
+    opts ||= {:except => [:geom]}
+    super(opts)
   end
 
   # This returns the point object (GeoLoc)
