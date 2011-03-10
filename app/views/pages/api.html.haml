@@ -8,6 +8,8 @@
     %li No API key is needed at this time; in the future we may require an OpenCongress API key.
     %li This API is still in flux. We encourage you to sign up to the <a href="http://groups.google.com/group/opengovernment/">OpenGovernment developer list</a> so we keep you informed about any changes to it.
 
+  %h2 Basic data
+
   %p We provide data for the following data models:
   %ul.standard
     %li <a href="http://ca.opengovernment.org/index.json">Basics of the legislature and sessions</a>
@@ -19,6 +21,10 @@
     %li <a href="http://ca.127localhost.com:3000/votes/CAV00014948.json">Individual votes, with roll calls</a>
 
   %p Most pages on the site are available via JSON and JSONP by simply adding .json to the URL and optionally providing a <code>callback</code> parameter. Most parameters available via normal browsing of the site are also available via the API. So if you request <code><a href="http://ca.opengovernment.org/sessions/20112012/bills?sort=views">http://ca.opengovernment.org/sessions/20112012/bills?sort=views</a></code>, for example, you will see a list of top bills by number of views.
+
+  %h2 Legislator lookup by location
+  
+  %p To look up all of the representatives at both federal and state levels for a given lat/long, use a URL such as <code>http://opengovernment.org/search.json?lat=30.286308&lng=-97.719782</code>.
 
 .grid_4.omega
   %h2 Licensing Terms
