@@ -11,17 +11,13 @@
 
 
 %ul.tabs
-  %li
+  %li.all
     %a{:href => bills_path(@session, :sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
-  %li.divider &#124;
-
-  %li
+  %li.senate
     %a{:href => upper_bills_path(@session, :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
 
-  %li.divider &#124;
-
-  %li
+  %li.house
     %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
 
 .sort.grid_12.alpha

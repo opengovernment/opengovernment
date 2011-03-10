@@ -4,34 +4,38 @@
       This is a Votesmart Key Vote!
 
   .bill_titles
-    != link_to(bill.bill_number, bill_path(bill.session, bill), :class => "bill_link") + content_tag(:span, truncate(bill.title, :length => 500))
+    != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
+
+    .view_count 
+      = t '.views', :count => bill.views
+
+    %span=content_tag(:span, truncate(bill.title, :length => 500))
+
+
+  .stats
+    .introduced.grid_2.alpha.omega
+      %span.small_date!= bill.first_action_at
+      %span.small_label= t '.introduced'
+  
+  
+    .recent_action.grid_2.omega.alpha
+      %span.small_date!= bill.last_action_at
+      %span.small_label Recent action
+  
+    .recent_vote.grid_1.alpha
+      %span.small_date!= bill.votes.count
+      %span.small_label!= t '.votes_on_bill', :count => bill.votes.count
+  
+  
+    - if bill.session.parent_id?
+      .session.grid_2.omega.alpha
+        %span.small_date!= bill.session.try(:name)
+        %span.small_label= t '.session' 
+
+
 
 
   .sponsor_mugs
-    .action_status.grid_6.alpha{:class => bill.actions.first.try(:kind_classes)}
-      = bill.actions.last.try(:kind_fm).try(:titleize)
+    = bill.actions.last.try(:kind_fm).try(:titleize)
     = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
-
-
-  .bill_status.rounded
-
-    .introduced.grid_4.omega.top
-      = t '.introduced'
-      != bill.first_action_at
-
-    .recent_vote.grid_3.alpha.top
-      != t '.votes_on_bill', :count => bill.votes.count
-
-    .introduced.grid_7.omega.top
-      - if bill.session.parent_id?
-        .bill_session
-          = t '.session' 
-          = bill.session.try(:name)
-
-    .recent_action.grid_4.omega
-      Most recent action:
-      != bill.last_action_at
-
-    .view_count.grid_3.alpha
-      = t '.views', :count => bill.views
 
