@@ -36,6 +36,12 @@ background: #eee;
 ///////////////////////////////////////////////////*/
 
 
+
+.display-none{
+display: none;
+}
+
+
 .league{
 font-family: "League";
 }
@@ -90,14 +96,13 @@ font-size: 16px;
 
 
 .intro{
-  padding: 20px 0 20px 38px;
-  font-size: 13px;
+  padding: 0px 0 20px 38px;
+  font-size: 12px;
   line-height: 1.5em;
-  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;
+/*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
+  border-bottom: 1px solid #ccc;
+  text-shadow: 0 1px 0px #fff;
   margin: 0 0 0 -38px;
-border-top: 1px solid #e9efe7;
-border-bottom: 1px solid #e9efe7;
-
   width: 725px;
 position: relative;
   }
@@ -771,12 +776,12 @@ padding: 20px 20px 10px 20px !important;
 .grow{
 
 position: absolute;
-top: 50px;
-right: -20px;
-width: 113px;
+top: 5px;
+left: 346px;
+width: 70px;
 height: 0px;
-padding-top: 110px;
-z-index: 999999999;
+padding-top: 70px;
+z-index: 999999;
 overflow: hidden;
 background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
 }
@@ -789,13 +794,6 @@ display: none;
 
 .small_line{
 line-height: 1.3em !important;
-}
-
-
-
-
-.display-none{
-display: none;
 }
 
 

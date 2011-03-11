@@ -68,13 +68,13 @@ class PeopleController < SubdomainController
 
   def money_trail
     @industries = Industry.aggregates_for_person(@person).order('amount desc').limit(50)
-    @contributions = Contribution.where(:person_id => @person.id).order('amount desc').includes(:state).limit(20)
+    @contributions = @person.contributions.includes(:state).limit(20)
   end
 
   def contact
     render :layout => 'popup'
   end
-  
+
   def search
     # Search for a person to contact. Right now available via a bill page--
     # eg. contact my senator.

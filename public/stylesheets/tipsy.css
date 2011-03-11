@@ -29,8 +29,8 @@ z-index: 100000;
   -webkit-box-shadow:  0 1px 2px #aaa, inset 0 1px 0px #fff;
   box-shadow: 0 1px 2px #aaa, inset 0 1px 0px #fff;
   
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d6e8eb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #d6e8eb); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); 
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); 
   }
 
 

@@ -70,6 +70,9 @@ gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphin
      :require => 'thinking_sphinx',
      :branch => 'rails3'
 
+# Graphics
+gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
+
 # Logging
 gem 'hoptoad_notifier'
 gem 'SyslogLogger'

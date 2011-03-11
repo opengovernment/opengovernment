@@ -16,8 +16,7 @@
         .person_party
           = Role.party_fm(person[:party]).to_s.parenthesize
     .grid_4  
-      - if MongoMapper.connected?
-        .person_views #{person.views} Views
+      .person_views #{person.views} Views
     .grid_4  
       .person_mentions
         = person.mentions.since(30.days.ago).count 

@@ -119,6 +119,7 @@ GEM
     geokit (1.5.0)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    googlecharts (1.6.1)
     haml (3.0.25)
     high_voltage (0.9.3)
     highline (1.6.1)
@@ -271,6 +272,7 @@ DEPENDENCIES
   formtastic (~> 1.1.0)
   geoip
   geokit
+  googlecharts (~> 1.6.1)
   haml
   high_voltage
   hirb
