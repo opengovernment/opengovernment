@@ -34,7 +34,7 @@ class District < Place
   end
 
   def as_json(opts = {})
-    opts ||= {:except => [:geom]}
+    opts[:except] ||= [:geom]
     super(opts)
   end
 
