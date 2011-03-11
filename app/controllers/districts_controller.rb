@@ -1,14 +1,16 @@
 class DistrictsController < ApplicationController
 
   def search
-    @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q] || [params[:lat], params[:lng]].join(','))
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
+    respond_to do |format|
+      format.json { render :json => Place.by_x_y(lat, lng).to_json(:include => :legislators) }
+      format.html do
+        @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q] || [params[:lat], params[:lng]].join(','))
 
-    if @point
-      @state = State.find_by_abbrev(@point.state)
+        if @point
+          @state = State.find_by_abbrev(@point.state)
 
-      respond_to do |format|
-        format.json { render :json => Place.by_point(@point).to_json(:include => :legislators) }
-        format.html do
           @available_sessions = (@state ?
             @state.sessions.major.complete.order("start_year desc") :
             [])

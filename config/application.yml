@@ -1,6 +1,6 @@
 defaults: &defaults
   data_dir: <%= Rails.root.join("data") %>
-  districts_dir: <%= Rails.root.join("data", "districts") %>
+  shapefiles_dir: <%= Rails.root.join("data", "shapefiles") %>
   govtrack_dir: <%= Rails.root.join("data", "govtrack") %>
   openstates_dir: <%= Rails.root.join("data", "openstates") %>
   mongo_database: og_<%= Rails.env %>
@@ -22,7 +22,7 @@ staging:
 production:
   <<: *defaults
   data_dir: /data/opengovernment
-  districts_dir: /data/opengovernment/districts
+  shapefiles_dir: /data/opengovernment/shapefiles
   govtrack_dir: /data/opengovernment/govtrack
   openstates_dir: /data/opengovernment/openstates
   geoserver_base_url: http://opengovernment.org:8080/geoserver

@@ -1,7 +1,9 @@
 class CommitteesController < SubdomainController
+  respond_to :html, :json
 
   def index
     @committees = @state.committees.paginate :page => params[:page], :order => params[:order] || 'name'
+    respond_with(@committees)
   end
 
   def upper
@@ -21,6 +23,12 @@ class CommitteesController < SubdomainController
 
   def show
     @committee = Committee.find(params[:id])
+    
+    respond_with(@committee) do |format|
+      format.json {
+        render :json => @committee, :include => :committee_memberships
+      }
+    end
   end
 
 end

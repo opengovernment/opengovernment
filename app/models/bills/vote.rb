@@ -52,6 +52,14 @@ class Vote < ActiveRecord::Base
     ((yes_count + no_count) * needed_to_pass_frac).round
   end
   
+  def as_json(opts = {})
+    super(opts.merge({:methods => [:needed_to_pass, :total_count],
+      :include => {
+        :roll_calls => {:except => [:id, :vote_id]}
+      }
+    }))
+  end
+  
   # yes_frac / no_frac / other_frac
   [:yes, :no, :other].each do |type|
     define_method("#{type}_pct") { ((self["#{type}_count".to_sym].to_f / total_count.to_f) * 100) }

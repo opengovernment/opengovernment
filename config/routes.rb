@@ -34,6 +34,7 @@ OpenGov::Application.routes.draw do
 #    match '/bills/lower', :to => 'bills#lower', :as => 'bills_lower'
 
     match '/' => 'states#show'
+    match '/index' => 'states#show'
 
     scope '(/sessions/:session)' do
       match '/' => 'states#show', :as => 'state'
@@ -43,7 +44,7 @@ OpenGov::Application.routes.draw do
           get :search
         end
       end
-      
+
       resources :bills, :only => [:show, :index] do
         collection do
           get :upper

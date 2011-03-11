@@ -175,6 +175,8 @@ GEM
       mongo (~> 1.1)
     polyglot (0.3.1)
     rack (1.2.1)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -286,6 +288,7 @@ DEPENDENCIES
   nokogiri
   paperclip
   pg
+  rack-contrib
   rails
   rails_complete
   rspec-rails (>= 2.0.0.rc)
