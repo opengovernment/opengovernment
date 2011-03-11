@@ -1,3 +1,9 @@
+@font-face {
+	font-family: League;
+	src: url('/fonts/LeagueScript.otf');
+}
+
+
 
 /* Overrides*/
 th, td, caption{

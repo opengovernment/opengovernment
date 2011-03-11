@@ -817,5 +817,63 @@ padding-top: 130px;
 overflow: hidden;
 }
 .visit_blog:hover {
-background: url(../images/blog.png) 0 -133px no-repeat
+background: url(../images/blog.png) 0px -133px no-repeat
 }
+
+
+.small_finally h2{
+border: none !important;
+font-size: 13px;
+padding-top: 30px;
+margin-bottom: 30px;
+}
+
+.small_finally h2 span{
+
+}
+
+.small_finally ul{
+background: url(../images/small_track.png) 20px 0px no-repeat;
+padding: 12px 0 10px 20px;
+}
+
+
+.small_finally ul li{
+padding: 0 0 0 90px;
+}
+
+
+.small_finally ul li div{
+padding: 0 0 0 0px;
+font-size: 18px;
+}
+
+
+.small_finally ul li span{
+padding: 0 0 0 0px;
+font-size: 12px;
+display: block;
+line-height: 1.4em;
+width:140px;
+}
+
+
+.track{
+margin: 0px 0 72px;
+}
+
+
+.contact{
+margin: 0px 0 65px;
+}
+
+.shareli{
+padding-bottom: 10px;
+}
+
+
+
+
+
+
+

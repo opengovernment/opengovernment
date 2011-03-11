@@ -1,14 +1,14 @@
-= title(t('.coverage_title_bar', :full_name => @person.full_name))
+= title(t '.coverage_title_bar', :full_name => @person.full_name )
 
 = render(:partial => 'nav')
 
 %h1
-  = t('.coverage')
+  = t '.coverage' 
   = @person.full_name
 
 %hr.push_bottom
 
-- if @person.mentions.empty?
+- if @mentions.empty?
   %div.no_results= t '.no_results', :search_term => @person.official_name
 
 - else
@@ -20,8 +20,8 @@
   .grid_6.alpha
     %h2 Google News
     %ul.lined.and_spaced.with_titles
-      = render @person.google_news_mentions
+      = render @google_news_mentions
   .grid_6.omega
     %h2 Blogs
     %ul.lined.and_spaced.with_titles
-      = render @person.google_blog_mentions
+      = render @google_blog_mentions

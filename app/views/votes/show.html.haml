@@ -1,55 +1,71 @@
-- title("Vote on #{@vote.bill.bill_number}")
+- title(t '.vote_on', :bill_number => @vote.bill.bill_number )
 - dialog('#votes_needed_dialog', '#votes_needed_why')
 
 %h1
   %span.state-and-chamber
-    %strong= "Vote in the #{@state.name} #{@vote.chamber.name} " + (@vote.committee_name ? @vote.committee_name + ' commitee of the ' : '')
+    %strong 
+      = t('.voteinthe')
+      = @state.name 
+      = @vote.chamber.name
+      = (@vote.committee_name ? t('.committee_of_the', :name => @vote.committee_name) : '')
   %span
     = @vote.bill.bill_number
     &mdash;
-    = "Motion: #{@vote.motion}"
+    = t '.motion'
+    = @vote.motion
 %hr
 
 .grid_1.alpha.details
   = @vote.date.try(:to_html)
 
 .grid_11.summary.omega
-  %strong= @vote.passed? ? "Passed" : "Failed"
+  %strong
+    = @vote.passed? ? t('.passed') : t('.failed')
   %p= @vote.bill.title
 
 %hr
 
 .grid_12.vote_chart.alpha.omega
-  %h2 Vote Breakdown
+  %h2 
+    = t '.vote_breakdown'
   %table
     %tr
-      %th.first.label Yes
+      %th.first.label 
+        = t '.yeslabel'
       %td.first.label!= @vote.passed? ? '&radic;' : ''
       %td.first.label= @vote.yes_count
       %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
     %tr
-      %th.label No
+      %th.label 
+        = t '.nolabel'
       %td.label!= @vote.passed? ? '' : '&radic;'
       %td.label= @vote.no_count
     %tr
-      %th.last.label Other
+      %th.last.label 
+        = t '.otherlabel'
       %td.last.label
       %td.last.label #{@vote.other_count}
-    %caption(align='bottom')= "* 'Needed to pass' is not always accurate. (#{link_to('Why?', '#', :id => "votes_needed_why")})".html_safe
+    %caption(align='bottom')
+      = t '.not_always_accurate'
+      = link_to(t('.why'), '#', :id => "votes_needed_why")
 
 %hr
 
 .grid_12.alpha.omega
-  %h2 Geography of the Vote
+  %h2
+    = t '.geography_of_the_vote'
   = vote_legend_img
   = vote_map_img(@state, @vote.id)
 
-#votes_needed_dialog(title='Data quality caveat') The rules for the number of votes needed to pass are complex; and we can't always get the data we need to calculate this number properly. So this is our best guess.
+#votes_needed_dialog(title="Data Quality Caveat")
+  = t '.rules_are_complex'
 
 .grid_12.alpha
-  %h2 Full Roll Call
+  %h2 
+    = t '.full_role_call'
   - unless @vote.roll_calls.size > 0
-    %p Sorry, no roll call is available for this vote.
+    %p 
+      = t '.no_roll_call'
   - else
     - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
       .grid_4.alpha
@@ -57,9 +73,9 @@
           %caption(align='top') #{vote_type.capitalize} Votes
           %thead
             %tr
-              %th Name
-              %th District
-              %th Party
+              %th= t '.name'
+              %th= t '.district'
+              %th= t '.party'
           %tbody
             - roll_calls.each do |roll_call|
               %tr

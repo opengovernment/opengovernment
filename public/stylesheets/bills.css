@@ -191,22 +191,70 @@ a.see_all {
 .sponsor_mugs a{
   padding: 1px !important;
   margin: 0 10px 0px 0px;
-  box-shadow: 0 1px 1px #666;
-  -moz-box-shadow: 0 1px 1px #666;
-  -webkit-box-shadow: 0 1px 1px #666;
-  
+
   float: left;
   overflow: hidden !important;
   
-  border-radius: 2px;
-  -moz-border-radius: 1px !important;
-  -webkit-border-radius: 1px;
+
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
   
+  border: 1px solid #bbb;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #999;
+  
+  
+  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
   }
 
+
+.sponsor_mugs a:hover{
+  padding: 1px !important;
+  margin: 0 10px 0px 0px;
+
+  float: left;
+  overflow: hidden !important;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  border: 1px solid #bbb;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #999;
+  
+  
+  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #eee,  #ddd); /* for firefox 3.6+ */
+  }
+
+
+.sponsor_mugs a:hover img{
+  opacity: 1;
+  background: url(../images/man.png) center no-repeat;
+  }
+
+
 .sponsor_mugs img{
   border: 1px solid #fff;
+  opacity: .8;
+width: 30px !important;
+height: 30px !important;
+display: block;
+margin-bottom: 2px;
+  opacity: .4;
+  background: url(../images/man.png) center no-repeat;
   }
 
 

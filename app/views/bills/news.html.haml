@@ -1,4 +1,4 @@
-- title("#{@bill.state.name} #{@bill.bill_number} News and Blog Coverage")
+- title(t('.news_and_coverage_for', :state => @bill.state.name, :bill_number => @bill.bill_number))
 
 = render :partial => 'wrapper'
 
@@ -10,10 +10,12 @@
   %p= t '.results_intro', :search_term => "#{@bill.state.name} #{@bill.bill_number}"
   
   %div.grid_6.alpha
-    %h3 Google News
+    %h3 
+      = t('.google_news')
     %ul.lined.and_spaced.with_titles
       = render @bill.google_news_mentions
   %div.grid_6.omega
-    %h3 Blogs
+    %h3 
+      = t('.blogs')
     %ul.lined.and_spaced.with_titles
       = render @bill.google_blog_mentions

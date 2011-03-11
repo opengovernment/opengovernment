@@ -1,8 +1,8 @@
 one:
   person: kirk
   state: tx
-  industry_id: 3
-  contributor_state_id: 35
+  industry_id: <%= Fixtures.identify(:machinery) %>
+  contributor_state_id: <%= Fixtures.identify(:nm) %>
   contributor_occupation: 'FARM EQUIPMENT DEALER'
   contributor_employer: 'ST JOSEPH EQUIPMENT INC'
   contributor_name: 'SCHAMS, WILLIAM'
@@ -15,8 +15,8 @@ two:
   state: tx
   date: 2009-10-20
   amount: 3000
-  industry_id: 3
-  contributor_state_id: 35
+  industry_id: <%= Fixtures.identify(:machinery) %>
+  contributor_state_id: <%= Fixtures.identify(:nm) %>
   contributor_occupation: 'FARM EQUIPMENT DEALER'
   contributor_employer: 'ST JOSEPH EQUIPMENT INC'
   contributor_name: 'SCHAMS, WILLIAM'
@@ -24,8 +24,8 @@ two:
   contributor_zipcode: '54601-2614'
 three:
   person: kirk
-  industry_id: 3
-  contributor_state_id: 6
+  industry_id: <%= Fixtures.identify(:machinery) %>
+  contributor_state_id: <%= Fixtures.identify(:ca) %>
   contributor_name: 'JOHN DEERE & CO'
   contributor_zipcode: 61265-8010
   contributor_city: MOLINE

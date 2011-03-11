@@ -1,0 +1,31 @@
+- title('OpenGovernment API')
+
+.grid_8.alpha
+  %h2 Using OpenGovernment data in your app
+  %ul.standard
+    %li You may use our data as long as your use complies with our licensing terms &rarr;
+    %li You may find that the data you're looking for is available upstream from us. Familiarize yourself with what's available via our <a href="/pages/about/#our_data_sources">Data Sources</a>.
+    %li No API key is needed at this time; in the future we may require an OpenCongress API key.
+    %li This API is still in flux. We encourage you to sign up to the <a href="http://groups.google.com/group/opengovernment/">OpenGovernment developer list</a> so we keep you informed about any changes to it.
+
+  %h2 Basic data
+
+  %p We provide data for the following data models:
+  %ul.standard
+    %li <a href="http://ca.opengovernment.org/index.json">Basics of the legislature and sessions</a>
+    %li <a href="http://ca.opengovernment.org/people.json">All People</a>
+    %li <a href="http://ca.opengovernment.org/people/29-george-runner.json">Data for a single person</a>, including <a href="http://ca.opengovernment.org/people/29-george-runner/votes.json">votes</a>, pageviews, and <a href="http://ca.opengovernment.org/people/29-george-runner/news.json">news coverage</a>
+    %li <a href="http://ca.opengovernment.org/committees.json">Committees</a> and <a href="http://ca.opengovernment.org/committees/25-committee-on-agriculture.json">committee memberships</a>
+    %li <a href="http://ca.opengovernment.org/bills.json">Index of top bills</a> (by most viewed, most in the news, etc.)
+    %li <a href="http://ca.opengovernment.org/bills/sessions/20092010/bills/sb-484/news.json">Individual bills</a>, with views and <a href="http://ca.opengovernment.org/sessions/20092010/bills/sb-484/news.json">news coverage</a>
+    %li <a href="http://ca.127localhost.com:3000/votes/CAV00014948.json">Individual votes, with roll calls</a>
+
+  %p Most pages on the site are available via JSON and JSONP by simply adding .json to the URL and optionally providing a <code>callback</code> parameter. Most parameters available via normal browsing of the site are also available via the API. So if you request <code><a href="http://ca.opengovernment.org/sessions/20112012/bills?sort=views">http://ca.opengovernment.org/sessions/20112012/bills?sort=views</a></code>, for example, you will see a list of top bills by number of views.
+
+  %h2 Legislator lookup by location
+  
+  %p To look up all of the representatives at both federal and state levels for a given lat/long, use a URL such as <code>http://opengovernment.org/search.json?lat=30.286308&lng=-97.719782</code>.
+
+.grid_4.omega
+  %h2 Licensing Terms
+  %p We encourage you to remix and excerpt our site content, as long as attribution to OpenGovernment is given and you share your content as well. Our site content is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 US License</a>

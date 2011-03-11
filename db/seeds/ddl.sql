@@ -1,32 +1,6 @@
 -- Any triggers, indices, views from migrations should go here so they're run as part
 -- of rake db:prepare.
 
--- We create this table here because we're not using spatial_adapter anymore
--- (due to bugs & performance issues).
-CREATE SEQUENCE districts_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-CREATE TABLE districts (
-    id integer primary key NOT NULL DEFAULT nextval('districts_id_seq'::regclass),
-    name character varying(255) NOT NULL,
-    census_sld character varying(255),
-    census_district_type character varying(255),
-    at_large boolean,
-    state_id integer NOT NULL,
-    vintage character varying(4),
-    chamber_id integer,
-    geom geometry,
-    CONSTRAINT enforce_dims_geom CHECK ((st_ndims(geom) = 2)),
-    CONSTRAINT enforce_geotype_geom CHECK (((geometrytype(geom) = 'MULTIPOLYGON'::text) OR (geom IS NULL))),
-    CONSTRAINT enforce_srid_geom CHECK ((st_srid(geom) = 4269))
-);
-
-CREATE INDEX index_districts_on_geom ON districts USING gist (geom);
-
 -- FUNCTIONS --
 CREATE OR REPLACE FUNCTION beginning_of(year integer) RETURNS date AS $$
 BEGIN
@@ -81,6 +55,71 @@ BEGIN
   RETURN num;
 END;
 $$ LANGUAGE plpgsql;
+
+
+-- TABLES & INDICES --
+-- We create districts and state boundaries here because we're not using spatial_adapter anymore
+-- (due to bugs & performance issues).
+CREATE SEQUENCE districts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+CREATE TABLE districts (
+    id integer primary key NOT NULL DEFAULT nextval('districts_id_seq'::regclass),
+    name character varying(255) NOT NULL,
+    census_sld character varying(255),
+    census_district_type character varying(255),
+    at_large boolean,
+    state_id integer NOT NULL,
+    vintage character varying(4),
+    chamber_id integer,
+    geom geometry,
+    CONSTRAINT enforce_dims_geom CHECK ((st_ndims(geom) = 2)),
+    CONSTRAINT enforce_geotype_geom CHECK (((geometrytype(geom) = 'MULTIPOLYGON'::text) OR (geom IS NULL))),
+    CONSTRAINT enforce_srid_geom CHECK ((st_srid(geom) = 4269))
+);
+
+CREATE INDEX index_districts_on_geom ON districts USING gist (geom);
+
+-- We create this table here because we're not using spatial_adapter anymore
+-- (due to bugs & performance issues).
+CREATE SEQUENCE state_boundaries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+CREATE TABLE state_boundaries (
+    id integer primary key NOT NULL DEFAULT nextval('state_boundaries_id_seq'::regclass),
+    state_id integer NOT NULL,
+    fips_code character varying(2),
+    vintage character varying(4),
+    lsad character varying(2),
+    region character varying(1),
+    division character varying(1),
+    geom geometry,
+    CONSTRAINT enforce_dims_geom CHECK ((st_ndims(geom) = 2)),
+    CONSTRAINT enforce_geotype_geom CHECK (((geometrytype(geom) = 'MULTIPOLYGON'::text) OR (geom IS NULL))),
+    CONSTRAINT enforce_srid_geom CHECK ((st_srid(geom) = 4269))
+);
+
+CREATE INDEX index_state_boundaries_on_geom ON state_boundaries USING gist (geom);
+
+--    execute "ALTER TABLE districts
+--   ADD CONSTRAINT districts_state_fk
+--   FOREIGN KEY (state_id) REFERENCES states (id);"
+
+-- Given that bill numbers can come into the system
+-- as "AB 2818" or "H.R.1282", this index allows us to do bill number
+-- lookups in a consistent fashion.
+create index bill_number_idx on bills (upper_and_stripped(bill_number));
+
+-- INDEXES --
+CREATE INDEX roll_calls_vote_id_and_type_idx ON roll_calls (vote_id, vote_type);
 
 -- FOREIGN KEY CONSTRAINTS --
 ALTER TABLE districts
@@ -180,9 +219,6 @@ ALTER TABLE roles ADD CONSTRAINT party_ck CHECK (party in ('Democrat', 'Republic
 -- UNIQUE CONSTRAINTS --
 ALTER TABLE roles ADD CONSTRAINT person_session_unique UNIQUE (person_id, session_id);
 
--- INDEXES --
-CREATE INDEX roll_calls_vote_id_and_type_idx ON roll_calls (vote_id, vote_type);
-
 -- VIEWS --
 DROP VIEW v_district_votes;
 DROP VIEW v_roll_call_roles;
@@ -212,7 +248,9 @@ CREATE OR REPLACE VIEW v_most_recent_sessions AS
     and exists (select id from roles r where r.session_id = s.id)) recent
   where recent.rnum = 1;
 
+DROP VIEW v_most_recent_roles;
 DROP VIEW v_all_roles;
+
 CREATE OR REPLACE VIEW v_all_roles AS
   SELECT
     r.id as role_id,
@@ -238,7 +276,6 @@ CREATE OR REPLACE VIEW v_all_roles AS
     left outer join sessions s on (r.session_id = s.id)
     left outer join districts d on (d.id = r.district_id);
 
-DROP VIEW v_most_recent_roles;
 CREATE OR REPLACE VIEW v_most_recent_roles AS
   SELECT
     ar.*
@@ -280,9 +317,3 @@ CREATE OR REPLACE VIEW v_district_people AS
   where d.id = r.district_id
   and r.person_id = p.id
   and s.id = r.session_id;
-
--- Given that bill numbers can come into the system
--- as "AB 2818" or "H.R.1282", this index allows us to do bill number
--- lookups in a consistent fashion.
-drop index bill_number_idx;
-create index bill_number_idx on bills (upper_and_stripped(bill_number));

@@ -1,5 +1,6 @@
 class PeopleController < SubdomainController
   before_filter :find_person, :except => [:index, :search]
+  respond_to :html, :json, :only => [:index, :votes]
 
   # /states/texas/people
   def index
@@ -34,10 +35,12 @@ class PeopleController < SubdomainController
           people_by_facets
       end
 
+    respond_with(@people)
   end
 
   def votes
     @roll_calls = RollCall.paginate(:conditions => {:person_id => @person.id}, :include => {:vote => :bill}, :order => "votes.date desc", :page => params[:page])
+    respond_with(@roll_calls)
   end
 
   def sponsored_bills
@@ -56,6 +59,9 @@ class PeopleController < SubdomainController
         @rating_categories = SpecialInterestGroup.find_by_sql(["select c.id, c.name, count(r.id) as entries from categories c, special_interest_groups sigs, ratings r where c.id = sigs.category_id and r.sig_id = sigs.id and r.person_id = ? group by c.name, c.id", @person.id])
         @latest_votes = @person.votes.latest
         @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
+      end
+      format.json do
+        render(:json => @person)
       end
     end
   end
@@ -89,6 +95,17 @@ class PeopleController < SubdomainController
   def ratings
     resource_not_found unless @category = Category.find(params[:category_id])
     @ratings = Rating.includes(:special_interest_group).where(:"special_interest_groups.category_id" => @category.id, :person_id => @person.id)
+  end
+
+  def news
+    @mentions = @person.mentions
+    @google_news_mentions = @person.google_news_mentions
+    @google_blog_mentions = @person.google_blog_mentions
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @mentions }
+    end
   end
 
   protected

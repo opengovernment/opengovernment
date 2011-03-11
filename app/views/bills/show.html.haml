@@ -52,7 +52,6 @@
   
   .grid_4.omega
     %h2= t '.bill_text' 
-    -# %h2 Bill Text
     - if @bill.versions.any?
       %ul.lined
         - @bill.versions.each do |version|

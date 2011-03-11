@@ -36,6 +36,10 @@ background: #eee;
 ///////////////////////////////////////////////////*/
 
 
+.league{
+font-family: "League";
+}
+
 
 .standard{
 padding-left: 13px;
@@ -243,6 +247,7 @@ background: #eee;
 
 .italic{font-style: italic;}
 
+.center{text-align: center;}
 
 
 .red{
@@ -599,7 +604,7 @@ font-size: 18px;
 
 
 .states.show .sponsor_mugs{
-padding: 20px 0 20px 0;
+
 }
   
 
@@ -611,7 +616,7 @@ padding: 0;
   
 
 .states.show .sponsor_mugs li a{
-margin-right: 20px;
+margin: 10px 20px 10px 0;
 }
 
 .no-border{
@@ -785,5 +790,13 @@ display: none;
 .small_line{
 line-height: 1.3em !important;
 }
+
+
+
+
+.display-none{
+display: none;
+}
+
 
 

@@ -3,6 +3,7 @@
 source 'http://rubygems.org'
 
 gem 'rails'
+gem 'rack-contrib'
 
 # ActiveRecord requires a database adapter.
 gem 'pg'
