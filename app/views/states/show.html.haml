@@ -167,18 +167,14 @@
     
                 = link_to "#{Bill.for_session_including_children(@session.parent).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
       
-                %br
-                =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_open_seats' : '.last_election_lower_chamber_open_seats')
-                %br
-                =t (chamber.type == 'UpperChamber' ? '.last_election_upper_chamber_incumbent_seats' : '.last_election_lower_chamber_incumbent_seats')
-                %br  
-                =t (chamber.type == 'UpperChamber' ? '.next_election_upper_chamber_seats_available' : '.next_election_lower_chamber_seats_available')
-  
-
-
-
-
-
+                - if chamber.type == 'UpperChamber'
+                  %br=t '.last_election_upper_chamber_open_seats'
+                  %br=t '.last_election_upper_chamber_incumbent_seats'
+                  %br=t '.next_election_upper_chamber_seats_available'
+                - else
+                  %br= t '.last_election_lower_chamber_open_seats'
+                  %br= t '.last_election_lower_chamber_incumbent_seats'
+                  %br= t '.next_election_lower_chamber_seats_available'
 
 
   .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
