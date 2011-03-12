@@ -7,10 +7,10 @@
 
 .intro
   %div
-  %p= t '.intro'
+  %p= t '.intro', :state_name => @state.name
 
 
-%ul.tabs
+%ul.tabs.chamber_tabs
   %li.all
     %a{:href => bills_path(@session, :sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
