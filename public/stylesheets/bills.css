@@ -174,7 +174,11 @@ ul.bill_documents {
 a.see_all {
   padding-left: 5px;
   display: inline;
-  }
+}
+
+.people_header {
+  display: inline;
+}
 
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;

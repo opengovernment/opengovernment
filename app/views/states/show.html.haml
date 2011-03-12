@@ -93,8 +93,8 @@
 
 .people_news_preview
   .grid_12.alpha
-    = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all floatright')
-    %h2= t '.people_in_the_news'
+    %h2.people_header= t '.people_in_the_news'
+    = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all')
 
   .grid_6.alpha
     %ul.sponsor_mugs.grid_6.alpha

@@ -68,7 +68,7 @@ en:
   states:
     show:
       people_in_the_news:   People in the News
-      see_all_people_link:  See All
+      see_all_people_link:  See All &rarr;
       recent_bills:         Recent Bills
       most_viewed_bills:    Most Viewed Bills
       key_votes:            Key Votes
