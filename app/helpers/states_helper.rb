@@ -40,7 +40,11 @@ module StatesHelper
     end
 
     labels = [
-      [(now - 1.year).strftime("%b %Y"), now.strftime("%b %e")],
+      [
+        now.years_ago(1).strftime("%b %Y"),
+        [9, 6, 3].map { |m| now.months_ago(m).strftime("%b") },
+        now.strftime("%b %e")
+      ].flatten,
       [values.max]
     ]
     title_elements = [state.legislature.name, 'Bills Introduced']
@@ -49,11 +53,11 @@ module StatesHelper
       Gchart.bar(:title => title_elements.join('|'),
         :data => values,
         :width => 400, :height => 130,
-        :axis_range => [[1, 13], [0, values.max]],
+        :axis_range => [[0, 13], [0, values.max]],
         :axis_with_labels => 'x,y',
         :axis_labels => labels,
         :bar_colors => '36676F',
-        :custom => "chxp=0,1,13|1,#{values.max}",
+        :custom => "chxp=0,0.5,3.5,6.5,9.5,12.5|1,#{values.max}",
         :format => 'image_tag', :alt => title_elements.join(' : ')))
   end
 end
