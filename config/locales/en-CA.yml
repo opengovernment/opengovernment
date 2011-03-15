@@ -6,8 +6,8 @@ en-CA:
   states:
     show:
       intro: |
-        Welcome to OpenGovernment, a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for the California legislature.<br><br>
-        <strong>Track</strong> bills, votes, and members of the CA Senate and Assembly. <strong>Follow</strong> the money trail and the issues you care about. <strong>Contact</strong> all of your elected officials. Click a category at left to get started, or find out who represents you below. 
+        Welcome to OpenGovernment, a free and non-partisan public resource for government transparency. We're a new version of OpenCongress.org for California.<br><br>
+        <strong>Track</strong> bills, votes, and money in the California legislature. <strong>Contact</strong> all of your elected officials. Click a category at left to get started, or find out who represents you below. 
       current_session_intro: "The 2011-2012 session began on January 3rd, 2011 and is scheduled to run until September 9th, 2011. Last year, the vast majority of bills were introduced in February, followed by smaller peaks in March and July."
       state_population:     
       state_pop_per_upper_chamber_member: "924,041 people"
@@ -33,7 +33,7 @@ en-CA:
         <li>Ballotpedia on the <a href="http://ballotpedia.org/wiki/index.php/California">Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/California_State_Senate_elections,_2010">2010 Senate elections</a> and <a href="http://ballotpedia.org/wiki/index.php/California_State_Assembly_elections,_2010">2010 Assembly elections</a></li>
         <li>OpenCongress pages for <a href="http://www.opencongress.org/states/CA">CA federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#C">Senators</a> and <a href="http://www.opencongress.org/people/representatives#CA">Representatives</a></li>
         <li>OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/California">California state politics blogroll</a></li>
-        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, featuring more CA political blogs in the left-hand sidebar</li>
+        <li>The National Council of State Legislatures' official blog, <a href="http://www.ncsl.typepad.com/">The Thicket</a>, with more CA political blogs in the left-hand sidebar</li>
         <li><a href="http://www.govloop.com/">GovLoop</a> - social networking for government, including employees from federal, state, and local government.</li>
         <li><a href="http://www.calwatchdog.com/">CalWatchDog</a>, "an independent, Sacramento-based journalism venture providing original investigative reports and news stories covering California state government."</li>
         <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
@@ -49,9 +49,12 @@ en-CA:
   bills:
     index:
       intro: |
-       Connect with bills in California. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br> On bill pages below, you can use free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view legislation in different ways - for example, by most-viewed.
       bill_list_empty: |
         The California session began recently and there are no bills here yet. You may <a href="/sessions/20092010/bills">browse the previous session's bills instead</a> -- for example, bills <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=mentions">most in the news</a> last year, or those rated <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=keyvotes">key votes</a> by Project VoteSmart. 
+    videos:
+    show:
+      bill_text_intro: |
+        <em>Links to California full bill text are coming soon.</em>
     videos: 
       intro: | 
         <em>California- editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video available in ways that are <a href="http://www.opengovdata.org/">fully open</a>. So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -61,7 +64,7 @@ en-CA:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
       intro: |
         Connect with senators and assemblymembers in California. We make legislators more accessible by combining official government information with news and blog coverage, campaign contribution data, social media mentions, and more.<br><br>
-        On member pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices. Click the buttons below to view people in different ways - for example, by most viewed.
+        On member pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices. 
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, the most-central repository of official online video from members of the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this member and members of the CA legislature in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -77,7 +80,7 @@ en-CA:
           This page lists all publicly-available information about campaign contributions made to members of the California state
                   legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
                   agencies with which candidates must file their campaign finance reports.<br><br>
-          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations. We hope this info helps build public knowledge about the pervasive role of money in politics.
+          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations.
   
   districts:
     search:

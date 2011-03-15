@@ -1,6 +1,11 @@
 class VotesController < SubdomainController
   before_filter :get_state_and_session
   before_filter :get_vote
+  respond_to :html, :json
+
+  def show
+    respond_with(@vote)
+  end
 
   def get_vote
     begin

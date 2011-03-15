@@ -11,12 +11,10 @@
 .find_box
   = render 'shared/find_my_rep_form', :narrow => true
 
-%ul.tabs
-  %li
-    = link_to @state.upper_chamber.name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')
+%ul.tabs.chamber_tabs
+  %li= link_to @state.upper_chamber.name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')
   %li.divider &#124;  
-  %li
-    = link_to @state.lower_chamber.name, url_for(params.merge({:chamber => 'lower'})), :class => (@current_tab == :lower ? 'active' : '')
+  %li= link_to @state.lower_chamber.name, url_for(params.merge({:chamber => 'lower'})), :class => (@current_tab == :lower ? 'active' : '')
 
 .sort.grid_12.alpha
   %ul.people_sorts.sorts

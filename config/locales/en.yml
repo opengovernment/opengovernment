@@ -15,7 +15,7 @@ en:
     grey_party_label: Other
   shared:
     appeal:
-      help_us: help Us Open Gov!
+      help_us: Help Us Open Gov!
     bill:
       introduced:       "Introduced"
       votes_on_bill:
@@ -67,8 +67,8 @@ en:
       and_share:         and Share
   states:
     show:
-      people_in_the_news:   People in the News
-      see_all_people_link:  See All
+      people_in_the_news:   Legislators in the News
+      see_all_people_link:  See All &rarr;
       recent_bills:         Recent Bills
       most_viewed_bills:    Most Viewed Bills
       key_votes:            Key Votes

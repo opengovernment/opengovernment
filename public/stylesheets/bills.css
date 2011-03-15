@@ -174,7 +174,11 @@ ul.bill_documents {
 a.see_all {
   padding-left: 5px;
   display: inline;
-  }
+}
+
+.people_header {
+  display: inline;
+}
 
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
@@ -185,7 +189,7 @@ a.see_all {
 }
 
 .people_news_preview .sponsor_mugs a{
-opacity: .3;
+opacity: .8;
 -webkit-transition: all .8s ease-in-out; 
 }
 
@@ -402,8 +406,7 @@ padding-top: 9px;
 
   float: left;
   overflow: hidden !important;
-  opacity: .6;
-
+  opacity: .9;
 
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -453,15 +456,12 @@ padding-top: 9px;
   background: url(../images/man.png) center no-repeat;
   }
 
-
 .sponsor_mugs img{
   border: 1px solid #fff;
-  opacity: .8;
 width: 25px !important;
 height: 25px !important;
 display: block;
 margin-bottom: 2px;
-  opacity: .4;
   background: url(../images/man.png) center no-repeat;
   }
 

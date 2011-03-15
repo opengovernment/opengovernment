@@ -1,32 +1,38 @@
 class StatesController < SubdomainController
   def show
     if @state.supported?
-      session[:preferred_location] = request.subdomains.first
+      respond_to do |format|
+        format.json {
+          render :json => @state
+        }
+        format.html {
+          session[:preferred_location] = request.subdomains.first
 
-      bill = Bill.where(:session_id => @session.family).limit(5)
-      @key_votes = bill.where(:votesmart_key_vote => true)
-      @recent_bills = bill.order('last_action_at desc')
-      @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5) || []
+          bill = Bill.where(:session_id => @session.family).limit(5)
+          @key_votes = bill.where(:votesmart_key_vote => true)
+          @recent_bills = bill.order('last_action_at desc')
+          @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5) || []
 
-      @hot_people = Person.find_by_sql(["select
-        p.*,
-        current_district_name_for(p.id) as district_name,  
-        current_party_for(p.id) as party,
-        m.mentions_count
-      from
-        people p join (
-          select
-            count(*) mentions_count,
-            owner_id
-          from mentions m join roles r on (r.person_id = m.owner_id)
-          where m.owner_type = 'Person'
-            and r.session_id = ?
-          group by owner_id
-          order by mentions_count desc
-          limit 12) m
-        on m.owner_id = p.id
-      ", @session.id])
-
+          @hot_people = Person.find_by_sql(["select
+            p.*,
+            current_district_name_for(p.id) as district_name,  
+            current_party_for(p.id) as party,
+            m.mentions_count
+          from
+            people p join (
+              select
+                count(*) mentions_count,
+                owner_id
+              from mentions m join roles r on (r.person_id = m.owner_id)
+              where m.owner_type = 'Person'
+                and r.session_id = ?
+              group by owner_id
+              order by mentions_count desc
+              limit 12) m
+            on m.owner_id = p.id
+          ", @session.id])
+        }
+      end
     else
       render :template => 'states/unsupported', :layout => 'home'
     end
