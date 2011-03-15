@@ -151,7 +151,7 @@ en:
       author_name:   'OpenGovernment'
       author_uri:    'http://opengovernment.org'
     show:
-      bill          Bill
+      bill:          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
       status:      'Status'
