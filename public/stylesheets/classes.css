@@ -78,7 +78,7 @@ margin: 20px;
   background: #efefef;
   padding: 30px 20px;
   margin: 0 -16px 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#f5e8d4), to(#f9f2e6)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #f5e8d4,  #f9f2e6); /* for firefox 3.6+ */
   border-bottom: 1px solid #dbcfba;  
   }
@@ -88,6 +88,7 @@ margin: 20px;
   font-weight: bold;
   text-align: center;
 font-size: 16px;
+
   }
 
 
@@ -96,15 +97,17 @@ font-size: 16px;
 
 
 .intro{
-  padding: 0px 0 20px 38px;
+  padding: 0px 0 0px 38px;
   font-size: 12px;
   line-height: 1.5em;
 /*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
-  border-bottom: 1px solid #ccc;
   text-shadow: 0 1px 0px #fff;
-  margin: 0 0 0 -38px;
-  width: 725px;
+  margin: 0 0 0 -39px;
+  width: 727px;
 position: relative;
+border-bottom: 1px solid #ccc;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f5e8d4), to(#f9f2e6)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
   }
 
 .intro p{

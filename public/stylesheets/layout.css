@@ -135,18 +135,19 @@ border-bottom: 1px solid #809ea3;
 
 #left_nav ul li.selected ul li a {
 margin: 0;
-padding: 8px 0 8px 60px !important;
+padding: 8px 0 8px 63px !important;
 background: none;
 text-decoration: none;
 width: 186px !important;
-text-shadow: 0 1px 0 #1b3d42;
-color: #fff;
-
+text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+color: #000;
+opacity: .6;
 }
 
 #left_nav ul li.selected ul li a:hover {
 -moz-box-shadow: inset 0 1px 0px #d2e6e9;
 -webkit-box-shadow: inset 0 1px 0px #d2e6e9;
+opacity: 1;
 }
 
 
@@ -171,7 +172,8 @@ color: #333;
 
 
 #left_nav ul li ul li.selected a:hover {
-text-decoration: none
+text-decoration: none;
+
 }
 
 
@@ -240,7 +242,7 @@ background: url(../images/sidebar_icons.png) 32px -424px no-repeat !important;
 #left_nav ul li ul li#upper a,
 #left_nav ul li ul li#lower a,
 #left_nav ul li ul li#joint a {
-background: url(../images/sidebar_icons.png) 32px -40px no-repeat !important;
+background: url(../images/sidebar_icons.png) 38px -40px no-repeat !important;
 }
 
 
@@ -859,6 +861,7 @@ background: url(../images/large-states/texas.png) 12px 129px no-repeat;
   width: 130px;
   text-align: center;
   color: rgba(54, 75, 79, 0.7);
+  height: 1.4em !important;
   padding: 9px 0;
   cursor: pointer;
   text-align: center;
@@ -936,7 +939,12 @@ background: url(../images/large-states/texas.png) 12px 129px no-repeat;
   text-shadow: rgba(255, 255, 255, 0.3);
   margin-top: 1px;
   cursor: default;
-  
+
+    -moz-box-shadow: inset 0px 1px 2px #889b9e, 0 1px 0 #d8ebee;
+  -webkit-box-shadow: inset 0px 1px 2px #889b9e, 0 1px 0 #d8ebee;
+  box-shadow: inset 0px 1px 2px #889b9e, 0 1px 0 #d8ebee;
+
+
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(184, 205, 209, 1)), to(rgba(197, 215, 219, 1))); /* for webkit browsers */
   background: -moz-linear-gradient(top,  rgba(184, 205, 209, 1),  rgba(197, 215, 219, 1)); /* for firefox 3.6+ */
   }

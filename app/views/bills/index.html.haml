@@ -2,12 +2,10 @@
 
 = render :partial => 'shared/appeal'
 
-%h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name
-
 
 .intro
-  %div
-  %p= t '.intro', :state_name => @state.name
+
+  %h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name
 
 
 %ul.tabs.chamber_tabs
