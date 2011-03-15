@@ -17,10 +17,10 @@ en:
     appeal:
       help_us: help Us Open Gov!
     bill:
-      introduced:       "Introduced:"
+      introduced:       "Introduced"
       votes_on_bill:
         one:            "1 vote on this bill"
-        other:          "%{count} votes on this bill"
+        other:          "votes"
       views:
         one:            "1 view"
         other:          "%{count} views"
