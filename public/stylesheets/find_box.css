@@ -52,7 +52,6 @@ margin-top: 1px;
 }
 
 .auto_find{
-float: right;
 }
 
 
@@ -60,13 +59,18 @@ float: right;
 
 .find_box{
   position: relative;
-  border-bottom: 1px solid #ddd;
-  overflow: auto;
+  border: 1px solid #ddd;
+
   padding: 18px 0px 18px;
+  margin: 0px 38px 20px 0;
+
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
-  margin: 0px -26px 0px -39px;
-  }
+
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius:5px;
+ }
 
 
 .auto_find{

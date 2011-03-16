@@ -100,6 +100,7 @@ height: 300px;
 .session{
   float: right;
   margin-top: 10px;
+width: 124px !important;
   }
 
 
@@ -158,9 +159,7 @@ ul.bill_documents {
   margin-bottom: 0;
   }
 
-.sponsor_mug {
-  padding-left: 1px;
-  }
+
 
 .sponsor_preview h2, .document_preview h2, .committee_preview h2 {
   display: inline-block;
@@ -276,14 +275,13 @@ p.action_text {
 
 #bill_list li{
 border-bottom: 1px solid #f8f8f8;
-padding: 0 0 6px !important;
-margin: 0 0 50px !important;
+padding: 0 0 10px !important;
+margin: 0 0 20px !important;
 }
 
 
 
 .bill_titles {
-border-bottom: 1px solid #f8f8f8;
 margin-bottom: 4px;
 }
 
@@ -301,8 +299,11 @@ line-height: 1.3em;
 .bill_titles .view_count{
 font-size: 11px;
 float: left;
-color: #999;
+opacity: .5;
+padding-top: 2px;
+color: #222;
 padding-left: 30px;
+background: url(../images/sprites.png) 10px -173px no-repeat;
 }
 
 
@@ -312,7 +313,7 @@ display: block;
 font-size: 12px;
 clear: both;
 line-height: 1.4em;
-padding: 2px 0 4px;
+padding: 2px 10px 4px 0;
 color: #777;
 }
 
@@ -344,7 +345,7 @@ text-align: left;
 .stats div{
 float: left;
 margin-top: 3px;
-padding: 0 15px;
+padding: 0 0px 0 15px;
 border-right: 1px solid #f8f8f8;
 }
 
@@ -364,6 +365,7 @@ padding-left: 0;
 
 .stats div.recent_vote{
 border-right: none;
+padding-right: 8px;
 }
 
 
@@ -376,23 +378,19 @@ border-left: 1px solid #f8f8f8;
 
 .sponsor_mugs{
   float: left;
-  width: 155px;
-  padding: 0 0 0 0px;
-float: left;
+  min-width: 300px;
+  padding: 15px 0 15px 0px;
   }
+
+
 
 
 .sponsor_mugs span {
   display: block;
   font-size: 10px;
-  color: #666;
+  color: #999;
   clear: both;
-  }
 
-
-
-
-.sponsor_mugs span{
 float: left;
 clear: none;
 padding-top: 9px;
@@ -402,11 +400,11 @@ padding-top: 9px;
 
 .sponsor_mugs a{
   padding: 1px !important;
-  margin: 0 10px 0px 0px;
+  margin: 0 15px 0px 0px;
 
   float: left;
   overflow: hidden !important;
-  opacity: .9;
+  opacity: .6;
 
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -427,11 +425,7 @@ padding-top: 9px;
 
 
 .sponsor_mugs a:hover{
-  padding: 1px !important;
-  margin: 0 10px 0px 0px;
-
-  float: left;
-  overflow: hidden !important;
+  opacity: 1;
   
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;

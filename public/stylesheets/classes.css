@@ -1,3 +1,5 @@
+/*
+
 .issues.index .intro p{
   padding-right: 250px;
   }
@@ -21,7 +23,7 @@ height: 300px;
   padding-right: 250px;
   }
 
-
+*/
 .image{
 padding: 5px;
 border: 1px solid #ccc;
@@ -97,7 +99,7 @@ font-size: 16px;
 
 
 .intro{
-  padding: 0px 0 0px 38px;
+  padding: 25px 0 0px 38px;
   font-size: 12px;
   line-height: 1.5em;
 /*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
@@ -106,22 +108,21 @@ font-size: 16px;
   width: 727px;
 position: relative;
 border-bottom: 1px solid #ccc;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f5e8d4), to(#f9f2e6)); /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+background: #f9f9f9;
   }
 
 .intro p{
   padding: 0px 0 10px 0px;
 margin: 0;
   }
-
+/*
 .intro div{
   position: absolute;
 right: 0;
 top: -30px;
   }
 
-
+*/
 
 /*///////////// ~  Standard Button  ~ /////////////*/
 
@@ -784,7 +785,7 @@ left: 346px;
 width: 70px;
 height: 0px;
 padding-top: 70px;
-z-index: 999999;
+z-index: 99;
 overflow: hidden;
 background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
 }
@@ -799,5 +800,7 @@ display: none;
 line-height: 1.3em !important;
 }
 
-
+.search h1{
+margin-bottom: 40px;
+}
 

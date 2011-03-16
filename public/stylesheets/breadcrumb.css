@@ -93,7 +93,7 @@ li.topnav a{
   border-bottom: 1px solid #999;
   border-top: 1px solid #ccc;
 
-
+z-index: 9999999999 !important;
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#efefef)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #efefef); /* for firefox 3.6+ */
  
@@ -104,6 +104,14 @@ li.topnav a{
 
   -moz-border-radius: 5px;
   }
+
+.state-select:hover{  
+
+z-index: 9999999999 !important;
+
+  }
+
+
 
 .triangle{
   position: absolute;

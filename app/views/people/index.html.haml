@@ -2,15 +2,15 @@
 
 = render 'shared/appeal'
 
+%h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name 
 
 .intro
 
-  %h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name 
   %p= t '.intro'
   %br
 
-.find_box
-  = render 'shared/find_my_rep_form', :narrow => true
+  .find_box
+    = render 'shared/find_my_rep_form', :narrow => true
 
 %ul.tabs.chamber_tabs
   %li.senate= link_to @state.upper_chamber.name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')

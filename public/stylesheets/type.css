@@ -9,10 +9,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 overflow: visible;
 font-size: 23px;
-margin: 0;
-padding: 25px 0px 25px;  
+margin: 0 -26px 0 -39px;
+padding: 25px 0px 25px 36px;  
 position: relative;
 line-height: 1.2em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+border-bottom: 1px solid rgba(67, 67, 67, .2);
 }
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
