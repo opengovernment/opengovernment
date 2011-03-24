@@ -117,15 +117,15 @@ li.race_tracker {
 
 /* Rating party color boxes */
 .rating_person.rating_dem {
-  background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
+  background: url(../../../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 
 .rating_person.rating_rep {
-  background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
+  background: url(../../../images/ratings/rep-box.gif) no-repeat 0% 50%;
 }
 
 .rating_person.rating_ind {
-  background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
+  background: url(../../../images/ratings/ind-box.gif) no-repeat 0% 50%;
 }
 
 .ratings-header {

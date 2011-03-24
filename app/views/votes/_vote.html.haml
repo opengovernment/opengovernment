@@ -1,39 +1,41 @@
 -# Accepts a vote and (optionally) a bill and person, returns a vote summary.
 -# If no bill is passed in, show the motion without the bill number and title.
 -# If a person is passed in, show the person's vote as a column.
-%tr{:class => vote.committee? ? 'committee-vote' : ''}
-  %td.vote_date= vote.date.try(:to_html)
+%li.grid_12.alpha{:class => vote.committee? ? 'committee-vote' : ''}
+  .grid_4.alpha
+    .grid_1.alpha.vote_date= vote.date.try(:to_html)
+  
+    .grid_3.alpha.omega.vote-motion
+      - if defined?(bill)
+        %span
+          = succeed(': ') do
+            = link_to(bill.bill_number, bill_path(bill.session, bill))
+          = link_to(vote.motion, vote_path(vote))
+      - else
+        %span= link_to(vote.motion, vote_path(vote))
+      - if vote.committee_name
+        %span.vote-committee-name= vote.committee_name + ' Committee'
+      - unless vote.kind_fm.blank?
+        %span.vote-kind= vote.kind_fm
+    - if defined?(roll_call)
+      .grid_4.alpha
+        %strong= roll_call.vote_type.capitalize
+  .grid_8.omega
+    .grid_2.votes.alpha
+      %span.total-votes.rounded= vote.total_count
+      %span.small-label all votes
+    .grid_2.votes{:class => vote.passed? ? 'vote-passed' : ''}
+      %span.vote-yes.rounded= vote.yes_count.round
+      %span.small-label yes votes
+    .grid_2.votes{:class => vote.passed? ? '' : 'vote-failed'}
+      %span.vote-no.rounded= vote.no_count.round
+      %span.small-label no votes
+    .grid_2.omega.votes
+      %span.other-votes.rounded= vote.other_count.round
+      %span.small-label other votes
 
-  %td.vote-motion
-    - if defined?(bill)
-      %span
-        = succeed(': ') do
-          = link_to(bill.bill_number, bill_path(bill.session, bill))
-        = link_to(vote.motion, vote_path(vote))
-    - else
-      %span= link_to(vote.motion, vote_path(vote))
-    - if vote.committee_name
-      %span.vote-committee-name= vote.committee_name + ' Committee'
-    - unless vote.kind_fm.blank?
-      %span.vote-kind= vote.kind_fm
-  - if defined?(roll_call)
-    %td
-      %strong= roll_call.vote_type.capitalize
-  %td.votes
-    %span.total-votes.rounded= vote.total_count
-    %span.small-label all votes
-  %td.votes{:class => vote.passed? ? 'vote-passed' : ''}
-    %span.vote-yes.rounded= vote.yes_count.round
-    %span.small-label yes votes
-  %td.votes{:class => vote.passed? ? '' : 'vote-failed'}
-    %span.vote-no.rounded= vote.no_count.round
-    %span.small-label no votes
-  %td.votes
-    %span.other-votes.rounded= vote.other_count.round
-    %span.small-label other votes
-
-  %td.vote-bar
-    %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
-    %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
-    %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
-    %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
+    .vote-bar.grid_8.alpha
+      %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
+      %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
+      %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
+      %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;

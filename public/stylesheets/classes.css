@@ -8,7 +8,7 @@
 .issues.index .intro div{
 width: 230px;
 height: 300px;
-  background: url(../images/intros/issues.png) 0px 15px no-repeat;
+  background: url(../../../images/intros/issues.png) 0px 15px no-repeat;
   }
 
 
@@ -16,7 +16,7 @@ height: 300px;
 .money_trails.index .intro div{
 width: 230px;
 height: 300px;
-  background: url(../images/intros/money.png) 20px 15px no-repeat;
+  background: url(../../../images/intros/money.png) 20px 15px no-repeat;
   }
 
 .money_trails.index .intro p{
@@ -61,12 +61,12 @@ list-style-type: disc !important;
   float: right;
   font-weight: bold;
   font-size: 14px;
-margin: 20px;
+margin: 0px;
   }
 
 
 .spin{
-  background: transparent url(../images/spinner.gif) 0 0 no-repeat !important;
+  background: transparent url(../../../images/spinner.gif) 0 0 no-repeat !important;
   height: 31px;
   width: 31px;  
   position: absolute;
@@ -99,16 +99,16 @@ font-size: 16px;
 
 
 .intro{
-  padding: 25px 0 0px 38px;
+  padding: 25px 0 38px 38px;
   font-size: 12px;
   line-height: 1.5em;
-/*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
+/*  background: transparent url(../../../images/intro.jpg) 0 0 no-repeat !important;*/
   text-shadow: 0 1px 0px #fff;
   margin: 0 0 0 -39px;
   width: 727px;
 position: relative;
 border-bottom: 1px solid #ccc;
-background: #f9f9f9;
+background: #eff2f3;
   }
 
 .intro p{
@@ -301,7 +301,7 @@ background: #eee;
 
 
 
-.space {background:#fff;color:#fff;visibility:hidden; height: 35px;}
+.space {background:#fff;color:#fff;visibility:hidden; height: 30px;}
 
 
 
@@ -364,12 +364,12 @@ ol.lined li{
 /*
 .money_trails ul.lined li{
   padding-left: 20px;
-  background: #fff url(../images/cash.gif) left 2px no-repeat;
+  background: #fff url(../../../images/cash.gif) left 2px no-repeat;
   }
 
 .issues ul.lined li{
   padding-left: 20px;
-  background: #fff url(../images/issues.gif) left 2px no-repeat;
+  background: #fff url(../../../images/issues.gif) left 2px no-repeat;
   }
 
 */
@@ -445,6 +445,7 @@ ol.lined li{
 .date-year{
   display: block;
   text-align: center;
+  line-height: 1em;
   }
 
 .date-month{
@@ -582,7 +583,7 @@ padding: 20px;
   width: 693px;
 padding-top: 20px;
   height: 73px;
-  background: transparent url(../images/miro_community_logo.png) right top no-repeat !important;
+  background: transparent url(../../../images/miro_community_logo.png) right top no-repeat !important;
   }
   
 .big_list{
@@ -644,13 +645,13 @@ height: 0;
 padding-top: 50px;
 width: 85px;
 margin-left: 47px;
-  background: transparent url(../images/by-ppf.png) -20px 0 no-repeat !important;
+  background: transparent url(../../../images/by-ppf.png) -20px 0 no-repeat !important;
 }
 
 
 
 .by a.ppf:hover{
-  background: transparent url(../images/by-ppf.png) -20px -50px no-repeat !important;
+  background: transparent url(../../../images/by-ppf.png) -20px -50px no-repeat !important;
 }
 
 
@@ -658,13 +659,13 @@ margin-left: 47px;
 padding-top: 50px;
 width: 76px;
 
-  background: transparent url(../images/by-ppf.png) -102px 0 no-repeat !important;
+  background: transparent url(../../../images/by-ppf.png) -102px 0 no-repeat !important;
 }
 
 
 
 .by a.sunlight:hover{
-  background: transparent url(../images/by-ppf.png) -102px -50px no-repeat !important;
+  background: transparent url(../../../images/by-ppf.png) -102px -50px no-repeat !important;
 }
 
 
@@ -761,7 +762,7 @@ background: 0
 
 
 .ui-icon-closethick{
-background: transparent url(../images/close.png) 1px 3px no-repeat !important;
+background: transparent url(../../../images/close.png) 1px 3px no-repeat !important;
 top: 0 !important;
 left: 0 !important;
 }
@@ -787,7 +788,7 @@ height: 0px;
 padding-top: 70px;
 z-index: 99;
 overflow: hidden;
-background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
+background: transparent url(../../../images/grow.png) 1px 3px no-repeat !important;
 }
 
 

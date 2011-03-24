@@ -85,7 +85,7 @@ border-top: 1px solid #95afb2;
 #left_nav ul li#people.people.selected a.selected{
 padding-left: 42px;
 
-background: url(../images/sidebar_icons.png) 12px -472px no-repeat;  
+background: url(../../../images/sidebar_icons.png) 12px -472px no-repeat;  
 }
 
 
@@ -93,7 +93,7 @@ background: url(../images/sidebar_icons.png) 12px -472px no-repeat;
 #left_nav ul li#bill.bill.selected a.selected{
 padding-left: 42px;
 
-background: url(../images/sidebar_icons.png) 12px -472px no-repeat;
+background: url(../../../images/sidebar_icons.png) 12px -472px no-repeat;
 
 
 }
@@ -114,7 +114,7 @@ margin: 0;
 li.discuss {
 padding: 8px 0 8px 0px;
 /*
-background: url(../images/sprites.png) left -444px no-repeat;*/
+background: url(../../../images/sprites.png) left -444px no-repeat;*/
 font-size: 14px;
 }
 #left_nav ul li ul li {
@@ -183,7 +183,7 @@ text-decoration: none;
 }
 /* Left nav icons */
 #left_nav ul li.primary-nav a {
-background-image: url(../images/sidebar_icons.png);
+background-image: url(../../../images/sidebar_icons.png);
 background-repeat: no-repeat;
 padding-left: 42px;
 }
@@ -204,45 +204,45 @@ background-position: 12px -126px
 
 #left_nav ul li ul li#overview a,
 #left_nav ul li ul li#overview a.selected {
-background: url(../images/sidebar_icons.png) 30px -194px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 30px -194px no-repeat !important;
 }
 
 
 #left_nav ul li ul li#votes a {
-background: url(../images/sidebar_icons.png) 32px -227px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -227px no-repeat !important;
 }
 
 #left_nav ul li ul li#bills a {
-background: url(../images/sidebar_icons.png) 32px -260px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -260px no-repeat !important;
 }
 
 
 #left_nav ul li ul li#tweets a {
-background: url(../images/sidebar_icons.png) 32px -293px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -293px no-repeat !important;
 }
 
 #left_nav ul li ul li#mentions a {
-background: url(../images/sidebar_icons.png) 32px -326px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -326px no-repeat !important;
 }
 
 
 #left_nav ul li ul li#money_trail a {
-background: url(../images/sidebar_icons.png) 32px -358px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -358px no-repeat !important;
 }
 
 
 #left_nav ul li ul li#videos a {
-background: url(../images/sidebar_icons.png) 32px -392px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -392px no-repeat !important;
 }
 
 #left_nav ul li ul li#disqus a {
-background: url(../images/sidebar_icons.png) 32px -424px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 32px -424px no-repeat !important;
 }
 
 #left_nav ul li ul li#upper a,
 #left_nav ul li ul li#lower a,
 #left_nav ul li ul li#joint a {
-background: url(../images/sidebar_icons.png) 38px -40px no-repeat !important;
+background: url(../../../images/sidebar_icons.png) 38px -40px no-repeat !important;
 }
 
 
@@ -254,7 +254,7 @@ border-bottom: 0 !important;
 /*////////////////////////////////////////////////////////////////////*/
 .venn {
 width: 714px;
-background: transparent url(../images/about.png) 0 0 no-repeat !important;
+background: transparent url(../../../images/about.png) 0 0 no-repeat !important;
 margin: 40px 0 40px -13px;
 height: 590px;
 }
@@ -266,56 +266,56 @@ display: block;
 font-size: 20px;
 padding-left: 32px;
 line-height: 3.5em;
-background: transparent url(../images/states.png) 0 24px no-repeat !important;
+background: transparent url(../../../images/states.png) 0 24px no-repeat !important;
 }
 .supported_states_list li a.state-LA {
-background: transparent url(../images/states.png) 0 -34px no-repeat !important
+background: transparent url(../../../images/states.png) 0 -34px no-repeat !important
 }
 .supported_states_list li a.state-MD {
-background: transparent url(../images/states.png) 0 -88px no-repeat !important
+background: transparent url(../../../images/states.png) 0 -88px no-repeat !important
 }
 .supported_states_list li a.state-TX {
-background: transparent url(../images/states.png) 0 -200px no-repeat !important
+background: transparent url(../../../images/states.png) 0 -200px no-repeat !important
 }
 .supported_states_list li a.state-WI {
-background: transparent url(../images/states.png) 0 -142px no-repeat !important
+background: transparent url(../../../images/states.png) 0 -142px no-repeat !important
 }
 
 
-.show.ca h1{
-  background: url(../images/states.png) 38px 29px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px 29px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+.states.show.ca h1{
+  background: url(../../../images/states.png) 38px 29px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: url(../../../images/states.png) 38px 29px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
 margin-bottom: 30px;
 padding-left: 70px;
 }
 
-.show.la h1 {
-  background: url(../images/states.png) 38px -31px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -31px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+.states.show.la h1 {
+  background: url(../../../images/states.png) 38px -31px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: url(../../../images/states.png) 38px -31px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
 
 margin-bottom: 30px;
 padding-left: 70px;
 
 }
-.show.md h1 {
-  background: url(../images/states.png) 38px -86px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -86px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+.states.show.md h1 {
+  background: url(../../../images/states.png) 38px -86px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: url(../../../images/states.png) 38px -86px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
 
 margin-bottom: 30px;
 padding-left: 75px;
 
 }
-.show.tx h1 {
-  background: url(../images/states.png) 38px -197px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -197px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+.states.show.tx h1 {
+  background: url(../../../images/states.png) 38px -197px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: url(../../../images/states.png) 38px -197px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
 
 margin-bottom: 30px;
 padding-left: 70px;
 
 }
-.show.wi h1 {
-  background: url(../images/states.png) 0 -139px no-repeat !important, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 0 -139px no-repeat !important, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+.states.show.wi h1 {
+  background: url(../../../images/states.png) 0 -139px no-repeat !important, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: url(../../../images/states.png) 0 -139px no-repeat !important, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
 
 margin-bottom: 30px;
 padding-left: 70px;
@@ -360,7 +360,7 @@ display: block;
 margin-bottom: 10px;
 }
 .wave {
-background: #a6b9bc url(../images/wave_top.gif) left 0 no-repeat;
+background: #a6b9bc url(../../../images/wave_top.gif) left 0 no-repeat;
 min-height: 300px;
 margin: 0 -16px;
 padding-top: 70px;
@@ -368,7 +368,7 @@ padding-top: 70px;
 .wave h2 {
 width: 312px;
 margin: 0px auto 0;
-background: url(../images/begin.gif) left 0 no-repeat;
+background: url(../../../images/begin.gif) left 0 no-repeat;
 height: 0 !important;
 overflow: hidden;
 line-height: 3em;
@@ -383,7 +383,7 @@ margin: 0 -16px -18px -16px;
 .illo h2 {
 width: 503px;
 margin: 0px auto 0 !important;
-background: url(../images/do_more.gif) center no-repeat;
+background: url(../../../images/do_more.gif) center no-repeat;
 height: 0 !important;
 overflow: hidden;
 line-height: 3em;
@@ -391,7 +391,7 @@ padding-top: 67px;
 border: none;
 }
 .illo p {
-background: #f6f8fa url(../images/illo.png) 24px 0 no-repeat;
+background: #f6f8fa url(../../../images/illo.png) 24px 0 no-repeat;
 width: 100%;
 height: 400px;
 margin: 0 !important;
@@ -453,7 +453,7 @@ height: 0;
 overflow: hidden;
 float: left;
 margin-left: 26px;
-background: url(../images/menu.gif) center top no-repeat;
+background: url(../../../images/menu.gif) center top no-repeat;
 }
 .map {
 padding-top: 220px;
@@ -462,7 +462,7 @@ height: 0;
 overflow: hidden;
 float: left;
 margin-left: 20px;
-background: url(../images/map.gif) center -50px no-repeat;
+background: url(../../../images/map.gif) center -50px no-repeat;
 }
 /*///////////////////////////
 
@@ -470,7 +470,7 @@ background: url(../images/map.gif) center -50px no-repeat;
 
 ///////////////////////////*/
 .main {
-background: #fff url(../images/side.png) -2px top repeat-y;
+background: #fff url(../../../images/side.png) -2px top repeat-y;
 padding-bottom: 50px;
 }
 /* No background on the homepage */
@@ -510,13 +510,13 @@ padding: 25px 0 0 0px !important;
 float: left;
 text-decoration: none;
 color: #215357;
-background: url(../images/opengovernment.png) 0px 0px no-repeat;
+background: url(../../../images/opengovernment.png) 0px 0px no-repeat;
 height: 0;
 width: 205px;
 overflow: hidden;
 }
 #account strong a:hover {
-background: url(../images/opengovernment.png) 0px -42px no-repeat
+background: url(../../../images/opengovernment.png) 0px -42px no-repeat
 }
 /*///////////////////////////
 
@@ -536,10 +536,15 @@ padding: 0px 0
 ///////////////////////////*/
 .views {
 font-size: 11px;
-padding: 10px 0 10px 22px;
+padding: 4px 0 4px 34px;
 display: block;
 clear: left;
-background: url(../images/sprites.png) left -165px no-repeat;
+color: rgba(0,0,0,1);
+-moz-border-radius: 20px;
+-webkit-border-radius: 20px;
+background: #eee url(../../../images/sprites.png) 10px -171px no-repeat;
+opacity: .5;
+margin-bottom: 5px;
 }
 .addresses li {
 clear: none;
@@ -560,18 +565,18 @@ padding-bottom: 20px
 /*
 .gender-unknown{
 padding-left: 20px;
-background: url(../images/sprites.png) left -30px no-repeat;
+background: url(../../../images/sprites.png) left -30px no-repeat;
 }
 
 .gender-male{
 padding-left: 20px;
-background: url(../images/sprites.png) left 2px no-repeat;
+background: url(../../../images/sprites.png) left 2px no-repeat;
 }
 
 
 .gender-female{
 padding-left: 20px;
-background: url(../images/sprites.png) left -61px no-repeat;
+background: url(../../../images/sprites.png) left -61px no-repeat;
 }
 
 */
@@ -579,7 +584,7 @@ background: url(../images/sprites.png) left -61px no-repeat;
 font-weight: bold;
 /*
 padding-left: 15px;
-background: url(../images/sprites.png) left -149px no-repeat;*/
+background: url(../../../images/sprites.png) left -149px no-repeat;*/
 }
 .committees_count {
 float: right;
@@ -722,7 +727,7 @@ display: block;
 margin-bottom: 20px
 }
 .visit_blog {
-background: url(../images/blog.png) 0 0 no-repeat;
+background: url(../../../images/blog.png) 0 0 no-repeat;
 display: block;
 position: absolute;
 right: 20px;
@@ -733,7 +738,7 @@ padding-top: 130px;
 overflow: hidden;
 }
 .visit_blog:hover {
-background: url(../images/blog.png) 0px -133px no-repeat
+background: url(../../../images/blog.png) 0px -133px no-repeat
 }
 
 
@@ -749,7 +754,7 @@ margin-bottom: 30px;
 }
 
 .small_finally ul{
-background: url(../images/small_track.png) 20px 0px no-repeat;
+background: url(../../../images/small_track.png) 20px 0px no-repeat;
 padding: 12px 0 10px 20px;
 }
 
@@ -821,23 +826,23 @@ clear: none !important;
 
 
 .ca .small_finally{
-background: url(../images/large-states/california.png) 12px 129px no-repeat;  
+background: url(../../../images/large-states/california.png) 12px 129px no-repeat;  
 }
 
 .la .small_finally{
-background: url(../images/large-states/louisiana.png) 12px 129px no-repeat;  
+background: url(../../../images/large-states/louisiana.png) 12px 129px no-repeat;  
 }
 
 .md .small_finally{
-background: url(../images/large-states/maryland.png) 12px 209px no-repeat;  
+background: url(../../../images/large-states/maryland.png) 12px 209px no-repeat;  
 }
 
 .wi .small_finally{
-background: url(../images/large-states/wisonsin.png) 12px 129px no-repeat;  
+background: url(../../../images/large-states/wisonsin.png) 12px 129px no-repeat;  
 }
 
 .tx .small_finally{
-background: url(../images/large-states/texas.png) 12px 129px no-repeat;  
+background: url(../../../images/large-states/texas.png) 12px 129px no-repeat;  
 }
 
 
@@ -1095,4 +1100,3 @@ margin-left: 200px;
  
   }
 
-  

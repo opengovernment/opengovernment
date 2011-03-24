@@ -11,8 +11,7 @@ padding-left: 20px;
 font-size: 11px;
 display: block;
 color: #999;
-padding-top: 3px;
-text-align: center;
+padding-top: 0px;
 margin-right: 10px;
 }
 
@@ -97,8 +96,9 @@ margin: 0;
   width: 700px;
 }
 
-.vote-summary td{
-border-bottom: 1px solid #ddd;
+.vote-summary li{
+padding: 20px 0;
+border-bottom: 1px solid #f9f9f9;
 }
 
 
@@ -114,16 +114,16 @@ border-bottom: 1px solid #ddd;
 
 .vote-summary-line {
   font-size: 10px;
-  line-height: 14px;
+  line-height: 1.3em;
   color: #888888;
 }
 
 
 
 .vote-motion{
-width: 490px;
-padding-right: 30px;
-padding-top: 12px;
+padding-left: 10px;
+line-height: 1.4em;
+  font-size: 11px;
 }
 
 
@@ -138,17 +138,7 @@ width: 80px;
 }
 
 
-td.vote-bar {
-  width: 150px;
 
-}
-
-td.vote-needed-bar {
-  width: 50px;
-  padding-top: 0;
-  padding-bottom: 0;
-vertical-align: bottom;
-}
 
 .vote-yes-block, .vote-no-block, .vote-other-block {
   display: block;
@@ -168,10 +158,9 @@ vertical-align: top;
 .votes span.vote-yes,
 .votes span.vote-no{
 display: block;
-margin-right: 10px;
-font-size: 18px;
-text-align: center;
-padding: 9px 0;
+margin-right: 0px;
+font-size: 20px;
+padding: 0px;
 border: 1px solid #fff;
 line-height: 1em;
 }
@@ -214,28 +203,36 @@ color: #fff !important;
 
 
 
-
 .vote-needed {
   display: block;
 padding: 0 !important;
-  line-height: 10px;
+  height: 25px;
   border-right: 2px solid #666;
+}
+
+
+
+.vote-bar {
+opacity: .5;
+  height: 10px;
 
 }
 
+
 .vote-bar .vote-yes-block {
 background: #2a6b0d;
-
+height: 5px;
 margin-top: 10px;
 }
 
 .vote-bar .vote-no-block {
 background: #9d1c1c;
 margin-top: 10px;
+height: 5px;
 }
 
 .vote-bar .vote-other-block {
-
+height: 5px;
 background: #ccc;
 margin-top: 10px;
 }

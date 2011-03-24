@@ -6,41 +6,61 @@
 - track(@bill)
 - tweets(@bill.to_hashtags, 2)
 
+
+
+
 = render 'wrapper', :show_tools => true
 
+
+.bill-mugs
+  .sponsor_preview
+    -#%h2= t('.sponsors', :count => @sponsors.count)
+
+    .sponsor_mugs
+      = sponsor_mugs(@sponsors, :limit => 10)
+    %ul.lined
+      - @sponsors.each do |s|
+        - if !s.sponsor_id || s.sponsor.photo_url.blank?
+          %li
+            - surround '',',' do
+              = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
+            = s.kind_fm
+    = link_to(t('.see_all'), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
+
 .grid_9.alpha
-  %span.session 
+  %span.session.hide 
     = t '.session'
     #{raw @bill.session.name_fm}
 
   = render 'shared/view_counts', :page => @bill
 
-  %hr
-  %h2.no-border= t '.status'
+
+.grid_12.alpha
+  %h2= t '.status'
   - status_bar(@bill)
-  .clear
 
   %hr
-  
-  
-  .grid_8.alpha
-    .sponsor_preview
-      %h2= t('.sponsors', :count => @sponsors.count)
-      = link_to(t('.see_all'), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
-      %ul.lined
-        - @sponsors.each do |s|
-          - if !s.sponsor_id || s.sponsor.photo_url.blank?
-            %li
-              - surround '',',' do
-                = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
-              = s.kind_fm
-  
-      .sponsor_mugs
-        = sponsor_mugs(@sponsors, :limit => 10)
-    %br
-    %br
 
   .grid_4.alpha
+    %h2= t '.bill_text' 
+    - if @bill.versions.any?
+      %ul.lined
+        - @bill.versions.each do |version|
+          %li= link_to_document(version)
+  
+    %span.small= t '.bill_text_intro'
+  
+    - if @bill.documents.any?
+      .document_preview
+        %h2= t('.documents', :count => @bill.documents.size)
+        = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
+  
+        %ul.lined.documents
+          = render :partial => 'document', :collection => @bill.documents.limit(5)
+
+
+
+  .grid_4
     %h2= t '.subject_areas'
     - if @bill.subjects.any?
       %ul.lined
@@ -50,24 +70,9 @@
       %p= t '.none'
     
   
-  .grid_4.omega
-    %h2= t '.bill_text' 
-    - if @bill.versions.any?
-      %ul.lined
-        - @bill.versions.each do |version|
-          %li= link_to_document(version)
   
-    = t '.bill_text_intro'
-  
-    - if @bill.documents.any?
-      .document_preview
-        %h2= t('.documents', :count => @bill.documents.size)
-        = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
-  
-        %ul.lined.documents
-          = render :partial => 'document', :collection => @bill.documents.limit(5)
-  
-  .space
+  %hr.space
+
 
 - if @actions.limit(2).size > 0
   .grid_12.alpha
@@ -81,9 +86,8 @@
 - if @votes.limit(2).size > 0
   .grid_12.alpha
     %h2= t '.recent_votes'
-    %table.vote-summary.grid_12.alpha
-      %tbody
-        = render @votes
+    .vote-summary.grid_12.alpha
+      = render @votes
 
     = link_to(raw("#{t('.votes', :count => @votes.size)} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more')
 

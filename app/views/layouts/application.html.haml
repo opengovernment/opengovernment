@@ -57,15 +57,15 @@
                     - State.loadable.each do |state|
                       %li.state_name= link_to state.name, state_url(state)
             %span.beta Beta
-
-            - if current_user
-              = succeed(',') do
-                = t('site.greeting')
-              %a.account(href="#content" title="Username") #{current_user.login}.
-              = link_to(t('site.sign_out'), destroy_user_session_path)
-            - else
-              = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
-            %a.help{:href => page_url('site-help'), :title => "Help Center"} Help
+            .hide
+              - if current_user
+                = succeed(',') do
+                  = t('site.greeting')
+                %a.account(href="#content" title="Username") #{current_user.login}.
+                = link_to(t('site.sign_out'), destroy_user_session_path)
+              - else
+                = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
+              %a.help{:href => page_url('site-help'), :title => "Help Center"} Help
         - if current_place
           .grid_7.omega.search_form
             = render 'shared/search_form'

@@ -12,7 +12,7 @@ body{
   margin: 0;
   padding: 20px 0 40px;
 background: #ddd;
-  background: url(../images/bg.png) repeat-x, url(../images/bg.gif);
+  background: url(../../../images/bg.png) repeat-x, url(../../../images/bg.gif);
   font-size:12px;
   color:#222;
   line-height: 1.3em;
@@ -38,13 +38,13 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; }
 hr {
   border:none;
   border-top: 1px solid #fff;
-  border-bottom: 2px solid #f4f9fa;
+
   color:#ddd;
   clear:both;
   float:none;
   margin: 0;
   width:100%;
-  height: 1px;
+  height: 0px;
   }
 
 
@@ -95,14 +95,14 @@ thead th{ text-align: left;}
 
 th{
   padding: 0px 0px 10px 0px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f9f9f9;
   text-align: left;
   }
 
 
 td{
-  min-width: 70px;
-  padding: 10px 0;
+  min-width: 100px;
+  padding: 7px 20px 7px 0 !important;
   vertical-align: top;
   }
 

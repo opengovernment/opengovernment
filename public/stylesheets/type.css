@@ -23,13 +23,14 @@ h1 a{color: #333; text-decoration: none; font-weight: bold;}
 
 h2 {
 margin: 0 0 5px;
-font-size: 16px;
+font-size: 11px;
 line-height:1.3em;
- padding: 10px 0;
+padding: 10px 0;
 color: #36676f;
-font-weight: bold;
- clear: left; 
-border-bottom: 1px solid #f4f9fa;
+font-weight: normal;
+clear: left; 
+text-transform: uppercase;
+opacity: .6;
 }
 
 

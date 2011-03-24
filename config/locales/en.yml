@@ -154,7 +154,7 @@ en:
       bill          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
-      status:      'Status'
+      status:      'Bill Status'
       sponsors:
         one:     'One Sponsor'
         other: '%{count} Sponsors'
