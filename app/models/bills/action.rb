@@ -102,6 +102,10 @@ class Action < ActiveRecord::Base
     end.join(' and ')
   end
 
+  def to_md5
+    Digest::MD5.hexdigest([date.to_i, kinds, action].join)
+  end
+
   def kind_classes
     kinds.collect { |k| k.gsub(':', '-') }.join(' ')
   end
