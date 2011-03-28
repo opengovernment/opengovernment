@@ -109,7 +109,7 @@ module OpenGov
 
     def import_districts
       Dir.glob(File.join(Settings.shapefiles_dir, '{sl,su,cd}*.shp')).each do |shpfile|
-        import_districts(shpfile)
+        import_districts_from(shpfile)
       end
     end
 
