@@ -1,6 +1,6 @@
 module OpenGov
   class Bios < Resources
-    def self.import
+    def import
       puts 'Fetching bios for all current people with transparencydata ids'
 
       f, u, s = 0, 0, 0
