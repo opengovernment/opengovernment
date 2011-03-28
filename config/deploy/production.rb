@@ -6,8 +6,7 @@ set :rvm_ruby_string, 'ree@og'
 set :rails_env, "production"
 set :branch, "production"
 set :deploy_to, "/web/opengovernment.org"
-set :environment_database, 'og_production'
-set :environment_dbhost, 'localhost'
+
 role :web, "bearclaw.in.opengovernment.org"
 role :app, "bearclaw.in.opengovernment.org"
 role :db,  "bearclaw.in.opengovernment.org", :primary => true

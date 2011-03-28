@@ -9,9 +9,7 @@ class IssuesController < SubdomainController
       @issues = ActsAsTaggableOn::Tag.all
       format.js do
         @issues = case params[:sort]
-          when "name"
-            ActsAsTaggableOn::Tag.order("name asc")
-          when "bills"
+          when "name", "bills"
             ActsAsTaggableOn::Tag.order("name asc")
           when "views"
             ActsAsTaggableOn::Tag.find(Page.most_viewed('Issue').collect(&:og_object_id))

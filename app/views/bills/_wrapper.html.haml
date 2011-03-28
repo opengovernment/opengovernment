@@ -2,7 +2,8 @@
 
 %h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : ''}
   %span.state-and-chamber
-    = "#{@bill.state.name} #{@bill.chamber.name} #{t('bills.show.bill')} "
+    = "#{@bill.state.name} #{@bill.chamber.name}"
+    = t 'bills.show.bill'
   %span{:class => @bill.title.length > 300 ? 'long_bill_title' : ''}
     = "#{@bill.bill_number}:"
     = @bill.title

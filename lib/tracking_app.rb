@@ -31,10 +31,10 @@ class TrackingApp
         page ||= Page.create({
           :countable_id => @request.params['object_id'],
           :countable_type => @request.params['object_type'],
-          :url => @request.params['u'],
-          :subdomain => @request.host.split('.').try(:first)
+          :url => @request.params['u']
         })
 
+        page.subdomain = @request.host.split('.').try(:first)
         page.mark_hit
       end
     else

@@ -130,10 +130,11 @@ en:
       tweets_about: "Tweets about %{bill_number}"
       intro: |
         Here are the social media mentions found for this bill at this time. This includes Tweets with hashtags %{search_term}.<br><br>
-        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores or similarly-numbered bills from other geographic locations -- so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions of this bill from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
+        We've done our best to optimize our Twitter search processes for this bill title, but occasionally even our state-of-the-art search robots bring in irrelevant Tweets, such as sports scores or similarly-numbered bills from other geographic locations&mdash;so if you see irrelevant Tweets below, please disregard them. Coming soon, we'll bring in mentions of this bill from other closed social media services like Facebook, open ones like Identi.ca and Diaspora, and more.
       no_mentions: "Well, no social media mentions found for this bill at this time. But you can be the first to let the open Web know that you're following this bill."
       click_tweet_this: "Click the 'Tweet this' button to generate an update, hit publish, and your Tweet should appear here in a few minutes if you refresh the page."
-      theres_more_to_do: "There's lots more to do to make our government more open and improve our data sources for the public benefit-- read more about <a href=\"/pages/help\">how you can help</a>."
+      theres_more_to_do: |
+        There's lots more to do to make our government more open and improve our data sources for the public benefit&mdash;read more about <a href="/pages/help">how you can help</a>.
     sponsors:
       all_sponsors_of: "All Sponsors of %{bill_number}"
     track:
@@ -151,7 +152,7 @@ en:
       author_name:   'OpenGovernment'
       author_uri:    'http://opengovernment.org'
     show:
-      bill          Bill
+      bill:          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
       status:      'Bill Status'

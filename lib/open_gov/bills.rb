@@ -129,7 +129,6 @@ module OpenGov
           @bill.citations.destroy_all
           @bill.versions.destroy_all
           @bill.documents.destroy_all
-          @bill.votes.destroy_all
           @bill.subjects.destroy_all
         end
 
@@ -202,7 +201,17 @@ module OpenGov
           end
         end
 
+        # In case votes were deleted upstream, delete all existing
+        # votes that aren't part of the new record.
+        unless @bill.new_record?
+          current_vote_ids = @bill.votes.collect {|v| v.openstates_id }
+          importing_vote_ids = bill.votes.collect {|v| v.vote_id }
+          removed_vote_ids = current_vote_ids - importing_vote_ids
+          Vote.delete_all(:openstates_id => removed_vote_ids) unless removed_vote_ids.empty?
+        end
+
         bill.votes.each do |vote|
+          
           v = Vote.find_or_create_by_openstates_id(vote.vote_id)
 
           v.attributes = {
