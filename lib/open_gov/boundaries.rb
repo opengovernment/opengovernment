@@ -113,7 +113,7 @@ module OpenGov
       end
     end
 
-    def import_districts(shpfile)
+    def import_districts_from(shpfile)
       puts "Inserting shapefile #{File.basename(shpfile)}"
       OpenGov::Shapefile.process(shpfile, :drop_table => true)
 
