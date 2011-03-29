@@ -1,14 +1,4 @@
-- if request.xhr?
-  %h2
-    = t '.members_of'
-    = @state.name
-    = link_to("#{@committee.type_fm} #{@committee.name}", committee_path(:id => @committee))
-- else
-  %h2 
-    = t '.members_of'
-    = @state.name
-    = @committee.type_fm
-    = @committee.name
+= title(t('.members_of', :state => @state.name, :committee => link_to(@committee.name, committee_path(:id => @committee))))
 
 %hr
 
@@ -24,7 +14,7 @@
           = succeed ',' do
             = membership.full_name
           = membership.role.titleize
-      
+
 -#  .grid_6.omega
 -#    %h2 Basic Info
 -#    %p

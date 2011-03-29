@@ -9,7 +9,7 @@ padding: 20px 0;
   
 
 .home.home .main{
-  background: url(../../../images/header.jpg) 0px 0px no-repeat;
+  background: url(../images/header.jpg) 0px 0px no-repeat;
 }
 
 .home.home #find_my_rep {
@@ -113,7 +113,7 @@ margin-top: 1px;
   font-size: 11px;
   text-shadow: #d5ebef 0px 1px 0px;
   text-decoration: none;
-  background: url(../../../images/sprites.png) 12px -218px no-repeat;
+  background: url(../images/sprites.png) 12px -218px no-repeat;
   
   
   }
@@ -138,8 +138,8 @@ margin: 0 20px 0 0 !important;
 float: left;
 width: 100px !important;
 
-  background: url(../../../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
-  background: url(../../../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #ddd,  #efefef);
+  background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+  background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #ddd,  #efefef);
 
   }
   
@@ -152,8 +152,8 @@ margin: 0 20px 0 0 !important;
 float: left;
 width: 100px !important;
 
-  background: url(../../../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); 
-  background: url(../../../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
+  background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); 
+  background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
 
   }
   
@@ -214,5 +214,5 @@ width: 100px !important;
   height: 18px;
   right: 258px;
   top: 22px;
-  background: url(../../../images/location_spinner.gif) no-repeat;
+  background: url(../images/location_spinner.gif) no-repeat;
   }

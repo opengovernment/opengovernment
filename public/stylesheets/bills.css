@@ -24,7 +24,7 @@ padding-bottom: 35px;
 .bills .intro div{
 width: 200px;
 height: 300px;
-  background: url(../../../images/intros/bills.png) 0px 0px no-repeat;
+  background: url(../images/intros/bills.png) 0px 0px no-repeat;
   }
 
 
@@ -82,7 +82,7 @@ color: #111;
   padding: 4px 15px 1px 15px;
   font-size: 11px;
 text-decoration: none;
-  background: url(../../../images/status_right.png) right -2px no-repeat;
+  background: url(../images/status_right.png) right -2px no-repeat;
   }
 
 
@@ -297,7 +297,7 @@ opacity: .5;
 padding-top: 2px;
 color: #222;
 padding-left: 30px;
-background: url(../../../images/sprites.png) 10px -173px no-repeat;
+background: url(../images/sprites.png) 10px -173px no-repeat;
 }
 
 
@@ -497,7 +497,7 @@ padding-top: 9px;
 
 .sponsor_mugs a:hover img{
   opacity: 1;
-  background: url(../../../images/man.png) center no-repeat;
+  background: url(../images/man.png) center no-repeat;
   }
 
 .sponsor_mugs img{
@@ -508,7 +508,7 @@ width: 25px !important;
 height: 25px !important;
 display: block;
 margin-bottom: 2px;
-  background: url(../../../images/man.png) center no-repeat;
+  background: url(../images/man.png) center no-repeat;
   }
 
 

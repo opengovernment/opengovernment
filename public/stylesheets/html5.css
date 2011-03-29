@@ -12,7 +12,7 @@ body{
   margin: 0;
   padding: 20px 0 40px;
 background: #ddd;
-  background: url(../../../images/bg.png) repeat-x, url(../../../images/bg.gif);
+  background: url(../images/bg.png) repeat-x, url(../images/bg.gif);
   font-size:12px;
   color:#222;
   line-height: 1.3em;

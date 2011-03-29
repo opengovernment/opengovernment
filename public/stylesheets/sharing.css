@@ -111,61 +111,61 @@ position: absolute;
 }
 
 .share .twitter a {
-  background: url(../../../images/share.png) no-repeat -30px top;
+  background: url(../images/share.png) no-repeat -30px top;
   margin: 0 !important;
 }
 
 .share .twitter a:hover {
-  background: url(../../../images/share.png) no-repeat -30px -30px;
+  background: url(../images/share.png) no-repeat -30px -30px;
 }
 
 .share .reddit a {
-  background: url(../../../images/share.png) no-repeat -305px top;
+  background: url(../images/share.png) no-repeat -305px top;
 }
 
 .share .reddit a:hover {
-  background: url(../../../images/share.png) no-repeat -305px -30px;
+  background: url(../images/share.png) no-repeat -305px -30px;
 }
 
 .share .digg a {
 display: none;
-  background: url(../../../images/share.png) no-repeat -90px top;
+  background: url(../images/share.png) no-repeat -90px top;
 }
 
 .share .digg a:hover {
-  background: url(../../../images/share.png) no-repeat -90px -30px;
+  background: url(../images/share.png) no-repeat -90px -30px;
 }
 
 .share .buzz a {
-  background: url(../../../images/share.png) no-repeat -211px top;
+  background: url(../images/share.png) no-repeat -211px top;
 }
 
 .share .buzz a:hover {
-  background: url(../../../images/share.png) no-repeat -211px -30px;
+  background: url(../images/share.png) no-repeat -211px -30px;
 }
 
 .share .linkedin a {
-  background: url(../../../images/share.png) no-repeat -273px top;
+  background: url(../images/share.png) no-repeat -273px top;
 }
 
 .share .linkedin a:hover {
-  background: url(../../../images/share.png) no-repeat -273px -30px;
+  background: url(../images/share.png) no-repeat -273px -30px;
 }
 
 .share .delicious a {
-  background: url(../../../images/share.png) no-repeat -119px top;
+  background: url(../images/share.png) no-repeat -119px top;
 }
 
 .share .delicious a:hover {
-  background: url(../../../images/share.png) no-repeat -119px -30px;
+  background: url(../images/share.png) no-repeat -119px -30px;
 }
 
 .share .stumble a {
-  background: url(../../../images/share.png) no-repeat -150px top;
+  background: url(../images/share.png) no-repeat -150px top;
 }
 
 .share .stumble a:hover {
-  background: url(../../../images/share.png) no-repeat -150px -30px;
+  background: url(../images/share.png) no-repeat -150px -30px;
 }
 
 
@@ -202,7 +202,7 @@ float: left;
 
 
 .track_buttons h4 span{
-background: url(../../../images/track_write.png) no-repeat 7px -25px;
+background: url(../images/track_write.png) no-repeat 7px -25px;
 padding-left: 24px !important;
 }
 
@@ -212,7 +212,7 @@ padding-left: 24px !important;
   float: left !important;
   padding-left: 30px;
 padding-bottom: 3px;
-  background: url(../../../images/share.png) no-repeat -495px 0px;
+  background: url(../images/share.png) no-repeat -495px 0px;
   margin: 0px 20px 6px 0;
   text-decoration: none !important;
   }
@@ -230,7 +230,7 @@ li.email a span.icon{
   height: 23px;
   margin-right: 5px;
   float: left;
-  background: url(../../../images/share.png) no-repeat -63px 0px;
+  background: url(../images/share.png) no-repeat -63px 0px;
   }
 
 
@@ -267,7 +267,7 @@ padding: 10px 30px 0 0;
 
 
 /* .write_buttons .email a{
-background: url(../../../images/share.png) no-repeat -63px 0px;
+background: url(../images/share.png) no-repeat -63px 0px;
 }
 
 
@@ -375,12 +375,12 @@ overflow: hidden;
 }
 
 .support span{
-background: url(../../../images/sprites.png) 9px -354px no-repeat;
+background: url(../images/sprites.png) 9px -354px no-repeat;
 }
 
 
 .oppose span{
-background: url(../../../images/sprites.png) 9px -391px no-repeat;
+background: url(../images/sprites.png) 9px -391px no-repeat;
 }
 
 

@@ -36,7 +36,7 @@ z-index: 100000;
 
 
   .tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
-  .tipsy-arrow { position: absolute; background: url('../../../images/tipsy.png') no-repeat top left;
+  .tipsy-arrow { position: absolute; background: url('../images/tipsy.png') no-repeat top left;
  width:13px; height: 8px; 
 
 }
