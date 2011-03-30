@@ -180,27 +180,43 @@ ul.breadcrumb li span.subhover
 
 
 li.topnav .dropdown{
-  background: url(../images/sprites.png) -7px -314px no-repeat;
+  background: url(../images/sprites.png) 100px -314px no-repeat;
   position: absolute;
   z-index: 9999999;
-  top: -1px;
+  top: -2px;
+font-size: 13px;
   margin: 0 !important;
-  padding: 0 !important;
-  height: 20px !important;
-  width: 20px !important;
+  padding: 5px 10px !important;
+  width: 130px !important;
+
   border: 1px solid #bbb;
-  -moz-border-radius: 3px !important;
+
+
+  border-radius:3px;
+  text-shadow: 0 1px 0px #fff;
+  
+  -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius:3px;
+  
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #666;
+  
+  
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+  background: url(../images/sprites.png) 120px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
+  background: url(../images/sprites.png) 120px -311px no-repeat, -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
+ 
   }
 
 
-
-
-
 .topnav .dropdown:hover{
-  background: url(../images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
-  background: url(../images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
+  background: url(../images/sprites.png) 120px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
+  background: url(../images/sprites.png) 120px -311px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
   border: 1px solid #aaa !important;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
@@ -212,9 +228,8 @@ li.topnav .dropdown{
 
 
 li.topnav .dropdown.subhover{
-  background: url(../images/sprites.png) -7px -314px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
-
-  background: url(../images/sprites.png) -7px -314px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
+  background: url(../images/sprites.png) 120px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
+  background: url(../images/sprites.png) 120px -311px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
   border: 1px solid #999 !important;
 border-bottom: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
@@ -250,8 +265,7 @@ z-index: 100;
 .current_session{
 position: relative;
 z-index: 100;
-  background: url(../images/side.png) repeat;
-margin: 0 0 0  -26px;
+margin: 0 0 0  -10px;
 width: 200px;
 
 padding: 5px 10px 5px 15px;
@@ -266,7 +280,7 @@ padding-bottom: 20px;
 }
 
 
-.content .grid_4 .dropdown{
+.content .grid_4 .dropdown{/*
 height: 27px;
 width: 220px;
 display: block;
@@ -274,15 +288,15 @@ position: absolute;
 top: 0;
 left: 0;
   background: url(../images/sprites.png) 190px -312px no-repeat;
+*/
 }
 
 
 
 
 .session-select{
-display: none;
 padding: 0 !important;
-margin: 0 0 0 -25px !important;
+margin: 0 0 0 -10px !important;
 
 width: 224px;
 }
