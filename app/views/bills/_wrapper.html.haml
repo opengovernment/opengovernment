@@ -1,10 +1,14 @@
 - embed_disqus("bill-#{@bill.long_id}")
 
-%h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : ''}
+- if @bill.votesmart_key_vote?
+  %span.vote_smart_keyvote
+    This is a Votesmart Key Vote!
+
+%h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : nil}
   %span.state-and-chamber
     = "#{@bill.state.name} #{@bill.chamber.name}"
     = t 'bills.show.bill'
-  %span{:class => @bill.title.length > 300 ? 'long_bill_title' : ''}
+  %span{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}
     = "#{@bill.bill_number}:"
     = @bill.title
 
