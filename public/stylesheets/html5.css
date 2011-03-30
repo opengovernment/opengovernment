@@ -97,12 +97,13 @@ th{
   padding: 0px 0px 10px 0px;
   border-bottom: 1px solid #f9f9f9;
   text-align: left;
-  }
+display: none;  
+}
 
 
 td{
   min-width: 100px;
-  padding: 7px 20px 7px 0 !important;
+  padding: 6px 20px 6px 0 !important;
   vertical-align: top;
   }
 

@@ -41,7 +41,7 @@
 
   %hr
 
-  .grid_4.alpha
+  .grid_3.alpha
     %h2= t '.bill_text' 
     - if @bill.versions.any?
       %ul.lined
@@ -60,7 +60,7 @@
 
 
 
-  .grid_4
+  .grid_5
     %h2= t '.subject_areas'
     - if @bill.subjects.any?
       %ul.lined
@@ -91,7 +91,6 @@
 
     = link_to(raw("#{t('.votes', :count => @votes.size)} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more')
 
-.space
 
 .grid_12.alpha
 

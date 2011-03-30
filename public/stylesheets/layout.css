@@ -5,14 +5,16 @@
 ///////////////////////////*/
 
 #left_nav {
-margin-left: -26px;
+margin-left: -21px;
 width: 226px;
 overflow: hidden;
 letter-spacing: .03em;
 }
+
 #left_nav ul {
 margin: 0
 }
+
 #left_nav ul li {
 margin: 0;
 background: -webkit-gradient(linear, left top, left bottom, from(#ecf4f5), to(#e2ecee));
@@ -285,39 +287,30 @@ background: transparent url(../images/states.png) 0 -142px no-repeat !important
 .states.show.ca h1{
   background: url(../images/states.png) 38px 29px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: url(../images/states.png) 38px 29px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-margin-bottom: 30px;
 padding-left: 70px;
 }
 
 .states.show.la h1 {
   background: url(../images/states.png) 38px -31px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: url(../images/states.png) 38px -31px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-
-margin-bottom: 30px;
 padding-left: 70px;
 
 }
 .states.show.md h1 {
   background: url(../images/states.png) 38px -86px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: url(../images/states.png) 38px -86px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-
-margin-bottom: 30px;
 padding-left: 75px;
 
 }
 .states.show.tx h1 {
   background: url(../images/states.png) 38px -197px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: url(../images/states.png) 38px -197px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-
-margin-bottom: 30px;
 padding-left: 70px;
 
 }
 .states.show.wi h1 {
   background: url(../images/states.png) 0 -139px no-repeat !important, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: url(../images/states.png) 0 -139px no-repeat !important, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-
-margin-bottom: 30px;
 padding-left: 70px;
 }
 
@@ -503,7 +496,7 @@ font-size: 16px;
 margin-left: -20px;
 line-height: 1em;
 float: left;
-margin-top: -5px;
+margin-top: -2px;
 }
 #account strong a {
 padding: 25px 0 0 0px !important;
@@ -524,7 +517,7 @@ background: url(../images/opengovernment.png) 0px -42px no-repeat
 
 ///////////////////////////*/
 .content {
-clear: both
+padding-top: 30px;
 }
 .less_padding {
 padding: 0px 0
@@ -634,7 +627,7 @@ line-height: 2.5em;
 }
 .footer h4 {
 margin-top: 10px;
-line-height: 3em;
+line-height: 2em;
 border-bottom: 1px solid #d1dddd;
 color: #777;
 }
@@ -870,7 +863,7 @@ background: url(../images/large-states/texas.png) 12px 129px no-repeat;
 
 .tabs {
   float: left;
-  padding: 30px 0 0px 40px;
+  padding: 0px 0 0px 40px;
   margin: 0 0px 0 -39px;
   width: 725px;/*
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(215, 231, 234, .4)), to(rgba(191, 211, 214, .4))); 
