@@ -14,7 +14,7 @@
     %h4.pad 
       =t('.share_this')
       
-    = render 'shared/share_tools', :message => "Share", :title => t('im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
+    = render 'shared/share_tools', :message => "Share", :title => t('.im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
     %h4
       %span= t('bills.track.track')
     %ul.track_buttons
