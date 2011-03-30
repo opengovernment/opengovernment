@@ -13,9 +13,9 @@
     = render 'shared/find_my_rep_form', :narrow => true
 
 %ul.tabs.chamber_tabs
-  %li.senate= link_to @state.upper_chamber.name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')
+  %li.senate= link_to @state.upper_chamber.short_name, url_for(params.merge({:chamber => 'upper'})), :class => (@current_tab == :upper ? 'active' : '')
   %li.divider &#124;  
-  %li.house= link_to @state.lower_chamber.name, url_for(params.merge({:chamber => 'lower'})), :class => (@current_tab == :lower ? 'active' : '')
+  %li.house= link_to @state.lower_chamber.short_name, url_for(params.merge({:chamber => 'lower'})), :class => (@current_tab == :lower ? 'active' : '')
 
 .sort.grid_12.alpha
   %ul.people_sorts.sorts

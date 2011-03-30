@@ -14,10 +14,10 @@
     %a{:href => bills_path(@session, :sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
 
   %li.senate
-    %a{:href => upper_bills_path(@session, :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.name
+    %a{:href => upper_bills_path(@session, :sort => @sort), :class => (@current_tab == :upper ? 'active' : '')}= @state.upper_chamber.short_name
 
   %li.house
-    %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.name
+    %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.short_name
 
 .sort.grid_12.alpha
   %ul.sorts
