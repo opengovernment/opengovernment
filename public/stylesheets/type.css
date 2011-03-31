@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 overflow: visible;
 font-size: 23px;
-margin: 0 -11px 0 -11px;
+margin: 0 -22px 0 -34px;
 padding: 25px 0px 25px 36px;  
 position: relative;
 line-height: 1.2em;
@@ -19,10 +19,6 @@ border-bottom: 1px solid rgba(67, 67, 67, .2);
 }
 
 /* ------ delete ------ */
-
-.content h1 {
-display: none;
-}
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
 

@@ -360,7 +360,7 @@ padding-left: 0;
 .bill-mugs{
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #f9f9f9);
-margin: -30px 0 20px -34px;
+margin: 0px 0 20px -34px;
 width: 755px;
 border-bottom: 1px solid #ddd;
 padding: 0;
