@@ -1,3 +1,5 @@
+template_function: _.template
+
 stylesheets:
   common:
     - public/stylesheets/reset.css
@@ -32,7 +34,7 @@ stylesheets:
     - public/stylesheets/DV/components/*.css
     - public/stylesheets/DV/themes/plain.css
 
-  print:
+  viewer_print:
     - public/stylesheets/DV/print.css
 
 javascripts:
@@ -48,7 +50,7 @@ javascripts:
     - public/javascripts/bitly.js
 
   viewer:
-    - public/javascripts/DV/vendor/jquery-1.5.js
+    - public/javascripts/DV/vendor/jquery-1.5.1.js
     - public/javascripts/DV/vendor/jquery-ui-1.8.1.custom.min.js
     - public/javascripts/DV/vendor/underscore.js
     - public/javascripts/DV/vendor/jquery.acceptInput.js

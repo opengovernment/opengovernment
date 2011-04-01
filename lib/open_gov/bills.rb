@@ -171,17 +171,25 @@ module OpenGov
         @bill.save
 
         bill.versions.each do |version|
-          @bill.versions << BillVersion.new(
-            :name => version[:name],
-            :url => version[:url]
-          )
+          unless doc[:url].blank?
+            @bill.versions << BillDocument.new(
+              :name => version[:name],
+              :url => version[:url],
+              :publishd_at => Date.valid_date!(doc[:'+date']),
+              :document_type => 'document'
+            )
+          end
         end
 
         bill.documents.each do |doc|
-          @bill.documents << BillDocument.new(
-            :name => doc[:name],
-            :url => doc[:url]
-          )
+          unless doc[:url].blank?
+            @bill.documents << BillDocument.new(
+              :name => doc[:name],
+              :url => doc[:url],
+              :publishd_at => Date.valid_date!(doc[:'+date']),
+              :document_type => 'version'
+            )
+          end
         end
 
         # Same deal as with actions, above

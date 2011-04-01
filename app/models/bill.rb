@@ -7,8 +7,8 @@ class Bill < ActiveRecord::Base
 
   with_options :dependent => :destroy do |hm|
     hm.has_many :sponsorships, :class_name => 'BillSponsorship'
-    hm.has_many :versions, :class_name => 'BillVersion'
-    hm.has_many :documents, :class_name => 'BillDocument'
+    hm.has_many :versions, :class_name => 'BillDocument', :conditions => {:document_type => 'version'}
+    hm.has_many :documents, :class_name => 'BillDocument', :conditions => {:document_type => 'document'}
     hm.has_many :actions do
       def has_kind?(kind)
         exists?(["? in (actions.kind_one, actions.kind_two, actions.kind_three)", kind])
@@ -100,7 +100,7 @@ class Bill < ActiveRecord::Base
   def to_hashtags
     "##{State.find(state_id).abbrev.downcase}bill ##{bill_number.downcase.gsub(' ', '')}"
   end
-  
+
   def as_json(opts = {})
     opts = {
       :methods => [:views, :permalink],

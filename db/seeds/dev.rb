@@ -78,8 +78,9 @@ Factory.define :bill_hb10_signed, :class => Action do |f|
   f.association :bill, :factory => :hb10
 end
 
-Factory.define :bill_version_hb00010i, :class => BillVersion do |f|
-  f.name: 'HB00010I'
+Factory.define :bill_version_hb00010i, :class => BillDocument do |f|
+  f.name 'HB00010I'
   f.url 'ftp://ftp.legis.state.tx.us/bills/81R/billtext/html/house_bills/HB00001_HB00099/HB00010I.HTM'
   f.association :bill, :factory => hb10
+  f.type 'version'
 end

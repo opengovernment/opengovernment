@@ -105,17 +105,7 @@ module ApplicationHelper
       image_tag('missing.png', ops)
     end
   end
-  
-  # Use for bill versions and bill documents
-  def link_to_document(scrapeable)
-    if scrapeable.document?
-      link_to scrapeable.name, scrapeable.document.url
-    elsif !scrapeable.url.blank?
-      link_to scrapeable.name, scrapeable.url
-    else
-      scrapeable.name
-    end
-  end
+
   
   def embed_disqus(page_id)
     # Universal comment count code
