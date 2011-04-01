@@ -48,16 +48,7 @@
  
             %ul.breadcrumb
               %li.topnav
-                -#%a{:href => root_url(:subdomain => current_place_subdomain)}
-                  -#= current_place_name || t('site.select_state')
-                %a#dropdown{:class => 'dropdown', :href => '#'}
-                  Select State
 
-                .state-select
-                  %span.triangle
-                  %ul
-                    - State.loadable.each do |state|
-                      %li.state_name= link_to state.name, state_url(state)
             %span.beta Beta
             .hide
               - if current_user
@@ -86,8 +77,6 @@
               =h value
 
 
-      %h1 Titles should go here 
-
 
       - if content_for?(:content)
         -# :content can be yielded by nested templates eg. pages.html.haml
@@ -95,6 +84,15 @@
       - else
         = yield :before_left_nav
         .grid_4.nav-cont
+          -#%a{:href => root_url(:subdomain => current_place_subdomain)}
+          %a#dropdown{:class => 'dropdown', :href => '#'}
+            = current_place_name || t('site.select_state')
+
+          .state-select
+            %span.triangle
+            %ul
+              - State.loadable.each do |state|
+                %li.state_name= link_to state.name, state_url(state)
           - if !default_session?
             %p.prior_session #{current_session_name} session
           - else

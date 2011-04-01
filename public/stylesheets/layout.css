@@ -517,7 +517,7 @@ background: url(../images/opengovernment.png) 0px -42px no-repeat
 
 ///////////////////////////*/
 .content {
-padding-top: 30px;
+
 }
 .less_padding {
 padding: 0px 0
@@ -853,6 +853,12 @@ background: url(../images/large-states/texas.png) 12px 129px no-repeat;
   line-height: 1.7em;
   display: inline;
   }
+
+#bill_tabs .more {
+padding: 15px  15px 15px 0;  
+
+}
+
 
 
 #bill_tabs ul {
