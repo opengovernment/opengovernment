@@ -32,7 +32,7 @@
 }
 
 .DV-pages, .DV-paper {
-  background: #f5f6f7 url(../../../images/DV/embed/pagesbg.png);
+  background: #f5f6f7 url(../../../images/DV/embed/pagesbg.jpg);
 }
   .DV-paper {
     padding-top: 1px; /* needed to uncollapse the margin */
@@ -46,7 +46,9 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-
+.DV-privateLock {
+  cursor: default;
+}
 .DV-permalink {
   display: block;
   width: 16px; height: 16px;

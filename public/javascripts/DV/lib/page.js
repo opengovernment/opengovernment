@@ -25,7 +25,6 @@ DV.Page = function(viewer, argHash){
   this.pageNumber       = null;
   this.zoom             = 1;
   this.annotations      = [];
-  this.activeAnnotation = null;
 
   // optimizations
   var m = this.viewer.models;
@@ -183,7 +182,7 @@ DV.Page.prototype.loadImage = function(argHash) {
 
   // On image load, update the height for the page and initiate drawImage method to resize accordingly
   var pageModel       = this.model_pages;
-  var preloader       = this.viewer.$(new Image());
+  var preloader       = DV.jQuery(new Image);
   var me              = this;
 
   var lazyImageLoader = function(){
@@ -192,18 +191,18 @@ DV.Page.prototype.loadImage = function(argHash) {
       delete me.loadTimer;
     }
 
-    preloader.bind('load readystatechange',function(e){
-       if(this.complete || (this.readyState == 'complete' && e.type == 'readystatechange')){
-         if (preloader[0].src != me._currentSrc) return;
-         pageModel.updateHeight(preloader[0], me.index);
-         me.drawImage(preloader[0].src);
-         clearTimeout(me.loadTimer);
-         delete me.loadTimer;
-       }
+    preloader.bind('load readystatechange',function(e) {
+      if(this.complete || (this.readyState == 'complete' && e.type == 'readystatechange')){
+        if (preloader != me._currentLoader) return;
+        pageModel.updateHeight(preloader[0], me.index);
+        me.drawImage(preloader[0].src);
+        clearTimeout(me.loadTimer);
+        delete me.loadTimer;
+      }
     });
 
     var src = me.model_pages.imageURL(me.index);
-    me._currentSrc = src;
+    me._currentLoader = preloader;
     preloader[0].src = src;
   };
 

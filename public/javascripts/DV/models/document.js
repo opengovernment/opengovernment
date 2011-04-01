@@ -90,6 +90,9 @@ DV.model.Document.prototype = {
       totalDocHeight                    += (pageHeight + this.additionalPaddingOnPage);
     }
 
+    // Add the sum of the page note heights to the total document height.
+    totalDocHeight += adjustedOffset;
+
     // artificially set the scrollbar height
     if(totalDocHeight != this.totalDocumentHeight){
       diff = (this.totalDocumentHeight != 0) ? diff : totalDocHeight - this.totalDocumentHeight;

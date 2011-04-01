@@ -60,6 +60,7 @@ DV.model.Pages.prototype = {
   // Resize or zoom the pages width and height.
   resize : function(zoomLevel) {
     var padding = this.viewer.models.pages.DEFAULT_PADDING;
+
     if (zoomLevel) {
       if (zoomLevel == this.zoomLevel) return;
       var previousFactor  = this.zoomFactor();

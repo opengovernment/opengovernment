@@ -112,3 +112,7 @@
 .DV-pages.DV-hide-sidebar {
   right: 0;
 }
+
+.DV-interface {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+}

@@ -80,6 +80,7 @@ DV.Schema.helpers = {
       collection.delegate('.DV-showEdit','click', DV.jQuery.proxy(this.showAnnotationEdit, this));
       collection.delegate('.DV-cancelEdit','click', DV.jQuery.proxy(this.cancelAnnotationEdit, this));
       collection.delegate('.DV-saveAnnotation','click', DV.jQuery.proxy(this.saveAnnotation, this));
+      collection.delegate('.DV-saveAnnotationDraft','click', DV.jQuery.proxy(this.saveAnnotation, this));
       collection.delegate('.DV-deleteAnnotation','click', DV.jQuery.proxy(this.deleteAnnotation, this));
       collection.delegate('.DV-pageNumber', 'click', _.bind(this.permalinkPage, this, 'document'));
       collection.delegate('.DV-textCurrentPage', 'click', _.bind(this.permalinkPage, this, 'text'));
@@ -288,7 +289,7 @@ DV.Schema.helpers = {
 
     openFullScreen : function() {
       var doc = this.viewer.schema.document;
-      window.open(doc.canonicalURL, doc.title, "toolbar=no,resizable=yes,scrollbars=no,status=no");
+      window.open(doc.canonicalURL, "documentviewer", "toolbar=no,resizable=yes,scrollbars=no,status=no");
     },
 
     // Determine the correct DOM page ordering for a given page index.
@@ -312,37 +313,38 @@ DV.Schema.helpers = {
       }
     },
 
-    setWindowSize: function(windowDimensions){
-        var viewer          = this.viewer;
-        var elements        = this.elements;
-        var headerHeight    = elements.header.outerHeight() + 15;
-        var offset          = DV.jQuery(this.viewer.options.container).offset().top;
-        var uiHeight        = Math.round((windowDimensions.height) - headerHeight - offset);
+    // TODO: This function is not currently being called. Candidate for removal.
 
-        // doc window
-        elements.window.css({ height: uiHeight, width: windowDimensions.width-267 });
-
-        // well
-        elements.well.css( { height: uiHeight });
-
-        // store this for later
-        viewer.windowDimensions = windowDimensions;
-    },
+    // setWindowSize: function(windowDimensions){
+    //   var viewer          = this.viewer;
+    //   var elements        = this.elements;
+    //   var headerHeight    = elements.header.outerHeight() + 15;
+    //   var offset          = DV.jQuery(this.viewer.options.container).offset().top;
+    //   var uiHeight        = Math.round((windowDimensions.height) - headerHeight - offset);
+    //
+    //   // doc window
+    //   elements.window.css({ height: uiHeight, width: windowDimensions.width-267 });
+    //
+    //   // well
+    //   elements.well.css( { height: uiHeight });
+    //
+    //   // store this for later
+    //   viewer.windowDimensions = windowDimensions;
+    // },
 
     toggleContent: function(toggleClassName){
       this.elements.viewer.removeClass('DV-viewText DV-viewSearch DV-viewDocument DV-viewAnnotations DV-viewThumbnails').addClass('DV-'+toggleClassName);
     },
 
-    jump: function(pageIndex, modifier,forceRedraw){
+    jump: function(pageIndex, modifier, forceRedraw){
       modifier = (modifier) ? parseInt(modifier, 10) : 0;
-      var position = this.models.document.getOffset(parseInt(pageIndex, 10))+modifier;
+      var position = this.models.document.getOffset(parseInt(pageIndex, 10)) + modifier;
       this.elements.window.scrollTop(position);
       this.models.document.setPageIndex(pageIndex);
       if (forceRedraw) this.viewer.pageSet.redraw(true);
       if (this.viewer.state === 'ViewThumbnails') {
         this.viewer.thumbnails.highlightCurrentPage();
       }
-
     },
 
     shift: function(argHash){

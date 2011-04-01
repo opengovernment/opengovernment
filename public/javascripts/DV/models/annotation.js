@@ -1,6 +1,6 @@
 DV.model.Annotations = function(viewer) {
   this.LEFT_MARGIN              = 25;
-  this.PAGE_NOTE_FUDGE          = 26;
+  this.PAGE_NOTE_FUDGE          = window.dc && dc.account && (dc.account.isOwner || dc.account.isReviewer) ? 46 : 26;
   this.viewer                   = viewer;
   this.offsetsAdjustments       = [];
   this.offsetAdjustmentSum      = 0;
@@ -34,8 +34,11 @@ DV.model.Annotations.prototype = {
       adata.top                   = y1 - 5;
     }
 
+    adata.owns_note               = adata.owns_note || false;
     adata.width                   = pageModel.width;
     adata.pageNumber              = adata.page;
+    adata.author                  = adata.author || "";
+    adata.author_organization     = adata.author_organization || "";
     adata.bgWidth                 = adata.width;
     adata.bWidth                  = adata.width - 66;
     adata.excerptWidth            = (x2 - x1) - 9;
@@ -52,6 +55,10 @@ DV.model.Annotations.prototype = {
     adata.regionHeight            = y2 - y1;
     adata.excerptDSHeight         = adata.excerptHeight - 6;
     adata.DSOffset                = 3;
+
+    if (adata.access == 'public')         adata.accessClass = 'DV-accessPublic';
+    else if (adata.access =='exclusive')  adata.accessClass = 'DV-accessExclusive';
+    else if (adata.access =='private')    adata.accessClass = 'DV-accessPrivate';
 
     adata.orderClass = '';
     adata.options = this.viewer.options;
@@ -99,12 +106,8 @@ DV.model.Annotations.prototype = {
   // The document and list views.
   refreshAnnotation : function(anno) {
     var viewer = this.viewer;
-    DV.jQuery('#DV-annotation-' + anno.id + ', #DV-listAnnotation-' + anno.id).each(function() {
-      viewer.$('.DV-annotationTitleInput', this).val(anno.title);
-      viewer.$('.DV-annotationTitle', this).text(anno.title);
-      viewer.$('.DV-annotationTextArea', this).val(anno.text);
-      viewer.$('.DV-annotationBody', this).html(anno.text);
-    });
+    anno.html = this.render(anno);
+    DV.jQuery.$('#DV-annotation-' + anno.id).replaceWith(anno.html);
   },
 
   // Removes a given annotation from the Annotations model (and DOM).

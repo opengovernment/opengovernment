@@ -12,7 +12,6 @@ DV.DragReporter = function(viewer, toWatch, dispatcher, argHash) {
   this.boundReporter          = _.bind(this.mouseMoveReporter,this);
   this.boundMouseUpReporter   = _.bind(this.mouseUpReporter,this);
   this.boundMouseDownReporter = _.bind(this.mouseDownReporter,this);
-  this.boundEase              = _.bind(this.boundEase,this);
 
   this.setBinding();
 };

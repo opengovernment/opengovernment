@@ -1,4 +1,4 @@
-.DV-docViewer .clearfix:after {
+.DV-docViewer .DV-clearfix:after {
     content: ".";
     display: block;
     height: 0;
@@ -6,11 +6,11 @@
     visibility: hidden;
 }
 
-.DV-docViewer .clearfix {display: inline-block;}
+.DV-docViewer .DV-clearfix {display: inline-block;}
 
 /* Hides from IE-mac \*/
-* html .DV-docViewer .clearfix {height: 1%;}
-.DV-docViewer .clearfix {display: block;}
+* html .DV-docViewer .DV-clearfix {height: 1%;}
+.DV-docViewer .DV-clearfix {display: block;}
 /* End hide from IE-mac */  
 
 .DV-docViewer a,

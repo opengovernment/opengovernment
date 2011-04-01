@@ -15,7 +15,7 @@ _.extend(DV.Schema.helpers, {
     var footerHTML = JST.footer({options : this.viewer.options});
 
     var pdfURL   = doc.resources.pdf;
-    pdfURL       = pdfURL ? '<a target="_blank" href="' + pdfURL + '">Original Document (PDF)</a>' : '';
+    pdfURL       = pdfURL && this.viewer.options.pdf !== false ? '<a target="_blank" href="' + pdfURL + '">Original Document (PDF)</a>' : '';
 
     var viewerOptions = {
       options : this.viewer.options,
@@ -139,10 +139,14 @@ _.extend(DV.Schema.helpers, {
   // present, depending on what the document provides.
   renderComponents : function() {
     // Hide the overflow of the body, unless we're positioned.
-    var position = DV.jQuery(this.viewer.options.container).css('position');
+    var containerEl = DV.jQuery(this.viewer.options.container);
+    var position = containerEl.css('position');
     if (position != 'relative' && position != 'absolute' && !this.viewer.options.fixedSize) {
-      DV.jQuery(document.body).css({overflow : 'hidden'});
-      this.viewer.elements.viewer.css({border: 0});
+      DV.jQuery("html, body").css({overflow : 'hidden'});
+      // Hide the border, if we're a full-screen viewer in the body tag.
+      if (containerEl.offset().top == 0) {
+        this.viewer.elements.viewer.css({border: 0});
+      }
     }
 
     // Hide annotations, if there are none:
@@ -155,7 +159,7 @@ _.extend(DV.Schema.helpers, {
       this.viewer.$('.DV-textView').hide();
     } else if (!this.viewer.options.width || this.viewer.options.width >= 540) {
       this.elements.viewer.addClass('DV-searchable');
-      this.viewer.$('input.DV-searchInput', this.viewer.options.container).placeholder({
+      this.viewer.$('input.DV-searchInput', containerEl).placeholder({
         message: 'Search',
         clearClassName: 'DV-searchInput-show-search-cancel'
       });

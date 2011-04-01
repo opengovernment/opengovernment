@@ -80,14 +80,30 @@ DV.DocumentViewer.prototype.open = function(state) {
   var continuation = _.bind(function() {
     this.state = state;
     this.states[state].apply(this, arguments);
+    this.slapIE();
     this.notifyChangedState();
     return true;
   }, this);
   this.confirmStateChange ? this.confirmStateChange(continuation) : continuation();
 };
 
+DV.DocumentViewer.prototype.slapIE = function() {
+  DV.jQuery(this.options.container).css({zoom: 0.99}).css({zoom: 1});
+};
+
 DV.DocumentViewer.prototype.notifyChangedState = function() {
   _.each(this.onStateChangeCallbacks, function(c) { c(); });
+};
+
+// Record a hit on this document viewer.
+DV.DocumentViewer.prototype.recordHit = function(hitUrl) {
+  var loc = window.location;
+  var url = loc.protocol + '//' + loc.host + loc.pathname + loc.search;
+  if (url.match(/^file:/)) return false;
+  url = url.replace(/[\/]+$/, '');
+  var id  = parseInt(this.api.getId(), 10);
+  var key = encodeURIComponent(id + ':' + url);
+  DV.jQuery(document.body).append('<img alt="" width="1" height="1" src="' + hitUrl + '?key=' + key + '" />');
 };
 
 // jQuery object, scoped to this viewer's container.
@@ -119,6 +135,7 @@ DV.load = function(documentRep, options) {
       viewer.open('InitialLoad');
       if (options.afterLoad) options.afterLoad(viewer);
       if (DV.afterLoad) DV.afterLoad(viewer);
+      if (DV.recordHit) viewer.recordHit(DV.recordHit);
     });
   };
 

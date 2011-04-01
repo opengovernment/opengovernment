@@ -1,11 +1,3 @@
-.DV-viewSearch .DV-pages{
-  background-color:#999;
-}
-
-.DV-viewSearch .DV-textPage{
-  background-color:#eee;
-}
-
 .DV-viewSearch .DV-pageCollection{
   cursor: text;
 }
@@ -45,11 +37,6 @@
 
 .DV-viewSearch .DV-sidebar .DV-well .DV-chaptersContainer div.DV-hasChildren div.DV-first span.DV-trigger{
   margin-left:-1px;
-}
-
-.DV-viewSearch .DV-textContents,
-.DV-viewSearch .DV-textPage{
-  background-color:#c5c5c5;
 }
 
 .DV-viewSearch .DV-annotationMarker,

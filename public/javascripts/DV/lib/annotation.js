@@ -80,7 +80,6 @@ DV.Annotation.prototype.show = function(argHash) {
 
   this.annotationEl.find('div.DV-annotationBG').css({ display: 'block', opacity: 1 });
   this.annotationEl.addClass('DV-activeAnnotation');
-  this.page.activeAnnotation          = this;
   this.viewer.activeAnnotation   = this;
 
   // Enable annotation tracking to ensure the active state hides on scroll
@@ -103,9 +102,7 @@ DV.Annotation.prototype.hide = function(forceOverlayHide){
     this.annotationEl.find('div.DV-annotationBG').css({ opacity: 0, display: 'none' });
   }
 
-  if (this.annotationEl.hasClass('DV-editing')) {
-    this.viewer.helpers.saveAnnotation({target : this.annotationEl}, 'onlyIfText');
-  }
+  var isEditing = this.annotationEl.hasClass('DV-editing');
 
   this.annotationEl.removeClass('DV-editing DV-activeAnnotation');
   if(forceOverlayHide === true){
@@ -116,25 +113,21 @@ DV.Annotation.prototype.hide = function(forceOverlayHide){
     this.hide.preventRemovalOfCoverClass = false;
   }
 
-  this.page.activeAnnotation         = null;
-  this.viewer.activeAnnotation  = null;
-
   // stop tracking this annotation
-  this.viewer.helpers.removeObserver('trackAnnotation');
+  this.viewer.activeAnnotation                = null;
+  this.viewer.events.trackAnnotation.h        = null;
+  this.viewer.events.trackAnnotation.id       = null;
+  this.viewer.events.trackAnnotation.combined = null;
+  this.active                                 = false;
   this.viewer.pageSet.setActiveAnnotation(null);
-  this.viewer.activeAnnotation     = null;
-  this.viewer.events.trackAnnotation.h         = null;
-  this.viewer.events.trackAnnotation.id        = null;
-  this.viewer.events.trackAnnotation.combined  = null;
-
-
+  this.viewer.helpers.removeObserver('trackAnnotation');
   this.viewer.helpers.setActiveAnnotationInNav();
-  this.active = false;
   this.pageEl.parent('.DV-set').removeClass('DV-activePage');
-  // this.viewer.history.save('document/p'+pageNumber);
-  // cleanup active state
   this.removeConnector(true);
 
+  if (isEditing) {
+    this.viewer.helpers.saveAnnotation({target : this.annotationEl}, 'onlyIfText');
+  }
 };
 
 // Toggle annotation
@@ -145,7 +138,6 @@ DV.Annotation.prototype.toggle = function(argHash){
 
   if (this.type === 'page') return;
 
-  var bg = this.annotationEl.find('div.DV-annotationBG');
   this.annotationEl.toggleClass('DV-activeAnnotation');
   if(this.active == true){
     this.hide(true);

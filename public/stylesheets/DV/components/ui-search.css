@@ -9,7 +9,7 @@
   line-height: 22px;
 }
 
-.DV-searchBox.clearfix {
+.DV-searchBox.DV-clearfix {
   position: absolute;
   right: 8px; top: 7px;
   display: none;
@@ -106,11 +106,11 @@
 }
 
 .DV-searchMatch{
-  background-color:#c7c7c7;
+  background-color:#f5f5e5;
   -moz-box-shadow: 0 1px 5px #999;
   -webkit-box-shadow: 0 1px 5px #999;
   padding: 1px;
-  border:1px solid #fff;
+  border:1px solid #ffa;
   color:#000;
 }
 
