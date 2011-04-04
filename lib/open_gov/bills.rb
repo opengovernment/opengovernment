@@ -127,7 +127,7 @@ module OpenGov
         # deleting them.
         unless @bill.new_record?
           @bill.actions.delete_all
-          @bill.sponsors.delete_all
+          @bill.sponsorships.delete_all
           @bill.citations.destroy_all
           @bill.subjects.destroy_all
         end
