@@ -9,7 +9,11 @@
 
 
 .grid_6.alpha
-  = render :partial => 'industry', :collection => @industries[0...@industries.size/2]
+  - @sectors.values[0...@sectors.size/2].each do |sector|
+    %h2= sector[0]
+    = render :partial => 'industry', :collection => sector[1]
 
 .grid_6.omega
-  = render :partial => 'industry', :collection => @industries[@industries.size/2..@industries.size]
+  - @sectors.values[@sectors.size/2..@sectors.size].each do |sector|
+    %h2= sector[0]
+    = render :partial => 'industry', :collection => sector[1]
