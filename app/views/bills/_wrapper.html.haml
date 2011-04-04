@@ -4,6 +4,11 @@
   %span.vote_smart_keyvote
     This is a Votesmart Key Vote!
 
+%ul.subject_areas
+  - @bill.subjects.each do |subject|
+    %li= link_to(subject.name, subject_path(@bill.session, subject))
+
+
 %h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : nil}
   %span.state-and-chamber
     = "#{@bill.state.name} #{@bill.chamber.name}"

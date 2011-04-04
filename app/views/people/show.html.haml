@@ -36,7 +36,7 @@
     - if @person.bio_data.blank?
       %p= t '.wikipedia_missing', :name => @person.full_name
     - else
-      = raw @person.bio_data
+      = raw truncate(@person.bio_data, :length => 400)
       %br
       = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
   

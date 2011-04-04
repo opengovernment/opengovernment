@@ -56,17 +56,6 @@
 
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
-
-
-  .grid_5
-    %h2= t '.subject_areas'
-    - if @bill.subjects.any?
-      %ul.lined
-        - @bill.subjects.each do |subject|
-          %li= link_to(subject.name, subject_path(@bill.session, subject))
-    - else
-      %p= t '.none'
-    
   
   
   %hr.space
