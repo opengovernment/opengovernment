@@ -26,4 +26,9 @@ _[Follow the instructions at the end of the above installation.]_
     brew install sphinx
     gem install bundler
 
+
+For DocumentCloud viewer support of bills (splitting the PDFs into images & text files), you will need the following additional brews:
+
+    ghostscript imagemagick gd jpeg tesseract graphicsmagick xpdf
+
 Proceed with "General Installation" from the README.

@@ -15,14 +15,6 @@ module ScrapedDocument
     self.document = do_download_file
   end
 
-  def document_download_job
-    if document_sync_queued?
-      sync_document
-      toggle(:document_sync_queued)
-      save!
-    end
-  end
-
   def refresh_document?
     !self.url.blank? && (self.url_changed? || !self.document?)
   end
@@ -31,7 +23,7 @@ module ScrapedDocument
     # Don't queue the job if we've already queued it.
     unless document_sync_queued?
       toggle(:document_sync_queued)
-      delay.document_download_job
+      Delayed::Job.enqueue(ScrapedDocumentJob.new(self.class, self.id))
     end
     return true
   end

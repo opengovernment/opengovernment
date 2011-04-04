@@ -83,7 +83,7 @@ module SplitDocument
 
   def queue_component_sync
     unless component_sync_queued?
-      self.class.find(id).delay.component_sync_job
+      Delayed::Job.enqueue(SplitDocumentJob.new(self.class, self.id))
       toggle!(:component_sync_queued)
     end
     true
@@ -122,16 +122,6 @@ module SplitDocument
     toggle!(:components_available) if components_available?
 
     return true
-  end
-
-  def component_sync_job
-    if component_sync_queued?
-      toggle!(:component_sync_queued)
-      if document? && document_content_type == 'application/pdf' && File.exists?(document.path)
-        sync_components
-        save!
-      end
-    end
   end
 
 end

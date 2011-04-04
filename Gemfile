@@ -79,7 +79,6 @@ gem 'SyslogLogger'
 group :development do
   gem 'silent-postgres'	# Quieter postgres log messages
   gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
-  gem 'wirble'		# IRB goodies; http://pablotron.org/software/wirble/ for install	
   gem 'hirb'
   gem 'awesome_print'
 end
