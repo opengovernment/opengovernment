@@ -214,7 +214,7 @@ class Person < ActiveRecord::Base
 
   # TODO: This is here to provide a permalink via the as_json response, but I think it's a bit hacky;
   # how can we do a better job here?
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
 
   def permalink
     person_path(self)
