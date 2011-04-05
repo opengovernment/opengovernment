@@ -109,7 +109,7 @@ class GovTrackImporter
       end
 
     if type == 'sen'
-      role.chamber = UpperChamber::US_SENATE
+      role.chamber = UpperChamber.us_senate
       role.senate_class = attrs['class'].try(:value)
       role.state = state
     elsif type == 'rep'

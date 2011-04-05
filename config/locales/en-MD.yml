@@ -48,8 +48,7 @@ en-MD:
  
   bills:
     index:
-      intro: |
-        Connect with bills in Maryland. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.
+      intro: 
       bill_list_empty: |
         The Maryland session began recently and there are no bills here yet. You may <a href="/sessions/2007-2010/bills">browse the previous session's bills instead</a> -- for example, bills <a href="http://md.opengovernment.org/sessions/2007-2010/bills?sort=mentions">most in the news</a>, or those rated as <a href="http://md.opengovernment.org/sessions/2007-2010/bills?sort=keyvotes">key votes</a> by Project VoteSmart. 
     videos: 
@@ -58,9 +57,7 @@ en-MD:
         
   people:
     index:
-      intro: |
-        Connect with senators and delegates in Maryland. We make members of the state legislature more accessible by combining their official government information with news coverage, campaign contribution data, and more. Member pages below offer free tools to track their legislative actions, share them over social media, and easily contact their offices.<br><br>
-        <em>(The next Maryland legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
+      intro: 
     videos: 
       index: 
         intro: | 
@@ -73,7 +70,4 @@ en-MD:
        
   money_trails:
     index:
-      intro: |
-       This page lists all publicly-available information about campaign contributions made to members of the Maryland state
-                 legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
-                 agencies with which candidates must file their campaign finance reports. Below we're showing two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of the state legislature.
+      intro: 

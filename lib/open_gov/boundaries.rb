@@ -147,7 +147,7 @@ module OpenGov
           legislature = state.legislature
         else
           # It's federal; so it's always congress.
-          legislature = Legislature::CONGRESS
+          legislature = Legislature.congress
         end
 
         if legislature

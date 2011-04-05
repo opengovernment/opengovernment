@@ -1,6 +1,6 @@
 module OpenGov
   class People < Resources
-    LEG_DIR = File.join(Settings.openstates_dir, "api", "legislators")
+    LEG_DIR = File.join(Settings.openstates_dir, "legislators")
 
     def import(options = {})
       State.loadable.each do |state|

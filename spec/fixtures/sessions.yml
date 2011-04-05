@@ -20,6 +20,12 @@ tx81x1:
   end_year: 2010
   legislature: tx
   parent: tx81
+tx81x2:
+  name: "81 special session 2"
+  start_year: 2009
+  end_year: 2010
+  legislature: tx
+  parent: tx81
 us111:
   name: "111th Congress"
   start_year: 2009

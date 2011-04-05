@@ -81,18 +81,19 @@ li.topnav a{
 /* State selector menu */
 .state-select{  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
-  left: -5px;  
+  left: -24px;  
   margin: 0;
   padding: 8px;  
   display: none;  
 
   width: 237px;  
-  top: 31px;
+  top: 27px;
+  z-index: 9999999;
   border: 1px solid #aaa;
   border-bottom: 1px solid #999;
   border-top: 1px solid #ccc;
 
-z-index: 99999999999 !important;
+z-index: 9999999999 !important;
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#efefef)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #eee,  #efefef); /* for firefox 3.6+ */
  
@@ -106,7 +107,7 @@ z-index: 99999999999 !important;
 
 .state-select:hover{  
 
-z-index: 99999999999 !important;
+z-index: 9999999999 !important;
 
   }
 
@@ -154,7 +155,6 @@ z-index: 99999999999 !important;
   background: #fff !important;
   width: 220px;  
   font-size: 12px;
-text-decoration: none;
   }
 
 
@@ -221,14 +221,13 @@ text-decoration: none;
 
 
 .dropdown.subhover{
-  background: url(../images/sprites.png) 190px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
-  background: url(../images/sprites.png) 190px -309px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
+  background: url(../images/sprites.png) 120px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
+  background: url(../images/sprites.png) 120px -311px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
   border: 1px solid #999 !important;
 border-bottom: 1px solid #ccc !important;
   -moz-border-radius: 3px !important;
   -webkit-border-radius: 3px;
   border-radius:3px;
-text-decoration: none;
   -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
   -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
   box-shadow:  0 1px 0px #eee, inset 0 1px 1px #aaa;
@@ -259,7 +258,7 @@ z-index: 100;
 .current_session{
 position: relative;
 z-index: 100;
-margin: 0 0 0 -20px;
+margin: 0 0 0  -10px;
 width: 200px;
 
 padding: 5px 10px 5px 15px;
@@ -273,25 +272,19 @@ float: right;
 padding-bottom: 20px;
 }
 
-
-.content .grid_4 .dropdown{
-/*
+.bar{
 height: 27px;
+line-height: 27px;
+margin-left: -5px;
 width: 220px;
 display: block;
-position: absolute;
-top: 0;
-left: 0;
-  background: url(../images/sprites.png) 190px -312px no-repeat;
-*/
 }
-
-
 
 
 .session-select{
 padding: 0 !important;
-margin: 0 0 0 10px !important;
+margin: 0 0 0 -10px !important;
+
 width: 224px;
 }
 
@@ -307,6 +300,7 @@ margin: 0;
 
 .session-select ul li a{
 display: block;
+padding: 3px 0 3px 20px;
   background: #dde9ea;
   border-bottom: 1px solid #b8cfd1;
 
@@ -316,6 +310,3 @@ display: block;
 a#session_dropdown.dropdown.subhover{
   background: url(../images/sprites.png) 190px -486px no-repeat;
 }
-
-
-

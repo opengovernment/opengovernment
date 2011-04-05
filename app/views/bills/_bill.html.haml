@@ -1,9 +1,10 @@
 %li[bill]
   != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
   
-  %span.small
-    Introduced on
-    != bill.first_action_at
+  - if bill.first_action_at
+    %span.small
+      Introduced on
+      != bill.first_action_at
   
   %span.long-title=content_tag(:span, truncate(bill.title, :length => 500))
   

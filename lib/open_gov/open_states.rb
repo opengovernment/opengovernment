@@ -12,8 +12,8 @@ module OpenGov
         Dir.chdir(Settings.openstates_dir)
 
         puts "---------- Downloading the OpenStates data for #{state.name}"
-        `rm -f api/{committees,legislators}/#{state.abbrev.upcase}*`
-        `rm -rf api/#{state.abbrev.downcase}`
+        `rm -f {committees,legislators,bills}/#{state.abbrev.upcase}*`
+        `rm -rf #{state.abbrev.downcase}`
 
         # If available from OpenStates, use the latest_dump_url and latest_dump_date.
         openstates_url = fs_state[:latest_dump_url]

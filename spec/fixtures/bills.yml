@@ -4,6 +4,8 @@ hb10:
   title: Relating to the regulation of residential mortgage loan originators; providing a penalty.
   updated_at: 2010-05-12 18:49:36.203056
   session: tx81
+  first_action_at: 2009-07-12 18:49:36.203056
+  last_action_at: 2011-04-08 18:49:36.203056
   bill_number: HB 10
   kind_one: "bill"
   openstates_id:
@@ -11,9 +13,11 @@ hb10:
 hb1000:
   created_at: 2010-05-10 23:26:12.896898
   chamber: txl
-  title: Relating to the amounts of certain residence homestead exemptions from ad valorem taxation and the adjustment of the amounts of those exemptions applicable to a homestead based on changes in the appraised value of the homestead.
+  title: This is a bill with a really long title. Relating to the amounts of certain residence homestead exemptions from ad valorem taxation and the adjustment of the amounts of those exemptions applicable to a homestead based on changes in the appraised value of the homestead. An invitation to dinner was soon afterwards dispatched; and already had Mrs. Bennet planned the courses that were to do credit to her housekeeping, when an answer arrived which deferred it all. Mr. Bingley was obliged to be in town the following day, and, consequently, unable to accept the honour of their invitation, etc. Mrs. Bennet was quite disconcerted. She could not imagine what business he could have in town so soon after his arrival in Hertfordshire; and she began to fear that he might be always flying about from one place to another, and never settled at Netherfield as he ought to be. Lady Lucas quieted her fears a little by starting the idea of his being gone to London only to get a large party for the ball; and a report soon followed that Mr. Bingley was to bring twelve ladies and seven gentlemen with him to the assembly. The girls grieved over such a number of ladies, but were comforted the day before the ball by hearing, that instead of twelve he brought only six with him from London. 
   updated_at: 2010-05-12 18:49:36.309626
   session: tx81x1
+  first_action_at: 2010-07-12 18:49:36.203056
+  last_action_at: 2011-04-01 18:49:36.203056
   kind_one: "bill"
   kind_two: "urgency"
   kind_three: "local program"
@@ -26,6 +30,8 @@ hb1001:
   chamber: txl
   title: Relating to limits on the size of public school classes in prekindergarten, kindergarten, and grades one through four.
   kind_one: "bill"
+  first_action_at: 2011-04-05 18:49:36.203056
+  last_action_at: 2011-04-06 18:49:36.203056
   updated_at: 2010-05-12 18:49:36.338261
   session: tx81
   bill_number: HB 1001
@@ -33,20 +39,24 @@ hb1001:
   state: tx
 hb1002:
   created_at: 2010-05-10 23:26:12.966621
-  chamber_id: txl
+  chamber: txl
   title: Relating to access by the members of electric cooperatives to meetings of the boards of directors and certain information of the electric cooperatives.
   updated_at: 2010-05-12 18:49:36.36844
   kind_one: "bill"
   session: tx81
+  first_action_at: 2011-04-05 18:49:36.203056
+  last_action_at: 2011-04-06 18:49:36.203056
   bill_number: HB 1002
   openstates_id:
   state: tx
 hb1003:
   created_at: 2010-05-10 23:26:13.009824
-  chamber_id: txl
+  chamber: txl
   title: Relating to notice provided to certain victims or witnesses regarding certain inmates or defendants who are electronically monitored.
   short_title: Relating to defendants who are electronically monitored
   updated_at: 2010-05-12 18:49:36.563682
+  first_action_at: 2011-04-05 18:49:36.203056
+  last_action_at: 2011-04-06 18:49:36.203056
   session: tx81x1
   kind_one: "bill"
   bill_number: HB1003
@@ -54,8 +64,10 @@ hb1003:
   state: tx
 hjr3:
   created_at: 2010-05-10 23:26:13.009824
-  chamber_id: txl
+  chamber: txl
   title: Relating to notice provided to certain victims or witnesses regarding certain inmates or defendants who are electronically monitored.
+  first_action_at: 2011-04-05 18:49:36.203056
+  last_action_at: 2011-04-06 18:49:36.203056
   updated_at: 2010-05-12 18:49:36.563682
   session: tx80
   kind_one: "joint resolution"

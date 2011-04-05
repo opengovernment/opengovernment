@@ -1,7 +1,5 @@
 module OpenGov
   class Bills < Resources
-    VOTES_DIR = File.join(Settings.openstates_dir, "api", "votes")
-
     def initialize
       # Cache all of the ids of people so we don't have to keep looking them up.
       @people = {}
@@ -23,7 +21,7 @@ module OpenGov
       if options[:remote]
         import_remote(state)
       else
-        state_dir = File.join(Settings.openstates_dir, "api", state.abbrev.downcase)
+        state_dir = File.join(Settings.openstates_dir, "bills", state.abbrev.downcase)
 
         unless File.exists?(state_dir)
           puts "Local Open State API data for #{state.name} is missing."
@@ -33,7 +31,7 @@ module OpenGov
         puts "\nLoading local Open State data for #{state.name}."
         state.sessions.each do |session|
           [GovKit::OpenStates::CHAMBER_LOWER, GovKit::OpenStates::CHAMBER_UPPER].each do |house|
-            bills_dir = File.join(state_dir, session.name, house, "bills")
+            bills_dir = File.join(state_dir, session.name, house)
             all_bills = File.join(bills_dir, "*")
             Dir.glob(all_bills).each_with_index do |file, i|
               if i % 10 == 0
