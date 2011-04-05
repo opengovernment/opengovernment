@@ -1,6 +1,6 @@
 module OpenGov
   class Committees < Resources  
-    COMMITTEE_DIR = File.join(Settings.openstates_dir, "api", "committees")
+    COMMITTEE_DIR = File.join(Settings.openstates_dir, "committees")
 
     def import(options = {})
       State.loadable.each do |state|
