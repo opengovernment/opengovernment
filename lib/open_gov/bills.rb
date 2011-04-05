@@ -43,7 +43,8 @@ module OpenGov
                 bill = GovKit::OpenStates::Bill.parse(JSON.parse(File.read(file)))
                 import_bill(bill, state, options)
               rescue ArgumentError => e
-                puts "Failed to parse bill #{file}: #{e}"
+                puts "Failed to import bill #{file}: #{e}"
+                puts e.backtrace
               end
             end
           end
@@ -96,7 +97,7 @@ module OpenGov
         @bill = Bill.find_or_initialize_by_session_id_and_bill_number(session.id, bill[:bill_id])
 
         # Identical bill contents; skip!
-        if !@bill.new_record? && @bill.openstates_md5sum == bill.to_md5
+        if !@bill.new_record? && (options[:remote] && @bill.openstates_md5sum == bill.to_md5)
           return
         end
 
@@ -105,7 +106,7 @@ module OpenGov
         @bill.alternate_titles = bill[:alternate_titles]
 
         @bill.openstates_updated_at = bill[:updated_at]
-        @bill.openstates_md5sum = bill.to_md5
+        @bill.openstates_md5sum = bill.to_md5 if options[:remote]
 
         # Exclude types 'bill'
         @bill_types = bill[:type] || []
@@ -225,7 +226,7 @@ module OpenGov
 
         # In case votes were deleted upstream, delete all existing
         # votes that aren't part of the new record.
-        unless @bill.new_record?
+        unless @bill.votes.empty?
           current_vote_ids = @bill.votes.collect {|v| v.openstates_id }
           importing_vote_ids = bill.votes.collect {|v| v.vote_id }
           removed_vote_ids = current_vote_ids - importing_vote_ids
@@ -233,7 +234,6 @@ module OpenGov
         end
 
         bill.votes.each do |vote|
-          
           v = Vote.find_or_create_by_openstates_id(vote.vote_id)
 
           v.attributes = {
@@ -249,13 +249,21 @@ module OpenGov
             :threshold => vote['+threshold'].try(:to_frac)
           }
 
+          # We will rebuild all roll calls.
+          v.roll_calls.delete_all unless v.new_record?
+
+          # Save the vote
           @bill.votes << v
 
+          # Now attach roll calls.
+          roll_calls = []
           ['yes', 'no', 'other'].each do |vote_type|
             vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
-              v.roll_calls.create(:vote_type => vote_type, :person_id => @people[rcall.leg_id.to_s]) if rcall.leg_id
+              roll_calls << RollCall.new(:vote_id => v.id, :vote_type => vote_type, :person_id => @people[rcall.leg_id.to_s]) if rcall.leg_id
             end
           end
+
+          RollCall.import(roll_calls) unless roll_calls.empty?
         end
 
       end # transaction
