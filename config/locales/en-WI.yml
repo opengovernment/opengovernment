@@ -53,8 +53,7 @@ en-WI:
     
   bills:
     index: 
-      intro: |
-        Connect with bills in Wisconsin. We make legislation more accessible by combining official government information with news coverage, blog posts, social media mentions, and more.<br><br>On bill pages below, you'll find free tools to track their status, share them with your community, and easily contact your elected officials. Click the buttons below to view bills in different ways - for example, by most-viewed.
+      intro: 
       bill_list_empty: |
         The Wisconsin session began recently and there are no bills here yet. You may <a href="http://wi.opengovernment.org/sessions/2009-2010">browse the previous session's bills instead</a> -- for example, those bills <a href="http://wi.opengovernment.org/sessions/2009-2010/bills?sort=mentions">most in the news</a> last year, or those rated <a href="http://wi.opengovernment.org/sessions/2009-2010/bills?sort=keyvotes">key votes</a> by Project VoteSmart.
     videos: 
@@ -63,9 +62,7 @@ en-WI:
         
   people: 
     index:
-      intro: |
-        Connect with senators and assemblymembers in Wisconsin. We combine their official government information with news coverage, blog posts, campaign contribution data, and social media mentions from around the Web. On people pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices.<br><br>
-        <em>(The next Wisconsin legislature will convene in January 2011, after which date new and returning members will appear here with continual updates of their latest actions.)</em>
+      intro: 
     videos: 
       intro: | 
         <em>Editorial note</em>: Wisconsin does fairly well in making video re: members of state government available on their site <a href="http://www.wiseye.org/legislature0910a.html" target="_blank">Wisconsin Eye</a>, although unfortunately the videos are published in the problematic Windows Media Format. While their site's web design compares favorably with those of the other four state legislatures in this beta version of OpenGovernment, the WI leg. still does not appear to make their video accessible in ways that are fully automatic (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format).        
@@ -77,10 +74,7 @@ en-WI:
 
   money_trails:
     index:
-      intro: |
-        This page lists all publicly-available information about campaign contributions made to members of the Wisconsin state
-                  legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
-                  agencies with which candidates must file their campaign finance reports. Below we're showing two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of the state legislature.
+      intro: 
     
     videos:
       miro_url: 'http://wiopengov.mirocommunity.org/'

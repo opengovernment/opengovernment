@@ -105,6 +105,9 @@ en:
     index:
       title:            'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
+      intro: |
+        This page displays all publicly-available information about campaign contributions made to members of the %{legislature_name}. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
+              agencies with which candidates must file their campaign finance reports. Below are two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of the state legislature.
       title:            "Money Trail data isn't quite ready!"
       details: |
         We believe it is important for the public to be able to easily access information about which special interest groups support or oppose this legislation with their campaign contributions. Unfortunately, state governments do not disclose contribution data in ways that are sufficiently timely or fully open. As a result, the process of finding out which entities support and oppose this bill is more difficult and time-intensive than it needs to be... and the public is kept in the dark about the systemic influence of money in the political process, usually until after key votes are already cast.<br><br>
@@ -307,7 +310,7 @@ en:
       state_issues: '%{state_name} Issues'
       bill_subjects: 'Issue Areas'
       intro: |
-        The %{legislature_name} officially assigns issue areas, or "bill subjects", to legislation. To make this process more accessible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has assigned individual bill subject areas to one of 44 master issue areas. Below we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
+        The %{legislature_name} officially assigns issue areas, or "bill subjects", to items of legislation. To make this bill-to-issue system more accessible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has assigned individual bill subject areas to one of 44 master issue areas. Below, we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
   layouts:
     footer:
       our_principles:    "Our Principles"
@@ -344,6 +347,8 @@ en:
 
   money_trails:
     index:
+      intro: |
+        This page displays all publicly-available information about campaign contributions made to members of the %{legislature_name}. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure agencies with which candidates must file their campaign finance reports. Below we're showing two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of this state legislature.
       state_money_trail: "%{state_name} Money Trail"
 
   support:

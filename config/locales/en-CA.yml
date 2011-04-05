@@ -74,10 +74,7 @@ en-CA:
           
   money_trails:
      index:
-        intro: |
-          This page displays all publicly-available information about campaign contributions made to members of the California state
-                  legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
-                  agencies with which candidates must file their campaign finance reports. Below we're showing two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of the state legislature.
+        intro: 
   
   districts:
     search:
