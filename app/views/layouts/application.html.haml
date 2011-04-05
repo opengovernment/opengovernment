@@ -93,14 +93,9 @@
             %ul
               - State.loadable.each do |state|
                 %li.state_name= link_to state.name, state_url(state)
-          - if !default_session?
-            %p.prior_session #{current_session_name} session
-          - else
-            %p.current_session #{current_session_name} session
           - if @available_sessions.size > 1
-            %a#session_dropdown{:class => 'dropdown', :href => '#'}
-            .session-select
-              %span.triangle
+            %a#session_dropdown{:class => 'dropdown', :href => '#'} #{current_session_name} session
+            .session-select{:style => 'display: none;'}
               %ul
                 - @available_sessions.each do |session|
                   %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)

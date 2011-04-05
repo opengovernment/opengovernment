@@ -115,6 +115,10 @@ And restart tomcat:
 GeoServer should now be available at `[http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)`
 Below, there are full instructions on setting up GeoServer to work with OpenGovernment.
 
+#### DocSplit dependencies (optional, for DocumentCloud Viewer support)
+
+Follow the instructions on [DocSplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
+
 ### On Mac:
 
 #### Basics / Build Tools

@@ -31,11 +31,11 @@ class BillsController < SubdomainController
 
     respond_with(@bill)
   end
-  
+
   def sponsors
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
   end
-  
+
   def documents
     @documents = @bill.documents.paginate :page => params[:page], :per_page => 40
   end

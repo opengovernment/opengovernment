@@ -10,10 +10,30 @@ h1 .long_bill_title {
 
 .bills h1{
 padding-right: 200px;
-padding-bottom: 35px;
+padding-top: 10px;
 }
 
+.bills .subject_areas {
+/*  margin-bottom: 0; */
+  padding: 20px 200px 0 0;
+  margin: 3px 0 0 0;
+}
 
+.bills .subject_areas li {
+  display: inline;
+  background-color: #ccc;
+  padding: 2px 5px;
+}
+
+.bills .subject_areas li:hover {
+  background-color: #bbb;
+}
+
+.bills .subject_areas li a {
+  font-size: 11px;
+  color: #fff;
+  text-decoration: none;
+}
 
 
 .bills .intro p{

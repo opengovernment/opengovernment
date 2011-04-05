@@ -1,6 +1,6 @@
 module ScrapedDocument
   require 'open-uri'
-  
+
   def self.included(base)
     base.class_eval do
       has_attached_file :document, :path => ':rails_root/public/system/:class/:id_partition/:style/:filename', :url => '/system/:class/:id_partition/:style/:filename'
@@ -11,22 +11,29 @@ module ScrapedDocument
     end
   end
 
-  def sync_document!
+  def sync_document
     self.document = do_download_file
-    self.save!
   end
 
   def refresh_document?
     !self.url.blank? && (self.url_changed? || !self.document?)
   end
 
+  def queue_document_download
+    # Don't queue the job if we've already queued it.
+    unless document_sync_queued?
+      toggle(:document_sync_queued)
+      Delayed::Job.enqueue(ScrapedDocumentJob.new(self.class, self.id))
+    end
+    return true
+  end
+  
   private
 
-  def queue_document_download
-    Delayed::Job.enqueue(ScrapedDocumentJob.new(self.class, self.id)) if self.url?
-  end
 
   def do_download_file
+    return nil if url.blank?
+
     io = open(URI.parse(url))
     def io.original_filename; base_uri.path.split('/').last; end
     # (content type is assigned by open-uri)

@@ -89,6 +89,8 @@ module OpenGov
     end
 
     def import_bill(bill, state, options)
+      @sync_date = Time.now
+      
       Bill.transaction do
         # A bill number alone does not identify a bill; we also need a session ID.
         session = state.legislature.sessions.find_by_name(bill.session)
@@ -121,14 +123,12 @@ module OpenGov
         @bill.state = state
         @bill.chamber = state.legislature.instance_eval("#{bill.chamber}_chamber")
 
-        # There is no unique data on a bill's actions that we can key off of, so we
-        # must delete and recreate them all each time.
+        # There is no unique data on these tables that we can key off of, so we're
+        # deleting them.
         unless @bill.new_record?
           @bill.actions.delete_all
-          @bill.sponsors.delete_all
+          @bill.sponsorships.delete_all
           @bill.citations.destroy_all
-          @bill.versions.destroy_all
-          @bill.documents.destroy_all
           @bill.subjects.destroy_all
         end
 
@@ -170,19 +170,43 @@ module OpenGov
         # Save the first & last action dates
         @bill.save
 
+        # Bill documents & versions are very processor intensive to build for
+        # the document viewer, so we avoid deleting and reimporting them if we can
+        # help it.
+
         bill.versions.each do |version|
-          @bill.versions << BillVersion.new(
-            :name => version[:name],
-            :url => version[:url]
-          )
+          # Versions aren't really useful without a URL, so we're
+          # not importing them.
+          unless version[:url].blank?
+            @bill_version = BillDocument.find_or_create_by_bill_id_and_url(@bill.id, version[:url])
+            @bill_version.attributes = {
+              :name => version[:name],
+              :published_at => Date.valid_date!(version[:'+date']),
+              :document_type => 'document',
+              :updated_at => @sync_date
+            }
+            @bill_version.save
+          end
         end
 
         bill.documents.each do |doc|
-          @bill.documents << BillDocument.new(
-            :name => doc[:name],
-            :url => doc[:url]
-          )
+          # Documents aren't really useful without a URL, so we're
+          # not importing them.
+          unless doc[:url].blank?
+            @bill_document = BillDocument.find_or_create_by_bill_id_and_url(@bill.id, doc[:url])
+            @bill_document.attributes = {
+              :name => doc[:name],
+              :published_at => Date.valid_date!(doc[:'+date']),
+              :document_type => 'version',
+              :updated_at => @sync_date
+            }
+            @bill_document.save
+          end
         end
+
+        # Delete any versions or documents that we didn't just touch.
+        @bill.versions.where(['updated_at <> ?', @sync_date]).destroy_all
+        @bill.documents.where(['updated_at <> ?', @sync_date]).destroy_all
 
         # Same deal as with actions, above
         bill.sponsors.each do |sponsor|

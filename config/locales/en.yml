@@ -160,7 +160,6 @@ en:
         one:     'One Sponsor'
         other: '%{count} Sponsors'
       see_all:   'See all'
-      subject_areas: Subject Areas
       none:          None.
       bill_text:     Bill Text
       documents:
@@ -306,9 +305,9 @@ en:
     index: 
       title: 'Issue Areas in the %{legislature_name}'
       state_issues: '%{state_name} Issues'
-      bill_subjects: 'Bill Subjects'
+      bill_subjects: 'Issue Areas'
       intro: |
-        The %{legislature_name} officially assigns issue areas to legislation. Generally speaking, though, this system is difficult to navigate -- there are many thousands of unstandardized issues per legislature, and they're discouragingly byzantine.<br><br> To make issue areas more widely intelligible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has mapped individual bill subject areas to one of 44 master issue areas. Below we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
+        The %{legislature_name} officially assigns issue areas, or "bill subjects", to legislation. To make this process more accessible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has assigned individual bill subject areas to one of 44 master issue areas. Below we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
   layouts:
     footer:
       our_principles:    "Our Principles"

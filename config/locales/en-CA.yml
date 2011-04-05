@@ -62,9 +62,7 @@ en-CA:
   people:
     index:
       title: 'Members of the %{legislature_name} (2009 - 2010)'
-      intro: |
-        Connect with senators and assemblymembers in California. We make legislators more accessible by combining official government information with news and blog coverage, campaign contribution data, social media mentions, and more.<br><br>
-        On member pages below, you'll find free tools to track their legislative actions, watchdog them with your community, and easily contact their offices. 
+      intro: 
     videos: 
       intro: | 
         <em>Editorial note</em>: as far as what's out there now, the most-central repository of official online video from members of the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video accessible automatically (i.e., over API or for bulk download) or libre (i.e., freely-licensed) or via open standards (e.g., a video RSS feed of videos in an open-source file format). So at the moment, a fair amount of research and digging is still required to access video content relevant to this member and members of the CA legislature in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
@@ -77,10 +75,9 @@ en-CA:
   money_trails:
      index:
         intro: |
-          This page lists all publicly-available information about campaign contributions made to members of the California state
+          This page displays all publicly-available information about campaign contributions made to members of the California state
                   legislature. All data comes from the non-partisan <a href="http://www.followthemoney.org/">National Institute on Money in State Politics</a>, which receives its data from the state disclosure
-                  agencies with which candidates must file their campaign finance reports.<br><br>
-          The Money Trail makes it possible to connect the dots between bills, key votes, and campaign donations.
+                  agencies with which candidates must file their campaign finance reports. Below we're showing two tiers of donor entities: sectors and industries. Click on an industry to see a list of individual businesses and their donations to members of the state legislature.
   
   districts:
     search:

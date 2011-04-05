@@ -45,30 +45,17 @@
     %h2= t '.bill_text' 
     - if @bill.versions.any?
       %ul.lined
-        - @bill.versions.each do |version|
-          %li= link_to_document(version)
-  
+        = render :partial => 'documents/document', :collection => @bill.versions
+
     %span.small= t '.bill_text_intro'
   
     - if @bill.documents.any?
       .document_preview
         %h2= t('.documents', :count => @bill.documents.size)
         = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
-  
+
         %ul.lined.documents
-          = render :partial => 'document', :collection => @bill.documents.limit(5)
-
-
-
-  .grid_5
-    %h2= t '.subject_areas'
-    - if @bill.subjects.any?
-      %ul.lined
-        - @bill.subjects.each do |subject|
-          %li= link_to(subject.name, subject_path(@bill.session, subject))
-    - else
-      %p= t '.none'
-    
+          = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
   
   
   %hr.space

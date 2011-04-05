@@ -5,6 +5,20 @@ class MoneyTrailsController < SubdomainController
     # We call .all here so we can execute the query now, due to a 
     # Rails bug with .count and .size
     @industries = Industry.aggregates_for_state(@state.id).order('industries.transparencydata_order').all
+    
+    # Build a sectors hash we can use for display.
+    @sectors = {}
+    Industry.where("transparencydata_code like '_0000'").map { |s| @sectors[s.transparencydata_code] =  [s.name, []]}
+    @sectors["Z0000"] = ["Other", []]
+
+    @industries.each do |i|
+      @sectors[i.transparencydata_code.at(0) + '0000'][1] << i
+    end
+
+    @sectors.values.each do |s|
+      s[1] = s[1].sort_by {|i| i.name }
+    end
+
   end
 
   def show
