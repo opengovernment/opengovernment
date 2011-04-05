@@ -272,19 +272,13 @@ float: right;
 padding-bottom: 20px;
 }
 
-
-.content .grid_4 .dropdown{/*
+.bar{
 height: 27px;
+line-height: 27px;
+margin-left: -5px;
 width: 220px;
 display: block;
-position: absolute;
-top: 0;
-left: 0;
-  background: url(../images/sprites.png) 190px -312px no-repeat;
-*/
 }
-
-
 
 
 .session-select{

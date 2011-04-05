@@ -22,7 +22,7 @@
 
     -# JS dropdowns for state and session selection
     - dropdown('a#dropdown', '.state-select')
-    - unless content_for?(:content) || @available_sessions.empty?
+    - unless content_for?(:content) || @available_sessions.empty? || @available_sessions.size == 1
       - dropdown('a#session_dropdown', '.session-select')
 
     - if content_for? :js_hook
@@ -99,6 +99,8 @@
               %ul
                 - @available_sessions.each do |session|
                   %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
+          - else
+            #session_dropdown{:class => 'bar'} #{current_session_name} session
           %nav#left_nav
             = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
           = yield :below_left_nav

@@ -19,8 +19,8 @@ en:
     bill:
       introduced:       "Introduced"
       votes_on_bill:
-        one:            "1 vote on this bill"
-        other:          "votes"
+        one:            "vote on this bill"
+        other:          "votes on this bill"
       views:
         one:            "1 view"
         other:          "%{count} views"
