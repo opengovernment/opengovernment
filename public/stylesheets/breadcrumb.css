@@ -313,12 +313,6 @@ padding: 3px 0 3px 20px;
 }
 
 
-.session-select .triangle{
-display: none;
-}
-
-
-
 a#session_dropdown.dropdown.subhover{
   background: url(../images/sprites.png) 190px -486px no-repeat;
 }
