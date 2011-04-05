@@ -18,6 +18,10 @@ line-height: 1.2em;
 border-bottom: 1px solid rgba(67, 67, 67, .2);
 }
 
+
+
+
+
 /* ------ delete ------ */
 
 h1 a{color: #333; text-decoration: none; font-weight: bold;}
@@ -35,6 +39,15 @@ clear: left;
 text-transform: uppercase;
 opacity: .6;
 }
+
+
+
+.home.index h2 {
+color: #000;
+text-transform: none;
+}
+
+
 
 
 h3 {

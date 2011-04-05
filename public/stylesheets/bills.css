@@ -8,7 +8,7 @@ h1 .long_bill_title {
   }
 
 
-.bills h1{
+.show .bills h1{
 padding-right: 200px;
 padding-top: 10px;
 }

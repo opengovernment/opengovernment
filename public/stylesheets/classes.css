@@ -104,8 +104,8 @@ font-size: 16px;
   line-height: 1.5em;
 /*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
   text-shadow: 0 1px 0px #fff;
-  margin: 0 0 0 -39px;
-  width: 727px;
+  margin: 0 0 0 -34px;
+  width: 716px;
 position: relative;
 border-bottom: 1px solid #ccc;
 background: #eff2f3;
@@ -522,13 +522,12 @@ ul.small_tabs li.ui-tabs-selected a{
   background: #f8f8f8;
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-topright: 4px;
-  -webkit-border-radius-top-left: 4px;
-  -webkit-border-radius-top-right: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
   border-radius-topleft: 4px;
   border-radius-topright: 4px;
   -moz-box-shadow:inset 0 1px 1px #ddd;
   -webkit-box-shadow:inset 0 1px 1px #ddd;
-  box-shadow:inset 0 1px 1px #ddd;
   }
 
 
