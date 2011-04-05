@@ -374,7 +374,18 @@ margin: 0px !important;
 padding: 10px 0 !important;
 margin: 0px 0 0 38px !important;
 float: left;
+
 }
+
+
+li .sponsor_mugs{
+width: 400px;
+font-size: 11px;
+line-height: 4em;
+color: #aaa;
+}
+
+
 
 .bill-mugs .lined{
 margin: 0px !important;

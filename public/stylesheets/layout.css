@@ -517,7 +517,7 @@ background: url(../images/opengovernment.png) 0px -42px no-repeat
 
 ///////////////////////////*/
 .content {
-
+position: relative;
 }
 .less_padding {
 padding: 0px 0
@@ -738,12 +738,14 @@ background: url(../images/blog.png) 0px -133px no-repeat
 .small_finally h2{
 border: none !important;
 font-size: 15px;
-padding-top: 30px;
+text-transform: inherit;
+padding-top: 10px;
 margin-bottom: 30px;
 }
 
 .small_finally h2 span{
-
+display: block;
+padding: 5px 0;
 }
 
 .small_finally ul{
@@ -855,7 +857,7 @@ background: url(../images/large-states/texas.png) 12px 129px no-repeat;
   }
 
 #bill_tabs .more {
-padding: 15px  15px 15px 0;  
+padding: 15px 15px 15px 0;  
 
 }
 

@@ -409,7 +409,18 @@ ol.lined li{
   }
 
 
-.vote_smart_keyvote{ color: #999; font-size: 11px;}
+span.vote_smart_keyvote{ 
+color: #999; 
+font-size: 11px;
+padding: 2px 10px 2px 36px;
+display: inline-block;
+background: #eee;
+position: absolute;
+z-index: 9999999;
+left: -34px;
+top: 7px;
+}
+
 
 
 
@@ -781,7 +792,7 @@ padding: 20px 20px 10px 20px !important;
 .grow{
 position: absolute;
 top: -10px;
-left: 266px;
+left: 186px;
 width: 70px;
 height: 0px;
 padding-top: 70px;
@@ -802,4 +813,3 @@ line-height: 1.3em !important;
 
 .search h1{
 }
-

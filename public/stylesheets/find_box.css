@@ -1,7 +1,7 @@
 
 .home.home .find_box {
   display: inline-block;
-  width: 990px;
+  width: 836px;
 padding: 20px 0;
   margin: 0 0 -10px -16px !important;
 }
@@ -169,6 +169,11 @@ width: 100px !important;
   clear: both; 
   font-weight: normal;
   
+  }
+
+
+#find_my_rep label strong{
+padding-right: 20px;
   }
 
 
