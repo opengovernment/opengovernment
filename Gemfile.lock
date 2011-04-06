@@ -44,6 +44,8 @@ GEM
       activesupport (= 3.0.5)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord-import (0.2.5)
+      activerecord (~> 3.0.0)
     activeresource (3.0.5)
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
@@ -252,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   GeoRuby
   SyslogLogger
+  activerecord-import
   acts-as-taggable-on!
   autotest
   autotest-rails

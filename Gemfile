@@ -10,6 +10,9 @@ gem 'pg'
 gem 'mongo_mapper'
 gem 'bson_ext'
 
+# Bulk data importing
+gem 'activerecord-import'
+
 # Rails.cache
 gem 'memcache-client'
 # gem 'memcached'
