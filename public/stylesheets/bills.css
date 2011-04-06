@@ -21,18 +21,27 @@ padding-top: 10px;
 
 .bills .subject_areas li {
   display: inline;
-  background-color: #ccc;
-  padding: 2px 5px;
+
 }
 
 .bills .subject_areas li:hover {
-  background-color: #bbb;
 }
 
 .bills .subject_areas li a {
   font-size: 11px;
-  color: #fff;
   text-decoration: none;
+border: 1px solid #ddd;
+background: #efefef;
+color: #444;
+opacity: .4;
+  padding: 2px 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+}
+
+.bills .subject_areas li a:hover {
+opacity: 1;
 }
 
 

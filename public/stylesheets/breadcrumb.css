@@ -79,16 +79,16 @@ li.topnav a{
 }
 
 /* State selector menu */
-.state-select{  
+.state-select,
+div.session-select{  
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
-  left: -24px;  
+  left: -4px;  
   margin: 0;
-  padding: 8px;  
-  display: none;  
-
+  padding: 8px !important;  
   width: 237px;  
-  top: 27px;
+  top: 39px;
   z-index: 9999999;
+display: none;
   border: 1px solid #aaa;
   border-bottom: 1px solid #999;
   border-top: 1px solid #ccc;
@@ -105,13 +105,23 @@ z-index: 9999999999 !important;
   -moz-border-radius: 5px;
   }
 
-.state-select:hover{  
+.state-select:hover,
+.session-select:hover{  
 
 z-index: 9999999999 !important;
 
   }
 
 
+div.session-select{  
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+  left: -4px;  
+  margin: 0;
+  padding: 8px !important;  
+z-index: 999999999 !important;
+  top: 77px;
+
+}
 
 .triangle{
   position: absolute;
@@ -125,7 +135,8 @@ z-index: 9999999999 !important;
 
 
 
-.state-select ul{  
+.state-select ul,
+.session-select ul{  
   list-style: none;  
 
   margin: 0;
@@ -137,7 +148,8 @@ z-index: 9999999999 !important;
 
 
 
-.state-select li{  
+.state-select li,
+.session-select li{  
   list-style: none;
   background: none !important;
   border: 1px solid #ddd;
@@ -148,8 +160,9 @@ z-index: 9999999999 !important;
   }
 
 
-.state-select li a{  
-  float: left;
+.state-select li a,
+.session-select li a{  
+  float: left;text-decoration: none;
   margin: 0;
   padding: 11px 0 11px 15px !important;
   background: #fff !important;
@@ -159,16 +172,18 @@ z-index: 9999999999 !important;
 
 
 
-.state-select li a:hover{  
+.state-select li a:hover,
+.session-select li a:hover{  
   text-shadow: 0 2px 0px #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f6f6)) !important; /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #f6f6f6,  #fff) !important; /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f6f6)) !important; 
+  background: -moz-linear-gradient(bottom,  #f6f6f6,  #fff) !important; 
   }
 
 
-.state-select li a:active{  
-  background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#fff)) !important; /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #fff,  #f6f6f6) !important; /* for firefox 3.6+ */
+.state-select li a:active,
+.session-select li a:hover{  
+  background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#fff)) !important;
+  background: -moz-linear-gradient(bottom,  #fff,  #f6f6f6) !important;
   }
 
 
@@ -183,54 +198,54 @@ ul.breadcrumb li span.subhover
 
   position: relative;
   z-index: 9999999;
-  top: -2px;
+  top: -1px;
 font-size: 13px;
-  margin: 0 0 0 -22px !important;
+  margin: 0 0 0px -22px !important;
   padding: 8px 0 8px 15px !important;
   width: 211px !important;
 display: block;
   border: 1px solid #bbb;
 
-text-decoration: none;
+text-decoration: none !important;
+
+
 
   text-shadow: 0 1px 0px #fff;
 
-  
-  
+background: url(../images/sprites.png) 185px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#efefef));
+background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fefefe,  #efefef);
 
-background: url(../images/sprites.png) 190px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ecf4f5), to(#e2ecee));
-background: url(../images/sprites.png) 190px -309px no-repeat, -moz-linear-gradient(top,  #ecf4f5,  #e2ecee);
 -moz-box-shadow: inset 0 1px 0px #f4f9f9;
-border-bottom: 1px solid #c7d8da;
+-webkit-box-shadow: inset 0 1px 0px #f4f9f9;
+
+border-top: none;
   }
 
 
 .dropdown:hover{
-  background: url(../images/sprites.png) 190px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
-  background: url(../images/sprites.png) 190px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
-  border: 1px solid #aaa !important;
-  -moz-border-radius: 3px !important;
-text-decoration: none;
-  -webkit-border-radius: 3px;
+background: url(../images/sprites.png) 185px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
+background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
 
-  border-radius:3px;
-  -moz-box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
+text-decoration: none;
+
+
+
+  -moz-box-shadow: 0 0px 2px rgba(0,0,0,.1), inset 0 1px 0px #fff;
   -webkit-box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
+
   }
 
 
 .dropdown.subhover{
-  background: url(../images/sprites.png) 120px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#ddd)); 
-  background: url(../images/sprites.png) 120px -311px no-repeat, -moz-linear-gradient(top,  #bbb,  #ddd);
-  border: 1px solid #999 !important;
-border-bottom: 1px solid #ccc !important;
-  -moz-border-radius: 3px !important;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
+
+
+
+
+text-decoration: none;
+  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 1px rgba(0,0,0,.5);
   -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
-  box-shadow:  0 1px 0px #eee, inset 0 1px 1px #aaa;
+  background: url(../images/sprites.png) 185px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
+  background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
   }
 
 
@@ -239,6 +254,25 @@ border-bottom: 1px solid #ccc !important;
   padding-left: 40px;
   }
 
+
+a#dropdown.dropdown{
+font-size: 14px;
+padding: 16px 0 15px 15px !important;
+background: url(../images/sprites.png) 185px -302px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+background: url(../images/sprites.png) 185px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
+}
+
+
+a#dropdown.dropdown:hover{
+background: url(../images/sprites.png) 185px -302px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
+background: url(../images/sprites.png) 185px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
+
+}
+
+
+
+a#dropdown.dropdown.subhover{
+}
 
 
 
@@ -281,30 +315,6 @@ display: block;
 }
 
 
-.session-select{
-padding: 0 !important;
-margin: 0 0 0 -10px !important;
-
-width: 224px;
-}
-
-.session-select ul{
-width: 225px;
-margin: 0;
-}
-
-
-.session-select ul li{
-
-}
-
-.session-select ul li a{
-display: block;
-padding: 3px 0 3px 20px;
-  background: #dde9ea;
-  border-bottom: 1px solid #b8cfd1;
-
-}
 
 
 a#session_dropdown.dropdown.subhover{
