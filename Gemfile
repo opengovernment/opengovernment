@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'rack-contrib'
+gem 'SystemTimer'
 
 # ActiveRecord requires a database adapter.
 gem 'pg'

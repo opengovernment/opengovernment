@@ -23,6 +23,7 @@ GEM
     Platform (0.4.0)
     SyslogLogger (1.4.0)
       hoe (>= 1.2.0)
+    SystemTimer (1.2.3)
     ZenTest (4.5.0)
     aaronh-chronic (0.3.9)
     abstract (1.0.0)
@@ -262,6 +263,7 @@ PLATFORMS
 DEPENDENCIES
   GeoRuby
   SyslogLogger
+  SystemTimer
   activerecord-import
   acts-as-taggable-on!
   autotest
