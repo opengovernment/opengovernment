@@ -41,9 +41,7 @@ class GovTrackImporter
       end
 
       begin
-        Person.transaction do
-          import_person(person)
-        end
+        import_person(person)
       rescue StandardError => e
         puts "\nSkipping #{person.attributes['id']}-#{person.attributes['name']}: #{e.message}"
         next
@@ -58,34 +56,34 @@ class GovTrackImporter
     
     # We want them to have at least one role that starts within the last 10 years, otherwise don't import them.
     if roles.any? { |r| parse_govtrack_date(r['startdate']) > 10.years.ago.to_date }
+      Person.transaction do
+        @person = person_already_exists?(person_xml)
+        attrs = person_xml.attributes
+        @person.suffix = ''
+        @person.first_name = attrs['firstname'].try(:value)
+        @person.last_name = attrs['lastname'].try(:value)
+        @person.middle_name = attrs['middlename'].try(:value)
+        @person.gender = attrs['gender'].try(:value)
 
-      @person = person_already_exists?(person_xml)
-      attrs = person_xml.attributes
-      @person.suffix = ''
-      @person.first_name = attrs['firstname'].try(:value)
-      @person.last_name = attrs['lastname'].try(:value)
-      @person.middle_name = attrs['middlename'].try(:value)
-      @person.gender = attrs['gender'].try(:value)
+        @person.birthday = parse_govtrack_date(attrs['birthday'].try(:value))
+        @person.religion = attrs['religion'].try(:value)
 
-      @person.birthday = parse_govtrack_date(attrs['birthday'].try(:value))
-      @person.religion = attrs['religion'].try(:value)
+        @person.votesmart_id = attrs['pvsid'].try(:value)
+        @person.opensecrets_id = attrs['osid'].try(:value)
+        @person.bioguide_id = attrs['bioguideid'].try(:value)
+        @person.youtube_id = attrs['youtubeid'].try(:value)
+        @person.metavid_id = attrs['metavidid'].try(:value)
 
-      @person.votesmart_id = attrs['pvsid'].try(:value)
-      @person.opensecrets_id = attrs['osid'].try(:value)
-      @person.bioguide_id = attrs['bioguideid'].try(:value)
-      @person.youtube_id = attrs['youtubeid'].try(:value)
-      @person.metavid_id = attrs['metavidid'].try(:value)
-
-      if @person.save
-        roles.each do |role|
-          role = make_role(role)
-          role.save
+        if @person.save
+          roles.each do |role|
+            role = make_role(role)
+            role.save
+          end
+        else
+          puts "Errors saving the person #{@person.errors.full_messages.join('\n')}"
         end
-      else
-        puts "Errors saving the person #{@person.errors.full_messages.join('\n')}"
-      end
-
-    end
+      end # COMMIT
+    end # if roles
   end
 
   def parse_govtrack_date(date)
