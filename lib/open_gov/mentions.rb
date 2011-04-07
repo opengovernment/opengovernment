@@ -37,12 +37,12 @@ module OpenGov
     end
 
     def make_mention(owner, mention, source)
-      c = owner.mentions.find_or_initialize_by_source_and_date(mention.source, Date.valid_date!(mention.date))
+      c = owner.mentions.find_or_initialize_by_source_and_date(mention.source[0..253], Date.valid_date!(mention.date))
       c.url = mention.url
       c.weight = mention.weight
       c.title = mention.title
       c.excerpt = mention.excerpt
-      c.search_source = mention.source[0..253]
+      c.search_source = source
       c.save!
     end
   end
