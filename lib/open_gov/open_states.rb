@@ -12,8 +12,8 @@ module OpenGov
         Dir.chdir(Settings.openstates_dir)
 
         puts "---------- Downloading the OpenStates data for #{state.name}"
-        `rm -f {committees,legislators,bills}/#{state.abbrev.upcase}*`
-        `rm -rf #{state.abbrev.downcase}`
+        `rm -f {committees,legislators}/#{state.abbrev.upcase}*`
+        `rm -rf {bills}/#{state.abbrev.downcase}`
 
         # If available from OpenStates, use the latest_dump_url and latest_dump_date.
         openstates_url = fs_state[:latest_dump_url]
@@ -41,7 +41,7 @@ module OpenGov
           puts "The local copy of the data is already fresh; skipping download."
         end
 
-        `unzip -qu #{openstates_fn} 2>/dev/null`
+        `unzip -oqu #{openstates_fn} 2>/dev/null`
       else
         puts "Could not fetch metadata from OpenStates for #{state.abbrev}; skipping download."
       end

@@ -8,7 +8,7 @@ module OpenGov
       `curl #{opts[:curl_ops]} -o "#{opts[:output_fn]}" #{url}`
 
       if opts[:unzip] == true
-        `unzip -u #{opts[:output_fn]}`
+        `unzip -oqu #{opts[:output_fn]}`
       end
       
       return opts[:output_fn]
