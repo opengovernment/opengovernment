@@ -11,6 +11,10 @@ module OpenGov
     end
 
     def import_state(state, options = {})      
+      options[:immediate] ||= false
+
+      puts "Adding contribution import tasks to delayed_job queue" unless options[:immediate]
+
       Person.find_by_sql(['SELECT distinct people.id FROM "roles" INNER JOIN "people" ON "people"."id" = "roles"."person_id" WHERE (roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?) AND (people.transparencydata_id is not null)', state.id, state.id]).each do |person|
 
         # Import each person's contributions asynchronously.
