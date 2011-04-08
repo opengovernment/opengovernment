@@ -32,7 +32,7 @@ module SplitDocument
       normal_output_dir = File.join(output_dir, 'normal')
 
       begin
-        if FileUtils.mkdir_p(output_dir)
+        if FileUtils.mkdir_p(output_dir, :mode => 775)
           # Pushd
           pwd = Dir.pwd
           Dir.chdir(output_dir)
