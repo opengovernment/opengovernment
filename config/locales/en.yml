@@ -258,10 +258,10 @@ en:
     nav:
       follow_campaign_for: "Follow %{full_name} campaign on OpenGovernment Wiki Project"
     sponsorship_vitals:
-      ranks: "Ranks"
-      out_of: "out of"
-      bills_sponsored: "bills sponsored or co-sponsored"
-      no_sponsorship_info: "No sponsorship information available"
+      ranks: "Ranks %{rank} out of %{total}"
+      bills_sponsored:
+        one: "One bill sponsored or co-sponsored"
+        other: "%{count} bills sponsored or co-sponsored"
     social:
       tweets_about: "Tweets about %{official_name}"
       intro: |

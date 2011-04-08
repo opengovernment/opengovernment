@@ -150,37 +150,40 @@ class Person < ActiveRecord::Base
   end
 
   def current_sponsorship_vitals
+    latest_session_id = roles.first.try(:session_id)
+    sessions = Session.where(['parent_id = ? or id = ?', latest_session_id, latest_session_id])
+
     Person.find_by_sql(["
       select * from (
         select
         -- this is a subquery because we want the max() to look at all rows
         y.sponsor_id as id,
-        y.session_id,
+        y.chamber_id,
         y.bill_count,
         y.rank,
         -- we have to do a max() here because you can't do max(row_number() over ..)
-        max(y.rnum) over (partition by y.session_id) as total_sponsors
+        max(y.rnum) over (partition by y.chamber_id) as total_sponsors
         from (
-          select s.sponsor_id, s.bill_count, s.session_id,
+          select s.sponsor_id, s.bill_count, s.chamber_id,
           -- rank may have duplicates (3 people with rank #3),
           -- row_number does not.
           row_number() over w as rnum,
           rank() over w as rank
           from
-            (select b.session_id, s0.sponsor_id,
+            (select s0.sponsor_id, b.chamber_id,
             -- we're doing this subquery for the bill_count.
             count(*) as bill_count
             from bill_sponsorships s0,
-            bills b,
-            v_most_recent_sessions s1
+            bills b
             where s0.bill_id = b.id
-            and s1.id = b.session_id
-            group by s0.sponsor_id, b.session_id) s
-          window w as (partition by s.session_id order by s.bill_count desc)
+            and s0.sponsor_id is not null
+            and b.session_id in (?)
+            group by s0.sponsor_id, b.chamber_id) s
+          window w as (partition by s.chamber_id order by s.bill_count desc)
         ) y
       ) z
       where z.id = ?
-      limit 1", id]).first
+      limit 1", sessions, id]).first
   end
 
   def to_param
