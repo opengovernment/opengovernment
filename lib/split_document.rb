@@ -52,7 +52,11 @@ module SplitDocument
           self.total_pages = Docsplit.extract_length(document.path)
           self.components_available = true
         end
-      rescue
+      rescue Docsplit::ExtractionFailed
+        Dir.chdir(pwd)
+        self.components_available = false
+        destroy_components
+      else
         Dir.chdir(pwd)
         raise
       end
