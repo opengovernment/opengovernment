@@ -15,4 +15,4 @@
         %li[committee]
           != link_to(committee.name, committee_path(committee), :class => 'modal')
 
-    = will_paginate @committees
+    = paginate @committees

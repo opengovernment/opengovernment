@@ -39,12 +39,12 @@ class PeopleController < SubdomainController
   end
 
   def votes
-    @roll_calls = RollCall.paginate(:conditions => {:person_id => @person.id}, :include => {:vote => :bill}, :order => "votes.date desc", :page => params[:page])
+    @roll_calls = RollCall.where(:person_id => @person.id).includes(:vote => :bill).order("votes.date desc").page(params[:page])
     respond_with(@roll_calls)
   end
 
   def sponsored_bills
-    @sponsorships = BillSponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).paginate(:page => params[:page])
+    @sponsorships = BillSponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).page(params[:page])
   end
 
   # /people/1

@@ -6,7 +6,7 @@
   = t '.committees', :which_committee => "#{@state.name} #{@committees.first && @committees.first.type_fm}"
 %hr
 
-= will_paginate @committees
+= paginate @committees
 %ul.lined
   - if @committees.size > 0
     - @committees.each do |committee|
@@ -14,4 +14,4 @@
         = link_to(committee.name, committee_path(:id => committee), :class => "modal")
   - else
     %p Sorry, we didn't find any committees.
-= will_paginate @committees
+= paginate @committees

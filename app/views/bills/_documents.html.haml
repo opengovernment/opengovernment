@@ -11,7 +11,7 @@
   %br(clear='both')
   - if @documents.next_page
     %strong= link_to('Show More', {:page => @documents.next_page}, :remote => true)
--#    = will_paginate @documents
+-#    = paginate @documents
   -# Hack to support ajax in pagination links.
 -#  :javascript
 -#    $('.pagination a').attr('data-remote', 'true');

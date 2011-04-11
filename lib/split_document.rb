@@ -24,7 +24,7 @@ module SplitDocument
   def sync_components
     # We're going to repopulate these even if they exist already.
     destroy_components
-  
+
     if document?
       pwd = Dir.pwd
       output_dir = File.join(Rails.root, 'public/system/dv', self.class.to_s.tableize, id_partition)

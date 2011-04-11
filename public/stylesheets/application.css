@@ -32,11 +32,6 @@ body td {
   color: #AAA;
 }
 
-.pagination span.current {
-  font-weight: bold;
-  background: transparent url(../images/apple-circle.gif) no-repeat 50% 50%;
-}
-
 .pagination a, nav.faceted a {
   text-decoration: none;
   color: black;
@@ -58,7 +53,7 @@ body td {
 	left: -9000em;
 }
 
-.pagination em, nav.faceted em {
+.pagination .current, nav.faceted em {
   cursor: default;
   -moz-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
   -webkit-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
@@ -74,7 +69,7 @@ body td {
   cursor: default;
   }
 
-.pagination em,
+.pagination .current,
 .pagination a,
 .pagination span,
 .pagination .gap {
@@ -117,8 +112,8 @@ nav.faceted a:active {
   }
 
 
-.next_page,
-a.next_page{
+.next,
+a.next{
   float: right;
   padding: 3px 15px;
   margin-right: 0px;
@@ -137,8 +132,8 @@ a.next_page{
   }
 
 
-.previous_page,
-a.previous_page{
+.prev,
+a.prev{
   float: left !important;
   padding: 3px 15px;
   -moz-border-radius-topleft:     18px !important;

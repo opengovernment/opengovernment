@@ -45,9 +45,6 @@ gem 'high_voltage'
 # Background tasks
 gem 'delayed_job', '~> 2.1'
 
-# Simple pagination
-gem 'will_paginate', '~> 3.0.pre2'
-
 # Attachments & assets
 gem 'paperclip'
 gem 'jammit'
@@ -69,9 +66,10 @@ gem 'fastercsv'
 # gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 
 # Indexing and Search
-gem 'thinking-sphinx', :git => 'http://github.com/freelancing-god/thinking-sphinx.git',
-     :require => 'thinking_sphinx',
-     :branch => 'rails3'
+gem 'thinking-sphinx', '~> 2.0.3'
+
+# Pagination
+gem 'kaminari'
 
 # Graphics
 gem 'googlecharts', '~> 1.6.1', :require => 'gchart'

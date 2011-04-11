@@ -64,8 +64,6 @@ class StatesController < SubdomainController
     end
 
     @search_options = {
-      :page => params[:page],
-      :per_page => 15,
       :order => params[:order],
       :with => { :state_id => @state.id }
     }
@@ -82,18 +80,18 @@ class StatesController < SubdomainController
     if @query
       case @search_type
         when "everything"
-          @legislators = Person.search(@query, @search_options)
-          @bills = @state.bills.search(@query, @search_options)
-          @contributions = Contribution.search(@query, @search_options)
-          @committees = @committee_type.search(@query, @search_options)
+          @legislators = Person.search(@query, @search_options).page(params[:page])
+          @bills = @state.bills.search(@query, @search_options).page(params[:page])
+          @contributions = Contribution.search(@query, @search_options).page(params[:page])
+          @committees = @committee_type.search(@query, @search_options).page(params[:page])
         when "bills"
-          @bills = @state.bills.search(@query, @bill_search_options || @search_options)
+          @bills = @state.bills.search(@query, @bill_search_options || @search_options).page(params[:page])
         when "legislators"
-          @legislators = Person.search(@query, @search_options)
+          @legislators = Person.search(@query, @search_options).page(params[:page])
         when "committees"
-          @committees = @committee_type.search(@query, @search_options)
+          @committees = @committee_type.search(@query, @search_options).page(params[:page])
         when "contributions"
-          @contributions = Contribution.search(@query, @search_options)
+          @contributions = Contribution.search(@query, @search_options).page(params[:page])
       end
 
       @search_counts = ActiveSupport::OrderedHash.new
