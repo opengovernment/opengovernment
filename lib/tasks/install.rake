@@ -270,9 +270,6 @@ namespace :load do
       fixtures_folder = File.join(Rails.root, 'spec', 'fixtures')
       fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
       Fixtures.create_fixtures(fixtures_folder, fixtures)
-
-      # Force a reload of the DistrictType class, so we get the proper constants
-      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
     desc "Load fixtures for full production/staging import"
@@ -283,9 +280,6 @@ namespace :load do
       Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
-
-      # Force a reload of the DistrictType class, so we get the proper constants
-      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
   end

@@ -30,7 +30,6 @@ module ScrapedDocument
   
   private
 
-
   def do_download_file
     return nil if url.blank?
 
