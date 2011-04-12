@@ -27,7 +27,7 @@ module ScrapedDocument
     end
     return true
   end
-  
+
   private
 
   def do_download_file

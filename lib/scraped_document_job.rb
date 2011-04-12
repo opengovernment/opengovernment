@@ -3,13 +3,13 @@ class ScrapedDocumentJob < Struct.new(:document_type, :document_id)
     if document = self.document_type.find(self.document_id)     
       if document.document_sync_queued?
         document.sync_document
+        document.toggle(:document_sync_queued)
         document.save!
-        document.toggle!(:document_sync_queued)
       end
     end
   end
 
-  def error
+  def failure
     # A permanent failure -- after 25 tries
     if document = self.document_type.find(self.document_id)
       document.toggle!(:document_sync_queued)
