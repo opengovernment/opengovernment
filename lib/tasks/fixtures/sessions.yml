@@ -40,3 +40,9 @@
   start_year: 1997
   end_year: 1999
   legislature_id: 1
+112:
+  id: 1
+  name: "112th Congress"
+  start_year: 2011
+  end_year: 2012
+  legislature_id: 1
