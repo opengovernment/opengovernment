@@ -67,66 +67,68 @@ SimpleNavigation::Configuration.run do |navigation|
           primary.item :sig, 'Special Interest Group', sig_path(@sig)
       end
 
-      if defined?(@vote)
-        bill = @vote.bill
-      elsif defined?(@action)
-        bill = @action.bill
-      elsif defined?(@bill)
-        bill = @bill
-      end
+      primary.item :bills, 'Bills', bills_url(params[:session], :subdomain => current_place_subdomain), :class => 'bills primary-nav-bills primary-nav' do |b|
+        if defined?(@vote)
+          bill = @vote.bill
+        elsif defined?(@action)
+          bill = @action.bill
+        elsif defined?(@bill)
+          bill = @bill
+        else
+          bill = nil
+        end
 
-      if defined?(@vote) || defined?(@action) || defined?(@bill)
-        primary.item :bill, bill.bill_number, bill_path(bill.session, bill), :class => 'bill' do |m|
-          m.item :overview, 'Overview', bill_path(bill.session, bill)
-          m.item :votes, 'Votes and Actions', votes_bill_path(bill.session, bill) do |v|
-            if defined?(@vote)
-              v.item :vote, 'Vote', vote_path(@vote)
-            elsif defined?(@action)
-              v.item :action, 'Action', action_path(@action)
+        unless bill.blank?
+          b.item :bill, bill.bill_number, bill_path(bill.session, bill), :class => 'bill' do |m|
+            m.item :overview, 'Overview', bill_path(bill.session, bill)
+            m.item :votes, 'Votes and Actions', votes_bill_path(bill.session, bill) do |v|
+              if defined?(@vote)
+                v.item :vote, 'Vote', vote_path(@vote)
+              elsif defined?(@action)
+                v.item :action, 'Action', action_path(@action)
+              end
             end
+            m.item :mentions, 'News & Blog Coverage', news_bill_path(bill.session, bill)
+            m.item :tweets, 'Social Media Mentions', social_bill_path(bill.session, bill)
+            m.item :money_trail, 'Interest Groups', money_trail_bill_path(bill.session, bill), :class => 'inactive'
+            m.item :videos, 'Videos', videos_bill_path(bill.session, bill)
+            m.item :disqus, 'Comments', discuss_bill_path(bill.session, bill, :anchor => 'disqus_thread')
           end
-          m.item :mentions, 'News & Blog Coverage', news_bill_path(bill.session, bill)
-          m.item :tweets, 'Social Media Mentions', social_bill_path(bill.session, bill)
-          m.item :money_trail, 'Interest Groups', money_trail_bill_path(bill.session, bill), :class => 'inactive'
-          m.item :videos, 'Videos', videos_bill_path(bill.session, bill)
-          m.item :disqus, 'Comments', discuss_bill_path(bill.session, bill, :anchor => 'disqus_thread')
         end
       end
 
-      if defined?(@person)
-        primary.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
-          m.item :overview, 'Overview', person_path(@person)
-          m.item :votes, 'Votes', votes_person_path(@person)
-          m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
-          m.item :tweets, 'Social Media Mentions', social_person_path(@person)
-          m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
-          m.item :money_trail, 'Campaign Contributions', money_trail_person_path(@person)
-          m.item :videos, 'Videos', videos_person_path(@person)
-          m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
-          m.item :committees, 'Committees', committees_person_path(@person), :style => 'display: none;'
-          m.item :ratings, 'Ratings', ratings_person_path(@person), :style => 'display: none;'
-        end
-      end
-
-      primary.item :bills, 'Bills', bills_url(params[:session], :subdomain => current_place_subdomain), :class => 'bills primary-nav-bills primary-nav'
       primary.item :people, 'People', people_url(params[:session], :subdomain => current_place_subdomain), :class => 'people primary-nav-people primary-nav' do |p|
-        if defined?(current_place)
-          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path do |c|
-            if defined?(@committee) && @committee[:type] == 'UpperCommittee'
-              c.item :committee, 'Committee', committee_path(@committee)
-            end
-          end
-          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)} Committees", lower_committees_path do |c|
-            if defined?(@committee) && @committee[:type] == 'LowerCommittee'
-              c.item :committee, 'Committee', committee_path(@committee)
-            end
-          end
-          p.item :joint, "Joint Committees", joint_committees_path do |c|
-            if defined?(@committee) && @committee[:type] == 'JointCommittee'
-              c.item :committee, 'Committee', committee_path(@committee)
-            end
+        if defined?(@person)
+          p.item :person, @person.full_name, person_path(@person), :class => "person #{@person.gender_class}" do |m|
+            m.item :overview, 'Overview', person_path(@person)
+            m.item :votes, 'Votes', votes_person_path(@person)
+            m.item :bills, 'Bills Sponsored', sponsored_bills_person_path(@person)
+            m.item :tweets, 'Social Media Mentions', social_person_path(@person)
+            m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
+            m.item :money_trail, 'Campaign Contributions', money_trail_person_path(@person)
+            m.item :videos, 'Videos', videos_person_path(@person)
+            m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
+            m.item :committees, 'Committees', committees_person_path(@person), :style => 'display: none;'
+            m.item :ratings, 'Ratings', ratings_person_path(@person), :style => 'display: none;'
           end
         end
+#        if defined?(current_place)
+#          p.item :upper, "#{current_place.try(:upper_chamber).try(:short_name)} Committees", upper_committees_path do |c|
+#            if defined?(@committee) && @committee[:type] == 'UpperCommittee'
+#              c.item :committee, 'Committee', committee_path(@committee)
+#            end
+#          end
+#          p.item :lower, "#{current_place.try(:lower_chamber).try(:short_name)} Committees", lower_committees_path do |c|
+#            if defined?(@committee) && @committee[:type] == 'LowerCommittee'
+#              c.item :committee, 'Committee', committee_path(@committee)
+#            end
+#          end
+#          p.item :joint, "Joint Committees", joint_committees_path do |c|
+#            if defined?(@committee) && @committee[:type] == 'JointCommittee'
+#              c.item :committee, 'Committee', committee_path(@committee)
+#            end
+#          end
+#        end
       end
 
       # person.item :search, 'Find Your District', search_url(:subdomain => false)
