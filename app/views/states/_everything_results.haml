@@ -5,7 +5,7 @@
     %ul.bills.lined.and_spaced
       - @bills.each do |bill|
         = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
-    = will_paginate @bills, :class => "pagination"
+    = paginate @bills
 
 - unless @legislators.empty?
   %div.search_results.last
@@ -14,7 +14,7 @@
       - @legislators.each do |leg|
         %li[leg]
           != link_to(leg.full_name, person_path(leg))
-    = will_paginate @legislators
+    = paginate @legislators
 
 - unless @committees.empty?
   %div.search_results.last
@@ -22,8 +22,8 @@
     %ul.committees
       - @committees.each do |committee|
         %li[committee]
-          != link_to(committee.name, committee_path(committee), :class => 'modal')
-    = will_paginate @committees
+          != link_to(committee.name, committee_path(committee))
+    = paginate @committees
 
 
 - unless @contributions.empty?
@@ -33,6 +33,6 @@
       - @contributions.each do |contribution|
         %li[contribution]
           != contribution.contributor_name
-    = will_paginate @contributions
+    = paginate @contributions
 
 

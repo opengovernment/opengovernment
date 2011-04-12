@@ -11,9 +11,9 @@
     - else
       = link_to(letter, params.merge(:letter => letter).except(:page))
 
-= will_paginate @subjects
+= paginate @subjects
 
 %ul.subjects
   = render @subjects
 
-= will_paginate @subjects
+= paginate @subjects

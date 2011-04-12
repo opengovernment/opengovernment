@@ -146,6 +146,8 @@ module OpenGov
           end
         end
 
+        import_queue = []
+
         bill.actions.each do |action|
           action_date = Date.valid_date!(action.date)
           
@@ -155,7 +157,7 @@ module OpenGov
           @bill.last_action_at ||= action_date
           @bill.last_action_at = action_date if @bill.last_action_at < action_date
 
-          @bill.actions << Action.new(
+          import_queue << Action.new(
             :actor => action.actor,
             :action => action.action,
             :kind_one => action[:type].try(:first),
@@ -165,6 +167,8 @@ module OpenGov
             :date => action_date
           )
         end
+
+        Action.import(import_queue) unless import_queue.blank?
 
         # Save the first & last action dates
         @bill.save
@@ -208,13 +212,17 @@ module OpenGov
         @bill.documents.where(['updated_at <> ?', @sync_date]).destroy_all
 
         # Same deal as with actions, above
+        import_queue = []
+        
         bill.sponsors.each do |sponsor|
-          @bill.sponsorships << BillSponsorship.new(
+          import_queue << BillSponsorship.new(
             :sponsor_id => sponsor.leg_id.blank? ? nil : @people[sponsor.leg_id],
             :sponsor_name => sponsor[:name],
-            :kind => sponsor[:type]
+            :kind => sponsor[:type],
+            :bill_id => @bill.id
           )
         end
+        BillSponsorship.import(import_queue) unless import_queue.blank?
 
         if bill[:subjects] || bill[:"+subjects"]
           subjects = bill[:subjects] || bill[:"+subjects"]
@@ -256,14 +264,15 @@ module OpenGov
           @bill.votes << v
 
           # Now attach roll calls.
-          roll_calls = []
+          import_queue = []
+
           ['yes', 'no', 'other'].each do |vote_type|
             vote["#{vote_type}_votes"] && vote["#{vote_type}_votes"].each do |rcall|
-              roll_calls << RollCall.new(:vote_id => v.id, :vote_type => vote_type, :person_id => @people[rcall.leg_id.to_s]) if rcall.leg_id
+              import_queue << RollCall.new(:vote_id => v.id, :vote_type => vote_type, :person_id => @people[rcall.leg_id.to_s]) if rcall.leg_id
             end
           end
 
-          RollCall.import(roll_calls) unless roll_calls.empty?
+          RollCall.import(import_queue) unless import_queue.empty?
         end
 
       end # transaction

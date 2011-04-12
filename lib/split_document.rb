@@ -24,7 +24,7 @@ module SplitDocument
   def sync_components
     # We're going to repopulate these even if they exist already.
     destroy_components
-  
+
     if document?
       pwd = Dir.pwd
       output_dir = File.join(Rails.root, 'public/system/dv', self.class.to_s.tableize, id_partition)
@@ -32,7 +32,7 @@ module SplitDocument
       normal_output_dir = File.join(output_dir, 'normal')
 
       begin
-        if FileUtils.mkdir_p(output_dir)
+        if FileUtils.mkdir_p(output_dir, :mode => 775)
           # Pushd
           pwd = Dir.pwd
           Dir.chdir(output_dir)
@@ -52,7 +52,11 @@ module SplitDocument
           self.total_pages = Docsplit.extract_length(document.path)
           self.components_available = true
         end
-      rescue
+      rescue Docsplit::ExtractionFailed
+        Dir.chdir(pwd)
+        self.components_available = false
+        destroy_components
+      else
         Dir.chdir(pwd)
         raise
       end

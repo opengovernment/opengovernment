@@ -3,10 +3,10 @@
 = render :partial => 'shared/appeal'
 
 %h1= @subject.name
-= will_paginate @subject_bills
+= paginate @subject_bills
 %ul
   %li
   - @subject_bills.each do |bill|
     = render bill
 
-= will_paginate @subject_bills
+= paginate @subject_bills

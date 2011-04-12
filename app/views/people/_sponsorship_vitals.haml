@@ -1,12 +1,5 @@
 - if vitals
-  %h2
-    = link_to(vitals.bill_count, sponsored_bills_person_url(@person)) 
-    = t '.bills_sponsored'
+  %h2= link_to(t('.bills_sponsored', :count => vitals.bill_count), sponsored_bills_person_url(@person))
   .rank 
-    = t '.ranks'
-    = vitals.rank.to_i.ordinalize
-    = t '.out_of'
-    = vitals.total_sponsors
+    = t '.ranks', :rank => vitals.rank.to_i.ordinalize, :total => vitals.total_sponsors
     = @person.chamber.title.pluralize
-- else
-  = t '.no_sponsorship_info'

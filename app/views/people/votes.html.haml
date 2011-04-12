@@ -12,7 +12,7 @@
 %hr
 
 - if @roll_calls.total_entries > 0
-  = will_paginate @roll_calls
+  = paginate @roll_calls
   %hr
   %table.vote-summary
 
@@ -20,7 +20,7 @@
     - @roll_calls.each do |roll_call|
       = render roll_call.vote, :bill => roll_call.vote.bill, :roll_call => roll_call
 
-  = will_paginate @roll_calls
+  = paginate @roll_calls
 
 - else
   %p

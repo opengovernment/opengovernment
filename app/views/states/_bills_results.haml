@@ -17,10 +17,10 @@
   %p Sorry, no bills matched.
 - else
   %h2= link_to('Bills', bills_path)
-  = will_paginate @bills, :class => "pagination"
+  = paginate @bills
 
   .search_results
     %ul.bills.bills.lined.and_spaced
       = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => false}
 
-  = will_paginate @bills, :class => "pagination"
+  = paginate @bills

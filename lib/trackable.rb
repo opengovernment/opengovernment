@@ -9,7 +9,7 @@ module Trackable
     def most_viewed(ops = {})
       ops[:limit] ||= 10
       
-      return nil unless MongoMapper.connected?
+      return [] unless MongoMapper.connected?
 
       # This is gnarly. We have to generate a case statement for PostgreSQL in order to
       # get the people out in page view order. AND we need an SQL in clause for the people.
@@ -18,7 +18,7 @@ module Trackable
       # Good thing this is only ever limited to 10 or 20 items.
       countable_ids = Page.most_viewed(self.to_s, :limit => ops[:limit], :subdomain => ops[:subdomain], :since => ops[:since]).collect(&:countable_id)
 
-      return if countable_ids.empty?
+      return [] if countable_ids.empty?
 
       self.find_in_explicit_order(self.table_name + '.' + self.primary_key, countable_ids)
     end

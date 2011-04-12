@@ -10,12 +10,12 @@ class SubjectsController < SubdomainController
 
     @letter = params[:letter] || @letters.first
 
-    @subjects = @subjects.select("distinct subjects.*").where(["upper(subjects.name) like ?", @letter + '%']).paginate(:page => params[:page])
+    @subjects = @subjects.select("distinct subjects.*").where(["upper(subjects.name) like ?", @letter + '%']).page(params[:page])
   end
 
   def get_subject
     @subject = Subject.find(params[:id])
-    @subject_bills = @subject.bills.where(["bills.session_id in (?)", @session.family]).paginate(:page => params[:page])
+    @subject_bills = @subject.bills.where(["bills.session_id in (?)", @session.family]).page(params[:page])
     @subject || resource_not_found
   end  
 end

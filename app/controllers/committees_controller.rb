@@ -2,22 +2,22 @@ class CommitteesController < SubdomainController
   respond_to :html, :json
 
   def index
-    @committees = @state.committees.paginate :page => params[:page], :order => params[:order] || 'name'
+    @committees = @state.committees.order(params[:order] || 'name').page(params[:page])
     respond_with(@committees)
   end
 
   def upper
-    @committees = @state.upper_committees.paginate :page => params[:page], :order => params[:order] || 'name'
+    @committees = @state.upper_committees.order(params[:order] || 'name').page(params[:page])
     render :template => "committees/index"
   end
 
   def lower
-    @committees = @state.lower_committees.paginate :page => params[:page], :order => params[:order] || 'name'
+    @committees = @state.lower_committees.order(params[:order] || 'name').page(params[:page])
     render :template => "committees/index"
   end
 
   def joint
-    @committees = @state.joint_committees.paginate :page => params[:page], :order => params[:order] || 'name'
+    @committees = @state.joint_committees.order(params[:order] || 'name').page(params[:page])
     render :template => "committees/index"
   end
 

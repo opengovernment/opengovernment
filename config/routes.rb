@@ -71,14 +71,14 @@ OpenGov::Application.routes.draw do
 
       resources :issues, :only => [:index, :show]
       resources :subjects, :only => [:index, :show]
+    end
+  end
 
-      resources :committees, :only => [:show, :index] do
-        collection do
-          get :upper
-          get :lower
-          get :joint
-        end
-      end
+  resources :committees, :only => [:show, :index] do
+    collection do
+      get :upper
+      get :lower
+      get :joint
     end
   end
 

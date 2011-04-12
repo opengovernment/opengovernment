@@ -1,5 +1,7 @@
 module OpenGov
   class Ratings < Resources
+    include ActionView::Helpers::TextHelper
+    
     def import
       import_categories
       import_sigs
