@@ -66,9 +66,12 @@ module OpenGov
                   end
 
                   begin
-                    Contribution.import contributions_to_import
-                  rescue ActiveRecord::InvalidForeignKey => e
-                    puts "Could not find contributor category with code #{con.contributor_category} on transaction #{con.transaction_id}; skipping."
+                    puts "attempting to insert #{contributions_to_import.size} contributions"
+                    result = Contribution.import contributions_to_import
+
+                    if !result.failed_instances.empty?
+                      puts "The following rows had errors and were not inserted: #{result.failed_instances.inspect}"
+                    end
                   end
                   # process them.
                 rescue Crack::ParseError => e
