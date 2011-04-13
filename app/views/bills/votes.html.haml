@@ -4,10 +4,8 @@
 
 %h2 Votes
 - if @bill.votes.size > 0
-  %table.vote-summary.grid_12.alpha
-
-    %tbody
-      = render @bill.votes
+  .vote-summary.grid_12.alpha
+    = render @bill.votes
 - else
   We have no votes for this bill.
 

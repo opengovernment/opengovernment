@@ -822,3 +822,16 @@ line-height: 1.3em !important;
 
 .search h1{
 }
+
+
+
+.bills-recent .stats .recent_action,
+.bills-recent .stats .recent_action *,
+.bills-introduced .stats .introduced,
+.bills-introduced .stats .introduced *{
+color: #222;
+}
+
+.clearboth{
+clear: both;
+}

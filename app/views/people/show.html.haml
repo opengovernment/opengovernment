@@ -15,22 +15,25 @@
   .grid_5.alpha
     %h2= t '.general_info'
   
-    .grid_2.alpha
+    .grid_4.alpha
       = photo_for(@person)
-  
-    %ul.grid_2.omega
-      - if @person.birthday?
-        %li
-          = t '.born'
-          = @person.birthday
-      - if @person.gender?
-        %li{:class => @person.gender} Gender: #{@person.gender}
-      - if @person.religion?
-        %li
-          = t '.religion'
-          = @person.religion
-      = render 'links', :person => @person
-  
+    
+
+    .grid_4.alpha
+      %h2 Contact 
+      %ul
+        - if @person.birthday?
+          %li
+            = t '.born'
+            = @person.birthday
+        - if @person.gender?
+          %li{:class => @person.gender} Gender: #{@person.gender}
+        - if @person.religion?
+          %li
+            = t '.religion'
+            = @person.religion
+        = render 'links', :person => @person
+    
   .grid_4.omega
     %h2= t '.wikipedia_bio'
     - if @person.bio_data.blank?
