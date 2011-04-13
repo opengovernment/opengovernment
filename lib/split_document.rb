@@ -32,7 +32,7 @@ module SplitDocument
       normal_output_dir = File.join(output_dir, 'normal')
 
       begin
-        if FileUtils.mkdir_p(output_dir, :mode => 775)
+        if FileUtils.mkdir_p(output_dir, :mode => 0775)
           # Pushd
           pwd = Dir.pwd
           Dir.chdir(output_dir)
@@ -53,10 +53,12 @@ module SplitDocument
           self.components_available = true
         end
       rescue Docsplit::ExtractionFailed
+        puts "Extraction failed"
         Dir.chdir(pwd)
         self.components_available = false
         destroy_components
       else
+        puts "Exception $!"
         Dir.chdir(pwd)
         raise
       end
