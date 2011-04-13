@@ -57,7 +57,8 @@ module SplitDocument
         Dir.chdir(pwd)
         self.components_available = false
         destroy_components
-      else
+      rescue => e
+        puts "exception #{e.inspect}"
         Dir.chdir(pwd)
         raise
       end
