@@ -58,7 +58,6 @@ module SplitDocument
         self.components_available = false
         destroy_components
       else
-        puts "Exception $!"
         Dir.chdir(pwd)
         raise
       end
