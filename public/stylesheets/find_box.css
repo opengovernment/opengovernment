@@ -1,8 +1,8 @@
 
 .home.home .find_box {
   display: inline-block;
-  width: 982px;
-padding: 20px 0;
+  width: 754px;
+padding: 20px 190px 20px 38px;
   margin: 0 0 -10px -11px !important;
 -moz-border-radius: 0px;
 -webkit-border-radius: 0px;
@@ -42,8 +42,9 @@ text-transform: none;
 
 
 .home.home .auto_find {
-margin-right: 40px;
+margin-right: 120px;
 margin-top: 1px;
+
 }
 
 
