@@ -51,10 +51,6 @@ en-CA:
       intro: |
       bill_list_empty: |
         The California session began recently and there are no bills here yet. You may <a href="/sessions/20092010/bills">browse the previous session's bills instead</a> -- for example, bills <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=mentions">most in the news</a> last year, or those rated <a href="http://ca.opengovernment.org/sessions/20092010/bills?sort=keyvotes">key votes</a> by Project VoteSmart. 
-    videos:
-    show:
-      bill_text_intro: |
-        <em>Links to California full bill text are coming soon.</em>
     videos: 
       intro: | 
         <em>California- editorial note</em>: as far as what's out there now, as of this writing: the most-central repository of official online video for bills in the CA state legislature of which we're aware is <a href="https://www.calchannel.com/" target="_blank">CalChannel</a>, but they do not make their video available in ways that are <a href="http://www.opengovdata.org/">fully open</a>. So at the moment, a fair amount of research and digging is still required to access video content relevant to this bill and bills in general. But they do have some decent offerings in streaming Flash video from both chambers of the legislature, it would seem, via their customized WordPress installation.  
