@@ -6,7 +6,9 @@
   %p.districtsnear
     %strong= "Districts near #{@point.full_address}"
   %p
-    - if @point.precision != "address"
+    - if @point.precision == "zip"
+      These are the districts for your ZIP Code. To confirm your district, please enter a full street address.
+    - elsif @point.precision != "address"
       = "We couldn't find your exact address, but we found your #{@point.precision}."
 
   - [@state.legislature, Legislature.congress].each do |leg|
