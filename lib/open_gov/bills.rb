@@ -185,7 +185,7 @@ module OpenGov
             @bill_version.attributes = {
               :name => version[:name],
               :published_at => Date.valid_date!(version[:'+date']),
-              :document_type => 'document',
+              :document_type => 'version',
               :updated_at => @sync_date
             }
             @bill_version.save
@@ -200,7 +200,7 @@ module OpenGov
             @bill_document.attributes = {
               :name => doc[:name],
               :published_at => Date.valid_date!(doc[:'+date']),
-              :document_type => 'version',
+              :document_type => 'document',
               :updated_at => @sync_date
             }
             @bill_document.save
