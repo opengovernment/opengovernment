@@ -12,6 +12,11 @@
 </head>
 <body>
 
+<div id="links">
+  <%= link_to("&larr; Return to #{@document.bill.bill_number}".html_safe, bill_path(@document.bill.session, @document.bill)) %>
+</div>
+
+
 <div id="DV-container">
 
   <div class="DV-loadingDocument"><span>Loading</span></div>
