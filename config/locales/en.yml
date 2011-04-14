@@ -216,6 +216,7 @@ en:
       votes:                Votes
       motion:               motion
       mentions:             News &amp; Blog Coverage
+      no_mentions:          No news or blog results found at this time.
       view_all_votes:
         one:               "View The Vote &rarr;"
         other:             "View All %{count} Votes &rarr;"
