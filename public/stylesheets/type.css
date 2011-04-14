@@ -19,7 +19,8 @@ border-bottom: 1px solid rgba(67, 67, 67, .2);
 }
 
 
-.show h1 {
+.bills.show h1,
+.people.show h1 {
 overflow: visible;
 font-size: 23px;
 margin: 0 -21px 30px -34px;
