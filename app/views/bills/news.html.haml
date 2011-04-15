@@ -12,10 +12,16 @@
   %div.grid_6.alpha
     %h3 
       = t('.google_news')
-    %ul.lined.and_spaced.with_titles
-      = render @bill.google_news_mentions
+    - if @bill.google_news_mentions.any?
+      %ul.lined.and_spaced.with_titles
+        = render @bill.google_news_mentions
+    - else 
+      %p Sorry, no results found at this time. If you know of a relevant news article to display here, <a href="/pages/contact">let us know</a>. 
   %div.grid_6.omega
     %h3 
       = t('.blogs')
-    %ul.lined.and_spaced.with_titles
-      = render @bill.google_blog_mentions
+    - if @bill.google_blog_mentions.any?
+      %ul.lined.and_spaced.with_titles
+        = render @bill.google_blog_mentions
+    - else 
+      %p Sorry, no results found at this time. If you know of a relevant blog article to display here, <a href="/pages/contact">let us know</a>. 
