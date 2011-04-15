@@ -70,7 +70,11 @@ namespace :opengov do
       raise "Sorry, OpenGovernment requires PostgreSQL"
     end
 
-    Rake::Task['db:prepare'].invoke
+    if State.count > 0
+      puts "It appears you've already run rake install; skipping DB setup and fixture imports."
+    else
+      Rake::Task['db:prepare'].invoke
+    end
     Rake::Task['fetch:all'].invoke
     Rake::Task['load:all'].invoke
   end
@@ -196,7 +200,6 @@ end
 desc "Fetch Data: districts, bills"
 namespace :fetch do
   task :setup => :environment do
-    puts "Setup for fetch"
     FileUtils.mkdir_p(Settings.data_dir)
     Dir.chdir(Settings.data_dir)
   end
