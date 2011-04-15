@@ -47,7 +47,7 @@ These are used by gems like nokogiri or by our install scripts:
 
     sudo apt-get install git-core
 
-#### PostgreSQL 8.4 and PostGIS
+#### PostgreSQL and PostGIS
 
     sudo apt-get install libpq-dev libkdb5-4 postgresql-8.4 postgresql-doc-8.4
     sudo apt-get install postgis postgresql-8.4-postgis
@@ -119,12 +119,12 @@ Below, there are full instructions on setting up GeoServer to work with OpenGove
 
 Follow the instructions on [DocSplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
 
-### On Mac:
+### On Mac OS X:
 
 #### Basics / Build Tools
 
 Start by installing [Xcode](http://developer.apple.com/technologies/tools/xcode.html)
-Then [download MacPorts](http://www.macports.org/).
+Then [install Homebrew](https://github.com/mxcl/homebrew/wiki/installation).
 
 If you're using rvm:
 
@@ -133,11 +133,43 @@ If you're using rvm:
     rvm use ree@og
 
 Then run:
-    # Install MacPorts items
-    sudo port selfupdate
-    sudo port install postgresql84 postgis mongodb git-core
-    sudo port install sphinx +postgresql84
-    sudo gem install bundler 
+    brew update
+    brew install postgresql
+
+_[The commands for starting and stopping postgres, and for auto-launching it on startup, are shown at the end of the install.]_
+
+Now initialize the database, specifying the default encoding, like this:
+
+    initdb /usr/local/var/postgres -E utf8
+
+If you're using rvm
+
+    gem install bundler
+
+_[The commands for starting and stopping mongodb, and for auto-launching it on startup, are shown at the end of the install.]_
+
+Now install PostGIS and Sphinx:
+
+    brew install postgis sphinx
+
+Otherwise:
+
+    sudo gem install bundler
+
+#### MongoDB (optional, for page view tracking)
+
+    brew install mongodb
+
+#### GeoServer (optional, for vote maps)
+
+Download and run the [GeoServer Mac installer](http://geoserver.org/display/GEOS/Stable), then startup GeoServer
+
+GeoServer should now be available at `[http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)`
+Below, there are full instructions on setting up GeoServer to work with OpenGovernment.
+
+#### DocSplit dependencies (optional, for DocumentCloud Viewer support)
+
+Follow the instructions on [DocSplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
 
 ## General Installation
 
