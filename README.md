@@ -31,9 +31,7 @@ Meanwhile...
 
 # Full install
 
-## Prerequisites:
-
-### on Ubuntu 10.10:
+## Install Prerequisites (Ubuntu 10.10)
 
 Pop open a terminal and run the following commands to get started.
 
@@ -112,14 +110,14 @@ And restart tomcat:
 
     sudo service tomcat restart
 
-GeoServer should now be available at `[http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)`
+GeoServer should now be available at [http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)
 Below, there are full instructions on setting up GeoServer to work with OpenGovernment.
 
 #### DocSplit dependencies (optional, for DocumentCloud Viewer support)
 
 Follow the instructions on [DocSplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
 
-### On Mac OS X:
+## Install Prerequisites (Mac OS X)
 
 #### Basics / Build Tools
 
@@ -136,17 +134,15 @@ Then run:
     brew update
     brew install postgresql
 
-_[The commands for starting and stopping postgres, and for auto-launching it on startup, are shown at the end of the install.]_
-
 Now initialize the database, specifying the default encoding, like this:
 
     initdb /usr/local/var/postgres -E utf8
 
+Now startup postgres using the commands shown in `brew info postgresql`
+
 If you're using rvm
 
     gem install bundler
-
-_[The commands for starting and stopping mongodb, and for auto-launching it on startup, are shown at the end of the install.]_
 
 Now install PostGIS and Sphinx:
 
@@ -159,17 +155,19 @@ Otherwise:
 #### MongoDB (optional, for page view tracking)
 
     brew install mongodb
+    
+Then startup MongoDB using the commands shown in the installer.
 
 #### GeoServer (optional, for vote maps)
 
 Download and run the [GeoServer Mac installer](http://geoserver.org/display/GEOS/Stable), then startup GeoServer
 
-GeoServer should now be available at `[http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)`
+GeoServer should now be available at [http://localhost:8080/geoserver/web/](http://localhost:8080/geoserver/web/)
 Below, there are full instructions on setting up GeoServer to work with OpenGovernment.
 
-#### DocSplit dependencies (optional, for DocumentCloud Viewer support)
+#### Docsplit dependencies (optional, for DocumentCloud Viewer support)
 
-Follow the instructions on [DocSplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
+Follow the instructions on [Docsplit's site](http://documentcloud.github.com/docsplit/#installation) for full dependency install instructions. Among the optional items, you will only need tesseract.
 
 ## General Installation
 
@@ -204,13 +202,11 @@ Once the install is complete, build the Sphinx index and start the Sphinx server
 
     rake ts:rebuild
 
-Then start Rails:
-
-    bin/rails s
+Then start Rails with `bin/rails s`.
 
 OpenGovernment uses subdomains, so to access the site you'll find the `127localhost.com` domain helpful. This is a domain for which all subdomains point to localhost. So if you visit, for example, `http://tx.127localhost.com:3000`, you should see the Texas OpenGovernment site.
 
-## GeoServer Setup (optional, for vote maps)
+## Finalizing your GeoServer Setup
 
 Once you have GeoServer running, there are further setup steps.
 
