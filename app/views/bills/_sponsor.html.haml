@@ -1,6 +1,4 @@
 %li
   - surround '',',' do
     = sponsor.sponsor_id? ? link_to(sponsor.sponsor.full_name, person_path(sponsor.sponsor)) : sponsor.sponsor_name
-  .person_party
-      = Role.party_fm(person[:party]).to_s.parenthesize
   = sponsor.kind_fm
