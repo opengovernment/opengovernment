@@ -31,7 +31,7 @@ module OpenGov
     end
 
     def import_state!(state, options = {})
-      import_state(options.merge(:immediate => true))
+      import_state(state, options.merge(:immediate => true))
     end
 
     def import_person(person_id)

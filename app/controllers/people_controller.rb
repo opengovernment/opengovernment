@@ -59,6 +59,8 @@ class PeopleController < SubdomainController
         @rating_categories = SpecialInterestGroup.find_by_sql(["select c.id, c.name, count(r.id) as entries from categories c, special_interest_groups sigs, ratings r where c.id = sigs.category_id and r.sig_id = sigs.id and r.person_id = ? group by c.name, c.id", @person.id])
         @latest_votes = @person.votes.latest
         @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
+        @industries = Industry.aggregates_for_person(@person).order('amount desc').limit(5)
+        @contributions = @person.contributions.includes(:state).limit(3)
       end
       format.json do
         render(:json => @person)

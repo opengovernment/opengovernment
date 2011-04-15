@@ -41,7 +41,7 @@
     - else
       = raw truncate(@person.bio_data, :length => 400)
       %br
-      = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
+      = link_to(t('site.more_link'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
   
   .space.clear
   
@@ -68,25 +68,37 @@
     - @person.roles.each do |role|
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
-  .grid_4.committee_preview
-    %h2
-      = t '.committees', :count => @person.committees.count 
-    - if @person.committees.count > 0
-      = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
-      %ul.lined.committees
-        - @person.committees.limit(3).each do |committee|
-          %li
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee), :class => 'modal')
+    .committee_preview
+      %h2
+        = t '.committees', :count => @person.committees.count 
+      - if @person.committees.count > 0
+        = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
+        %ul.lined.committees
+          - @person.committees.limit(3).each do |committee|
+            %li
+              = committee.type_fm
+              = link_to(committee.name, committee_path(committee), :class => 'modal')
+      - else
+        %p
+          = t '.no_committee_info', :full_name => @person.full_name 
+
+    
+  .grid_4.mentions
+    %h2= t '.mentions'
+    - if @person.mentions.count > 0
+      %ul.lined
+        = render @person.mentions.limit(2)
+      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more')
     - else
-      %p
-        = t '.no_committee_info', :full_name => @person.full_name 
+      %p= t '.no_mentions'
 
   .grid_4.omega
     #twitter(style="display: none;")
       %h2= t '.twitter_mentions' 
+      #notweets(style="display: none;")
+        %p= t 'site.no_tweets', :hashtags => @person.full_name
       %ul.lined#tweets
-      = link_to('More &rarr;'.html_safe, social_person_path(@person), :class => 'more')
+      = link_to(t('site.more_link'), social_person_path(@person), :class => 'more')
 .space.clear
 
 %hr.push_top
@@ -122,7 +134,19 @@
   - else
     %p 
       = t '.no_vote_info_for', :full_name => @person.full_name 
-    
+
+.space.clear    
+
+.grid_6.alpha
+  %h2= t 'people.money_trail.industry_title'
+  = render :partial => 'industry', :collection => @industries
+  = link_to(t('site.more_link'), money_trail_person_path(@person))
+
+.grid_6.omega
+  %h2= t 'people.money_trail.top_title'
+  = render :partial => 'contribution', :collection => @contributions
+  = link_to(t('site.more_link'), money_trail_person_path(@person))
+
 
 .space.clear
 

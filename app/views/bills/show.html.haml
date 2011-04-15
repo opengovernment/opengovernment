@@ -142,7 +142,7 @@
   #twitter(style="display: none;")
     %h2= t '.twitter_mentions' 
     #notweets(style="display: none;")
-      %p= t '.no_tweets', :hashtags => @bill.to_hashtags
+      %p= t 'site.no_tweets', :hashtags => @bill.to_hashtags
     %ul#tweets
 
 - if @bill.citations.any?
