@@ -8,8 +8,4 @@ class Contribution < ActiveRecord::Base
 
   validates :industry, :presence => true
 
-  define_index do
-    indexes contributor_name, :sortable => true
-    has state_id
-  end
 end

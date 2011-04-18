@@ -24,15 +24,3 @@
         %li[committee]
           != link_to(committee.name, committee_path(committee))
     = paginate @committees
-
-
-- unless @contributions.empty?
-  %div.search_results.last
-    %h2 Contributions
-    %ul.contributions
-      - @contributions.each do |contribution|
-        %li[contribution]
-          != contribution.contributor_name
-    = paginate @contributions
-
-
