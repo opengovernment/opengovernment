@@ -84,8 +84,6 @@ class BillsController < SubdomainController
     @sorts[:mentions] = 'Most In The News'
     @sorts[:views] = 'Most Viewed'
     @sorts[:keyvotes] = 'Key Votes'
-
-    puts @sorts.inspect
   end
 
   def scope_bills(bills)

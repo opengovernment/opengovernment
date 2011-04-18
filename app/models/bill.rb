@@ -68,7 +68,8 @@ class Bill < ActiveRecord::Base
 
   define_index do
     indexes title, :sortable => true
-    has bill_number, state_id, session_id, chamber_id, last_action_at, first_action_at
+    has bill_number, state_id, chamber_id, last_action_at, first_action_at
+    indexes session_id, :facet => true
 
     # Trigger the join on mentions before indexing the count
     # We're using SQL to do this now... so no need to index it.

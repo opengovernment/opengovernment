@@ -85,6 +85,9 @@ class Person < ActiveRecord::Base
     has mentions(:id), :as => :mentions_ids
     has 'COUNT(mentions.id)', :as => :mentions_count, :type => :integer
 
+    # Placeholder so we can use :with => :session_id in site-wide searches
+    has "null", :type => :integer, :as => :session_id
+
     has 'current_district_order_for(people.id)', :as => :district_order, :type => :string
     has 'current_state_for(people.id)', :as => :state_id, :type => :integer
   end
