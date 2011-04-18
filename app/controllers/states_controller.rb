@@ -28,8 +28,11 @@ class StatesController < SubdomainController
                 and r.session_id = ?
               group by owner_id
               order by mentions_count desc
-              limit 12) m
+              limit 50) m
             on m.owner_id = p.id
+          where
+            p.photo_url is not null
+          limit 12
           ", @session.id])
         }
       end
@@ -96,10 +99,10 @@ class StatesController < SubdomainController
 
       @search_counts = ActiveSupport::OrderedHash.new
       @search_counts[:everything] = 0
-      @search_counts[:bills] = @state.bills.search_count(@query, @bill_search_options || @search_options)
-      @search_counts[:legislators] = Person.search_count(@query, @search_options)
-      @search_counts[:committees] = @committee_type.search_count(@query, @search_options)
-      @search_counts[:contributions] = Contribution.search_count(@query, @search_options)
+      @search_counts[:bills] = @state.bills.search_count(@query, @bill_search_options || @search_options.except(:order))
+      @search_counts[:legislators] = Person.search_count(@query, @search_options.except(:order))
+      @search_counts[:committees] = @committee_type.search_count(@query, @search_options.except(:order))
+      @search_counts[:contributions] = Contribution.search_count(@query, @search_options.except(:order))
       @search_counts[:everything] = @total_entries = @search_counts.values.inject() { |sum, element| sum + element }   
 
       if @total_entries == 1

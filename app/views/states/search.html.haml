@@ -1,4 +1,40 @@
 - title("Search")
 
-= render :partial => 'search_header'
+- case @search_type
+  - when "everything"
+    %h1
+      Searching all of 
+      = @state.name
+  - else
+    %h1
+      Searching
+      = @state.name
+      = @search_type.titleize
+
+.grid_12.search_results_search_form.alpha
+  = render 'shared/search_form'
+
+%br.clear
+%br
+
+.grid_12.alpha
+  .results_count.grid_6.alpha 
+    - if @query.blank?
+      All results.
+    - else
+      #{@total_entries} results for #{@query}
+  .grid_5.omega
+    %a.search_help{:href => page_path("about")} Search Help
+
+
+%br.clear
+%br
+
+%ul.sorts
+  - @search_counts.each do |type, total_entries|
+    %li{:class => (@search_type == type.to_s ? 'active' : nil)}
+      %a{:href => url_for(params.merge({:search_type => type}).except(:page, :order))}
+        = type.to_s.titleize
+        = (total_entries rescue 0).to_s.parenthesize
+
 = render :partial => "#{@search_type}_results"
