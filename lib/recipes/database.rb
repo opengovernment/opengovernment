@@ -68,6 +68,8 @@ namespace :db do
 
     run_str = "gunzip #{input_file_gz} && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} #{input_file_sql}"
 
+    puts run_str
+
     %x!#{run_str}!
   end
 
