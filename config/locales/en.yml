@@ -101,9 +101,6 @@ en:
       intro: "Use this public forum productively to share information about this bill that may be relevant to other visitors. Please don't use this forum to leave messages for your elected officials -- instead, contact them directly with your input. (You can find them easily here on OpenGovernment by entering your zip code on your state's homepage.) Specific comments about this bill work best here: its official text, its latest status, its actions, or its votes. Thank you for helping to build public knowledge about bills in state legislatures."
     documents:
       all_documents_for: "All Documents for %{bill_number}"
-    wrapper: 
-      share_this:        Share this
-      im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
     index:
       title:            'Bills in the %{legislature_name} (%{session_name})'
     money_trail:
@@ -160,6 +157,8 @@ en:
       bill:          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
+      share_this:        Share this
+      im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
       status:      'Bill Status'
       sponsors:
         one:     'One Sponsor'
