@@ -11,20 +11,10 @@
 
 
 .bill-mugs
-  - if @sponsors.size > 0
+  - if @sponsors.count > 0
     .sponsor_preview
-      -#%h2= t('.sponsors', :count => @sponsors.count)
-
-      .sponsor_mugs
-        = sponsor_mugs(@sponsors, :limit => 10)
-      %ul.lined
-        - @sponsors.each do |s|
-          - if !s.sponsor_id || s.sponsor.photo_url.blank?
-            %li
-              - surround '',',' do
-                = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
-              = s.kind_fm
-      = link_to(t('.see_all'), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
+      %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
+      = link_to(t('.see_all', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
 
 .grid_9.alpha
   %span.session.hide 

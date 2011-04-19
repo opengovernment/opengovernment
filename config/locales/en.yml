@@ -160,10 +160,7 @@ en:
       share_this:        Share this
       im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
       status:      'Bill Status'
-      sponsors:
-        one:     'One Sponsor'
-        other: '%{count} Sponsors'
-      see_all:   'See all'
+      see_all:   '%{count} sponsors'
       none:          None.
       bill_text:     Bill Text
       documents:
