@@ -84,9 +84,10 @@
       - else
         = yield :before_left_nav
         .grid_4.nav-cont
-          -#%a{:href => root_url(:subdomain => current_place_subdomain)}
-          %a#dropdown{:class => 'dropdown', :href => '#'}
+          %a#statelevel{:href => root_url(:subdomain => current_place_subdomain)}
             = current_place_name || t('site.select_state')
+
+          %a#dropdown{:class => 'statedropdown', :href => '#'}
 
           .state-select
             %span.triangle

@@ -1,7 +1,26 @@
 = render 'nav'
 
+.track_buttons
+  %h4
+    %span= t('bills.track.track')
+  %ul
+    %li.rss
+      = link_to t('people.show.all_votes'), {:format => :atom}
+    %li.email 
+      %a
+        %span.icon
+        = t('.email_alerts') 
+        %span.soon= t('.coming_soon')
+
+
+
 %h1
   = @person.official_name
   .subhead
     #{@person.try(:party)}, #{@person.try(:district_name)}
+
+.share-tools
+  %h4.pad Share this
+
+  = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
 

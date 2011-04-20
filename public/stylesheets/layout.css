@@ -10,7 +10,6 @@ width: 226px;
 overflow: hidden;
 letter-spacing: .03em;
 position: relative;
-top: -2px;
 }
 
 #left_nav ul {
@@ -119,9 +118,8 @@ border-top: 1px solid #95afb2;
 
 
 #left_nav ul li#person.person.selected a.selected,
-#left_nav ul li#people.people.selected a.selected{
-padding-left: 42px;
-/* background: url(../images/sidebar_icons.png) 12px -472px no-repeat;  */
+#left_nav ul li#person.person.selected a.selected:hover{
+background: url(../images/sidebar_icons.png) 30px -39px no-repeat;
 }
 
 
@@ -663,6 +661,7 @@ padding: 4px 0 4px 34px;
 display: block;
 clear: left;
 color: rgba(0,0,0,1);
+margin-right: 200px;
 -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 background: #eee url(../images/sprites.png) 10px -171px no-repeat;

@@ -1,12 +1,27 @@
 - embed_disqus("bill-#{@bill.long_id}")
 
+.track_buttons
+  %h4
+    %span= t('bills.track.track')
+
+  %ul
+    %li.rss 
+      = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
+      = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
+    %li.email 
+      %a
+        %span.icon
+        = t('bills.track.email_alerts') 
+        %span.soon= t 'bills.show.coming_soon'
+
+
+
 - if @bill.votesmart_key_vote?
   %span.vote_smart_keyvote
     This is a Votesmart Key Vote!
 
-%ul.subject_areas
-  - @bill.subjects.each do |subject|
-    %li= link_to(subject.name, subject_path(@bill.session, subject))
+
+
 
 
 %h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : nil}
@@ -16,3 +31,17 @@
   %span{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}
     = "#{@bill.bill_number}:"
     = @bill.title
+
+  %ul.subject_areas
+    - @bill.subjects.each do |subject|
+      %li= link_to(subject.name, subject_path(@bill.session, subject))
+
+
+.share-tools
+  %h4.pad 
+    =t('.share_this')
+    
+  = render 'shared/share_tools', :message => "Share", :title => t('.im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
+
+
+

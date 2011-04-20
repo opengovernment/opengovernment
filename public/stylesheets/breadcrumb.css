@@ -195,57 +195,40 @@ ul.breadcrumb li span.subhover
 
 
 .dropdown{
-
-  position: relative;
-  z-index: 9999999;
-  top: -1px;
+clear: both;
 font-size: 13px;
-  margin: 0 0 0px -22px !important;
-  padding: 8px 0 8px 15px !important;
+  margin: 0px 0 0px -22px !important;
+  padding: 9px 0 8px 15px !important;
   width: 211px !important;
 display: block;
   border: 1px solid #bbb;
-
 text-decoration: none !important;
-
-
-
   text-shadow: 0 1px 0px #fff;
-
-background: url(../images/sprites.png) 185px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#efefef));
-background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fefefe,  #efefef);
-
+border-bottom: 1px solid rgba(0,0,0,.2) !important;
+background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#efefef));
+background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top,  #fefefe,  #efefef);
 -moz-box-shadow: inset 0 1px 0px #f4f9f9;
 -webkit-box-shadow: inset 0 1px 0px #f4f9f9;
-
 border-top: none;
   }
 
 
 .dropdown:hover{
-background: url(../images/sprites.png) 185px -311px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
-background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
-
+background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
+background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
 text-decoration: none;
-
-
-
   -moz-box-shadow: 0 0px 2px rgba(0,0,0,.1), inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ccc, inset 0 1px 0px #fff;
+  -webkit-box-shadow:  0 0px 2px rgba(0,0,0,.1), inset 0 1px 0px #fff;
 
   }
 
 
 .dropdown.subhover{
-
-
-
-
 text-decoration: none;
   -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 1px rgba(0,0,0,.5);
-  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 1px #aaa;
-  background: url(../images/sprites.png) 185px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
-  background: url(../images/sprites.png) 185px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
+  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 1px rgba(0,0,0,.5);
+  background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); 
+  background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top,  #fff,  #eee);
   }
 
 
@@ -258,16 +241,64 @@ text-decoration: none;
 a#dropdown.dropdown{
 font-size: 14px;
 padding: 16px 0 15px 15px !important;
-background: url(../images/sprites.png) 185px -302px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
-background: url(../images/sprites.png) 185px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
+background: url(../images/sprites.png) 186px -302px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
 }
 
 
 a#dropdown.dropdown:hover{
-background: url(../images/sprites.png) 185px -302px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
-background: url(../images/sprites.png) 185px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
+background: url(../images/sprites.png) 186px -301px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
+background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
 
 }
+
+
+
+#statelevel{
+display: block;
+padding: 15px;
+float: left;
+border-bottom: 1px solid rgba(0,0,0,.2) !important;
+margin: -1px 0 0 -21px;
+width: 196px;
+font-size: 14px;
+text-decoration: none;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+background: -moz-linear-gradient(top,  #fff,  #eee) !important;
+}
+
+
+
+#dropdown.statedropdown{
+display: block;
+padding: 10px;
+float: left;
+height: 5px;
+border: 1px solid rgba(0,0,0,.1)!important;
+margin: 8px 0 0 -21px;
+width: 200px;
+position: absolute;
+width: 6px;
+left: 210px;
+background: url(../images/sprites.png) -4px -312px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+background: url(../images/sprites.png) -4px -312px no-repeat, -moz-linear-gradient(top,  #fff,  #eee) !important;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
+
+
+#dropdown.statedropdown:hover{
+border: 1px solid rgba(0,0,0,.5)!important;
+}
+
+
+#dropdown.statedropdown.subhover{
+border: 1px solid rgba(0,0,0,0)!important;
+-moz-box-shadow:inset 0 2px 3px rgba(0,0,0,0.3); 
+-webkit-box-shadow:inset 0 2px 3px rgba(0,0,0,0.3); 
+
+}
+
 
 
 
@@ -278,7 +309,7 @@ a#dropdown.dropdown.subhover{
 
 
 .prior_session{
-margin: 0 0 0  -26px;
+margin: 0 0 0 -26px;
 width: 206px;
 background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
 background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
@@ -292,7 +323,7 @@ z-index: 100;
 .current_session{
 position: relative;
 z-index: 100;
-margin: 0 0 0  -10px;
+margin: 0 0 0 -10px;
 width: 200px;
 
 padding: 5px 10px 5px 15px;
@@ -317,6 +348,6 @@ display: block;
 
 
 
-a#session_dropdown.dropdown.subhover{
-  background: url(../images/sprites.png) 190px -486px no-repeat;
-}
+
+
+

@@ -10,7 +10,7 @@ h1 {
 overflow: visible;
 font-size: 23px;
 margin: 0 -21px 30px -34px;
-padding: 25px 0px 25px 36px;  
+padding: 25px 25px 25px 36px;  
 position: relative;
 line-height: 1.2em;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
@@ -19,18 +19,6 @@ border-bottom: 1px solid rgba(67, 67, 67, .2);
 }
 
 
-.bills.show h1,
-.people.show h1 {
-overflow: visible;
-font-size: 23px;
-margin: 0 -21px 30px -34px;
-padding: 25px 220px 25px 36px;  
-position: relative;
-line-height: 1.2em;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-border-bottom: 1px solid rgba(67, 67, 67, .2);
-}
 
 
 

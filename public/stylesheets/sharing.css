@@ -1,6 +1,6 @@
 
 
-.take_action{
+.take_action{/*
 width: 150px !important;
 background: #fff;
   -moz-border-radius-topleft: 3px;
@@ -10,8 +10,8 @@ background: #fff;
 border: 1px solid #ccc;
 right: 20px;
 top: 0;
-margin-top: 20px;
-/*
+margin-top: 20px;clear: both !important;
+
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2), inset 0 1px 1px #fff;    
   -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), inset 0 1px 1px #fff;    
 */
@@ -40,9 +40,6 @@ font-size: 10px;
   -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), 0 -1px 0px rgba(0, 0, 0, .06), inset 0 1px 1px #fff;    
   -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), 0 -1px 0px rgba(0, 0, 0, .06), inset 0 1px 1px #fff;    
 
-
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #efefef);
 }
 
 
@@ -69,44 +66,49 @@ font-size: 10px;
 
 /* Styles for sharing buttons */
 
+
+.share-tools{
+height: 45px;
+position: relative;
+z-index: 99999999999;
+}
+
+
+
+.share-tools h4{
+display: none;
+}
+
 ul.share{
   list-style: none !important;
-  padding: 7px 0 10px 8px;
+  padding: 0px 0 10px 8px;
   margin: 0px 0 36px 0px !important;
   height: 20px;
 float: left;
 overflow: hidden;
-  }
-
-
-.write_buttons li,
-ul.share li {
-  float: left;
-  clear: none;
-  margin-right: 7px;
-  }
-
-.write_buttons a,
-ul.share li a {
-  width: 27px !important;
-  height: 0px !important;
-  overflow: hidden !important;
-  padding-top: 27px !important;
-  float: left !important;
-  }
-
-.take_action .facebook{
-top: 79px;
-left: 10px;
-position: absolute;
 }
 
 
-.share_top .facebook{
-top: 9px;
-left: 630px;
+
+.facebook{
+padding: 1px !important;
+margin: -1px 0 0 -4px !important;
+position: relative;
+width: 100px;
+border: 1px solid rgba(0,0,0,.2);
+background: #efefef;
+height: 20px;
+float: left;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+}
+
+body .facebook iframe{
+top: 1px;
+left: 1px;
 position: absolute;
 }
+
 
 .share .twitter {
 }
@@ -162,6 +164,8 @@ display: none;
 }
 
 .share .stumble a {
+display: none;
+
   background: url(../images/share.png) no-repeat -150px top;
 }
 
@@ -190,17 +194,21 @@ clear: none !important;
 
 
 .track_buttons{
-padding: 5px 0 0 10px;
+padding: 25px 0 0 10px;
 margin: 0;
-float: left;
-position: absolute;
-top: 15px;
-right: 0;
+height: 30px;
+float: right;
+position: relative;
+z-index: 99999999999;
 }
 
 
 .track_buttons li{
 
+}
+
+.track_buttons h4{
+display: none;
 }
 
 
@@ -226,6 +234,8 @@ padding-bottom: 3px;
 padding-top: 0px;
 float: left;
 margin-bottom: 10px;
+display: none;
+
   }
 
 
@@ -250,11 +260,37 @@ width: 90px;
 
 
 .write_buttons{
+border: 1px solid rgba(0,0,0,.2);
+float: right;
+width: 320px;
+padding: 20px 20px 10px 20px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #efefef,  #ddd);
+}
+
+.write_buttons h4{
+display: none;
 }
 
 
+.write_buttons li,
+ul.share li {
+  float: left;
+  clear: none;
+  margin-right: 7px;
+  }
 
+.write_buttons a,
+ul.share li a {
+  width: 27px !important;
+  height: 0px !important;
+  overflow: hidden !important;
+  padding-top: 27px !important;
+  float: left !important;
+  }
 
 .write_buttons h4 span{
 }
@@ -267,44 +303,17 @@ padding: 10px 30px 0 0;
 
 
 
-
-
-
-/* .write_buttons .email a{
-background: url(../images/share.png) no-repeat -63px 0px;
-}
-
-
-.write_buttons ul{
-margin: 20px 0 0 20px !important;
-}
-
-.write_buttons li a{
-margin: 0px !important;
-padding: 24px 0 0 0!important;
-height: 0px !important;
-width: 25px !important;
-overflow: hidden !important;
-}
-
-.write_buttons .drop{
-height: 60px !important;
-width: 130px !important;
-}
-
-*/
-
 .write_buttons form{
 padding: 0 0 0 9px !important;
 margin: 0;
 clear: both;
-
 }
 
 .write_buttons strong{
 display: block;
-padding: 10px 0;
-font-size: 10px;
+float: left;
+
+padding: 6px 10px 0 0;
 font-weight: normal
 }
 
@@ -313,6 +322,7 @@ float: left;
 padding: 6px 18px 0 0 !important;
 font-size: 11px !important;
 font-weight: bold !important;
+display: none;
 }
 
 .write_buttons form#find_my_rep #q{
@@ -320,9 +330,10 @@ float: left;
 clear: none !important;
 
 font-size: 11px !important;
-  margin: 0 !important;
+  margin: 0 10px 0 0!important;
   border: 0 !important;
   padding: 7px 8px !important;
+
 
   letter-spacing: .06em;
 
@@ -337,7 +348,7 @@ font-size: 11px !important;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #ddd,  #efefef);
 width: 50px !important;
 }
@@ -346,13 +357,12 @@ width: 50px !important;
 
 .write_buttons .find_button input{
 float: left;
-clear: both !important;
 opacity: .5;
 font-size: 11px !important;
 cursor: pointer;
-margin: 10px 0 9px 0px !important;
-padding: 6px 0;
-width: 133px;
+margin: 0px 0 9px 0px !important;
+padding: 6px 20px;
+
 
 }
 
@@ -405,4 +415,8 @@ float: left;
 margin: 5px 0 5px 15px !important;
 }
 
+
+.share-tools{
+float: right;
+}
 

@@ -146,7 +146,7 @@ en:
       email_alerts:    Email Alerts
     write:
       write:           Write
-      find_your_rep:  "Find Your %{chamber_name}"
+      find_your_rep:  "Write Your %{chamber_name}"
       location_prompt: ZIP Code
       find_button:     Find
     rss:
@@ -203,6 +203,7 @@ en:
       email_alerts: "Email Alerts"
       coming_soon: "(coming soon)"
       contact: 'Contact'
+      contact_this_person: 'Contact this Person'
       wikipedia_missing: |
         We searched Wikipedia for "%{name}" and did not find a page with that title. A bio for this person may exist on Wikipedia under a slightly different name -- if so, <a href="/pages/contact">let us know</a> and we'll display it here.
       born:                  Born

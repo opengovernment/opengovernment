@@ -23,8 +23,8 @@ body.people.index ul.lined,
 body.districts.search ul.lined,
 body.people.lower ul.lined,
 body.people.upper ul.lined{
-margin-left: -38px !important;
-width: 764px;
+margin-left: -33px !important;
+width: 752px;
 clear: both;
 }
 

@@ -835,3 +835,7 @@ color: #222;
 .clearboth{
 clear: both;
 }
+
+.nodec{
+text-decoration: none;
+}
