@@ -1,4 +1,12 @@
 %li
-  - surround '',',' do
-    = sponsor.sponsor_id? ? link_to(sponsor.sponsor.full_name, person_path(sponsor.sponsor)) : sponsor.sponsor_name
+  - if sponsor.sponsor_id? && !sponsor.sponsor.photo_url.blank?
+    -# Photo to show
+    .photo= link_to(photo_for(sponsor.sponsor, :tiny), person_path(sponsor.sponsor))
+    - succeed ',' do
+      = link_to(sponsor.sponsor.full_name + ' (' + sponsor.sponsor.current_role.try(:affiliation_fm) + ')', person_path(sponsor.sponsor))
+  - else
+    -# No photo available -- show missing photo instead
+    .photo= photo_for(sponsor.sponsor, :tiny)
+    - succeed ',' do
+      = sponsor.sponsor_name
   = sponsor.kind_fm

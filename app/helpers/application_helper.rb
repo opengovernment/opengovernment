@@ -96,7 +96,7 @@ module ApplicationHelper
       size = :thumb
     end
 
-    if person.photo?
+    if person && person.photo?
       # URI encode because some photos actually have
       # % characters in the names. D'oh!
       image_tag(URI.encode(person.photo.url(size)), ops)
