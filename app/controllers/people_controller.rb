@@ -44,7 +44,7 @@ class PeopleController < SubdomainController
   end
 
   def sponsored_bills
-    @sponsorships = BillSponsorship.find_all_by_sponsor_id(@person.id, :include => [:bill]).page(params[:page])
+    @sponsorships = BillSponsorship.where(:sponsor_id => @person.id).includes(:bill).page(params[:page])
   end
 
   # /people/1
