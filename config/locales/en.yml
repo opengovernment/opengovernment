@@ -158,6 +158,8 @@ en:
       coming_soon: "(coming soon)"
       session:     "Session:"
       share_this:        Share this
+      mentions:             News &amp; Blog Coverage
+      no_mentions:          No news or blog results found at this time.
       im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
       status:      'Bill Status'
       see_all_sponsors:
