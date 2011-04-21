@@ -11,7 +11,7 @@
   
   %hr
 
-  - if @sponsorships.empty?
+  - if @sponsorships.all.empty?
     %h2
       = @person.full_name
       = t '.has_no_bills' 
