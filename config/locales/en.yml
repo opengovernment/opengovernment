@@ -158,9 +158,13 @@ en:
       coming_soon: "(coming soon)"
       session:     "Session:"
       share_this:        Share this
+      mentions:             News &amp; Blog Coverage
+      no_mentions:          No news or blog results found at this time.
       im_reading_about: "I'm reading about %{hashtags} on OpenGovernment.org"
       status:      'Bill Status'
-      see_all:   '%{count} sponsors'
+      see_all_sponsors:
+        one: 'One sponsor'
+        other: '%{count} sponsors'
       none:          None.
       bill_text:     Bill Text
       documents:
@@ -191,6 +195,12 @@ en:
     videos: |
       Not many states make video truly accessible, is the problem. 
   people:
+    ratings:
+      interest_group_ratings:   Interest Group Ratings
+      from_vote_smart:          From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
+      number_of_ratings:        Number of ratings
+      no_ratings_data_found: |
+        No ratings data found for this person at this time via <a href="http://votesmart.org/" target="_blank">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href="/pages/help">how you can help</a>.
     index:
       title:                'Members of the %{legislature_name} (%{session_name})'
     show:
@@ -223,10 +233,6 @@ en:
         other:             "View All %{count} Votes &rarr;"
       no_sponsorship_info_for:  We have no bill sponsorship information for
       no_vote_info_for:        "We have no vote information for %{full_name} at this time."
-      interest_group_ratings:   Interest Group Ratings
-      from_vote_smart:          From the non-partisan <a href="http://www.votesmart.org">Project Vote Smart</a>.
-      number_of_ratings:        Number of ratings"
-      no_ratings_data_found: "No ratings data found for this person at this time via <a href=\"http://votesmart.org/\" target=\"_blank\">Project Vote Smart</a>. But with your support, we can find more info about this member and publish it here on the open Web &mdash; see <a href=\"/pages/help\">how you can help</a>."
       primary_sources: "Primary sources for this person:"
       how_did_we_get: "How did we get all this other info? It wasn't easy, but we got it. About"
       twitter_mentions: "Twitter Mentions"

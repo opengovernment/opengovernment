@@ -1,0 +1,24 @@
+- if categories.any?
+  - if categories.size > 1
+    .grid_6.alpha
+      %table.ratings_summary
+        %tr
+          %th
+          %th= t 'people.ratings.number_of_ratings'  
+        - categories[0..(categories.size/2)-1].each do |rating_category|
+          %tr
+            %td= link_to(rating_category.name, ratings_person_path(person, :category_id => rating_category.id), :class => link_class)
+            %td= rating_category.entries
+
+  .grid_6.omega
+    %table.ratings_summary
+      %tr
+        %th
+        %th= t 'people.ratings.number_of_ratings' 
+      - categories[categories.size/2..categories.size].each do |rating_category|
+        %tr
+          %td= link_to(rating_category.name, ratings_person_path(person, :category_id => rating_category.id), :class => link_class)
+          %td= rating_category.entries
+
+- else
+  %p.grid_12.alpha= t 'people.ratings.no_ratings_data_found'  

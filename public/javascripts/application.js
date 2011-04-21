@@ -106,6 +106,18 @@ $(document).ready(function() {
     }
   );
 
+  // On pages with votes, resize the vote bar to show votes relative to one another.
+  if ($('.vote-bar')) {
+    vote_counts = $('.vote-bar').map(function () { return $(this).data('vote-count'); });
+
+    max_vote_count = 0
+    vote_counts.each(function () { if (this > max_vote_count) { max_vote_count = this; } });
+
+    $('.vote-bar').each(function () {
+      $(this).width( (($(this).data('vote-count') / max_vote_count) * 100).toString() + "%" );
+    });
+  }
+
 });
 
 function replaceURLWithHTMLLinks(text) {

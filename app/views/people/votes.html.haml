@@ -11,7 +11,7 @@
     = t '.most_recent_first'
 %hr
 
-- if @roll_calls.size > 0
+- if @roll_calls.total_count > 0
   = paginate @roll_calls
   %hr
   %table.vote-summary
