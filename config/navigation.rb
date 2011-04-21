@@ -106,6 +106,7 @@ SimpleNavigation::Configuration.run do |navigation|
             m.item :mentions, 'News & Blog Coverage', news_person_path(@person)
             m.item :tweets, 'Social Media Mentions', social_person_path(@person)
             m.item :money_trail, 'Campaign Contributions', money_trail_person_path(@person)
+            m.item :money_trail, 'Interest Group Ratings', ratings_person_path(@person)
             m.item :videos, 'Videos', videos_person_path(@person)
             m.item :disqus, 'Comments', discuss_person_path(@person, :anchor => 'disqus_thread')
             m.item :committees, 'Committees', committees_person_path(@person), :style => 'display: none;'
