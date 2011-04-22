@@ -269,6 +269,15 @@ background: -moz-linear-gradient(top,  #fff,  #eee) !important;
 
 
 
+#statelevel:hover{
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e2ecee)) !important;
+background: -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
+}
+
+
+
+
+
 #dropdown.statedropdown{
 display: block;
 padding: 10px;

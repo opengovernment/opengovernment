@@ -148,7 +148,7 @@ en:
       write:           Write
       find_your_rep:  "Write Your %{chamber_name}"
       location_prompt: ZIP Code
-      find_button:     Find
+      find_button:     Find by Zip
     rss:
       feed_title:  '%{state_name} %{chamber_name} Bill %{bill_number} - %{actions_shown} actions'
       author_name:   'OpenGovernment'
