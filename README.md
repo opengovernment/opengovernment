@@ -151,7 +151,7 @@ Once you've satisfied the prerequisites, this should work on all platforms.
         bundle install
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
   * Create your database role and give it superuser privileges:  
-      On Ubuntu you will need to sudo su postgres or edit the /etc/postgresql/8.4/main/pg_hba.conf
+    On Ubuntu you will need to sudo su postgres or edit the /etc/postgresql/8.4/main/pg_hba.conf
         psql postgres
         CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB;
         \q
