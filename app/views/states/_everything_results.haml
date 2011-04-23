@@ -1,38 +1,50 @@
+-# - unless @everything_results.empty?
+-#   %div.search_results.last
+-#     %h2= link_to('Everything', bills_path)
+-#     %ul
+-#       - @everything_results.each do |item|
+-#         %li
+-#           - case item
+-#               when Person
+-#                 = %li[item]
+-#                   != link_to(leg.full_name, person_path(leg)) 
+-#     = will_paginate @everything_results
 
-- unless @bills.empty?
+- unless @bills.blank?
   %div.search_results.last
     %h2= link_to('Bills', bills_path)
     %ul.bills.lined.and_spaced
       - @bills.each do |bill|
         = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
-    = will_paginate @bills, :class => "pagination"
+    -# = will_paginate @bills, :class => "pagination"
 
-- unless @legislators.empty?
+- unless @legislators.blank?
   %div.search_results.last
     %h2= link_to('People', people_path)
     %ul.legislators
       - @legislators.each do |leg|
         %li[leg]
+          -# = leg.inspect
           != link_to(leg.full_name, person_path(leg))
-    = will_paginate @legislators
+    -# = will_paginate @legislators
 
-- unless @committees.empty?
+- unless @committees.blank?
   %div.search_results.last
     %h2 Committees
     %ul.committees
       - @committees.each do |committee|
         %li[committee]
           != link_to(committee.name, committee_path(committee), :class => 'modal')
-    = will_paginate @committees
+    -# = will_paginate @committees
 
 
-- unless @contributions.empty?
+- unless @contributions.blank?
   %div.search_results.last
     %h2 Contributions
     %ul.contributions
       - @contributions.each do |contribution|
         %li[contribution]
           != contribution.contributor_name
-    = will_paginate @contributions
+= will_paginate @everything_results
 
 

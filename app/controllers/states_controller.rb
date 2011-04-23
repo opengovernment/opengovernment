@@ -43,6 +43,7 @@ class StatesController < SubdomainController
     @query = @query.gsub(/([$^])/, '')
 
     @search_type = params[:search_type] || "everything"
+
     @committee_type = params[:committee_type] || "all"
 
     # Because we are rendering a partial with @search_type in the filename,
@@ -81,19 +82,32 @@ class StatesController < SubdomainController
 
     if @query
       case @search_type
-        when "everything"
-          @legislators = Person.search(@query, @search_options)
-          @bills = @state.bills.search(@query, @search_options)
-          @contributions = Contribution.search(@query, @search_options)
-          @committees = @committee_type.search(@query, @search_options)
-        when "bills"
-          @bills = @state.bills.search(@query, @bill_search_options || @search_options)
-        when "legislators"
-          @legislators = Person.search(@query, @search_options)
-        when "committees"
-          @committees = @committee_type.search(@query, @search_options)
-        when "contributions"
-          @contributions = Contribution.search(@query, @search_options)
+      when "everything"
+        @everything_results = ThinkingSphinx.search(@query, @search_options)
+        @legislators = []
+        @bills = []
+        @contributions = []
+        @committees = []
+        @everything_results.each do |x|
+          case x
+          when Person
+            @legislators << x
+          when Bill
+            @bills << x
+          when Contribution
+            @contributions << x
+          when State
+            @committees << x
+          end
+        end
+      when "bills"
+        @bills = @state.bills.search(@query, @bill_search_options || @search_options)
+      when "legislators"
+        @legislators = Person.search(@query, @search_options)
+      when "committees"
+        @committees = @committee_type.search(@query, @search_options)
+      when "contributions"
+        @contributions = Contribution.search(@query, @search_options)
       end
 
       @search_counts = ActiveSupport::OrderedHash.new

@@ -150,10 +150,20 @@ Once you've satisfied the prerequisites, this should work on all platforms.
         git submodule update
         bundle install
   * Set up your config/database.yml and config/api_keys.yml (see api_keys.yml.example)
-  * Create your database role and give it superuser privileges:
+  * Create your database role and give it superuser privileges:  
+      On Ubuntu you will need to sudo su postgres or edit the /etc/postgresql/8.4/main/pg_hba.conf
         psql postgres
         CREATE ROLE opengovernment WITH SUPERUSER LOGIN CREATEDB;
         \q
+  * You will need to assign a password to the opengovernment role in
+    order to use thinking sphinx:
+        sudo su postgres
+        psql postgres
+        ALTER ROLE opengovernment WITH ENCRYPTED PASSWORD 'password';
+        \q
+        exit
+        rake thinking_sphinx:configure
+        rake thinking_sphinx:index
 
 ### Importing the full dataset (takes 2+ hours)
 

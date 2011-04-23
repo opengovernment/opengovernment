@@ -13,6 +13,6 @@
     %ul.committees
       - @committees.each do |committee|
         %li[committee]
-          != link_to(committee.name, committee_path(committee), :class => 'modal')
+          != link_to(committee.name, "committees/#{committee.id}", :class => 'modal')
 
     = will_paginate @committees
