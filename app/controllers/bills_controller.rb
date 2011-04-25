@@ -76,11 +76,11 @@ class BillsController < SubdomainController
   protected
 
   def setup_sort
-    @sort = params[:sort] || 'recent'
+    @sort = params[:sort] || 'introduced'
 
     @sorts = ActiveSupport::OrderedHash.new
-    @sorts[:recent] = 'Recent Actions'
     @sorts[:introduced] = 'Date Introduced'
+    @sorts[:recent] = 'Recent Actions'
     @sorts[:mentions] = 'Most In The News'
     @sorts[:views] = 'Most Viewed'
     @sorts[:keyvotes] = 'Key Votes'
