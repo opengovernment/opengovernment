@@ -74,15 +74,20 @@ gem 'kaminari'
 # Graphics
 gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
 
-# Logging
-gem 'hoptoad_notifier'
-gem 'SyslogLogger'
+group :production do
+  # Logging
+  gem 'hoptoad_notifier'
+  gem 'SyslogLogger'
+end
 
 group :development do
   gem 'silent-postgres'	# Quieter postgres log messages
   gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
   gem 'hirb'
   gem 'awesome_print'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' 
 end
 
 # Bundle gems used only in certain environments:
