@@ -37,7 +37,7 @@ class BillsController < SubdomainController
   end
 
   def documents
-    @documents = @bill.documents.paginate :page => params[:page], :per_page => 40
+    @documents = @bill.documents.page(params[:page]).per(40)
   end
 
   def votes
@@ -84,8 +84,6 @@ class BillsController < SubdomainController
     @sorts[:mentions] = 'Most In The News'
     @sorts[:views] = 'Most Viewed'
     @sorts[:keyvotes] = 'Key Votes'
-
-    puts @sorts.inspect
   end
 
   def scope_bills(bills)

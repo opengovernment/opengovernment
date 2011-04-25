@@ -71,7 +71,7 @@ class HomeController < ApplicationController
   def home
     @states = State.loadable
 
-    render :template => 'home/index'
+    render 'home/index'
   end
   
   # This is here and not in PersonController because PesonController is subdomained, and we need this

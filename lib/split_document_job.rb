@@ -11,9 +11,9 @@ class SplitDocumentJob < Struct.new(:document_type, :document_id)
     end
   end
 
-  def error
+  def failure
     # A permanent failure -- after 25 tries
-    if document = self.document_type.find(self.document_id)
+    if document = self.document_type.find(self.document_id) && document.component_sync_queued?
       document.toggle!(:component_sync_queued)
     end
   end

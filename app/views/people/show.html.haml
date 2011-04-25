@@ -4,10 +4,25 @@
 - track(@person)
 - tweets(@person.full_name, 2)
 
-= render(:partial => 'wrapper', :locals => {:show_tools => true})
-
-
+= render 'wrapper'
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
+
+
+
+
+
+%span= link_to(t('people.show.contact_this_person'), {:action => :contact}, :class => 'button medium silver floatright nodec clearboth modal')
+
+-# TODO: These are turned off for now. Please implement.
+.support_buttons(style="display: none;")
+  %a.support.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
+    %span I Support this Rep!
+  %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
+    %span I Oppose this Rep!
+
+
+
+
 
 
 .grid_9.alpha
@@ -15,22 +30,25 @@
   .grid_5.alpha
     %h2= t '.general_info'
   
-    .grid_2.alpha
+    .grid_4.alpha
       = photo_for(@person)
-  
-    %ul.grid_2.omega
-      - if @person.birthday?
-        %li
-          = t '.born'
-          = @person.birthday
-      - if @person.gender?
-        %li{:class => @person.gender} Gender: #{@person.gender}
-      - if @person.religion?
-        %li
-          = t '.religion'
-          = @person.religion
-      = render 'links', :person => @person
-  
+    
+
+    .grid_4.alpha
+      %h2 Contact 
+      %ul
+        - if @person.birthday?
+          %li
+            = t '.born'
+            = @person.birthday
+        - if @person.gender?
+          %li{:class => @person.gender} Gender: #{@person.gender}
+        - if @person.religion?
+          %li
+            = t '.religion'
+            = @person.religion
+        = render 'links', :person => @person
+    
   .grid_4.omega
     %h2= t '.wikipedia_bio'
     - if @person.bio_data.blank?
@@ -38,7 +56,7 @@
     - else
       = raw truncate(@person.bio_data, :length => 400)
       %br
-      = link_to(raw('More &rarr;'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
+      = link_to(t('site.more_link'), "#{@person.bio_url || @person.wikipedia_url}", :class => 'more')
   
   .space.clear
   
@@ -65,25 +83,37 @@
     - @person.roles.each do |role|
       %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
 
-  .grid_4.committee_preview
-    %h2
-      = t '.committees', :count => @person.committees.count 
-    - if @person.committees.count > 0
-      = link_to('See all', committees_person_path(@person), :class => 'modal see_all')
-      %ul.lined.committees
-        - @person.committees.limit(3).each do |committee|
-          %li
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee), :class => 'modal')
+    .committee_preview
+      %h2
+        = t '.committees', :count => @person.committees.count 
+      - if @person.committees.count > 0
+        = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
+        %ul.lined.committees
+          - @person.committees.limit(3).each do |committee|
+            %li
+              = committee.type_fm
+              = link_to(committee.name, committee_path(committee), :class => 'modal')
+      - else
+        %p
+          = t '.no_committee_info', :full_name => @person.full_name 
+
+    
+  .grid_4.mentions
+    %h2= t '.mentions'
+    - if @person.mentions.count > 0
+      %ul.lined
+        = render @person.mentions.limit(2)
+      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more')
     - else
-      %p
-        = t '.no_committee_info', :full_name => @person.full_name 
+      %p= t '.no_mentions'
 
   .grid_4.omega
     #twitter(style="display: none;")
       %h2= t '.twitter_mentions' 
+      #notweets(style="display: none;")
+        %p= t 'site.no_tweets', :hashtags => @person.full_name
       %ul.lined#tweets
-      = link_to('More &rarr;'.html_safe, social_person_path(@person), :class => 'more')
+      = link_to(t('site.more_link'), social_person_path(@person), :class => 'more')
 .space.clear
 
 %hr.push_top
@@ -119,41 +149,29 @@
   - else
     %p 
       = t '.no_vote_info_for', :full_name => @person.full_name 
-    
+
+.space.clear    
+
+.grid_6.alpha
+  %h2= t 'people.money_trail.industry_title'
+  = render :partial => 'industry', :collection => @industries
+  = link_to(t('site.more_link'), money_trail_person_path(@person))
+
+.grid_6.omega
+  %h2= t 'people.money_trail.top_title'
+  = render :partial => 'contribution', :collection => @contributions
+  = link_to(t('site.more_link'), money_trail_person_path(@person))
+
 
 .space.clear
 
 %hr.push_top
 
 .grid_12.alpha
-  %h2= t '.interest_group_ratings'  
-  .small.quiet.grid_24= t '.from_vote_smart'  
+  %h2= t 'people.ratings.interest_group_ratings'  
+  .small.quiet.grid_24= t 'people.ratings.from_vote_smart'  
 
-- if @rating_categories
-  - if @rating_categories.size > 1
-    .grid_6.alpha
-      %table.ratings_summary
-        %tr
-          %th
-          %th= t '.number_of_ratings'  
-        - @rating_categories[0..(@rating_categories.size/2)-1].each do |rating_category|
-          %tr
-            %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
-            %td= rating_category.entries
-
-  .grid_6.omega
-    %table.ratings_summary
-      %tr
-        %th
-        %th= t '.number_of_ratings' 
-      - @rating_categories[@rating_categories.size/2..@rating_categories.size].each do |rating_category|
-        %tr
-          %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
-          %td= rating_category.entries
-
-- else
-  %p.grid_12.alpha= t '.no_ratings_data_found'  
-      
+  = render 'categories', :categories => @rating_categories, :person => @person, :link_class => 'modal'
 
 - if @person.citations.any?
   .citations

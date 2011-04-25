@@ -1,9 +1,14 @@
 
 .home.home .find_box {
   display: inline-block;
-  width: 836px;
-padding: 20px 0;
-  margin: 0 0 -10px -16px !important;
+  width: 754px;
+padding: 20px 190px 20px 38px;
+  margin: 0 0 -10px -11px !important;
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+border-left: 0px;
+border-right: 0px;
 }
 
   
@@ -31,11 +36,15 @@ padding-left: 70px;
   }
 
 
+.home.home h2{
+text-transform: none;
+}
 
 
 .home.home .auto_find {
-margin-right: 40px;
+margin-right: 120px;
 margin-top: 1px;
+
 }
 
 

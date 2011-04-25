@@ -13,7 +13,7 @@
       = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
 
     - if content_for?(:title)
-      %h1.grid_13.alpha= yield(:title)
+      %h1.clearboth.alpha= yield(:title)
     = yield
 
 = render :file => 'layouts/application'

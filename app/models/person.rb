@@ -29,7 +29,6 @@ class Person < ActiveRecord::Base
   has_many :committee_memberships, :dependent => :destroy
   has_many :committees, :through => :committee_memberships
 
-  has_and_belongs_to_many :current_roles, :join_table => "v_most_recent_roles", :class_name => 'Role'
   has_one :chamber, :through => :roles
 
   has_many :citations, :as => :citeable
@@ -66,7 +65,7 @@ class Person < ActiveRecord::Base
   scope :with_votesmart_id, :conditions => ['votesmart_id is not null']
   scope :with_transparencydata_id, :conditions => ['transparencydata_id is not null']
   scope :with_photo_url, :conditions => ['photo_url is not null']
-  scope :with_current_role, :include => :current_roles
+  scope :with_current_role, :conditions => ['people.id in (select person_id from v_most_recent_roles)']
 
   # How will we allow people to sort people?
   SORTABLE_BY = {
@@ -84,6 +83,9 @@ class Person < ActiveRecord::Base
     # Trigger the join on mentions before indexing the count
     has mentions(:id), :as => :mentions_ids
     has 'COUNT(mentions.id)', :as => :mentions_count, :type => :integer
+
+    # Placeholder so we can use :with => :session_id in site-wide searches
+    has "null", :type => :integer, :as => :session_id
 
     has 'current_district_order_for(people.id)', :as => :district_order, :type => :string
     has 'current_state_for(people.id)', :as => :state_id, :type => :integer
@@ -112,8 +114,12 @@ class Person < ActiveRecord::Base
     addresses.in_district.first.try(:city)
   end
 
+  def current_roles
+    Role.joins('join v_most_recent_roles vr on (vr.role_id = roles.id)').where(['vr.person_id = ?', id])
+  end
+
   def current_role
-    current_roles.try(:first)
+    current_roles.first
   end
 
   def current_district_name

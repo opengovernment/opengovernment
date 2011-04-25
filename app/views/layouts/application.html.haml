@@ -84,9 +84,10 @@
       - else
         = yield :before_left_nav
         .grid_4.nav-cont
-          -#%a{:href => root_url(:subdomain => current_place_subdomain)}
-          %a#dropdown{:class => 'dropdown', :href => '#'}
+          %a#statelevel{:href => root_url(:subdomain => current_place_subdomain)}
             = current_place_name || t('site.select_state')
+
+          %a#dropdown{:class => 'statedropdown', :href => '#'}
 
           .state-select
             %span.triangle
@@ -95,18 +96,20 @@
                 %li.state_name= link_to state.name, state_url(state)
           - if @available_sessions.size > 1
             %a#session_dropdown{:class => 'dropdown', :href => '#'} #{current_session_name} session
+
             .session-select{:style => 'display: none;'}
+              %span.triangle
               %ul
                 - @available_sessions.each do |session|
                   %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
           - else
             #session_dropdown{:class => 'bar'} #{current_session_name} session
           %nav#left_nav
-            = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..2) || raw('&nbsp;'))
+            = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
           = yield :below_left_nav
 
-      .grid_12.content
-        = yield
+        .grid_12.content
+          = yield
 
         .clearfix
 

@@ -7,31 +7,61 @@
 - tweets(@bill.to_hashtags, 2)
 
 
-= render 'wrapper', :show_tools => true
+= render 'wrapper'
+= render 'shared/view_counts', :page => @bill
 
 
-.bill-mugs
-  - if @sponsors.size > 0
-    .sponsor_preview
-      -#%h2= t('.sponsors', :count => @sponsors.count)
-
-      .sponsor_mugs
-        = sponsor_mugs(@sponsors, :limit => 10)
-      %ul.lined
-        - @sponsors.each do |s|
-          - if !s.sponsor_id || s.sponsor.photo_url.blank?
-            %li
-              - surround '',',' do
-                = s.sponsor_id? ? link_to(s.sponsor.full_name, person_path(s.sponsor)) : s.sponsor_name
-              = s.kind_fm
-      = link_to(t('.see_all'), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
-
-.grid_9.alpha
-  %span.session.hide 
+.grid_9.alpha.hide 
+  %span.session
     = t '.session'
     #{raw @bill.session.name_fm}
 
-  = render 'shared/view_counts', :page => @bill
+
+
+
+.bill-mugs
+  - if @sponsors.count > 0
+    .sponsor_preview
+      %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
+      .clear
+      = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
+
+
+.write_buttons
+  %h4
+    %span= t('bills.write.write')
+    
+  .form
+    = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
+    %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
+    %label(for='q')= t 'bills.write.location_prompt'
+    = text_field_tag :q, params[:q], :autocomplete => 'off'
+    .find_button
+      = submit_tag t('bills.write.find_button'), :class => 'button'
+    </form>
+    %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
+    -# Form results appear in a colorbox, not a separate page.
+    :ruby
+      javascript do
+        (%Q|
+          $(document).ready(function() {
+            $('#find_my_rep input:submit').click(function(e){
+              $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
+              $('#rep_link').click();
+              e.preventDefault();
+            });
+          });
+        |)
+      end
+
+-# TODO: These are turned off for now. Please implement.
+.support_buttons(style="display: none;")
+  %a.support.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
+    %span I Support this Bill!
+  %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
+    %span I Oppose this Bill!
+
+
 
 
 .grid_12.alpha
@@ -40,7 +70,7 @@
 
   %hr
 
-  .grid_3.alpha
+  .grid_4.alpha
     %h2= t '.bill_text' 
     - if @bill.versions.any?
       %ul.lined
@@ -56,9 +86,16 @@
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
   
-  
-  %hr.space
+  .grid_8.mentions.omega
+    %h2= t '.mentions'
+    - if @bill.mentions.count > 0
+      %ul.lined
+        = render @bill.mentions.limit(2)
+      %p= link_to(t('site.more_link'), news_bill_path(@bill.session, @bill), :class => 'more')
+    - else
+      %p= t '.no_mentions'
 
+  %hr.space
 
 - if @actions.limit(2).size > 0
   .grid_12.alpha
@@ -83,7 +120,7 @@
   #twitter(style="display: none;")
     %h2= t '.twitter_mentions' 
     #notweets(style="display: none;")
-      %p= t '.no_tweets', :hashtags => @bill.to_hashtags
+      %p= t 'site.no_tweets', :hashtags => @bill.to_hashtags
     %ul#tweets
 
 - if @bill.citations.any?

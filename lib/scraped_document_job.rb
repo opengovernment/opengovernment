@@ -9,7 +9,7 @@ class ScrapedDocumentJob < Struct.new(:document_type, :document_id)
     end
   end
 
-  def error
+  def failure
     # A permanent failure -- after 25 tries
     if document = self.document_type.find(self.document_id)
       document.toggle!(:document_sync_queued)

@@ -64,9 +64,11 @@ namespace :db do
     development_info = YAML.load_file("config/database.yml")['development']
 
     input_file_gz = ENV.has_key?('SQLGZ') ? ENV['SQLGZ'] : "/tmp/#{application}.sql.gz"
-    input_file_sql = File.basename(input_file_gz, '.gz')
+    input_file_sql = File.join(File.dirname(input_file_gz), File.basename(input_file_gz, '.gz'))
 
     run_str = "gunzip #{input_file_gz} && PGHOST=#{development_info['host']} PGPORT=#{development_info['port']} PGUSER=#{development_info['username']} PGPASSWORD=#{development_info['password']} script/postgis_restore.pl #{postgis_dir}/postgis.sql #{development_info['database']} #{input_file_sql}"
+
+    puts run_str
 
     %x!#{run_str}!
   end

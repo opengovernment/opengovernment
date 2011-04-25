@@ -28,8 +28,11 @@ class StatesController < SubdomainController
                 and r.session_id = ?
               group by owner_id
               order by mentions_count desc
-              limit 12) m
+              limit 50) m
             on m.owner_id = p.id
+          where
+            p.photo_url is not null
+          limit 12
           ", @session.id])
         }
       end
@@ -48,28 +51,30 @@ class StatesController < SubdomainController
 
     # Because we are rendering a partial with @search_type in the filename,
     # sanitize this param.
-    unless ['legislators','bills','committees','contributions'].include? @search_type
+    unless ['legislators','bills','committees'].include? @search_type
       @search_type = 'everything'
     end
 
-    # We might be able to stop right here and redirect to a bill.
-    # This is specifically for searched bill numbers.  Re-directing to a single
-    # match in the generic case is handled below
+    @search_options = {
+      :order => params[:order],
+      :with => { :state_id => @state.id }
+    }
+
     case @search_type
     when 'everything', 'bills'
+      # We might be able to stop right here and redirect to a bill.
+      # This is specifically for searched bill numbers.  Re-directing to a single
+      # match in the generic case is handled below
       if @bills = Bill.for_state(@state).with_number(@query)
         if @bills.size == 1
           redirect_to(bill_path(@bills.first.session, @bills.first)) and return
         end
       end
-    end
 
-    @search_options = {
-      :page => params[:page],
-      :per_page => 15,
-      :order => params[:order],
-      :with => { :state_id => @state.id }
-    }
+      # Session filtering
+      # We look for nil values here so we can always capture all of the legislators & committees when we're counting results with .facets
+      @search_options[:with][:session_id] = [params[:session_id], nil] if params[:session_id]
+    end
 
     case @committee_type
       when "all"
@@ -77,46 +82,29 @@ class StatesController < SubdomainController
       else
         @committee_type = "#{params[:committee_type]}_committee".classify.constantize
     end
-    
-    @bill_search_options = @search_options[:with].merge(:session_id => params[:session_id]) if params[:session_id]
 
     if @query
       case @search_type
-      when "everything"
-        @everything_results = ThinkingSphinx.search(@query, @search_options)
-        @legislators = []
-        @bills = []
-        @contributions = []
-        @committees = []
-        @everything_results.each do |x|
-          case x
-          when Person
-            @legislators << x
-          when Bill
-            @bills << x
-          when Contribution
-            @contributions << x
-          when State
-            @committees << x
-          end
-        end
-      when "bills"
-        @bills = @state.bills.search(@query, @bill_search_options || @search_options)
-      when "legislators"
-        @legislators = Person.search(@query, @search_options)
-      when "committees"
-        @committees = @committee_type.search(@query, @search_options)
-      when "contributions"
-        @contributions = Contribution.search(@query, @search_options)
+        when "everything"
+          @legislators = Person.search(@query, @search_options).page(params[:page])
+          @bills = Bill.search(@query, @search_options).page(params[:page])
+          @committees = @committee_type.search(@query, @search_options).page(params[:page])
+        when "bills"
+          @bills = Bill.search(@query, @search_options).page(params[:page])
+        when "legislators"
+          @legislators = Person.search(@query, @search_options).page(params[:page])
+        when "committees"
+          @committees = @committee_type.search(@query, @search_options).page(params[:page])
       end
+
+      @facets = ThinkingSphinx.facets(@query, @search_options)
 
       @search_counts = ActiveSupport::OrderedHash.new
       @search_counts[:everything] = 0
-      @search_counts[:bills] = @state.bills.search_count(@query, @bill_search_options || @search_options)
-      @search_counts[:legislators] = Person.search_count(@query, @search_options)
-      @search_counts[:committees] = @committee_type.search_count(@query, @search_options)
-      @search_counts[:contributions] = Contribution.search_count(@query, @search_options)
-      @search_counts[:everything] = @total_entries = @search_counts.values.inject() { |sum, element| sum + element }   
+      @search_counts[:bills] = @facets[:class]['Bill']
+      @search_counts[:legislators] = @facets[:class]['Person']
+      @search_counts[:committees] = @facets[:class][@committee_type.to_s]
+      @search_counts[:everything] = @total_entries = @search_counts.values.inject() { |sum, element| sum + (element || 0) }   
 
       if @total_entries == 1
         # go straight to the page for this object

@@ -11,7 +11,7 @@
   
   %hr
 
-  - if @sponsorships.empty?
+  - if @sponsorships.all.empty?
     %h2
       = @person.full_name
       = t '.has_no_bills' 
@@ -19,9 +19,9 @@
   - else
     %p= sponsorship_vitals_for(@person)
 
-    = will_paginate @sponsorships
+    = paginate @sponsorships
 
     %ul.lined.and_spaced
       = render @sponsorships
 
-    = will_paginate @sponsorships
+    = paginate @sponsorships

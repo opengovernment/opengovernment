@@ -158,6 +158,7 @@ module OpenGov
           @bill.last_action_at = action_date if @bill.last_action_at < action_date
 
           import_queue << Action.new(
+            :bill_id => @bill.id,
             :actor => action.actor,
             :action => action.action,
             :kind_one => action[:type].try(:first),
@@ -185,7 +186,7 @@ module OpenGov
             @bill_version.attributes = {
               :name => version[:name],
               :published_at => Date.valid_date!(version[:'+date']),
-              :document_type => 'document',
+              :document_type => 'version',
               :updated_at => @sync_date
             }
             @bill_version.save
@@ -200,7 +201,7 @@ module OpenGov
             @bill_document.attributes = {
               :name => doc[:name],
               :published_at => Date.valid_date!(doc[:'+date']),
-              :document_type => 'version',
+              :document_type => 'document',
               :updated_at => @sync_date
             }
             @bill_document.save

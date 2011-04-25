@@ -53,6 +53,8 @@ module BillHelper
           output_buffer << status_items
         end
       end
+    else
+      output_buffer << %q{We can't determine the status of this bill at the moment.}
     end
   end
   

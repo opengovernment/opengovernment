@@ -34,7 +34,7 @@
       %span.other-votes.rounded= vote.other_count.round
       %span.small-label other votes
 
-    .vote-bar.grid_8.alpha
+    .vote-bar.grid_8.alpha{:'data-vote-count' => vote.total_count}
       %span{:class => 'vote-yes-block', :style => "width: #{vote.yes_pct}%;"} &nbsp;
       %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
       %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;

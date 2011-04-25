@@ -70,7 +70,11 @@ namespace :opengov do
       raise "Sorry, OpenGovernment requires PostgreSQL"
     end
 
-    Rake::Task['db:prepare'].invoke
+    if State.count > 0
+      puts "It appears you've already run rake install; skipping DB setup and fixture imports."
+    else
+      Rake::Task['db:prepare'].invoke
+    end
     Rake::Task['fetch:all'].invoke
     Rake::Task['load:all'].invoke
   end
@@ -196,7 +200,6 @@ end
 desc "Fetch Data: districts, bills"
 namespace :fetch do
   task :setup => :environment do
-    puts "Setup for fetch"
     FileUtils.mkdir_p(Settings.data_dir)
     Dir.chdir(Settings.data_dir)
   end
@@ -270,9 +273,6 @@ namespace :load do
       fixtures_folder = File.join(Rails.root, 'spec', 'fixtures')
       fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
       Fixtures.create_fixtures(fixtures_folder, fixtures)
-
-      # Force a reload of the DistrictType class, so we get the proper constants
-      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
     desc "Load fixtures for full production/staging import"
@@ -283,9 +283,6 @@ namespace :load do
       Fixtures.create_fixtures('lib/tasks/fixtures', 'states')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'sessions')
       Fixtures.create_fixtures('lib/tasks/fixtures', 'tags')
-
-      # Force a reload of the DistrictType class, so we get the proper constants
-      class_refresh("Legislature", "Chamber", "UpperChamber", "LowerChamber")
     end
 
   end

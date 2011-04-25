@@ -7,6 +7,9 @@ class Committee < ActiveRecord::Base
   define_index do
     indexes name, :sortable => true
     has legislature(:state_id), :as => :state_id, :type => :integer
+
+    # Placeholder so we can use :with => :session_id in site-wide searches
+    has "null", :type => :integer, :as => :session_id
   end
 
   SORTABLE_BY = {

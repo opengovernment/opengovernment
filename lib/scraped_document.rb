@@ -27,9 +27,8 @@ module ScrapedDocument
     end
     return true
   end
-  
-  private
 
+  private
 
   def do_download_file
     return nil if url.blank?
