@@ -41,7 +41,7 @@ module OpenGov
     private
 
     def fetch_person(leg_id)
-#      puts "Fetching #{leg_id}"
+      puts "Fetching #{leg_id}"
       GovKit::OpenStates::Legislator.find(leg_id)
     end
 
@@ -73,7 +73,7 @@ module OpenGov
           fs_person.sources.each do |source|
             person.citations << Citation.new(
               :url => source.url,
-              :retrieved => Date.valid_date!(source.retrieved)
+              :retrieved => Date.valid_date!(source[:retrieved])
             )
           end
         end
