@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 80) do
+ActiveRecord::Schema.define(:version => 82) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -186,6 +186,17 @@ ActiveRecord::Schema.define(:version => 80) do
   end
 
   add_index "industries", ["transparencydata_code"], :name => "transparencydata_code_un", :unique => true
+
+  create_table "key_votes", :force => true do |t|
+    t.integer "bill_id",             :null => false
+    t.integer "votesmart_action_id", :null => false
+    t.string  "title"
+    t.text    "highlight"
+    t.text    "synopsis"
+    t.string  "stage"
+    t.string  "level"
+    t.string  "url"
+  end
 
   create_table "legislatures", :force => true do |t|
     t.string  "name"
