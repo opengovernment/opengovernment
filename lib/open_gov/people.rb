@@ -72,8 +72,7 @@ module OpenGov
 
           fs_person.sources.each do |source|
             person.citations << Citation.new(
-              :url => source.url,
-              :retrieved => Date.valid_date!(source[:retrieved])
+              :url => source.url
             )
           end
         end

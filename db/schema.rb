@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 82) do
+ActiveRecord::Schema.define(:version => 83) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -116,10 +116,9 @@ ActiveRecord::Schema.define(:version => 82) do
   end
 
   create_table "citations", :force => true do |t|
-    t.integer  "citeable_id"
-    t.string   "citeable_type"
-    t.datetime "retrieved"
-    t.string   "url"
+    t.integer "citeable_id"
+    t.string  "citeable_type"
+    t.string  "url"
   end
 
   create_table "committee_memberships", :force => true do |t|

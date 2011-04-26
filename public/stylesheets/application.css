@@ -212,7 +212,7 @@ li.topnav {
   margin-bottom: 4px;
   }
 
-.citation_url, .citation_retrieved {
+.citation_url {
   display: inline;
   padding-right: 10px;
   }
