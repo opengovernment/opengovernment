@@ -74,25 +74,15 @@ gem 'kaminari'
 # Graphics
 gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
 
+# Bundle gems used only in certain environments:
+
 group :production do
   # Logging
   gem 'hoptoad_notifier'
   gem 'SyslogLogger'
 end
 
-group :development do
-  gem 'silent-postgres'	# Quieter postgres log messages
-  gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
-  gem 'hirb'
-  gem 'awesome_print'
-  gem 'guard'
-  gem 'guard-livereload'
-  gem 'rb-fsevent' 
-end
-
-# Bundle gems used only in certain environments:
-group :test do
-  # Bundle gems for certain environments:
+group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
   gem 'rspec-rails', '>= 2.0.0.rc'
@@ -107,4 +97,12 @@ group :test do
   gem 'ruby-debug'
   gem 'vcr', '~> 1.5.1'
   gem 'fakeweb', '~> 1.3.0'
+
+  gem 'silent-postgres'	# Quieter postgres log messages
+  gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
+  gem 'hirb'
+  gem 'awesome_print'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' 
 end
