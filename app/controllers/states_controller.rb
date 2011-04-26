@@ -86,9 +86,7 @@ class StatesController < SubdomainController
     if @query
       case @search_type
         when "everything"
-          @legislators = Person.search(@query, @search_options).page(params[:page])
-          @bills = Bill.search(@query, @search_options).page(params[:page])
-          @committees = @committee_type.search(@query, @search_options).page(params[:page])
+          @results = ThinkingSphinx.search(@query, @search_options).page(params[:page])
         when "bills"
           @bills = Bill.search(@query, @search_options).page(params[:page])
         when "legislators"

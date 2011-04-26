@@ -60,4 +60,16 @@ module StatesHelper
         :custom => "chxp=0,0.5,3.5,6.5,9.5,12.5|1,#{values.max}",
         :format => 'image_tag', :alt => title_elements.join(' : ')))
   end
+
+  def render_search_results(results)
+    output = ""
+    legislators = results.select { |item| item.class == Person }
+    output << render(:partial => "legislators_results", :locals => { :legislators => legislators}) unless legislators.blank?
+    bills = results.select { |item| item.class == Bill }
+    output << render(:partial => 'shared/bill', :collection => bills, :locals => {:hide_key_vote => false}) unless bills.blank?
+    committees = results.select { |item| item.is_a? Committee }
+    output << render(:partial => "committees_results", :locals => {:committees => committees}) unless committees.blank?
+    output
+  end
+
 end
