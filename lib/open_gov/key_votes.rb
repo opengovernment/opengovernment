@@ -80,7 +80,7 @@ module OpenGov
           kv = KeyVote.find_or_initialize_by_votesmart_action_id(vs_action_id)
 
           kv.attributes = {
-            :bill_id => bill.id,
+            :bill => bill,
             :votesmart_action_id => vs_action_id,
             :title => vs_action.title,
             :highlight => vs_action.highlight,
