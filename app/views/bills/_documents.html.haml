@@ -9,8 +9,9 @@
 
 .documents_more_link.grid_8
   %br(clear='both')
-  - if @documents.next_page
-    %strong= link_to('Show More', {:page => @documents.next_page}, :remote => true)
+  = paginate @documents, :remote => true, :theme => 'show_more'
+-#  - if !@documents.current_page == @documents.last_page
+-#    %strong= link_to('Show More', {:page => @documents.page + 1}, :remote => true)
 -#    = paginate @documents
   -# Hack to support ajax in pagination links.
 -#  :javascript
