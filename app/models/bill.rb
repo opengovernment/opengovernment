@@ -32,6 +32,7 @@ class Bill < ActiveRecord::Base
   has_many :sponsors, :through  => :sponsorships
   has_many :major_actions, :class_name => 'Action', :conditions => ["kind_one <> 'other' and kind_one is not null"]
   has_many :votes, :dependent => :destroy
+  has_many :key_votes, :dependent => :destroy
 
   scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
 
