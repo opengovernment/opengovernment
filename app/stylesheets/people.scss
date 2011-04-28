@@ -1,0 +1,154 @@
+.people.index .intro p{
+  padding-right: 250px;
+  }
+
+/*
+.people.index .intro div{
+width: 200px;
+height: 300px;
+  background: url(/images/intros/people.png) 10px 15px no-repeat;
+  }
+*/
+
+
+/*///////////////////////////
+
+~ People Main Page
+
+///////////////////////////*/
+
+
+
+body.people.index ul.lined,
+body.districts.search ul.lined,
+body.people.lower ul.lined,
+body.people.upper ul.lined{
+margin-left: -33px !important;
+width: 752px;
+clear: both;
+}
+
+
+
+.lined li.person{
+  margin: 0 !important;
+  overflow: auto;
+  padding: 0px !important;
+  }
+
+.lined li.person a{
+  display: block;
+  height: 72px;
+  padding: 20px 20px 8px 40px !important;
+  }
+
+.lined li.person a:hover{
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
+  
+  }
+
+.lined li.person a:hover .small_thumbnail{
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #f7fbfb,  #c5e4ea); /* for firefox 3.6+ */
+  }
+
+
+.lined li.person a .small_thumbnail {
+  float:left;
+  padding: 2px;
+  margin-right: 10px;
+  box-shadow: 0 1px 1px #999;
+  -moz-box-shadow: 0 1px 1px #666;
+  -webkit-box-shadow: 0 1px 1px #999;
+  
+  overflow: hidden !important;
+  
+  border-radius: 4px;
+  -moz-border-radius: 2px !important;
+  -webkit-border-radius: 4px;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+
+  }
+
+
+.lined li.person a .small_thumbnail img{
+  display: block;
+
+  border: 1px solid #fff;
+  }
+
+
+.lined li.person a span.person_name{
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 20px;
+  }
+
+
+.lined li.person a .person_district,
+.lined li.person a .person_party {
+  display: inline;
+  }
+
+
+.lined li.person a .person_mentions,
+.lined li.person a .person_views{
+
+
+  }
+
+
+.lined li.person a .person_views{
+margin-top: 7px;
+}
+
+
+.lined li.person .grid_6{
+border-right: 1px solid #efefef;
+padding-bottom: 10px;
+}
+
+li.race_tracker {
+  padding-top: 10px;
+}
+
+/* Rating party color boxes */
+.rating_person.rating_dem {
+  background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
+}
+
+.rating_person.rating_rep {
+  background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
+}
+
+.rating_person.rating_ind {
+  background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
+}
+
+.ratings-header {
+  font-weight: bold;
+}
+
+table.ratings td.rating_person {
+  margin-left: 0;
+  padding: 2px 0 2px 20px;
+  width: 150px;
+  display: inline;
+  float: left;
+}
+
+table.ratings td {
+  padding: 2px 0;
+}
+
+ul.people_mugs li {
+  display: inline;
+  padding-right: 3px;
+}
+
+ul.chamber_tabs li a {
+  height: 36px;
+}

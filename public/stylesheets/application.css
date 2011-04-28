@@ -1,74 +1,150 @@
+/* line 17, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 115, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
 @font-face {
-	font-family: League;
-	src: url('/fonts/LeagueScript.otf');
+  font-family: League;
+  src: url("/fonts/LeagueScript.otf");
 }
 
-
-
-/* Overrides*/
-th, td, caption{
-   padding-left: 0;
+/* Text meant only for screen readers */
+/* line 12, ../../app/stylesheets/application.scss */
+.screen-reader-text {
+  position: absolute;
+  left: -9000em;
 }
 
+/* line 17, ../../app/stylesheets/application.scss */
 body td {
   padding: 5px 3px;
-} 
-
+}
 
 /* Pagination */
+/* line 22, ../../app/stylesheets/application.scss */
 .pagination, nav.faceted {
   border: none;
   text-align: center;
   padding: 3px;
   clear: both;
-  border-radius: 55px;
   -moz-border-radius: 55px;
-  -webkit-border-radius:55px;
+  -webkit-border-radius: 55px;
+  -o-border-radius: 55px;
+  -ms-border-radius: 55px;
+  -khtml-border-radius: 55px;
+  border-radius: 55px;
   margin: 10px 0 10px;
   min-height: 22px;
 }
 
+/* line 32, ../../app/stylesheets/application.scss */
 .pagination span.disabled {
   color: #AAA;
 }
 
+/* line 36, ../../app/stylesheets/application.scss */
 .pagination a, nav.faceted a {
   text-decoration: none;
   color: black;
 }
 
+/* line 41, ../../app/stylesheets/application.scss */
 .pagination a:hover, .pagination a:focus, nav.faceted a:hover, nav.faceted a:focus {
   text-decoration: none;
 }
 
+/* line 45, ../../app/stylesheets/application.scss */
 .match {
   border-bottom: 1px dotted red;
   padding-bottom: 0.1em;
 }
 
-/* Text meant only for screen readers */
-
-.screen-reader-text {
-	position: absolute;
-	left: -9000em;
-}
-
+/* line 50, ../../app/stylesheets/application.scss */
 .pagination .current, nav.faceted em {
   cursor: default;
-  -moz-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
-  -webkit-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
-  box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
+  -moz-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  -webkit-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  -o-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#fff)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #f7fbfb, #fff); /* for firefox 3.6+ */
-  }
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(white));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #f7fbfb, white);
+  /* for firefox 3.6+ */
+}
 
+/* line 58, ../../app/stylesheets/application.scss */
 .pagination .gap {
   cursor: default;
-  }
+}
 
+/* line 65, ../../app/stylesheets/application.scss */
 .pagination .current,
 .pagination a,
 .pagination span,
@@ -76,160 +152,180 @@ body td {
   padding: 3px 8px;
   font-size: 11px;
   margin-right: 3px;
-  }
+}
 
+/* line 72, ../../app/stylesheets/application.scss */
 nav.faceted em,
 nav.faceted a {
   padding: 3px 5px;
   margin-right: 1px;
-  }
+}
 
+/* line 78, ../../app/stylesheets/application.scss */
 .pagination a:hover,
 nav.faceted a:hover {
-  
-  -moz-box-shadow: 0px 1px 1px #555, 0px 0px 1px #888;
-  -webkit-box-shadow:0px 1px 1px #555, 0px 0px 1px #888;
-  box-shadow: 0px 1px 1px #555, 0px 0px 1px #888;
+  -moz-box-shadow: 0px 1px 1px #555555, 0px 0px 1px #888888;
+  -webkit-box-shadow: 0px 1px 1px #555555, 0px 0px 1px #888888;
+  -o-box-shadow: 0px 1px 1px #555555, 0px 0px 1px #888888;
+  box-shadow: 0px 1px 1px #555555, 0px 0px 1px #888888;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
-  }
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f7fbfb));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, white, #f7fbfb);
+  /* for firefox 3.6+ */
+}
 
-
+/* line 87, ../../app/stylesheets/application.scss */
 .pagination a:active,
 nav.faceted a:active {
-
-  -moz-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
-  -webkit-box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
-  box-shadow:inset 0px 1px 1px #aaa, inset 0px 0px 1px #eee;
+  -moz-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  -webkit-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  -o-box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
+  box-shadow: inset 0px 1px 1px #aaaaaa, inset 0px 0px 1px #eeeeee;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#fff)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #f7fbfb, #fff); /* for firefox 3.6+ */
-  }
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(white));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #f7fbfb, white);
+  /* for firefox 3.6+ */
+}
 
-
+/* line 96, ../../app/stylesheets/application.scss */
 .next,
-a.next{
+a.next {
   float: right;
   padding: 3px 15px;
   margin-right: 0px;
-  
-  -moz-border-radius-topright:     18px !important;
-  -moz-border-radius-bottomright:    18px !important;
-  -moz-border-radius-topleft:     5px !important;
-  -moz-border-radius-bottomleft:    5px !important;
-  
+  -moz-border-radius-topright: 18px !important;
+  -moz-border-radius-bottomright: 18px !important;
+  -moz-border-radius-topleft: 5px !important;
+  -moz-border-radius-bottomleft: 5px !important;
   -webkit-border-radius-top-right: 18px;
   -webkit-border-radius-bottom-right: 18px;
   -webkit-border-radius-top-left: 5px;
   -webkit-border-radius-bottom-left: 5px;
   margin-right: -19px;
-  
-  }
+}
 
-
+/* line 113, ../../app/stylesheets/application.scss */
 .prev,
-a.prev{
+a.prev {
   float: left !important;
   padding: 3px 15px;
-  -moz-border-radius-topleft:     18px !important;
-  -moz-border-radius-bottomleft:    18px !important;
-  -moz-border-radius-topright:     5px !important;
-  -moz-border-radius-bottomright:    5px !important;
-  
+  -moz-border-radius-topleft: 18px !important;
+  -moz-border-radius-bottomleft: 18px !important;
+  -moz-border-radius-topright: 5px !important;
+  -moz-border-radius-bottomright: 5px !important;
   -webkit-border-radius-top-left: 18px;
   -webkit-border-radius-bottom-left: 18px;
-  
   -webkit-border-radius-top-right: 5px;
   -webkit-border-radius-bottom-right: 5px;
   margin-left: -19px;
-  }
+}
 
-
-.disabled{
+/* line 130, ../../app/stylesheets/application.scss */
+.disabled {
   cursor: default !important;
   margin-left: -10px !important;
   margin-right: -10px !important;
-  }
+}
 
 /*
   Tag cloud
 */
-
+/* line 140, ../../app/stylesheets/application.scss */
 .css1 {
   font-size: 1.0em;
-  }
+}
 
+/* line 144, ../../app/stylesheets/application.scss */
 .css2 {
   font-size: 1.2em;
-  }
+}
 
+/* line 148, ../../app/stylesheets/application.scss */
 .css3 {
   font-size: 1.4em;
-  }
+}
 
+/* line 152, ../../app/stylesheets/application.scss */
 .css4 {
   font-size: 1.6em;
-  }
+}
 
-#tags a{
+/* line 156, ../../app/stylesheets/application.scss */
+#tags a {
   text-decoration: none;
-  margin: 0.5em 0.2em
-  }
+  margin: 0.5em 0.2em;
+}
 
-#tags a:hover{
+/* line 161, ../../app/stylesheets/application.scss */
+#tags a:hover {
   text-decoration: underline;
-  }
+}
 
-
-.lower_chamber{
+/* line 166, ../../app/stylesheets/application.scss */
+.lower_chamber {
   margin-right: 0;
-  }
+}
 
+/* line 170, ../../app/stylesheets/application.scss */
 nav.footer ul li {
   display: inline;
   padding-right: 10px;
-  }
+}
 
+/* line 175, ../../app/stylesheets/application.scss */
 li.topnav {
   font-weight: bold;
-  }
+}
 
+/* line 179, ../../app/stylesheets/application.scss */
 .translation_missing {
   display: none;
-  }
+}
 
+/* line 183, ../../app/stylesheets/application.scss */
 .citations {
   padding-top: 15px;
   font-size: 0.9em;
-  }
+}
 
+/* line 188, ../../app/stylesheets/application.scss */
 .citations p, .citations ul {
   margin-bottom: 4px;
-  }
+}
 
+/* line 192, ../../app/stylesheets/application.scss */
 .citation_url {
   display: inline;
   padding-right: 10px;
-  }
+}
 
 /* Home page stuff */
-
+/* line 199, ../../app/stylesheets/application.scss */
 .notify_me p {
   display: inline;
   font-size: 14px;
   line-height: 27px;
 }
 
+/* line 205, ../../app/stylesheets/application.scss */
 .notify_me .signup_form {
   display: inline-block;
   width: 450px;
 }
 
+/* line 210, ../../app/stylesheets/application.scss */
 .notify_me label {
   padding-right: 10px;
   font-size: 15px;
