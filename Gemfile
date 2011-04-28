@@ -20,6 +20,7 @@ gem 'memcache-client'
 
 # Configuration/deploy management
 gem 'settingslogic'
+gem 'hoptoad_notifier'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'whenever', :require => false
@@ -78,7 +79,6 @@ gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
 
 group :production do
   # Logging
-  gem 'hoptoad_notifier'
   gem 'SyslogLogger'
 end
 
