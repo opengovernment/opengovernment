@@ -37,7 +37,7 @@ class BillsController < SubdomainController
   end
 
   def documents
-    @documents = @bill.documents.page(params[:page]).per(40)
+    @documents = @bill.all_documents.order("document_type, created_at desc").page(params[:page]).per(40)
   end
 
   def votes
