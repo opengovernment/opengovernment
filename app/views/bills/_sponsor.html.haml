@@ -1,15 +1,13 @@
 %li
   - if sponsor.sponsor_id? && !sponsor.sponsor.photo_url.blank?
     -# Photo to show
-    .photo= link_to(photo_for(sponsor.sponsor, :tiny), person_path(sponsor.sponsor))
-    - succeed ',' do
-      %span.sponsor-name
-        = link_to(sponsor.sponsor.full_name + ' (' + sponsor.sponsor.current_role.try(:affiliation_fm) + ')', person_path(sponsor.sponsor))
-        = sponsor.kind_fm 
+    .photo= link_to(photo_for(sponsor.sponsor, :thumb), person_path(sponsor.sponsor))
+    .sponsor-meta
+      .sponsor-name= link_to(sponsor.sponsor.full_name + ' (' + sponsor.sponsor.current_role.try(:affiliation_fm) + ')', person_path(sponsor.sponsor))
+      .sponsor-kind= sponsor.kind_fm 
   - else
     -# No photo available -- show missing photo instead
-    .photo= photo_for(sponsor.sponsor, :tiny)
-    - succeed ',' do
-      %span.sponsor-name
-        = sponsor.sponsor_name
-        = sponsor.kind_fm
+    .photo= photo_for(sponsor.sponsor, :thumb)
+    .sponsor-meta
+      .sponsor-name= sponsor.sponsor_name
+      .sponsor-kind= sponsor.kind_fm

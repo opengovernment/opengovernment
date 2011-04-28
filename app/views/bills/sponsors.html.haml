@@ -5,9 +5,11 @@
 
 
 .grid_4.alpha
-  %ul.lined
-    = render :partial => 'sponsor', :collection => @sponsors[0...@sponsors.size/2]
+  .sponsor_mugs
+    %ul.lined.sponsors
+      = render :partial => 'sponsor', :collection => @sponsors[0...@sponsors.size/2]
 
 .grid_4.omega
-  %ul.lined
-    = render :partial => 'sponsor', :collection => @sponsors[@sponsors.size/2..@sponsors.size]
+  .sponsor_mugs
+    %ul.lined.sponsors
+      = render :partial => 'sponsor', :collection => @sponsors[@sponsors.size/2..@sponsors.size]

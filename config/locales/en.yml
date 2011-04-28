@@ -157,6 +157,7 @@ en:
       bill:          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
+      sponsors:     "Bill Sponsors"
       share_this:        Share this
       mentions:             News &amp; Blog Coverage
       no_mentions:          No news or blog results found at this time.
@@ -164,7 +165,7 @@ en:
       status:      'Bill Status'
       see_all_sponsors:
         one: 'One sponsor'
-        other: '%{count} sponsors'
+        other: 'All %{count} sponsors &rarr;'
       none:          None.
       bill_text:     Bill Text
       documents:

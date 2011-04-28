@@ -21,6 +21,7 @@
 
 .bill-mugs
   - if @sponsors.count > 0
+    %h2= t '.sponsors'
     .sponsor_mugs
       %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
       .clear
@@ -74,17 +75,18 @@
     %h2= t '.bill_text' 
     - if @bill.versions.any?
       %ul.lined
-        = render :partial => 'documents/document', :collection => @bill.versions
+        = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
 
     %span.small= t '.bill_text_intro'
-  
     - if @bill.documents.any?
       .document_preview
         %h2= t('.documents', :count => @bill.documents.size)
-        = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
 
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
+
+    - if @bill.documents.any? || @bill.versions.any?
+      = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
   
   .grid_8.mentions.omega
     %h2= t '.mentions'
