@@ -27,12 +27,12 @@
 
 .grid_9.alpha
   %hr  
-  .grid_5.alpha
-    %h2= t '.general_info'
-  
+  .grid_4.alpha
+ 
     .grid_4.alpha
       = photo_for(@person)
-    
+    %hr.space
+
 
     .grid_4.alpha
       %h2 Contact 
@@ -78,24 +78,25 @@
 
 .grid_12.alpha
 
-  .grid_4.alpha
+  .grid_12.alpha
     %h2= t '.roles'
     - @person.roles.each do |role|
-      %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
+      %span #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : ',')}
+    %hr.space
 
-    .committee_preview
-      %h2
-        = t '.committees', :count => @person.committees.count 
-      - if @person.committees.count > 0
-        = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
-        %ul.lined.committees
-          - @person.committees.limit(3).each do |committee|
-            %li
-              = committee.type_fm
-              = link_to(committee.name, committee_path(committee), :class => 'modal')
-      - else
-        %p
-          = t '.no_committee_info', :full_name => @person.full_name 
+  .committee_preview.grid_4.alpha
+    %h2
+      = t '.committees', :count => @person.committees.count 
+    - if @person.committees.count > 0
+      = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
+      %ul.lined.committees
+        - @person.committees.limit(3).each do |committee|
+          %li
+            = committee.type_fm
+            = link_to(committee.name, committee_path(committee), :class => 'modal')
+    - else
+      %p
+        = t '.no_committee_info', :full_name => @person.full_name 
 
     
   .grid_4.mentions
@@ -131,7 +132,7 @@
   - if @latest_roll_calls
     %div
       %div
-        %ul
+        %ul.lined
           - @latest_roll_calls.each do |roll_call|
             - vote = roll_call.vote
             %li
@@ -154,12 +155,14 @@
 
 .grid_6.alpha
   %h2= t 'people.money_trail.industry_title'
-  = render :partial => 'industry', :collection => @industries
+  %ul.lined.alpha.grid_6
+    = render :partial => 'industry', :collection => @industries
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 .grid_6.omega
   %h2= t 'people.money_trail.top_title'
-  = render :partial => 'contribution', :collection => @contributions
+  %ul.lined.alpha.grid_6
+    = render :partial => 'contribution', :collection => @contributions
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 
@@ -177,7 +180,7 @@
   .citations
     %p
       = t '.primary_sources' 
-    %ul
+    %ul.lined
       = render @person.citations
     = t '.how_did_we_get' 
     = succeed '.' do

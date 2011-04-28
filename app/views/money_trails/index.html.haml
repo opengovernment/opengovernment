@@ -11,9 +11,15 @@
 .grid_6.alpha
   - @sectors.values[0...@sectors.size/2].each do |sector|
     %h2= sector[0]
-    = render :partial => 'industry', :collection => sector[1]
+    %ul.margin-bottom
+      = render :partial => 'industry', :collection => sector[1]
+    %br
+    %br
 
 .grid_6.omega
   - @sectors.values[@sectors.size/2..@sectors.size].each do |sector|
     %h2= sector[0]
-    = render :partial => 'industry', :collection => sector[1]
+    %ul.margin-bottom
+      = render :partial => 'industry', :collection => sector[1]
+    %br
+    %br

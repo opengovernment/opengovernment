@@ -1,16 +1,45 @@
 /* Default colorbox styles */
-#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:99999999999; overflow:hidden;}
-#cboxOverlay{position:fixed; width:100%; height:100%;}
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:99999999999;}
+
+#cboxOverlay{
+position:fixed; 
+width:100%; 
+height:100%;
+-moz-box-shadow:inset 0 2px 100px rgba(0,0,0,1);
+-webkit-box-shadow:inset 0 2px 100px rgba(0,0,0,1);
+box-shadow:inset 0 2px 100px rgba(0,0,0,1);
+ -webkit-transition: all .9s ease-in-out;
+ -moz-transition: all .9s ease-in-out;
+}
+
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}
 #cboxContent{position:relative; overflow:visible;}
-#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent{}
 #cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
 #cboxTitle{margin:0;}
 #cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
-#cboxOverlay{background:#000;}
+
+
 #cboxLoadingGraphic{background:url(../images/ajax-loader.gif) center center no-repeat;}
-#cboxLoadedContent{background:#000; padding: 10px; -moz-border-radius: 5px;}
+#cboxLoadedContent{
+background:#000; 
+padding: 5px; 
+
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
+border-radius: 5px;
+
+
+-moz-box-shadow: 0 2px 100px rgba(0,0,0,1);
+-webkit-box-shadow: 0 2px 100px rgba(0,0,0,1);
+
+ -webkit-transition: all .9s ease-in-out;
+ -moz-transition: all .9s ease-in-out;
+
+box-shadow: 0 2px 100px rgba(0,0,0,1);
+border: 1px solid rgba(255,255,255,.3) !important;
+}
 
 
 /* OG Colorbox customization */
@@ -20,6 +49,10 @@
 	float: left;
 	position: relative;
 background:#fff;
+z-index: 999999999;
+margin: 0 !important;
+
+padding: 0 !important;
 }
 
 
@@ -36,7 +69,8 @@ right: 0px;
 top: 0px;
 overflow: hidden;
 height: 0;
-width: 44px;
+width: 44px; -webkit-transition: all .2s ease-in-out;
+ -moz-transition: all .2s ease-in-out;
 padding-top: 42px;
 display: block;
   background: url(../images/x.png) 16px 14px no-repeat;
@@ -57,10 +91,15 @@ cursor: pointer;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   margin: 0;
+text-transform: none;
+padding: 13px 0 13px 20px;
+color: rgba(0,0,0,.9);
+font-size: 15px;
+font-weight: bold;
 }
 
 .popup h2, .popup h3 {
-  padding-left: 14px;
+  padding-left:;
 }
 
 .popup h3 {
@@ -76,13 +115,13 @@ cursor: pointer;
 
 .popup p{
 clear: both;
-padding: 14px;
+padding: 14px 20px;
 margin: 0;
 }
 
 
 .popup ul{
-padding: 14px;
+padding: 14px 20px;
 }
 
 
@@ -103,15 +142,26 @@ clear: none;
 }
 
 
+.popup a{
+font-size: 13px;
+}
+
+
+
 .popup .addresses{
 float: left;
 margin: 0;
+padding-bottom: 0;
+}
 
+
+.popup .addresses *{
+color: #666;
 }
 
 .popup .addresses li{
 width: 198px;
-margin-bottom: 20px;
+
 }
 
 

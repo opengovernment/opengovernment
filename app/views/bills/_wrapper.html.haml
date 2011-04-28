@@ -6,7 +6,9 @@
 
   %ul
     %li.rss 
+      %span
       = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
+      %span
       = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
     %li.email 
       %a
@@ -40,7 +42,7 @@
 .share-tools
   %h4.pad 
     =t('.share_this')
-    
+  %span.permalink Permalink  
   = render 'shared/share_tools', :message => "Share", :title => t('.im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
 
 

@@ -21,7 +21,7 @@
 
 .bill-mugs
   - if @sponsors.count > 0
-    .sponsor_preview
+    .sponsor_mugs
       %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
       .clear
       = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
@@ -68,7 +68,7 @@
   %h2= t '.status'
   - status_bar(@bill)
 
-  %hr
+  %hr.space
 
   .grid_4.alpha
     %h2= t '.bill_text' 

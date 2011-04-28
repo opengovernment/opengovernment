@@ -234,7 +234,7 @@ a.see_all {
 }
 
 
-.hot_person li.mention a{
+li.mention a{
 padding-top: 5px;
 font-size: 13px;
 display: block;
@@ -244,7 +244,7 @@ line-height: 1.3em;
 
 
 
-.hot_person li.mention .date{
+li.mention .date{
 padding-top: px;
 font-size: 10px;
 color: #666;
@@ -252,7 +252,7 @@ float: right;
 }
 
 
-.hot_person li.mention .excerpt{
+li.mention .excerpt{
 padding-top: 10px;
 font-size: 11px;
 color: #333;
@@ -261,7 +261,7 @@ line-height: 1.5em;
 }
 
 
-.hot_person li.mention .source{
+li.mention .source{
 padding-top: 10px;
 padding-bottom: 30px;
 font-size: 10px;
@@ -470,18 +470,40 @@ border-left: 1px solid #f8f8f8;
 
 .sponsor_mugs span {
   display: block;
-  font-size: 10px;
   color: #999;
   clear: both;
 
 float: left;
 clear: none;
-padding-top: 9px;
+padding-top: 11px;
+  }
+
+
+.sponsor_mugs span a{
+padding-right: 5px;
   }
 
 
 
-.sponsor_mugs a{
+.sponsor_mugs span.person-photo {
+clear: both !important;
+float: left !important;
+border: 1px solid !important;
+font-size: 12px;
+padding-top: 9px !important;
+  }
+
+
+
+.bills.show .sponsor_mugs li{
+float: left;
+  }
+
+
+
+.sponsor_mugs .photo,
+.bill.grid_12 .sponsor_mugs .sponsor_mug,
+.states.show .sponsor_mugs .sponsor_mug{
   padding: 1px !important;
   margin: 0 15px 0px 0px;
 
@@ -495,7 +517,7 @@ padding-top: 9px;
   border: 1px solid #bbb;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #999;
-  opacity: .8;
+
   -webkit-transition: all .6s ease-in-out; 
   
   -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
@@ -507,7 +529,15 @@ padding-top: 9px;
   }
 
 
-.sponsor_mugs a:hover{
+.states.show .sponsor_mugs .sponsor_mug{
+margin-bottom: 15px;
+ }
+
+
+
+.sponsor_mugs a .photo:hover,
+.bill.grid_12 .sponsor_mugs .sponsor_mug:hover,
+.states.show .sponsor_mugs .sponsor_mug:hover{
   opacity: 1;
   
   -moz-border-radius: 3px;
@@ -537,8 +567,6 @@ padding-top: 9px;
   border: 1px solid #fff;
   opacity: .6;
 
-width: 25px !important;
-height: 25px !important;
 display: block;
 margin-bottom: 2px;
   background: url(../images/man.png) center no-repeat;

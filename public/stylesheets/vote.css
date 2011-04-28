@@ -283,3 +283,10 @@ margin-top: 10px;
   font-weight: bold;
 }
 
+.vote-type{
+padding: 2px 0 0 10px;
+display: block;
+font-size: 19px;
+color: #444;
+font-weight: normal;
+}

@@ -122,7 +122,9 @@ border-top: 1px solid #95afb2;
 background: url(../images/sidebar_icons.png) 30px -39px no-repeat;
 }
 
-
+#left_nav ul ul li#person.person.selected a.selected:hover{
+background: url(../images/sidebar_icons.png) 30px -39px no-repeat !important;
+}
 
 #left_nav ul li#bill.bill.selected a.selected{
 padding-left: 42px;
@@ -330,8 +332,9 @@ background: url(../images/sidebar_icons.png) 12px -126px no-repeat, -webkit-grad
 background: url(../images/sidebar_icons.png) 12px -126px no-repeat, -moz-linear-gradient(top,  #fff,  #e2ecee) !important;
 }
 
-#left_nav ul li ul li#overview a,
-#left_nav ul li ul li#overview a.selected {
+#left_nav ul li ul ul li#overview a,
+#left_nav ul li ul ul li#overview a.selected,
+body.people #left_nav ul li ul li ul li#overview.selected a.selected:hover {
 background: url(../images/sidebar_icons.png) 51px -194px no-repeat !important;
 }
 
@@ -661,7 +664,7 @@ padding: 4px 0 4px 34px;
 display: block;
 clear: left;
 color: rgba(0,0,0,1);
-margin-right: 200px;
+margin-right: 270px;
 -moz-border-radius: 20px;
 -webkit-border-radius: 20px;
 background: #eee url(../images/sprites.png) 10px -171px no-repeat;
@@ -671,6 +674,7 @@ margin-bottom: 5px;
 .addresses li {
 clear: none;
 font-size: 11px;
+min-height: 150px;
 }
 .details {
 padding: 10px 0 15px;
@@ -1229,4 +1233,17 @@ margin-left: 200px;
   padding: 30px 6px 20px 164px;
  
   }
+
+
+
+.issues.index ul.lined li{
+font-size: 16px;
+padding: 20px;
+}
+
+
+
+
+
+
 
