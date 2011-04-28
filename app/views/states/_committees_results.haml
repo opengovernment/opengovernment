@@ -1,4 +1,4 @@
-- if committees.empty?
+- if @committees.empty?
   %p Sorry, no committees matched.
 - else
   %nav#sort
@@ -11,6 +11,5 @@
 
   .search_results
     %ul.committees
-      - committees.each do |committee|
-        %li[committee]
-          != link_to(committee.name, "committees/#{committee.id}", :class => 'modal')
+      - @committees.each do |committee|
+        = render :partial => "shared/committee", :locals => {:committee => committee}

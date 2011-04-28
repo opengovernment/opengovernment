@@ -63,13 +63,24 @@ module StatesHelper
 
   def render_search_results(results)
     output = ""
-    legislators = results.select { |item| item.class == Person }
-    output << render(:partial => "legislators_results", :locals => { :legislators => legislators}) unless legislators.blank?
-    bills = results.select { |item| item.class == Bill }
-    output << render(:partial => 'shared/bill', :collection => bills, :locals => {:hide_key_vote => false}) unless bills.blank?
-    committees = results.select { |item| item.is_a? Committee }
-    output << render(:partial => "committees_results", :locals => {:committees => committees}) unless committees.blank?
+    results.each do |result_item|
+      case result_item
+      when Person
+        output << render(:partial => "people/person", :locals => { :person => result_item})
+      when Bill
+        output << render(:partial => 'shared/bill', :locals => {:hide_key_vote => false, :bill => result_item })
+      when Committee
+        output << render(:partial => "shared/committee", :locals => {:committee => result_item})
+      end
+    end
     output
+    # legislators = results.select { |item| item.class == Person }
+    # output << render(:partial => "legislators_results", :locals => { :legislators => legislators}) unless legislators.blank?
+    # bills = results.select { |item| item.class == Bill }
+    # output << render(:partial => 'shared/bill', :collection => bills, :locals => {:hide_key_vote => false}) unless bills.blank?
+    # committees = results.select { |item| item.is_a? Committee }
+    # output << render(:partial => "committees_results", :locals => {:committees => committees}) unless committees.blank?
+    # output
   end
 
 end
