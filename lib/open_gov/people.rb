@@ -41,7 +41,7 @@ module OpenGov
     private
 
     def fetch_person(leg_id)
-      puts "Fetching #{leg_id}"
+      Rails.logger.debug "Fetching #{leg_id}"
       GovKit::OpenStates::Legislator.find(leg_id)
     end
 

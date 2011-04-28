@@ -1,8 +1,8 @@
 
 .home.home .find_box {
   display: inline-block;
-  width: 754px;
-padding: 20px 190px 20px 38px;
+  width: 792px;
+padding: 20px 190px 20px 0px;
   margin: 0 0 -10px -11px !important;
 -moz-border-radius: 0px;
 -webkit-border-radius: 0px;
@@ -19,12 +19,13 @@ border-right: 0px;
 
 .home.home #find_my_rep {
 padding-left: 70px;
+width: 800px;
 }
 
 
 
 .home.home #find_my_rep label{
-  padding: 6px 50px 0 15px;
+  padding: 6px 46px 0 15px;
   float: left;
   margin:0 0 0px;
   font-size: 16px;
@@ -41,8 +42,13 @@ text-transform: none;
 }
 
 
+body.home.home .find_box .find_form #find_my_rep input#q.field{
+width: 260px !important;
+}
+
+
 .home.home .auto_find {
-margin-right: 120px;
+margin-right: 20px;
 margin-top: 1px;
 
 }

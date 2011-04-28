@@ -18,9 +18,14 @@ padding-top: 10px;
   margin: 3px 0 0 0;
 }
 
+.key_vote_action {
+  display: block;
+}
+
 .bills .subject_areas li {
   display: inline-block;
-padding: 0 3px 5px 0;
+  padding: 0 3px 5px 0;
+  line-height: 16px;
 }
 
 .bills .subject_areas li:hover {
@@ -234,7 +239,7 @@ a.see_all {
 }
 
 
-.hot_person li.mention a{
+li.mention a{
 padding-top: 5px;
 font-size: 13px;
 display: block;
@@ -244,7 +249,7 @@ line-height: 1.3em;
 
 
 
-.hot_person li.mention .date{
+li.mention .date{
 padding-top: px;
 font-size: 10px;
 color: #666;
@@ -252,7 +257,7 @@ float: right;
 }
 
 
-.hot_person li.mention .excerpt{
+li.mention .excerpt{
 padding-top: 10px;
 font-size: 11px;
 color: #333;
@@ -261,7 +266,7 @@ line-height: 1.5em;
 }
 
 
-.hot_person li.mention .source{
+li.mention .source{
 padding-top: 10px;
 padding-bottom: 30px;
 font-size: 10px;
@@ -271,7 +276,14 @@ line-height: 1.5em;
 }
 
 
+/* Adjust mentions ul for the people profile page */
+ul.lined li.mention .excerpt, ul.lined li.mention .date, ul.lined li.mention .source {
+  float: none;
+}
 
+ul.lined li.mention .source {
+  padding-bottom: 0;
+}
 
 .action_status{
 padding: 10px 0;
@@ -392,16 +404,14 @@ float: left;
 .bill-mugs .sponsor_mugs,
 .bill-mugs .sponsor_preview,
 .bill-mugs .lined{
-margin: 0px !important;
+  margin: 0px !important;
+  padding: 0;
 }
 
 
 
 .bill-mugs .sponsor_mugs{
-padding: 10px 0 !important;
-margin: 0px 0 0 0px !important;
-float: left;
-
+  float: left;
 }
 
 
@@ -428,13 +438,21 @@ font-size: 12px;
 }
 
 
-
-
-
 .bill-mugs .modal{
 padding: 19px 0 0 0px !important;
 float: left;
 }
+
+
+.popup.sponsors .lined {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.popup.sponsors .lined li {
+  padding: 5px 0 5px 0;
+}
+
 
 
 .bills .sponsor_mugs img {
@@ -461,27 +479,48 @@ border-left: 1px solid #f8f8f8;
 .sponsor_mugs{
   float: left;
 
-  padding: 15px 0 15px 0px;
+  padding: 5px 0 5px 0px;
   }
 
 
 
 
 
-.sponsor_mugs span {
+.sponsor-meta {
   display: block;
-  font-size: 10px;
   color: #999;
   clear: both;
+  float: left;
+  width: 180px;
+  clear: none;
+}
 
-float: left;
-clear: none;
-padding-top: 9px;
+
+.sponsor-meta a{
+  padding-right: 5px;
+}
+
+
+
+.sponsor_mugs span.person-photo {
+clear: both !important;
+float: left !important;
+border: 1px solid !important;
+font-size: 12px;
+padding-top: 9px !important;
   }
 
 
 
-.sponsor_mugs a{
+.bills.show .sponsor_mugs li{
+float: left;
+  }
+
+
+
+.sponsor_mugs .photo,
+.bill.grid_12 .sponsor_mugs .sponsor_mug,
+.states.show .sponsor_mugs .sponsor_mug{
   padding: 1px !important;
   margin: 0 15px 0px 0px;
 
@@ -495,7 +534,7 @@ padding-top: 9px;
   border: 1px solid #bbb;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #999;
-  opacity: .8;
+
   -webkit-transition: all .6s ease-in-out; 
   
   -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
@@ -507,40 +546,17 @@ padding-top: 9px;
   }
 
 
-.sponsor_mugs a:hover{
-  opacity: 1;
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-  border: 1px solid #bbb;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #999;
-  
-  
-  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #eee, inset 0 1px 0px #fff;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #eee,  #ddd); /* for firefox 3.6+ */
-  }
+.states.show .sponsor_mugs .sponsor_mug{
+margin-bottom: 15px;
+ }
 
 
-.sponsor_mugs a:hover img{
-  opacity: 1;
-  background: url(../images/man.png) center no-repeat;
-  }
+
 
 .sponsor_mugs img{
   border: 1px solid #fff;
-  opacity: .6;
-
-width: 25px !important;
-height: 25px !important;
-display: block;
-margin-bottom: 2px;
+  display: block;
+  margin-bottom: 2px;
   background: url(../images/man.png) center no-repeat;
   }
 
@@ -556,13 +572,3 @@ display: block;
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
-
-.people_news_preview .sponsor_mugs a{
-
-}
-
-
-.people_news_preview .sponsor_mugs a.active{
-opacity: 1;
-}
-

@@ -70,7 +70,7 @@ font-size: 10px;
 .share-tools{
 height: 45px;
 position: relative;
-z-index: 99999999999;
+z-index: 99999;
 }
 
 
@@ -112,6 +112,22 @@ position: absolute;
 
 .share .twitter {
 }
+
+
+.permalink{
+  background: url(../images/share.png) no-repeat -522px top;
+height: 0px;
+padding-top: 26px;
+width: 25px;
+float: left;
+overflow: hidden;
+}
+
+
+.permalink:hover{
+  background: url(../images/share.png) no-repeat -522px -30px;
+}
+
 
 .share .twitter a {
   background: url(../images/share.png) no-repeat -30px top;
@@ -199,7 +215,7 @@ margin: 0;
 height: 30px;
 float: right;
 position: relative;
-z-index: 99999999999;
+z-index: 999999;
 }
 
 
@@ -219,13 +235,14 @@ padding-left: 24px !important;
 }
 
 
-.track_buttons li.rss a{
+.track_buttons li.rss span{
   display: block !important;
   float: left !important;
-  padding-left: 30px;
+  padding-left: 25px;
+padding-top: 20px;
 padding-bottom: 3px;
   background: url(../images/share.png) no-repeat -495px 0px;
-  margin: 0px 20px 6px 0;
+  margin: 0px 10px 6px 0;
   text-decoration: none !important;
   }
 

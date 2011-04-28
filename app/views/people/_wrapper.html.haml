@@ -5,6 +5,7 @@
     %span= t('bills.track.track')
   %ul
     %li.rss
+      %span
       = link_to t('people.show.all_votes'), {:format => :atom}
     %li.email 
       %a
@@ -21,6 +22,7 @@
 
 .share-tools
   %h4.pad Share this
+  %span.permalink Permalink  
 
   = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
 

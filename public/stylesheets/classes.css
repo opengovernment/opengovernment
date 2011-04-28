@@ -60,8 +60,9 @@ list-style-type: disc !important;
 .more{
   float: right;
   font-weight: bold;
+clear: both;
   font-size: 14px;
-margin: 0px;
+  margin: 0px;
   }
 
 
@@ -79,7 +80,7 @@ margin: 0px;
 #flash{
   background: #efefef;
   padding: 30px 20px;
-  margin: 0 -16px 0;
+  margin: 0 -11px 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#f5e8d4), to(#f9f2e6)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #f5e8d4,  #f9f2e6); /* for firefox 3.6+ */
   border-bottom: 1px solid #dbcfba;  
@@ -324,12 +325,21 @@ background: #eee;
 .lined{
   margin: 0 0 20px !important;
   padding:0;
-  }
+
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+
+
+-moz-box-shadow: 0 0 1px rgba(0,0,0,.3);
+-webkit-box-shadow: 0 0 1px rgba(0,0,0,.3);
+box-shadow: 0 0 1px rgba(0,0,0,.3);  
+}
 
 .lined li{
   border-bottom: 1px solid #f4f9fa;
-  margin: 0 0 5px;
-  padding: 0px 0 5px;
+  margin: 0 0 0px;
+  padding: 10px 15px;
   line-height: 1.4em;
   }
 

@@ -18,41 +18,46 @@
 
 
 
+.grid_6.alpha
+  .bill-mugs
+    - if @sponsors.count > 0
+      %h2= t '.sponsors'
+      .sponsor_mugs
+        %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
+        .clear
+        = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
 
-.bill-mugs
-  - if @sponsors.count > 0
-    .sponsor_preview
-      %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
-      .clear
-      = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
-
-
-.write_buttons
-  %h4
-    %span= t('bills.write.write')
+.grid_6.omega
+  .write_buttons
+    %h4
+      %span= t('bills.write.write')
     
-  .form
-    = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
-    %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
-    %label(for='q')= t 'bills.write.location_prompt'
-    = text_field_tag :q, params[:q], :autocomplete => 'off'
-    .find_button
-      = submit_tag t('bills.write.find_button'), :class => 'button'
-    </form>
-    %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
-    -# Form results appear in a colorbox, not a separate page.
-    :ruby
-      javascript do
-        (%Q|
-          $(document).ready(function() {
-            $('#find_my_rep input:submit').click(function(e){
-              $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
-              $('#rep_link').click();
-              e.preventDefault();
+    .form
+      = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
+      %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
+      %label(for='q')= t 'bills.write.location_prompt'
+      = text_field_tag :q, params[:q], :autocomplete => 'off'
+      .find_button
+        = submit_tag t('bills.write.find_button'), :class => 'button'
+      </form>
+      %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
+      -# Form results appear in a colorbox, not a separate page.
+      :ruby
+        javascript do
+          (%Q|
+            $(document).ready(function() {
+              $('#find_my_rep input:submit').click(function(e){
+                $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
+                $('#rep_link').click();
+                e.preventDefault();
+              });
             });
-          });
-        |)
-      end
+          |)
+        end
+
+  .hide
+    - if @bill.key_votes.any?
+      = render @bill.key_votes.first
 
 -# TODO: These are turned off for now. Please implement.
 .support_buttons(style="display: none;")
@@ -61,30 +66,27 @@
   %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
     %span I Oppose this Bill!
 
-
-
-
 .grid_12.alpha
-  %h2= t '.status'
   - status_bar(@bill)
 
-  %hr
+  %hr.space
 
   .grid_4.alpha
     %h2= t '.bill_text' 
     - if @bill.versions.any?
       %ul.lined
-        = render :partial => 'documents/document', :collection => @bill.versions
+        = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
 
     %span.small= t '.bill_text_intro'
-  
     - if @bill.documents.any?
       .document_preview
         %h2= t('.documents', :count => @bill.documents.size)
-        = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
 
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
+
+    - if @bill.documents.any? || @bill.versions.any?
+      = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
   
   .grid_8.mentions.omega
     %h2= t '.mentions'
