@@ -271,6 +271,13 @@ line-height: 1.5em;
 }
 
 
+ul.lined li.mention .excerpt, ul.lined li.mention .date, ul.lined li.mention .source {
+  float: none;
+}
+
+ul.lined li.mention .source {
+  padding-bottom: 0;
+}
 
 
 .action_status{
