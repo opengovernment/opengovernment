@@ -81,7 +81,7 @@
     - if @bill.documents.any?
       .document_preview
         %h2= t('.documents', :count => @bill.documents.size)
-        = link_to(t('.see_all'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
+        = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
 
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
@@ -105,8 +105,8 @@
       = link_to(raw("#{t('.actions', :count => @actions.size)} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more')
 
 - if @bill.key_votes.any?
-  .key_vote_actions
-    %ul= render @bill.key_votes
+  .key_vote_action
+    = render @bill.key_votes.first
 
 %hr.push_top
 

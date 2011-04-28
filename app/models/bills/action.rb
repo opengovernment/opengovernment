@@ -53,7 +53,7 @@ class Action < ActiveRecord::Base
       when "record vote"
         "had its vote recorded"
       else
-        "was " + action.downcase
+        action.downcase
     end
   end
 
