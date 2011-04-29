@@ -1,5 +1,5 @@
-%li.grid_12[bill]
-
+-unless bill.blank?
+  %li.grid_12[bill]
 
   .bill_titles.grid_4.alpha
     != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
@@ -9,7 +9,7 @@
     - if bill.votesmart_key_vote? && !hide_key_vote
       %span.vote_smart_keyvote
         This is a Votesmart Key Vote!
-    
+
     %span=content_tag(:span, truncate(bill.title, :length => 500))
 
 
@@ -19,17 +19,17 @@
         - if bill.first_action_at
           %span.small_date!= bill.first_action_at
           %span.small_label= t '.introduced'
-  
-  
+
+
       .recent_action.grid_2.omega.alpha
         - if bill.last_action_at
           %span.small_date!= bill.last_action_at
           %span.small_label Recent action
-  
+
       .recent_vote.grid_1.alpha.omega
         %span.small_date!= bill.votes.count
         %span.small_label!= t '.votes_on_bill', :count => bill.votes.count
-  
+
       - if bill.session.parent_id?
         .session.grid_2.omega.alpha
           %span.small_date!= bill.session.try(:name)
