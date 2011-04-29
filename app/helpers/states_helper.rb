@@ -74,13 +74,6 @@ module StatesHelper
       end
     end
     output
-    # legislators = results.select { |item| item.class == Person }
-    # output << render(:partial => "legislators_results", :locals => { :legislators => legislators}) unless legislators.blank?
-    # bills = results.select { |item| item.class == Bill }
-    # output << render(:partial => 'shared/bill', :collection => bills, :locals => {:hide_key_vote => false}) unless bills.blank?
-    # committees = results.select { |item| item.is_a? Committee }
-    # output << render(:partial => "committees_results", :locals => {:committees => committees}) unless committees.blank?
-    # output
-  end
+   end
 
 end
