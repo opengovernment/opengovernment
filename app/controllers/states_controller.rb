@@ -102,7 +102,8 @@ class StatesController < SubdomainController
       @search_counts[:everything] = 0
       @search_counts[:bills] = @facets[:class]['Bill']
       @search_counts[:legislators] = @facets[:class]['Person']
-      @search_counts[:committees] = (@facets[:class]['UpperCommittee'] || 0) + (@facets[:class]['JointCommittee'] || 0) + (@facets[:class]['LowerCommittee'] || 0)
+      @search_counts[:committees] = Committee.descendants.inject(0) { |s, i| s += (@facets[:class][i.to_s] || 0) } 
+      @search_counts[:committees] = nil if @search_counts[:committees].zero?
       @search_counts[:everything] = @total_entries = @search_counts.values.inject() { |sum, element| sum + (element || 0) }   
 
       if @total_entries == 1
