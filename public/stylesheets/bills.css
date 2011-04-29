@@ -1,3 +1,5 @@
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
 /* line 3, ../../app/stylesheets/bills.scss */
 h1 .long_bill_title {
   display: block;

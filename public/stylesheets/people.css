@@ -1,4 +1,6 @@
-/* line 1, ../../app/stylesheets/people.scss */
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* line 3, ../../app/stylesheets/people.scss */
 .people.index .intro p {
   padding-right: 250px;
 }
@@ -20,21 +22,27 @@ body.people.upper ul.lined {
   clear: both;
 }
 
-/* line 33, ../../app/stylesheets/people.scss */
+/* line 31, ../../app/stylesheets/people.scss */
+h3.how-they-voted {
+  padding-left: 600px;
+  width: 100px;
+}
+
+/* line 36, ../../app/stylesheets/people.scss */
 .lined li.person {
   margin: 0 !important;
   overflow: auto;
   padding: 0px !important;
 }
 
-/* line 39, ../../app/stylesheets/people.scss */
+/* line 42, ../../app/stylesheets/people.scss */
 .lined li.person a {
   display: block;
   height: 72px;
   padding: 20px 20px 8px 40px !important;
 }
 
-/* line 45, ../../app/stylesheets/people.scss */
+/* line 48, ../../app/stylesheets/people.scss */
 .lined li.person a:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f7fbfb));
   /* for webkit browsers */
@@ -42,7 +50,7 @@ body.people.upper ul.lined {
   /* for firefox 3.6+ */
 }
 
-/* line 51, ../../app/stylesheets/people.scss */
+/* line 54, ../../app/stylesheets/people.scss */
 .lined li.person a:hover .small_thumbnail {
   background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea));
   /* for webkit browsers */
@@ -50,7 +58,7 @@ body.people.upper ul.lined {
   /* for firefox 3.6+ */
 }
 
-/* line 57, ../../app/stylesheets/people.scss */
+/* line 60, ../../app/stylesheets/people.scss */
 .lined li.person a .small_thumbnail {
   float: left;
   padding: 2px;
@@ -68,63 +76,63 @@ body.people.upper ul.lined {
   /* for firefox 3.6+ */
 }
 
-/* line 77, ../../app/stylesheets/people.scss */
+/* line 80, ../../app/stylesheets/people.scss */
 .lined li.person a .small_thumbnail img {
   display: block;
   border: 1px solid #fff;
 }
 
-/* line 84, ../../app/stylesheets/people.scss */
+/* line 87, ../../app/stylesheets/people.scss */
 .lined li.person a span.person_name {
   display: block;
   margin: 10px 0 5px;
   font-size: 20px;
 }
 
-/* line 92, ../../app/stylesheets/people.scss */
+/* line 95, ../../app/stylesheets/people.scss */
 .lined li.person a .person_district,
 .lined li.person a .person_party {
   display: inline;
 }
 
-/* line 104, ../../app/stylesheets/people.scss */
+/* line 107, ../../app/stylesheets/people.scss */
 .lined li.person a .person_views {
   margin-top: 7px;
 }
 
-/* line 109, ../../app/stylesheets/people.scss */
+/* line 112, ../../app/stylesheets/people.scss */
 .lined li.person .grid_6 {
   border-right: 1px solid #efefef;
   padding-bottom: 10px;
 }
 
-/* line 114, ../../app/stylesheets/people.scss */
+/* line 117, ../../app/stylesheets/people.scss */
 li.race_tracker {
   padding-top: 10px;
 }
 
 /* Rating party color boxes */
-/* line 119, ../../app/stylesheets/people.scss */
+/* line 122, ../../app/stylesheets/people.scss */
 .rating_person.rating_dem {
   background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 
-/* line 123, ../../app/stylesheets/people.scss */
+/* line 126, ../../app/stylesheets/people.scss */
 .rating_person.rating_rep {
   background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
 }
 
-/* line 127, ../../app/stylesheets/people.scss */
+/* line 130, ../../app/stylesheets/people.scss */
 .rating_person.rating_ind {
   background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
 }
 
-/* line 131, ../../app/stylesheets/people.scss */
+/* line 134, ../../app/stylesheets/people.scss */
 .ratings-header {
   font-weight: bold;
 }
 
-/* line 135, ../../app/stylesheets/people.scss */
+/* line 138, ../../app/stylesheets/people.scss */
 table.ratings td.rating_person {
   margin-left: 0;
   padding: 2px 0 2px 20px;
@@ -133,18 +141,18 @@ table.ratings td.rating_person {
   float: left;
 }
 
-/* line 143, ../../app/stylesheets/people.scss */
+/* line 146, ../../app/stylesheets/people.scss */
 table.ratings td {
   padding: 2px 0;
 }
 
-/* line 147, ../../app/stylesheets/people.scss */
+/* line 150, ../../app/stylesheets/people.scss */
 ul.people_mugs li {
   display: inline;
   padding-right: 3px;
 }
 
-/* line 152, ../../app/stylesheets/people.scss */
+/* line 155, ../../app/stylesheets/people.scss */
 ul.chamber_tabs li a {
   height: 36px;
 }

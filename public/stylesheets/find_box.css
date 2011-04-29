@@ -1,4 +1,6 @@
-/* line 2, ../../app/stylesheets/find_box.scss */
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* line 3, ../../app/stylesheets/find_box.scss */
 .home.home .find_box {
   display: inline-block;
   width: 792px;
@@ -11,18 +13,18 @@
   border-right: 0px;
 }
 
-/* line 16, ../../app/stylesheets/find_box.scss */
+/* line 17, ../../app/stylesheets/find_box.scss */
 .home.home .main {
   background: url(../images/header.jpg) 0px 0px no-repeat;
 }
 
-/* line 20, ../../app/stylesheets/find_box.scss */
+/* line 21, ../../app/stylesheets/find_box.scss */
 .home.home #find_my_rep {
   padding-left: 70px;
   width: 800px;
 }
 
-/* line 27, ../../app/stylesheets/find_box.scss */
+/* line 28, ../../app/stylesheets/find_box.scss */
 .home.home #find_my_rep label {
   padding: 6px 46px 0 15px;
   float: left;
@@ -34,23 +36,23 @@
   font-weight: normal;
 }
 
-/* line 40, ../../app/stylesheets/find_box.scss */
+/* line 41, ../../app/stylesheets/find_box.scss */
 .home.home h2 {
   text-transform: none;
 }
 
-/* line 45, ../../app/stylesheets/find_box.scss */
+/* line 46, ../../app/stylesheets/find_box.scss */
 body.home.home .find_box .find_form #find_my_rep input#q.field {
   width: 260px !important;
 }
 
-/* line 50, ../../app/stylesheets/find_box.scss */
+/* line 51, ../../app/stylesheets/find_box.scss */
 .home.home .auto_find {
   margin-right: 20px;
   margin-top: 1px;
 }
 
-/* line 75, ../../app/stylesheets/find_box.scss */
+/* line 76, ../../app/stylesheets/find_box.scss */
 .find_box {
   position: relative;
   border: 1px solid #ddd;
@@ -65,7 +67,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   border-radius: 5px;
 }
 
-/* line 91, ../../app/stylesheets/find_box.scss */
+/* line 92, ../../app/stylesheets/find_box.scss */
 .auto_find {
   position: absolute;
   right: 81px;
@@ -87,7 +89,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   background: -moz-linear-gradient(top, #ecf9fc, #d6e8eb);
 }
 
-/* line 124, ../../app/stylesheets/find_box.scss */
+/* line 125, ../../app/stylesheets/find_box.scss */
 .auto_find a {
   display: block !important;
   padding: 6px 20px 4px 38px;
@@ -98,17 +100,17 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   background: url(../images/sprites.png) 12px -218px no-repeat;
 }
 
-/* line 137, ../../app/stylesheets/find_box.scss */
+/* line 138, ../../app/stylesheets/find_box.scss */
 .auto_find a:hover {
   text-decoration: none;
 }
 
-/* line 144, ../../app/stylesheets/find_box.scss */
+/* line 145, ../../app/stylesheets/find_box.scss */
 #find_my_rep {
   padding: 0px 24px;
 }
 
-/* line 149, ../../app/stylesheets/find_box.scss */
+/* line 150, ../../app/stylesheets/find_box.scss */
 #find_my_rep #q {
   width: 97px;
   padding-left: 25px;
@@ -119,7 +121,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top, #dddddd, #efefef);
 }
 
-/* line 163, ../../app/stylesheets/find_box.scss */
+/* line 164, ../../app/stylesheets/find_box.scss */
 #find_my_rep #q:focus {
   width: 97px;
   padding-left: 25px;
@@ -130,7 +132,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top, #eeeeee, white);
 }
 
-/* line 177, ../../app/stylesheets/find_box.scss */
+/* line 178, ../../app/stylesheets/find_box.scss */
 #find_my_rep label {
   padding: 7px 20px 0 15px;
   float: left;
@@ -142,12 +144,12 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   font-weight: normal;
 }
 
-/* line 190, ../../app/stylesheets/find_box.scss */
+/* line 191, ../../app/stylesheets/find_box.scss */
 #find_my_rep label strong {
   padding-right: 20px;
 }
 
-/* line 196, ../../app/stylesheets/find_box.scss */
+/* line 197, ../../app/stylesheets/find_box.scss */
 .find_button input {
   background: #fff;
   display: block !important;
@@ -171,7 +173,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   padding: 6px 23px;
 }
 
-/* line 231, ../../app/stylesheets/find_box.scss */
+/* line 232, ../../app/stylesheets/find_box.scss */
 .finding {
   position: absolute;
   width: 18px;

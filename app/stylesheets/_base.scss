@@ -1,0 +1,6 @@
+/* Always put config variables above imports. */
+$ninesixty-columns: 16;
+
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+@import "compass/css3";
+@import "960/grid";

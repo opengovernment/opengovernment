@@ -1,4 +1,6 @@
-/* line 2, ../../app/stylesheets/breadcrumb.scss */
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* line 3, ../../app/stylesheets/breadcrumb.scss */
 .beta {
   font-weight: normal;
   font-size: 11px;
@@ -12,13 +14,13 @@
   display: none !important;
 }
 
-/* line 17, ../../app/stylesheets/breadcrumb.scss */
+/* line 18, ../../app/stylesheets/breadcrumb.scss */
 .help,
 #account .modal {
   float: right;
 }
 
-/* line 22, ../../app/stylesheets/breadcrumb.scss */
+/* line 23, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb {
   float: left;
   border-left: 1px solid #ccc;
@@ -26,7 +28,7 @@
   padding-left: 10px;
 }
 
-/* line 29, ../../app/stylesheets/breadcrumb.scss */
+/* line 30, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb li {
   float: left;
   line-height: 3em;
@@ -35,7 +37,7 @@
   position: relative;
 }
 
-/* line 37, ../../app/stylesheets/breadcrumb.scss */
+/* line 38, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb li a {
   float: left;
   list-style: none;
@@ -46,34 +48,34 @@
   color: #215357;
 }
 
-/* line 51, ../../app/stylesheets/breadcrumb.scss */
+/* line 52, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb li a span {
   margin: 0 0 0 15px;
 }
 
-/* line 55, ../../app/stylesheets/breadcrumb.scss */
+/* line 56, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb li a:hover span {
   text-decoration: underline;
 }
 
-/* line 60, ../../app/stylesheets/breadcrumb.scss */
+/* line 61, ../../app/stylesheets/breadcrumb.scss */
 li.topnav {
   padding: 0 0px 0 0 !important;
   margin-right: 10px;
 }
 
-/* line 67, ../../app/stylesheets/breadcrumb.scss */
+/* line 68, ../../app/stylesheets/breadcrumb.scss */
 li.topnav a {
   padding: 0 10px 0 0 !important;
 }
 
-/* line 72, ../../app/stylesheets/breadcrumb.scss */
+/* line 73, ../../app/stylesheets/breadcrumb.scss */
 .breadcrumb li:hover, .breadcrumb a.subhover {
   z-index: 120;
 }
 
 /* State selector menu */
-/* line 83, ../../app/stylesheets/breadcrumb.scss */
+/* line 84, ../../app/stylesheets/breadcrumb.scss */
 .state-select,
 div.session-select {
   position: absolute;
@@ -99,13 +101,13 @@ div.session-select {
   -moz-border-radius: 5px;
 }
 
-/* line 109, ../../app/stylesheets/breadcrumb.scss */
+/* line 110, ../../app/stylesheets/breadcrumb.scss */
 .state-select:hover,
 .session-select:hover {
   z-index: 9999999999 !important;
 }
 
-/* line 116, ../../app/stylesheets/breadcrumb.scss */
+/* line 117, ../../app/stylesheets/breadcrumb.scss */
 div.session-select {
   position: absolute;
   /*--Important - Keeps subnav from affecting main navigation flow--*/
@@ -116,7 +118,7 @@ div.session-select {
   top: 77px;
 }
 
-/* line 126, ../../app/stylesheets/breadcrumb.scss */
+/* line 127, ../../app/stylesheets/breadcrumb.scss */
 .triangle {
   position: absolute;
   top: -9px;
@@ -127,7 +129,7 @@ div.session-select {
   background: url(../images/gray_triangle.png) 0 0 no-repeat;
 }
 
-/* line 139, ../../app/stylesheets/breadcrumb.scss */
+/* line 140, ../../app/stylesheets/breadcrumb.scss */
 .state-select ul,
 .session-select ul {
   list-style: none;
@@ -137,7 +139,7 @@ div.session-select {
   width: 237px;
 }
 
-/* line 152, ../../app/stylesheets/breadcrumb.scss */
+/* line 153, ../../app/stylesheets/breadcrumb.scss */
 .state-select li,
 .session-select li {
   list-style: none;
@@ -149,7 +151,7 @@ div.session-select {
   padding: 0;
 }
 
-/* line 164, ../../app/stylesheets/breadcrumb.scss */
+/* line 165, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a,
 .session-select li a {
   float: left;
@@ -161,7 +163,7 @@ div.session-select {
   font-size: 12px;
 }
 
-/* line 176, ../../app/stylesheets/breadcrumb.scss */
+/* line 177, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a:hover,
 .session-select li a:hover {
   text-shadow: 0 2px 0px #fff;
@@ -169,20 +171,20 @@ div.session-select {
   background: -moz-linear-gradient(bottom, #f6f6f6, white) !important;
 }
 
-/* line 184, ../../app/stylesheets/breadcrumb.scss */
+/* line 185, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a:active,
 .session-select li a:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(white)) !important;
   background: -moz-linear-gradient(bottom, white, #f6f6f6) !important;
 }
 
-/* line 193, ../../app/stylesheets/breadcrumb.scss */
+/* line 194, ../../app/stylesheets/breadcrumb.scss */
 ul.breadcrumb li span.subhover {
   cursor: pointer;
 }
 
 /*--Hover effect for trigger--*/
-/* line 197, ../../app/stylesheets/breadcrumb.scss */
+/* line 198, ../../app/stylesheets/breadcrumb.scss */
 .dropdown {
   clear: both;
   font-size: 13px;
@@ -201,7 +203,7 @@ ul.breadcrumb li span.subhover {
   border-top: none;
 }
 
-/* line 216, ../../app/stylesheets/breadcrumb.scss */
+/* line 217, ../../app/stylesheets/breadcrumb.scss */
 .dropdown:hover {
   background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top, white, #e2ecee) !important;
@@ -210,7 +212,7 @@ ul.breadcrumb li span.subhover {
   -webkit-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1), inset 0 1px 0px white;
 }
 
-/* line 226, ../../app/stylesheets/breadcrumb.scss */
+/* line 227, ../../app/stylesheets/breadcrumb.scss */
 .dropdown.subhover {
   text-decoration: none;
   -moz-box-shadow: 0 1px 0px #eeeeee, inset 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -219,12 +221,12 @@ ul.breadcrumb li span.subhover {
   background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top, white, #eeeeee);
 }
 
-/* line 236, ../../app/stylesheets/breadcrumb.scss */
+/* line 237, ../../app/stylesheets/breadcrumb.scss */
 .current {
   padding-left: 40px;
 }
 
-/* line 241, ../../app/stylesheets/breadcrumb.scss */
+/* line 242, ../../app/stylesheets/breadcrumb.scss */
 a#dropdown.dropdown {
   font-size: 14px;
   padding: 16px 0 15px 15px !important;
@@ -232,13 +234,13 @@ a#dropdown.dropdown {
   background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top, white, #eeeeee) !important;
 }
 
-/* line 249, ../../app/stylesheets/breadcrumb.scss */
+/* line 250, ../../app/stylesheets/breadcrumb.scss */
 a#dropdown.dropdown:hover {
   background: url(../images/sprites.png) 186px -301px no-repeat, -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top, white, #e2ecee) !important;
 }
 
-/* line 257, ../../app/stylesheets/breadcrumb.scss */
+/* line 258, ../../app/stylesheets/breadcrumb.scss */
 #statelevel {
   display: block;
   padding: 15px;
@@ -252,13 +254,13 @@ a#dropdown.dropdown:hover {
   background: -moz-linear-gradient(top, white, #eeeeee) !important;
 }
 
-/* line 272, ../../app/stylesheets/breadcrumb.scss */
+/* line 273, ../../app/stylesheets/breadcrumb.scss */
 #statelevel:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: -moz-linear-gradient(top, white, #e2ecee) !important;
 }
 
-/* line 281, ../../app/stylesheets/breadcrumb.scss */
+/* line 282, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown {
   display: block;
   padding: 10px;
@@ -276,19 +278,19 @@ a#dropdown.dropdown:hover {
   -webkit-border-radius: 3px;
 }
 
-/* line 299, ../../app/stylesheets/breadcrumb.scss */
+/* line 300, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown:hover {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
 
-/* line 304, ../../app/stylesheets/breadcrumb.scss */
+/* line 305, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown.subhover {
   border: 1px solid rgba(0, 0, 0, 0) !important;
   -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 320, ../../app/stylesheets/breadcrumb.scss */
+/* line 321, ../../app/stylesheets/breadcrumb.scss */
 .prior_session {
   margin: 0 0 0 -26px;
   width: 206px;
@@ -302,7 +304,7 @@ a#dropdown.dropdown:hover {
   z-index: 100;
 }
 
-/* line 332, ../../app/stylesheets/breadcrumb.scss */
+/* line 333, ../../app/stylesheets/breadcrumb.scss */
 .current_session {
   position: relative;
   z-index: 100;
@@ -311,17 +313,17 @@ a#dropdown.dropdown:hover {
   padding: 5px 10px 5px 15px;
 }
 
-/* line 341, ../../app/stylesheets/breadcrumb.scss */
+/* line 342, ../../app/stylesheets/breadcrumb.scss */
 .prior_session a {
   float: right;
 }
 
-/* line 345, ../../app/stylesheets/breadcrumb.scss */
+/* line 346, ../../app/stylesheets/breadcrumb.scss */
 .sponsor_preview {
   padding-bottom: 20px;
 }
 
-/* line 349, ../../app/stylesheets/breadcrumb.scss */
+/* line 350, ../../app/stylesheets/breadcrumb.scss */
 .bar {
   height: 27px;
   line-height: 27px;

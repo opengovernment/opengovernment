@@ -1,86 +1,12 @@
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
 /* 960 Grid System ~ Text CSS.
  * Learn more ~ http://960.gs/
  * *
  * Licensed under GPL and MIT. */
-/* line 4, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-body {
-  font: 13px/1.5 Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
-}
+/* If we want this --
 
-/* line 6, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-a:focus {
-  outline: 1px dotted invert;
-}
+@import "960/text";
+@include text;
 
-/* line 8, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-hr {
-  border-color: #cccccc;
-  border-style: solid;
-  border-width: 1px 0 0;
-  clear: both;
-  height: 0;
-}
-
-/* line 14, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h1 {
-  font-size: 25px;
-}
-
-/* line 16, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h2 {
-  font-size: 23px;
-}
-
-/* line 18, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h3 {
-  font-size: 21px;
-}
-
-/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h4 {
-  font-size: 19px;
-}
-
-/* line 22, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h5 {
-  font-size: 17px;
-}
-
-/* line 24, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-h6 {
-  font-size: 15px;
-}
-
-/* line 26, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-ol {
-  list-style: decimal;
-}
-
-/* line 28, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-ul {
-  list-style: square;
-}
-
-/* line 30, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-li {
-  margin-left: 30px;
-}
-
-/* line 32, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-960-plugin-0.10.2/stylesheets/960/_text.sass */
-p,
-dl,
-hr,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ol,
-ul,
-pre,
-table,
-address,
-fieldset {
-  margin-bottom: 20px;
-}
+*/

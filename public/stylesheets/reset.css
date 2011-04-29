@@ -1,3 +1,6 @@
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* Eric Meyer's reset */
 /* line 17, ../../../../.rvm/gems/ree-1.8.7-2011.03@og/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -65,7 +68,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* Overrides*/
-/* line 4, ../../app/stylesheets/reset.scss */
+/* line 7, ../../app/stylesheets/reset.scss */
 th, td, caption {
   padding-left: 0;
 }

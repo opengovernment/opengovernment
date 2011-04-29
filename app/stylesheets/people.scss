@@ -1,3 +1,5 @@
+@import "base";
+
 .people.index .intro p{
   padding-right: 250px;
   }
@@ -17,18 +19,19 @@ height: 300px;
 
 ///////////////////////////*/
 
-
-
 body.people.index ul.lined,
 body.districts.search ul.lined,
 body.people.lower ul.lined,
 body.people.upper ul.lined{
-margin-left: -33px !important;
-width: 752px;
-clear: both;
+  margin-left: -33px !important;
+  width: 752px;
+  clear: both;
 }
 
-
+h3.how-they-voted {
+  padding-left: 600px;
+  width: 100px;
+}
 
 .lined li.person{
   margin: 0 !important;
