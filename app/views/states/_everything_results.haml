@@ -1,26 +1,3 @@
-
-- unless @bills.empty?
-  %div.search_results.last
-    %h2= link_to('Bills', bills_path)
-    %ul.bills.lined.and_spaced
-      - @bills.each do |bill|
-        = render :partial => 'shared/bill', :locals => {:bill => bill, :hide_key_vote => false}
-    = paginate @bills
-
-- unless @legislators.empty?
-  %div.search_results.last
-    %h2= link_to('People', people_path)
-    %ul.legislators
-      - @legislators.each do |leg|
-        %li[leg]
-          != link_to(leg.full_name, person_path(leg))
-    = paginate @legislators
-
-- unless @committees.empty?
-  %div.search_results.last
-    %h2 Committees
-    %ul.committees
-      - @committees.each do |committee|
-        %li[committee]
-          != link_to(committee.name, committee_path(committee))
-    = paginate @committees
+%ul.search_results{:class => @search_type}
+  = (render_search_results @results).html_safe
+  = paginate @results

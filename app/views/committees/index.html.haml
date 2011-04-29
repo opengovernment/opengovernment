@@ -9,9 +9,9 @@
 = paginate @committees
 %ul.lined
   - if @committees.size > 0
+    = debug committees
     - @committees.each do |committee|
-      %li
-        = link_to(committee.name, committee_path(:id => committee), :class => "modal")
-  - else
+      = render(:partial => "shared/committee", :locals => {:committee => committee}
+    - else
     %p Sorry, we didn't find any committees.
 = paginate @committees

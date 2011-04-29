@@ -12,7 +12,4 @@
   .search_results
     %ul.committees
       - @committees.each do |committee|
-        %li[committee]
-          != link_to(committee.name, committee_path(committee), :class => 'modal')
-
-    = paginate @committees
+        = render :partial => "shared/committee", :locals => {:committee => committee}
