@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 h1 .long_bill_title {
   display: block;
   max-height: 300px;
@@ -6,7 +8,7 @@ h1 .long_bill_title {
 }
 
 .show .bills h1{
-padding-top: 10px;
+  padding-top: 10px;
 }
 
 .bills .subject_areas {
@@ -25,9 +27,6 @@ padding-top: 10px;
   line-height: 16px;
 }
 
-.bills .subject_areas li:hover {
-}
-
 .bills .subject_areas li a {
   font-size: 10px;
   text-decoration: none;
@@ -37,9 +36,7 @@ padding-top: 10px;
   font-weight: bold;
   opacity: .9;
   padding: 2px 6px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
+  @include border-radius(3px);
 }
 
 .bills .subject_areas li a:hover {
@@ -49,30 +46,22 @@ opacity: 1;
 
 .bills .intro p{
   padding-right: 250px;
-  }
+}
 
 
 .bills .intro div{
-width: 200px;
-height: 300px;
+  width: 200px;
+  height: 300px;
   background: url(../images/intros/bills.png) 0px 0px no-repeat;
-  }
-
-
-
+}
 
 .bill_actions{
   margin-bottom: 30px;
-  }
-
-
-
+}
 
 .bill_actions td{
   border-bottom: 1px solid #eee;
-
-  }
-
+}
 
 
 /*///////////////////////////
@@ -84,20 +73,13 @@ height: 300px;
 
 /*/////////////  - Status Bar -  //////////////*/
 
-
-
-
 .status_bar{
   border: 1px solid #ddd;
   border-top: 1px solid #eee;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 3px;
   clear: none;
   position: relative;
-
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f9f9f9);
+  @include border-radius(3px);
+  @include background-image(linear-gradient(white, #efefef));
   margin-top: 0px;
   }
 
@@ -110,13 +92,12 @@ height: 300px;
 .status_bar a{
   display: block;
   height: 24px;
-color: #111;
+  color: #111;
   padding: 4px 15px 1px 15px;
   font-size: 11px;
-text-decoration: none;
+  text-decoration: none;
   background: url(../images/status_right.png) right -2px no-repeat;
-  }
-
+}
 
 .law{
   float: right;
@@ -129,28 +110,21 @@ text-decoration: none;
   background: #fff;
   font-size: 11px;
   text-transform: uppercase;
-
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  }
-
-
-
+  @include border-radius(2px);
+}
 
 
 .is_law .law{
   color: #999;
   border: 1px solid #aaa;
-  }
-
+}
 
 
 .session{
   float: right;
   margin-top: 10px;
-width: 124px !important;
-  }
+  width: 124px !important;
+}
 
 
 /*/////////////  - Listings -  //////////////*/
@@ -160,18 +134,18 @@ width: 124px !important;
 .bill{
   padding-bottom: 15px !important;
   margin-bottom: 15px !important;
-  }
+}
 
 .bill_title{
   font-size: 14px;
   color: #444;
   line-height: 1.3em;
-  }
+}
 
 
 .bill_link{
   padding-right: 5px;
-  }
+}
   
 
 .bill_status{ 
@@ -181,11 +155,9 @@ width: 124px !important;
   background: #f3f7f7;
   margin-left: 10px; 
   float: left;
-  width:400px;
-  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
-  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
-  box-shadow: 0 1px 0px #fff, inset 0 1px 0px #eee;
-  }
+  width: 400px;
+  @include box-shadow(0 1px 0px #fff, inset 0 1px 0px #eee);
+}
 
 
 .bill_status div{
@@ -229,47 +201,39 @@ a.see_all {
 }
 
 
-
-.hot_person li.mention{
-
-
-}
-
-
 li.mention a{
-padding-top: 5px;
-font-size: 13px;
-display: block;
-line-height: 1.3em;
-
+  padding-top: 5px;
+  font-size: 13px;
+  display: block;
+  line-height: 1.3em;
 }
 
 
 
 li.mention .date{
-padding-top: px;
-font-size: 10px;
-color: #666;
-float: right;
+  padding-top: px;
+  font-size: 10px;
+  color: #666;
+  float: right;
 }
 
 
 li.mention .excerpt{
-padding-top: 10px;
-font-size: 11px;
-color: #333;
-float: right;
-line-height: 1.5em;
+  padding-top: 10px;
+  font-size: 11px;
+  color: #333;
+  float: right;
+  line-height: 1.5em;
 }
 
 
 li.mention .source{
-padding-top: 10px;
-padding-bottom: 30px;
-font-size: 10px;
-color: #888;
-float: right;
-line-height: 1.5em;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-size: 10px;
+  color: #888;
+  float: right;
+  line-height: 1.5em;
 }
 
 
@@ -283,18 +247,18 @@ ul.lined li.mention .source {
 }
 
 .action_status{
-padding: 10px 0;
-  }
+  padding: 10px 0;
+}
 
 .action_date {
   float: left;
   padding: 20px 20px 0 0;
-  }
+}
 
 p.action_text {
   font-size: 20px;
   padding: 20px 0;
-  }
+}
 
 
 
@@ -307,65 +271,65 @@ p.action_text {
 ///////////////////////////////////////////////////*/
 
 #bill_list li{
-border-bottom: 1px solid #f8f8f8;
-padding: 0 0 10px !important;
-margin: 0 0 20px !important;
+  border-bottom: 1px solid #f8f8f8;
+  padding: 0 0 10px !important;
+  margin: 0 0 20px !important;
 }
 
 
 
 .bill_titles {
-margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 
 
 .bill_titles a{
-font-size: 14px;
-float: left;
-padding-top: 1px;
-line-height: 1.3em;
+  font-size: 14px;
+  float: left;
+  padding-top: 1px;
+  line-height: 1.3em;
 }
 
 
 
 .bill_titles .view_count{
-font-size: 11px;
-float: left;
-opacity: .5;
-padding-top: 2px;
-color: #222;
-padding-left: 30px;
-background: url(../images/sprites.png) 10px -173px no-repeat;
+  font-size: 11px;
+  float: left;
+  opacity: .5;
+  padding-top: 2px;
+  color: #222;
+  padding-left: 30px;
+  background: url(../images/sprites.png) 10px -173px no-repeat;
 }
 
 
 
 .bill_titles span{
-display: block;
-font-size: 12px;
-clear: both;
-line-height: 1.4em;
-padding: 2px 10px 4px 0;
-color: #777;
+  display: block;
+  font-size: 12px;
+  clear: both;
+  line-height: 1.4em;
+  padding: 2px 10px 4px 0;
+  color: #777;
 }
 
 
 .small_date{
-font-size: 11px;
-font-weight: bold;
-color: #a9a9a9;
-display: block;
-line-height: 1.4em;
+  font-size: 11px;
+  font-weight: bold;
+  color: #a9a9a9;
+  display: block;
+  line-height: 1.4em;
 }
 
 
 .small_label{
-text-transform: uppercase;
-font-size: 9px;
-letter-spacing: .06em;
-display: block;
-color: #a9a9a9;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: .06em;
+  display: block;
+  color: #a9a9a9;
 }
 
 
@@ -383,19 +347,15 @@ border-right: 1px solid #f8f8f8;
 }
 
 .stats div.introduced{
-padding-left: 0;
+  padding-left: 0;
 }
 
 
-
-
-
-
 .bill-mugs{
-margin: 20px 0 20px 0px;
-width: 315px;
-padding: 0;
-float: left;
+  margin: 20px 0 20px 0px;
+  width: 315px;
+  padding: 0;
+  float: left;
 }
 
 .bill-mugs .sponsor_mugs,
@@ -441,15 +401,14 @@ float: left;
 }
 
 
+/* override sponsors .lined */
 .popup.sponsors .lined {
-  box-shadow: none;
-  -webkit-box-shadow: none;
+  @include box-shadow(none);
 }
 
 .popup.sponsors .lined li {
   padding: 5px 0 5px 0;
 }
-
 
 
 .bills .sponsor_mugs img {
@@ -475,12 +434,8 @@ border-left: 1px solid #f8f8f8;
 
 .sponsor_mugs{
   float: left;
-
   padding: 5px 0 5px 0px;
-  }
-
-
-
+}
 
 
 .sponsor-meta {
@@ -500,20 +455,17 @@ border-left: 1px solid #f8f8f8;
 
 
 .sponsor_mugs span.person-photo {
-clear: both !important;
-float: left !important;
-border: 1px solid !important;
-font-size: 12px;
-padding-top: 9px !important;
-  }
-
+  clear: both !important;
+  float: left !important;
+  border: 1px solid !important;
+  font-size: 12px;
+  padding-top: 9px !important;
+}
 
 
 .bills.show .sponsor_mugs li{
-float: left;
-  }
-
-
+  float: left;
+}
 
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
@@ -524,9 +476,7 @@ float: left;
   float: left;
   overflow: hidden !important;
 
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
+  @include border-radius(3px);
   
   border: 1px solid #bbb;
   border-top: 1px solid #ddd;
@@ -534,20 +484,14 @@ float: left;
 
   -webkit-transition: all .6s ease-in-out; 
   
-  -moz-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #eee, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #eee, inset 0 1px 0px #fff;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
-  }
+  @include box-shadow(0 1px 0px #eee, inset 0 1px 0px #fff);
+  @include background(linear-gradient(white, #eee));
+}
 
 
 .states.show .sponsor_mugs .sponsor_mug{
-margin-bottom: 15px;
- }
-
-
+  margin-bottom: 15px;
+}
 
 
 .sponsor_mugs img{
@@ -555,11 +499,10 @@ margin-bottom: 15px;
   display: block;
   margin-bottom: 2px;
   background: url(../images/man.png) center no-repeat;
-  }
-
+}
 
 .long-title{
-display: block;
+  display: block;
 }
 
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
