@@ -22,7 +22,5 @@
 
 .share-tools
   %h4.pad Share this
-  %span.permalink Permalink  
-
   = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
 
