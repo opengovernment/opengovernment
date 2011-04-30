@@ -21,9 +21,9 @@
     - if @sponsors.count > 0
       %h2= t '.sponsors'
       .sponsor_mugs
-        %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
+        %ul.lined= render @sponsors.limit(3)
         .clear
-          = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all') if @sponsors.count > 3
+        = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all') if @sponsors.count > 3
 
 .grid_6.omega
   .write_buttons

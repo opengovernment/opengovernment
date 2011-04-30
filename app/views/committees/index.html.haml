@@ -9,9 +9,7 @@
 = paginate @committees
 %ul.lined
   - if @committees.size > 0
-    = debug committees
-    - @committees.each do |committee|
-      = render(:partial => "shared/committee", :locals => {:committee => committee}
-    - else
+    = render :partial => 'committees/committee', :collection => @committees
+  - else
     %p Sorry, we didn't find any committees.
 = paginate @committees

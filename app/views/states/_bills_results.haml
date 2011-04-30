@@ -20,5 +20,4 @@
 
   .search_results
     %ul.bills.bills.lined.and_spaced
-      = render :partial => 'shared/bill', :collection => @bills, :locals => {:hide_key_vote => false}
-
+      = render @bills, :hide_key_vote => false

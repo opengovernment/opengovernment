@@ -116,7 +116,7 @@
   = sponsorship_vitals_for(@person)
   %br
   %ul.lined
-    = render @person.bill_sponsorships.limit(5)
+    = render @person.bill_sponsorships.limit(5), :style => :compact
   = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more') if @person.bill_sponsorships.count > 5
 
 .grid_6.omega
@@ -148,13 +148,13 @@
 .grid_6.alpha
   %h2= t 'people.money_trail.industry_title'
   %ul.lined.alpha.grid_6
-    = render :partial => 'industry', :collection => @industries
+    = render @industries
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 .grid_6.omega
   %h2= t 'people.money_trail.top_title'
   %ul.lined.alpha.grid_6
-    = render :partial => 'contribution', :collection => @contributions
+    = render @contributions
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 

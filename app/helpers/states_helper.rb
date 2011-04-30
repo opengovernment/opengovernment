@@ -66,14 +66,14 @@ module StatesHelper
     results.each do |result_item|
       case result_item
       when Person
-        output << render(:partial => "people/person", :locals => { :person => result_item})
+        output << render(result_item)
       when Bill
-        output << render(:partial => 'shared/bill', :locals => {:hide_key_vote => false, :bill => result_item })
+        output << render(result_item, :hide_key_vote => false)
       when Committee
-        output << render(:partial => "shared/committee", :locals => {:committee => result_item})
+        output << render('committees/committee', :committee => result_item)
       end
     end
-    output
+    output.html_safe
    end
 
 end
