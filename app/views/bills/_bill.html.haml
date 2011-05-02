@@ -3,43 +3,54 @@
   
     %li.grid_12[bill]
 
-    .bill_titles.grid_4.alpha
-      != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
+      .bill_titles.grid_4.alpha
+        != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
 
-      .view_count 
-        = t '.views', :count => bill.views
-      - if bill.votesmart_key_vote? && (!defined?(hide_key_vote) || !hide_key_vote)
-        %span.vote_smart_keyvote
-          This is a Votesmart Key Vote!
+        .view_count 
+          = t '.views', :count => bill.views
+        - if bill.votesmart_key_vote? && (!defined?(hide_key_vote) || !hide_key_vote)
+          %span.vote_smart_keyvote
+            This is a Votesmart Key Vote!
 
-      %span=content_tag(:span, truncate(bill.title, :length => 500))
-
-
-    %div{:class => defined?(sort) ? "bills-#{sort}" : ''}
-      .stats
-        .introduced.grid_2.alpha.omega
-          - if bill.first_action_at
-            %span.small_date!= bill.first_action_at
-            %span.small_label= t '.introduced'
+        %span=content_tag(:span, truncate(bill.title, :length => 500))
 
 
-        .recent_action.grid_2.omega.alpha
-          - if bill.last_action_at
-            %span.small_date!= bill.last_action_at
-            %span.small_label Recent action
+      %div{:class => defined?(sort) ? "bills-#{sort}" : ''}
+        .stats
+          .introduced.grid_2.alpha.omega
+            - if bill.first_action_at
+              %span.small_date!= bill.first_action_at
+              %span.small_label= t '.introduced'
 
-        .recent_vote.grid_1.alpha.omega
-          %span.small_date!= bill.votes.count
-          %span.small_label!= t '.votes_on_bill', :count => bill.votes.count
 
-        - if bill.session.parent_id?
-          .session.grid_2.omega.alpha
-            %span.small_date!= bill.session.try(:name)
-            %span.small_label= t '.session' 
+          .recent_action.grid_2.omega.alpha
+            - if bill.last_action_at
+              %span.small_date!= bill.last_action_at
+              %span.small_label Recent action
 
-    .sponsor_mugs
-      = bill.actions.last.try(:kind_fm).try(:titleize)
-      = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
+          .recent_vote.grid_1.alpha.omega
+            %span.small_date!= bill.votes.count
+            %span.small_label!= t '.votes_on_bill', :count => bill.votes.count
+
+          - if bill.session.parent_id?
+            .session.grid_2.omega.alpha
+              %span.small_date!= bill.session.try(:name)
+              %span.small_label= t '.session' 
+
+      .sponsor_mugs
+        = bill.actions.last.try(:kind_fm).try(:titleize)
+        = sponsor_mugs(bill.sponsorships, :limit => 5, :summary => true)
+
+  - elsif style == :summary
+    %li.bill_summary[bill]
+      != link_to(bill.name_with_context, bill_path(bill.session, bill), :class => "title bill_link")
+
+      - if bill.first_action_at
+        %span.small
+          Introduced on
+          != bill.first_action_at
+
+      %span.long-title=content_tag(:span, truncate(bill.title, :length => 500))
 
   - elsif style == :compact
 

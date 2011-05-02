@@ -82,8 +82,7 @@
       %ul.lined.committees
         - @person.committees.limit(3).each do |committee|
           %li
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee), :class => 'modal')
+            = link_to(committee.name_fm, committee_path(committee), :class => 'modal')
 
       = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all') if @person.committees.count > 3
     - else

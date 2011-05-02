@@ -154,24 +154,34 @@ h1 .long_bill_title {
 }
 
 /* line 134, ../../app/stylesheets/bills.scss */
-.bill {
-  padding-bottom: 15px !important;
-  margin-bottom: 15px !important;
-}
-
-/* line 139, ../../app/stylesheets/bills.scss */
 .bill_title {
   font-size: 14px;
   color: #444;
   line-height: 1.3em;
 }
 
-/* line 146, ../../app/stylesheets/bills.scss */
+/* line 140, ../../app/stylesheets/bills.scss */
 .bill_link {
   padding-right: 5px;
+  font-weight: bold;
 }
 
-/* line 151, ../../app/stylesheets/bills.scss */
+/* line 147, ../../app/stylesheets/bills.scss */
+.bill_summary,
+.committee_summary,
+.person_summary {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+/* line 150, ../../app/stylesheets/bills.scss */
+.bill_summary a.title,
+.committee_summary a.title,
+.person_summary a.title {
+  padding-right: 5px;
+  font-weight: bold;
+}
+
+/* line 156, ../../app/stylesheets/bills.scss */
 .bill_status {
   font-size: 11px;
   color: #666;
@@ -186,53 +196,53 @@ h1 .long_bill_title {
   box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
 }
 
-/* line 163, ../../app/stylesheets/bills.scss */
+/* line 168, ../../app/stylesheets/bills.scss */
 .bill_status div {
   padding: 0px 0 5px;
 }
 
-/* line 167, ../../app/stylesheets/bills.scss */
+/* line 172, ../../app/stylesheets/bills.scss */
 .bill_status div.top {
   padding: 5px 0 0px;
 }
 
-/* line 171, ../../app/stylesheets/bills.scss */
+/* line 176, ../../app/stylesheets/bills.scss */
 #bill_documents {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 335px;
 }
 
-/* line 177, ../../app/stylesheets/bills.scss */
+/* line 182, ../../app/stylesheets/bills.scss */
 ul.bill_documents {
   width: 300px;
   padding: 0 !important;
   margin-bottom: 0;
 }
 
-/* line 185, ../../app/stylesheets/bills.scss */
+/* line 190, ../../app/stylesheets/bills.scss */
 .sponsor_preview h2, .document_preview h2, .committee_preview h2 {
   display: inline-block;
 }
 
-/* line 189, ../../app/stylesheets/bills.scss */
+/* line 194, ../../app/stylesheets/bills.scss */
 .people_news_preview h3 {
   display: inline;
   float: none;
 }
 
-/* line 194, ../../app/stylesheets/bills.scss */
+/* line 199, ../../app/stylesheets/bills.scss */
 a.see_all {
   padding-left: 5px;
   display: inline;
 }
 
-/* line 199, ../../app/stylesheets/bills.scss */
+/* line 204, ../../app/stylesheets/bills.scss */
 .people_header {
   display: inline;
 }
 
-/* line 204, ../../app/stylesheets/bills.scss */
+/* line 209, ../../app/stylesheets/bills.scss */
 li.mention a {
   padding-top: 5px;
   font-size: 13px;
@@ -240,7 +250,7 @@ li.mention a {
   line-height: 1.3em;
 }
 
-/* line 213, ../../app/stylesheets/bills.scss */
+/* line 218, ../../app/stylesheets/bills.scss */
 li.mention .date {
   padding-top: px;
   font-size: 10px;
@@ -248,7 +258,7 @@ li.mention .date {
   float: right;
 }
 
-/* line 221, ../../app/stylesheets/bills.scss */
+/* line 226, ../../app/stylesheets/bills.scss */
 li.mention .excerpt {
   padding-top: 10px;
   font-size: 11px;
@@ -257,7 +267,7 @@ li.mention .excerpt {
   line-height: 1.5em;
 }
 
-/* line 230, ../../app/stylesheets/bills.scss */
+/* line 235, ../../app/stylesheets/bills.scss */
 li.mention .source {
   padding-top: 10px;
   padding-bottom: 30px;
@@ -268,46 +278,46 @@ li.mention .source {
 }
 
 /* Adjust mentions ul for the people profile page */
-/* line 241, ../../app/stylesheets/bills.scss */
+/* line 246, ../../app/stylesheets/bills.scss */
 ul.lined li.mention .excerpt, ul.lined li.mention .date, ul.lined li.mention .source {
   float: none;
 }
 
-/* line 245, ../../app/stylesheets/bills.scss */
+/* line 250, ../../app/stylesheets/bills.scss */
 ul.lined li.mention .source {
   padding-bottom: 0;
 }
 
-/* line 249, ../../app/stylesheets/bills.scss */
+/* line 254, ../../app/stylesheets/bills.scss */
 .action_status {
   padding: 10px 0;
 }
 
-/* line 253, ../../app/stylesheets/bills.scss */
+/* line 258, ../../app/stylesheets/bills.scss */
 .action_date {
   float: left;
   padding: 20px 20px 0 0;
 }
 
-/* line 258, ../../app/stylesheets/bills.scss */
+/* line 263, ../../app/stylesheets/bills.scss */
 p.action_text {
   font-size: 20px;
   padding: 20px 0;
 }
 
-/* line 273, ../../app/stylesheets/bills.scss */
+/* line 278, ../../app/stylesheets/bills.scss */
 #bill_list li {
   border-bottom: 1px solid #f8f8f8;
   padding: 0 0 10px !important;
   margin: 0 0 20px !important;
 }
 
-/* line 281, ../../app/stylesheets/bills.scss */
+/* line 286, ../../app/stylesheets/bills.scss */
 .bill_titles {
   margin-bottom: 4px;
 }
 
-/* line 287, ../../app/stylesheets/bills.scss */
+/* line 292, ../../app/stylesheets/bills.scss */
 .bill_titles a {
   font-size: 14px;
   float: left;
@@ -315,7 +325,7 @@ p.action_text {
   line-height: 1.3em;
 }
 
-/* line 296, ../../app/stylesheets/bills.scss */
+/* line 301, ../../app/stylesheets/bills.scss */
 .bill_titles .view_count {
   font-size: 11px;
   float: left;
@@ -326,7 +336,7 @@ p.action_text {
   background: url(../images/sprites.png) 10px -173px no-repeat;
 }
 
-/* line 308, ../../app/stylesheets/bills.scss */
+/* line 313, ../../app/stylesheets/bills.scss */
 .bill_titles span {
   display: block;
   font-size: 12px;
@@ -336,7 +346,7 @@ p.action_text {
   color: #777;
 }
 
-/* line 318, ../../app/stylesheets/bills.scss */
+/* line 323, ../../app/stylesheets/bills.scss */
 .small_date {
   font-size: 11px;
   font-weight: bold;
@@ -345,7 +355,7 @@ p.action_text {
   line-height: 1.4em;
 }
 
-/* line 327, ../../app/stylesheets/bills.scss */
+/* line 332, ../../app/stylesheets/bills.scss */
 .small_label {
   text-transform: uppercase;
   font-size: 9px;
@@ -354,13 +364,13 @@ p.action_text {
   color: #a9a9a9;
 }
 
-/* line 338, ../../app/stylesheets/bills.scss */
+/* line 343, ../../app/stylesheets/bills.scss */
 .introduced .small_date,
 .introduced .small_label {
   text-align: left;
 }
 
-/* line 342, ../../app/stylesheets/bills.scss */
+/* line 347, ../../app/stylesheets/bills.scss */
 .stats div {
   float: left;
   margin-top: 3px;
@@ -368,12 +378,12 @@ p.action_text {
   border-right: 1px solid #f8f8f8;
 }
 
-/* line 349, ../../app/stylesheets/bills.scss */
+/* line 354, ../../app/stylesheets/bills.scss */
 .stats div.introduced {
   padding-left: 0;
 }
 
-/* line 354, ../../app/stylesheets/bills.scss */
+/* line 359, ../../app/stylesheets/bills.scss */
 .bill-mugs {
   margin: 20px 0 20px 0px;
   width: 315px;
@@ -381,7 +391,7 @@ p.action_text {
   float: left;
 }
 
-/* line 363, ../../app/stylesheets/bills.scss */
+/* line 368, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs,
 .bill-mugs .sponsor_preview,
 .bill-mugs .lined {
@@ -389,12 +399,12 @@ p.action_text {
   padding: 0;
 }
 
-/* line 370, ../../app/stylesheets/bills.scss */
+/* line 375, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs {
   float: left;
 }
 
-/* line 375, ../../app/stylesheets/bills.scss */
+/* line 380, ../../app/stylesheets/bills.scss */
 li .sponsor_mugs {
   width: 400px;
   font-size: 11px;
@@ -402,28 +412,28 @@ li .sponsor_mugs {
   color: #aaa;
 }
 
-/* line 384, ../../app/stylesheets/bills.scss */
+/* line 389, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined {
   margin: 0px !important;
   float: left;
   padding: 19px 20px 0 0;
 }
 
-/* line 391, ../../app/stylesheets/bills.scss */
+/* line 396, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined li {
   display: inline;
   border: 0;
   font-size: 12px;
 }
 
-/* line 398, ../../app/stylesheets/bills.scss */
+/* line 403, ../../app/stylesheets/bills.scss */
 .bill-mugs .modal {
   padding: 19px 0 0 0px !important;
   float: left;
 }
 
 /* override sponsors .lined */
-/* line 405, ../../app/stylesheets/bills.scss */
+/* line 410, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -431,12 +441,12 @@ li .sponsor_mugs {
   box-shadow: none;
 }
 
-/* line 409, ../../app/stylesheets/bills.scss */
+/* line 414, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined li {
   padding: 5px 0 5px 0;
 }
 
-/* line 414, ../../app/stylesheets/bills.scss */
+/* line 419, ../../app/stylesheets/bills.scss */
 .bills .sponsor_mugs img {
   display: block;
   padding-top: 3px;
@@ -445,25 +455,25 @@ li .sponsor_mugs {
   clear: both;
 }
 
-/* line 422, ../../app/stylesheets/bills.scss */
+/* line 427, ../../app/stylesheets/bills.scss */
 .stats div.recent_vote {
   border-right: none;
   padding-right: 8px;
 }
 
-/* line 429, ../../app/stylesheets/bills.scss */
+/* line 434, ../../app/stylesheets/bills.scss */
 .stats div.session {
   border-right: none;
   border-left: 1px solid #f8f8f8;
 }
 
-/* line 435, ../../app/stylesheets/bills.scss */
+/* line 440, ../../app/stylesheets/bills.scss */
 .sponsor_mugs {
   float: left;
   padding: 5px 0 5px 0px;
 }
 
-/* line 441, ../../app/stylesheets/bills.scss */
+/* line 446, ../../app/stylesheets/bills.scss */
 .sponsor-meta {
   display: block;
   color: #999;
@@ -473,12 +483,12 @@ li .sponsor_mugs {
   clear: none;
 }
 
-/* line 451, ../../app/stylesheets/bills.scss */
+/* line 456, ../../app/stylesheets/bills.scss */
 .sponsor-meta a {
   padding-right: 5px;
 }
 
-/* line 457, ../../app/stylesheets/bills.scss */
+/* line 462, ../../app/stylesheets/bills.scss */
 .sponsor_mugs span.person-photo {
   clear: both !important;
   float: left !important;
@@ -487,12 +497,12 @@ li .sponsor_mugs {
   padding-top: 9px !important;
 }
 
-/* line 466, ../../app/stylesheets/bills.scss */
+/* line 471, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   float: left;
 }
 
-/* line 472, ../../app/stylesheets/bills.scss */
+/* line 477, ../../app/stylesheets/bills.scss */
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
 .states.show .sponsor_mugs .sponsor_mug {
@@ -521,12 +531,12 @@ li .sponsor_mugs {
   background: linear-gradient(#ffffff, #eeeeee);
 }
 
-/* line 492, ../../app/stylesheets/bills.scss */
+/* line 497, ../../app/stylesheets/bills.scss */
 .states.show .sponsor_mugs .sponsor_mug {
   margin-bottom: 15px;
 }
 
-/* line 497, ../../app/stylesheets/bills.scss */
+/* line 502, ../../app/stylesheets/bills.scss */
 .sponsor_mugs img {
   border: 1px solid #fff;
   display: block;
@@ -534,17 +544,17 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
-/* line 504, ../../app/stylesheets/bills.scss */
+/* line 509, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
 }
 
-/* line 508, ../../app/stylesheets/bills.scss */
+/* line 513, ../../app/stylesheets/bills.scss */
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
 }
 
-/* line 512, ../../app/stylesheets/bills.scss */
+/* line 517, ../../app/stylesheets/bills.scss */
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }

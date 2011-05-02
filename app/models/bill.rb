@@ -93,6 +93,10 @@ class Bill < ActiveRecord::Base
     bill_number + ': ' + title
   end
 
+  def name_with_context
+    session.name_fm + ' ' + chamber.name + ' Bill ' + bill_number
+  end
+
   def self.find_by_slug(param)
     find_by_bill_number(param.titleize.upcase)
   end

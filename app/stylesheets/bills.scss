@@ -131,22 +131,27 @@ opacity: 1;
 
 #bills ul li:hover a{ text-decoration: underline;}
 
-.bill{
-  padding-bottom: 15px !important;
-  margin-bottom: 15px !important;
-}
-
 .bill_title{
   font-size: 14px;
   color: #444;
   line-height: 1.3em;
 }
 
-
-.bill_link{
+.bill_link {
   padding-right: 5px;
+  font-weight: bold;
 }
-  
+
+.bill_summary,
+.committee_summary,
+.person_summary {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  a.title {
+    padding-right: 5px;
+    font-weight: bold;
+  }
+}
 
 .bill_status{ 
   font-size: 11px;

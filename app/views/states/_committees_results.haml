@@ -10,4 +10,4 @@
             = link_to type, state_search_path(params.merge({ :committee_type => type }))
 
   .search_results
-    %ul.committees= render @committees
+    %ul.committees= render :partial => 'committees/committee', :collection => @committees

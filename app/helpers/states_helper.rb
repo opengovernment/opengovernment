@@ -66,11 +66,11 @@ module StatesHelper
     results.each do |result_item|
       case result_item
       when Person
-        output << render(result_item)
+        output << render(result_item, :style => :summary)
       when Bill
-        output << render(result_item, :hide_key_vote => false)
+        output << render(result_item, :hide_key_vote => false, :style => :summary)
       when Committee
-        output << render('committees/committee', :committee => result_item)
+        output << render('committees/committee', :committee => result_item, :style => :summary)
       end
     end
     output.html_safe

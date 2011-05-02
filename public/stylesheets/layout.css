@@ -762,62 +762,54 @@ background: url(../images/sprites.png) left -61px no-repeat;
 }
 
 */
-/* line 711, ../../app/stylesheets/layout.scss */
-.bill_link {
-  font-weight: bold;
-  /*
-  padding-left: 15px;
-  background: url(../images/sprites.png) left -149px no-repeat;*/
-}
-
-/* line 717, ../../app/stylesheets/layout.scss */
+/* line 713, ../../app/stylesheets/layout.scss */
 .committees_count {
   float: right;
   margin-top: -40px;
 }
 
-/* line 726, ../../app/stylesheets/layout.scss */
+/* line 722, ../../app/stylesheets/layout.scss */
 p.donate {
   padding-top: 20px;
   margin-right: 19px;
 }
 
-/* line 730, ../../app/stylesheets/layout.scss */
+/* line 726, ../../app/stylesheets/layout.scss */
 p.donate a {
   display: block;
 }
 
-/* line 738, ../../app/stylesheets/layout.scss */
+/* line 734, ../../app/stylesheets/layout.scss */
 .key_votes {
   position: relative;
 }
 
-/* line 741, ../../app/stylesheets/layout.scss */
+/* line 737, ../../app/stylesheets/layout.scss */
 .key_votes a.what {
   position: absolute;
   right: 0;
   top: 12px;
 }
 
-/* line 746, ../../app/stylesheets/layout.scss */
+/* line 742, ../../app/stylesheets/layout.scss */
 .key_votes div.small.quiet {
   position: absolute;
   left: 100px;
   top: 12px;
 }
 
-/* line 756, ../../app/stylesheets/layout.scss */
+/* line 752, ../../app/stylesheets/layout.scss */
 .footer {
   clear: both;
 }
 
-/* line 759, ../../app/stylesheets/layout.scss */
+/* line 755, ../../app/stylesheets/layout.scss */
 .footer li {
   clear: none;
   line-height: 2.5em;
 }
 
-/* line 763, ../../app/stylesheets/layout.scss */
+/* line 759, ../../app/stylesheets/layout.scss */
 .footer h4 {
   margin-top: 10px;
   line-height: 2em;
@@ -825,12 +817,12 @@ p.donate a {
   color: #777;
 }
 
-/* line 769, ../../app/stylesheets/layout.scss */
+/* line 765, ../../app/stylesheets/layout.scss */
 .footer li a {
   display: block;
 }
 
-/* line 777, ../../app/stylesheets/layout.scss */
+/* line 773, ../../app/stylesheets/layout.scss */
 .fourohfour {
   font-size: 100px;
   display: block;
@@ -845,33 +837,33 @@ p.donate a {
   text-shadow: 5px 5px 0px #6e8499;
 }
 
-/* line 791, ../../app/stylesheets/layout.scss */
+/* line 787, ../../app/stylesheets/layout.scss */
 .centered * {
   text-align: center !important;
 }
 
-/* line 799, ../../app/stylesheets/layout.scss */
+/* line 795, ../../app/stylesheets/layout.scss */
 #user_new {
   width: 300px;
 }
 
-/* line 802, ../../app/stylesheets/layout.scss */
+/* line 798, ../../app/stylesheets/layout.scss */
 #user_new p {
   padding: 10px 0 10px 42px;
 }
 
-/* line 805, ../../app/stylesheets/layout.scss */
+/* line 801, ../../app/stylesheets/layout.scss */
 #user_new label {
   font-size: 14px;
 }
 
-/* line 808, ../../app/stylesheets/layout.scss */
+/* line 804, ../../app/stylesheets/layout.scss */
 #user_remember_me {
   float: left;
   margin: 0 10px 0 0;
 }
 
-/* line 813, ../../app/stylesheets/layout.scss */
+/* line 809, ../../app/stylesheets/layout.scss */
 #user_email,
 #user_password {
   border: 0;
@@ -894,7 +886,7 @@ p.donate a {
   background: -moz-linear-gradient(top,  #eee,  #fff);*/
 }
 
-/* line 833, ../../app/stylesheets/layout.scss */
+/* line 829, ../../app/stylesheets/layout.scss */
 #user_submit {
   padding: 10px;
   cursor: pointer;
@@ -904,7 +896,7 @@ p.donate a {
   font-size: 14px;
 }
 
-/* line 841, ../../app/stylesheets/layout.scss */
+/* line 837, ../../app/stylesheets/layout.scss */
 .sign h3 {
   border-bottom: 1px solid #d1dddd;
   margin-left: -26px;
@@ -913,7 +905,7 @@ p.donate a {
   margin-right: 10px;
 }
 
-/* line 849, ../../app/stylesheets/layout.scss */
+/* line 845, ../../app/stylesheets/layout.scss */
 .sign input,
 .sign label {
   clear: both !important;
@@ -921,12 +913,12 @@ p.donate a {
   display: block;
 }
 
-/* line 854, ../../app/stylesheets/layout.scss */
+/* line 850, ../../app/stylesheets/layout.scss */
 .sign input {
   margin-bottom: 20px;
 }
 
-/* line 857, ../../app/stylesheets/layout.scss */
+/* line 853, ../../app/stylesheets/layout.scss */
 .visit_blog {
   background: url(../images/blog.png) 0 0 no-repeat;
   display: block;
@@ -939,12 +931,12 @@ p.donate a {
   overflow: hidden;
 }
 
-/* line 868, ../../app/stylesheets/layout.scss */
+/* line 864, ../../app/stylesheets/layout.scss */
 .visit_blog:hover {
   background: url(../images/blog.png) 0px -133px no-repeat;
 }
 
-/* line 873, ../../app/stylesheets/layout.scss */
+/* line 869, ../../app/stylesheets/layout.scss */
 .small_finally h2 {
   border: none !important;
   font-size: 15px;
@@ -953,30 +945,30 @@ p.donate a {
   margin-bottom: 30px;
 }
 
-/* line 881, ../../app/stylesheets/layout.scss */
+/* line 877, ../../app/stylesheets/layout.scss */
 .small_finally h2 span {
   display: block;
   padding: 5px 0;
 }
 
-/* line 886, ../../app/stylesheets/layout.scss */
+/* line 882, ../../app/stylesheets/layout.scss */
 .small_finally ul {
   background: url(../images/small_track.png) 20px 0px no-repeat;
   padding: 12px 0 10px 20px;
 }
 
-/* line 892, ../../app/stylesheets/layout.scss */
+/* line 888, ../../app/stylesheets/layout.scss */
 .small_finally ul li {
   padding: 0 0 0 90px;
 }
 
-/* line 897, ../../app/stylesheets/layout.scss */
+/* line 893, ../../app/stylesheets/layout.scss */
 .small_finally ul li div {
   padding: 0 0 0 0px;
   font-size: 18px;
 }
 
-/* line 903, ../../app/stylesheets/layout.scss */
+/* line 899, ../../app/stylesheets/layout.scss */
 .small_finally ul li span {
   padding: 0 0 0 0px;
   font-size: 12px;
@@ -985,72 +977,72 @@ p.donate a {
   width: 140px;
 }
 
-/* line 912, ../../app/stylesheets/layout.scss */
+/* line 908, ../../app/stylesheets/layout.scss */
 .track {
   margin: 0px 0 72px;
 }
 
-/* line 916, ../../app/stylesheets/layout.scss */
+/* line 912, ../../app/stylesheets/layout.scss */
 .track span {
   color: #83a0a4;
 }
 
-/* line 921, ../../app/stylesheets/layout.scss */
+/* line 917, ../../app/stylesheets/layout.scss */
 .contact {
   margin: 0px 0 65px;
 }
 
-/* line 925, ../../app/stylesheets/layout.scss */
+/* line 921, ../../app/stylesheets/layout.scss */
 .contact span {
   color: #a26361;
 }
 
-/* line 931, ../../app/stylesheets/layout.scss */
+/* line 927, ../../app/stylesheets/layout.scss */
 .shareli {
   padding-bottom: 10px;
 }
 
-/* line 936, ../../app/stylesheets/layout.scss */
+/* line 932, ../../app/stylesheets/layout.scss */
 .shareli span {
   color: #9abd92;
 }
 
-/* line 941, ../../app/stylesheets/layout.scss */
+/* line 937, ../../app/stylesheets/layout.scss */
 .more_links ul.standard {
   padding-top: 10px;
 }
 
-/* line 945, ../../app/stylesheets/layout.scss */
+/* line 941, ../../app/stylesheets/layout.scss */
 .more_links ul.standard li {
   clear: none !important;
 }
 
-/* line 958, ../../app/stylesheets/layout.scss */
+/* line 954, ../../app/stylesheets/layout.scss */
 .ca .small_finally {
   background: url(../images/large-states/california.png) 12px 129px no-repeat;
 }
 
-/* line 962, ../../app/stylesheets/layout.scss */
+/* line 958, ../../app/stylesheets/layout.scss */
 .la .small_finally {
   background: url(../images/large-states/louisiana.png) 12px 129px no-repeat;
 }
 
-/* line 966, ../../app/stylesheets/layout.scss */
+/* line 962, ../../app/stylesheets/layout.scss */
 .md .small_finally {
   background: url(../images/large-states/maryland.png) 12px 209px no-repeat;
 }
 
-/* line 970, ../../app/stylesheets/layout.scss */
+/* line 966, ../../app/stylesheets/layout.scss */
 .wi .small_finally {
   background: url(../images/large-states/wisonsin.png) 12px 129px no-repeat;
 }
 
-/* line 974, ../../app/stylesheets/layout.scss */
+/* line 970, ../../app/stylesheets/layout.scss */
 .tx .small_finally {
   background: url(../images/large-states/texas.png) 12px 129px no-repeat;
 }
 
-/* line 987, ../../app/stylesheets/layout.scss */
+/* line 983, ../../app/stylesheets/layout.scss */
 #bill_tabs h3 {
   border: none;
   float: none;
@@ -1058,18 +1050,18 @@ p.donate a {
   display: inline;
 }
 
-/* line 994, ../../app/stylesheets/layout.scss */
+/* line 990, ../../app/stylesheets/layout.scss */
 #bill_tabs .more {
   padding: 15px 15px 15px 0;
 }
 
-/* line 1001, ../../app/stylesheets/layout.scss */
+/* line 997, ../../app/stylesheets/layout.scss */
 #bill_tabs ul {
   display: inline;
   float: none;
 }
 
-/* line 1007, ../../app/stylesheets/layout.scss */
+/* line 1003, ../../app/stylesheets/layout.scss */
 .tabs {
   float: left;
   padding: 0px 0 0px 40px;
@@ -1084,7 +1076,7 @@ p.donate a {
 */
 }
 
-/* line 1021, ../../app/stylesheets/layout.scss */
+/* line 1017, ../../app/stylesheets/layout.scss */
 .tabs li {
   float: left;
   clear: none;
@@ -1092,12 +1084,12 @@ p.donate a {
   margin: 0;
 }
 
-/* line 1030, ../../app/stylesheets/layout.scss */
+/* line 1026, ../../app/stylesheets/layout.scss */
 .tabs li.divider {
   display: none;
 }
 
-/* line 1036, ../../app/stylesheets/layout.scss */
+/* line 1032, ../../app/stylesheets/layout.scss */
 .tabs li a {
   float: left;
   clear: none;
@@ -1128,12 +1120,12 @@ p.donate a {
   background: -moz-linear-gradient(top, white, #efefef);
 }
 
-/* line 1070, ../../app/stylesheets/layout.scss */
+/* line 1066, ../../app/stylesheets/layout.scss */
 .tabs li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* line 1076, ../../app/stylesheets/layout.scss */
+/* line 1072, ../../app/stylesheets/layout.scss */
 .tabs li a.active,
 .tabs li a.active:hover {
   border: none;
@@ -1150,7 +1142,7 @@ p.donate a {
   cursor: default;
 }
 
-/* line 1093, ../../app/stylesheets/layout.scss */
+/* line 1089, ../../app/stylesheets/layout.scss */
 .tabs li.all a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1159,14 +1151,14 @@ p.donate a {
   border-right: 0;
 }
 
-/* line 1103, ../../app/stylesheets/layout.scss */
+/* line 1099, ../../app/stylesheets/layout.scss */
 .tabs li.all a.active {
   -moz-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   -webkit-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
 }
 
-/* line 1109, ../../app/stylesheets/layout.scss */
+/* line 1105, ../../app/stylesheets/layout.scss */
 .people .tabs li.senate a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1175,7 +1167,7 @@ p.donate a {
   margin-left: 200px;
 }
 
-/* line 1123, ../../app/stylesheets/layout.scss */
+/* line 1119, ../../app/stylesheets/layout.scss */
 .tabs li.house a {
   -moz-border-radius-topright: 4px;
   -moz-border-radius-bottomright: 4px;
@@ -1184,19 +1176,19 @@ p.donate a {
   border-left: 0;
 }
 
-/* line 1130, ../../app/stylesheets/layout.scss */
+/* line 1126, ../../app/stylesheets/layout.scss */
 .tabs li.house a.active {
   -moz-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   -webkit-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
 }
 
-/* line 1136, ../../app/stylesheets/layout.scss */
+/* line 1132, ../../app/stylesheets/layout.scss */
 .tabs li.all {
   margin-left: 140px;
 }
 
-/* line 1143, ../../app/stylesheets/layout.scss */
+/* line 1139, ../../app/stylesheets/layout.scss */
 .sorts {
   position: relative;
   top: -1px;
@@ -1208,17 +1200,17 @@ p.donate a {
   margin: 0 0px 0px -39px;
 }
 
-/* line 1157, ../../app/stylesheets/layout.scss */
+/* line 1153, ../../app/stylesheets/layout.scss */
 .sorts li.sort_label {
   display: none;
 }
 
-/* line 1162, ../../app/stylesheets/layout.scss */
+/* line 1158, ../../app/stylesheets/layout.scss */
 .sorts li {
   clear: none;
 }
 
-/* line 1167, ../../app/stylesheets/layout.scss */
+/* line 1163, ../../app/stylesheets/layout.scss */
 .sorts li a {
   float: left;
   clear: none;
@@ -1250,12 +1242,12 @@ p.donate a {
   /* for firefox 3.6+ */
 }
 
-/* line 1207, ../../app/stylesheets/layout.scss */
+/* line 1203, ../../app/stylesheets/layout.scss */
 .sorts li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* line 1211, ../../app/stylesheets/layout.scss */
+/* line 1207, ../../app/stylesheets/layout.scss */
 .sorts li a.active {
   font-weight: bold !important;
   border: 0;
@@ -1271,17 +1263,17 @@ p.donate a {
   text-shadow: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1229, ../../app/stylesheets/layout.scss */
+/* line 1225, ../../app/stylesheets/layout.scss */
 .bills .sorts {
   padding: 30px 6px 20px 84px;
 }
 
-/* line 1234, ../../app/stylesheets/layout.scss */
+/* line 1230, ../../app/stylesheets/layout.scss */
 .people .sorts {
   padding: 30px 6px 20px 164px;
 }
 
-/* line 1241, ../../app/stylesheets/layout.scss */
+/* line 1237, ../../app/stylesheets/layout.scss */
 .issues.index ul.lined li {
   font-size: 16px;
   padding: 20px;
