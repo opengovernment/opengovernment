@@ -1,0 +1,10 @@
+@import "base";
+
+/* Eric Meyer's reset */
+@import "compass/reset";
+
+/* Overrides*/
+th, td, caption{
+   padding-left: 0;
+}
+

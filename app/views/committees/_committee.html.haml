@@ -1,0 +1,14 @@
+- if (!defined?(style) || style == :full || style == :summary)
+  %li.committee_summary[committee]
+    != link_to(committee.name_fm, committee_path(committee), :class => 'title')
+    .detail
+      - if committee.parent
+        This is a subcommittee of #{committee.parent.name}.
+      - if committee.committee_memberships.any?
+        Members include
+        - succeed '.' do
+          = committee.committee_memberships.limit(3).collect { |m| m.role + " " + (m.person ? link_to(m.full_name, person_path(m.person)) : m.full_name)}.join(', ').html_safe
+
+- elsif style == :compact
+  %li[committee]
+    != link_to(committee.name, committee_path(committee), :class => 'modal')

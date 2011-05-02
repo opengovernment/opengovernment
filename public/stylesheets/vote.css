@@ -1,38 +1,41 @@
-
-
-tr.committee-vote h4{
-padding-left: 20px;
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* line 4, ../../app/stylesheets/vote.scss */
+tr.committee-vote h4 {
+  padding-left: 20px;
   background: url(../images/purp.png) no-repeat 0 4px;
 }
 
-
-
-.small-label{
-font-size: 11px;
-display: block;
-color: #999;
-padding-top: 0px;
-margin-right: 10px;
+/* line 11, ../../app/stylesheets/vote.scss */
+.small-label {
+  font-size: 11px;
+  display: block;
+  color: #999;
+  padding-top: 0px;
+  margin-right: 10px;
 }
 
-
-.summary{
-font-size: 18px;
-line-height: 1.4em;
-padding: 5px 5px;
-margin: 0;
+/* line 20, ../../app/stylesheets/vote.scss */
+.summary {
+  font-size: 18px;
+  line-height: 1.4em;
+  padding: 5px 5px;
+  margin: 0;
 }
 
+/* line 27, ../../app/stylesheets/vote.scss */
 .summary p {
   margin: 0;
 }
 
-.vote_results div{
+/* line 31, ../../app/stylesheets/vote.scss */
+.vote_results div {
   display: inline;
   padding-right: 20px;
 }
 
 /* Full Roll Call */
+/* line 37, ../../app/stylesheets/vote.scss */
 .roll_call caption {
   background: transparent;
   text-align: left;
@@ -40,18 +43,21 @@ margin: 0;
   font-size: 14px;
 }
 
+/* line 44, ../../app/stylesheets/vote.scss */
 .roll_call th {
   font-weight: normal;
   padding-bottom: 3px;
   padding-top: 5px;
 }
 
+/* line 50, ../../app/stylesheets/vote.scss */
 .roll_call td {
   padding: 3px 5px 3px 0;
   min-width: 35px;
 }
 
 /* Make room for the party icon */
+/* line 56, ../../app/stylesheets/vote.scss */
 .roll_call td.person {
   padding-left: 14px !important;
   min-width: 130px;
@@ -59,203 +65,214 @@ margin: 0;
 }
 
 /* showing vote color boxes */
+/* line 63, ../../app/stylesheets/vote.scss */
 .roll_call .vote_dem_yes {
   background: url(../images/votes/dem-yes-box.gif) no-repeat 0% 50%;
 }
+
+/* line 66, ../../app/stylesheets/vote.scss */
 .roll_call .vote_dem_no {
   background: url(../images/votes/dem-no-box.gif) no-repeat 0% 50%;
 }
+
+/* line 69, ../../app/stylesheets/vote.scss */
 .roll_call .vote_dem_other {
   background: url(../images/votes/dem-other-box.gif) no-repeat 0% 50%;
 }
 
+/* line 73, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_yes {
   background: url(../images/votes/rep-yes-box.gif) no-repeat 0% 50%;
 }
+
+/* line 76, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_other {
   background: url(../images/votes/rep-other-box.gif) no-repeat 0% 50%;
 }
+
+/* line 79, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_no {
   background: url(../images/votes/rep-no-box.gif) no-repeat 0% 50%;
 }
 
+/* line 83, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_yes {
   background: url(../images/votes/ind-yes-box.gif) no-repeat 0% 50%;
 }
+
+/* line 86, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_no {
   background: url(../images/votes/ind-no-box.gif) no-repeat 0% 50%;
 }
+
+/* line 89, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_other {
   background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
 }
 
 /* Vote summary -- shared/_vote */
+/* line 94, ../../app/stylesheets/vote.scss */
 .vote-summary {
   display: block;
   float: left;
   width: 700px;
 }
 
-.vote-summary li{
-padding: 20px 0;
-border-bottom: 1px solid #f9f9f9;
+/* line 100, ../../app/stylesheets/vote.scss */
+.vote-summary li {
+  padding: 20px 0;
+  border-bottom: 1px solid #f9f9f9;
 }
 
-
+/* line 106, ../../app/stylesheets/vote.scss */
 .vote-summary h4 {
   line-height: 16px;
   margin: 0;
 }
 
+/* line 111, ../../app/stylesheets/vote.scss */
 .vote-summary .bill_title {
   font-size: 11px;
   line-height: 15px;
 }
 
+/* line 116, ../../app/stylesheets/vote.scss */
 .vote-summary-line {
   font-size: 10px;
   line-height: 1.3em;
   color: #888888;
 }
 
-
-
-.vote-motion{
-padding-left: 10px;
-line-height: 1.4em;
+/* line 124, ../../app/stylesheets/vote.scss */
+.vote-motion {
+  padding-left: 10px;
+  line-height: 1.4em;
   font-size: 11px;
 }
 
-
-td.vote-motion h4 a:first-letter{
-text-transform: uppercase;
+/* line 131, ../../app/stylesheets/vote.scss */
+td.vote-motion h4 a:first-letter {
+  text-transform: uppercase;
 }
 
-
-
-.vote-votes{
-width: 80px;
+/* line 137, ../../app/stylesheets/vote.scss */
+.vote-votes {
+  width: 80px;
 }
 
-
-
-
+/* line 144, ../../app/stylesheets/vote.scss */
 .vote-yes-block, .vote-no-block, .vote-other-block {
   display: block;
   float: left;
 }
 
-
+/* line 151, ../../app/stylesheets/vote.scss */
 td.votes,
-td.vote_date{
-vertical-align: top;
-
+td.vote_date {
+  vertical-align: top;
 }
 
-
+/* line 160, ../../app/stylesheets/vote.scss */
 .votes span.total-votes,
 .votes span.other-votes,
 .votes span.vote-yes,
-.votes span.vote-no{
-display: block;
-margin-right: 0px;
-font-size: 20px;
-padding: 0px;
-border: 1px solid #fff;
-line-height: 1em;
+.votes span.vote-no {
+  display: block;
+  margin-right: 0px;
+  font-size: 20px;
+  padding: 0px;
+  border: 1px solid #fff;
+  line-height: 1em;
 }
 
-
-
-.votes span.total-votes{
-
+/* line 176, ../../app/stylesheets/vote.scss */
+.votes span.other-votes {
+  color: #999;
 }
 
-
-.votes span.other-votes{
-color: #999;
+/* line 181, ../../app/stylesheets/vote.scss */
+.votes span.vote-yes {
+  color: #2a6b0d;
 }
 
-
-.votes span.vote-yes{
-color: #2a6b0d;
+/* line 185, ../../app/stylesheets/vote.scss */
+.votes span.vote-no {
+  color: #9d1c1c;
 }
 
-.votes span.vote-no{
-color: #9d1c1c;
-}
-
-
-
-
-td.vote-passed .vote-yes{
+/* line 192, ../../app/stylesheets/vote.scss */
+td.vote-passed .vote-yes {
   border: 1px solid #2a6b0d !important;
-background: #2a6b0d;
-color: #fff !important;
+  background: #2a6b0d;
+  color: #fff !important;
 }
 
+/* line 198, ../../app/stylesheets/vote.scss */
 td.vote-failed .vote-no {
   border: 1px solid #9d1c1c !important;
-background: #9d1c1c;
-color: #fff !important;
-
+  background: #9d1c1c;
+  color: #fff !important;
 }
 
-
-
+/* line 207, ../../app/stylesheets/vote.scss */
 .vote-needed {
   display: block;
-padding: 0 !important;
+  padding: 0 !important;
   height: 25px;
   border-right: 2px solid #666;
 }
 
-
-
+/* line 216, ../../app/stylesheets/vote.scss */
 .vote-bar {
-opacity: .5;
+  opacity: .5;
   height: 10px;
-
 }
 
-
+/* line 223, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-yes-block {
-background: #2a6b0d;
-height: 5px;
-margin-top: 10px;
+  background: #2a6b0d;
+  height: 5px;
+  margin-top: 10px;
 }
 
+/* line 229, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-no-block {
-background: #9d6c6c;
-margin-top: 10px;
-height: 5px;
+  background: #9d6c6c;
+  margin-top: 10px;
+  height: 5px;
 }
 
+/* line 235, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-other-block {
-height: 5px;
-background: #ccc;
-margin-top: 10px;
+  height: 5px;
+  background: #ccc;
+  margin-top: 10px;
 }
-
 
 /* Big vote chart -- votes/show */
+/* line 243, ../../app/stylesheets/vote.scss */
 .vote_chart table {
   width: 400px !important;
 }
 
+/* line 247, ../../app/stylesheets/vote.scss */
 .vote_chart table td {
   min-width: 25px;
 }
 
+/* line 251, ../../app/stylesheets/vote.scss */
 .vote_chart table td.vote_chart {
-  width: 300px ; /* See votes_helper full-size chart width */
+  width: 300px;
+  /* See votes_helper full-size chart width */
 }
 
+/* line 255, ../../app/stylesheets/vote.scss */
 .vote_chart table caption {
   background: transparent;
   font-size: 10px;
 }
 
+/* line 261, ../../app/stylesheets/vote.scss */
 .vote_chart table td,
 .vote_chart table th {
   height: 24px;
@@ -266,27 +283,30 @@ margin-top: 10px;
   border: 0;
 }
 
+/* line 272, ../../app/stylesheets/vote.scss */
 .vote_chart table td.first,
-.vote_chart table th.first
-{
+.vote_chart table th.first {
   padding-top: 26px !important;
 }
 
+/* line 277, ../../app/stylesheets/vote.scss */
 .vote_chart table td.last,
 .vote_chart table th.last {
   padding-bottom: 9px !important;
 }
 
+/* line 281, ../../app/stylesheets/vote.scss */
 .vote_chart table .label {
   padding-right: 2px;
   font-size: 16px;
   font-weight: bold;
 }
 
-.vote-type{
-padding: 2px 0 0 10px;
-display: block;
-font-size: 19px;
-color: #444;
-font-weight: normal;
+/* line 287, ../../app/stylesheets/vote.scss */
+.vote-type {
+  padding: 2px 0 0 10px;
+  display: block;
+  font-size: 19px;
+  color: #444;
+  font-weight: normal;
 }

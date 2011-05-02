@@ -1,0 +1,12 @@
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* 960 Grid System ~ Text CSS.
+ * Learn more ~ http://960.gs/
+ * *
+ * Licensed under GPL and MIT. */
+/* If we want this --
+
+@import "960/text";
+@include text;
+
+*/

@@ -6,7 +6,8 @@
 # Project Vote Smart: http://www.votesmart.org/services_api.php
 # OpenCongress: http://www.opencongress.org/api
 # Technorati: http://technorati.com/developers/ 
-#
+# 
+
 google_maps: your_maps_key
 sunlight_labs: your_sunlight_labs_key
 follow_the_money: your_ftm_key
@@ -16,3 +17,5 @@ disqus_shortname: your_disqus_shortname
 opencongress: your_opencongress_key
 technorati: your_technorati_key
 hoptoad: hoptoad_key_for_production_only
+bitly_login: your_bitly_username
+bitly_key: your_bitly_key

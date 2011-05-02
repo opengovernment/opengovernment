@@ -1,6 +1,9 @@
-.people.index .intro p{
+/* Always put config variables above imports. */
+/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* line 3, ../../app/stylesheets/people.scss */
+.people.index .intro p {
   padding-right: 250px;
-  }
+}
 
 /*
 .people.index .intro div{
@@ -9,129 +12,127 @@ height: 300px;
   background: url(/images/intros/people.png) 10px 15px no-repeat;
   }
 */
-
-
-/*///////////////////////////
-
-~ People Main Page
-
-///////////////////////////*/
-
-
-
+/* line 25, ../../app/stylesheets/people.scss */
 body.people.index ul.lined,
 body.districts.search ul.lined,
 body.people.lower ul.lined,
-body.people.upper ul.lined{
-margin-left: -33px !important;
-width: 752px;
-clear: both;
+body.people.upper ul.lined {
+  margin-left: -33px !important;
+  width: 752px;
+  clear: both;
 }
 
+/* line 31, ../../app/stylesheets/people.scss */
+h3.how-they-voted {
+  padding-left: 600px;
+  width: 100px;
+}
 
-
-.lined li.person{
+/* line 36, ../../app/stylesheets/people.scss */
+.lined li.person {
   margin: 0 !important;
   overflow: auto;
   padding: 0px !important;
-  }
+}
 
-.lined li.person a{
+/* line 42, ../../app/stylesheets/people.scss */
+.lined li.person a {
   display: block;
   height: 72px;
   padding: 20px 20px 8px 40px !important;
-  }
+}
 
-.lined li.person a:hover{
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7fbfb)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #f7fbfb); /* for firefox 3.6+ */
-  
-  }
+/* line 48, ../../app/stylesheets/people.scss */
+.lined li.person a:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f7fbfb));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, white, #f7fbfb);
+  /* for firefox 3.6+ */
+}
 
-.lined li.person a:hover .small_thumbnail{
-  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #f7fbfb,  #c5e4ea); /* for firefox 3.6+ */
-  }
+/* line 54, ../../app/stylesheets/people.scss */
+.lined li.person a:hover .small_thumbnail {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7fbfb), to(#c5e4ea));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #f7fbfb, #c5e4ea);
+  /* for firefox 3.6+ */
+}
 
-
+/* line 60, ../../app/stylesheets/people.scss */
 .lined li.person a .small_thumbnail {
-  float:left;
+  float: left;
   padding: 2px;
   margin-right: 10px;
   box-shadow: 0 1px 1px #999;
   -moz-box-shadow: 0 1px 1px #666;
   -webkit-box-shadow: 0 1px 1px #999;
-  
   overflow: hidden !important;
-  
   border-radius: 4px;
   -moz-border-radius: 2px !important;
   -webkit-border-radius: 4px;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, white, #eeeeee);
+  /* for firefox 3.6+ */
+}
 
-  }
-
-
-.lined li.person a .small_thumbnail img{
+/* line 80, ../../app/stylesheets/people.scss */
+.lined li.person a .small_thumbnail img {
   display: block;
-
   border: 1px solid #fff;
-  }
+}
 
-
-.lined li.person a span.person_name{
+/* line 87, ../../app/stylesheets/people.scss */
+.lined li.person a span.person_name {
   display: block;
   margin: 10px 0 5px;
   font-size: 20px;
-  }
+}
 
-
+/* line 95, ../../app/stylesheets/people.scss */
 .lined li.person a .person_district,
 .lined li.person a .person_party {
   display: inline;
-  }
-
-
-.lined li.person a .person_mentions,
-.lined li.person a .person_views{
-
-
-  }
-
-
-.lined li.person a .person_views{
-margin-top: 7px;
 }
 
-
-.lined li.person .grid_6{
-border-right: 1px solid #efefef;
-padding-bottom: 10px;
+/* line 107, ../../app/stylesheets/people.scss */
+.lined li.person a .person_views {
+  margin-top: 7px;
 }
 
+/* line 112, ../../app/stylesheets/people.scss */
+.lined li.person .grid_6 {
+  border-right: 1px solid #efefef;
+  padding-bottom: 10px;
+}
+
+/* line 117, ../../app/stylesheets/people.scss */
 li.race_tracker {
   padding-top: 10px;
 }
 
 /* Rating party color boxes */
+/* line 122, ../../app/stylesheets/people.scss */
 .rating_person.rating_dem {
   background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 
+/* line 126, ../../app/stylesheets/people.scss */
 .rating_person.rating_rep {
   background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
 }
 
+/* line 130, ../../app/stylesheets/people.scss */
 .rating_person.rating_ind {
   background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
 }
 
+/* line 134, ../../app/stylesheets/people.scss */
 .ratings-header {
   font-weight: bold;
 }
 
+/* line 138, ../../app/stylesheets/people.scss */
 table.ratings td.rating_person {
   margin-left: 0;
   padding: 2px 0 2px 20px;
@@ -140,15 +141,18 @@ table.ratings td.rating_person {
   float: left;
 }
 
+/* line 146, ../../app/stylesheets/people.scss */
 table.ratings td {
   padding: 2px 0;
 }
 
+/* line 150, ../../app/stylesheets/people.scss */
 ul.people_mugs li {
   display: inline;
   padding-right: 3px;
 }
 
+/* line 155, ../../app/stylesheets/people.scss */
 ul.chamber_tabs li a {
   height: 36px;
 }

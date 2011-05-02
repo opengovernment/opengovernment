@@ -7,10 +7,6 @@
 = render 'wrapper'
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
 
-
-
-
-
 %span= link_to(t('people.show.contact_this_person'), {:action => :contact}, :class => 'button medium silver floatright nodec clearboth modal')
 
 -# TODO: These are turned off for now. Please implement.
@@ -19,11 +15,6 @@
     %span I Support this Rep!
   %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
     %span I Oppose this Rep!
-
-
-
-
-
 
 .grid_9.alpha
   %hr  
@@ -71,7 +62,7 @@
     - else
       %p
         = t '.sorry_no_info_for', :full_name => @person.full_name
-      
+
 .space.clear
 
 %hr.push_top
@@ -88,12 +79,12 @@
     %h2
       = t '.committees', :count => @person.committees.count 
     - if @person.committees.count > 0
-      = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
       %ul.lined.committees
         - @person.committees.limit(3).each do |committee|
           %li
-            = committee.type_fm
-            = link_to(committee.name, committee_path(committee), :class => 'modal')
+            = link_to(committee.name_fm, committee_path(committee), :class => 'modal')
+
+      = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all') if @person.committees.count > 3
     - else
       %p
         = t '.no_committee_info', :full_name => @person.full_name 
@@ -104,7 +95,7 @@
     - if @person.mentions.count > 0
       %ul.lined
         = render @person.mentions.limit(2)
-      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more')
+      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more') if @person.mentions.count > 2
     - else
       %p= t '.no_mentions'
 
@@ -124,8 +115,8 @@
   = sponsorship_vitals_for(@person)
   %br
   %ul.lined
-    = render @person.bill_sponsorships.limit(5)
-  = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more')
+    = render @person.bill_sponsorships.limit(5), :style => :compact
+  = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more') if @person.bill_sponsorships.count > 5
 
 .grid_6.omega
   %h2= t '.votes' 
@@ -156,13 +147,13 @@
 .grid_6.alpha
   %h2= t 'people.money_trail.industry_title'
   %ul.lined.alpha.grid_6
-    = render :partial => 'industry', :collection => @industries
+    = render @industries
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 .grid_6.omega
   %h2= t 'people.money_trail.top_title'
   %ul.lined.alpha.grid_6
-    = render :partial => 'contribution', :collection => @contributions
+    = render @contributions
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 

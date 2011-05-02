@@ -1,4 +1,19 @@
-%li
-  = bill_sponsorship.kind_fm.titleize + " of"
-  = short_bill_link(bill_sponsorship.bill)
-  .bill_date.small= bill_sponsorship.bill.first_action_at
+- if !defined?(style) || style == :full
+  %li
+    - if bill_sponsorship.sponsor_id? && !bill_sponsorship.sponsor.photo_url.blank?
+      -# Photo to show
+      .photo= link_to(photo_for(bill_sponsorship.sponsor, :thumb), person_path(bill_sponsorship.sponsor))
+      .sponsor-meta
+        .sponsor-name= link_to(bill_sponsorship.sponsor.full_name + ' (' + bill_sponsorship.sponsor.current_role.try(:affiliation_fm) + ')', person_path(bill_sponsorship.sponsor))
+        .sponsor-kind= bill_sponsorship.kind_fm 
+    - else
+      -# No photo available -- show missing photo instead
+      .photo= photo_for(bill_sponsorship.sponsor, :thumb)
+      .sponsor-meta
+        .sponsor-name= bill_sponsorship.sponsor_name
+        .sponsor-kind= bill_sponsorship.kind_fm
+- elsif style == :compact
+  %li
+    = bill_sponsorship.kind_fm.titleize + " of"
+    = short_bill_link(bill_sponsorship.bill)
+    .bill_date.small= bill_sponsorship.bill.first_action_at

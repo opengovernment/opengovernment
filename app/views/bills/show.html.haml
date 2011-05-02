@@ -16,16 +16,14 @@
     = t '.session'
     #{raw @bill.session.name_fm}
 
-
-
 .grid_6.alpha
   .bill-mugs
     - if @sponsors.count > 0
       %h2= t '.sponsors'
       .sponsor_mugs
-        %ul.lined= render :partial => 'sponsor', :collection => @sponsors.limit(3)
+        %ul.lined= render @sponsors.limit(3)
         .clear
-        = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all')
+        = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all') if @sponsors.count > 3
 
 .grid_6.omega
   .write_buttons
@@ -85,7 +83,7 @@
         %ul.lined.documents
           = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
 
-    - if @bill.documents.any? || @bill.versions.any?
+    - if @bill.documents.size + @bill.versions.size > 1
       = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
   
   .grid_8.mentions.omega
@@ -93,7 +91,7 @@
     - if @bill.mentions.count > 0
       %ul.lined
         = render @bill.mentions.limit(2)
-      %p= link_to(t('site.more_link'), news_bill_path(@bill.session, @bill), :class => 'more')
+      %p= link_to(t('site.more_link'), news_bill_path(@bill.session, @bill), :class => 'more') if @bill.mentions.count > 2
     - else
       %p= t '.no_mentions'
 
@@ -104,7 +102,7 @@
     %h2= t '.recent_actions' 
     #bill_actions
       = render 'actions_table', :actions => @actions.limit(2)
-      = link_to(raw("#{t('.actions', :count => @actions.size)} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more')
+      = link_to(raw("#{t('.actions', :count => @actions.size)} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more') if @actions.size > 2
 
 %hr.push_top
 
@@ -112,10 +110,9 @@
   .grid_12.alpha
     %h2= t '.recent_votes'
     .vote-summary.grid_12.alpha
-      = render @votes
+      = render @votes.limit(2)
 
-    = link_to(raw("#{t('.votes', :count => @votes.size)} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more')
-
+    = link_to(raw("#{t('.votes', :count => @votes.size)} &rarr;"), votes_bill_path(@bill.session, @bill), :class => 'more') if @votes.size > 2
 
 .grid_12.alpha
 
