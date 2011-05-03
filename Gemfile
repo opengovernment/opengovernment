@@ -20,6 +20,7 @@ gem 'memcache-client'
 
 # Configuration/deploy management
 gem 'settingslogic'
+gem 'hoptoad_notifier'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'whenever', :require => false
@@ -57,7 +58,7 @@ gem 'compass-960-plugin'
 gem 'jquery-rails'
 
 # Tagging
-gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
+gem 'acts-as-taggable-on'
 
 # Importing & parsing stuff
 gem 'httparty'
@@ -80,7 +81,6 @@ gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
 
 group :production do
   # Logging
-  gem 'hoptoad_notifier'
   gem 'SyslogLogger'
 end
 

@@ -1,9 +1,3 @@
-GIT
-  remote: http://github.com/mbleigh/acts-as-taggable-on.git
-  revision: 2752cfef4c66318d0925fbe880d5392ad188bb50
-  specs:
-    acts-as-taggable-on (2.0.6)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,6 +40,7 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    acts-as-taggable-on (2.0.6)
     addressable (2.2.5)
     arel (2.0.9)
     autotest (4.4.6)
@@ -279,7 +274,7 @@ DEPENDENCIES
   SyslogLogger
   SystemTimer
   activerecord-import
-  acts-as-taggable-on!
+  acts-as-taggable-on
   autotest
   autotest-rails
   awesome_print
