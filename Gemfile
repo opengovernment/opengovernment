@@ -58,7 +58,7 @@ gem 'compass-960-plugin'
 gem 'jquery-rails'
 
 # Tagging
-gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
+gem 'acts-as-taggable-on'
 
 # Importing & parsing stuff
 gem 'httparty'
