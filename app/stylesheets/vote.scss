@@ -1,0 +1,293 @@
+@import "base";
+
+
+tr.committee-vote h4{
+padding-left: 20px;
+  background: url(../images/purp.png) no-repeat 0 4px;
+}
+
+
+
+.small-label{
+font-size: 11px;
+display: block;
+color: #999;
+padding-top: 0px;
+margin-right: 10px;
+}
+
+
+.summary{
+font-size: 18px;
+line-height: 1.4em;
+padding: 5px 5px;
+margin: 0;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.vote_results div{
+  display: inline;
+  padding-right: 20px;
+}
+
+/* Full Roll Call */
+.roll_call caption {
+  background: transparent;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.roll_call th {
+  font-weight: normal;
+  padding-bottom: 3px;
+  padding-top: 5px;
+}
+
+.roll_call td {
+  padding: 3px 5px 3px 0;
+  min-width: 35px;
+}
+
+/* Make room for the party icon */
+.roll_call td.person {
+  padding-left: 14px !important;
+  min-width: 130px;
+  font-size: 12px;
+}
+
+/* showing vote color boxes */
+.roll_call .vote_dem_yes {
+  background: url(../images/votes/dem-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_dem_no {
+  background: url(../images/votes/dem-no-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_dem_other {
+  background: url(../images/votes/dem-other-box.gif) no-repeat 0% 50%;
+}
+
+.roll_call .vote_rep_yes {
+  background: url(../images/votes/rep-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_rep_other {
+  background: url(../images/votes/rep-other-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_rep_no {
+  background: url(../images/votes/rep-no-box.gif) no-repeat 0% 50%;
+}
+
+.roll_call .vote_ind_yes {
+  background: url(../images/votes/ind-yes-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_ind_no {
+  background: url(../images/votes/ind-no-box.gif) no-repeat 0% 50%;
+}
+.roll_call .vote_ind_other {
+  background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
+}
+
+/* Vote summary -- shared/_vote */
+.vote-summary {
+  display: block;
+  float: left;
+  width: 700px;
+}
+
+.vote-summary li{
+padding: 20px 0;
+border-bottom: 1px solid #f9f9f9;
+}
+
+
+.vote-summary h4 {
+  line-height: 16px;
+  margin: 0;
+}
+
+.vote-summary .bill_title {
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.vote-summary-line {
+  font-size: 10px;
+  line-height: 1.3em;
+  color: #888888;
+}
+
+
+
+.vote-motion{
+padding-left: 10px;
+line-height: 1.4em;
+  font-size: 11px;
+}
+
+
+td.vote-motion h4 a:first-letter{
+text-transform: uppercase;
+}
+
+
+
+.vote-votes{
+width: 80px;
+}
+
+
+
+
+.vote-yes-block, .vote-no-block, .vote-other-block {
+  display: block;
+  float: left;
+}
+
+
+td.votes,
+td.vote_date{
+vertical-align: top;
+
+}
+
+
+.votes span.total-votes,
+.votes span.other-votes,
+.votes span.vote-yes,
+.votes span.vote-no{
+display: block;
+margin-right: 0px;
+font-size: 20px;
+padding: 0px;
+border: 1px solid #fff;
+line-height: 1em;
+}
+
+
+
+.votes span.total-votes{
+
+}
+
+
+.votes span.other-votes{
+color: #999;
+}
+
+
+.votes span.vote-yes{
+color: #2a6b0d;
+}
+
+.votes span.vote-no{
+color: #9d1c1c;
+}
+
+
+
+
+td.vote-passed .vote-yes{
+  border: 1px solid #2a6b0d !important;
+background: #2a6b0d;
+color: #fff !important;
+}
+
+td.vote-failed .vote-no {
+  border: 1px solid #9d1c1c !important;
+background: #9d1c1c;
+color: #fff !important;
+
+}
+
+
+
+.vote-needed {
+  display: block;
+padding: 0 !important;
+  height: 25px;
+  border-right: 2px solid #666;
+}
+
+
+
+.vote-bar {
+opacity: .5;
+  height: 10px;
+
+}
+
+
+.vote-bar .vote-yes-block {
+background: #2a6b0d;
+height: 5px;
+margin-top: 10px;
+}
+
+.vote-bar .vote-no-block {
+background: #9d6c6c;
+margin-top: 10px;
+height: 5px;
+}
+
+.vote-bar .vote-other-block {
+height: 5px;
+background: #ccc;
+margin-top: 10px;
+}
+
+
+/* Big vote chart -- votes/show */
+.vote_chart table {
+  width: 400px !important;
+}
+
+.vote_chart table td {
+  min-width: 25px;
+}
+
+.vote_chart table td.vote_chart {
+  width: 300px ; /* See votes_helper full-size chart width */
+}
+
+.vote_chart table caption {
+  background: transparent;
+  font-size: 10px;
+}
+
+.vote_chart table td,
+.vote_chart table th {
+  height: 24px;
+  vertical-align: middle;
+  text-align: right;
+  line-height: 24px;
+  padding: 0;
+  border: 0;
+}
+
+.vote_chart table td.first,
+.vote_chart table th.first
+{
+  padding-top: 26px !important;
+}
+
+.vote_chart table td.last,
+.vote_chart table th.last {
+  padding-bottom: 9px !important;
+}
+
+.vote_chart table .label {
+  padding-right: 2px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.vote-type{
+padding: 2px 0 0 10px;
+display: block;
+font-size: 19px;
+color: #444;
+font-weight: normal;
+}

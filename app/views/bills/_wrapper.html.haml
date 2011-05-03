@@ -42,7 +42,6 @@
 .share-tools
   %h4.pad 
     =t('.share_this')
-  %span.permalink Permalink  
   = render 'shared/share_tools', :message => "Share", :title => t('.im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
 
 

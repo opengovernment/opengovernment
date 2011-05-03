@@ -18,15 +18,6 @@ en:
   shared:
     appeal:
       help_us: Help Us Open Gov!
-    bill:
-      introduced:       "Introduced"
-      votes_on_bill:
-        one:            "vote"
-        other:          "votes"
-      views:
-        one:            "1 view"
-        other:          "%{count} views"
-      session:          Session
     view_counts:
       in_last_week:     in the last 7 days
       in_last_month:    in the last month
@@ -157,6 +148,7 @@ en:
       bill:          Bill
       coming_soon: "(coming soon)"
       session:     "Session:"
+      sponsors:     "Bill Sponsors"
       share_this:        Share this
       mentions:             News &amp; Blog Coverage
       no_mentions:          No news or blog results found at this time.
@@ -164,7 +156,7 @@ en:
       status:      'Bill Status'
       see_all_sponsors:
         one: 'One sponsor'
-        other: '%{count} sponsors'
+        other: 'All %{count} sponsors &rarr;'
       none:          None.
       bill_text:     Bill Text
       documents:
@@ -184,6 +176,15 @@ en:
       primary_sources_for: "Primary sources for this bill:"
       how_did_we_get:      "How did we get all this info for this bill -- its news & blog coverage, social media mentions, etc.? Read more about"
       our_data_sources:    "our data sources"
+    bill:
+      introduced:       "Introduced"
+      votes_on_bill:
+        one:            "vote"
+        other:          "votes"
+      views:
+        one:            "1 view"
+        other:          "%{count} views"
+      session:          Session
   committees:
     show:
       members_of:           "Members of %{state} %{committee}"

@@ -31,6 +31,22 @@ class Committee < ActiveRecord::Base
     end
   end
 
+  # Given a raw OpenStates committee name,
+  # return a better looking committee name, with the committee type, eg.
+  # "Voter Identification & Voter Fraud, Select" => "Senate Select Committee on Voter Identification & Voter Fraud"
+  def name_fm
+    committee_name_fm = name.gsub(/S\/C/, 'Subcommittee').gsub(/^Joint/, '')
+    committee_name_fm = type_fm + ' ' + committee_name_fm
+
+    if committee_name_fm.downcase =~ /(committee|work group|commission|council)/
+      return committee_name_fm
+    elsif committee_name_fm =~ /(.*), (Select|Interim)$/
+      return $2 + " Committee on " + $1
+    end
+
+    return committee_name_fm + " Committee"
+  end
+
   def as_json(opts = {})
     opts ||= {:methods => [:type_fm], :except => [:votesmart_type_id, :votesmart_id, :votesmart_parent_id, :legislature_id]}
     super(opts)

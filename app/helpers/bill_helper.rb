@@ -49,6 +49,9 @@ module BillHelper
     if status_cell_count > 0
       status_cell_count += 1
       haml_tag "div.grid_#{status_cell_count}.alpha#{(bill.actions.signed? ? '.is_law' : '')}" do
+        haml_tag "h2" do
+          output_buffer << t('.status')
+        end
         haml_tag "ul.status_bar.grid_#{status_cell_count}.alpha" do
           output_buffer << status_items
         end

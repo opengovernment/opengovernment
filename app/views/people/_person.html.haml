@@ -1,23 +1,30 @@
-%li.person
-  %a{:href => (defined?(subdomain) ? person_url(person, :subdomain => subdomain) : person_path(person))}  
+- unless person.blank?
+  - if !defined?(style) || style == :full
+    %li.person
+      %a{:href => (defined?(subdomain) ? person_url(person, :subdomain => subdomain) : person_path(person))}  
 
-    .small_thumbnail
-      != photo_for(person, :thumb) 
+        .small_thumbnail
+          != photo_for(person, :thumb) 
 
-    .grid_6
-      %span{:class => "person_name #{person.gender_class}"}
-        != person.full_name
+        .grid_6
+          %span{:class => "person_name #{person.gender_class}"}
+            != person.full_name
   
-      .person_district
-        = person[:district_name]
-        - if person.district_office_city
-          out of
-          = person.district_office_city
-        .person_party
-          = Role.party_fm(person[:party]).to_s.parenthesize
-    .grid_4  
-      .person_views #{person.views} Views
-    .grid_4  
-      .person_mentions
-        = person.mentions.since(30.days.ago).count 
-        = t('.news_and_blog_entries')
+          .person_district
+            = person[:district_name]
+            - if person.district_office_city
+              out of
+              = person.district_office_city
+            .person_party
+              = Role.party_fm(person[:party]).to_s.parenthesize
+        .grid_4  
+          .person_views #{person.views} Views
+        .grid_4  
+          .person_mentions
+            = person.mentions.since(30.days.ago).count 
+            = t('.news_and_blog_entries')
+  - elsif style == :summary || style == :compact
+    %li.person_summary[person]
+      %a{:href => (defined?(subdomain) ? person_url(person, :subdomain => subdomain) : person_path(person)), :class => 'title'}= person.official_name
+      %span.small #{person.current_role.try(:party)}, #{person.current_district_name}
+      .bio= raw truncate(strip_tags(person.bio_data), :length => 400)
