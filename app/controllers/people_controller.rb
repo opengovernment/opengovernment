@@ -66,7 +66,7 @@ class PeopleController < SubdomainController
         @contributions = @person.contributions.includes(:state).limit(3)
       end
       format.json do
-        render(:json => @person)
+        render(:json => @person.to_json)
       end
     end
   end
