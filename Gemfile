@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'rack-contrib'
-gem 'SystemTimer'
+gem 'SystemTimer', :platforms => :ruby_18
 
 # ActiveRecord requires a database adapter.
 gem 'pg'
@@ -95,8 +95,10 @@ group :test, :development do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'factory_girl_rails'
-  gem 'linecache'
-  gem 'ruby-debug'
+  gem 'linecache', :platforms => :ruby_18
+  gem 'linecache19', :platforms => :ruby_19
+  gem 'ruby-debug', :platforms => :ruby_18
+  gem 'ruby-debug19', :platforms => :ruby_19
   gem 'vcr', '~> 1.5.1'
   gem 'fakeweb', '~> 1.3.0'
 
