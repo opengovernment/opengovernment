@@ -2,7 +2,7 @@ class PeopleController < SubdomainController
   before_filter :find_person, :except => [:index, :search]
   respond_to :html, :json, :only => [:index, :votes]
 
-  # /states/texas/people
+  # /people
   def index
     # Setup sort.
     @sort = params[:sort] || 'name'
