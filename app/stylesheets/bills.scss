@@ -360,7 +360,7 @@ border-right: 1px solid #f8f8f8;
 
 
 .bill-mugs{
-  margin: 20px 0 20px 0px;
+  margin: 0px 0 20px 0px;
   width: 315px;
   padding: 0;
   float: left;
@@ -457,7 +457,10 @@ border-left: 1px solid #f8f8f8;
   padding-right: 5px;
 }
 
+.bills.index .sponsor_mugs{
 
+min-width: 260px;
+}
 
 .sponsor_mugs span.person-photo {
   clear: both !important;
