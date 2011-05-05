@@ -53,11 +53,14 @@ class Vote < ActiveRecord::Base
   end
   
   def as_json(opts = {})
-    super(opts.merge({:methods => [:needed_to_pass, :total_count],
+    default_opts = {
+      :methods => [:needed_to_pass, :total_count],
       :include => {
         :roll_calls => {:except => [:id, :vote_id]}
       }
-    }))
+    }
+    
+    super(opts.merge(default_opts))
   end
   
   # yes_frac / no_frac / other_frac

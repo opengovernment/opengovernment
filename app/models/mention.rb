@@ -4,7 +4,7 @@ class Mention < ActiveRecord::Base
   scope :since, lambda { |d| where(["mentions.date > ?", d]) }
 
   def as_json(opts = {})
-    opts ||= {:except => [:owner_id, :owner_type]}
-    super(opts)
+    default_opts = {:except => [:owner_id, :owner_type]}
+    super(default_opts.merge(opts))
   end
 end

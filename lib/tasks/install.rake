@@ -63,7 +63,7 @@ namespace :opengov do
   end
 
   desc "Install clean database: prepare database, fetch all data, load data"
-  task :install => :environment do
+  task :install do
     abcs = ActiveRecord::Base.configurations
 
     unless abcs[Rails.env]["adapter"] == 'postgresql'
@@ -80,7 +80,7 @@ namespace :opengov do
   end
 
   desc "Set up an initial dev environment (with minimal data import)"
-  task :install_dev => :environment do
+  task :install_dev do
     Rake::Task['db:prepare'].invoke
     Rake::Task['fetch:geoip'].invoke
     Rake::Task['load:dev'].invoke
@@ -100,7 +100,7 @@ namespace :db do
   end
 
   desc "Create database w/postgis, full schema, and additional DDL"
-  task :prepare_without_fixtures => :environment do
+  task :prepare_without_fixtures do
     puts "\n---------- Creating #{Rails.env} database."
     Rake::Task['db:create'].invoke
 
@@ -116,7 +116,7 @@ namespace :db do
   end
 
   desc "Prepare the database: load postgis, schema, DDL, and "
-  task :prepare => :environment do
+  task :prepare do
     Rake::Task['db:prepare_without_fixtures'].invoke
 
     puts "\n---------- Loading database fixtures"
