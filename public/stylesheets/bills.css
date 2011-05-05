@@ -17,7 +17,8 @@ h1 .long_bill_title {
 .bills .subject_areas {
   /*  margin-bottom: 0; */
   padding: 0;
-  margin: 3px 0 0 0;
+  margin: 0px 0 0 0;
+min-height: 200px;
 }
 
 /* line 20, ../../app/stylesheets/bills.scss */
@@ -385,7 +386,7 @@ p.action_text {
 
 /* line 359, ../../app/stylesheets/bills.scss */
 .bill-mugs {
-  margin: 20px 0 20px 0px;
+  margin: 0px 0 20px 0px;
   width: 315px;
   padding: 0;
   float: left;
@@ -406,7 +407,6 @@ p.action_text {
 
 /* line 380, ../../app/stylesheets/bills.scss */
 li .sponsor_mugs {
-  width: 400px;
   font-size: 11px;
   line-height: 4em;
   color: #aaa;
@@ -423,7 +423,7 @@ li .sponsor_mugs {
 .bill-mugs .lined li {
   display: inline;
   border: 0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* line 403, ../../app/stylesheets/bills.scss */
@@ -544,6 +544,18 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
+
+.bills.show .sponsor_mugs img{
+width: 35px !important;
+height: 35px !important;
+}
+
+.bills.show .sponsor_mugs li{
+font-size: 11px;
+margin-bottom: 10px;
+}
+
+
 /* line 509, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
@@ -558,3 +570,63 @@ li .sponsor_mugs {
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
+
+
+
+.bill-title{
+font-size: 14px;
+display: block;
+line-height: 1.4em !important;
+padding: 5px 0 0 0;
+}
+
+
+
+
+.bill-intro{
+margin: 0 -21px 30px -34px;
+padding: 10px 25px 75px 36px;  
+position: relative;
+line-height: 1.2em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+border-bottom: 1px solid rgba(67, 67, 67, .2);
+
+}
+
+
+.bill-intro .views{
+margin-right: 10px;
+float: left;
+margin-top: 3px;
+clear: none;
+padding-right: 15px;
+}
+
+
+
+.bill-intro p{
+clear: both;
+margin-bottom: 0;
+}
+
+
+.bill-intro p:first-letter{
+text-transform: uppercase;
+}
+
+
+.bill-intro h1{
+background: 0;
+border: 0;
+
+padding-top: 0;
+padding-left: 31px;
+padding-bottom: 0;
+margin-bottom: 0;
+margin-top: 0;
+float: left;
+}
+
+
+

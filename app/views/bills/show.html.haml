@@ -8,7 +8,8 @@
 
 
 = render 'wrapper'
-= render 'shared/view_counts', :page => @bill
+
+
 
 
 .grid_9.alpha.hide 
@@ -16,18 +17,45 @@
     = t '.session'
     #{raw @bill.session.name_fm}
 
-.grid_6.alpha
+.grid_4.alpha.clearboth
   .bill-mugs
     - if @sponsors.count > 0
       %h2= t '.sponsors'
       .sponsor_mugs
-        %ul.lined= render @sponsors.limit(3)
+        %ul= render @sponsors.limit(3)
         .clear
         = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all') if @sponsors.count > 3
 
-.grid_6.omega
+
+.subject_areas.grid_2
+  %h2 Issues
+  %ul
+    - @bill.subjects.each do |subject|
+      %li= link_to(subject.name, subject_path(@bill.session, subject))
+  
+
+.grid_3
+  %h2= t '.bill_text' 
+  - if @bill.versions.any?
+    %ul.lined
+      = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
+
+  %span.small= t '.bill_text_intro'
+  - if @bill.documents.any?
+    .document_preview
+      %h2= t('.documents', :count => @bill.documents.size)
+
+      %ul.lined.documents
+        = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
+
+  - if @bill.documents.size + @bill.versions.size > 1
+    = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
+
+
+
+.grid_3.omega
   .write_buttons
-    %h4
+    %h2
       %span= t('bills.write.write')
     
     .form
@@ -65,28 +93,8 @@
     %span I Oppose this Bill!
 
 .grid_12.alpha
-  - status_bar(@bill)
 
-  %hr.space
-
-  .grid_4.alpha
-    %h2= t '.bill_text' 
-    - if @bill.versions.any?
-      %ul.lined
-        = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
-
-    %span.small= t '.bill_text_intro'
-    - if @bill.documents.any?
-      .document_preview
-        %h2= t('.documents', :count => @bill.documents.size)
-
-        %ul.lined.documents
-          = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
-
-    - if @bill.documents.size + @bill.versions.size > 1
-      = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')
-  
-  .grid_8.mentions.omega
+  .grid_12.mentions.omega
     %h2= t '.mentions'
     - if @bill.mentions.count > 0
       %ul.lined

@@ -68,8 +68,9 @@ font-size: 10px;
 
 
 .share-tools{
-height: 45px;
+height: 30px;
 position: relative;
+width: 800px;
 z-index: 99999;
 }
 
@@ -235,6 +236,8 @@ padding-left: 24px !important;
 }
 
 
+
+
 .track_buttons li.rss span{
   display: block !important;
   float: left !important;
@@ -242,9 +245,16 @@ padding-left: 24px !important;
 padding-top: 20px;
 padding-bottom: 3px;
   background: url(../images/share.png) no-repeat -495px 0px;
-  margin: 0px 10px 6px 0;
+  margin: 0px 7px 6px 20px;
   text-decoration: none !important;
   }
+
+
+.track_buttons li.rss div{
+  float: left !important;
+margin-left: 0px;
+  }
+
 
 
 .track_buttons li.email a{
@@ -276,21 +286,6 @@ width: 90px;
 }
 
 
-.write_buttons{
-border: 1px solid rgba(0,0,0,.2);
-float: right;
-width: 320px;
-padding: 20px 20px 10px 20px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #efefef,  #ddd);
-}
-
-.write_buttons h4{
-display: none;
-}
 
 
 .write_buttons li,
@@ -321,7 +316,7 @@ padding: 10px 30px 0 0;
 
 
 .write_buttons form{
-padding: 0 0 0 9px !important;
+padding: 0 0 0 0px !important;
 margin: 0;
 clear: both;
 }
@@ -367,7 +362,8 @@ font-size: 11px !important;
 
   background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ddd)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #ddd,  #efefef);
-width: 50px !important;
+width: 130px !important;
+margin: 10px 0 !important;
 }
 
 
@@ -380,7 +376,7 @@ cursor: pointer;
 margin: 0px 0 9px 0px !important;
 padding: 6px 20px;
 
-
+width: 146px;
 }
 
 
@@ -432,8 +428,4 @@ float: left;
 margin: 5px 0 5px 15px !important;
 }
 
-
-.share-tools{
-float: right;
-}
 

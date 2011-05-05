@@ -7,9 +7,9 @@
   %ul
     %li.rss 
       %span
-      = link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
+      %div= link_to t('bills.track.all_actions'), actions_bill_path(@bill.session, @bill, :format => :atom)
       %span
-      = link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
+      %div= link_to t('bills.track.major_actions'), major_actions_bill_path(@bill.session, @bill, :format => :atom)
     %li.email 
       %a
         %span.icon
@@ -18,25 +18,32 @@
 
 
 
+
+
+%span.state-and-chamber
+  = "#{@bill.state.name} #{@bill.chamber.name}"
+  = t 'bills.show.bill'
+
+.bill-intro
+
+  %h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : nil}
+  
+    %span.bill-number{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}
+      = "#{@bill.bill_number}"
+  
+  = render 'shared/view_counts', :page => @bill
+
+  %p.bill-title= @bill.title
+  
+  - status_bar(@bill)
+
+
+
 - if @bill.votesmart_key_vote?
   %span.vote_smart_keyvote
     This is a Votesmart Key Vote!
 
 
-
-
-
-%h1{:class => @bill.votesmart_key_vote? ? 'votesmart_key_vote' : nil}
-  %span.state-and-chamber
-    = "#{@bill.state.name} #{@bill.chamber.name}"
-    = t 'bills.show.bill'
-  %span{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}
-    = "#{@bill.bill_number}:"
-    = @bill.title
-
-  %ul.subject_areas
-    - @bill.subjects.each do |subject|
-      %li= link_to(subject.name, subject_path(@bill.session, subject))
 
 
 .share-tools
