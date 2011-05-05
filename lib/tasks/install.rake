@@ -63,7 +63,7 @@ namespace :opengov do
   end
 
   desc "Install clean database: prepare database, fetch all data, load data"
-  task :install => :environment do
+  task :install do
     abcs = ActiveRecord::Base.configurations
 
     unless abcs[Rails.env]["adapter"] == 'postgresql'
