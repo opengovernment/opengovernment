@@ -12,9 +12,10 @@ h1 .long_bill_title {
 }
 
 .bills .subject_areas {
-/*  margin-bottom: 0; */
-  padding:0;
-  margin: 3px 0 0 0;
+  /*  margin-bottom: 0; */
+  padding: 0;
+  margin: 0px 0 0 0;
+min-height: 200px;
 }
 
 .key_vote_action {
@@ -153,25 +154,28 @@ opacity: 1;
   }
 }
 
-.bill_status{ 
+.bill_status {
   font-size: 11px;
   color: #666;
   margin-top: 15px;
   background: #f3f7f7;
-  margin-left: 10px; 
+  margin-left: 10px;
   float: left;
   width: 400px;
-  @include box-shadow(0 1px 0px #fff, inset 0 1px 0px #eee);
+  -moz-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
+  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
+  -o-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
+  box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
 }
 
-
-.bill_status div{
+.bill_status div {
   padding: 0px 0 5px;
-  }
+}
 
-.bill_status div.top{
+.bill_status div.top {
   padding: 5px 0 0px;
-  }
+}
+
 
 #bill_documents {
   overflow-x: hidden;
@@ -216,7 +220,6 @@ li.mention a{
 
 
 li.mention .date{
-  padding-top: px;
   font-size: 10px;
   color: #666;
   float: right;
@@ -376,14 +379,11 @@ border-right: 1px solid #f8f8f8;
   float: left;
 }
 
-
-li .sponsor_mugs{
-width: 400px;
-font-size: 11px;
-line-height: 4em;
-color: #aaa;
+li .sponsor_mugs {
+  font-size: 11px;
+  line-height: 4em;
+  color: #aaa;
 }
-
 
 
 .bill-mugs .lined{
@@ -396,7 +396,7 @@ padding: 19px 20px 0 0;
 .bill-mugs .lined li{
 display: inline;
 border: 0;
-font-size: 12px;
+font-size: 11px;
 }
 
 
@@ -474,7 +474,7 @@ border-left: 1px solid #f8f8f8;
 
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
-.states.show .sponsor_mugs .sponsor_mug{
+.states.show .sponsor_mugs .sponsor_mug {
   padding: 1px !important;
   margin: 0 15px 0px 0px;
 
@@ -506,6 +506,17 @@ border-left: 1px solid #f8f8f8;
   background: url(../images/man.png) center no-repeat;
 }
 
+
+.bills.show .sponsor_mugs img{
+width: 35px !important;
+height: 35px !important;
+}
+
+.bills.show .sponsor_mugs li{
+font-size: 11px;
+margin-bottom: 10px;
+}
+
 .long-title{
   display: block;
 }
@@ -517,3 +528,60 @@ border-left: 1px solid #f8f8f8;
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
+
+
+.bill-title{
+font-size: 14px;
+display: block;
+line-height: 1.4em !important;
+padding: 5px 0 0 0;
+}
+
+
+
+
+.bill-intro{
+margin: 0 -21px 30px -34px;
+padding: 10px 25px 75px 36px;  
+position: relative;
+line-height: 1.2em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+border-bottom: 1px solid rgba(67, 67, 67, .2);
+
+}
+
+
+.bill-intro .views{
+margin-right: 10px;
+float: left;
+margin-top: 3px;
+clear: none;
+padding-right: 15px;
+}
+
+
+
+.bill-intro p{
+clear: both;
+margin-bottom: 0;
+}
+
+
+.bill-intro p:first-letter{
+text-transform: uppercase;
+}
+
+
+.bill-intro h1{
+background: 0;
+border: 0;
+
+padding-top: 0;
+padding-left: 31px;
+padding-bottom: 0;
+margin-bottom: 0;
+margin-top: 0;
+float: left;
+}
+

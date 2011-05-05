@@ -1,6 +1,6 @@
-
-
-.take_action{/*
+/* line 3, ../../app/stylesheets/sharing.scss */
+.take_action {
+             /*
 width: 150px !important;
 background: #fff;
   -moz-border-radius-topleft: 3px;
@@ -15,286 +15,269 @@ margin-top: 20px;clear: both !important;
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2), inset 0 1px 1px #fff;    
   -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), inset 0 1px 1px #fff;    
 */
-opacity: .8;
-
+  opacity: .8;
 }
 
-
-.take_action:hover{   
-opacity: 1;
+/* line 23, ../../app/stylesheets/sharing.scss */
+.take_action:hover {
+  opacity: 1;
 }
 
-
-
-
-.take_action h4{
-padding: 10px !important;
-width: 130px;
-border: 0;
-display: none;
-font-size: 10px;
-
+/* line 30, ../../app/stylesheets/sharing.scss */
+.take_action h4 {
+  padding: 10px !important;
+  width: 130px;
+  border: 0;
+  display: none;
+  font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold !important;
-
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), 0 -1px 0px rgba(0, 0, 0, .06), inset 0 1px 1px #fff;    
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, .2), 0 -1px 0px rgba(0, 0, 0, .06), inset 0 1px 1px #fff;    
-
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.06), inset 0 1px 1px white;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.06), inset 0 1px 1px white;
 }
 
-
-.take_action h4.pad{
-  
+/* line 46, ../../app/stylesheets/sharing.scss */
+.take_action h4.pad {
   -moz-border-radius-topleft: 3px;
   -moz-border-radius-topright: 3px;
-
   -webkit-border-top-left-radius: 3px;
   -webkit-border-top-right-radius: 3px;
-
 }
 
-
-
-
-.share_buttons p{
+/* line 59, ../../app/stylesheets/sharing.scss */
+.share_buttons p {
   font-weight: normal;
   font-size: 11px;
   padding: 0 10px;
-  }
-
-
+}
 
 /* Styles for sharing buttons */
-
-
-.share-tools{
-height: 30px;
-position: relative;
-width: 800px;
-z-index: 99999;
+/* line 70, ../../app/stylesheets/sharing.scss */
+.share-tools {
+  height: 30px;
+  position: relative;
+  width: 800px;
+  z-index: 99999;
 }
 
-
-
-.share-tools h4{
-display: none;
+/* line 79, ../../app/stylesheets/sharing.scss */
+.share-tools h4 {
+  display: none;
 }
 
-ul.share{
+/* line 83, ../../app/stylesheets/sharing.scss */
+ul.share {
   list-style: none !important;
   padding: 0px 0 10px 8px;
   margin: 0px 0 36px 0px !important;
   height: 20px;
-float: left;
-overflow: hidden;
+  float: left;
+  overflow: hidden;
 }
 
-
-
-.facebook{
-padding: 1px !important;
-margin: -1px 0 0 -4px !important;
-position: relative;
-width: 100px;
-border: 1px solid rgba(0,0,0,.2);
-background: #efefef;
-height: 20px;
-float: left;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
+/* line 94, ../../app/stylesheets/sharing.scss */
+.facebook {
+  padding: 1px !important;
+  margin: -1px 0 0 -4px !important;
+  position: relative;
+  width: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #efefef;
+  height: 20px;
+  float: left;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 
-body .facebook iframe{
-top: 1px;
-left: 1px;
-position: absolute;
+/* line 107, ../../app/stylesheets/sharing.scss */
+body .facebook iframe {
+  top: 1px;
+  left: 1px;
+  position: absolute;
 }
 
-
-.share .twitter {
-}
-
-
-.permalink{
+/* line 118, ../../app/stylesheets/sharing.scss */
+.permalink {
   background: url(../images/share.png) no-repeat -522px top;
-height: 0px;
-padding-top: 26px;
-width: 25px;
-float: left;
-overflow: hidden;
+  height: 0px;
+  padding-top: 26px;
+  width: 25px;
+  float: left;
+  overflow: hidden;
 }
 
-
-.permalink:hover{
+/* line 128, ../../app/stylesheets/sharing.scss */
+.permalink:hover {
   background: url(../images/share.png) no-repeat -522px -30px;
 }
 
-
+/* line 133, ../../app/stylesheets/sharing.scss */
 .share .twitter a {
   background: url(../images/share.png) no-repeat -30px top;
   margin: 0 !important;
 }
 
+/* line 138, ../../app/stylesheets/sharing.scss */
 .share .twitter a:hover {
   background: url(../images/share.png) no-repeat -30px -30px;
 }
 
+/* line 142, ../../app/stylesheets/sharing.scss */
 .share .reddit a {
   background: url(../images/share.png) no-repeat -305px top;
 }
 
+/* line 146, ../../app/stylesheets/sharing.scss */
 .share .reddit a:hover {
   background: url(../images/share.png) no-repeat -305px -30px;
 }
 
+/* line 150, ../../app/stylesheets/sharing.scss */
 .share .digg a {
-display: none;
+  display: none;
   background: url(../images/share.png) no-repeat -90px top;
 }
 
+/* line 155, ../../app/stylesheets/sharing.scss */
 .share .digg a:hover {
   background: url(../images/share.png) no-repeat -90px -30px;
 }
 
+/* line 159, ../../app/stylesheets/sharing.scss */
 .share .buzz a {
   background: url(../images/share.png) no-repeat -211px top;
 }
 
+/* line 163, ../../app/stylesheets/sharing.scss */
 .share .buzz a:hover {
   background: url(../images/share.png) no-repeat -211px -30px;
 }
 
+/* line 167, ../../app/stylesheets/sharing.scss */
 .share .linkedin a {
   background: url(../images/share.png) no-repeat -273px top;
 }
 
+/* line 171, ../../app/stylesheets/sharing.scss */
 .share .linkedin a:hover {
   background: url(../images/share.png) no-repeat -273px -30px;
 }
 
+/* line 175, ../../app/stylesheets/sharing.scss */
 .share .delicious a {
   background: url(../images/share.png) no-repeat -119px top;
 }
 
+/* line 179, ../../app/stylesheets/sharing.scss */
 .share .delicious a:hover {
   background: url(../images/share.png) no-repeat -119px -30px;
 }
 
+/* line 183, ../../app/stylesheets/sharing.scss */
 .share .stumble a {
-display: none;
-
+  display: none;
   background: url(../images/share.png) no-repeat -150px top;
 }
 
+/* line 189, ../../app/stylesheets/sharing.scss */
 .share .stumble a:hover {
   background: url(../images/share.png) no-repeat -150px -30px;
 }
 
-
-
-.people.show .hov.track_buttons .drop{
+/* line 195, ../../app/stylesheets/sharing.scss */
+.people.show .hov.track_buttons .drop {
   height: 96px;
   width: 165px;
-  }
+}
 
-.bills.show .hov.track_buttons .drop{
+/* line 200, ../../app/stylesheets/sharing.scss */
+.bills.show .hov.track_buttons .drop {
   height: 132px;
   width: 156px;
-  }
-
-
-.track_buttons li.rss,.track_buttons li.email  {
-float: left;  
-clear: none !important;
 }
 
-
-
-.track_buttons{
-padding: 25px 0 0 10px;
-margin: 0;
-height: 30px;
-float: right;
-position: relative;
-z-index: 999999;
+/* line 206, ../../app/stylesheets/sharing.scss */
+.track_buttons li.rss, .track_buttons li.email {
+  float: left;
+  clear: none !important;
 }
 
-
-.track_buttons li{
-
+/* line 213, ../../app/stylesheets/sharing.scss */
+.track_buttons {
+  padding: 25px 0 0 10px;
+  margin: 0;
+  height: 30px;
+  float: right;
+  position: relative;
+  z-index: 999999;
 }
 
-.track_buttons h4{
-display: none;
+/* line 227, ../../app/stylesheets/sharing.scss */
+.track_buttons h4 {
+  display: none;
 }
 
-
-
-.track_buttons h4 span{
-background: url(../images/track_write.png) no-repeat 7px -25px;
-padding-left: 24px !important;
+/* line 233, ../../app/stylesheets/sharing.scss */
+.track_buttons h4 span {
+  background: url(../images/track_write.png) no-repeat 7px -25px;
+  padding-left: 24px !important;
 }
 
-
-
-
-.track_buttons li.rss span{
+/* line 241, ../../app/stylesheets/sharing.scss */
+.track_buttons li.rss span {
   display: block !important;
   float: left !important;
   padding-left: 25px;
-padding-top: 20px;
-padding-bottom: 3px;
+  padding-top: 20px;
+  padding-bottom: 3px;
   background: url(../images/share.png) no-repeat -495px 0px;
   margin: 0px 7px 6px 20px;
   text-decoration: none !important;
-  }
+}
 
-
-.track_buttons li.rss div{
+/* line 253, ../../app/stylesheets/sharing.scss */
+.track_buttons li.rss div {
   float: left !important;
-margin-left: 0px;
-  }
+  margin-left: 0px;
+}
 
+/* line 260, ../../app/stylesheets/sharing.scss */
+.track_buttons li.email a {
+  padding-top: 0px;
+  float: left;
+  margin-bottom: 10px;
+  display: none;
+}
 
-
-.track_buttons li.email a{
-padding-top: 0px;
-float: left;
-margin-bottom: 10px;
-display: none;
-
-  }
-
-
-li.email a span.icon{
+/* line 269, ../../app/stylesheets/sharing.scss */
+li.email a span.icon {
   padding-left: 25px;
   height: 23px;
   margin-right: 5px;
   float: left;
   background: url(../images/share.png) no-repeat -63px 0px;
-  }
-
-
-li.email a span.soon{
-font-size: 11px;
-font-weight: normal;
-padding-left: 29px;
-  background: none;
-margin-top: -5px;  
-display: block;
-width: 90px;
 }
 
+/* line 278, ../../app/stylesheets/sharing.scss */
+li.email a span.soon {
+  font-size: 11px;
+  font-weight: normal;
+  padding-left: 29px;
+  background: none;
+  margin-top: -5px;
+  display: block;
+  width: 90px;
+}
 
-
-
+/* line 292, ../../app/stylesheets/sharing.scss */
 .write_buttons li,
 ul.share li {
   float: left;
   clear: none;
   margin-right: 7px;
-  }
+}
 
+/* line 299, ../../app/stylesheets/sharing.scss */
 .write_buttons a,
 ul.share li a {
   width: 27px !important;
@@ -302,130 +285,114 @@ ul.share li a {
   overflow: hidden !important;
   padding-top: 27px !important;
   float: left !important;
-  }
-
-.write_buttons h4 span{
 }
 
-
-
-.support_buttons{
-padding: 10px 30px 0 0;
+/* line 312, ../../app/stylesheets/sharing.scss */
+.support_buttons {
+  padding: 10px 30px 0 0;
 }
 
-
-
-.write_buttons form{
-padding: 0 0 0 0px !important;
-margin: 0;
-clear: both;
+/* line 318, ../../app/stylesheets/sharing.scss */
+.write_buttons form {
+  padding: 0 0 0 0px !important;
+  margin: 0;
+  clear: both;
 }
 
-.write_buttons strong{
-display: block;
-float: left;
-
-padding: 6px 10px 0 0;
-font-weight: normal
+/* line 324, ../../app/stylesheets/sharing.scss */
+.write_buttons strong {
+  display: block;
+  float: left;
+  padding: 6px 10px 0 0;
+  font-weight: normal;
 }
 
-.write_buttons label{
-float: left;
-padding: 6px 18px 0 0 !important;
-font-size: 11px !important;
-font-weight: bold !important;
-display: none;
+/* line 332, ../../app/stylesheets/sharing.scss */
+.write_buttons label {
+  float: left;
+  padding: 6px 18px 0 0 !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  display: none;
 }
 
-.write_buttons form#find_my_rep #q{
-float: left;
-clear: none !important;
-
-font-size: 11px !important;
+/* line 340, ../../app/stylesheets/sharing.scss */
+.write_buttons form#find_my_rep #q {
+  float: left;
+  clear: none !important;
+  font-size: 11px !important;
   margin: 0 10px 0 0!important;
   border: 0 !important;
   padding: 7px 8px !important;
-
-
   letter-spacing: .06em;
-
-
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal !important;
-    
   -moz-box-shadow: inset 0 1px 2px #333;
-  -webkit-box-shadow:inset 0 1px 2px #333;
-  box-shadow: inset 0 1px 2px #333;  
-  
+  -webkit-box-shadow: inset 0 1px 2px #333;
+  box-shadow: inset 0 1px 2px #333;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-
-  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ddd,  #efefef);
-width: 130px !important;
-margin: 10px 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dddddd));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #dddddd, #efefef);
+  width: 130px !important;
+  margin: 10px 0 !important;
 }
 
-
-
-.write_buttons .find_button input{
-float: left;
-opacity: .5;
-font-size: 11px !important;
-cursor: pointer;
-margin: 0px 0 9px 0px !important;
-padding: 6px 20px;
-
-width: 146px;
+/* line 371, ../../app/stylesheets/sharing.scss */
+.write_buttons .find_button input {
+  float: left;
+  opacity: .5;
+  font-size: 11px !important;
+  cursor: pointer;
+  margin: 0px 0 9px 0px !important;
+  padding: 6px 20px;
+  width: 146px;
 }
 
-
-
-.support_buttons a{
-margin: 0px 0 0 10px;
-width: 30px;
-float: right;
-text-transform: uppercase;
-cursor: pointer;
-font-size: 11px;
-text-align: center;
-overflow: hidden;
+/* line 384, ../../app/stylesheets/sharing.scss */
+.support_buttons a {
+  margin: 0px 0 0 10px;
+  width: 30px;
+  float: right;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: center;
+  overflow: hidden;
 }
 
-
-
-.support_buttons a span{
-padding: 25px 0 0 0;
-display: block;
-height: 0px;
-overflow: hidden;
+/* line 397, ../../app/stylesheets/sharing.scss */
+.support_buttons a span {
+  padding: 25px 0 0 0;
+  display: block;
+  height: 0px;
+  overflow: hidden;
 }
 
-.support span{
-background: url(../images/sprites.png) 9px -354px no-repeat;
+/* line 404, ../../app/stylesheets/sharing.scss */
+.support span {
+  background: url(../images/sprites.png) 9px -354px no-repeat;
 }
 
-
-.oppose span{
-background: url(../images/sprites.png) 9px -391px no-repeat;
+/* line 409, ../../app/stylesheets/sharing.scss */
+.oppose span {
+  background: url(../images/sprites.png) 9px -391px no-repeat;
 }
 
-
-
-.share_top{
-border-top: 0 !important;
-margin-bottom: 20px !important;
+/* line 415, ../../app/stylesheets/sharing.scss */
+.share_top {
+  border-top: 0 !important;
+  margin-bottom: 20px !important;
 }
 
-
-
+/* line 422, ../../app/stylesheets/sharing.scss */
 .share_callout {
   padding: 11px 0 0 40px;
-float: left;
+  float: left;
 }
 
-.share_top ul.share{
-margin: 5px 0 5px 15px !important;
+/* line 427, ../../app/stylesheets/sharing.scss */
+.share_top ul.share {
+  margin: 5px 0 5px 15px !important;
 }
-
-

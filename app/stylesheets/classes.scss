@@ -327,21 +327,12 @@ background: #eee;
 .lined{
   margin: 0 0 20px !important;
   padding:0;
-
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-
-
--moz-box-shadow: 0 0 1px rgba(0,0,0,.3);
--webkit-box-shadow: 0 0 1px rgba(0,0,0,.3);
-box-shadow: 0 0 1px rgba(0,0,0,.3);  
 }
 
 .lined li{
   border-bottom: 1px solid #f4f9fa;
   margin: 0 0 0px;
-  padding: 10px 15px;
+  padding: 10px 0px;
   line-height: 1.4em;
   }
 
@@ -425,8 +416,8 @@ span.vote_smart_keyvote{
 color: #999; 
 font-size: 11px;
 padding: 2px 10px;
-display: inline-block;
 background: #eee;
+float: right;
 margin: 5px 0;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -434,24 +425,20 @@ margin: 5px 0;
 }
 
 .show span.vote_smart_keyvote{ 
-margin-left: -35px;
-margin-top: 10px;
-padding-left: 35px;
+  font-size: 14px;
+  margin-top: -6px;
+  color: #333;
+  padding: 10px 20px;
+  width: 322px;
 }
-
-
-
-
 
 .subhead, .state-and-chamber {
   color: #888;
   display: block;
-  padding-bottom: .5em;
   font-size: 12px;
   line-height: 16px;
-padding: 2px 10px 2px 0px;
-
-  }
+  padding: 30px 10px 0px 0px;
+}
 
 
 
