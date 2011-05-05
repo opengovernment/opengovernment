@@ -111,7 +111,7 @@ class Bill < ActiveRecord::Base
   end
 
   def as_json(opts = {})
-    opts = {
+    default_opts = {
       :methods => [:views, :permalink],
       :include => {
         :actions => {:except => :bill_id },
@@ -121,7 +121,8 @@ class Bill < ActiveRecord::Base
         :subjects => {},
         :sponsorships => {:except => [:id, :bill_id]},
         :citations => {:except => [:id, :bill_id, :citeable_id, :citeable_type]} } }
-    super(opts)
+
+    super(default_opts.merge(opts))
   end
 
   def to_param

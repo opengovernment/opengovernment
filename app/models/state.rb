@@ -73,14 +73,14 @@ class State < Place
   end
 
   def as_json(opts = {})
-    opts ||= {:include => {
+    default_opts = {:include => {
       :legislature => {:include => {
           :chambers => {:except => [:legislature_id]},
           :sessions => {:except => [:legislature_id]}
       }}
     }}
 
-    super(opts)
+    super(default_opts.merge(opts))
   end
 
   def unsupported?
