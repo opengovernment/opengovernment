@@ -1,5 +1,7 @@
-/* Always put config variables above imports. */
-/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
 /* line 3, ../../app/stylesheets/breadcrumb.scss */
 .beta {
   font-weight: normal;
