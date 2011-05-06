@@ -68,5 +68,13 @@ javascripts:
     - public/javascripts/DV/states/*.js
     - public/javascripts/DV/controllers/*.js
 
+  zeroclipboard:
+    - public/javascripts/ZeroClipboard.js
+
+  widget:
+    - public/javascripts/underscore-1.1.6.js
+    - app/views/widgets/*.jst
+    - public/javascripts/widget.js
+
   templates:
     - public/javascripts/DV/views/*.jst

@@ -1,0 +1,2 @@
+class WidgetsController < SubdomainController
+end

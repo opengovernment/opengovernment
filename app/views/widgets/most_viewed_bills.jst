@@ -1,0 +1,4 @@
+<% _.each(collection, function(bill) { %>
+  <h2><a href="http://<%= subdomain + bill.permalink %>"><%= bill.title %></a></h2>
+  <time class="last-bill-action"><%= bill.last_action_at %></time>
+<% }); %>

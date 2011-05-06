@@ -1,0 +1,4 @@
+<% _.each(collection, function(person) { %>
+  <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
+  <div class="bio"><%= person.bio_data %></div>
+<% }); %>
