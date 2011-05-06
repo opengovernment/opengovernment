@@ -489,7 +489,7 @@ li .sponsor_mugs {
 
 /* line 460, ../../app/stylesheets/bills.scss */
 .bills.index .sponsor_mugs {
-  width: 260px;
+  min-width: 260px;
 }
 
 /* line 465, ../../app/stylesheets/bills.scss */
