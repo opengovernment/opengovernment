@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 83) do
+ActiveRecord::Schema.define(:version => 84) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(:version => 83) do
     t.boolean  "component_sync_queued", :default => false, :null => false
   end
 
+  add_index "bill_documents", ["document_type", "bill_id"], :name => "index_bill_documents_on_document_type_and_bill_id"
+
   create_table "bill_sponsorships", :force => true do |t|
     t.integer  "bill_id"
     t.integer  "sponsor_id"
@@ -70,6 +72,8 @@ ActiveRecord::Schema.define(:version => 83) do
     t.datetime "updated_at"
     t.string   "sponsor_name"
   end
+
+  add_index "bill_sponsorships", ["bill_id"], :name => "index_bill_sponsorships_on_bill_id"
 
   create_table "bills", :force => true do |t|
     t.string   "title",                 :limit => 64000
@@ -100,6 +104,8 @@ ActiveRecord::Schema.define(:version => 83) do
     t.datetime "updated_at"
   end
 
+  add_index "bills_subjects", ["bill_id", "subject_id"], :name => "index_bills_subjects_on_bill_id_and_subject_id"
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "votesmart_id"
@@ -120,6 +126,8 @@ ActiveRecord::Schema.define(:version => 83) do
     t.string  "citeable_type"
     t.string  "url"
   end
+
+  add_index "citations", ["citeable_id", "citeable_type"], :name => "index_citations_on_citeable_id_and_citeable_type"
 
   create_table "committee_memberships", :force => true do |t|
     t.integer "person_id"
@@ -394,5 +402,7 @@ ActiveRecord::Schema.define(:version => 83) do
     t.string   "committee_name"
     t.float    "threshold"
   end
+
+  add_index "votes", ["bill_id"], :name => "index_votes_on_bill_id"
 
 end
