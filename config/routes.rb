@@ -9,6 +9,8 @@ OpenGov::Application.routes.draw do
     match '/search' => 'states#search', :as => 'state_search'
 
     match '/widgets' => 'widgets#index', :as => 'widgets'
+    match '/widgets/bills' => 'widgets#bills', :as => 'bills_widget'
+    match '/widgets/people' => 'widgets#people', :as => 'people_widget'
 
     resources :people, :only => [:show] do
       collection do

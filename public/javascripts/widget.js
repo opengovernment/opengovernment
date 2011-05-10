@@ -136,7 +136,7 @@ OG = window.OG || {};
           this.state = ops.state || 'ca';
           this._subdomain = this.state + '.' + domain;
           this.url = this._getUrl();
-          this.setDimensions(ops.width, ops.height);
+          this.setWidth(ops.width);
           this.id = ops.id || 'og-widget-' + this._widgetNumber;
 
           if (!ops.id) {
@@ -164,24 +164,34 @@ OG = window.OG || {};
             return http + this._subdomain + '/people.json?sort=views&callback=?';
           }
         },
-        setDimensions: function(a, b) {
-            this.wh = a && b ? [a, b] : [250, 300],
+        setWidth: function(w) {
+            this.width = w ? w : 'auto',
 
             // min width: 150px, min height: 100px.
-            a == "auto" || a == "100%" ? this.wh[0] = "100%": this.wh[0] = (this.wh[0] < 150 ? 150: this.wh[0]) + "px",
-            this.wh[1] = (this.wh[1] < 100 ? 100: this.wh[1]) + "px";
+            w == "auto" || w == "100%" ? this.width = "100%" : this.width = (this.width < 150 ? 150 : this.width) + "px";
+
             return this;
         },
+        _setWidth: function() {
+          // Apply the width to the widget.
+          var style = '#' + this.id + ' {\
+            width: ' + this.width + ';\
+          }';
+          css(style);
+          return this;
+        },
         setTheme: function(theme) {
+          var that = this;
+
           this.theme = {
             background: function() {
-              return theme.background || this._getDefaultTheme().background
+              return theme.background || that._getDefaultTheme().background
             } (),
             color: function() {
-              return theme.color || this._getDefaultTheme().color
+              return theme.color || that._getDefaultTheme().color
             } (),
             links: function() {
-              return theme.links || this._getDefaultTheme().links
+              return theme.links || that._getDefaultTheme().links
             } ()
           };
           var style = '#' + this.id + ' {\
@@ -218,13 +228,19 @@ OG = window.OG || {};
           this.widgetEl.getElementsByTagName('h4')[0].innerHTML = this.subject;
           return this;
         },
-
         // Actually render the widget on the page.
         render: function() {
           this.setTheme(this.theme);
+          this._setWidth();
           this._injectStyleSheet();
           this._fetch();
           this._ready();
+          return this;
+        },
+        // Refresh the widget after style changes
+        reformat: function() {
+          this.setTheme(this.theme);
+          this._setWidth();
           return this;
         }
       }

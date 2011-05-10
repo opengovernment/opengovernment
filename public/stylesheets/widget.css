@@ -1,0 +1,24 @@
+/* Default styles for all opengovernment widgets.
+ */
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
+/* line 7, ../../app/stylesheets/widget.scss */
+.og-widget {
+  padding: 0px 10px;
+}
+
+/* line 11, ../../app/stylesheets/widget.scss */
+.og-widget h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;
+}
+
+/* line 19, ../../app/stylesheets/widget.scss */
+textarea#embed-code {
+  height: 250px;
+  width: 250px;
+}

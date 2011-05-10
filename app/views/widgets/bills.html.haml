@@ -1,0 +1,52 @@
+%h2 Create Most Viewed Bills Widget
+
+.widget_config.grid_10.alpha
+  %form
+    #widget_tabs
+      %ul.small_tabs
+        %li
+          %a{:href => '#colors'} 
+            Colors
+        %li
+          %a{:href => '#dimensions'} 
+            Dimensions
+        %li
+          %a{:href => '#get_the_code'} 
+            Get the Code
+
+      #colors
+        %h3 Choose colors:
+        %label(for="widgetBG") Background color:
+        %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetBG" value="eee")
+        %label(for="widgetColor") Text color:
+        %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetColor" value="333")
+        %label(for="widgetLinks") Link color:
+        %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetLinks" value="00f")
+
+      #dimensions
+        %h3 Choose dimensions:
+        %label(for='widgetWidth') Width:
+        %input(type="text" maxlength="3" size="3" id="widgetWidth" class="widgetVar" value="250")
+        %span.note (in px)
+        %p (width changes do not appear in the preview)
+
+      #get_the_code
+        %textarea(id="embed-code")
+
+.widget_preview.grid_4.omega
+  %p then the widget goes here:
+  #widgetPreview
+    :javascript
+      var testWidget = new OG.Widget({
+        version: 1,
+        type: 'most_viewed_bills',
+        state: '#{request.subdomain}',
+        width: 250,
+        theme: {
+          background: '#eee',
+          color: '#333',
+          links: '#00f'
+        }
+      }).render();
+
+

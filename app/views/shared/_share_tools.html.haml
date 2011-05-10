@@ -1,4 +1,14 @@
-= link_to('Permalink', request.url, :class => 'permalink')
+
+= include_javascripts :zeroclipboard
+#d_clip_container{:style => "position: relative"}
+  #d_clip_button.permalink Permalink
+
+:javascript
+  ZeroClipboard.setMoviePath('#{escape_javascript(image_path('ZeroClipboard.swf'))}');
+  var clip = new ZeroClipboard.Client();
+  clip.setText( '#{escape_javascript(request.url)}' );
+  clip.glue( 'd_clip_button', 'd_clip_container' );
+
 %ul.share
   %li.twitter
     %a.shorten_link{:href => "http://twitter.com/home?status=#{u "#{title}: #{url}"}"} Twitter
