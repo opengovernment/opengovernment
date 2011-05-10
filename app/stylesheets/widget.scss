@@ -1,0 +1,22 @@
+/* Default styles for all opengovernment widgets.
+ */
+
+@import "base";
+
+// Styles for the widget itself
+.og-widget {
+  padding: 0px 10px;
+}
+
+.og-widget h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;
+}
+
+// Styles for the widget config pages
+textarea#embed-code {
+  height: 250px;
+  width: 250px;
+}

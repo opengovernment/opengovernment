@@ -1,2 +1,8 @@
-%h2 Create a widget
-= include_javascripts :widget
+%h2 OpenGovernment Widgets
+
+%nav
+  = link_to 'Most Viewed Bills', bills_widget_path
+  %p This is a list of the most viewed bills in your state.
+  
+  = link_to 'Most Viewed People', people_widget_path
+  %p This is a list of the most viewed people in your state.
