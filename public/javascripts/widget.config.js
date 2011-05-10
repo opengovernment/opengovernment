@@ -41,8 +41,6 @@ var refreshTheme = function(widget) {
 
 $(function() {
   jscolor.init();
-  
-  $('#widget_tabs').tabs();
 
   // Fill in the basic embed code.
   refreshEmbed(testWidget);
