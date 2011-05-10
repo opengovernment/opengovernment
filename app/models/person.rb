@@ -212,7 +212,7 @@ class Person < ActiveRecord::Base
 
   def as_json(opts = {})
     default_opts = {
-        :methods => [:views, :permalink],
+        :methods => [:views, :permalink, :full_name],
         :include => {
           :roles => {:except => [:person_id, :district_id],
               :include => {

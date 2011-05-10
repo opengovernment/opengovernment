@@ -113,6 +113,7 @@ class Bill < ActiveRecord::Base
   def as_json(opts = {})
     default_opts = {
       :methods => [:views, :permalink],
+      :except => [:openstates_md5sum],
       :include => {
         :actions => {:except => :bill_id },
         :votes => {:except => :bill_id},

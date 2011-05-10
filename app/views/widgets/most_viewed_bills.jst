@@ -1,4 +1,5 @@
 <% _.each(collection, function(bill) { %>
   <h2><a href="http://<%= subdomain + bill.permalink %>"><%= bill.title %></a></h2>
-  <time class="last-bill-action"><%= bill.last_action_at %></time>
+  Introduced <time class="og-widget-first-bill-action" datetime="<%= bill.first_action_at %>"><%= OG.dateFromISO8601(bill.first_action_at).format("longDate") %></time>
+  Last action on <time class="og-widget-last-bill-action" datetime="<%= bill.last_action_at %>"><%= OG.dateFromISO8601(bill.last_action_at).format("longDate") %></time>
 <% }); %>

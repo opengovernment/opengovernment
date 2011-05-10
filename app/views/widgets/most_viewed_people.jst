@@ -1,4 +1,5 @@
 <% _.each(collection, function(person) { %>
   <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
-  <div class="bio"><%= person.bio_data %></div>
+  <div class="og-widget-views"><%= person.views %> views</div>
+  <div class="og-widget-bio"><%= person.bio_data.truncate(160) %></div>
 <% }); %>
