@@ -212,6 +212,14 @@ top: -30px;
   cursor: pointer;
   }
 
+.button.tiny{
+  padding: 1px 12px 0;
+  cursor: pointer;
+text-decoration: none;
+font-size: 10px;
+text-transform: uppercase;
+  }
+
 
 .button a{
   text-decoration: none !important;

@@ -1,40 +1,55 @@
-%h2 Create Most Viewed Bills Widget
+%h1 Create a custom Most Viewed Bills Widget
 
-.widget_config.grid_10.alpha
+.grid_8
+  .widget_preview.grid_7.omega
+    %h2 Live Preview of your widget
+    #widgetPreview
+      :javascript
+        var testWidget = new OG.Widget({
+          version: 1,
+          type: 'most_viewed_bills',
+          state: '#{request.subdomain}',
+          width: 'inherit',
+          theme: {
+            background: '#f9f9f9',
+            color: '#555',
+            links: '#333'
+          }
+        }).render();
+  
+
+.widget_config.grid_8.omega.alpha
+  %h2 Customize your widget
+
   %form
-    #colors
-      %h3 Choose colors:
-      %label(for="widgetBG") Background color:
+    .chooser
       %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetBG" value="eee")
-      %label(for="widgetColor") Text color:
+      %label(for="widgetBG") Background
+  
+    .chooser
       %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetColor" value="333")
-      %label(for="widgetLinks") Link color:
+      %label(for="widgetColor") Text
+  
+    .chooser
       %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetLinks" value="00f")
+      %label(for="widgetLinks") Links
+
 
     #dimensions
-      %h3 Choose dimensions:
+
       %label(for='widgetWidth') Width:
       %input(type="text" maxlength="3" size="3" id="widgetWidth" class="widgetVar" value="250")
       %span.note (in px)
-      %p (width changes do not appear in the preview)
+      %p.small 
+        (width changes do 
+        %br
+        not appear in the preview)
+
+
+    .space
 
     #get_the_code
+      <a href="#" class="tiny floatright button silver">Copy</a>
+
+      %h2 Get the Code
       %textarea(id="embed-code")
-
-.widget_preview.grid_4.omega
-  %p then the widget goes here:
-  #widgetPreview
-    :javascript
-      var testWidget = new OG.Widget({
-        version: 1,
-        type: 'most_viewed_bills',
-        state: '#{request.subdomain}',
-        width: 250,
-        theme: {
-          background: '#eee',
-          color: '#333',
-          links: '#00f'
-        }
-      }).render();
-
-

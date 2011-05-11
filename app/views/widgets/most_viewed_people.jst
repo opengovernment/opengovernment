@@ -1,5 +1,12 @@
-<% _.each(collection, function(person) { %>
-  <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
-  <div class="og-widget-views"><%= person.views %> views</div>
-  <div class="og-widget-bio"><%= person.bio_data.truncate(160) %></div>
-<% }); %>
+<ul>
+<h1><strong>Open</strong>Government <span>Most Viewed People</span></h1>
+  <% _.each(collection, function(person) { %>
+    <li>
+      <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
+      <div class="og-widget-views"><%= person.views %> views</div>
+      <div class="og-widget-bio"><%= person.bio_data.truncate(160) %></div>
+      <div class="og-widget-clear">&nbsp;</div>
+
+    </li>
+  <% }); %>
+</ul>

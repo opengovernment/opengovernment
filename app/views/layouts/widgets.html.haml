@@ -2,10 +2,9 @@
   = include_javascripts :widget_config
   = include_stylesheets :widget
 
-  .space
 
-  .grid_14
-    %aside.full_lined.share_top= render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
+  .grid_16
+    %aside.share_top= render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
 
     - if content_for?(:title)
       %h1.clearboth.alpha= yield(:title)

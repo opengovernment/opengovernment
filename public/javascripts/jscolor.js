@@ -513,8 +513,8 @@ var jscolor = {
 		function drawPicker(x, y) {
 			if(!jscolor.picker) {
 				jscolor.picker = {
-					box : document.createElement('div'),
-					boxB : document.createElement('div'),
+					box : document.createElement('box'),
+					boxB : document.createElement('box'),
 					pad : document.createElement('div'),
 					padB : document.createElement('div'),
 					padM : document.createElement('div'),
