@@ -8,7 +8,7 @@
         var testWidget = new OG.Widget({
           version: 1,
           type: 'most_viewed_people',
-          state: '#{request.subdomain}',
+          state: '#{current_place_subdomain}',
           width: 250,
           theme: {
             background: '#eee',
@@ -16,10 +16,6 @@
             links: '#00f'
           }
         }).render();
-  
-
-
-
 
 .widget_config.grid_8.omega.alpha
   %h2 Customize your widget
