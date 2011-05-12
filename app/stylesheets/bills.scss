@@ -510,12 +510,11 @@ min-width: 260px;
 
 
 .bills.show .sponsor_mugs img{
-width: 35px !important;
-height: 35px !important;
+
 }
 
 .bills.show .sponsor_mugs li{
-font-size: 11px;
+font-size: 13px;
 margin-bottom: 10px;
 }
 
@@ -532,6 +531,10 @@ margin-bottom: 10px;
 }
 
 
+.sponsor-name{
+padding-top: 7px;
+}
+
 .bill-title{
 font-size: 14px;
 display: block;
@@ -544,7 +547,7 @@ padding: 5px 0 0 0;
 
 .bill-intro{
 margin: 0 -21px 30px -34px;
-padding: 10px 25px 75px 36px;  
+padding: 10px 25px 35px 36px;  
 position: relative;
 line-height: 1.2em;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
@@ -578,7 +581,6 @@ text-transform: uppercase;
 .bill-intro h1{
 background: 0;
 border: 0;
-
 padding-top: 0;
 padding-left: 31px;
 padding-bottom: 0;
@@ -587,3 +589,14 @@ margin-top: 0;
 float: left;
 }
 
+
+.document_preview{
+padding: 15px 0 5px 90px;
+  background: url(../images/big-bill.png) 0 0  no-repeat;
+font-size: 14px;
+}
+
+.document_preview li span{
+line-height: 1em;
+padding: 0;
+}

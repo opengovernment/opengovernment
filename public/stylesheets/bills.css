@@ -550,34 +550,33 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
-/* line 512, ../../app/stylesheets/bills.scss */
-.bills.show .sponsor_mugs img {
-  width: 35px !important;
-  height: 35px !important;
-}
-
-/* line 517, ../../app/stylesheets/bills.scss */
+/* line 516, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
-  font-size: 11px;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* line 522, ../../app/stylesheets/bills.scss */
+/* line 521, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
 }
 
-/* line 526, ../../app/stylesheets/bills.scss */
+/* line 525, ../../app/stylesheets/bills.scss */
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
 }
 
-/* line 530, ../../app/stylesheets/bills.scss */
+/* line 529, ../../app/stylesheets/bills.scss */
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
 
-/* line 535, ../../app/stylesheets/bills.scss */
+/* line 534, ../../app/stylesheets/bills.scss */
+.sponsor-name {
+  padding-top: 7px;
+}
+
+/* line 538, ../../app/stylesheets/bills.scss */
 .bill-title {
   font-size: 14px;
   display: block;
@@ -585,10 +584,10 @@ li .sponsor_mugs {
   padding: 5px 0 0 0;
 }
 
-/* line 545, ../../app/stylesheets/bills.scss */
+/* line 548, ../../app/stylesheets/bills.scss */
 .bill-intro {
   margin: 0 -21px 30px -34px;
-  padding: 10px 25px 75px 36px;
+  padding: 10px 25px 35px 36px;
   position: relative;
   line-height: 1.2em;
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f9f9f9));
@@ -598,7 +597,7 @@ li .sponsor_mugs {
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
 }
 
-/* line 557, ../../app/stylesheets/bills.scss */
+/* line 560, ../../app/stylesheets/bills.scss */
 .bill-intro .views {
   margin-right: 10px;
   float: left;
@@ -607,18 +606,18 @@ li .sponsor_mugs {
   padding-right: 15px;
 }
 
-/* line 567, ../../app/stylesheets/bills.scss */
+/* line 570, ../../app/stylesheets/bills.scss */
 .bill-intro p {
   clear: both;
   margin-bottom: 0;
 }
 
-/* line 573, ../../app/stylesheets/bills.scss */
+/* line 576, ../../app/stylesheets/bills.scss */
 .bill-intro p:first-letter {
   text-transform: uppercase;
 }
 
-/* line 578, ../../app/stylesheets/bills.scss */
+/* line 581, ../../app/stylesheets/bills.scss */
 .bill-intro h1 {
   background: 0;
   border: 0;
@@ -628,4 +627,17 @@ li .sponsor_mugs {
   margin-bottom: 0;
   margin-top: 0;
   float: left;
+}
+
+/* line 593, ../../app/stylesheets/bills.scss */
+.document_preview {
+  padding: 15px 0 5px 90px;
+  background: url(../images/big-bill.png) 0 0 no-repeat;
+  font-size: 14px;
+}
+
+/* line 599, ../../app/stylesheets/bills.scss */
+.document_preview li span {
+  line-height: 1em;
+  padding: 0;
 }

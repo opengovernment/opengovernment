@@ -116,8 +116,8 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
 #find_my_rep #q {
   width: 97px;
   padding-left: 25px;
-  margin: 0 20px 0 0 !important;
-  float: left;
+  margin: 0 0px 0 0 !important;
+  float: left !important;
   width: 100px !important;
   background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#efefef));
   background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top, #dddddd, #efefef);
@@ -147,11 +147,24 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
 }
 
 /* line 191, ../../app/stylesheets/find_box.scss */
-#find_my_rep label strong {
-  padding-right: 20px;
+#find_my_rep input.button {
+  width: 100px !important;
+  float: left;
+  margin-top: 10px !important;
+  margin-left: 10px !important;
 }
 
-/* line 197, ../../app/stylesheets/find_box.scss */
+/* line 200, ../../app/stylesheets/find_box.scss */
+#find_my_rep strong {
+  width: 100%;
+}
+
+/* line 204, ../../app/stylesheets/find_box.scss */
+.find_button {
+  float: left;
+}
+
+/* line 208, ../../app/stylesheets/find_box.scss */
 .find_button input {
   background: #fff;
   display: block !important;
@@ -175,7 +188,7 @@ body.home.home .find_box .find_form #find_my_rep input#q.field {
   padding: 6px 23px;
 }
 
-/* line 232, ../../app/stylesheets/find_box.scss */
+/* line 243, ../../app/stylesheets/find_box.scss */
 .finding {
   position: absolute;
   width: 18px;

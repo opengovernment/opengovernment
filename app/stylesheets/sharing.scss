@@ -69,8 +69,9 @@ font-size: 10px;
 
 .share-tools{
 height: 30px;
-position: relative;
-width: 800px;
+position: absolute;
+right: 0;
+width: 200px; 
 z-index: 99999;
 }
 
@@ -94,9 +95,10 @@ overflow: hidden;
 .facebook{
 padding: 1px !important;
 margin: -1px 0 0 -4px !important;
-position: relative;
+position: absolute;
 width: 100px;
 height: 20px;
+right: 0;
 float: left;
 }
 

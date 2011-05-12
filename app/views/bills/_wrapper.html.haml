@@ -31,12 +31,8 @@
     %span.bill-number{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}
       = "#{@bill.bill_number}"
   
-  = render 'shared/view_counts', :page => @bill
 
   %p.bill-title= @bill.title
-  
-  - status_bar(@bill)
-
 
 
 - if @bill.votesmart_key_vote?
@@ -44,12 +40,16 @@
     This is a Votesmart Key Vote!
 
 
-
-
 .share-tools
   %h4.pad 
     =t('.share_this')
   = render 'shared/share_tools', :message => "Share", :title => t('.im_reading_about', :hashtags => @bill.to_hashtags), :url => request.url
+
+
+
+
+= render 'shared/view_counts', :page => @bill
+
 
 
 
