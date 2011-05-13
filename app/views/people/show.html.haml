@@ -72,7 +72,7 @@
   .grid_12.alpha
     %h2= t '.roles'
     - @person.roles.each do |role|
-      %span #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : ',')}
+      %span #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
     %hr.space
 
   .committee_preview.grid_4.alpha

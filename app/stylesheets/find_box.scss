@@ -150,8 +150,8 @@ margin-top: 1px;
 #find_my_rep #q{
   width: 97px;
   padding-left: 25px;
-margin: 0 20px 0 0 !important;
-float: left;
+margin: 0 0px 0 0 !important;
+float: left !important;
 width: 100px !important;
 
   background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
@@ -188,11 +188,22 @@ width: 100px !important;
   }
 
 
-#find_my_rep label strong{
-padding-right: 20px;
-  }
+#find_my_rep input.button{
+width: 100px !important;
+float: left;
+margin-top: 10px !important;  
+margin-left: 10px !important;  
+}
 
 
+
+#find_my_rep strong{
+width: 100%;
+}
+
+.find_button{
+float: left;
+}
 
 .find_button input{
   background: #fff;

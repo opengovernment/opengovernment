@@ -1,6 +1,11 @@
-/* Always put config variables above imports. */
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
+
+// Always put config variables above imports.
 $ninesixty-columns: 16;
 
-/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+// Don't import anything that includes any CSS rules on import. It will add them to every stylesheet.
 @import "compass/css3";
 @import "960/grid";

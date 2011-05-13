@@ -5,7 +5,10 @@ class BillsController < SubdomainController
   respond_to :html, :json, :only => [:index, :show]
 
   def index
-    @bills = scope_bills(Bill.for_session_including_children(@session.primary_id))
+    limit = (params[:limit] && params[:limit].to_i) || 10
+    limit = (limit > 10 ? 10 : limit)
+
+    @bills = scope_bills(Bill.for_session_including_children(@session.primary_id), limit)
     @current_tab = :all
 
     respond_with(@bills)
@@ -86,7 +89,7 @@ class BillsController < SubdomainController
     @sorts[:keyvotes] = 'Key Votes'
   end
 
-  def scope_bills(bills)
+  def scope_bills(bills, limit)
     # Fall back to 'introduced' if we have no MongoDB connection
     if @sort == 'views' && !MongoMapper.connected?
       @sort = 'introduced'
@@ -94,15 +97,15 @@ class BillsController < SubdomainController
 
     case @sort
       when 'introduced'
-        bills.order('first_action_at desc').limit(10)
+        bills.order('first_action_at desc').limit(limit)
       when 'mentions'
-        bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc").limit(10)
+        bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc").limit(limit)
       when 'views'
-        bills.most_viewed(:subdomain => request.subdomain, :limit => 10)
+        bills.most_viewed(:subdomain => request.subdomain, :limit => limit)
       when 'keyvotes'
-        bills.where(:votesmart_key_vote => true)
+        bills.where(:votesmart_key_vote => true, :limit => limit)
       else
-        bills.order('last_action_at desc').limit(10)
+        bills.order('last_action_at desc').limit(limit)
     end
   end
 

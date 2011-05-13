@@ -6,6 +6,7 @@ class PeopleController < SubdomainController
   def index
     # Setup sort.
     @sort = params[:sort] || 'name'
+    @limit = (params[:limit] && params[:limit].to_i) || nil
 
     # check our MongoMapper connection
     if @sort == 'views' && !MongoMapper.connected?
@@ -30,7 +31,7 @@ class PeopleController < SubdomainController
     @people =
       case @sort
         when 'views'
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => 10)
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => @limit || 10)
         else
           people_by_facets
       end
@@ -151,7 +152,7 @@ class PeopleController < SubdomainController
     begin
       # TODO: This is less than ideal. We're calling some stored procedures here because
       # we don't have a better way (like outer joining to the current roles view).
-      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
+      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => @limit || 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
     rescue Riddle::ConnectionError
       flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
       return nil

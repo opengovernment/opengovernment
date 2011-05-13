@@ -1,5 +1,7 @@
-/* Always put config variables above imports. */
-/* Don't import anything that includes any CSS rules on import. It will add them to every stylesheet */
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
 /* line 9, ../../app/stylesheets/layout.scss */
 #left_nav {
   margin-left: -21px;
@@ -589,27 +591,28 @@ h2.grid_14.push_1 {
   border-bottom: none;
   padding-bottom: 0;
   line-height: 1em;
+  background: url(../images/sprites.png) 10px -171px no-repeat;
 }
 
-/* line 557, ../../app/stylesheets/layout.scss */
+/* line 558, ../../app/stylesheets/layout.scss */
 .grid_14 .push_1 {
   margin: 0 !important;
   padding: 0;
 }
 
-/* line 561, ../../app/stylesheets/layout.scss */
+/* line 562, ../../app/stylesheets/layout.scss */
 .grid_14 .push_1 p {
   margin: 5px 0 40px !important;
   text-align: center !important;
 }
 
-/* line 565, ../../app/stylesheets/layout.scss */
+/* line 566, ../../app/stylesheets/layout.scss */
 .grid_7.bigger {
   font-size: 17px;
   font-weight: bold;
 }
 
-/* line 569, ../../app/stylesheets/layout.scss */
+/* line 570, ../../app/stylesheets/layout.scss */
 .sub_footer {
   width: 960px;
   padding: 0 15px;
@@ -617,7 +620,7 @@ h2.grid_14.push_1 {
   font-size: 11.5px;
 }
 
-/* line 575, ../../app/stylesheets/layout.scss */
+/* line 576, ../../app/stylesheets/layout.scss */
 .menu {
   padding-top: 220px;
   width: 300px;
@@ -628,7 +631,7 @@ h2.grid_14.push_1 {
   background: url(../images/menu.gif) center top no-repeat;
 }
 
-/* line 584, ../../app/stylesheets/layout.scss */
+/* line 585, ../../app/stylesheets/layout.scss */
 .map {
   padding-top: 220px;
   width: 300px;
@@ -639,42 +642,43 @@ h2.grid_14.push_1 {
   background: url(../images/map.gif) center -50px no-repeat;
 }
 
-/* line 598, ../../app/stylesheets/layout.scss */
+/* line 599, ../../app/stylesheets/layout.scss */
 .main {
   background: white url(../images/side.png) -2px top repeat-y;
   padding-bottom: 50px;
 }
 
 /* No background on the homepage */
-/* line 604, ../../app/stylesheets/layout.scss */
+/* line 606, ../../app/stylesheets/layout.scss */
 .home.index .main,
-.home.home .main {
+.home.home .main,
+.widgets .main {
   background: #fff;
 }
 
-/* line 607, ../../app/stylesheets/layout.scss */
+/* line 609, ../../app/stylesheets/layout.scss */
 .home.home .main {
   padding-bottom: 0px;
 }
 
-/* line 615, ../../app/stylesheets/layout.scss */
+/* line 617, ../../app/stylesheets/layout.scss */
 #account {
   padding: 16px 0 0;
 }
 
-/* line 618, ../../app/stylesheets/layout.scss */
+/* line 620, ../../app/stylesheets/layout.scss */
 #account p {
   margin: 0;
   padding: 0;
 }
 
-/* line 622, ../../app/stylesheets/layout.scss */
+/* line 624, ../../app/stylesheets/layout.scss */
 #account a {
   margin: 0;
   padding: 0 20px 0 0;
 }
 
-/* line 626, ../../app/stylesheets/layout.scss */
+/* line 628, ../../app/stylesheets/layout.scss */
 #account strong {
   padding: 0px !important;
   font-size: 16px;
@@ -684,7 +688,7 @@ h2.grid_14.push_1 {
   margin-top: -2px;
 }
 
-/* line 634, ../../app/stylesheets/layout.scss */
+/* line 636, ../../app/stylesheets/layout.scss */
 #account strong a {
   padding: 25px 0 0 0px !important;
   float: left;
@@ -696,32 +700,30 @@ h2.grid_14.push_1 {
   overflow: hidden;
 }
 
-/* line 644, ../../app/stylesheets/layout.scss */
+/* line 646, ../../app/stylesheets/layout.scss */
 #account strong a:hover {
   background: url(../images/opengovernment.png) 0px -42px no-repeat;
 }
 
-/* line 652, ../../app/stylesheets/layout.scss */
+/* line 654, ../../app/stylesheets/layout.scss */
 .content {
   position: relative;
 }
 
-/* line 655, ../../app/stylesheets/layout.scss */
+/* line 657, ../../app/stylesheets/layout.scss */
 .less_padding {
   padding: 0px 0;
 }
 
-/* line 663, ../../app/stylesheets/layout.scss */
+/* line 665, ../../app/stylesheets/layout.scss */
 .views {
   font-size: 11px;
-  padding: 4px 0 4px 34px;
+  padding: 4px 0 4px 24px;
   display: block;
-  clear: left;
   color: black;
-  margin-right: 270px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
-  background: #eeeeee url(../images/sprites.png) 10px -171px no-repeat;
+  background: url(../images/sprites.png) 0px -171px no-repeat;
   opacity: .5;
   margin-bottom: 5px;
 }
@@ -1277,4 +1279,107 @@ p.donate a {
 .issues.index ul.lined li {
   font-size: 16px;
   padding: 20px;
+}
+
+/* line 1251, ../../app/stylesheets/layout.scss */
+.widgets .grid_16 {
+  margin-top: 0 !important;
+}
+
+/* line 1257, ../../app/stylesheets/layout.scss */
+.widgets h1 {
+  margin-top: 0 !important;
+  margin-left: -21px;
+}
+
+/* line 1264, ../../app/stylesheets/layout.scss */
+.widgets .share_top {
+  position: absolute;
+  z-index: 9999999;
+  right: 0;
+  top: 29px;
+  width: 240px;
+}
+
+/* line 1273, ../../app/stylesheets/layout.scss */
+.widgets .share_top .share {
+  margin: 0 !important;
+}
+
+/* line 1277, ../../app/stylesheets/layout.scss */
+.chooser {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 1283, ../../app/stylesheets/layout.scss */
+.chooser label {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  line-height: 2em;
+  font-weight: normal;
+}
+
+/* line 1294, ../../app/stylesheets/layout.scss */
+#widgetBG,
+#widgetColor,
+#widgetLinks {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  height: 60px;
+  width: 60px;
+  border: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 1305, ../../app/stylesheets/layout.scss */
+#embed-code {
+  width: 430px !important;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 1px solid rgba(101, 101, 101, 0.2);
+}
+
+/* line 1317, ../../app/stylesheets/layout.scss */
+.widgets .button.tiny {
+  margin: 7px 19px 0;
+}
+
+/* line 1323, ../../app/stylesheets/layout.scss */
+box {
+  border: none !important;
+}
+
+/* line 1329, ../../app/stylesheets/layout.scss */
+box box {
+  width: 250px;
+  height: 120px !important;
+  border: 1px solid;
+  padding: 0px;
+  -moz-border-radius: 4px !important;
+  -webkit-border-radius: 4px !important;
+  border: none !important;
+  -moz-box-shadow: 0 2px 5px rgba(101, 101, 101, 0.8) !important;
+  -webkit-box-shadow: 0 2px 5px rgba(101, 101, 101, 0.8) !important;
+  display: block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#dddddd));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #eeeeee, #dddddd);
+}
+
+/* line 1348, ../../app/stylesheets/layout.scss */
+box div {
+  -moz-border-radius: 4px !important;
+  -webkit-border-radius: 4px !important;
+  border: none !important;
+}
+
+/* line 1355, ../../app/stylesheets/layout.scss */
+box div div {
+  -moz-border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
 }

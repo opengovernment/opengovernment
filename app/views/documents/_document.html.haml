@@ -1,1 +1,6 @@
-%li= link_to(document.name, document_path(document))
+%li
+  = link_to(document.name, document_path(document))
+  - if document.total_pages?
+    %span.small.break
+      = document.total_pages
+      Pages
