@@ -101,17 +101,6 @@
 
 .grid_12.alpha
 
-  .grid_12.mentions.omega.alpha
-    %h2= t '.mentions'
-    - if @bill.mentions.count > 0
-      %ul.lined
-        = render @bill.mentions.limit(2)
-      %p= link_to(t('site.more_link'), news_bill_path(@bill.session, @bill), :class => 'more') if @bill.mentions.count > 2
-    - else
-      %p= t '.no_mentions'
-
-  %hr.space
-
 - if @actions.limit(2).size > 0
   .grid_12.alpha
     %h2= t '.recent_actions' 
@@ -120,6 +109,17 @@
       = link_to(raw("#{t('.actions', :count => @actions.size)} &rarr;"), votes_bill_path(@bill.session, @bill, :actions => 'all'), :class => 'more') if @actions.size > 2
 
 %hr.push_top
+
+.grid_12.mentions.omega.alpha
+  %h2= t '.mentions'
+  - if @bill.mentions.count > 0
+    %ul.lined
+      = render @bill.mentions.limit(2)
+    %p= link_to(t('site.more_link'), news_bill_path(@bill.session, @bill), :class => 'more') if @bill.mentions.count > 2
+  - else
+    %p= t '.no_mentions'
+
+%hr.space
 
 - if @votes.limit(2).size > 0
   .grid_12.alpha

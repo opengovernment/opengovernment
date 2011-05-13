@@ -1,3 +1,6 @@
 %li
   = link_to(document.name, document_path(document))
-  %span.small.break About 35 Pages
+  - if document.total_pages?
+    %span.small.break
+      = document.total_pages
+      Pages
