@@ -567,36 +567,30 @@ padding-right: 15px;
 
 
 
-.bill-intro p{
-clear: both;
-margin-bottom: 0;
+.bill-intro {
+  p{
+    clear: both;
+    margin-bottom: 0;
+  }
+
+  p:first-letter{
+    text-transform: uppercase;
+  }
+
+  h1 {
+    background: 0;
+    border: 0;
+    padding-top: 0;
+    padding-left: 31px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    float: left;
+  }
 }
 
 
-.bill-intro p:first-letter{
-text-transform: uppercase;
-}
-
-
-.bill-intro h1{
-background: 0;
-border: 0;
-padding-top: 0;
-padding-left: 31px;
-padding-bottom: 0;
-margin-bottom: 0;
-margin-top: 0;
-float: left;
-}
-
-
-.document_preview{
-padding: 15px 0 5px 90px;
-  background: url(../images/big-bill.png) 0 0  no-repeat;
-font-size: 14px;
-}
-
-.document_preview li span{
-line-height: 1em;
-padding: 0;
+.documents .thumbnail {
+  float: left;
+  margin-right: 15px;
 }

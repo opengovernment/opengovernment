@@ -27,6 +27,8 @@ class BillsController < SubdomainController
   end
 
   def show
+    expires_in 30.minutes
+
     @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name").limit(10)
     @sponsor_count = @bill.sponsorships.count
     @votes = @bill.votes

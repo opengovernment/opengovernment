@@ -12,15 +12,13 @@
 .grid_6.clearboth.alpha
   %h2= t '.bill_text' 
   - if @bill.versions.any?
-    %ul.lined
-      = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
+    %ul.documents
+      = render :partial => 'documents/document', :collection => @bill.versions.limit(2)
 
   %span.small= t '.bill_text_intro'
   - if @bill.documents.any?
-    .document_preview
-      %span.hide= t('.documents', :count => @bill.documents.size)
-      %ul.documents
-        = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
+    %ul.documents
+      = render :partial => 'documents/document', :collection => @bill.documents.limit(5)
 
   - if @bill.documents.size + @bill.versions.size > 1
     = link_to(t('site.more_link'), documents_bill_path(@bill.session, @bill), :class => 'compact_modal see_all')

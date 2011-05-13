@@ -606,18 +606,16 @@ li .sponsor_mugs {
   padding-right: 15px;
 }
 
-/* line 570, ../../app/stylesheets/bills.scss */
+/* line 571, ../../app/stylesheets/bills.scss */
 .bill-intro p {
   clear: both;
   margin-bottom: 0;
 }
-
 /* line 576, ../../app/stylesheets/bills.scss */
 .bill-intro p:first-letter {
   text-transform: uppercase;
 }
-
-/* line 581, ../../app/stylesheets/bills.scss */
+/* line 580, ../../app/stylesheets/bills.scss */
 .bill-intro h1 {
   background: 0;
   border: 0;
@@ -630,14 +628,7 @@ li .sponsor_mugs {
 }
 
 /* line 593, ../../app/stylesheets/bills.scss */
-.document_preview {
-  padding: 15px 0 5px 90px;
-  background: url(../images/big-bill.png) 0 0 no-repeat;
-  font-size: 14px;
-}
-
-/* line 599, ../../app/stylesheets/bills.scss */
-.document_preview li span {
-  line-height: 1em;
-  padding: 0;
+.documents .thumbnail {
+  float: left;
+  margin-right: 15px;
 }
