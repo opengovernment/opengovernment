@@ -14,7 +14,7 @@
   - if @bill.versions.any?
     %ul.lined
       = render :partial => 'documents/document', :collection => @bill.versions.limit(5)
-  
+
   %span.small= t '.bill_text_intro'
   - if @bill.documents.any?
     .document_preview
