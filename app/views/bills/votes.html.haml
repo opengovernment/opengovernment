@@ -22,7 +22,7 @@
       %li.last{:class => (@actions_shown == :all ? 'active' : nil)} #{link_to "All Actions (#{@bill.actions.count})", actions_bill_path(@bill.session, @bill), :remote => true}
       %li.spin(style="display: none;")
   .grid_12.alpha
-    #bill_actions= render :partial => 'actions_table', :actions => @actions
+    #bill_actions= render 'actions_table', :actions => @bill.actions
     %p= t '.major_action', :default => :en
 - else
   %p= t '.no_actions'
