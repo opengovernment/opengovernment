@@ -4,6 +4,8 @@ class PeopleController < SubdomainController
 
   # /people
   def index
+    expires_in 30.minutes
+
     # Setup sort.
     @sort = params[:sort] || 'name'
     @limit = (params[:limit] && params[:limit].to_i) || nil
@@ -50,6 +52,8 @@ class PeopleController < SubdomainController
 
   # /people/1
   def show
+    expires_in 30.minutes
+    
     respond_to do |format|
       format.js
       format.atom do

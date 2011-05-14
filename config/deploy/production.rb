@@ -17,6 +17,16 @@ set :production_dbhost,   "localhost"
 set :environment_database, defer { production_database }
 set :environment_dbhost, defer { production_dbhost }
 
+namespace :deploy do
+  desc 'Clear the varnish cache'
+  task :varnish do
+    run "varnishadm -T 127.0.0.1:2000 url.purge ."
+  end
+end
+
+after 'deploy:cleanup', 'deploy:varnish'
+
 set :whenever_command, "bundle exec whenever"
 set :whenever_roles, :app
 require 'whenever/capistrano'
+

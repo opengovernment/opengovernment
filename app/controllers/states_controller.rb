@@ -1,5 +1,7 @@
 class StatesController < SubdomainController
   def show
+    expires_in 30.minutes
+    
     if @state.supported?
       respond_to do |format|
         format.json {

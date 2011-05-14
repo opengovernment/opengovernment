@@ -210,40 +210,37 @@ a.see_all {
 }
 
 
-li.mention a{
-  padding-top: 5px;
-  font-size: 13px;
-  display: block;
-  line-height: 1.3em;
+li.mention {
+  a{
+    padding-top: 5px;
+    font-size: 13px;
+    display: block;
+    line-height: 1.3em;
+  }
+
+  .date{
+    font-size: 10px;
+    color: #666;
+    float: right;
+  }
+
+  .excerpt{
+    padding-top: 10px;
+    font-size: 11px;
+    color: #333;
+    float: right;
+    line-height: 1.5em;
+  }
+
+  .source{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 10px;
+    color: #888;
+    float: right;
+    line-height: 1.5em;
+  }
 }
-
-
-
-li.mention .date{
-  font-size: 10px;
-  color: #666;
-  float: right;
-}
-
-
-li.mention .excerpt{
-  padding-top: 10px;
-  font-size: 11px;
-  color: #333;
-  float: right;
-  line-height: 1.5em;
-}
-
-
-li.mention .source{
-  padding-top: 10px;
-  padding-bottom: 30px;
-  font-size: 10px;
-  color: #888;
-  float: right;
-  line-height: 1.5em;
-}
-
 
 /* Adjust mentions ul for the people profile page */
 ul.lined li.mention .excerpt, ul.lined li.mention .date, ul.lined li.mention .source {
@@ -254,7 +251,7 @@ ul.lined li.mention .source {
   padding-bottom: 0;
 }
 
-.action_status{
+.action_status {
   padding: 10px 0;
 }
 
@@ -285,43 +282,35 @@ p.action_text {
 }
 
 
-
 .bill_titles {
   margin-bottom: 4px;
+
+  a{
+    font-size: 14px;
+    float: left;
+    padding-top: 1px;
+    line-height: 1.3em;
+  }
+
+  .view_count{
+    font-size: 11px;
+    float: left;
+    opacity: .5;
+    padding-top: 2px;
+    color: #222;
+    padding-left: 30px;
+    background: url(../images/sprites.png) 10px -173px no-repeat;
+  }
+
+  span{
+    display: block;
+    font-size: 12px;
+    clear: both;
+    line-height: 1.4em;
+    padding: 2px 10px 4px 0;
+    color: #777;
+  }
 }
-
-
-
-.bill_titles a{
-  font-size: 14px;
-  float: left;
-  padding-top: 1px;
-  line-height: 1.3em;
-}
-
-
-
-.bill_titles .view_count{
-  font-size: 11px;
-  float: left;
-  opacity: .5;
-  padding-top: 2px;
-  color: #222;
-  padding-left: 30px;
-  background: url(../images/sprites.png) 10px -173px no-repeat;
-}
-
-
-
-.bill_titles span{
-  display: block;
-  font-size: 12px;
-  clear: both;
-  line-height: 1.4em;
-  padding: 2px 10px 4px 0;
-  color: #777;
-}
-
 
 .small_date{
   font-size: 11px;
@@ -359,24 +348,23 @@ border-right: 1px solid #f8f8f8;
 }
 
 
-.bill-mugs{
+.bill-mugs {
   margin: 0px 0 20px 0px;
   width: 315px;
   padding: 0;
   float: left;
-}
 
-.bill-mugs .sponsor_mugs,
-.bill-mugs .sponsor_preview,
-.bill-mugs .lined{
-  margin: 0px !important;
-  padding: 0;
-}
-
+  .sponsor_mugs,
+  .sponsor_preview,
+  .lined {
+    margin: 0px !important;
+    padding: 0;
+  }
 
 
-.bill-mugs .sponsor_mugs{
-  float: left;
+  .sponsor_mugs{
+    float: left;
+  }
 }
 
 li .sponsor_mugs {
@@ -415,27 +403,25 @@ float: left;
   padding: 5px 0 5px 0;
 }
 
-
 .bills .sponsor_mugs img {
   display: block;
   padding-top: 3px;
   font-size: 10px;
   color: #666;
   clear: both;
+}
+
+.stats {
+  div.recent_vote{
+    border-right: none;
+    padding-right: 8px;
   }
 
-.stats div.recent_vote{
-border-right: none;
-padding-right: 8px;
+  div.session{
+    border-right: none;
+    border-left: 1px solid #f8f8f8;
+  }
 }
-
-
-
-.stats div.session{
-border-right: none;
-border-left: 1px solid #f8f8f8;
-}
-
 
 .sponsor_mugs{
   float: left;
@@ -450,11 +436,10 @@ border-left: 1px solid #f8f8f8;
   float: left;
   width: 180px;
   clear: none;
-}
 
-
-.sponsor-meta a{
-  padding-right: 5px;
+  a{
+    padding-right: 5px;
+  }
 }
 
 .bills.index .sponsor_mugs{
@@ -544,30 +529,24 @@ padding: 5px 0 0 0;
 
 
 
-
-.bill-intro{
-margin: 0 -21px 30px -34px;
-padding: 10px 25px 35px 36px;  
-position: relative;
-line-height: 1.2em;
+.bill-intro {
+  margin: 0 -21px 30px -34px;
+  padding: 10px 25px 35px 36px;  
+  position: relative;
+  line-height: 1.2em;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
   background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-border-bottom: 1px solid rgba(67, 67, 67, .2);
+  border-bottom: 1px solid rgba(67, 67, 67, .2);
 
-}
-
-
-.bill-intro .views{
-margin-right: 10px;
-float: left;
-margin-top: 3px;
-clear: none;
-padding-right: 15px;
-}
+  .views{
+    margin-right: 10px;
+    float: left;
+    margin-top: 3px;
+    clear: none;
+    padding-right: 15px;
+  }
 
 
-
-.bill-intro {
   p{
     clear: both;
     margin-bottom: 0;

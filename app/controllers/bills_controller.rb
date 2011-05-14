@@ -5,6 +5,8 @@ class BillsController < SubdomainController
   respond_to :html, :json, :only => [:index, :show]
 
   def index
+    expires_in 30.minutes
+    
     lim = (params[:limit] && params[:limit].to_i) || 10
     lim = (lim > 10 ? 10 : lim)
 
@@ -15,12 +17,16 @@ class BillsController < SubdomainController
   end
 
   def upper
+    expires_in 30.minutes
+
     @bills = scope_bills(Bill.for_session_including_children(@session).in_chamber(@state.legislature.upper_chamber))
     @current_tab = :upper
     render :template => 'bills/index'
   end
   
   def lower
+    expires_in 30.minutes
+
     @bills = scope_bills(Bill.for_session_including_children(@session).in_chamber(@state.legislature.lower_chamber))
     @current_tab = :lower
     render :template => 'bills/index'
