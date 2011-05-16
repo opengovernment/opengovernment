@@ -31,7 +31,7 @@ var jscolor = {
 	},
 
 	getDir : function() {
-		return 'http://opengovernment.org/images/jscolor/';
+		return '../images/jscolor/';
 	},
 
 	bind : function() {
