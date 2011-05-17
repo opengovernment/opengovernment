@@ -13,6 +13,7 @@ var getEmbed = function(widget) {
 '  theme: {\n' +
 '    background: \'' + widget.theme.background + '\',\n' +
 '    color: \'' + widget.theme.color + '\',\n' +
+'    header: \'' + widget.theme.header + '\',\n' +
 '    links: \'' + widget.theme.links + '\'\n' + 
 '  }\n' +
 '}).render();\n' +
@@ -23,16 +24,11 @@ var refreshEmbed = function(widget) {
   $('#embed-code').val(getEmbed(widget));
 };
 
-// Select all text when clicking on embed code box
-$('#embed-code').click(function() {
-  this.select();
-});
-
-
 var refreshTheme = function(widget) {
   widget.setTheme({
     background: '#' + $('#widgetBG').val(),
     color: '#' + $('#widgetColor').val(),
+    header: '#' + $('#widgetHeader').val(),
     links: '#' + $('#widgetLinks').val()
   }).reformat();
 
@@ -48,7 +44,7 @@ $(function() {
   $('#widgetWidth').change(function() {
     if (isNumeric($(this).val())) {
       refreshTheme(testWidget);
-    } else {  
+    } else {
       alert("Width must be a number");
       return false;
     }
@@ -57,6 +53,15 @@ $(function() {
   // Turn on the color pickers
   $('.widgetVar').change(function() {
     refreshTheme(testWidget);
+  });
+
+  // Select all text when clicking on embed code box
+  $('#embed-code').click(function() {
+    this.select();
+  });
+
+  $('#embed-code').select(function() {
+    this.select();
   });
 
 });

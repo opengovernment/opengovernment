@@ -10,9 +10,11 @@
           type: 'most_viewed_bills',
           state: '#{current_place_subdomain}',
           width: 'inherit',
+          preview: true,
           theme: {
             background: '#f9f9f9',
             color: '#555',
+            header: '#333',
             links: '#333'
           }
         }).render();
@@ -23,17 +25,20 @@
 
   %form
     .chooser
-      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetBG" value="eee")
+      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetBG" value="f9f9f9")
       %label(for="widgetBG") Background
   
     .chooser
-      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetColor" value="333")
-      %label(for="widgetColor") Text
-  
-    .chooser
-      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetLinks" value="00f")
-      %label(for="widgetLinks") Links
+      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetHeader" value="333")
+      %label(for="widgetHeader") Header Text
 
+    .chooser
+      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetColor" value="555")
+      %label(for="widgetColor") Text
+
+    .chooser
+      %input(type="text" maxlength="6" size="6" class="color widgetVar" id="widgetLinks" value="555")
+      %label(for="widgetLinks") Links
 
     #dimensions
 
@@ -49,7 +54,5 @@
     .space
 
     #get_the_code
-      <a href="#" class="tiny floatright button silver">Copy</a>
-
       %h2 Get the Code
       %textarea(id="embed-code")

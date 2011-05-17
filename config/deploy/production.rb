@@ -24,7 +24,7 @@ namespace :deploy do
   end
 end
 
-after 'deploy:cleanup', 'deploy:varnish'
+# after 'deploy:cleanup', 'deploy:varnish'
 
 set :whenever_command, "bundle exec whenever"
 set :whenever_roles, :app

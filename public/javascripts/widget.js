@@ -271,6 +271,7 @@ OG = window.OG || {};
           this.type = ops.type;
           this.state = ops.state || 'ca';
           this._subdomain = this.state + '.' + domain;
+          this.preview = ops.preview || false;
           this.url = this._getUrl();
           this.setWidth(ops.width);
           this.id = ops.id || 'og-widget-' + this._widgetNumber;
@@ -288,9 +289,10 @@ OG = window.OG || {};
         },
         _getDefaultTheme: function() {
           return {
-            background: "#8ec1da",
-            color: "#ffffff",
-            links: "#1985b5"
+            background: "#f9f9f9",
+            header: "#333",
+            color: "#555",
+            links: "#1985b5",
           };
         },
         _getUrl: function() {
@@ -328,14 +330,20 @@ OG = window.OG || {};
             } (),
             links: function() {
               return theme.links || that._getDefaultTheme().links
+            } (),
+            header: function() {
+              return theme.header || that._getDefaultTheme().header
             } ()
           };
-          var style = '#' + this.id + ' {\
-            background-color: ' + this.theme.background + ';\
-            color: ' + this.theme.color + ';\
+          var style = '#' + this.id + ', #' + this.id + ' h1 {\
+            color: ' + this.theme.header + ' !important;\
           }\
           #' + this.id + ' a {\
-            color: ' + this.theme.links + ';\
+            color: ' + this.theme.links + ' !important;\
+          }\
+          #' + this.id + ' {\
+            color: ' + this.theme.color + ' !important;\
+            background-color: ' + this.theme.background + ' !important;\
           }';
           css(style);
           return this;
@@ -349,30 +357,32 @@ OG = window.OG || {};
           var that = this;
           jsonp.fetch(this.url, function(data) {
             // jsonp callback
-            that.widgetEl.innerHTML = window.JST[that.type]({subdomain: http + that._subdomain, collection: data});
+            that.widgetEl.innerHTML = window.JST[that.type]({state: that.state, subdomain: http + that._subdomain, collection: data});
           })
         },
-        
         
         setTitle: function(title) {
           this.title = title;
           this.widgetEl.getElementsByTagName('h3')[0].innerHTML = this.title;
           return this;
         },
+        
         setCaption: function(subject) {
           this.subject = subject;
           this.widgetEl.getElementsByTagName('h4')[0].innerHTML = this.subject;
           return this;
         },
+        
         // Actually render the widget on the page.
         render: function() {
           this.setTheme(this.theme);
           this._setWidth();
-          this._injectStyleSheet();
+          if (!this.preview) { this._injectStyleSheet(); }
           this._fetch();
           this._ready();
           return this;
         },
+        
         // Refresh the widget after style changes
         reformat: function() {
           this.setTheme(this.theme);

@@ -15,7 +15,8 @@ class StatesController < SubdomainController
           @recent_bills = bill.order('last_action_at desc')
           @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5) || []
 
-          @hot_people = Person.find_by_sql(["select
+          @hot_people = []
+           Person.find_by_sql(["select
             p.*,
             current_district_name_for(p.id) as district_name,  
             current_party_for(p.id) as party,
