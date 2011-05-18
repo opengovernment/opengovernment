@@ -23,8 +23,8 @@ class PeopleController < SubdomainController
 
     # Choose chamber
     if params[:chamber] && params[:chamber] == 'lower'
-        @chamber = @state.lower_chamber
-        @current_tab = :lower
+      @chamber = @state.lower_chamber
+      @current_tab = :lower
     else
       @chamber = @state.upper_chamber
       @current_tab = :upper
