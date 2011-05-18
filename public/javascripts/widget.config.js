@@ -5,18 +5,7 @@ var isNumeric = function(input) {
 var getEmbed = function(widget) {
   return '<script src="http://opengovernment.org/assets/widget.js" type="text/javascript"></scr' + 'ipt>\n' +
 '<script>\n' +
-'new OG.Widget({\n' +
-'  version: 1,\n' + 
-'  type: \'' + widget.type + '\',\n' +
-'  state: \'' + widget.state + '\',\n' +
-'  width: \'' + $('#widgetWidth').val() + '\',\n' +
-'  theme: {\n' +
-'    background: \'' + widget.theme.background + '\',\n' +
-'    color: \'' + widget.theme.color + '\',\n' +
-'    header: \'' + widget.theme.header + '\',\n' +
-'    links: \'' + widget.theme.links + '\'\n' + 
-'  }\n' +
-'}).render();\n' +
+'new OG.Widget(' + JSON.stringify(widget.getOptions(), null, '\t') + ').render();\n' +
 '</scr' + 'ipt>\n';
 };
 
@@ -30,7 +19,19 @@ var refreshTheme = function(widget) {
     color: '#' + $('#widgetColor').val(),
     header: '#' + $('#widgetHeader').val(),
     links: '#' + $('#widgetLinks').val()
-  }).reformat();
+  }).setWidth($('#widgetWidth').val());
+
+  // Set additional parameters relevant to specific widgets
+  if (widget.type == 'bill_status') {
+    var widgetBill = $('#widgetBillData').data('bill');
+    var widgetSession = $('#widgetBillData').data('session');
+    widget.setBill({
+      session: widgetSession,
+      number: widgetBill
+    });
+  }
+
+  widget.reformat();
 
   refreshEmbed(widget);
 }

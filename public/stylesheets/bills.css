@@ -405,28 +405,26 @@ li .sponsor_mugs {
   color: #aaa;
 }
 
-/* line 377, ../../app/stylesheets/bills.scss */
+/* line 378, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined {
   margin: 0px !important;
   float: left;
   padding: 19px 20px 0 0;
 }
-
 /* line 384, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined li {
   display: inline;
   border: 0;
   font-size: 11px;
 }
-
-/* line 391, ../../app/stylesheets/bills.scss */
+/* line 390, ../../app/stylesheets/bills.scss */
 .bill-mugs .modal {
   padding: 19px 0 0 0px !important;
   float: left;
 }
 
 /* override sponsors .lined */
-/* line 398, ../../app/stylesheets/bills.scss */
+/* line 397, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -434,12 +432,12 @@ li .sponsor_mugs {
   box-shadow: none;
 }
 
-/* line 402, ../../app/stylesheets/bills.scss */
+/* line 401, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined li {
   padding: 5px 0 5px 0;
 }
 
-/* line 406, ../../app/stylesheets/bills.scss */
+/* line 405, ../../app/stylesheets/bills.scss */
 .bills .sponsor_mugs img {
   display: block;
   padding-top: 3px;
@@ -448,24 +446,24 @@ li .sponsor_mugs {
   clear: both;
 }
 
-/* line 415, ../../app/stylesheets/bills.scss */
+/* line 414, ../../app/stylesheets/bills.scss */
 .stats div.recent_vote {
   border-right: none;
   padding-right: 8px;
 }
-/* line 420, ../../app/stylesheets/bills.scss */
+/* line 419, ../../app/stylesheets/bills.scss */
 .stats div.session {
   border-right: none;
   border-left: 1px solid #f8f8f8;
 }
 
-/* line 426, ../../app/stylesheets/bills.scss */
+/* line 425, ../../app/stylesheets/bills.scss */
 .sponsor_mugs {
   float: left;
   padding: 5px 0 5px 0px;
 }
 
-/* line 432, ../../app/stylesheets/bills.scss */
+/* line 431, ../../app/stylesheets/bills.scss */
 .sponsor-meta {
   display: block;
   color: #999;
@@ -474,17 +472,17 @@ li .sponsor_mugs {
   width: 180px;
   clear: none;
 }
-/* line 440, ../../app/stylesheets/bills.scss */
+/* line 439, ../../app/stylesheets/bills.scss */
 .sponsor-meta a {
   padding-right: 5px;
 }
 
-/* line 445, ../../app/stylesheets/bills.scss */
+/* line 444, ../../app/stylesheets/bills.scss */
 .bills.index .sponsor_mugs {
   min-width: 260px;
 }
 
-/* line 449, ../../app/stylesheets/bills.scss */
+/* line 448, ../../app/stylesheets/bills.scss */
 .sponsor_mugs span.person-photo {
   clear: both !important;
   float: left !important;
@@ -493,12 +491,12 @@ li .sponsor_mugs {
   padding-top: 9px !important;
 }
 
-/* line 458, ../../app/stylesheets/bills.scss */
+/* line 457, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   float: left;
 }
 
-/* line 464, ../../app/stylesheets/bills.scss */
+/* line 463, ../../app/stylesheets/bills.scss */
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
 .states.show .sponsor_mugs .sponsor_mug {
@@ -527,12 +525,12 @@ li .sponsor_mugs {
   background: linear-gradient(#ffffff, #eeeeee);
 }
 
-/* line 484, ../../app/stylesheets/bills.scss */
+/* line 483, ../../app/stylesheets/bills.scss */
 .states.show .sponsor_mugs .sponsor_mug {
   margin-bottom: 15px;
 }
 
-/* line 489, ../../app/stylesheets/bills.scss */
+/* line 488, ../../app/stylesheets/bills.scss */
 .sponsor_mugs img {
   border: 1px solid #fff;
   display: block;
@@ -540,33 +538,33 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
-/* line 501, ../../app/stylesheets/bills.scss */
+/* line 495, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* line 506, ../../app/stylesheets/bills.scss */
+/* line 500, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
 }
 
-/* line 510, ../../app/stylesheets/bills.scss */
+/* line 504, ../../app/stylesheets/bills.scss */
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
 }
 
-/* line 514, ../../app/stylesheets/bills.scss */
+/* line 508, ../../app/stylesheets/bills.scss */
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
 
-/* line 519, ../../app/stylesheets/bills.scss */
+/* line 513, ../../app/stylesheets/bills.scss */
 .sponsor-name {
   padding-top: 7px;
 }
 
-/* line 523, ../../app/stylesheets/bills.scss */
+/* line 517, ../../app/stylesheets/bills.scss */
 .bill-title {
   font-size: 14px;
   display: block;
@@ -574,19 +572,20 @@ li .sponsor_mugs {
   padding: 5px 0 0 0;
 }
 
-/* line 532, ../../app/stylesheets/bills.scss */
+/* line 526, ../../app/stylesheets/bills.scss */
 .bill-intro {
   margin: 0 -21px 30px -34px;
   padding: 10px 25px 35px 36px;
   position: relative;
   line-height: 1.2em;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f9f9f9));
-  /* for webkit browsers */
-  background: -moz-linear-gradient(bottom, #f9f9f9, white);
-  /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f9f9f9));
+  background: -webkit-linear-gradient(#ffffff, #f9f9f9);
+  background: -moz-linear-gradient(#ffffff, #f9f9f9);
+  background: -o-linear-gradient(#ffffff, #f9f9f9);
+  background: linear-gradient(#ffffff, #f9f9f9);
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
 }
-/* line 541, ../../app/stylesheets/bills.scss */
+/* line 536, ../../app/stylesheets/bills.scss */
 .bill-intro .views {
   margin-right: 10px;
   float: left;
@@ -594,16 +593,16 @@ li .sponsor_mugs {
   clear: none;
   padding-right: 15px;
 }
-/* line 550, ../../app/stylesheets/bills.scss */
+/* line 545, ../../app/stylesheets/bills.scss */
 .bill-intro p {
   clear: both;
   margin-bottom: 0;
 }
-/* line 555, ../../app/stylesheets/bills.scss */
+/* line 550, ../../app/stylesheets/bills.scss */
 .bill-intro p:first-letter {
   text-transform: uppercase;
 }
-/* line 559, ../../app/stylesheets/bills.scss */
+/* line 554, ../../app/stylesheets/bills.scss */
 .bill-intro h1 {
   background: 0;
   border: 0;
@@ -615,7 +614,7 @@ li .sponsor_mugs {
   float: left;
 }
 
-/* line 572, ../../app/stylesheets/bills.scss */
+/* line 567, ../../app/stylesheets/bills.scss */
 .documents .thumbnail {
   float: left;
   margin-right: 15px;

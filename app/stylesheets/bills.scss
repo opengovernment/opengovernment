@@ -374,25 +374,24 @@ li .sponsor_mugs {
 }
 
 
-.bill-mugs .lined{
-margin: 0px !important;
-float: left;
-padding: 19px 20px 0 0; 
+.bill-mugs {
+  .lined{
+    margin: 0px !important;
+    float: left;
+    padding: 19px 20px 0 0; 
+  }
+
+  .lined li{
+    display: inline;
+    border: 0;
+    font-size: 11px;
+  }
+
+  .modal{
+    padding: 19px 0 0 0px !important;
+    float: left;
+  }
 }
-
-
-.bill-mugs .lined li{
-display: inline;
-border: 0;
-font-size: 11px;
-}
-
-
-.bill-mugs .modal{
-padding: 19px 0 0 0px !important;
-float: left;
-}
-
 
 /* override sponsors .lined */
 .popup.sponsors .lined {
@@ -423,7 +422,7 @@ float: left;
   }
 }
 
-.sponsor_mugs{
+.sponsor_mugs {
   float: left;
   padding: 5px 0 5px 0px;
 }
@@ -493,14 +492,9 @@ min-width: 260px;
   background: url(../images/man.png) center no-repeat;
 }
 
-
-.bills.show .sponsor_mugs img{
-
-}
-
 .bills.show .sponsor_mugs li{
-font-size: 13px;
-margin-bottom: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 
 .long-title{
@@ -517,14 +511,14 @@ margin-bottom: 10px;
 
 
 .sponsor-name{
-padding-top: 7px;
+  padding-top: 7px;
 }
 
 .bill-title{
-font-size: 14px;
-display: block;
-line-height: 1.4em !important;
-padding: 5px 0 0 0;
+  font-size: 14px;
+  display: block;
+  line-height: 1.4em !important;
+  padding: 5px 0 0 0;
 }
 
 
@@ -534,8 +528,9 @@ padding: 5px 0 0 0;
   padding: 10px 25px 35px 36px;  
   position: relative;
   line-height: 1.2em;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+  
+  @include background(linear-gradient(white, #f9f9f9));
+
   border-bottom: 1px solid rgba(67, 67, 67, .2);
 
   .views{

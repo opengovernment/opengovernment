@@ -268,7 +268,9 @@ OG = window.OG || {};
           this._widgetNumber = ++OG.Widget.WIDGET_NUMBER;
           this._isPeopleWidget = ops.type == 'most_viewed_people';
           this._isBillsWidget = ops.type == 'most_viewed_bills';
+          this._isBillWidget = ops.type == 'bill_status';
           this.type = ops.type;
+          this.bill = ops.bill;
           this.state = ops.state || 'ca';
           this._subdomain = this.state + '.' + domain;
           this.preview = ops.preview || false;
@@ -276,32 +278,46 @@ OG = window.OG || {};
           this.setWidth(ops.width);
           this.id = ops.id || 'og-widget-' + this._widgetNumber;
 
-          if (!ops.id) {
-            document.write('<div class="og-widget" id="' + this.id + '"></div>');
-          }
-          this.widgetEl = document.getElementById(this.id);
-          if (ops.id) {
-            classes.add(this.widgetEl, 'og-widget');
-          }
+          this._reset();
+
           this._ready = isFunction(ops.ready) ? ops.ready : function() { };
           
           return this;
         },
+
+        _reset: function() {
+          // Create an element if we don't get an id passed in.
+          if (this.widgetEl = document.getElementById(this.id)) {
+            classes.add(this.widgetEl, 'og-widget');
+          } else {
+            document.write('<div class="og-widget" id="' + this.id + '"></div>');
+            this.widgetEl = document.getElementById(this.id);
+          }
+        },
+      
         _getDefaultTheme: function() {
           return {
             background: "#f9f9f9",
             header: "#333",
             color: "#555",
-            links: "#1985b5",
+            links: "#1985b5"
           };
         },
+
         _getUrl: function() {
           if (this._isBillsWidget) {
             return http + this._subdomain + '/bills.json?sort=views&limit=5&callback=?';
+          } else if (this._isBillWidget) {
+            return http + this._subdomain + '/sessions/' + escape(this.bill.session + '/bills/' + this.bill.number) + '.json?callback=?';
           } else {
             return http + this._subdomain + '/people.json?sort=views&limit=5&callback=?';
           }
         },
+
+        getOptions: function() {
+          return this.ops;
+        },
+
         setWidth: function(w) {
             this.width = w ? w : 'auto',
 
@@ -310,6 +326,7 @@ OG = window.OG || {};
 
             return this;
         },
+
         _setWidth: function() {
           // Apply the width to the widget.
           var style = '#' + this.id + ' {\
@@ -318,10 +335,11 @@ OG = window.OG || {};
           css(style);
           return this;
         },
+
         setTheme: function(theme) {
           var that = this;
 
-          this.theme = {
+          this.theme = this.ops.theme = {
             background: function() {
               return theme.background || that._getDefaultTheme().background
             } (),
@@ -348,6 +366,13 @@ OG = window.OG || {};
           css(style);
           return this;
         },
+
+        setBill: function(bill) {
+          this.bill = this.ops.bill = bill;
+          this.url = this._getUrl();
+          return this;
+        },
+
         _injectStyleSheet: function() {
           injectStyleSheet(http + domain + "/stylesheets/widget.css", this.widgetEl);
         },
@@ -357,10 +382,12 @@ OG = window.OG || {};
           var that = this;
           jsonp.fetch(this.url, function(data) {
             // jsonp callback
-            that.widgetEl.innerHTML = window.JST[that.type]({state: that.state, subdomain: http + that._subdomain, collection: data});
-          })
+            var params = {state: that.state, subdomain: http + that._subdomain};
+            params[that['type']] = data;
+            that.widgetEl.innerHTML = window.JST[that.type](params);
+          });
         },
-        
+
         setTitle: function(title) {
           this.title = title;
           this.widgetEl.getElementsByTagName('h3')[0].innerHTML = this.title;
@@ -372,7 +399,7 @@ OG = window.OG || {};
           this.widgetEl.getElementsByTagName('h4')[0].innerHTML = this.subject;
           return this;
         },
-        
+
         // Actually render the widget on the page.
         render: function() {
           this.setTheme(this.theme);
@@ -382,11 +409,12 @@ OG = window.OG || {};
           this._ready();
           return this;
         },
-        
-        // Refresh the widget after style changes
+
+        // Refresh the widget after style changes.
+        // Does not resize the widget.
         reformat: function() {
           this.setTheme(this.theme);
-          this._setWidth();
+          this._fetch();
           return this;
         }
       }
