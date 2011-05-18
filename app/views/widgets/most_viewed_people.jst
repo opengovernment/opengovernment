@@ -1,7 +1,7 @@
 <div class="og-widget-container">
   <h1><strong>Open</strong>Government <span>Most Viewed People</span></h1>
   <ul>
-    <% _.each(collection, function(person) { %>
+    <% _.each(most_viewed_people, function(person) { %>
       <li>
         <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
         <div class="og-widget-views"><%= person.views %> views</div>
