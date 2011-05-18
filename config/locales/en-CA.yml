@@ -66,8 +66,9 @@ en-CA:
   issues:
     index:
       title: 'Issue Areas in the the %{legislature_name} (2009 - 2010)'
-      intro:              
-          
+      intro: |
+        Generally, state legislatures assign bill subjects to legislation. Unfortunately, the government of California doesn't make its bill subjects available in ways that are truly open. As a result, we currently cannot show how bills in the California legislature fall within the 44 master issue areas below. To help liberate this important public data and make bill-to-mapping more widely accessible, <a href="/pages/help">help our non-profit project grow</a>. 
+        
   money_trails:
      index:
         intro: 
