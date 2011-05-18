@@ -28,36 +28,52 @@
   %h2 Customize your widget
 
   %form
-    .bill_chooser
-      #widgetBillData
+    #widgetBillData
 
-      %label(for="widgetBill") Choose a popular bill:
-      %select(id="widgetBill" class="widgetVar")
-        - @hot_bills.each do |bill|
-          %option{:'data-session' => bill.session.to_param, :'data-bill' => bill.to_param}= truncate(bill.title_fm, :length => 60)
+    %label(for="widgetBill") Choose a popular bill:
+    %select(id="widgetBill" class="widgetVar")
+      - @hot_bills.each do |bill|
+        %option{:'data-session' => bill.session.to_param, :'data-bill' => bill.to_param}= truncate(bill.title_fm, :length => 60)
 
-      :javascript
-        $('#widgetBill').change(function() {
-          var el = $(this).find('option:selected');
-          $('#widgetBillData').data('bill', el.data('bill'));
-          $('#widgetBillData').data('session', el.data('session').toString());
-        });
+    :javascript
+      $('#widgetBill').change(function() {
+        var el = $(this).find('option:selected');
+        $('#widgetBillData').data('bill', el.data('bill'));
+        $('#widgetBillData').data('session', el.data('session').toString());
+      });
 
-      %label(for="widgetBillLookup") Or lookup any bill:
-      %input(type="text" id="widgetBillLookup")
+  %form
+    %label(for="widgetBillLookup") Or lookup any bill:
+    %input(type="text" id="widgetBillLookup")
+    %input(type="submit" id="billLookupBtn")
+  #billLookupResults
 
+  :javascript
+    $('#billLookupBtn').click(function () {
+      // Lookup bill via jsonp
+      $.ajax({
+          dataType: "jsonp",
+          url: '#{escape_javascript(search_bills_path(:format => :json))}?callback=?&q=' + $('#widgetBillLookup').val(),
+          success: function(response) {
+            $('#billLookupResults').innerHTML = window.JST['bill_search_results']({bill_search_results: response });
+          }
+      });
+
+      return false;
+    });
+
+  %form
     = render :partial => 'color_choosers'
 
     #dimensions
-
       %label(for='widgetWidth') Width:
       %input(type="text" maxlength="3" size="3" id="widgetWidth" class="widgetVar" value="250")
       %span.note (in px)
       %p.small 
         (width changes do not appear in the preview)
 
-    .space
+  .space
 
-    #get_the_code
-      %h2 Get the Code
-      %textarea(id="embed-code")
+  #get_the_code
+    %h2 Get the Code
+    %textarea(id="embed-code")

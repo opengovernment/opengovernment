@@ -316,7 +316,7 @@ en:
       state_issues: '%{state_name} Issues'
       bill_subjects: 'Issue Areas'
       intro: |
-        The %{legislature_name} officially assigns issue areas, or "bill subjects", to items of legislation. To make this bill-to-issue system more accessible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has assigned individual bill subject areas to one of 44 master issue areas. Below, we're showing the master issue areas that have at least one bill assigned to them in the current legislature.
+        The %{legislature_name} officially assigns bill subjects to legislation, but not in a way that's easy to understand. To make this bill-to-issue system more accessible, our legislative data source the <a href="http://openstates.sunlightlabs.com/" target="_blank">Open States Project</a> has re-assigned individual bills to one of 44 master issue areas below.
   layouts:
     footer:
       our_principles:    "Our Principles"

@@ -1,7 +1,7 @@
 <div class="og-widget-container">
   <h1><strong>Open</strong>Government <span>Most Viewed Bills in <%= state.toUpperCase() %></span></h1>
   <ul>
-    <% _.each(collection, function(bill) { %>
+    <% _.each(most_viewed_bills, function(bill) { %>
       <li>
         <h2><a href="http://<%= subdomain + bill.permalink %>"><strong><%= bill.bill_number %></strong> <%= bill.title %></a></h2>
         <div class="og-widget-intro">Introduced <time class="og-widget-first-bill-action" datetime="<%= bill.first_action_at %>"><%= OG.dateFromISO8601(bill.first_action_at).format("longDate") %></time></div>
