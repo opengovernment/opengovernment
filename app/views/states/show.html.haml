@@ -51,13 +51,13 @@
 
     #recent_bills.tab_cont
       %ul
-        = render @recent_bills
+        = render @recent_bills, :style => :compact
       %a.more{:href => bills_path(params[:session], :sort => 'recent')}= t '.all_recent_bills'
       .clear
 
     #most_viewed_bills.tab_cont
       %ul
-        = render @most_viewed_bills
+        = render @most_viewed_bills, :style => :compact
       %a.more{:href => bills_path(params[:session], :sort => 'views')}= t '.all_most_viewed_bills'
       .clear
 
@@ -66,7 +66,7 @@
       %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote")= t '.whats_a_key_vote'
 
       %ul
-        = render @key_votes, :locals => {:hide_key_vote => true}
+        = render @key_votes, :hide_key_vote => true, :style => :compact
       %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
       .clear
 

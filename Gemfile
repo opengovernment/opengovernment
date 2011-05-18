@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'rack-contrib'
-gem 'SystemTimer'
+gem 'SystemTimer', :platforms => :ruby_18
 
 # ActiveRecord requires a database adapter.
 gem 'pg'
@@ -20,6 +20,7 @@ gem 'memcache-client'
 
 # Configuration/deploy management
 gem 'settingslogic'
+gem 'hoptoad_notifier'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'whenever', :require => false
@@ -52,10 +53,12 @@ gem 'docsplit'
 
 # Views & Javascript
 gem 'haml'
+gem "compass", ">= 0.11.1"
+gem 'compass-960-plugin'
 gem 'jquery-rails'
 
 # Tagging
-gem "acts-as-taggable-on", :git => 'http://github.com/mbleigh/acts-as-taggable-on.git'
+gem 'acts-as-taggable-on'
 
 # Importing & parsing stuff
 gem 'httparty'
@@ -74,20 +77,14 @@ gem 'kaminari'
 # Graphics
 gem 'googlecharts', '~> 1.6.1', :require => 'gchart'
 
-# Logging
-gem 'hoptoad_notifier'
-gem 'SyslogLogger'
+# Bundle gems used only in certain environments:
 
-group :development do
-  gem 'silent-postgres'	# Quieter postgres log messages
-  gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
-  gem 'hirb'
-  gem 'awesome_print'
+group :production do
+  # Logging
+  gem 'SyslogLogger'
 end
 
-# Bundle gems used only in certain environments:
-group :test do
-  # Bundle gems for certain environments:
+group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
   gem 'rspec-rails', '>= 2.0.0.rc'
@@ -98,8 +95,18 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'factory_girl_rails'
-  gem 'linecache'
-  gem 'ruby-debug'
+  gem 'linecache', :platforms => :ruby_18
+  gem 'linecache19', :platforms => :ruby_19
+  gem 'ruby-debug', :platforms => :ruby_18
+  gem 'ruby-debug19', :platforms => :ruby_19
   gem 'vcr', '~> 1.5.1'
   gem 'fakeweb', '~> 1.3.0'
+
+  gem 'silent-postgres'	# Quieter postgres log messages
+  gem 'rails_complete'	# Rails console tab completion; see https://github.com/dasch/rails-complete for install instructions
+  gem 'hirb'
+  gem 'awesome_print'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' 
 end

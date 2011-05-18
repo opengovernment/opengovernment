@@ -1,1 +1,9 @@
-%li= link_to(document.name, document_path(document))
+%li
+  - if document.components_available?
+    .thumbnail= link_to(image_tag(document.thumbnail_url, :alt => document.name, :width => 90), document_path(document))
+  .link
+    = link_to(document.name, document_path(document))
+    - if document.total_pages?
+      %span.small.break
+        = document.total_pages
+        Pages

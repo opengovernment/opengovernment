@@ -1,7 +1,9 @@
-begin
-  HoptoadNotifier.configure do |config|
-    config.api_key = ApiKeys.hoptoad
+if Rails.env == "production"
+  begin
+    HoptoadNotifier.configure do |config|
+      config.api_key = ApiKeys.hoptoad
+    end
+  rescue Settingslogic::MissingSetting
+    Rails.logger.debug 'No hoptoad key found; hoptoad is disabled.'
   end
-rescue Settingslogic::MissingSetting
-  Rails.logger.debug 'No hoptoad key found; hoptoad is disabled.'
 end

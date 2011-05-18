@@ -1,0 +1,42 @@
+%h1 Create a custom Most Viewed Bills Widget
+
+.grid_7
+  .widget_preview.grid_4.omega
+    %h2 Live Preview of your widget
+    #widgetPreview
+      :javascript
+        var testWidget = new OG.Widget({
+          version: 1,
+          type: 'most_viewed_bills',
+          state: '#{current_place_subdomain}',
+          width: 'auto',
+          preview: true,
+          theme: {
+            background: '#f9f9f9',
+            color: '#555',
+            header: '#333',
+            links: '#333'
+          }
+        }).render();
+
+.widget_config.grid_8.omega.alpha
+  %h2 Customize your widget
+
+  %form
+    = render :partial => 'color_choosers'
+
+    #dimensions
+
+      %label(for='widgetWidth') Width:
+      %input(type="text" maxlength="3" size="3" id="widgetWidth" class="widgetVar" value="250")
+      %span.note (in px)
+      %p.small 
+        (width changes do 
+        %br
+        not appear in the preview)
+
+    .space
+
+    #get_the_code
+      %h2 Get the Code
+      %textarea(id="embed-code")

@@ -1,0 +1,14 @@
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
+/* 960 Grid System ~ Text CSS.
+ * Learn more ~ http://960.gs/
+ * *
+ * Licensed under GPL and MIT. */
+/* If we want this --
+
+@import "960/text";
+@include text;
+
+*/

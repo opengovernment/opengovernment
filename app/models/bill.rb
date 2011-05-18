@@ -9,6 +9,7 @@ class Bill < ActiveRecord::Base
     hm.has_many :sponsorships, :class_name => 'BillSponsorship'
     hm.has_many :versions, :class_name => 'BillDocument', :conditions => {:document_type => 'version'}
     hm.has_many :documents, :class_name => 'BillDocument', :conditions => {:document_type => 'document'}
+    hm.has_many :all_documents, :class_name => 'BillDocument'
     hm.has_many :actions do
       def has_kind?(kind)
         exists?(["? in (actions.kind_one, actions.kind_two, actions.kind_three)", kind])
@@ -32,6 +33,7 @@ class Bill < ActiveRecord::Base
   has_many :sponsors, :through  => :sponsorships
   has_many :major_actions, :class_name => 'Action', :conditions => ["kind_one <> 'other' and kind_one is not null"]
   has_many :votes, :dependent => :destroy
+  has_many :key_votes, :dependent => :destroy
 
   scope :titles_like, lambda { |t| {:conditions => ["upper(bill_number) = ? or title like ?", "#{t.gsub(/[-\.\s]/, '').upcase.sub(/(([A-Z]\.?-?\s*){1,2})(\d+)/, '\1 \3')}", "%#{t}%"]} }
 
@@ -91,6 +93,10 @@ class Bill < ActiveRecord::Base
     bill_number + ': ' + title
   end
 
+  def name_with_context
+    session.name_fm + ' ' + chamber.name + ' Bill ' + bill_number
+  end
+
   def self.find_by_slug(param)
     find_by_bill_number(param.titleize.upcase)
   end
@@ -105,8 +111,9 @@ class Bill < ActiveRecord::Base
   end
 
   def as_json(opts = {})
-    opts = {
+    default_opts = {
       :methods => [:views, :permalink],
+      :except => [:openstates_md5sum],
       :include => {
         :actions => {:except => :bill_id },
         :votes => {:except => :bill_id},
@@ -115,7 +122,8 @@ class Bill < ActiveRecord::Base
         :subjects => {},
         :sponsorships => {:except => [:id, :bill_id]},
         :citations => {:except => [:id, :bill_id, :citeable_id, :citeable_type]} } }
-    super(opts)
+
+    super(default_opts.merge(opts))
   end
 
   def to_param

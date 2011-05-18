@@ -1,5 +1,7 @@
 class StatesController < SubdomainController
   def show
+    expires_in 30.minutes
+    
     if @state.supported?
       respond_to do |format|
         format.json {
@@ -13,7 +15,8 @@ class StatesController < SubdomainController
           @recent_bills = bill.order('last_action_at desc')
           @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5) || []
 
-          @hot_people = Person.find_by_sql(["select
+          @hot_people = []
+           Person.find_by_sql(["select
             p.*,
             current_district_name_for(p.id) as district_name,  
             current_party_for(p.id) as party,
@@ -46,6 +49,7 @@ class StatesController < SubdomainController
     @query = @query.gsub(/([$^])/, '')
 
     @search_type = params[:search_type] || "everything"
+
     @committee_type = params[:committee_type] || "all"
 
     # Because we are rendering a partial with @search_type in the filename,
@@ -85,9 +89,7 @@ class StatesController < SubdomainController
     if @query
       case @search_type
         when "everything"
-          @legislators = Person.search(@query, @search_options).page(params[:page])
-          @bills = Bill.search(@query, @search_options).page(params[:page])
-          @committees = @committee_type.search(@query, @search_options).page(params[:page])
+          @results = ThinkingSphinx.search(@query, @search_options).page(params[:page])
         when "bills"
           @bills = Bill.search(@query, @search_options).page(params[:page])
         when "legislators"
@@ -98,11 +100,13 @@ class StatesController < SubdomainController
 
       @facets = ThinkingSphinx.facets(@query, @search_options)
 
+
       @search_counts = ActiveSupport::OrderedHash.new
       @search_counts[:everything] = 0
       @search_counts[:bills] = @facets[:class]['Bill']
       @search_counts[:legislators] = @facets[:class]['Person']
-      @search_counts[:committees] = @facets[:class][@committee_type.to_s]
+      @search_counts[:committees] = Committee.descendants.inject(0) { |s, i| s += (@facets[:class][i.to_s] || 0) } 
+      @search_counts[:committees] = nil if @search_counts[:committees].zero?
       @search_counts[:everything] = @total_entries = @search_counts.values.inject() { |sum, element| sum + (element || 0) }   
 
       if @total_entries == 1

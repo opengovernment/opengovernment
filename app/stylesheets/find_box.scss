@@ -1,0 +1,250 @@
+@import "base";
+
+.home.home .find_box {
+  display: inline-block;
+  width: 792px;
+padding: 20px 190px 20px 0px;
+  margin: 0 0 -10px -11px !important;
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+border-left: 0px;
+border-right: 0px;
+}
+
+  
+
+.home.home .main{
+  background: url(../images/header.jpg) 0px 0px no-repeat;
+}
+
+.home.home #find_my_rep {
+padding-left: 70px;
+width: 800px;
+}
+
+
+
+.home.home #find_my_rep label{
+  padding: 6px 46px 0 15px;
+  float: left;
+  margin:0 0 0px;
+  font-size: 16px;
+  line-height:1.3em;
+  color: #36676f;
+  clear: both; 
+  font-weight: normal;
+  
+  }
+
+
+.home.home h2{
+text-transform: none;
+}
+
+
+body.home.home .find_box .find_form #find_my_rep input#q.field{
+width: 260px !important;
+}
+
+
+.home.home .auto_find {
+margin-right: 20px;
+margin-top: 1px;
+
+}
+
+
+/*///////////////////////////
+
+~ Find YOur Districts
+
+///////////////////////////*/
+
+
+
+.find_form{
+
+}
+
+.auto_find{
+}
+
+
+
+
+.find_box{
+  position: relative;
+  border: 1px solid #ddd;
+
+  padding: 18px 0px 18px;
+  margin: 0px 38px 0px 0;
+
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
+  background: -moz-linear-gradient(bottom,  #eee,  #fff); /* for firefox 3.6+ */
+
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius:5px;
+ }
+
+
+.auto_find{
+  position: absolute;
+  right: 81px;
+  top: 19px;
+  right: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+ 
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #a7c3c9;
+  border-top: 1px solid #c6d9de;
+  border-bottom: 1px solid #4e7179;
+  
+  
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#ecf9fc), to(#d6e8eb)); 
+  background: -moz-linear-gradient(top,  #ecf9fc,  #d6e8eb); 
+  
+}
+
+
+
+.auto_find a{
+  display: block !important;
+  padding: 6px 20px 4px 38px;
+  background: #fff;
+  font-size: 11px;
+  text-shadow: #d5ebef 0px 1px 0px;
+  text-decoration: none;
+  background: url(../images/sprites.png) 12px -218px no-repeat;
+  
+  
+  }
+
+
+.auto_find a:hover{
+  text-decoration: none;
+  }
+
+
+
+
+#find_my_rep{
+  padding: 0px 24px;
+  }
+
+
+#find_my_rep #q{
+  width: 97px;
+  padding-left: 25px;
+margin: 0 0px 0 0 !important;
+float: left !important;
+width: 100px !important;
+
+  background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+  background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #ddd,  #efefef);
+
+  }
+  
+
+
+#find_my_rep #q:focus{
+  width: 97px;
+  padding-left: 25px;
+margin: 0 20px 0 0 !important;
+float: left;
+width: 100px !important;
+
+  background: url(../images/sprites.png) 8px -216px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff)); 
+  background: url(../images/sprites.png) 8px -216px no-repeat, -moz-linear-gradient(top,  #eee,  #fff);
+
+  }
+  
+
+
+#find_my_rep label{
+  padding: 7px 20px 0 15px;
+  float: left;
+  margin:0 0 0px;
+  font-size: 13px;
+  line-height:1.3em;
+  color: #36676f;
+  clear: both; 
+  font-weight: normal;
+  
+  }
+
+
+#find_my_rep input.button{
+width: 100px !important;
+float: left;
+margin-top: 10px !important;  
+margin-left: 10px !important;  
+}
+
+
+
+#find_my_rep strong{
+width: 100%;
+}
+
+.find_button{
+float: left;
+}
+
+.find_button input{
+  background: #fff;
+  display: block !important;
+  
+  border-bottom: 0;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold !important;
+  
+  text-shadow: 0 1px 0px #fff;
+  
+  float: left;
+  margin-left: 15px !important;
+  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius:3px;
+  
+  
+  border: 1px solid #999;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #777;
+  
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); 
+  background: -moz-linear-gradient(top,  #fff,  #ddd); 
+  
+  padding: 6px 23px;
+  
+  }
+
+
+.finding{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 258px;
+  top: 22px;
+  background: url(../images/location_spinner.gif) no-repeat;
+  }

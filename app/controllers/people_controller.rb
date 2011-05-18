@@ -2,10 +2,13 @@ class PeopleController < SubdomainController
   before_filter :find_person, :except => [:index, :search]
   respond_to :html, :json, :only => [:index, :votes]
 
-  # /states/texas/people
+  # /people
   def index
+    expires_in 30.minutes
+
     # Setup sort.
     @sort = params[:sort] || 'name'
+    @limit = (params[:limit] && params[:limit].to_i) || nil
 
     # check our MongoMapper connection
     if @sort == 'views' && !MongoMapper.connected?
@@ -30,7 +33,7 @@ class PeopleController < SubdomainController
     @people =
       case @sort
         when 'views'
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => 10)
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => @limit || 10)
         else
           people_by_facets
       end
@@ -49,6 +52,8 @@ class PeopleController < SubdomainController
 
   # /people/1
   def show
+    expires_in 30.minutes
+    
     respond_to do |format|
       format.js
       format.atom do
@@ -56,14 +61,17 @@ class PeopleController < SubdomainController
         render :template => 'people/votes'
       end
       format.html do
-        @rating_categories = SpecialInterestGroup.find_by_sql(["select c.id, c.name, count(r.id) as entries from categories c, special_interest_groups sigs, ratings r where c.id = sigs.category_id and r.sig_id = sigs.id and r.person_id = ? group by c.name, c.id", @person.id])
+        # The to_a is an odd fix for a Rails (bug? feature?) where 
+        # grouped scopes like this one return an OrderedHash of groupings for .size and .count
+        # unless converted.
+        @rating_categories = Category.aggregates_for_person(@person).to_a
         @latest_votes = @person.votes.latest
         @latest_roll_calls = @person.roll_calls.find_all_by_vote_id(@latest_votes)
         @industries = Industry.aggregates_for_person(@person).order('amount desc').limit(5)
         @contributions = @person.contributions.includes(:state).limit(3)
       end
       format.json do
-        render(:json => @person)
+        render(:json => @person.to_json)
       end
     end
   end
@@ -95,9 +103,17 @@ class PeopleController < SubdomainController
   end
 
   def ratings
-    resource_not_found unless @category = Category.find(params[:category_id])
-    @ratings = Rating.includes(:special_interest_group).where(:"special_interest_groups.category_id" => @category.id, :person_id => @person.id)
+    if params[:category_id]
+      resource_not_found unless @category = Category.find(params[:category_id])
+      @ratings = Rating.includes(:special_interest_group).where(:"special_interest_groups.category_id" => @category.id, :person_id => @person.id)
+    else
+      # The to_a is an odd fix for a Rails (bug? feature?) where 
+      # grouped scopes like this one return an OrderedHash of groupings for .size and .count
+      # unless converted.
+      @rating_categories = Category.aggregates_for_person(@person).to_a
+    end
   end
+
 
   def news
     @mentions = @person.mentions
@@ -140,7 +156,7 @@ class PeopleController < SubdomainController
     begin
       # TODO: This is less than ideal. We're calling some stored procedures here because
       # we don't have a better way (like outer joining to the current roles view).
-      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
+      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => @limit || 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
     rescue Riddle::ConnectionError
       flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
       return nil

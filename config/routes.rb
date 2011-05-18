@@ -8,6 +8,11 @@ OpenGov::Application.routes.draw do
   constraints(Subdomain) do
     match '/search' => 'states#search', :as => 'state_search'
 
+    match '/widgets' => 'widgets#index', :as => 'widgets'
+    match '/widgets/bill' => 'widgets#bill', :as => 'bill_widget'
+    match '/widgets/bills' => 'widgets#bills', :as => 'bills_widget'
+    match '/widgets/people' => 'widgets#people', :as => 'people_widget'
+
     resources :people, :only => [:show] do
       collection do
         get :search
@@ -94,7 +99,6 @@ OpenGov::Application.routes.draw do
     end
     resources :taggings, :only => [:create, :destroy]
   end
-
 
   match '/search' => 'districts#search', :as => 'search'
 

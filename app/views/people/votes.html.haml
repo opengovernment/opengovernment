@@ -14,9 +14,10 @@
 - if @roll_calls.total_count > 0
   = paginate @roll_calls
   %hr
-  %table.vote-summary
-
-    %tbody
+  
+  %h3.how-they-voted #{@person.short_name} Voted
+  
+  .vote-summary
     - @roll_calls.each do |roll_call|
       = render roll_call.vote, :bill => roll_call.vote.bill, :roll_call => roll_call
 

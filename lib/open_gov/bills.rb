@@ -140,8 +140,7 @@ module OpenGov
         if bill[:sources]
           bill.sources.each do |source|
             @bill.citations << Citation.new(
-              :url => source.url,
-              :retrieved => Date.valid_date!(source.retrieved)
+              :url => source.url
             )
           end
         end
@@ -158,6 +157,7 @@ module OpenGov
           @bill.last_action_at = action_date if @bill.last_action_at < action_date
 
           import_queue << Action.new(
+            :bill_id => @bill.id,
             :actor => action.actor,
             :action => action.action,
             :kind_one => action[:type].try(:first),

@@ -27,14 +27,14 @@ function create_dropdown_menu(anchor_div, menu_div) {
   // but close it after a delay when we leave it.
   $(menu_div).parent().hover(
     function() {
-      mouse_is_on_menu = true;
+      $(this).find("a").data("onMenu", true);
       var t = $(this).find("a").data("destroyHandle");
       if (t) {
         clearTimeout(t);
       }
     },
     function() {
-      mouse_is_on_menu = false;
+      $(this).find("a").data("onMenu", false);
       var t = setTimeout(function() {
         $(menu_div).hide();
         $(anchor_div).removeClass("subhover");
@@ -47,7 +47,7 @@ function create_dropdown_menu(anchor_div, menu_div) {
 
   // Close the menu when someone clicks outside of it.
   $('body').mouseup(function(){ 
-      if(! mouse_is_on_menu) {
+      if(! $(menu_div).parent().find("a").data("onMenu")) {
         $(menu_div).hide();
         $(anchor_div).removeClass("subhover");
       }
@@ -55,7 +55,7 @@ function create_dropdown_menu(anchor_div, menu_div) {
 
 }
 
-$(document).ready(function() {
+$(function() {
 
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/

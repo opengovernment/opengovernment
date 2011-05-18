@@ -60,4 +60,20 @@ module StatesHelper
         :custom => "chxp=0,0.5,3.5,6.5,9.5,12.5|1,#{values.max}",
         :format => 'image_tag', :alt => title_elements.join(' : ')))
   end
+
+  def render_search_results(results)
+    output = ""
+    results.each do |result_item|
+      case result_item
+      when Person
+        output << render(result_item, :style => :summary)
+      when Bill
+        output << render(result_item, :hide_key_vote => false, :style => :summary)
+      when Committee
+        output << render('committees/committee', :committee => result_item, :style => :summary)
+      end
+    end
+    output.html_safe
+   end
+
 end

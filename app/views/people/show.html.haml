@@ -7,10 +7,6 @@
 = render 'wrapper'
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
 
-
-
-
-
 %span= link_to(t('people.show.contact_this_person'), {:action => :contact}, :class => 'button medium silver floatright nodec clearboth modal')
 
 -# TODO: These are turned off for now. Please implement.
@@ -20,19 +16,14 @@
   %a.oppose.button(rel='tipsy' title='Give a personal vote "aye" or "nay" for this person &mdash; coming soon!')
     %span I Oppose this Rep!
 
-
-
-
-
-
 .grid_9.alpha
   %hr  
-  .grid_5.alpha
-    %h2= t '.general_info'
-  
+  .grid_4.alpha
+ 
     .grid_4.alpha
       = photo_for(@person)
-    
+    %hr.space
+
 
     .grid_4.alpha
       %h2 Contact 
@@ -71,31 +62,32 @@
     - else
       %p
         = t '.sorry_no_info_for', :full_name => @person.full_name
-      
+
 .space.clear
 
 %hr.push_top
 
 .grid_12.alpha
 
-  .grid_4.alpha
+  .grid_12.alpha
     %h2= t '.roles'
     - @person.roles.each do |role|
-      %div #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
+      %span #{role.state.try(:name)} #{role.chamber.try(:name)}#{raw (role.session.try(:name_fm) ? ", session #{role.session.try(:name_fm)}" : '')}
+    %hr.space
 
-    .committee_preview
-      %h2
-        = t '.committees', :count => @person.committees.count 
-      - if @person.committees.count > 0
-        = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all')
-        %ul.lined.committees
-          - @person.committees.limit(3).each do |committee|
-            %li
-              = committee.type_fm
-              = link_to(committee.name, committee_path(committee), :class => 'modal')
-      - else
-        %p
-          = t '.no_committee_info', :full_name => @person.full_name 
+  .committee_preview.grid_4.alpha
+    %h2
+      = t '.committees', :count => @person.committees.count 
+    - if @person.committees.count > 0
+      %ul.lined.committees
+        - @person.committees.limit(3).each do |committee|
+          %li
+            = link_to(committee.name_fm, committee_path(committee), :class => 'modal')
+
+      = link_to(t('site.more_link'), committees_person_path(@person), :class => 'modal see_all') if @person.committees.count > 3
+    - else
+      %p
+        = t '.no_committee_info', :full_name => @person.full_name 
 
     
   .grid_4.mentions
@@ -103,7 +95,7 @@
     - if @person.mentions.count > 0
       %ul.lined
         = render @person.mentions.limit(2)
-      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more')
+      %p= link_to(t('site.more_link'), news_person_path(@person), :class => 'more') if @person.mentions.count > 2
     - else
       %p= t '.no_mentions'
 
@@ -123,15 +115,15 @@
   = sponsorship_vitals_for(@person)
   %br
   %ul.lined
-    = render @person.bill_sponsorships.limit(5)
-  = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more')
+    = render @person.bill_sponsorships.limit(5), :style => :compact
+  = link_to(t('.all_sponsored_bills').html_safe, sponsored_bills_person_path(@person), :class => 'more') if @person.bill_sponsorships.count > 5
 
 .grid_6.omega
   %h2= t '.votes' 
   - if @latest_roll_calls
     %div
       %div
-        %ul
+        %ul.lined
           - @latest_roll_calls.each do |roll_call|
             - vote = roll_call.vote
             %li
@@ -154,12 +146,14 @@
 
 .grid_6.alpha
   %h2= t 'people.money_trail.industry_title'
-  = render :partial => 'industry', :collection => @industries
+  %ul.lined.alpha.grid_6
+    = render @industries
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 .grid_6.omega
   %h2= t 'people.money_trail.top_title'
-  = render :partial => 'contribution', :collection => @contributions
+  %ul.lined.alpha.grid_6
+    = render @contributions
   = link_to(t('site.more_link'), money_trail_person_path(@person))
 
 
@@ -168,40 +162,16 @@
 %hr.push_top
 
 .grid_12.alpha
-  %h2= t '.interest_group_ratings'  
-  .small.quiet.grid_24= t '.from_vote_smart'  
+  %h2= t 'people.ratings.interest_group_ratings'  
+  .small.quiet.grid_24= t 'people.ratings.from_vote_smart'  
 
-- if @rating_categories
-  - if @rating_categories.size > 1
-    .grid_6.alpha
-      %table.ratings_summary
-        %tr
-          %th
-          %th= t '.number_of_ratings'  
-        - @rating_categories[0..(@rating_categories.size/2)-1].each do |rating_category|
-          %tr
-            %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
-            %td= rating_category.entries
-
-  .grid_6.omega
-    %table.ratings_summary
-      %tr
-        %th
-        %th= t '.number_of_ratings' 
-      - @rating_categories[@rating_categories.size/2..@rating_categories.size].each do |rating_category|
-        %tr
-          %td= link_to(rating_category.name, ratings_person_path(@person, :category_id => rating_category.id), :class => 'modal')
-          %td= rating_category.entries
-
-- else
-  %p.grid_12.alpha= t '.no_ratings_data_found'  
-      
+  = render 'categories', :categories => @rating_categories, :person => @person, :link_class => 'modal'
 
 - if @person.citations.any?
   .citations
     %p
       = t '.primary_sources' 
-    %ul
+    %ul.lined
       = render @person.citations
     = t '.how_did_we_get' 
     = succeed '.' do

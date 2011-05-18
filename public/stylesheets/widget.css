@@ -1,0 +1,199 @@
+/* Default styles for all opengovernment widgets.
+ */
+/* If this file is named anything other than _base.scss,
+ * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
+ * Modify app/stylesheets/[filename].scss instead.
+ */
+/* line 9, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(101, 101, 101, 0.2);
+  background: url(../images/widg-bg.png) 0px 0px no-repeat;
+  margin: 0;
+}
+/* line 15, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container h1 {
+  line-height: 1em;
+  font-size: 18px;
+  padding: 15px 0 0 20px;
+  margin: 0;
+  border: 0;
+  background: none;
+}
+/* line 24, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container h1 span {
+  line-height: 1.5em;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0;
+  display: block;
+  background: none;
+}
+/* line 34, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container ul {
+  padding-top: 5px;
+}
+/* line 38, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container li {
+  padding-bottom: 15px;
+  margin: 10px 0 0 20px;
+  border-bottom: 1px solid rgba(101, 101, 101, 0.1);
+  background: none;
+}
+/* line 45, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container li:last-child {
+  border-bottom: 0;
+}
+/* line 49, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  text-transform: none;
+  line-height: 1.2em;
+  margin: 0 0 10px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+/* line 59, ../../app/stylesheets/widget.scss */
+.og-widget .og-widget-container h2 a {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* line 68, ../../app/stylesheets/widget.scss */
+textarea#embed-code {
+  height: 250px;
+  width: 250px;
+}
+
+@font-face {
+  font-family: 'ogeye';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/ogeye.eot");
+  src: local("ogeye"), url("../fonts/ogeye.ttf") format("truetype");
+}
+
+/* line 81, ../../app/stylesheets/widget.scss */
+.og-widget-intro {
+  font-size: 11px;
+  margin-top: 5px;
+  line-height: 16px;
+  margin-right: 15px;
+  float: left;
+}
+
+/* line 90, ../../app/stylesheets/widget.scss */
+.og-widget-views:before, .og-widget-intro:before {
+  padding-right: 6px;
+  font-family: 'ogeye';
+  content: 'B';
+  position: relative;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* line 99, ../../app/stylesheets/widget.scss */
+.og-widget-action:before {
+  padding-right: 10px;
+  font-family: 'ogeye';
+  content: 'A';
+  position: relative;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* line 109, ../../app/stylesheets/widget.scss */
+.og-widget-views {
+  font-size: 11px;
+  margin-top: 5px;
+  line-height: 16px;
+  margin-right: 15px;
+  float: left;
+}
+
+/* line 117, ../../app/stylesheets/widget.scss */
+.og-widget-action {
+  font-size: 11px;
+  line-height: 16px;
+  margin-top: 5px;
+  float: left;
+}
+
+/* line 125, ../../app/stylesheets/widget.scss */
+.og-widget-clear {
+  clear: both;
+  height: 0;
+}
+
+/* line 131, ../../app/stylesheets/widget.scss */
+.widgets .grid_16 {
+  margin-top: 0 !important;
+}
+
+/* line 137, ../../app/stylesheets/widget.scss */
+.widgets h1 {
+  margin-top: 0 !important;
+  margin-left: -21px;
+}
+
+/* line 144, ../../app/stylesheets/widget.scss */
+.widgets .share_top {
+  position: absolute;
+  z-index: 9999999;
+  right: 0;
+  top: 29px;
+  width: 240px;
+}
+
+/* line 153, ../../app/stylesheets/widget.scss */
+.widgets .share_top .share {
+  margin: 0 !important;
+}
+
+/* line 157, ../../app/stylesheets/widget.scss */
+.chooser {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 163, ../../app/stylesheets/widget.scss */
+.chooser label {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  line-height: 2em;
+  font-weight: normal;
+}
+
+/* line 172, ../../app/stylesheets/widget.scss */
+.chooser input {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  height: 60px;
+  width: 60px;
+  border: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 183, ../../app/stylesheets/widget.scss */
+#embed-code {
+  width: 430px !important;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 1px solid rgba(101, 101, 101, 0.2);
+}
+
+/* line 195, ../../app/stylesheets/widget.scss */
+.widgets .button.tiny {
+  margin: 7px 19px 0;
+}

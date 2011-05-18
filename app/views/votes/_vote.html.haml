@@ -2,10 +2,10 @@
 -# If no bill is passed in, show the motion without the bill number and title.
 -# If a person is passed in, show the person's vote as a column.
 %li.grid_12.alpha{:class => vote.committee? ? 'committee-vote' : ''}
-  .grid_4.alpha
+  .grid_3.alpha
     .grid_1.alpha.vote_date= vote.date.try(:to_html)
   
-    .grid_3.alpha.omega.vote-motion
+    .grid_2.alpha.omega.vote-motion
       - if defined?(bill)
         %span
           = succeed(': ') do
@@ -17,9 +17,7 @@
         %span.vote-committee-name= vote.committee_name + ' Committee'
       - unless vote.kind_fm.blank?
         %span.vote-kind= vote.kind_fm
-    - if defined?(roll_call)
-      .grid_4.alpha
-        %strong= roll_call.vote_type.capitalize
+
   .grid_8.omega
     .grid_2.votes.alpha
       %span.total-votes.rounded= vote.total_count
@@ -39,3 +37,7 @@
       %span{:class => 'vote-no-block', :style => "width: #{vote.no_pct}%;"} &nbsp;
       %span{:class => 'vote-other-block', :style => "width: #{vote.other_pct}%;"} &nbsp;
       %span{:class => 'vote-needed', :style => "width: #{vote.needed_to_pass_pct}%;"} &nbsp;
+  
+  - if defined?(roll_call)
+    .grid_1.alpha
+      %strong.vote-type= roll_call.vote_type.capitalize

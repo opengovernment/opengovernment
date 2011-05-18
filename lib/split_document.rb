@@ -86,6 +86,9 @@ module SplitDocument
     File.join(components_base_url, '{size}', File.basename(document_file_name, File.extname(document_file_name)) + '_{page}.png')
   end
 
+  def thumbnail_url
+    image_url_format.sub('{size}','small').sub('{page}','1')
+  end
 
   def queue_component_sync
     unless component_sync_queued?

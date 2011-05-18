@@ -37,13 +37,16 @@ stylesheets:
   viewer_print:
     - public/stylesheets/DV/print.css
 
+  widget:
+    - public/stylesheets/widget.css
+
 javascripts:
   common:
     - public/javascripts/rails.js
-    - public/javascripts/jquery.timeago.js
-    - public/javascripts/jquery.tipsy.js
-    - public/javascripts/jquery.colorbox.js
-    - public/javascripts/jquery.placeholder.js
+    - public/javascripts/jquery/jquery.timeago.js
+    - public/javascripts/jquery/jquery.tipsy.js
+    - public/javascripts/jquery/jquery.colorbox.js
+    - public/javascripts/jquery/jquery.placeholder.js
     - public/javascripts/tracker.js
     - public/javascripts/application.js
     - public/javascripts/twitter.js
@@ -68,5 +71,22 @@ javascripts:
     - public/javascripts/DV/states/*.js
     - public/javascripts/DV/controllers/*.js
 
+  zeroclipboard:
+    - public/javascripts/ZeroClipboard.js
+
+  widget:
+    - public/javascripts/underscore-1.1.6.js
+    - app/views/widgets/*.jst
+    - public/javascripts/widget.js
+
   templates:
     - public/javascripts/DV/views/*.jst
+
+  # Widget configuration tools
+  widget_config:
+    - public/javascripts/underscore-1.1.6.js
+    - app/views/widgets/*.jst
+    - public/javascripts/widget.js
+    - public/javascripts/jscolor.js
+    - public/javascripts/json2.js
+    - public/javascripts/widget.config.js

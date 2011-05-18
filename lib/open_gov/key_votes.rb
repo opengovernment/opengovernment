@@ -64,6 +64,37 @@ module OpenGov
       end
 
       puts "Matched #{i} bills in #{state.name}"
+
+
+    puts "Now looking up bill actions to add highlight & synopsis text..."
+    Bill.with_key_votes.for_state(state.id).each do |bill|
+      vs_bill = GovKit::VoteSmart::Bill.find(bill.votesmart_id)
+
+      vs_action_ids = vs_bill.actions.action.collect { |a| a.actionId }
+
+      vs_action_ids.each do |vs_action_id|
+        vs_action = GovKit::VoteSmart::BillAction.find(vs_action_id)
+
+        if !vs_action.synopsis.blank? && !vs_action.highlight.blank?
+          # OK, we have something worth inserting here.
+          kv = KeyVote.find_or_initialize_by_votesmart_action_id(vs_action_id)
+
+          kv.attributes = {
+            :bill => bill,
+            :votesmart_action_id => vs_action_id,
+            :title => vs_action.title,
+            :highlight => vs_action.highlight,
+            :synopsis => vs_action.synopsis,
+            :stage => vs_action.stage,
+            :level => vs_action.level,
+            :url => vs_action.attributes['generalInfo']['linkBack']
+          }
+
+          kv.save
+        end
+      end
+    end
+
     end
   end
 end

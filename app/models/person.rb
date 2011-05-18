@@ -130,6 +130,10 @@ class Person < ActiveRecord::Base
     [chamber.try(:title), first_name, middle_name, last_name, suffix].join(' ').squeeze(' ').strip
   end
 
+  def short_name
+    [chamber.try(:title), last_name].join(' ').strip
+  end
+
   def wiki_name
     normalized_names = [first_name, last_name].map { |name| name.mb_chars.normalize(:kd).gsub(/[^\-x00-\x7F]/n, '') }
     normalized_names.join(' ').gsub(' ', '_')
@@ -207,8 +211,8 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts = {})
-    opts ||= {
-        :methods => [:views, :permalink],
+    default_opts = {
+        :methods => [:views, :permalink, :full_name],
         :include => {
           :roles => {:except => [:person_id, :district_id],
               :include => {
@@ -216,8 +220,8 @@ class Person < ActiveRecord::Base
               }
           }}
     }
-    
-    super(opts)
+
+    super(default_opts.merge(opts))
   end
 
 

@@ -27,7 +27,7 @@ class Page
   def view_count
     return 0 if page_views.count == 0 || new_record?
 
-    opts = {:query => {:page_id => self['_id']} }
+    opts = {:query => {:page_id => self['_id']}, :out => 'temp_views' }
 
     mr = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
     
@@ -38,7 +38,7 @@ class Page
   def view_count_since(since)
     return 0 if page_views.count == 0 || new_record?
 
-    opts = {:query => {'page_id' => self['_id'], 'hour' => { '$gt' => since.utc } } }
+    opts = {:query => {'page_id' => self['_id'], 'hour' => { '$gt' => since.utc } }, :out => 'temp_views' }
 
     mr = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, opts )
     
@@ -58,7 +58,7 @@ class Page
   def self.most_viewed(object_type, ops = {})
     ops[:limit] ||= 10
 
-    mr_opts = { :query => {'countable_type' => object_type } }
+    mr_opts = { :query => {'countable_type' => object_type }, :out => 'temp_views' }
 
     if ops[:subdomain]
       mr_opts[:query]['subdomain'] = ops[:subdomain]

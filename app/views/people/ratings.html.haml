@@ -1,17 +1,24 @@
-- title("#{@category.name} ratings for #{@person.official_name}")
+- if defined?(@category)
+  - title("#{@category.name} ratings for #{@person.official_name}")
 
-%h2 Ratings for #{@person.official_name}
-%h3= @category.name
+  %h2 Ratings for #{@person.official_name}
+  %h3= @category.name
 
-%table
-  %tr
-    %th Interest Group
-    %th Category
-    %th Year
-    %th Rating
-  - @ratings.each do |rating|
+  %table
     %tr
-      %td= link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
-      %td= rating.special_interest_group.name == rating.rating_name ? '' : rating.rating_name
-      %td= rating.timespan
-      %td= rating.rating
+      %th Interest Group
+      %th Category
+      %th Year
+      %th Rating
+    - @ratings.each do |rating|
+      %tr
+        %td= link_to(rating.special_interest_group.name, sig_path(rating.special_interest_group))
+        %td= rating.special_interest_group.name == rating.rating_name ? '' : rating.rating_name
+        %td= rating.timespan
+        %td= rating.rating
+- else
+
+  %h2= t 'people.ratings.interest_group_ratings'  
+  .small.quiet.grid_24= t 'people.ratings.from_vote_smart'  
+
+  = render 'categories', :categories => @rating_categories, :person => @person, :link_class => nil

@@ -1,5 +1,7 @@
 = title(t('.members_of', :state => @state.name, :committee => link_to(@committee.name, committee_path(:id => @committee))))
 
+%h2= t('.members_of', :state => @state.name, :committee => @committee.name_fm)
+
 %hr
 
 .grid_6.alpha

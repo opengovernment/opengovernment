@@ -9,10 +9,10 @@
     = t '.citation'
   .grid_6.alpha
     %h3= t '.industry_title'
-    = render :partial => 'industry', :collection => @industries
+    = render @industries
   .grid_6.omega
     %h3= t '.top_title'
-    = render :partial => 'contribution', :collection => @contributions
+    = render @contributions
 
 - else
   .grid_12.alpha
