@@ -1281,12 +1281,12 @@ p.donate a {
   padding: 20px;
 }
 
-/* line 1244, ../../app/stylesheets/layout.scss */
+/* line 1245, ../../app/stylesheets/layout.scss */
 box {
   border: none !important;
 }
 
-/* line 1250, ../../app/stylesheets/layout.scss */
+/* line 1251, ../../app/stylesheets/layout.scss */
 box box {
   width: 250px;
   height: 120px !important;
@@ -1303,15 +1303,20 @@ box box {
   background: -moz-linear-gradient(top, #eeeeee, #dddddd);
 }
 
-/* line 1269, ../../app/stylesheets/layout.scss */
+/* line 1270, ../../app/stylesheets/layout.scss */
 box div {
   -moz-border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
   border: none !important;
 }
 
-/* line 1276, ../../app/stylesheets/layout.scss */
+/* line 1277, ../../app/stylesheets/layout.scss */
 box div div {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
+}
+
+/* line 1284, ../../app/stylesheets/layout.scss */
+body.home h2 {
+  background: 0 !important;
 }

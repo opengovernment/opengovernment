@@ -29,6 +29,7 @@
 
   %p.bill-title{:class => @bill.title.length > 300 ? 'long_bill_title' : nil}= @bill.title
 
+  - status_bar(@bill)
 
 - if @bill.votesmart_key_vote?
   %span.vote_smart_keyvote
