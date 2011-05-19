@@ -22,14 +22,6 @@
       (%q|
         $(function() {
             $("#chamber_tabs").tabs();
-            
-            $('.sponsor_mug').hover(
-              function() {
-                $('.sponsor_mug').removeClass('active');
-                $(this).addClass('active');
-              }
-            );
-
         	});
 
       |)
@@ -46,8 +38,8 @@
     .hot_people
       - @hot_people.each_with_index do |person, i|
         .hot_person
-          = link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug#{i == 0 ? ' active' : ''}", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
-          .full_name= person.full_name
+          = link_to(photo_for(person, :tiny), person_path(person), :class => "sponsor_mug#{i == 0 ? ' active' : ''}")
+          .full_name= person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')'
           - if mention = person.mentions.first
             %div{:id => "hot_person_#{i}", :class => 'hot_person'}= render mention, :style => :compact
 
