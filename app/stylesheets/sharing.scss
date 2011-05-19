@@ -1,4 +1,7 @@
 
+@import "base";
+
+
 
 .take_action{/*
 width: 150px !important;
@@ -282,6 +285,16 @@ margin-top: -5px;
 display: block;
 width: 90px;
 }
+
+
+
+
+.write_buttons{
+  @include button;
+  @include rounded;
+  @include clear;
+  float: right;
+  }
 
 
 
