@@ -1,5 +1,10 @@
-%li.mention
-  = link_to_with_domain raw(mention.title), mention.url
-  .date= mention.date.try(:to_s, :pretty)
-  .excerpt= raw mention.excerpt
-  .source= mention.source
+- if !defined?(style) || style == :full
+  %li.mention
+    = link_to_with_domain raw(mention.title), mention.url
+    .date= mention.date.try(:to_s, :pretty)
+    .excerpt= raw mention.excerpt
+    .source= mention.source
+- else
+  %li.mention
+    .date= mention.date.try(:to_s, :pretty)
+    = link_to raw(mention.title), mention.url

@@ -61,15 +61,8 @@ en:
   states:
     show:
       people_in_the_news:   Legislators in the News
-      see_all_people_link:  See All &rarr;
-      recent_bills:         Recent Bills
-      most_viewed_bills:    Most Viewed Bills
-      key_votes:            Key Votes
-      from_vote_smart:      From the non-partisan <a href='http://votesmart.org'>Project Vote Smart</a>.
-      whats_a_key_vote:     What's a key vote?
-      all_most_viewed_bills: More Most Viewed Bills &rarr;
-      all_recent_bills:     More Recent Bills &rarr;
-      all_key_votes:        More Key Votes &rarr;
+      popular_bills:        Popular Bills
+      hot_issues:           Hot Issues
       legislators:          Legislators
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>

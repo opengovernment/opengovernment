@@ -54,6 +54,7 @@ OpenGov::Application.routes.draw do
         collection do
           get :upper
           get :lower
+          get :search
         end
         member do
           get :news

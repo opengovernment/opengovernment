@@ -10,13 +10,13 @@ class StatesController < SubdomainController
         format.html {
           session[:preferred_location] = request.subdomains.first
 
-          bill = Bill.where(:session_id => @session.family).limit(5)
-          @key_votes = bill.where(:votesmart_key_vote => true)
-          @recent_bills = bill.order('last_action_at desc')
-          @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 5) || []
+          bill = Bill.where(:session_id => @session.family)
 
-          @hot_people = []
-           Person.find_by_sql(["select
+          @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain, :limit => 3) || []
+
+          @hot_issues = Subject.limit(6)
+
+          @hot_people = Person.find_by_sql(["select
             p.*,
             current_district_name_for(p.id) as district_name,  
             current_party_for(p.id) as party,
@@ -35,7 +35,7 @@ class StatesController < SubdomainController
             on m.owner_id = p.id
           where
             p.photo_url is not null
-          limit 12
+          limit 3
           ", @session.id])
         }
       end
@@ -99,7 +99,6 @@ class StatesController < SubdomainController
       end
 
       @facets = ThinkingSphinx.facets(@query, @search_options)
-
 
       @search_counts = ActiveSupport::OrderedHash.new
       @search_counts[:everything] = 0

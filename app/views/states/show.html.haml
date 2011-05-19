@@ -22,8 +22,7 @@
       (%q|
         $(function() {
             $("#chamber_tabs").tabs();
-        		$("#bill_tabs").tabs();
-
+            
             $('.sponsor_mug').hover(
               function() {
                 $('.sponsor_mug').removeClass('active');
@@ -36,39 +35,31 @@
       |)
     end
 
-  #bill_tabs
-    %ul.small_tabs
-      %li
-        %a{:href => '#recent_bills'} 
-          =t '.recent_bills'
-      %li
-        %a{:href => '#most_viewed_bills'} 
-          =t '.most_viewed_bills'
-      %li
-        %a{:href => '#key_votes'} 
-          =t '.key_votes'
+  #popular_bills
+    %h2= t '.popular_bills'
+    %ul= render @most_viewed_bills, :style => :compact
+    %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
+    .clear
 
+  #people_mentions
+    %h2= t '.people_in_the_news'
+    %ul
+      - @hot_people.each_with_index do |person, i|
+        %li
+          = link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug#{i == 0 ? ' active' : ''}", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
+          .full_name= person.full_name
+          - if mention = person.mentions.first
+            %div{:id => "hot_person_#{i}", :class => 'hot_person'}
+              = render mention, :style => :compact
 
-    #recent_bills.tab_cont
-      %ul
-        = render @recent_bills, :style => :compact
-      %a.more{:href => bills_path(params[:session], :sort => 'recent')}= t '.all_recent_bills'
-      .clear
+    %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
+    .clear
 
-    #most_viewed_bills.tab_cont
-      %ul
-        = render @most_viewed_bills, :style => :compact
-      %a.more{:href => bills_path(params[:session], :sort => 'views')}= t '.all_most_viewed_bills'
-      .clear
-
-    #key_votes.tab_cont
-      .small.quiet= t '.from_vote_smart'
-      %a.what(href="http://www.votesmart.org/glossary/define.php?term=key%20vote")= t '.whats_a_key_vote'
-
-      %ul
-        = render @key_votes, :hide_key_vote => true, :style => :compact
-      %a.more{:href => bills_path(params[:session], :sort => 'keyvotes')}= t '.all_key_votes'
-      .clear
+  #hot_issues
+    %h2= t '.hot_issues'
+    %ul= render @hot_issues, :style => :compact
+    %a.more{:href => issues_path(params[:session])}= t 'site.more_link'
+    .clear
 
 .grid_5.omega.small_finally
 
@@ -92,22 +83,6 @@
 
 .clear
 
-.people_news_preview
-  .grid_12.alpha
-    %h2.people_header= t '.people_in_the_news'
-    = link_to( t('.see_all_people_link'), people_path(:sort => 'mentions'), :class => 'see_all')
-
-  .grid_6.alpha
-    %ul.sponsor_mugs.grid_6.alpha
-      - @hot_people.each_with_index do |person, i|
-        %li= link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug#{i == 0 ? ' active' : ''}", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
-
-  .grid_6.omega.quip
-    - @hot_people.each_with_index do |person, i|
-      - if mention = person.mentions.first
-        %ul{:id => "hot_person_#{i}", :class => 'hot_person', :style => (i == 0 ? 'display: block' : 'display: none')}
-          = render mention
-
 .grid_12.alpha
   .find_box
     = render :partial => 'shared/find_my_rep_form'
@@ -115,8 +90,6 @@
 
 
 .grid_12.alpha
-
-  
   
   .grid_4.omega.floatright
     #chamber_tabs
