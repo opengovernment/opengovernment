@@ -6,6 +6,42 @@
 // Always put config variables above imports.
 $ninesixty-columns: 16;
 
+
+
+
+// Colors
+
+
+$lightgray: rgba(0,0,0, .3);
+$darkgray: rgba(0,0,0, .7);
+$black: rgba(0,0,0, 1);
+
+
+$lightwhite: rgba(255,255,255, .3);
+$white: rgba(255,255,255, 1);
+
+
+// Shadows
+
+
+$lightgreyshadow: 0 1px 0px $lightgray;
+$whiteinnershadow: inset 0 1px 0px $white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Don't import anything that includes any CSS rules on import. It will add them to every stylesheet.
 @import "compass/css3";
 @import "960/grid";
