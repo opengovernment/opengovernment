@@ -5,6 +5,6 @@
     .excerpt= raw mention.excerpt
     .source= mention.source
 - else
-  %li.mention
-    .date= mention.date.try(:to_s, :pretty)
+  .mention
+    %span.date= mention.date.try(:to_s, :pretty)
     = link_to raw(mention.title), mention.url

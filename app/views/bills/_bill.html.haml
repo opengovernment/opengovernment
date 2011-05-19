@@ -54,7 +54,7 @@
 
   - elsif style == :compact
 
-    %li[bill]
+    %div[bill]
       != link_to bill.bill_number, bill_path(bill.session, bill), :class => "bill_link"
   
       .views= t '.views', :count => bill.views

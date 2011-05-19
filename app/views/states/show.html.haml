@@ -37,20 +37,19 @@
 
   #popular_bills
     %h2= t '.popular_bills'
-    %ul= render @most_viewed_bills, :style => :compact
+    = render @most_viewed_bills, :style => :compact
     %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
     .clear
 
   #people_mentions
     %h2= t '.people_in_the_news'
-    %ul
+    .hot_people
       - @hot_people.each_with_index do |person, i|
-        %li
+        .hot_person
           = link_to(photo_for(person, :tiny), person_path(person), :rel => 'tipsy', :title => person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')', :class => "sponsor_mug#{i == 0 ? ' active' : ''}", :"data-hover-show" => "#hot_person_#{i}", :"data-hover-hide" => '.hot_person')
           .full_name= person.full_name
           - if mention = person.mentions.first
-            %div{:id => "hot_person_#{i}", :class => 'hot_person'}
-              = render mention, :style => :compact
+            %div{:id => "hot_person_#{i}", :class => 'hot_person'}= render mention, :style => :compact
 
     %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
     .clear
