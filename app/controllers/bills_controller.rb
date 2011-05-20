@@ -2,8 +2,8 @@ class BillsController < SubdomainController
   before_filter :redirect_if_subsession, :only => [:index, :upper, :lower]
   before_filter :get_bill, :except => [:index, :upper, :lower, :search]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
-  respond_to :html, :json, :only => [:index, :show]
-  respond_to :json, :only => [:search]
+  respond_to :html, :only => [:index, :show]
+  respond_to :json, :only => [:index, :show, :search]
 
   def index
     expires_in 30.minutes
