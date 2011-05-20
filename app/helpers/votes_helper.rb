@@ -19,7 +19,7 @@ module VotesHelper
 
     vote_types = ['yes', 'no', 'other']
 
-    major_parties = [t('state.blue_party_label'), t('state.red_party_label')]
+    major_parties = [t('states.blue_party_label'), t('states.red_party_label')]
     parties = [major_parties, nil].flatten
 
     # Gather the votes for each party and type

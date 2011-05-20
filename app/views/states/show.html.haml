@@ -103,13 +103,13 @@
               %div.small
                 = surround '(', ')' do
                   = succeed ',' do
-                    = pluralize(session_roles.democrats.count, t('state.blue_party_label'))
+                    = pluralize(session_roles.democrats.count, t('states.blue_party_label'))
                   - if session_roles.others.count > 0
                     = succeed ',' do
-                      = pluralize(session_roles.republicans.count, t('state.red_party_label'))
-                    = pluralize(session_roles.others.count, t('state.grey_party_label'))
+                      = pluralize(session_roles.republicans.count, t('states.red_party_label'))
+                    = pluralize(session_roles.others.count, t('states.grey_party_label'))
                   - else
-                    = pluralize(session_roles.republicans.count, t('state.red_party_label'))            
+                    = pluralize(session_roles.republicans.count, t('states.red_party_label'))            
   
               %div.small.small_line
                 =t '.each_chamber_represents'

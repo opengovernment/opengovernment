@@ -11,10 +11,6 @@ en:
     more_link:     More &rarr;
     no_tweets:           "No tweets were found for %{hashtags}."
     view_counts_not_available: View counts currently not available. Please check later.
-  state:
-    blue_party_label: Democrat
-    red_party_label:  Republican
-    grey_party_label: Other
   shared:
     appeal:
       help_us: Help Us Open Gov!
@@ -59,6 +55,9 @@ en:
       track:             Track 
       and_share:         and Share
   states:
+    blue_party_label: Democrat
+    red_party_label:  Republican
+    grey_party_label: Other
     show:
       people_in_the_news:   Legislators in the News
       popular_bills:        Popular Bills
