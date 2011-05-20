@@ -98,7 +98,12 @@ class Bill < ActiveRecord::Base
   end
 
   def self.find_by_slug(param)
-    find_by_bill_number(param.titleize.upcase)
+    if param.match(/^([a-zA-Z]+)(\d+)/)
+      term = $1.titleize.upcase + ' ' + $2.titleize.upcase
+    else
+      term = param
+    end
+    where(:bill_number => term.titleize.upcase)
   end
 
   def self.by_state_and_issue(state_id, issue, limit = 10)
@@ -112,9 +117,10 @@ class Bill < ActiveRecord::Base
 
   def as_json(opts = {})
     default_opts = {
-      :methods => [:views, :permalink],
+      :methods => [:views, :permalink, :to_param],
       :except => [:openstates_md5sum],
       :include => {
+        :session => {:methods => [:to_param, :name_fm] },
         :actions => {:except => :bill_id },
         :votes => {:except => :bill_id},
         :documents => {},
