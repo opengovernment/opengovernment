@@ -28,18 +28,21 @@
   %h2 Customize your widget
 
   %form
-    #widgetBillData
+    -# Storage for the currently selected bill
+    #widgetData
 
     %label(for="widgetBill") Choose a popular bill:
-    %select(id="widgetBill" class="widgetVar")
+    %select(id="widgetBill")
       - @hot_bills.each do |bill|
         %option{:'data-session' => bill.session.to_param, :'data-bill' => bill.to_param}= truncate(bill.title_fm, :length => 60)
 
     :javascript
+      // WHen we choose a bill from the select list, update #widgetBillData to reflect
       $('#widgetBill').change(function() {
         var el = $(this).find('option:selected');
-        $('#widgetBillData').data('bill', el.data('bill'));
-        $('#widgetBillData').data('session', el.data('session').toString());
+        $('#widgetData').data('bill', el.data('bill'));
+        $('#widgetData').data('session', el.data('session').toString());
+        $('#widgetData').trigger('refresh');
       });
 
   %form
@@ -49,13 +52,21 @@
   #billLookupResults
 
   :javascript
+    // Search for a bill via jsonp and display the results
     $('#billLookupBtn').click(function () {
-      // Lookup bill via jsonp
       $.ajax({
           dataType: "jsonp",
           url: '#{escape_javascript(search_bills_path(:format => :json))}?callback=?&q=' + $('#widgetBillLookup').val(),
           success: function(response) {
-            $('#billLookupResults').innerHTML = window.JST['bill_search_results']({bill_search_results: response });
+            $('#billLookupResults').html(window.JST['bill_search_results']({ bill_search_results: response }));
+            
+            // Update #widgetBillData to reflect a bill chosen from search results.
+            $('.billSearchResult').click(function() {
+              $('#widgetData').data('bill', $(this).data('bill'));
+              $('#widgetData').data('session', $(this).data('session').toString());
+              $('#widgetData').trigger('refresh');
+              return false;
+            });
           }
       });
 

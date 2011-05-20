@@ -23,8 +23,8 @@ var refreshTheme = function(widget) {
 
   // Set additional parameters relevant to specific widgets
   if (widget.type == 'bill_status') {
-    var widgetBill = $('#widgetBillData').data('bill');
-    var widgetSession = $('#widgetBillData').data('session');
+    var widgetBill = $('#widgetData').data('bill');
+    var widgetSession = $('#widgetData').data('session');
     widget.setBill({
       session: widgetSession,
       number: widgetBill
@@ -51,8 +51,13 @@ $(function() {
     }
   });
 
-  // Turn on the color pickers
+  // Refresh the theme when colors are chosen
   $('.widgetVar').change(function() {
+    refreshTheme(testWidget);
+  });
+  
+  // Refresh the theme with this trigger is called
+  $('#widgetData').bind('refresh', function() {
     refreshTheme(testWidget);
   });
 
