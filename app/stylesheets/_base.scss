@@ -12,7 +12,7 @@ $ninesixty-columns: 16;
 // Colors
 
 
-$lightgray: rgba(0,0,0, .3);
+$lightgray: rgba(101,101,101, .1);
 $darkgray: rgba(0,0,0, .7);
 $black: rgba(0,0,0, 1);
 
@@ -21,20 +21,42 @@ $lightwhite: rgba(255,255,255, .3);
 $white: rgba(255,255,255, 1);
 
 
+@mixin light-gray-gradient {
+  @include linear-gradient($lightgray,$lightwhite);
+}
+
+
+
+@mixin button {
+  @include light-gray-gradient;
+  @include box-shadow($lightgrayshadow, $whiteinnershadow);
+}
+
+
+@mixin rounded {
+  @include border-radius(4px);
+  }
+
+
+
+
 // Shadows
 
 
-$lightgreyshadow: 0 1px 0px $lightgray;
+$lightgrayshadow: 0 1px 3px $black;
 $whiteinnershadow: inset 0 1px 0px $white;
 
 
 
-
-
-
-
-
-
+@mixin clear {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
 
 
 

@@ -472,15 +472,11 @@ min-width: 260px;
 
   @include border-radius(3px);
   
-  border: 1px solid #bbb;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #999;
+
 
   -webkit-transition: all .6s ease-in-out; 
   
-  @include box-shadow($lightgreyshadow, $whiteinnershadow);
-  @include background(linear-gradient(white, #eee));
-  
+  @include button;
   
   
   
@@ -536,7 +532,7 @@ min-width: 260px;
   position: relative;
   line-height: 1.2em; 
   
-  @include background(linear-gradient(white, #f9f9f9));
+  @include light-gray-gradient;
 
   border-bottom: 1px solid rgba(67, 67, 67, .2);
 
@@ -577,3 +573,25 @@ min-width: 260px;
   width: 90px;
 height: 116px;
 }
+
+
+
+#people_mentions{
+@include grid(4);
+}
+
+
+
+#popular_bills{
+@include grid(4);
+@include alpha;
+
+}
+
+
+
+#hot_issues{
+@include grid(4);
+@include omega;
+}
+
