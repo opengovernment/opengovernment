@@ -1,8 +1,9 @@
 class BillsController < SubdomainController
   before_filter :redirect_if_subsession, :only => [:index, :upper, :lower]
-  before_filter :get_bill, :except => [:index, :upper, :lower]
+  before_filter :get_bill, :except => [:index, :upper, :lower, :search]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
   respond_to :html, :json, :only => [:index, :show]
+  respond_to :json, :only => [:search]
 
   def index
     expires_in 30.minutes
@@ -14,6 +15,14 @@ class BillsController < SubdomainController
     @current_tab = :all
 
     respond_with(@bills)
+  end
+
+  def search
+    if @bills = @state.bills.find_by_slug(params[:q])
+      respond_with(@bills)
+    else
+      resource_not_found
+    end
   end
 
   def upper
