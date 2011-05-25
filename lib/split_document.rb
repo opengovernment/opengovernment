@@ -12,7 +12,7 @@ module SplitDocument
   def self.included(base)
     base.class_eval do
       after_save :destroy_components, :unless => :document?
-      before_save :queue_component_sync, :if => :refresh_components?
+      around_save :queue_component_sync, :if => :refresh_components?
       before_destroy :destroy_components
     end
   end
@@ -91,9 +91,14 @@ module SplitDocument
   end
 
   def queue_component_sync
-    unless component_sync_queued?
+    # Queue if we're not already queued.
+    # And don't touch component_sync_queued if it's been explicitly set already.
+    unless component_sync_queued? || component_sync_queued_changed?
+      toggle(:component_sync_queued)
+      yield # save
       Delayed::Job.enqueue(SplitDocumentJob.new(self.class, self.id))
-      toggle!(:component_sync_queued)
+    else
+      yield
     end
     true
   end

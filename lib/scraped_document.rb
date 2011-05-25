@@ -6,8 +6,7 @@ module ScrapedDocument
       has_attached_file :document, :path => ':rails_root/public/system/:class/:id_partition/:style/:filename', :url => '/system/:class/:id_partition/:style/:filename'
       scope :without_local_copy, where("url is not null and url != '' and document_file_name is null")
 
-      before_update :queue_document_download, :if => :refresh_document?
-      after_create :queue_document_download
+      around_save :queue_document_sync, :if => :refresh_document?
     end
   end
 
@@ -19,12 +18,17 @@ module ScrapedDocument
     !self.url.blank? && (self.url_changed? || !self.document?)
   end
 
-  def queue_document_download
+  def queue_document_sync
     # Don't queue the job if we've already queued it.
-    unless document_sync_queued?
+    # And don't touch document_sync_queued if it's been explicitly set already.
+    unless document_sync_queued? || document_sync_queued_changed?
       toggle(:document_sync_queued)
+      yield # save
       Delayed::Job.enqueue(ScrapedDocumentJob.new(self.class, self.id))
+    else
+      yield # save
     end
+
     return true
   end
 
