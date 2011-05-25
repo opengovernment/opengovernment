@@ -356,17 +356,16 @@ namespace :load do
   task :people => :environment do
     with_states do |state|
       state ? OpenGov::People.new.import_state(state) : OpenGov::People.new.import
+      Dir.chdir(Rails.root)
+      GovTrackImporter.new.import!
+
+      # These methods all act on all people with votesmart ids
+      Dir.chdir(Rails.root)
+      state ? OpenGov::Addresses.new.import_state(state) : OpenGov::Addresses.new.import
+
+      puts "---------- Importing bios from Wikipedia."
+      state ? OpenGov::Bios.new.import_state(state) : OpenGov::Bios.new.import
     end
-
-    Dir.chdir(Rails.root)
-    GovTrackImporter.new.import!
-
-    # These methods all act on all people with votesmart ids
-    Dir.chdir(Rails.root)
-    OpenGov::Addresses.new.import
-
-    puts "---------- Importing bios from Wikipedia."
-    OpenGov::Bios.new.import
   end
 
   desc "Fetch and load people ratings VoteSmart"
