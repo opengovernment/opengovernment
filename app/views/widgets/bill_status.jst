@@ -1,8 +1,8 @@
 <div class="og-widget-container">
-<h1><span><%= state.toUpperCase() %> <%= bill_status.session.name_fm %><%= bill_status.bill_number %></span></h1>
+<h1><span><%= state.toUpperCase() %> Bill <%= bill_status.bill_number %></span></h1>
 <ul>
   <li>
-    <h2><a href="http://<%= subdomain + bill_status.permalink %>"><strong><%= bill_status.bill_number %></strong> <%= bill_status.title.substring(0, 60) %></a></h2>
+    <h2><a href="http://<%= subdomain + bill_status.permalink %>"><%= bill_status.title.substring(0, 60) %></a></h2>
     <div class="og-widget-intro">Introduced <time class="og-widget-first-bill-action" datetime="<%= bill_status.first_action_at %>"><%= OG.dateFromISO8601(bill_status.first_action_at).format("longDate") %></time></div>
     <div class="og-widget-action">Last action on <time class="og-widget-last-bill-action" datetime="<%= bill_status.last_action_at %>"><%= OG.dateFromISO8601(bill_status.last_action_at).format("longDate") %></time></div>
     <div class="og-widget-clear">&nbsp;</div>
