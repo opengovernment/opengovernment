@@ -822,3 +822,13 @@ ul.small_tabs li.divide {
 .hide {
   display: none;
 }
+
+/* line 861, ../../app/stylesheets/classes.scss */
+.search_form .state_search_form #q {
+  width: 288px;
+}
+
+/* line 866, ../../app/stylesheets/classes.scss */
+.write_buttons {
+  padding: 10px;
+}
