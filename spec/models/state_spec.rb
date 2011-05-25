@@ -37,7 +37,7 @@ describe State do
   end
 
   it "should return current senators in the US Congress" do
-    senators = @texas.legislators
+    senators = @texas.senators
     senators.size.should eql(2)
   end
 
