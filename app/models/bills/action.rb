@@ -32,31 +32,6 @@ class Action < ActiveRecord::Base
     !kinds.empty? && !kinds.include?("other")
   end
 
-  def action_fm
-    case action.downcase
-      when /^vote/, /^(committee|comte|comm.)/, /suspended|cancelled/, /^nonrecord vote/, /^statement/, /^remarks/
-        "had its " + action.downcase
-      when /^amendment/
-        "had " + action.downcase
-      when "point of order"
-        "had a point of order raised"
-      when /point of order(.*)/
-        "had a point of order#{$1}"
-      when /^(co-)?author/, /^motion/
-        "had a " + action.downcase
-      when /testimony taken in(.*)$/
-        "testimony was taken in #{$1}"
-      when /grants/, /appoints/, /requests/, /refuses/, /adopts/
-        action.downcase
-      when /^read\s+([^\s]+)\s+time/
-        "was read for the #{$1} time"
-      when "record vote"
-        "had its vote recorded"
-      else
-        action.downcase
-    end
-  end
-
   def kind_fm
     kinds.collect do |kind|
       case kind
