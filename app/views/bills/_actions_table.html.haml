@@ -8,4 +8,4 @@
       %td
         %time{:datetime => action.date.to_s(:utc)}= action.date && action.date.to_s(:pretty)
       %td= action.actor_fm
-      %td= link_to(action.action_fm, action)
+      %td= action.action

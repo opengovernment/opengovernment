@@ -30,19 +30,16 @@
     = t '.vote_breakdown'
   %table
     %tr
-      %th.first.label 
-        = t '.yeslabel'
+      %th.first.label(scope='row')= t '.yeslabel'
       %td.first.label!= @vote.passed? ? '&radic;' : ''
       %td.first.label= @vote.yes_count
       %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
     %tr
-      %th.label 
-        = t '.nolabel'
+      %th.label(scope='row')= t '.nolabel'
       %td.label!= @vote.passed? ? '' : '&radic;'
       %td.label= @vote.no_count
     %tr
-      %th.last.label 
-        = t '.otherlabel'
+      %th.last.label(scope='row')= t '.otherlabel'
       %td.last.label
       %td.last.label #{@vote.other_count}
     %caption(align='bottom')
