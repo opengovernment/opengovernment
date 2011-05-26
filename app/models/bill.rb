@@ -10,7 +10,7 @@ class Bill < ActiveRecord::Base
     hm.has_many :versions, :class_name => 'BillDocument', :conditions => {:document_type => 'version'}
     hm.has_many :documents, :class_name => 'BillDocument', :conditions => {:document_type => 'document'}
     hm.has_many :all_documents, :class_name => 'BillDocument'
-    hm.has_many :actions do
+    hm.has_many :actions, :order => 'actions.date desc' do
       def has_kind?(kind)
         exists?(["? in (actions.kind_one, actions.kind_two, actions.kind_three)", kind])
       end
@@ -31,7 +31,7 @@ class Bill < ActiveRecord::Base
   end
 
   has_many :sponsors, :through  => :sponsorships
-  has_many :major_actions, :class_name => 'Action', :conditions => ["kind_one <> 'other' and kind_one is not null"]
+  has_many :major_actions, :class_name => 'Action', :conditions => ["kind_one <> 'other' and kind_one is not null"], :order => 'actions.date desc'
   has_many :votes, :dependent => :destroy
   has_many :key_votes, :dependent => :destroy
 
