@@ -55,7 +55,7 @@ en:
       track:             Track 
       and_share:         and Share
   states:
-    blue_party_label: Democrat
+    blue_party_label: Democratic
     red_party_label:  Republican
     grey_party_label: Other
     show:
@@ -101,7 +101,7 @@ en:
           no_results: |
             At the moment, we're finding no mentions of the search term "%{search_term}" in our daily automated search of the Web (via <a href="http://news.google.com/" target="_blank">Google News</a> and <a href="http://blogsearch.google.com/" target="_blank">Blog Search</a>). There may be relevant news articles & blog posts out there on the Web that refer to this bill by a slightly different name or title -- in which case, they're not included here, but our goal is to aggregate as much relevant info as possible. If you know of any, <a href="/pages/contact">contact us</a> with the specific links, and we'll display them here for everyone to access.<br><br>
             In any case, you can help build public knowledge about this piece of legislation. If you can, publish a blog post that refers to this bill by his official title as listed just above, and if it's on the open Web where search engines can find it, a link to your post and an excerpt will automatically appear here within 24 hours. If you don't have access to a blog of your own, you can write a letter to the editor of your local newspaper or one of your state's political blogs, and if it's published on the Web, a link to that page will be swept up and displayed here.<br><br>
-            Don't forget that just because we couldn't find There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
+            There's lots more to do to make our government more open and accountable -- read more about <a href="/pages/help">how you can help</a>.
           results_intro: |
             Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for the search term: "%{search_term}". Remember, you can help build public knowledge about this bill. Simply mention this bill by its official title (as above) in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this bill, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
           google_news:  Google News

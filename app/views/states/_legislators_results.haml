@@ -1,4 +1,4 @@
-- if legislators.blank?
+- if @legislators.blank?
   %p Sorry, no legislators matched.
 - else
   %nav#sort
@@ -11,5 +11,5 @@
   .search_results
     %h2= link_to('People', people_path)
     %ul.legislators.lined
-      = render legislators
-
+      = render @legislators
+  = paginate @legislators

@@ -1,6 +1,5 @@
 class Action < ActiveRecord::Base
   belongs_to :bill
-  default_scope :order => 'id'
 
   def self.by_state_and_issue(state_id, issue, limit = 10)
     find_by_sql(["select * from v_tagged_actions

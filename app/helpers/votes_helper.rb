@@ -66,7 +66,8 @@ module VotesHelper
       party_name = ''
       votes.each_with_index do |h, i|
         if i % 2 == 0
-          party_name = h.pluralize
+          # The party label should be the pluralized adjectiveized name of the party.
+          party_name = Role.party_adj(h).pluralize
         else
           h.each_with_index do |c, j|
             series_index = (i-1) / 2
@@ -107,7 +108,4 @@ module VotesHelper
     return image_tag(eval('"' + MAP_URL + '"'), :width => width, :height => height, :class => 'vote_map', :alt => "Geography of the vote")
   end
 
-  def vote_legend_img
-    return image_tag('votes/map_legend.png', :class => 'vote_legend')
-  end
 end

@@ -1,11 +1,11 @@
 en-MN:
   states:
-    blue_party_label: 'Democratic-Farmer-Laborer'
+    blue_party_label: 'Democratic-Farmer-Labor'
     red_party_label: 'Republican'
     grey_party_label: 'Other'
     show: 
       background: |       
-        Here are more links with background on the Minnesota legislature and the best explanations of how it works: 
+        Here are more links with background on the Minnesota government and the best online explanations of how its legislative branch works: 
         <ul class="standard">
         <li>The official website of the <a href="http://www.leg.state.mn.us/">Minnesota State Legislature</a>. This is where the legislature publishes bill nod vote information, but it falls far short of the <a href="http://www.opengovdata.org/">8 Principles of Open Government Data</a>
         <li><a href="http://www.mmb.state.mn.us/tap">Then Transparency and Accountability Project for Minnesota</a>, a government website making budget, spending and contracting information more easily accessible</li>
@@ -23,4 +23,6 @@ en-MN:
         <li>Minnesota Public Radio <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/" target="_blank">coverage</a> of the legislature, including issue areas such as <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/taxes_finance" target="_blank">taxes & finance</a>.</li>
         </ul>
         How did we get the above information? Well, almost no U.S. legislature (including California) makes its data available in ways that are fully open, so we had to work around them. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
-
+        
+  videos:
+    miro_url: 'http://mnopengov.mirocommunity.org/'

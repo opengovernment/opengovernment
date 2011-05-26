@@ -21,3 +21,5 @@
   .search_results
     %ul.bills.bills.lined.and_spaced
       = render @bills, :hide_key_vote => false
+
+    = paginate @bills

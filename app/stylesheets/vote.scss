@@ -34,60 +34,79 @@ margin: 0;
 }
 
 /* Full Roll Call */
-.roll_call caption {
-  background: transparent;
-  text-align: left;
-  font-weight: bold;
-  font-size: 14px;
+.roll_call {
+  caption {
+    background: transparent;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  th {
+    font-weight: normal;
+    padding-bottom: 3px;
+    padding-top: 5px;
+  }
+
+  td {
+    padding: 3px 5px 3px 0;
+    min-width: 35px;
+  }
+
+  /* Make room for the party icon */
+  td.person {
+    padding-left: 14px !important;
+    min-width: 130px;
+    font-size: 12px;
+  }
+
+  /* showing vote color boxes */
+  .vote_dem_yes, .vote_dfl_yes {
+    background: url(../images/votes/dem-yes-box.gif) no-repeat 0% 50%;
+  }
+   .vote_dem_no, .vote_dfl_no {
+    background: url(../images/votes/dem-no-box.gif) no-repeat 0% 50%;
+  }
+   .vote_dem_other,  .vote_dfl_other {
+    background: url(../images/votes/dem-other-box.gif) no-repeat 0% 50%;
+  }
+
+   .vote_rep_yes {
+    background: url(../images/votes/rep-yes-box.gif) no-repeat 0% 50%;
+  }
+   .vote_rep_other {
+    background: url(../images/votes/rep-other-box.gif) no-repeat 0% 50%;
+  }
+   .vote_rep_no {
+    background: url(../images/votes/rep-no-box.gif) no-repeat 0% 50%;
+  }
+
+   .vote_ind_yes {
+    background: url(../images/votes/ind-yes-box.gif) no-repeat 0% 50%;
+  }
+   .vote_ind_no {
+    background: url(../images/votes/ind-no-box.gif) no-repeat 0% 50%;
+  }
+   .vote_ind_other {
+    background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
+  }
 }
 
-.roll_call th {
-  font-weight: normal;
-  padding-bottom: 3px;
-  padding-top: 5px;
+table.map_legend {
+  width: 200px;
+  float: left;
 }
 
-.roll_call td {
-  padding: 3px 5px 3px 0;
-  min-width: 35px;
+table.map_legend td {
+  min-width: 60px;
+  width: 100px;
 }
 
-/* Make room for the party icon */
-.roll_call td.person {
-  padding-left: 14px !important;
-  min-width: 130px;
-  font-size: 12px;
-}
-
-/* showing vote color boxes */
-.roll_call .vote_dem_yes {
-  background: url(../images/votes/dem-yes-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_dem_no {
-  background: url(../images/votes/dem-no-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_dem_other {
-  background: url(../images/votes/dem-other-box.gif) no-repeat 0% 50%;
-}
-
-.roll_call .vote_rep_yes {
-  background: url(../images/votes/rep-yes-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_rep_other {
-  background: url(../images/votes/rep-other-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_rep_no {
-  background: url(../images/votes/rep-no-box.gif) no-repeat 0% 50%;
-}
-
-.roll_call .vote_ind_yes {
-  background: url(../images/votes/ind-yes-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_ind_no {
-  background: url(../images/votes/ind-no-box.gif) no-repeat 0% 50%;
-}
-.roll_call .vote_ind_other {
-  background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
+table.map_legend td.icon {
+  padding-right: 5px !important;
+  padding-bottom: 3px !important;
+  min-width: 13px;
+  width: 13px;
 }
 
 /* Vote summary -- shared/_vote */
@@ -95,22 +114,21 @@ margin: 0;
   display: block;
   float: left;
   width: 700px;
-}
 
-.vote-summary li{
-padding: 20px 0;
-border-bottom: 1px solid #f9f9f9;
-}
+  li{
+    padding: 20px 0;
+    border-bottom: 1px solid #f9f9f9;
+  }
 
+  h4 {
+    line-height: 16px;
+    margin: 0;
+  }
 
-.vote-summary h4 {
-  line-height: 16px;
-  margin: 0;
-}
-
-.vote-summary .bill_title {
-  font-size: 11px;
-  line-height: 15px;
+  .bill_title {
+    font-size: 11px;
+    line-height: 15px;
+  }
 }
 
 .vote-summary-line {
@@ -119,9 +137,7 @@ border-bottom: 1px solid #f9f9f9;
   color: #888888;
 }
 
-
-
-.vote-motion{
+.vote-motion {
 padding-left: 10px;
 line-height: 1.4em;
   font-size: 11px;
@@ -132,14 +148,9 @@ td.vote-motion h4 a:first-letter{
 text-transform: uppercase;
 }
 
-
-
 .vote-votes{
 width: 80px;
 }
-
-
-
 
 .vote-yes-block, .vote-no-block, .vote-other-block {
   display: block;
