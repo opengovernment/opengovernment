@@ -25,9 +25,9 @@ class Role < ActiveRecord::Base
   scope :for_chamber, lambda { |c| { :conditions => {:chamber_id => c} } }
   scope :for_session, lambda { |s| {:conditions => {:session_id => s} } }
   scope :for_state, lambda { |s| { :conditions => ['roles.district_id in (select id from districts where state_id = ?) or roles.state_id = ?', s, s] } }
-  scope :democrats, where("party = 'Democrat'")
+  scope :democrats, where("party in ('Democrat','Democratic','Democratic-Farmer-Labor')")
   scope :republicans, where("party = 'Republican'")
-  scope :others, where("party not in ('Democrat','Republican')")
+  scope :others, where("party not in ('Democrat','Republican','Democratic','Democratic-Farmer-Labor')")
   scope :current, on_date(Date.today)
   scope :by_last_name, joins(:person).order('people.last_name')
 
@@ -45,10 +45,12 @@ class Role < ActiveRecord::Base
     end
 
     case party
-    when "Democrat"
+    when "Democrat", "Democratic"
       "dem"
     when "Republican"
       "rep"
+    when "Democratic-Farmer-Labor"
+      "dfl"
     when "Independent"
       "ind"
     end
@@ -62,12 +64,31 @@ class Role < ActiveRecord::Base
     nil if party.blank?
 
     case party
-      when "Democrat"
+      when "Democrat", "Democratic"
         "D"
+      when "Democratic-Farmer-Labor"
+        "DFL"
       when "Republican"
         "R"
       else
         "I"
+    end
+  end
+
+  def party_adj
+    Role.party_adj(party)
+  end
+
+  def self.party_adj(party)
+    nil if party.blank?
+
+    case party
+      when "Democrat", "Democratic"
+        "Democrat"
+      when "Democratic-Farmer-Labor"
+        "Democratic-Farmer-Laborer"
+      else
+        party
     end
   end
 
