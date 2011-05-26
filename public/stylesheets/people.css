@@ -99,7 +99,7 @@ li.race_tracker {
 
 /* Rating party color boxes */
 /* line 120, ../../app/stylesheets/people.scss */
-.rating_person.rating_dem {
+.rating_person.rating_dem, .rating_person.rating_dfl {
   background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 

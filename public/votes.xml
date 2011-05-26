@@ -51,10 +51,20 @@
                 <ogc:PropertyName>vote_type</ogc:PropertyName>
                 <ogc:Literal>yes</ogc:Literal>
               </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democrat</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
+              <ogc:Or>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+              </ogc:Or>
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
@@ -76,10 +86,20 @@
                 <ogc:PropertyName>vote_type</ogc:PropertyName>
                 <ogc:Literal>no</ogc:Literal>
               </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democrat</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
+              <ogc:Or>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+              </ogc:Or>
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
@@ -117,10 +137,20 @@
                 <ogc:PropertyName>vote_type</ogc:PropertyName>
                 <ogc:Literal>other</ogc:Literal>
               </ogc:PropertyIsEqualTo>
-              <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>party</ogc:PropertyName>
-                <ogc:Literal>Democrat</ogc:Literal>
-              </ogc:PropertyIsEqualTo>
+              <ogc:Or>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+                <ogc:PropertyIsEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
+                </ogc:PropertyIsEqualTo>
+              </ogc:Or>
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
@@ -233,14 +263,22 @@
                 <ogc:PropertyName>vote_type</ogc:PropertyName>
                 <ogc:Literal>yes</ogc:Literal>
               </ogc:PropertyIsEqualTo>
-                <ogc:PropertyIsNotEqualTo>
-                  <ogc:PropertyName>party</ogc:PropertyName>
-                  <ogc:Literal>Republican</ogc:Literal>
-                </ogc:PropertyIsNotEqualTo>
-                <ogc:PropertyIsNotEqualTo>
-                  <ogc:PropertyName>party</ogc:PropertyName>
-                  <ogc:Literal>Democrat</ogc:Literal>
-                </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Republican</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democrat</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democratic</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>
           <PolygonSymbolizer>
@@ -269,6 +307,14 @@
                 <ogc:PropertyIsNotEqualTo>
                   <ogc:PropertyName>party</ogc:PropertyName>
                   <ogc:Literal>Democrat</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic</ogc:Literal>
+                </ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyIsNotEqualTo>
+                  <ogc:PropertyName>party</ogc:PropertyName>
+                  <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
                 </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>
@@ -314,6 +360,14 @@
               <ogc:PropertyIsNotEqualTo>
                 <ogc:PropertyName>party</ogc:PropertyName>
                 <ogc:Literal>Democrat</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democratic</ogc:Literal>
+              </ogc:PropertyIsNotEqualTo>
+              <ogc:PropertyIsNotEqualTo>
+                <ogc:PropertyName>party</ogc:PropertyName>
+                <ogc:Literal>Democratic-Farmer-Labor</ogc:Literal>
               </ogc:PropertyIsNotEqualTo>
             </ogc:And>
           </ogc:Filter>

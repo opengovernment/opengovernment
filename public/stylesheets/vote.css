@@ -38,143 +38,151 @@ tr.committee-vote h4 {
 
 /* Full Roll Call */
 /* line 37, ../../app/stylesheets/vote.scss */
+.roll_call {
+  /* Make room for the party icon */
+  /* showing vote color boxes */
+}
+/* line 38, ../../app/stylesheets/vote.scss */
 .roll_call caption {
   background: transparent;
   text-align: left;
   font-weight: bold;
   font-size: 14px;
 }
-
-/* line 44, ../../app/stylesheets/vote.scss */
+/* line 45, ../../app/stylesheets/vote.scss */
 .roll_call th {
   font-weight: normal;
   padding-bottom: 3px;
   padding-top: 5px;
 }
-
-/* line 50, ../../app/stylesheets/vote.scss */
+/* line 51, ../../app/stylesheets/vote.scss */
 .roll_call td {
   padding: 3px 5px 3px 0;
   min-width: 35px;
 }
-
-/* Make room for the party icon */
-/* line 56, ../../app/stylesheets/vote.scss */
+/* line 57, ../../app/stylesheets/vote.scss */
 .roll_call td.person {
   padding-left: 14px !important;
   min-width: 130px;
   font-size: 12px;
 }
-
-/* showing vote color boxes */
-/* line 63, ../../app/stylesheets/vote.scss */
-.roll_call .vote_dem_yes {
+/* line 64, ../../app/stylesheets/vote.scss */
+.roll_call .vote_dem_yes, .roll_call .vote_dfl_yes {
   background: url(../images/votes/dem-yes-box.gif) no-repeat 0% 50%;
 }
-
-/* line 66, ../../app/stylesheets/vote.scss */
-.roll_call .vote_dem_no {
+/* line 67, ../../app/stylesheets/vote.scss */
+.roll_call .vote_dem_no, .roll_call .vote_dfl_no {
   background: url(../images/votes/dem-no-box.gif) no-repeat 0% 50%;
 }
-
-/* line 69, ../../app/stylesheets/vote.scss */
-.roll_call .vote_dem_other {
+/* line 70, ../../app/stylesheets/vote.scss */
+.roll_call .vote_dem_other, .roll_call .vote_dfl_other {
   background: url(../images/votes/dem-other-box.gif) no-repeat 0% 50%;
 }
-
-/* line 73, ../../app/stylesheets/vote.scss */
+/* line 74, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_yes {
   background: url(../images/votes/rep-yes-box.gif) no-repeat 0% 50%;
 }
-
-/* line 76, ../../app/stylesheets/vote.scss */
+/* line 77, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_other {
   background: url(../images/votes/rep-other-box.gif) no-repeat 0% 50%;
 }
-
-/* line 79, ../../app/stylesheets/vote.scss */
+/* line 80, ../../app/stylesheets/vote.scss */
 .roll_call .vote_rep_no {
   background: url(../images/votes/rep-no-box.gif) no-repeat 0% 50%;
 }
-
-/* line 83, ../../app/stylesheets/vote.scss */
+/* line 84, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_yes {
   background: url(../images/votes/ind-yes-box.gif) no-repeat 0% 50%;
 }
-
-/* line 86, ../../app/stylesheets/vote.scss */
+/* line 87, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_no {
   background: url(../images/votes/ind-no-box.gif) no-repeat 0% 50%;
 }
-
-/* line 89, ../../app/stylesheets/vote.scss */
+/* line 90, ../../app/stylesheets/vote.scss */
 .roll_call .vote_ind_other {
   background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
 }
 
+/* line 95, ../../app/stylesheets/vote.scss */
+table.map_legend {
+  width: 200px;
+  float: left;
+}
+
+/* line 100, ../../app/stylesheets/vote.scss */
+table.map_legend td {
+  min-width: 60px;
+  width: 100px;
+}
+
+/* line 105, ../../app/stylesheets/vote.scss */
+table.map_legend td.icon {
+  padding-right: 5px !important;
+  padding-bottom: 3px !important;
+  min-width: 13px;
+  width: 13px;
+}
+
 /* Vote summary -- shared/_vote */
-/* line 94, ../../app/stylesheets/vote.scss */
+/* line 113, ../../app/stylesheets/vote.scss */
 .vote-summary {
   display: block;
   float: left;
   width: 700px;
 }
-
-/* line 100, ../../app/stylesheets/vote.scss */
+/* line 118, ../../app/stylesheets/vote.scss */
 .vote-summary li {
   padding: 20px 0;
   border-bottom: 1px solid #f9f9f9;
 }
-
-/* line 106, ../../app/stylesheets/vote.scss */
+/* line 123, ../../app/stylesheets/vote.scss */
 .vote-summary h4 {
   line-height: 16px;
   margin: 0;
 }
-
-/* line 111, ../../app/stylesheets/vote.scss */
+/* line 128, ../../app/stylesheets/vote.scss */
 .vote-summary .bill_title {
   font-size: 11px;
   line-height: 15px;
 }
 
-/* line 116, ../../app/stylesheets/vote.scss */
+/* line 134, ../../app/stylesheets/vote.scss */
 .vote-summary-line {
   font-size: 10px;
   line-height: 1.3em;
   color: #888888;
 }
 
-/* line 124, ../../app/stylesheets/vote.scss */
+/* line 140, ../../app/stylesheets/vote.scss */
 .vote-motion {
   padding-left: 10px;
   line-height: 1.4em;
   font-size: 11px;
 }
 
-/* line 131, ../../app/stylesheets/vote.scss */
+/* line 147, ../../app/stylesheets/vote.scss */
 td.vote-motion h4 a:first-letter {
   text-transform: uppercase;
 }
 
-/* line 137, ../../app/stylesheets/vote.scss */
+/* line 151, ../../app/stylesheets/vote.scss */
 .vote-votes {
   width: 80px;
 }
 
-/* line 144, ../../app/stylesheets/vote.scss */
+/* line 155, ../../app/stylesheets/vote.scss */
 .vote-yes-block, .vote-no-block, .vote-other-block {
   display: block;
   float: left;
 }
 
-/* line 151, ../../app/stylesheets/vote.scss */
+/* line 162, ../../app/stylesheets/vote.scss */
 td.votes,
 td.vote_date {
   vertical-align: top;
 }
 
-/* line 160, ../../app/stylesheets/vote.scss */
+/* line 171, ../../app/stylesheets/vote.scss */
 .votes span.total-votes,
 .votes span.other-votes,
 .votes span.vote-yes,
@@ -187,36 +195,36 @@ td.vote_date {
   line-height: 1em;
 }
 
-/* line 176, ../../app/stylesheets/vote.scss */
+/* line 187, ../../app/stylesheets/vote.scss */
 .votes span.other-votes {
   color: #999;
 }
 
-/* line 181, ../../app/stylesheets/vote.scss */
+/* line 192, ../../app/stylesheets/vote.scss */
 .votes span.vote-yes {
   color: #2a6b0d;
 }
 
-/* line 185, ../../app/stylesheets/vote.scss */
+/* line 196, ../../app/stylesheets/vote.scss */
 .votes span.vote-no {
   color: #9d1c1c;
 }
 
-/* line 192, ../../app/stylesheets/vote.scss */
+/* line 203, ../../app/stylesheets/vote.scss */
 td.vote-passed .vote-yes {
   border: 1px solid #2a6b0d !important;
   background: #2a6b0d;
   color: #fff !important;
 }
 
-/* line 198, ../../app/stylesheets/vote.scss */
+/* line 209, ../../app/stylesheets/vote.scss */
 td.vote-failed .vote-no {
   border: 1px solid #9d1c1c !important;
   background: #9d1c1c;
   color: #fff !important;
 }
 
-/* line 207, ../../app/stylesheets/vote.scss */
+/* line 218, ../../app/stylesheets/vote.scss */
 .vote-needed {
   display: block;
   padding: 0 !important;
@@ -224,27 +232,27 @@ td.vote-failed .vote-no {
   border-right: 2px solid #666;
 }
 
-/* line 216, ../../app/stylesheets/vote.scss */
+/* line 227, ../../app/stylesheets/vote.scss */
 .vote-bar {
   opacity: .5;
   height: 10px;
 }
 
-/* line 223, ../../app/stylesheets/vote.scss */
+/* line 234, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-yes-block {
   background: #2a6b0d;
   height: 5px;
   margin-top: 10px;
 }
 
-/* line 229, ../../app/stylesheets/vote.scss */
+/* line 240, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-no-block {
   background: #9d6c6c;
   margin-top: 10px;
   height: 5px;
 }
 
-/* line 235, ../../app/stylesheets/vote.scss */
+/* line 246, ../../app/stylesheets/vote.scss */
 .vote-bar .vote-other-block {
   height: 5px;
   background: #ccc;
@@ -252,29 +260,29 @@ td.vote-failed .vote-no {
 }
 
 /* Big vote chart -- votes/show */
-/* line 243, ../../app/stylesheets/vote.scss */
+/* line 254, ../../app/stylesheets/vote.scss */
 .vote_chart table {
   width: 400px !important;
 }
 
-/* line 247, ../../app/stylesheets/vote.scss */
+/* line 258, ../../app/stylesheets/vote.scss */
 .vote_chart table td {
   min-width: 25px;
 }
 
-/* line 251, ../../app/stylesheets/vote.scss */
+/* line 262, ../../app/stylesheets/vote.scss */
 .vote_chart table td.vote_chart {
   width: 300px;
   /* See votes_helper full-size chart width */
 }
 
-/* line 255, ../../app/stylesheets/vote.scss */
+/* line 266, ../../app/stylesheets/vote.scss */
 .vote_chart table caption {
   background: transparent;
   font-size: 10px;
 }
 
-/* line 261, ../../app/stylesheets/vote.scss */
+/* line 272, ../../app/stylesheets/vote.scss */
 .vote_chart table td,
 .vote_chart table th {
   height: 24px;
@@ -285,26 +293,26 @@ td.vote-failed .vote-no {
   border: 0;
 }
 
-/* line 272, ../../app/stylesheets/vote.scss */
+/* line 283, ../../app/stylesheets/vote.scss */
 .vote_chart table td.first,
 .vote_chart table th.first {
   padding-top: 26px !important;
 }
 
-/* line 277, ../../app/stylesheets/vote.scss */
+/* line 288, ../../app/stylesheets/vote.scss */
 .vote_chart table td.last,
 .vote_chart table th.last {
   padding-bottom: 9px !important;
 }
 
-/* line 281, ../../app/stylesheets/vote.scss */
+/* line 292, ../../app/stylesheets/vote.scss */
 .vote_chart table .label {
   padding-right: 2px;
   font-size: 16px;
   font-weight: bold;
 }
 
-/* line 287, ../../app/stylesheets/vote.scss */
+/* line 298, ../../app/stylesheets/vote.scss */
 .vote-type {
   padding: 2px 0 0 10px;
   display: block;
