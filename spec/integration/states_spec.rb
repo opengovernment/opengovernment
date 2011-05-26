@@ -28,7 +28,7 @@ describe "State Page" do
       # the appeal link is, visually, in the left nav bar
       # but it's actually not in the left_nav element
       within("div.grid_4") do
-        page.should have_link("Help Us Open Gov!")
+        page.should have_link("About Us")
       end
     end
 
