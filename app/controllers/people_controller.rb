@@ -52,7 +52,13 @@ class PeopleController < SubdomainController
 
   # /people/1
   def show
+    if @person.current_role && Chamber.federal.include?(@person.current_role.chamber) && !@person.govtrack_id.blank?
+      redirect_to @person.opencongress_url
+      return
+    end
+
     expires_in 30.minutes
+
     
     respond_to do |format|
       format.js
