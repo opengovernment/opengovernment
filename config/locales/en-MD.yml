@@ -27,7 +27,7 @@ en-MD:
       next_session_start_date: 
       lower_chamber_term_limit: 
       background: | 
-        Here are more links about the Maryland General Assembly and the best explanations of how it works: 
+        Here are more links about the Maryland government and the best explanations of how the legislative branch works: 
           <ul class="standard">
           <li>Official <a href="http://www.spending.dbm.maryland.gov/">Maryland Funding Accountability & Transparency</a> site, "a public web site which allows citizens of Maryland and visitors to search and view summary information on payments made to vendors that received $25,000 or more for the respective fiscal year." See also <a href="http://www.statestat.maryland.gov/">StateStat</a>, "a performance-measurement and management tool implemented by Governor Martin O'Malley to make our state government more accountable and more efficient", and <a href="http://www.governor.maryland.gov/blog/?cat=31">related post</a> on Governor O’Malley’s Blog. This initial effort, besides being insufficiently user-friendly, still falls far short of meeting the <a href="http://www.opengovdata.org/">Eight Principles of Open Government Data.</a></li>
           <li>Maryland General Assembly on <a href="http://en.wikipedia.org/wiki/Maryland_General_Assembly">Wikipedia</a></li>
