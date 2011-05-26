@@ -110,7 +110,7 @@ module OpenGov
                 :chamber_id => chamber.id,
                 :start_date => Date.valid_date!(fs_role.start_date),
                 :end_date => Date.valid_date!(fs_role.end_date),
-                :party => standardize_party(fs_role.party)
+                :party => fs_role.party
               }
               role.save! if role.changed?
             else
@@ -123,17 +123,6 @@ module OpenGov
         end
       end # transaction
     end # import_one
-
-    def standardize_party(party_name)
-      case party_name.downcase
-      when 'democrat', 'd', 'democratic', 'dem'
-        'Democrat'
-      when 'republican', 'r', 'rep'
-        'Republican'
-      else
-        'Independent'
-      end
-    end # standardize_party
 
   end
 end

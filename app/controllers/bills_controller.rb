@@ -8,10 +8,7 @@ class BillsController < SubdomainController
   def index
     expires_in 30.minutes
     
-    lim = (params[:limit] && params[:limit].to_i) || 10
-    lim = (lim > 10 ? 10 : lim)
-
-    @bills = scope_bills(Bill.for_session_including_children(@session.primary_id), lim)
+    @bills = scope_bills(Bill.for_session_including_children(@session.primary_id))
     @current_tab = :all
 
     respond_with(@bills)
@@ -106,7 +103,10 @@ class BillsController < SubdomainController
     @sorts[:keyvotes] = 'Key Votes'
   end
 
-  def scope_bills(bills, lim)
+  def scope_bills(bills)
+    lim = (params[:limit] && params[:limit].to_i) || 10
+    lim = (lim > 10 ? 10 : lim)
+    
     # Fall back to 'introduced' if we have no MongoDB connection
     if @sort == 'views' && !MongoMapper.connected?
       @sort = 'introduced'
@@ -128,7 +128,7 @@ class BillsController < SubdomainController
 
   def get_bill
     if params[:id]
-      @bill = @session && @session.bills.find_by_slug(params[:id])
+      @bill = @session && @session.bills.find_by_slug(params[:id]).first
     end
 
     @bill || resource_not_found

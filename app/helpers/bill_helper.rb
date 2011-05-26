@@ -27,20 +27,20 @@ module BillHelper
     status_cell_count = 0
 
     if bill.actions.introduced?
-      status_items += content_tag(:li, link_to('Introduced', action_path(bill.actions.first_introduced)), :class => 'grid_2 alpha omega')
+      status_items += content_tag(:li, 'Introduced', :class => 'grid_2 alpha omega')
       status_cell_count += 2
     end
     
     if bill.actions.referred_to_committee?
-      status_items += content_tag(:li, link_to('Referred to Committee', action_path(bill.actions.first_referred_to_committee)), :class => 'grid_3 alpha omega')
+      status_items += content_tag(:li, 'Referred to Committee', :class => 'grid_3 alpha omega')
       status_cell_count += 3
     end
 
     if bill.actions.passed?
-      status_items += content_tag(:li, link_to('Bill Passed', action_path(bill.actions.first_passed)), :class => 'grid_3 alpha omega')
+      status_items += content_tag(:li, 'Bill Passed', :class => 'grid_3 alpha omega')
       status_cell_count += 3
     elsif bill.actions.failed?
-      status_items += content_tag(:li, link_to('Bill Failed', action_path(bill.actions.first_failed)), :class => 'grid_3 alpha omega')
+      status_items += content_tag(:li, 'Bill Failed', :class => 'grid_3 alpha omega')
       status_cell_count += 3
     end
 

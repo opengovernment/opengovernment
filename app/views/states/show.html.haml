@@ -81,13 +81,13 @@
               %div.small
                 = surround '(', ')' do
                   = succeed ',' do
-                    = pluralize(session_roles.democrats.count, t('states.blue_party_label'))
+                    = pluralize(session_roles.democrats.count, Role.party_adj(t('states.blue_party_label')))
                   - if session_roles.others.count > 0
                     = succeed ',' do
-                      = pluralize(session_roles.republicans.count, t('states.red_party_label'))
-                    = pluralize(session_roles.others.count, t('states.grey_party_label'))
+                      = pluralize(session_roles.republicans.count, Role.party_adj(t('states.red_party_label')))
+                    = pluralize(session_roles.others.count, Role.party_adj(t('states.grey_party_label')))
                   - else
-                    = pluralize(session_roles.republicans.count, t('states.red_party_label'))            
+                    = pluralize(session_roles.republicans.count, Role.party_adj(t('states.red_party_label')))            
   
               %div.small.small_line
                 =t '.each_chamber_represents'
@@ -104,10 +104,10 @@
                 = link_to pluralize(@state.joint_committees.count, t('.joint_committee')), joint_committees_path
                 %br
                 = succeed ',' do
-                  = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.parent).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])
+                  = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])
                 %br
     
-                = link_to "#{Bill.for_session_including_children(@session.parent).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
+                = link_to "#{Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
       
                 - if chamber.type == 'UpperChamber'
                   %br=t '.last_election_upper_chamber_open_seats'

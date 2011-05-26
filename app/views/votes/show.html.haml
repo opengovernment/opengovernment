@@ -30,19 +30,16 @@
     = t '.vote_breakdown'
   %table
     %tr
-      %th.first.label 
-        = t '.yeslabel'
+      %th.first.label(scope='row')= t '.yeslabel'
       %td.first.label!= @vote.passed? ? '&radic;' : ''
       %td.first.label= @vote.yes_count
       %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
     %tr
-      %th.label 
-        = t '.nolabel'
+      %th.label(scope='row')= t '.nolabel'
       %td.label!= @vote.passed? ? '' : '&radic;'
       %td.label= @vote.no_count
     %tr
-      %th.last.label 
-        = t '.otherlabel'
+      %th.last.label(scope='row')= t '.otherlabel'
       %td.last.label
       %td.last.label #{@vote.other_count}
     %caption(align='bottom')
@@ -54,7 +51,26 @@
 .grid_12.alpha.omega
   %h2
     = t '.geography_of_the_vote'
-  = vote_legend_img
+  %table.map_legend
+    %tr
+      %th(scope='col' colspan=2)= t 'states.blue_party_label'
+      %th(scope='col' colspan=2)= t 'states.red_party_label'
+      %th(scope='col' colspan=2)= t 'states.grey_party_label'
+    %tr
+      %td.icon= image_tag('votes/dem-yes-map.png')
+      %td Yes
+      %td.icon= image_tag('votes/rep-yes-map.png')
+      %td Yes
+      %td.icon= image_tag('votes/ind-yes-map.png')
+      %td Yes
+    %tr
+      %td.icon= image_tag('votes/dem-no-map.png')
+      %td No
+      %td.icon= image_tag('votes/rep-no-map.png')
+      %td No
+      %td.icon= image_tag('votes/ind-no-map.png')
+      %td No
+
   = vote_map_img(@state, @vote.id)
 
 #votes_needed_dialog(title="Data Quality Caveat")

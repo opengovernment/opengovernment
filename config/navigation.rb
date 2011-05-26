@@ -84,8 +84,6 @@ SimpleNavigation::Configuration.run do |navigation|
             m.item :votes, 'Votes and Actions', votes_bill_path(bill.session, bill) do |v|
               if defined?(@vote)
                 v.item :vote, 'Vote', vote_path(@vote)
-              elsif defined?(@action)
-                v.item :action, 'Action', action_path(@action)
               end
             end
             m.item :mentions, 'News & Blog Coverage', news_bill_path(bill.session, bill)

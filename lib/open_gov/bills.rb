@@ -181,14 +181,13 @@ module OpenGov
           # Versions aren't really useful without a URL, so we're
           # not importing them.
           unless version[:url].blank?
-            @bill_version = BillDocument.find_or_create_by_bill_id_and_url(@bill.id, version[:url])
-            @bill_version.attributes = {
-              :name => version[:name],
-              :published_at => Date.valid_date!(version[:'+date']),
-              :document_type => 'version',
-              :updated_at => @sync_date
-            }
-            @bill_version.save
+            BillDocument.find_or_create_by_bill_id_and_url(@bill.id, version[:url]) do |v|
+              v.name = version[:name],
+              v.published_at = Date.valid_date!(version[:'+date']),
+              v.document_type = 'version',
+              v.updated_at = @sync_date
+              v.save
+            end
           end
         end
 
@@ -196,14 +195,13 @@ module OpenGov
           # Documents aren't really useful without a URL, so we're
           # not importing them.
           unless doc[:url].blank?
-            @bill_document = BillDocument.find_or_create_by_bill_id_and_url(@bill.id, doc[:url])
-            @bill_document.attributes = {
-              :name => doc[:name],
-              :published_at => Date.valid_date!(doc[:'+date']),
-              :document_type => 'document',
-              :updated_at => @sync_date
-            }
-            @bill_document.save
+            BillDocument.find_or_create_by_bill_id_and_url(@bill.id, doc[:url]) do |document|
+              document.name = doc[:name]
+              document.published_at = Date.valid_date!(doc[:'+date'])
+              document.document_type = 'document'
+              document.updated_at = @sync_date
+              document.save
+            end
           end
         end
 

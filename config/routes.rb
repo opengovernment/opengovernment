@@ -70,7 +70,6 @@ OpenGov::Application.routes.draw do
         end  
         shallow do
           resources :documents, :only => [:show]
-          resources :actions, :only => [:show]
           resources :votes, :only => [:show]
         end
       end

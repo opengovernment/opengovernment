@@ -55,7 +55,7 @@ en:
       track:             Track 
       and_share:         and Share
   states:
-    blue_party_label: Democrat
+    blue_party_label: Democratic
     red_party_label:  Republican
     grey_party_label: Other
     show:
@@ -63,6 +63,7 @@ en:
       popular_bills:        Popular Bills
       hot_issues:           Hot Issues
       legislators:          Legislators
+      key_votes:            Key Votes
       intro: |
         <br>OpenGovernment is free and non-partisan public resource for government transparency. Finally, a version of OpenCongress.org for state legislatures.<br><br>
         We combine official government information with news coverage, blog posts, campaign contributions, and more to make bills easier to understand. Find, track, and share everything in the legislature.
