@@ -7,8 +7,6 @@
 module Trackable
   module ClassMethods
     def most_viewed(ops = {})
-      ops[:limit] ||= 10
-
       # Accept 'mn.staging' or whatever request.subdomain
       # might contain as a subdomain param.
       ops[:subdomain] = ops[:subdomain].split('.').try(:first) || ops[:subdomain]
@@ -20,7 +18,7 @@ module Trackable
 
       # It does result in only one SQL call, though.
       # Good thing this is only ever limited to 10 or 20 items.
-      countable_ids = Page.most_viewed(self.to_s, :limit => ops[:limit], :subdomain => ops[:subdomain], :since => ops[:since]).collect(&:countable_id)
+      countable_ids = Page.most_viewed(self.to_s, :limit => 100, :subdomain => ops[:subdomain], :since => ops[:since]).collect(&:countable_id)
 
       return [] if countable_ids.empty?
 

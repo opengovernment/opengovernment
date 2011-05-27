@@ -33,7 +33,7 @@ class PeopleController < SubdomainController
     @people =
       case @sort
         when 'views'
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain, :limit => @limit || 10)
+          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain).limit(@limit || 10)
         else
           people_by_facets
       end

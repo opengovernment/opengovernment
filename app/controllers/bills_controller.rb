@@ -112,18 +112,20 @@ class BillsController < SubdomainController
       @sort = 'introduced'
     end
 
-    case @sort
+    scope = case @sort
       when 'introduced'
-        bills.order('first_action_at desc').limit(lim)
+        bills.order('first_action_at desc')
       when 'mentions'
-        bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc").limit(lim)
+        bills.joins("inner join (select owner_id as bill_id, count(mentions.id) as mention_count from mentions where owner_type = 'Bill' group by owner_id) x on bills.id = x.bill_id").order("x.mention_count desc")
       when 'views'
-        bills.most_viewed(:subdomain => request.subdomain, :limit => lim)
+        bills.most_viewed(:subdomain => request.subdomain)
       when 'keyvotes'
-        bills.where(:votesmart_key_vote => true).limit(lim)
+        bills.where(:votesmart_key_vote => true)
       else
-        bills.order('last_action_at desc').limit(lim)
+        bills.order('last_action_at desc')
     end
+
+    scope.limit(lim)
   end
 
   def get_bill
