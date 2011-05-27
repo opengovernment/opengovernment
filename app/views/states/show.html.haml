@@ -16,7 +16,6 @@
 
 
 .bills
-  
   :ruby
     javascript do
       (%q|
@@ -27,18 +26,19 @@
       |)
     end
 
-  #popular_bills
+  #popular_bills.col
     %h2= t '.popular_bills'
-    = render @most_viewed_bills, :style => :compact
+    %ul.lined
+      = render @most_viewed_bills, :style => :compact
     %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
     .clear
 
-  #people_mentions
+  #people_mentions.col
     %h2= t '.people_in_the_news'
-    .hot_people
+    %ul.hot_people.lined
       - @hot_people.each_with_index do |person, i|
-        .hot_person
-          = link_to(photo_for(person, :tiny), person_path(person), :class => "sponsor_mug#{i == 0 ? ' active' : ''}")
+        %li.hot_person
+          = link_to(photo_for(person, :tiny), person_path(person), :class => "floatleft margin-right sponsor_mug#{i == 0 ? ' active' : ''}")
           .full_name= person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')'
           - if mention = person.mentions.first
             %div{:id => "hot_person_#{i}", :class => 'hot_person'}= render mention, :style => :compact
@@ -46,11 +46,13 @@
     %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
     .clear
 
-  #hot_issues
+  #hot_issues.col
     %h2= t '.hot_issues'
     %ul= render @hot_issues, :style => :compact
     %a.more{:href => issues_path(params[:session])}= t 'site.more_link'
     .clear
+
+%hr.space
 
 .grid_12.alpha
   .find_box

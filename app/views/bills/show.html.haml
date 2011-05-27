@@ -49,38 +49,34 @@
         = link_to(t('.see_all_sponsors', :count => @sponsors.count), sponsors_bill_path(@bill.session, @bill), :class => 'modal see_all') if @sponsors.count > 3
 
 
+.write_buttons
 
-.grid_5.omega
-  .write_buttons
-    %h2
-      %span= t('bills.write.write')
-    
-    .form
-      = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
-      %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
-      %label(for='q')= t 'bills.write.location_prompt'
-      = text_field_tag :q, params[:q], :autocomplete => 'off'
-      .find_button
-        = submit_tag t('bills.write.find_button'), :class => 'button'
-      </form>
-      %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
-      -# Form results appear in a colorbox, not a separate page.
-      :ruby
-        javascript do
-          (%Q|
-            $(document).ready(function() {
-              $('#find_my_rep input:submit').click(function(e){
-                $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
-                $('#rep_link').click();
-                e.preventDefault();
-              });
+  .form
+    = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
+    %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
+    %label(for='q')= t 'bills.write.location_prompt'
+    = text_field_tag :q, params[:q], :autocomplete => 'off'
+    .find_button
+      = submit_tag t('bills.write.find_button'), :class => 'button'
+    </form>
+    %a{:style => 'display: none', :id => 'rep_link', :class => 'modal'}
+    -# Form results appear in a colorbox, not a separate page.
+    :ruby
+      javascript do
+        (%Q|
+          $(document).ready(function() {
+            $('#find_my_rep input:submit').click(function(e){
+              $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
+              $('#rep_link').click();
+              e.preventDefault();
             });
-          |)
-        end
+          });
+        |)
+      end
 
-  .hide
-    - if @bill.key_votes.any?
-      = render @bill.key_votes.first
+.hide
+  - if @bill.key_votes.any?
+    = render @bill.key_votes.first
 
 -# TODO: These are turned off for now. Please implement.
 .support_buttons(style="display: none;")

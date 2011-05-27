@@ -396,7 +396,7 @@ margin: 40px 0 40px -13px;
 height: 590px;
 }
 .supported_states_list {
-height: 244px
+height: 299px
 }
 .supported_states_list li a {
 display: block;
@@ -445,8 +445,8 @@ padding-left: 70px;
 padding-right: 0 !important;
 }
 .states.show.wi h1 {
-  background: url(../images/states.png) 0 -139px no-repeat !important, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 0 -139px no-repeat !important, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
+  background: url(../images/states.png) 38px -139px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)) !important; /* for webkit browsers */
+  background: url(../images/states.png) 38px -139px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff) !important; /* for firefox 3.6+ */
 padding-left: 70px;
 padding-right: 0 !important;
 }
@@ -510,10 +510,10 @@ background: #f6f8fa;
 padding: 60px 0 30px;
 margin: 0 -10px -18px -10px;
 }
-.illo h2 {
+body.home .illo h2 {
 width: 503px;
 margin: 0px auto 0 !important;
-background: url(../images/do_more.gif) center no-repeat;
+background: url(../images/do_more.gif) center no-repeat !important;
 height: 0 !important;
 overflow: hidden;
 line-height: 3em;
@@ -677,6 +677,48 @@ background: url(../images/sprites.png) 0px -171px no-repeat;
 opacity: .5;
 margin-bottom: 5px;
 }
+
+.views.tiny{
+padding-top: 0;
+background: url(../images/sprites.png) 0px -175px no-repeat;
+}
+
+.long-title{
+clear: both;
+}
+
+.full_name{
+font-weight: bold;
+font-size: 11px;
+float: left;
+display: inline-block;
+}
+
+.hot_person .mention{
+clear: both;
+}
+
+
+
+.col{
+min-height: 330px;
+position: relative;
+}
+
+
+.col .more{
+position: absolute;
+bottom: 0;
+}
+
+#hot_issues .link a{
+font-size: 13px;
+margin-bottom: 10px;
+display: block;
+}
+
+
+
 .addresses li {
 clear: none;
 font-size: 11px;

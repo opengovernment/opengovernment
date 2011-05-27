@@ -217,9 +217,10 @@ ul.share {
 .write_buttons{
   @include button;
   @include rounded;
-  @include clear;
-  float: right;
-  
+  clear: both;
+  width: 310px;
+  float: right !important;
+  padding-left: 20px;
   form{
     padding: 0 0 0 0px !important;
     margin: 0;
@@ -265,7 +266,7 @@ ul.share {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 
-    background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ddd)); /* for webkit browsers */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
     background: -moz-linear-gradient(top,  #ddd,  #efefef);
     width: 130px !important;
     margin: 10px 0 !important;

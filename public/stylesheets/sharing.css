@@ -222,30 +222,25 @@ ul.share {
   -ms-border-radius: 4px;
   -khtml-border-radius: 4px;
   border-radius: 4px;
-  float: right;
-}
-/* line 52, ../../app/stylesheets/_base.scss */
-.write_buttons:after {
-  content: ".";
-  display: block;
-  height: 0;
   clear: both;
-  visibility: hidden;
+  width: 310px;
+  float: right !important;
+  padding-left: 20px;
 }
-/* line 223, ../../app/stylesheets/sharing.scss */
+/* line 224, ../../app/stylesheets/sharing.scss */
 .write_buttons form {
   padding: 0 0 0 0px !important;
   margin: 0;
   clear: both;
 }
-/* line 229, ../../app/stylesheets/sharing.scss */
+/* line 230, ../../app/stylesheets/sharing.scss */
 .write_buttons strong {
   display: block;
   float: left;
   padding: 6px 10px 0 0;
   font-weight: normal;
 }
-/* line 237, ../../app/stylesheets/sharing.scss */
+/* line 238, ../../app/stylesheets/sharing.scss */
 .write_buttons label {
   float: left;
   padding: 6px 18px 0 0 !important;
@@ -253,7 +248,7 @@ ul.share {
   font-weight: bold !important;
   display: none;
 }
-/* line 245, ../../app/stylesheets/sharing.scss */
+/* line 246, ../../app/stylesheets/sharing.scss */
 .write_buttons form#find_my_rep #q {
   float: left;
   clear: none !important;
@@ -269,13 +264,13 @@ ul.share {
   box-shadow: inset 0 1px 2px #333;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dddddd));
+  background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#efefef));
   /* for webkit browsers */
   background: -moz-linear-gradient(top, #dddddd, #efefef);
   width: 130px !important;
   margin: 10px 0 !important;
 }
-/* line 274, ../../app/stylesheets/sharing.scss */
+/* line 275, ../../app/stylesheets/sharing.scss */
 .write_buttons input {
   float: left;
   opacity: .5;
@@ -286,7 +281,7 @@ ul.share {
   width: 146px;
 }
 
-/* line 291, ../../app/stylesheets/sharing.scss */
+/* line 292, ../../app/stylesheets/sharing.scss */
 .write_buttons li,
 ul.share li {
   float: left;
@@ -294,7 +289,7 @@ ul.share li {
   margin-right: 7px;
 }
 
-/* line 298, ../../app/stylesheets/sharing.scss */
+/* line 299, ../../app/stylesheets/sharing.scss */
 .write_buttons a,
 ul.share li a {
   width: 27px !important;
@@ -304,11 +299,11 @@ ul.share li a {
   float: left !important;
 }
 
-/* line 307, ../../app/stylesheets/sharing.scss */
+/* line 308, ../../app/stylesheets/sharing.scss */
 .support_buttons {
   padding: 10px 30px 0 0;
 }
-/* line 310, ../../app/stylesheets/sharing.scss */
+/* line 311, ../../app/stylesheets/sharing.scss */
 .support_buttons a {
   margin: 0px 0 0 10px;
   width: 30px;
@@ -319,7 +314,7 @@ ul.share li a {
   text-align: center;
   overflow: hidden;
 }
-/* line 321, ../../app/stylesheets/sharing.scss */
+/* line 322, ../../app/stylesheets/sharing.scss */
 .support_buttons a span {
   padding: 25px 0 0 0;
   display: block;
@@ -327,29 +322,29 @@ ul.share li a {
   overflow: hidden;
 }
 
-/* line 329, ../../app/stylesheets/sharing.scss */
+/* line 330, ../../app/stylesheets/sharing.scss */
 .support span {
   background: url(../images/sprites.png) 9px -354px no-repeat;
 }
 
-/* line 334, ../../app/stylesheets/sharing.scss */
+/* line 335, ../../app/stylesheets/sharing.scss */
 .oppose span {
   background: url(../images/sprites.png) 9px -391px no-repeat;
 }
 
-/* line 340, ../../app/stylesheets/sharing.scss */
+/* line 341, ../../app/stylesheets/sharing.scss */
 .share_top {
   border-top: 0 !important;
   margin-bottom: 20px !important;
 }
 
-/* line 347, ../../app/stylesheets/sharing.scss */
+/* line 348, ../../app/stylesheets/sharing.scss */
 .share_callout {
   padding: 11px 0 0 40px;
   float: left;
 }
 
-/* line 352, ../../app/stylesheets/sharing.scss */
+/* line 353, ../../app/stylesheets/sharing.scss */
 .share_top ul.share {
   margin: 5px 0 5px 15px !important;
 }

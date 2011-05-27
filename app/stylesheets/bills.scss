@@ -88,6 +88,7 @@ opacity: 1;
 
 .status_bar li{
   clear: none;
+  padding: 4px 0 4px 15px;
   }
 
 
@@ -108,7 +109,7 @@ opacity: 1;
   top: -6px;
   color: #eee;
   border: 1px solid #eee;
-  padding: 10px 4px;
+  padding: 10px 4px !important;
   background: #fff;
   font-size: 11px;
   text-transform: uppercase;
