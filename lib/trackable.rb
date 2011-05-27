@@ -8,6 +8,10 @@ module Trackable
   module ClassMethods
     def most_viewed(ops = {})
       ops[:limit] ||= 10
+
+      # Accept 'mn.staging' or whatever request.subdomain
+      # might contain as a subdomain param.
+      ops[:subdomain] = ops[:subdomain].split('.').try(:first) || ops[:subdomain]
       
       return [] unless MongoMapper.connected?
 
