@@ -12,7 +12,7 @@ class StatesController < SubdomainController
 
           bill = Bill.where(:session_id => @session.family)
 
-          @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain).limit(5) || []
+          @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain).limit(3) || []
 
           @hot_issues = Subject.limit(8)
 
