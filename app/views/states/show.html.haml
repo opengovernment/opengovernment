@@ -43,7 +43,7 @@
           - if mention = person.mentions.first
             %div{:id => "hot_person_#{i}", :class => 'hot_person'}= render mention, :style => :compact
 
-    %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
+    %a.more{:href => people_path(params[:session], :sort => 'mentions')}= t 'site.more_link'
     .clear
 
   #hot_issues.col

@@ -823,12 +823,104 @@ ul.small_tabs li.divide {
   display: none;
 }
 
-/* line 861, ../../app/stylesheets/classes.scss */
+/* line 869, ../../app/stylesheets/classes.scss */
+.search_form {
+  padding: 10px 0 0 0;
+  height: 28px;
+  position: absolute;
+  right: -67px;
+}
+/* line 875, ../../app/stylesheets/classes.scss */
 .search_form .state_search_form #q {
   width: 288px;
 }
+/* line 879, ../../app/stylesheets/classes.scss */
+.search_form #search_type {
+  float: left;
+  margin: 6px 15px 0 0;
+}
+/* line 884, ../../app/stylesheets/classes.scss */
+.search_form input#q {
+  border: 0 !important;
+  padding: 7px 8px 7px 30px;
+  width: 180px;
+  float: left;
+  margin: 1px 0 0 !important;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-radius-bottom-right: 0px;
+  -webkit-border-radius-top-right: 0px;
+  background: url(../images/search.png) 10px 9px no-repeat;
+  background: url(../images/search.png) 10px 9px no-repeat, -moz-linear-gradient(top, #dddddd, #efefef);
+  /* for firefox 3.6+ */
+  background: url(../images/search.png) 10px 9px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#efefef));
+  /* for webkit browsers */
+}
+/* line 901, ../../app/stylesheets/classes.scss */
+.search_form input#q:focus {
+  background: url(../images/search.png) 10px 9px no-repeat;
+  background: url(../images/search.png) 10px 9px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
+  /* for webkit browsers */
+  background: url(../images/search.png) 10px 9px no-repeat, -moz-linear-gradient(top, #eeeeee, white);
+  /* for firefox 3.6+ */
+}
+/* line 910, ../../app/stylesheets/classes.scss */
+.search_form .button {
+  padding: 7px 10px 8px;
+  margin: 0 !important;
+}
+/* line 915, ../../app/stylesheets/classes.scss */
+.search_form .button:active {
+  padding: 9px 10px 8px;
+  border: 0;
+}
 
-/* line 866, ../../app/stylesheets/classes.scss */
+/* line 923, ../../app/stylesheets/classes.scss */
+.search_results_search_form {
+  padding-bottom: 5px;
+}
+/* line 926, ../../app/stylesheets/classes.scss */
+.search_results_search_form .button {
+  float: left !important;
+  margin-right: 15px !important;
+}
+/* line 932, ../../app/stylesheets/classes.scss */
+.search_results_search_form .field {
+  display: inline;
+  padding-left: 10px;
+  float: left !important;
+}
+/* line 938, ../../app/stylesheets/classes.scss */
+.search_results_search_form input#q {
+  float: none;
+  margin-top: 5px;
+  width: 500px;
+}
+/* line 944, ../../app/stylesheets/classes.scss */
+.search_results_search_form select {
+  float: right;
+}
+
+/* line 950, ../../app/stylesheets/classes.scss */
+.results_count, .search_help {
+  font-size: 11px;
+}
+
+/* line 954, ../../app/stylesheets/classes.scss */
+.results_count {
+  position: relative;
+  top: -5px;
+}
+
+/* line 959, ../../app/stylesheets/classes.scss */
+.search_help {
+  position: relative;
+  top: -5px;
+  float: right;
+  padding-right: 85px;
+}
+
+/* line 968, ../../app/stylesheets/classes.scss */
 .write_buttons {
   padding: 10px;
 }

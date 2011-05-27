@@ -94,7 +94,7 @@ class PeopleController < SubdomainController
   def search
     # Search for a person to contact. Right now available via a bill page--
     # eg. contact my senator.
-    @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q])
+    @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:addr])
 
     if @point
       @state = State.find_by_abbrev(@point.state)

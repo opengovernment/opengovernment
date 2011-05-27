@@ -249,7 +249,7 @@ ul.share {
   display: none;
 }
 /* line 246, ../../app/stylesheets/sharing.scss */
-.write_buttons form#find_my_rep #q {
+.write_buttons form#find_my_rep #addr {
   float: left;
   clear: none !important;
   font-size: 11px !important;

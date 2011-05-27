@@ -54,8 +54,8 @@
   .form
     = form_tag(search_people_path, :method => :get, :id => 'find_my_rep')
     %strong= t 'bills.write.find_your_rep', :chamber_name => @bill.chamber.title
-    %label(for='q')= t 'bills.write.location_prompt'
-    = text_field_tag :q, params[:q], :autocomplete => 'off'
+    %label(for='addr')= t 'bills.write.location_prompt'
+    = text_field_tag :addr, params[:addr], :autocomplete => 'off'
     .find_button
       = submit_tag t('bills.write.find_button'), :class => 'button'
     </form>
@@ -66,7 +66,7 @@
         (%Q|
           $(document).ready(function() {
             $('#find_my_rep input:submit').click(function(e){
-              $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&q='+ encodeURI($('#find_my_rep input[name=q]').val()));
+              $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&addr='+ encodeURI($('#find_my_rep input[name=addr]').val()));
               $('#rep_link').click();
               e.preventDefault();
             });

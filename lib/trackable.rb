@@ -31,7 +31,7 @@ module Trackable
   def self.included(other)
     other.class_eval do
       # An empty scope, so we can always return a scope from most_viewed
-      scope :none, lambda { where(:id => nil).where("id IS NOT ?", nil) }
+      scope :none, lambda { where("1 = 0") }
     end
     
     other.extend ClassMethods

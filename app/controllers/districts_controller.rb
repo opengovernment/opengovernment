@@ -6,7 +6,7 @@ class DistrictsController < ApplicationController
     respond_to do |format|
       format.json { render :json => Place.by_x_y(lat, lng).to_json(:include => :legislators) }
       format.html do
-        @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:q] || [params[:lat], params[:lng]].join(','))
+        @point = GeoKit::Geocoders::MultiGeocoder.geocode(params[:addr] || [params[:lat], params[:lng]].join(','))
 
         if @point
           @state = State.find_by_abbrev(@point.state)

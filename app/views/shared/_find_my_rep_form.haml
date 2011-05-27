@@ -1,9 +1,9 @@
 .find_form
   = form_tag(url_for(:controller => 'districts', :action => 'search', :subdomain => false), :method => :get, :id => 'find_my_rep')
-  %label(for='q')
+  %label(for='addr')
     %strong Find Your District
     Enter address or ZIP
-  = text_field_tag :q, params[:q], :autocomplete => 'off', :class => 'field'
+  = text_field_tag :addr, params[:addr], :autocomplete => 'off', :class => 'field'
   = submit_tag 'Find', :class => 'button medium'
   </form>
 - unless defined?(narrow)
@@ -17,7 +17,7 @@
 
       function fillForm(position) {
         $('.finding').hide();
-        $('#find_my_rep').find('#q').val(position.coords.latitude + ', ' + position.coords.longitude);
+        $('#find_my_rep').find('#addr').val(position.coords.latitude + ', ' + position.coords.longitude);
         $('#find_my_rep').submit();
       }
 
