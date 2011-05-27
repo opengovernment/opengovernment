@@ -6,12 +6,14 @@
 #
 module Trackable
   module ClassMethods
+    # This method always returns an AR scope, even though
+    # it accesses mongodb.
     def most_viewed(ops = {})
       # Accept 'mn.staging' or whatever request.subdomain
       # might contain as a subdomain param.
       ops[:subdomain] = ops[:subdomain].split('.').try(:first) || ops[:subdomain]
       
-      return [] unless MongoMapper.connected?
+      return self.none unless MongoMapper.connected?
 
       # This is gnarly. We have to generate a case statement for PostgreSQL in order to
       # get the people out in page view order. AND we need an SQL in clause for the people.
@@ -20,13 +22,18 @@ module Trackable
       # Good thing this is only ever limited to 10 or 20 items.
       countable_ids = Page.most_viewed(self.to_s, :limit => 100, :subdomain => ops[:subdomain], :since => ops[:since]).collect(&:countable_id)
 
-      return [] if countable_ids.empty?
+      return self.none if countable_ids.empty?
 
       self.find_in_explicit_order(self.table_name + '.' + self.primary_key, countable_ids)
     end
   end
 
   def self.included(other)
+    other.class_eval do
+      # An empty scope, so we can always return a scope from most_viewed
+      scope :none, lambda { where(:id => nil).where("id IS NOT ?", nil) }
+    end
+    
     other.extend ClassMethods
   end
 
