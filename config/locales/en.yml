@@ -12,8 +12,6 @@ en:
     no_tweets:           "No tweets were found for %{hashtags}."
     view_counts_not_available: View counts currently not available. Please check later.
   shared:
-    appeal:
-      help_us: Help Us Open Gov!
     view_counts:
       in_last_week:     in the last 7 days
       in_last_month:    in the last month
