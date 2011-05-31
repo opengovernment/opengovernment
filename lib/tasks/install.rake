@@ -1,4 +1,4 @@
-# Configuration
+ # Configuration
 require 'yaml'
 require 'active_record/fixtures'
 
@@ -63,7 +63,7 @@ namespace :opengov do
   end
 
   desc "Install clean database: prepare database, fetch all data, load data"
-  task :install do
+  task :install => :environment do
     abcs = ActiveRecord::Base.configurations
 
     unless abcs[Rails.env]["adapter"] == 'postgresql'
