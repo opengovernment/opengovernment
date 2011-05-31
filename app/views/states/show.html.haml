@@ -39,7 +39,8 @@
       - @hot_people.each_with_index do |person, i|
         %li.hot_person
           = link_to(photo_for(person, :tiny), person_path(person), :class => "floatleft margin-right sponsor_mug#{i == 0 ? ' active' : ''}")
-          .full_name= person.full_name + ' ' + ' (' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')'
+          .full_name= person.full_name
+          .district= '(' + (person[:party] ? (person.try(:party).first + '-' + person.try(:district_name)) : person.current_role.try(:affiliation_fm)) + ')'
           - if mention = person.mentions.first
             %div{:id => "hot_person_#{i}", :class => 'hot_person'}= render mention, :style => :compact
 
