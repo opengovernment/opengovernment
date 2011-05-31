@@ -6,7 +6,7 @@ Time::DATE_FORMATS.merge!(
   :date_time24  => "%m/%d/%Y %H:%M",
   :timetag => '<time datetime="%Y-%m-%d" class="fancy-date"><span class="date-month">%b</span><span class="date-day">%e</span><span class="date-year">%Y</span></time>',
   :pretty => lambda do |d|
-      if d.year == Time.now.year
+      if (Time.now.year*12 + Time.now.month) - (d.year*12 + d.month) < 12
         d.strftime("%b %e")
       else
         d.strftime("%b %e, %Y")
