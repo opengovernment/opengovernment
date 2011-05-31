@@ -1,7 +1,6 @@
 = form_tag state_search_path, :method => :get, :class => 'state_search_form'
 
-%label(for='q') Search #{current_place_name}:
-= text_field_tag :q, params[:q], :class => 'field cap'
+= text_field_tag :q, params[:q], :class => 'field cap', :placeholder => "Search #{current_place_name}"
 = submit_tag ">", :class => 'button medium cap'
 </form>
 
