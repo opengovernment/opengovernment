@@ -97,7 +97,7 @@ padding: 0;
 margin-bottom: 0 !important;
 float: left;
 background: #fbfcfd;
-background: -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)); /* for webkit browsers */
+background: -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)); 
 background: -moz-linear-gradient(top,  #baced1,  #95b5bb);
 -moz-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
 -webkit-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
@@ -284,7 +284,7 @@ box-shadow: 0 !important;
 
 
 #left_nav ul li.primary-nav-bills.selected a:hover {
-background: url(../images/sidebar_icons.png) 13px 15px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)) !important; /* for webkit browsers */
+background: url(../images/sidebar_icons.png) 13px 15px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)) !important; 
 background: url(../images/sidebar_icons.png) 13px 15px no-repeat, -moz-linear-gradient(top,  #baced1,  #95b5bb) !important;
 -moz-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
 -webkit-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
@@ -300,7 +300,7 @@ background-position: 13px -33px
 
 
 #left_nav ul li.primary-nav-people.selected a:hover {
-background: url(../images/sidebar_icons.png) 13px -33px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)) !important; /* for webkit browsers */
+background: url(../images/sidebar_icons.png) 13px -33px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#baced1), to(#95b5bb)) !important; 
 background: url(../images/sidebar_icons.png) 13px -33px no-repeat, -moz-linear-gradient(top,  #baced1,  #95b5bb) !important;
 -moz-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
 -webkit-box-shadow: inset 0 1px 0px #d2dfe1, 0 -1px 0px #95afb2;
@@ -420,35 +420,27 @@ background: transparent url(../images/states.png) 0 -142px no-repeat !important
 
 
 .states.show.ca h1{
-  background: url(../images/states.png) 38px 29px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px 29px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-padding-left: 70px;
-padding-right: 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($lightblue)), url(../images/state-badges/og-ca.png) 664px -16px no-repeat; 
+  background: -moz-linear-gradient(bottom,  $lightblue,  #fff), url(../images/state-badges/og-ca.png) 664px -16px no-repeat; 
+  
+  
 }
 
 .states.show.la h1 {
-  background: url(../images/states.png) 38px -31px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -31px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-padding-left: 70px;
-padding-right: 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($lightblue)), url(../images/state-badges/og-la.png) 664px -16px no-repeat;
+  background: -moz-linear-gradient(bottom,  $lightblue,  #fff), url(../images/state-badges/og-la.png) 664px -16px no-repeat; 
 }
 .states.show.md h1 {
-  background: url(../images/states.png) 38px -86px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -86px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-padding-left: 75px;
-padding-right: 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($lightblue)), url(../images/state-badges/og-md.png) 664px -16px no-repeat;
+  background: -moz-linear-gradient(bottom,  $lightblue,  #fff), url(../images/state-badges/og-md.png) 664px -16px no-repeat; 
 }
 .states.show.tx h1 {
-  background: url(../images/states.png) 38px -197px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)); /* for webkit browsers */
-  background: url(../images/states.png) 38px -197px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff); /* for firefox 3.6+ */
-padding-left: 70px;
-padding-right: 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($lightblue)), url(../images/state-badges/og-tx.png) 664px -16px no-repeat;
+  background: -moz-linear-gradient(bottom,  $lightblue,  #fff), url(../images/state-badges/og-tx.png) 664px -16px no-repeat;
 }
 .states.show.wi h1 {
-  background: url(../images/states.png) 38px -139px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9f9f9)) !important; /* for webkit browsers */
-  background: url(../images/states.png) 38px -139px no-repeat, -moz-linear-gradient(bottom,  #f9f9f9,  #fff) !important; /* for firefox 3.6+ */
-padding-left: 70px;
-padding-right: 0 !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to($lightblue)), url(../images/state-badges/og-wi.png) 664px -16px no-repeat;
+  background: -moz-linear-gradient(bottom,  $lightblue,  #fff), url(../images/state-badges/og-wi.png) 664px -16px no-repeat;
 }
 
 
@@ -679,18 +671,21 @@ margin-bottom: 5px;
 }
 
 .views.tiny{
+padding-bottom: 0;
+
 padding-top: 0;
 background: url(../images/sprites.png) 0px -175px no-repeat;
 }
 
 .long-title{
 clear: both;
+color: #666;
 }
 
 .full_name{
 font-weight: bold;
-font-size: 11px;
-float: left;
+
+
 display: inline-block;
 }
 
@@ -700,23 +695,68 @@ clear: both;
 
 
 
-.col{
-min-height: 330px;
-position: relative;
+.hot-details .date,
+.hot-details a{
+color: #666;
 }
 
+.hot-details{
+float: left;
+width: 160px;
+}
+
+.district{
+color: #888;
+font-size: 11px;
+display: block;
+padding-bottom: 5px;
+}
+
+
+.col{
+min-height: 400px !important;
+position: relative;
+
+}
+
+.col strong{
+font-size: 13px;
+}
 
 .col .more{
 position: absolute;
 bottom: 0;
+right: 0;
 }
+
+
+.col li{
+min-height: 7.5em !important;
+}
+
+#hot_issues h2{
+margin-bottom: 8px;
+}
+
+#hot_issues li{
+padding-bottom: 15px;
+padding-top: 5px;
+min-height: 1em !important;
+    background: url(../images/icons.png) 0px -571px no-repeat !important; 
+
+}
+
 
 #hot_issues .link a{
 font-size: 13px;
-margin-bottom: 10px;
+padding-left: 38px;
 display: block;
-}
+font-weight: bold;
+line-height: 1.3em !important;
 
+color: #000;
+
+}
 
 
 .addresses li {
@@ -731,6 +771,9 @@ line-height: 1.4em;
 .district_map img {
 padding-bottom: 20px
 }
+
+
+
 /*///////////////////////////
 
 ~ Genders
@@ -1122,8 +1165,8 @@ padding: 15px 15px 15px 0;
   -webkit-box-shadow: 0 1px 0px #f0f0f0, inset 0 1px 2px #888;
   box-shadow:  0 1px 0px #f0f0f0, inset 0 1px 2px #888;
   
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ddd,  #efefef); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+  background: -moz-linear-gradient(top,  #ddd,  #efefef); 
   color: rgba(0, 0, 0, 0.4);
   text-shadow: rgba(255, 255, 255, 0.3);
 
@@ -1240,8 +1283,8 @@ margin-left: 200px;
   -moz-box-shadow: inset 0 1px 0px #fff, 0 1px 0px rgba(69, 69, 69, .14);
   -webkit-box-shadow: inset 0 1px 0px #fff,  0 1px 0px rgba(69, 69, 69, .14);
 
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #efefef); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); 
+  background: -moz-linear-gradient(top,  #fff,  #efefef); 
 
 
   }
@@ -1258,8 +1301,8 @@ margin-left: 200px;
   -webkit-box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
   box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
   
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ddd,  #efefef); /* for firefox 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+  background: -moz-linear-gradient(top,  #ddd,  #efefef); 
   color: rgba(0, 0, 0, 0.4);
   text-shadow: rgba(255, 255, 255, 0.3);
   
@@ -1307,7 +1350,7 @@ padding: 0px;
 display: block;
 
   background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
-  /* for webkit browsers */
+  
   background: -moz-linear-gradient(top, #eee, #dddddd);
 
 }

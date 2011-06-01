@@ -61,10 +61,10 @@ list-style-type: disc !important;
 
 .more{
   float: right;
-  font-weight: bold;
-clear: both;
-  font-size: 14px;
+  clear: both;
   margin: 0px;
+  @include gray-button;
+  @include full-rounded;
   }
 
 
@@ -132,72 +132,10 @@ top: -30px;
 
 .button{
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold !important;
-  
-  text-shadow: 0 1px 0px #fff;
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-  border: 1px solid #999;
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #666;
-  
-  
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #ddd); /* for firefox 3.6+ */
+  @include gray-button;
+  @include rounded;
   
   }
-
-
-
-.button:hover{
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-  border: 1px solid #999;
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #666;
-  
-  
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
-  
-  }
-
-
-.button:active{
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius:3px;
-  
-  border: 1px solid #999;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #ccc;
-  
-  
-  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  box-shadow:  0 1px 0px #fff, inset 0 1px 1px #888;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee)); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  #ddd,  #eee); /* for firefox 3.6+ */
-  
-  }
-
 
 
 
@@ -208,7 +146,7 @@ top: -30px;
 
 
 .button.large{
-  padding: 8px 12px;
+  padding: 8px 20px;
   cursor: pointer;
   }
 
@@ -968,3 +906,24 @@ display: none;
 .write_buttons{
 padding: 10px ;
 }
+
+
+/*////////////////////////////////////////
+
+~ Bill Icons
+
+////////////////////////////////////////*/
+
+
+.small-bill-icon{
+width: 30px;
+height: 35px;
+margin-right: 10px;
+float: left;
+    background: url(../images/icons.png) 0px -640px no-repeat; 
+
+}
+
+
+
+

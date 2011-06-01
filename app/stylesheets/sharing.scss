@@ -215,8 +215,10 @@ ul.share {
 
 
 .write_buttons{
-  @include button;
+  @include light-gray-gradient;
   @include rounded;
+  @include borders;
+
   clear: both;
   width: 310px;
   float: right !important;

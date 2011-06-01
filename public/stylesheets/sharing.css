@@ -2,6 +2,11 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
+/* line 22, ../../app/stylesheets/_base.scss */
+.black {
+  color: black !important;
+}
+
 /* line 4, ../../app/stylesheets/sharing.scss */
 .take_action {
   opacity: .8;
@@ -207,40 +212,39 @@ ul.share {
 
 /* line 217, ../../app/stylesheets/sharing.scss */
 .write_buttons {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(101, 101, 101, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(101, 101, 101, 0.1));
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3), rgba(101, 101, 101, 0.1));
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(101, 101, 101, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(101, 101, 101, 0.1));
-  -moz-box-shadow: 0 1px 3px black, inset 0 1px 0px white;
-  -webkit-box-shadow: 0 1px 3px black, inset 0 1px 0px white;
-  -o-box-shadow: 0 1px 3px black, inset 0 1px 0px white;
-  box-shadow: 0 1px 3px black, inset 0 1px 0px white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
+  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
   -ms-border-radius: 4px;
   -khtml-border-radius: 4px;
   border-radius: 4px;
+  border: 1px solid #999;
+  border-top: 1px solid #b4b4b4;
+  border-bottom: 1px solid #8f8f8f;
   clear: both;
   width: 310px;
   float: right !important;
   padding-left: 20px;
 }
-/* line 224, ../../app/stylesheets/sharing.scss */
+/* line 226, ../../app/stylesheets/sharing.scss */
 .write_buttons form {
   padding: 0 0 0 0px !important;
   margin: 0;
   clear: both;
 }
-/* line 230, ../../app/stylesheets/sharing.scss */
+/* line 232, ../../app/stylesheets/sharing.scss */
 .write_buttons strong {
   display: block;
   float: left;
   padding: 6px 10px 0 0;
   font-weight: normal;
 }
-/* line 238, ../../app/stylesheets/sharing.scss */
+/* line 240, ../../app/stylesheets/sharing.scss */
 .write_buttons label {
   float: left;
   padding: 6px 18px 0 0 !important;
@@ -248,7 +252,7 @@ ul.share {
   font-weight: bold !important;
   display: none;
 }
-/* line 246, ../../app/stylesheets/sharing.scss */
+/* line 248, ../../app/stylesheets/sharing.scss */
 .write_buttons form#find_my_rep #addr {
   float: left;
   clear: none !important;
@@ -270,7 +274,7 @@ ul.share {
   width: 130px !important;
   margin: 10px 0 !important;
 }
-/* line 275, ../../app/stylesheets/sharing.scss */
+/* line 277, ../../app/stylesheets/sharing.scss */
 .write_buttons input {
   float: left;
   opacity: .5;
@@ -281,7 +285,7 @@ ul.share {
   width: 146px;
 }
 
-/* line 292, ../../app/stylesheets/sharing.scss */
+/* line 294, ../../app/stylesheets/sharing.scss */
 .write_buttons li,
 ul.share li {
   float: left;
@@ -289,7 +293,7 @@ ul.share li {
   margin-right: 7px;
 }
 
-/* line 299, ../../app/stylesheets/sharing.scss */
+/* line 301, ../../app/stylesheets/sharing.scss */
 .write_buttons a,
 ul.share li a {
   width: 27px !important;
@@ -299,11 +303,11 @@ ul.share li a {
   float: left !important;
 }
 
-/* line 308, ../../app/stylesheets/sharing.scss */
+/* line 310, ../../app/stylesheets/sharing.scss */
 .support_buttons {
   padding: 10px 30px 0 0;
 }
-/* line 311, ../../app/stylesheets/sharing.scss */
+/* line 313, ../../app/stylesheets/sharing.scss */
 .support_buttons a {
   margin: 0px 0 0 10px;
   width: 30px;
@@ -314,7 +318,7 @@ ul.share li a {
   text-align: center;
   overflow: hidden;
 }
-/* line 322, ../../app/stylesheets/sharing.scss */
+/* line 324, ../../app/stylesheets/sharing.scss */
 .support_buttons a span {
   padding: 25px 0 0 0;
   display: block;
@@ -322,29 +326,29 @@ ul.share li a {
   overflow: hidden;
 }
 
-/* line 330, ../../app/stylesheets/sharing.scss */
+/* line 332, ../../app/stylesheets/sharing.scss */
 .support span {
   background: url(../images/sprites.png) 9px -354px no-repeat;
 }
 
-/* line 335, ../../app/stylesheets/sharing.scss */
+/* line 337, ../../app/stylesheets/sharing.scss */
 .oppose span {
   background: url(../images/sprites.png) 9px -391px no-repeat;
 }
 
-/* line 341, ../../app/stylesheets/sharing.scss */
+/* line 343, ../../app/stylesheets/sharing.scss */
 .share_top {
   border-top: 0 !important;
   margin-bottom: 20px !important;
 }
 
-/* line 348, ../../app/stylesheets/sharing.scss */
+/* line 350, ../../app/stylesheets/sharing.scss */
 .share_callout {
   padding: 11px 0 0 40px;
   float: left;
 }
 
-/* line 353, ../../app/stylesheets/sharing.scss */
+/* line 355, ../../app/stylesheets/sharing.scss */
 .share_top ul.share {
   margin: 5px 0 5px 15px !important;
 }

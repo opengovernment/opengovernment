@@ -53,8 +53,10 @@
   - elsif style == :compact
 
     %li[bill]
-      != link_to bill.bill_number, bill_path(bill.session, bill), :class => "floatleft bill_link"
-  
-      %span.floatleft.tiny.views= t '.views', :count => bill.views
-  
-      %span.long-title=content_tag(:span, truncate(bill.title, :length => 80))
+      .small-bill-icon
+      .hot-details
+        %strong= link_to bill.bill_number, bill_path(bill.session, bill), :class => "black bill_link"
+    
+        %span.clearboth.tiny.views= t '.views', :count => bill.views
+    
+        %span.long-title=content_tag(:span, truncate(bill.title, :length => 80))

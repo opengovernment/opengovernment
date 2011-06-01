@@ -7,7 +7,7 @@
 = render 'wrapper'
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
 
-%span= link_to(t('people.show.contact_this_person'), {:action => :contact}, :class => 'button medium silver floatright nodec clearboth modal')
+%span= link_to(t('people.show.contact_this_person'), {:action => :contact}, :class => 'button large margin-top silver floatright nodec clearboth modal')
 
 -# TODO: These are turned off for now. Please implement.
 .support_buttons(style="display: none;")

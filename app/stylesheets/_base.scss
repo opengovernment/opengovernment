@@ -12,39 +12,112 @@ $ninesixty-columns: 16;
 // Colors
 
 
-$lightgray: rgba(101,101,101, .1);
-$darkgray: rgba(0,0,0, .7);
-$black: rgba(0,0,0, 1);
+$lightgray: rgba(200,200,200, .1);
+$gray: rgba(200,200,200, .4);
+$darkgray: rgba(0,0,0,.7);
+$black: rgba(0,0,0, 1) !important;
 
+$lightblue: rgba(194,220,224,.1);
+
+.black{color:$black}
 
 $lightwhite: rgba(255,255,255, .3);
 $white: rgba(255,255,255, 1);
 
+@mixin gray-gradient {
+  @include linear-gradient($gray, $lightgray);
+}
+
+@mixin reverse-gray-gradient {
+  @include linear-gradient(#eee, #ddd);
+}
 
 @mixin light-gray-gradient {
-  @include linear-gradient($lightgray,$lightwhite);
+  @include linear-gradient($lightgray, #fff);
+}
+
+@mixin light-blue-gradient {
+  @include linear-gradient($lightblue, #fff);
+}
+
+@mixin reverse-light-blue-gradient {
+  @include linear-gradient(#fff,$lightblue);
 }
 
 
+@mixin borders {
+  border: 1px solid #999;
+  border-top: 1px solid #b4b4b4;
+  border-bottom: 1px solid #8f8f8f;
+  }
 
-@mixin button {
-  @include light-gray-gradient;
-  @include box-shadow($lightgrayshadow, $whiteinnershadow);
-}
-
+@mixin reverse-borders {
+  border: 1px solid #999;
+  border-top: 1px solid #8f8f8f;
+  border-bottom: 1px solid #b4b4b4;
+  }  
 
 @mixin rounded {
   @include border-radius(4px);
   }
 
-
+@mixin full-rounded {
+  @include border-radius(100px);
+  }
 
 
 // Shadows
 
 
-$lightgrayshadow: 0 1px 3px $black;
+$lightgrayshadow: 0 1px 2px $darkgray;
 $whiteinnershadow: inset 0 1px 0px $white;
+$grayinnershadow: inset 0 1px 2px $gray;
+
+
+// Buttons
+
+
+@mixin gray-button {
+  @include gray-gradient;
+  @include borders;
+  
+  color: rgba(0,0,0, .8);
+  padding: 4px 15px;
+  text-decoration: none;
+  font-size: 11px;
+  text-shadow: 0 1px 0 #fff;
+  
+  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -ms-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -o-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
+  
+
+  &:hover{
+    @include light-gray-gradient;
+    text-decoration: none;
+
+  }
+    
+  &:active{
+    @include reverse-gray-gradient;
+    text-decoration: none;
+    @include reverse-borders;
+    @include box-shadow($grayinnershadow);
+    
+    -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
+    -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
+    -ms-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
+    -o-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
+    -khtml-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
+    box-shadow:  0 1px 0px #fff, inset 0 1px 1px #888;
+    
+  }  
+  
+  
+}
 
 
 

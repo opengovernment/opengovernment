@@ -50,6 +50,11 @@
 }
 
 
+.bills.show .find_button{
+padding-top: 9px;
+}
+
+
 /*///////////////////////////
 
 ~ Find YOur Districts
@@ -75,7 +80,7 @@
 .auto_find{
   position: absolute;
   right: 81px;
-  top: 19px;
+  top: 18px;
   right: 20px;
 
   font-family: Arial, Helvetica, sans-serif;
@@ -136,7 +141,6 @@
   #addr:focus{
     width: 97px;
     padding-left: 25px;
-    margin: 0 20px 0 0 !important;
     float: left;
     width: 100px !important;
 
@@ -145,7 +149,7 @@
   }
 
   label{
-    padding: 7px 20px 0 15px;
+    padding: 7px 20px 0 0px;
     float: left;
     margin:0 0 0px;
     font-size: 13px;
