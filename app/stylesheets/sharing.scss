@@ -217,7 +217,7 @@ ul.share {
 .write_buttons{
   @include button;
   @include rounded;
-  clear: both;
+  
   width: 310px;
   float: right !important;
   padding-left: 20px;
