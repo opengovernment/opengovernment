@@ -22,6 +22,9 @@ stylesheets:
     - public/stylesheets/type.css
     - public/stylesheets/vote.css
 
+  ie8:
+    - public/stylesheets/ie8.css
+
   other:
     - public/stylesheets/vote.css
     - public/stylesheets/twitter.css
