@@ -236,7 +236,7 @@ module OpenGov
           current_vote_ids = @bill.votes.collect {|v| v.openstates_id }
           importing_vote_ids = bill.votes.collect {|v| v.vote_id }
           removed_vote_ids = current_vote_ids - importing_vote_ids
-          Vote.delete_all(:openstates_id => removed_vote_ids) unless removed_vote_ids.empty?
+          Vote.destroy_all(:openstates_id => removed_vote_ids) unless removed_vote_ids.empty?
         end
 
         bill.votes.each do |vote|
