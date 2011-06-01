@@ -7,7 +7,10 @@ class Vote < ActiveRecord::Base
 
   def roll_calls_by_vote_type
     roll_calls = RollCall.where(:vote_id => id).order("case roll_calls.vote_type when 'yes' then 0 when 'no' then 1 when 'other' then 2 end, people.last_name").joins(:person).includes(:roles)
-    roll_calls.group_by(&:vote_type)
+    roll_calls = roll_calls.group_by(&:vote_type)
+
+    # Rails.logger.debug roll_calls.inspect
+    return roll_calls
   end
   
   def outcome_class
