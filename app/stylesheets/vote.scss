@@ -33,8 +33,9 @@ margin: 0;
   padding-right: 20px;
 }
 
-/* Full Roll Call */
+/* Roll Call table */
 .roll_call {
+
   caption {
     background: transparent;
     text-align: left;
@@ -49,14 +50,13 @@ margin: 0;
   }
 
   td {
-    padding: 3px 5px 3px 0;
-    min-width: 35px;
+    padding: 4px 5px 4px 0 !important;
+    min-width: 25px;
   }
 
   /* Make room for the party icon */
   td.person {
     padding-left: 14px !important;
-    min-width: 130px;
     font-size: 12px;
   }
 
@@ -90,6 +90,20 @@ margin: 0;
    .vote_ind_other {
     background: url(../images/votes/ind-other-box.gif) no-repeat 0% 50%;
   }
+}
+
+.yes_votes {
+  @include grid(4);
+  @include alpha;
+}
+
+.no_votes {
+  @include grid(4);
+}
+
+.other_votes {
+  @include grid(4);
+  @include omega;
 }
 
 table.map_legend {
