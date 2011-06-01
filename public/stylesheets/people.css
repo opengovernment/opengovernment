@@ -73,57 +73,57 @@ h3.how-they-voted {
   border: 1px solid #fff;
 }
 
-/* line 85, ../../app/stylesheets/people.scss */
+/* line 84, ../../app/stylesheets/people.scss */
 .lined li.person a span.person_name {
   display: block;
   margin: 10px 0 5px;
   font-size: 20px;
 }
 
-/* line 93, ../../app/stylesheets/people.scss */
+/* line 92, ../../app/stylesheets/people.scss */
 .lined li.person a .person_district,
 .lined li.person a .person_party {
   display: inline;
 }
 
-/* line 105, ../../app/stylesheets/people.scss */
+/* line 102, ../../app/stylesheets/people.scss */
 .lined li.person a .person_views {
   margin-top: 7px;
 }
 
-/* line 110, ../../app/stylesheets/people.scss */
+/* line 107, ../../app/stylesheets/people.scss */
 .lined li.person .grid_6 {
   border-right: 1px solid #efefef;
   padding-bottom: 10px;
 }
 
-/* line 115, ../../app/stylesheets/people.scss */
+/* line 112, ../../app/stylesheets/people.scss */
 li.race_tracker {
   padding-top: 10px;
 }
 
 /* Rating party color boxes */
-/* line 120, ../../app/stylesheets/people.scss */
+/* line 117, ../../app/stylesheets/people.scss */
 .rating_person.rating_dem, .rating_person.rating_dfl {
   background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 
-/* line 124, ../../app/stylesheets/people.scss */
+/* line 121, ../../app/stylesheets/people.scss */
 .rating_person.rating_rep {
   background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
 }
 
-/* line 128, ../../app/stylesheets/people.scss */
+/* line 125, ../../app/stylesheets/people.scss */
 .rating_person.rating_ind {
   background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
 }
 
-/* line 132, ../../app/stylesheets/people.scss */
+/* line 129, ../../app/stylesheets/people.scss */
 .ratings-header {
   font-weight: bold;
 }
 
-/* line 136, ../../app/stylesheets/people.scss */
+/* line 133, ../../app/stylesheets/people.scss */
 table.ratings td.rating_person {
   margin-left: 0;
   padding: 2px 0 2px 20px;
@@ -132,18 +132,18 @@ table.ratings td.rating_person {
   float: left;
 }
 
-/* line 144, ../../app/stylesheets/people.scss */
+/* line 141, ../../app/stylesheets/people.scss */
 table.ratings td {
   padding: 2px 0;
 }
 
-/* line 148, ../../app/stylesheets/people.scss */
+/* line 145, ../../app/stylesheets/people.scss */
 ul.people_mugs li {
   display: inline;
   padding-right: 3px;
 }
 
-/* line 153, ../../app/stylesheets/people.scss */
+/* line 150, ../../app/stylesheets/people.scss */
 ul.chamber_tabs li a {
   height: 36px;
 }

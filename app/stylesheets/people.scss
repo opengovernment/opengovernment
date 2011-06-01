@@ -2,7 +2,7 @@
 
 .people.index .intro p{
   padding-right: 250px;
-  }
+}
 
 /*
 .people.index .intro div{
@@ -37,22 +37,22 @@ h3.how-they-voted {
   margin: 0 !important;
   overflow: auto;
   padding: 0px !important;
-  }
+}
 
 .lined li.person a{
   display: block;
   height: 72px;
   padding: 20px 20px 8px 40px !important;
-  }
+}
 
 .lined li.person a:hover{
 
   
-  }
+}
 
 .lined li.person a:hover .small_thumbnail{
 
-  }
+}
 
 
 .lined li.person a .small_thumbnail {
@@ -72,34 +72,31 @@ h3.how-they-voted {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)); /* for webkit browsers */
   background: -moz-linear-gradient(top,  #fff,  #eee); /* for firefox 3.6+ */
 
-  }
+}
 
 
 .lined li.person a .small_thumbnail img{
   display: block;
-
   border: 1px solid #fff;
-  }
+}
 
 
 .lined li.person a span.person_name{
   display: block;
   margin: 10px 0 5px;
   font-size: 20px;
-  }
+}
 
 
 .lined li.person a .person_district,
 .lined li.person a .person_party {
   display: inline;
-  }
+}
 
 
 .lined li.person a .person_mentions,
 .lined li.person a .person_views{
-
-
-  }
+}
 
 
 .lined li.person a .person_views{

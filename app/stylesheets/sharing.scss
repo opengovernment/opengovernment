@@ -217,9 +217,13 @@ ul.share {
 .write_buttons{
   @include light-gray-gradient;
   @include rounded;
+
   @include borders;
 
   clear: both;
+
+
+
   width: 310px;
   float: right !important;
   padding-left: 20px;
