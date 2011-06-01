@@ -91,7 +91,7 @@
       = t '.no_roll_call'
   - else
     - @vote.roll_calls_by_vote_type.each do |vote_type, roll_calls|
-      .grid_4.alpha
+      %div{:class => "#{vote_type}_votes"}
         %table.roll_call
           %caption(align='top') #{vote_type.capitalize} Votes
           %thead
