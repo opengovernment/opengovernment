@@ -79,8 +79,21 @@
         - session_roles = chamber.roles.for_session(@session.family)
         %div{:id => (chamber.type == 'UpperChamber' ? 'upper' : 'lower')}
           %div.tab_cont.pad
-            .grid_3.alpha.district_map
+            .district_map
               = leg_map_img(@state, chamber)
+
+            %p.small
+              = succeed ',' do
+                = link_to pluralize(chamber.primary_committees.count, t('.committee')), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
+              %br
+
+              = link_to pluralize(@state.joint_committees.count, t('.joint_committee')), joint_committees_path
+              %br
+              = succeed ',' do
+                = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])
+              %br
+
+              = link_to "#{Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
   
             %p
               %h4= t '.legislators'
@@ -101,31 +114,6 @@
                 =t '.each_chamber_represents'
                 =t (chamber.type == 'UpperChamber' ? '.state_pop_per_upper_chamber_member' : '.state_pop_per_lower_chamber_member') 
                 =t '.term_limits'
-  
-            %p
-              %h4= t '.committees'
-              .small
-                = succeed ',' do
-                  = link_to pluralize(chamber.primary_committees.count, t('.committee')), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
-                %br
-    
-                = link_to pluralize(@state.joint_committees.count, t('.joint_committee')), joint_committees_path
-                %br
-                = succeed ',' do
-                  = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])
-                %br
-    
-                = link_to "#{Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).with_key_votes.count} #{t('.key_votes')}", bills_path(params[:session], :sort => 'keyvotes')
-      
-                - if chamber.type == 'UpperChamber'
-                  %br=t '.last_election_upper_chamber_open_seats'
-                  %br=t '.last_election_upper_chamber_incumbent_seats'
-                  %br=t '.next_election_upper_chamber_seats_available'
-                - else
-                  %br= t '.last_election_lower_chamber_open_seats'
-                  %br= t '.last_election_lower_chamber_incumbent_seats'
-                  %br= t '.next_election_lower_chamber_seats_available'
-
 
   .floatright.margin-top= link_to_with_domain('Official Site', @state.official_url)
 

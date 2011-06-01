@@ -773,8 +773,14 @@ min-height: 150px;
 padding: 10px 0 15px;
 line-height: 1.4em;
 }
-.district_map img {
-padding-bottom: 20px
+
+.district_map {
+  @include grid(3);
+  @include alpha;
+  
+  img {
+    padding-bottom: 20px;
+  }
 }
 
 
