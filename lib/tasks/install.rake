@@ -70,7 +70,7 @@ namespace :opengov do
       raise "Sorry, OpenGovernment requires PostgreSQL"
     end
 
-    if State.count > 0
+    if State.table_exists? && State.count > 0
       puts "It appears you've already run rake install; skipping DB setup and fixture imports."
     else
       Rake::Task['db:prepare'].invoke
@@ -210,11 +210,12 @@ namespace :fetch do
     Rake::Task['fetch:geoip'].invoke
   end
 
-  desc "Get the SHP files for Congress, all active state SLDs, and all state boundaries"
+  desc "Get the SHP files for Congress, all active state SLDs, all state boundaries, and ZCTAs"
   task :boundaries => :setup do
     with_states do |state|
       state ? OpenGov::Boundaries.new.fetch_one(state) : OpenGov::Boundaries.new.fetch
     end
+    
   end
 
   desc "Fetch latest GeoIP dataset (updated monthly)"
