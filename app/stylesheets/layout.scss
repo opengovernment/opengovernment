@@ -703,6 +703,8 @@ color: #666;
 .hot-details{
 float: left;
 width: 160px;
+height: 86px;
+overflow: hidden;
 }
 
 .district{
@@ -713,25 +715,28 @@ padding-bottom: 5px;
 }
 
 
-.col{
-min-height: 400px !important;
-position: relative;
-
+.state-popular-col{
+  min-height: 400px !important;
+  position: relative;
 }
 
-.col strong{
-font-size: 13px;
+.state-popular-col strong{
+  font-size: 13px;
 }
 
-.col .more{
-position: absolute;
-bottom: 0;
-right: 0;
+.state-popular-col .more{
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
+.state-popular-col li{
+  min-height: 7.5em !important;
+}
 
-.col li{
-min-height: 7.5em !important;
+#people_mentions li, #popular_bills li {
+  height: 7.5em;
+  overflow: hidden;
 }
 
 #hot_issues h2{

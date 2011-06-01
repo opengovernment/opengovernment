@@ -574,20 +574,15 @@ min-width: 260px;
 height: 116px;
 }
 
-
-
 #people_mentions{
 @include grid(4);
 }
 
 
-
 #popular_bills{
 @include grid(4);
 @include alpha;
-
 }
-
 
 
 #hot_issues{

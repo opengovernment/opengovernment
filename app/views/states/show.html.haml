@@ -24,14 +24,14 @@
       |)
     end
 
-  #popular_bills.col
+  #popular_bills.state-popular-col
     %h2= t '.popular_bills'
     %ul.lined
       = render @most_viewed_bills, :style => :compact
     %a.more{:href => bills_path(params[:session], :sort => 'views')}= t 'site.more_link'
     .clear
 
-  #people_mentions.col
+  #people_mentions.state-popular-col
     %h2= t '.people_in_the_news'
     %ul.hot_people.lined
       - @hot_people.each_with_index do |person, i|
@@ -52,7 +52,7 @@
     %a.more{:href => people_path(params[:session], :sort => 'mentions')}= t 'site.more_link'
     .clear
 
-  #hot_issues.col
+  #hot_issues.state-popular-col
     %h2= t '.hot_issues'
     %ul= render @hot_issues, :style => :compact
     %a.more{:href => issues_path(params[:session])}= t 'site.more_link'
