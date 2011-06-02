@@ -403,7 +403,7 @@ display: block;
 font-size: 20px;
 padding-left: 32px;
 line-height: 3.5em;
-background: transparent url(../images/states.png) 0 24px no-repeat !important;
+background: transparent url(../images/states.png) 0 26px no-repeat !important;
 }
 .supported_states_list li a.state-LA {
 background: transparent url(../images/states.png) 0 -34px no-repeat !important
@@ -416,6 +416,9 @@ background: transparent url(../images/states.png) 0 -200px no-repeat !important
 }
 .supported_states_list li a.state-WI {
 background: transparent url(../images/states.png) 0 -142px no-repeat !important
+}
+.supported_states_list li a.state-MN {
+background: transparent url(../images/states.png) 0 -256px no-repeat !important
 }
 
 
