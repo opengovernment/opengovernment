@@ -6,9 +6,6 @@
 
 %h1= t '.title', :legislature_name => @state.legislature.name, :session_name => current_session_name
 
-
-
-
 %ul.tabs.chamber_tabs
   %li.all
     %a{:href => bills_path(@session, :sort => @sort), :class => (@current_tab == :all ? 'active' : '')} All
@@ -27,6 +24,9 @@
       %li
         = link_to(v, url_for(:session => @session, :sort => k), :class => (k.to_s == @sort ? 'active' : nil))
 .space.clear
+
+- if @sort == 'views'
+  %p This is a list of the most-viewed bills on this site in the past 30 days. 
 
 - if @bills.empty?
   %p= t '.bill_list_empty'

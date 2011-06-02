@@ -896,19 +896,18 @@ ul.small_tabs li.divide {
 .search_form {
   padding: 10px 0 0 0;
   height: 28px;
-  position: absolute;
-  right: -67px;
 }
-/* line 812, ../../app/stylesheets/classes.scss */
+/* line 810, ../../app/stylesheets/classes.scss */
 .search_form .state_search_form #q {
-  width: 288px;
+  width: 248px;
+  float: right;
 }
-/* line 816, ../../app/stylesheets/classes.scss */
+/* line 815, ../../app/stylesheets/classes.scss */
 .search_form #search_type {
   float: left;
   margin: 6px 15px 0 0;
 }
-/* line 821, ../../app/stylesheets/classes.scss */
+/* line 820, ../../app/stylesheets/classes.scss */
 .search_form input#q {
   border: 0 !important;
   padding: 7px 8px 7px 30px;
@@ -925,7 +924,7 @@ ul.small_tabs li.divide {
   background: url(../images/search.png) 10px 9px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#efefef));
   /* for webkit browsers */
 }
-/* line 838, ../../app/stylesheets/classes.scss */
+/* line 837, ../../app/stylesheets/classes.scss */
 .search_form input#q:focus {
   background: url(../images/search.png) 10px 9px no-repeat;
   background: url(../images/search.png) 10px 9px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
@@ -933,55 +932,55 @@ ul.small_tabs li.divide {
   background: url(../images/search.png) 10px 9px no-repeat, -moz-linear-gradient(top, #eeeeee, white);
   /* for firefox 3.6+ */
 }
-/* line 847, ../../app/stylesheets/classes.scss */
+/* line 846, ../../app/stylesheets/classes.scss */
 .search_form .button {
   padding: 7px 10px 8px;
   margin: 0 !important;
 }
-/* line 852, ../../app/stylesheets/classes.scss */
+/* line 851, ../../app/stylesheets/classes.scss */
 .search_form .button:active {
   padding: 9px 10px 8px;
   border: 0;
 }
 
-/* line 860, ../../app/stylesheets/classes.scss */
+/* line 859, ../../app/stylesheets/classes.scss */
 .search_results_search_form {
   padding-bottom: 5px;
 }
-/* line 863, ../../app/stylesheets/classes.scss */
+/* line 862, ../../app/stylesheets/classes.scss */
 .search_results_search_form .button {
   float: left !important;
   margin-right: 15px !important;
 }
-/* line 869, ../../app/stylesheets/classes.scss */
+/* line 868, ../../app/stylesheets/classes.scss */
 .search_results_search_form .field {
   display: inline;
   padding-left: 10px;
   float: left !important;
 }
-/* line 875, ../../app/stylesheets/classes.scss */
+/* line 874, ../../app/stylesheets/classes.scss */
 .search_results_search_form input#q {
   float: none;
   margin-top: 5px;
   width: 500px;
 }
-/* line 881, ../../app/stylesheets/classes.scss */
+/* line 880, ../../app/stylesheets/classes.scss */
 .search_results_search_form select {
   float: right;
 }
 
-/* line 887, ../../app/stylesheets/classes.scss */
+/* line 886, ../../app/stylesheets/classes.scss */
 .results_count, .search_help {
   font-size: 11px;
 }
 
-/* line 891, ../../app/stylesheets/classes.scss */
+/* line 890, ../../app/stylesheets/classes.scss */
 .results_count {
   position: relative;
   top: -5px;
 }
 
-/* line 896, ../../app/stylesheets/classes.scss */
+/* line 895, ../../app/stylesheets/classes.scss */
 .search_help {
   position: relative;
   top: -5px;
@@ -989,12 +988,17 @@ ul.small_tabs li.divide {
   padding-right: 85px;
 }
 
-/* line 905, ../../app/stylesheets/classes.scss */
+/* line 902, ../../app/stylesheets/classes.scss */
+.session_filter a.active {
+  font-weight: bold;
+}
+
+/* line 906, ../../app/stylesheets/classes.scss */
 .write_buttons {
   padding: 10px;
 }
 
-/* line 917, ../../app/stylesheets/classes.scss */
+/* line 918, ../../app/stylesheets/classes.scss */
 .small-bill-icon {
   width: 30px;
   height: 35px;

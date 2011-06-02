@@ -899,7 +899,9 @@ display: none;
   padding-right: 85px;
 }
 
-
+.session_filter a.active {
+  font-weight: bold;
+}
 
 .write_buttons{
 padding: 10px ;
