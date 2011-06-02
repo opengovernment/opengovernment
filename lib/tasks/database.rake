@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + "/rake_extensions"
+
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
 
