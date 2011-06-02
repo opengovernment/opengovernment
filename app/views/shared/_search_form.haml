@@ -1,7 +1,8 @@
 = form_tag state_search_path, :method => :get, :class => 'state_search_form'
 
-
+= select_tag :search_type, options_for_select([['Bills', "bills"], ['Legislators', "legislators"], ["Committees", "committees"], ['Everything', "everything"]], params[:search_type])
 = text_field_tag :q, params[:q], :class => 'field', :placeholder => "Search #{current_place_name}"
+= hidden_field_tag :session_id, Session.most_recent(current_place.legislature).try(:first).try(:id)
 
 </form>
 

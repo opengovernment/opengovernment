@@ -1,0 +1,10 @@
+/* ie8-specific fixes. especially box shadows. */
+
+.field, .search_form input#q, .search_form input#q:focus {
+  border: 1px solid #ccc !important;
+  background-color: white;
+}
+
+#session_dropdown {
+  border-top: 1px solid #ccc !important;
+}

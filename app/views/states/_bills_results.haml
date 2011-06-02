@@ -2,10 +2,10 @@
   .filter.grid_6.alpha
     %h3 Session:
     %ul.session_filter
-      %li= link_to 'All', state_search_path(params.except(:session_id))
+      %li= link_to 'All', state_search_path(params.except(:session_id)), :class => (params.include?(:session_id) ? '' : 'active')
       - @state.legislature.sessions.each do |s|
         %li
-          = link_to s.name, state_search_path(params.merge({ :session_id => s.id }))
+          = link_to s.name, state_search_path(params.merge({ :session_id => s.id })), :class => (params[:session_id].try(:to_i) == s.id ? 'active' : '')
   .sort.grid_6.alpha
     %h3 Sort by:
     %ul.bills
