@@ -41,7 +41,7 @@ class BillsController < SubdomainController
   def show
     expires_in 30.minutes
 
-    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name").limit(10)
+    @sponsors = @bill.sponsorships.includes(:sponsor).order("people.last_name, bill_sponsorships.sponsor_name")
     @sponsor_count = @bill.sponsorships.count
     @votes = @bill.votes
     @actions = @bill.actions
@@ -104,8 +104,8 @@ class BillsController < SubdomainController
   end
 
   def scope_bills(bills)
-    lim = (params[:limit] && params[:limit].to_i) || 10
-    lim = (lim > 10 ? 10 : lim)
+    lim = (params[:limit] && params[:limit].to_i) || 30
+    lim = (lim > 30 ? 30 : lim)
     
     # Fall back to 'introduced' if we have no MongoDB connection
     if @sort == 'views' && !MongoMapper.connected?

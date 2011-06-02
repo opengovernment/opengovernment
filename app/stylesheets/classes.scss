@@ -806,11 +806,10 @@ display: none;
 .search_form {
   padding: 10px 0 0 0;
   height: 28px;
-  position: absolute;
-  right: -67px;
   
   .state_search_form #q{
-    width: 288px;
+    width: 248px;
+    float: right;
   }
 
   #search_type {
