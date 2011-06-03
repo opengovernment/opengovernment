@@ -27,70 +27,16 @@
   float: right;
 }
 
-/* line 23, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb {
-  float: left;
-  border-left: 1px solid #ccc;
-  margin-top: -2px;
-  padding-left: 10px;
-}
-
-/* line 30, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb li {
-  float: left;
-  line-height: 3em;
-  list-style: none;
-  padding-right: 0px;
-  position: relative;
-}
-
-/* line 38, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb li a {
-  float: left;
-  list-style: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 1.3em;
-  margin: 0 !important;
-  color: #215357;
-}
-
-/* line 52, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb li a span {
-  margin: 0 0 0 15px;
-}
-
-/* line 56, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb li a:hover span {
-  text-decoration: underline;
-}
-
-/* line 61, ../../app/stylesheets/breadcrumb.scss */
-li.topnav {
-  padding: 0 0px 0 0 !important;
-  margin-right: 10px;
-}
-
-/* line 68, ../../app/stylesheets/breadcrumb.scss */
-li.topnav a {
-  padding: 0 10px 0 0 !important;
-}
-
-/* line 73, ../../app/stylesheets/breadcrumb.scss */
-.breadcrumb li:hover, .breadcrumb a.subhover {
-  z-index: 120;
-}
-
 /* State selector menu */
-/* line 84, ../../app/stylesheets/breadcrumb.scss */
+/* line 25, ../../app/stylesheets/breadcrumb.scss */
 .state-select,
 div.session-select {
   position: absolute;
   /*--Important - Keeps subnav from affecting main navigation flow--*/
-  left: -4px;
   margin: 0;
   padding: 8px !important;
   width: 237px;
+  left: -4px;
   top: 39px;
   z-index: 9999999;
   display: none;
@@ -108,24 +54,24 @@ div.session-select {
   -moz-border-radius: 5px;
 }
 
-/* line 110, ../../app/stylesheets/breadcrumb.scss */
+/* line 48, ../../app/stylesheets/breadcrumb.scss */
 .state-select:hover,
 .session-select:hover {
   z-index: 9999999999 !important;
 }
 
-/* line 117, ../../app/stylesheets/breadcrumb.scss */
+/* line 53, ../../app/stylesheets/breadcrumb.scss */
 div.session-select {
   position: absolute;
   /*--Important - Keeps subnav from affecting main navigation flow--*/
   left: -4px;
+  top: 77px;
   margin: 0;
   padding: 8px !important;
   z-index: 999999999 !important;
-  top: 77px;
 }
 
-/* line 127, ../../app/stylesheets/breadcrumb.scss */
+/* line 62, ../../app/stylesheets/breadcrumb.scss */
 .triangle {
   position: absolute;
   top: -9px;
@@ -136,7 +82,7 @@ div.session-select {
   background: url(../images/gray_triangle.png) 0 0 no-repeat;
 }
 
-/* line 140, ../../app/stylesheets/breadcrumb.scss */
+/* line 75, ../../app/stylesheets/breadcrumb.scss */
 .state-select ul,
 .session-select ul {
   list-style: none;
@@ -146,7 +92,7 @@ div.session-select {
   width: 237px;
 }
 
-/* line 153, ../../app/stylesheets/breadcrumb.scss */
+/* line 88, ../../app/stylesheets/breadcrumb.scss */
 .state-select li,
 .session-select li {
   list-style: none;
@@ -158,7 +104,7 @@ div.session-select {
   padding: 0;
 }
 
-/* line 165, ../../app/stylesheets/breadcrumb.scss */
+/* line 100, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a,
 .session-select li a {
   float: left;
@@ -170,7 +116,7 @@ div.session-select {
   font-size: 12px;
 }
 
-/* line 177, ../../app/stylesheets/breadcrumb.scss */
+/* line 113, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a:hover,
 .session-select li a:hover {
   text-shadow: 0 2px 0px #fff;
@@ -178,29 +124,29 @@ div.session-select {
   background: -moz-linear-gradient(bottom, #f6f6f6, white) !important;
 }
 
-/* line 185, ../../app/stylesheets/breadcrumb.scss */
+/* line 121, ../../app/stylesheets/breadcrumb.scss */
 .state-select li a:active,
 .session-select li a:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(white)) !important;
   background: -moz-linear-gradient(bottom, white, #f6f6f6) !important;
 }
 
-/* line 194, ../../app/stylesheets/breadcrumb.scss */
+/* line 128, ../../app/stylesheets/breadcrumb.scss */
 ul.breadcrumb li span.subhover {
   cursor: pointer;
 }
 
 /*--Hover effect for trigger--*/
-/* line 198, ../../app/stylesheets/breadcrumb.scss */
+/* line 130, ../../app/stylesheets/breadcrumb.scss */
 .dropdown {
   clear: both;
   font-size: 13px;
-  margin: 0px 0 0px -22px !important;
-  padding: 9px 0 8px 15px !important;
+  margin: 0px 0 0px -2px;
+  padding: 9px 0 8px 15px;
   width: 211px !important;
   display: block;
   border: 1px solid #bbb;
-  text-decoration: none !important;
+  text-decoration: none;
   text-shadow: 0 1px 0px #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
   background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#efefef));
@@ -210,7 +156,7 @@ ul.breadcrumb li span.subhover {
   border-top: none;
 }
 
-/* line 217, ../../app/stylesheets/breadcrumb.scss */
+/* line 149, ../../app/stylesheets/breadcrumb.scss */
 .dropdown:hover {
   background: url(../images/sprites.png) 186px -309px no-repeat, -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top, white, #e2ecee) !important;
@@ -219,7 +165,7 @@ ul.breadcrumb li span.subhover {
   -webkit-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1), inset 0 1px 0px white;
 }
 
-/* line 227, ../../app/stylesheets/breadcrumb.scss */
+/* line 158, ../../app/stylesheets/breadcrumb.scss */
 .dropdown.subhover {
   text-decoration: none;
   -moz-box-shadow: 0 1px 0px #eeeeee, inset 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -228,12 +174,12 @@ ul.breadcrumb li span.subhover {
   background: url(../images/sprites.png) 186px -309px no-repeat, -moz-linear-gradient(top, white, #eeeeee);
 }
 
-/* line 237, ../../app/stylesheets/breadcrumb.scss */
+/* line 168, ../../app/stylesheets/breadcrumb.scss */
 .current {
   padding-left: 40px;
 }
 
-/* line 242, ../../app/stylesheets/breadcrumb.scss */
+/* line 173, ../../app/stylesheets/breadcrumb.scss */
 a#dropdown.dropdown {
   font-size: 14px;
   padding: 16px 0 15px 15px !important;
@@ -241,19 +187,19 @@ a#dropdown.dropdown {
   background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top, white, #eeeeee) !important;
 }
 
-/* line 250, ../../app/stylesheets/breadcrumb.scss */
+/* line 181, ../../app/stylesheets/breadcrumb.scss */
 a#dropdown.dropdown:hover {
   background: url(../images/sprites.png) 186px -301px no-repeat, -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: url(../images/sprites.png) 186px -301px no-repeat, -moz-linear-gradient(top, white, #e2ecee) !important;
 }
 
-/* line 258, ../../app/stylesheets/breadcrumb.scss */
+/* line 189, ../../app/stylesheets/breadcrumb.scss */
 #statelevel {
   display: block;
   padding: 15px;
   float: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
-  margin: -1px 0 0 -21px;
+  margin: -1px 0 0 -1px;
   width: 196px;
   font-size: 14px;
   text-decoration: none;
@@ -261,43 +207,43 @@ a#dropdown.dropdown:hover {
   background: -moz-linear-gradient(top, white, #eeeeee) !important;
 }
 
-/* line 273, ../../app/stylesheets/breadcrumb.scss */
+/* line 204, ../../app/stylesheets/breadcrumb.scss */
 #statelevel:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e2ecee)) !important;
   background: -moz-linear-gradient(top, white, #e2ecee) !important;
 }
 
-/* line 282, ../../app/stylesheets/breadcrumb.scss */
+/* line 213, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown {
   display: block;
   padding: 10px;
   float: left;
   height: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  margin: 8px 0 0 -21px;
+  margin: 8px 0 0 -1px;
   width: 200px;
   position: absolute;
   width: 6px;
-  left: 210px;
+  left: 190px;
   background: url(../images/sprites.png) -4px -312px no-repeat, -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee)) !important;
   background: url(../images/sprites.png) -4px -312px no-repeat, -moz-linear-gradient(top, white, #eeeeee) !important;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
 
-/* line 300, ../../app/stylesheets/breadcrumb.scss */
+/* line 231, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown:hover {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
 
-/* line 305, ../../app/stylesheets/breadcrumb.scss */
+/* line 236, ../../app/stylesheets/breadcrumb.scss */
 #dropdown.statedropdown.subhover {
   border: 1px solid rgba(0, 0, 0, 0) !important;
   -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* line 321, ../../app/stylesheets/breadcrumb.scss */
+/* line 252, ../../app/stylesheets/breadcrumb.scss */
 .prior_session {
   margin: 0 0 0 -26px;
   width: 206px;
@@ -311,7 +257,7 @@ a#dropdown.dropdown:hover {
   z-index: 100;
 }
 
-/* line 333, ../../app/stylesheets/breadcrumb.scss */
+/* line 264, ../../app/stylesheets/breadcrumb.scss */
 .current_session {
   position: relative;
   z-index: 100;
@@ -320,21 +266,17 @@ a#dropdown.dropdown:hover {
   padding: 5px 10px 5px 15px;
 }
 
-/* line 342, ../../app/stylesheets/breadcrumb.scss */
+/* line 273, ../../app/stylesheets/breadcrumb.scss */
 .prior_session a {
   float: right;
 }
 
-/* line 346, ../../app/stylesheets/breadcrumb.scss */
+/* line 277, ../../app/stylesheets/breadcrumb.scss */
 .sponsor_preview {
   padding-bottom: 20px;
 }
 
-/* line 350, ../../app/stylesheets/breadcrumb.scss */
+/* line 281, ../../app/stylesheets/breadcrumb.scss */
 .bar {
-  height: 27px;
-  line-height: 27px;
-  margin-left: -5px;
-  width: 220px;
-  display: block;
+  display: none;
 }

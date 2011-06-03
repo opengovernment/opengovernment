@@ -284,6 +284,8 @@ p.action_text {
 
 
 .bill_titles {
+  @include grid(4);
+  @include alpha;
   margin-bottom: 4px;
 
   a{
@@ -527,7 +529,7 @@ min-width: 260px;
 
 
 .bill-intro {
-  margin: 0 -21px 30px -34px;
+  margin: 0 -15px 30px -34px;
   padding: 10px 25px 35px 36px;  
   position: relative;
   line-height: 1.2em; 

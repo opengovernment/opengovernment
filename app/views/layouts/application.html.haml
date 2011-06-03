@@ -32,95 +32,88 @@
 
     = yield :head
 
-
     %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
 
   %body{:class => page_class + (current_place_subdomain.blank? ? '' : ' ' + current_place_subdomain)}
-
-    %div.container_16
+    #wrap
       %div.skip-link.screen-reader-text
         %a(href="#content" title="Skip to content") Skip to content
       %header
         <a href="/pages/help" class="grow">Help Us Grow!</a>
-        #account.grid_9.alpha
-          .grid_9.alpha.omega
-            %strong
-              = link_to t('site.name'), home_url(:subdomain => false)  
- 
-            %ul.breadcrumb
-              %li.topnav
+        #account
+          %a{:href => home_url(:subdomain => false)}
+            %strong= t('site.name')
 
-            %span.beta Beta
-            .hide
-              - if current_user
-                = succeed(',') do
-                  = t('site.greeting')
-                %a.account(href="#content" title="Username") #{current_user.login}.
-                = link_to(t('site.sign_out'), destroy_user_session_path)
-              - else
-                = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
-              %a.help{:href => page_url('site-help'), :title => "Help Center"} Help
+          %span.beta Beta
+          .hide
+            - if current_user
+              = succeed(',') do
+                = t('site.greeting')
+              %a.account(href="#content" title="Username") #{current_user.login}.
+              = link_to(t('site.sign_out'), destroy_user_session_path)
+            - else
+              = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
+            %a.help{:href => page_url('site-help'), :title => "Help Center"} Help
         - if current_place
-          .grid_7.omega.search_form
+          .search_form
             = render 'shared/search_form'
         - else
-          .grid_4.push_3.omega.by
+          .by
             %a.ppf{:href => 'http://participatorypolitics.org/'} by PPF
             %a.sunlight{:href => 'http://sunlightfoundation.com/'} and the Sunlight Foundation
-              
-
-    %div.container_16.main.boxxed
-      
-      - unless flash.empty?
-        %div#flash
-          - flash.each do |key, value|
-            %div(id="flash_#{key}")
-              =h value
-
+            
+      %div.main.boxxed
+    
+        - unless flash.empty?
+          %div#flash
+            - flash.each do |key, value|
+              %div(id="flash_#{key}")
+                =h value
 
 
-      - if content_for?(:content)
-        -# :content can be yielded by nested templates eg. pages.html.haml
-        = yield(:content)
-      - else
-        = yield :before_left_nav
-        .grid_4.nav-cont
-          %a#statelevel{:href => root_url(:subdomain => current_place_subdomain)}
-            = current_place_name || t('site.select_state')
 
-          %a#dropdown{:class => 'statedropdown', :href => '#'}
+        - if content_for?(:content)
+          -# :content can be yielded by nested templates eg. pages.html.haml
+          = yield(:content)
+        - else
+          = yield :before_left_nav
+          .sidebar
+            %a#statelevel{:href => root_url(:subdomain => current_place_subdomain)}
+              = current_place_name || t('site.select_state')
 
-          .state-select
-            %span.triangle
-            %ul
-              - State.loadable.each do |state|
-                %li.state_name= link_to state.name, state_url(state)
-          - if @available_sessions.size > 1
-            %a#session_dropdown{:class => 'dropdown', :href => '#'} #{current_session_name} session
+            %a#dropdown{:class => 'statedropdown', :href => '#'}
 
-            .session-select{:style => 'display: none;'}
+            .state-select
               %span.triangle
               %ul
-                - @available_sessions.each do |session|
-                  %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
-          - else
-            #session_dropdown{:class => 'bar'} #{current_session_name} session
-          %nav#left_nav
-            = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
-          = yield :below_left_nav
+                - State.loadable.each do |state|
+                  %li.state_name= link_to state.name, state_url(state)
+            - if @available_sessions.size > 1
+              %a#session_dropdown{:class => 'dropdown', :href => '#'} #{current_session_name} session
 
-        .grid_12.content
-          = yield
+              .session-select{:style => 'display: none;'}
+                %span.triangle
+                %ul
+                  - @available_sessions.each do |session|
+                    %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
+            - else
+              #session_dropdown{:class => 'bar'} #{current_session_name} session
+            %nav#left_nav
+              = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..3) || raw('&nbsp;'))
+            = yield :below_left_nav
+
+          #content
+            = yield
+
+          .clearfix
+
+        %br
 
         .clearfix
 
-      %br
-
+      = render 'layouts/footer'
       .clearfix
 
-    = render 'layouts/footer'
-    .clearfix
-    
     %script(type='text/javascript' charset='UTF-8')
       = yield :js_footer
 

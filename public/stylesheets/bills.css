@@ -318,16 +318,22 @@ p.action_text {
 
 /* line 286, ../../app/stylesheets/bills.scss */
 .bill_titles {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  margin-left: 0;
   margin-bottom: 4px;
 }
-/* line 289, ../../app/stylesheets/bills.scss */
+/* line 291, ../../app/stylesheets/bills.scss */
 .bill_titles a {
   font-size: 14px;
   float: left;
   padding-top: 1px;
   line-height: 1.3em;
 }
-/* line 296, ../../app/stylesheets/bills.scss */
+/* line 298, ../../app/stylesheets/bills.scss */
 .bill_titles .view_count {
   font-size: 11px;
   float: left;
@@ -337,7 +343,7 @@ p.action_text {
   padding-left: 30px;
   background: url(../images/sprites.png) 10px -173px no-repeat;
 }
-/* line 306, ../../app/stylesheets/bills.scss */
+/* line 308, ../../app/stylesheets/bills.scss */
 .bill_titles span {
   display: block;
   font-size: 12px;
@@ -347,7 +353,7 @@ p.action_text {
   color: #777;
 }
 
-/* line 316, ../../app/stylesheets/bills.scss */
+/* line 318, ../../app/stylesheets/bills.scss */
 .small_date {
   font-size: 11px;
   font-weight: bold;
@@ -356,7 +362,7 @@ p.action_text {
   line-height: 1.4em;
 }
 
-/* line 325, ../../app/stylesheets/bills.scss */
+/* line 327, ../../app/stylesheets/bills.scss */
 .small_label {
   text-transform: uppercase;
   font-size: 9px;
@@ -365,13 +371,13 @@ p.action_text {
   color: #a9a9a9;
 }
 
-/* line 336, ../../app/stylesheets/bills.scss */
+/* line 338, ../../app/stylesheets/bills.scss */
 .introduced .small_date,
 .introduced .small_label {
   text-align: left;
 }
 
-/* line 340, ../../app/stylesheets/bills.scss */
+/* line 342, ../../app/stylesheets/bills.scss */
 .stats div {
   float: left;
   margin-top: 3px;
@@ -379,57 +385,57 @@ p.action_text {
   border-right: 1px solid #f8f8f8;
 }
 
-/* line 347, ../../app/stylesheets/bills.scss */
+/* line 349, ../../app/stylesheets/bills.scss */
 .stats div.introduced {
   padding-left: 0;
 }
 
-/* line 352, ../../app/stylesheets/bills.scss */
+/* line 354, ../../app/stylesheets/bills.scss */
 .bill-mugs {
   margin: 0px 0 20px 0px;
   width: 315px;
   padding: 0;
   float: left;
 }
-/* line 360, ../../app/stylesheets/bills.scss */
+/* line 362, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs,
 .bill-mugs .sponsor_preview,
 .bill-mugs .lined {
   margin: 0px !important;
   padding: 0;
 }
-/* line 366, ../../app/stylesheets/bills.scss */
+/* line 368, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs {
   float: left;
 }
 
-/* line 371, ../../app/stylesheets/bills.scss */
+/* line 373, ../../app/stylesheets/bills.scss */
 li .sponsor_mugs {
   font-size: 11px;
   line-height: 4em;
   color: #aaa;
 }
 
-/* line 379, ../../app/stylesheets/bills.scss */
+/* line 381, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined {
   margin: 0px !important;
   float: left;
   padding: 19px 20px 0 0;
 }
-/* line 385, ../../app/stylesheets/bills.scss */
+/* line 387, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined li {
   display: inline;
   border: 0;
   font-size: 11px;
 }
-/* line 391, ../../app/stylesheets/bills.scss */
+/* line 393, ../../app/stylesheets/bills.scss */
 .bill-mugs .modal {
   padding: 19px 0 0 0px !important;
   float: left;
 }
 
 /* override sponsors .lined */
-/* line 398, ../../app/stylesheets/bills.scss */
+/* line 400, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -437,12 +443,12 @@ li .sponsor_mugs {
   box-shadow: none;
 }
 
-/* line 402, ../../app/stylesheets/bills.scss */
+/* line 404, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined li {
   padding: 5px 0 5px 0;
 }
 
-/* line 406, ../../app/stylesheets/bills.scss */
+/* line 408, ../../app/stylesheets/bills.scss */
 .bills .sponsor_mugs img {
   display: block;
   padding-top: 3px;
@@ -451,24 +457,24 @@ li .sponsor_mugs {
   clear: both;
 }
 
-/* line 415, ../../app/stylesheets/bills.scss */
+/* line 417, ../../app/stylesheets/bills.scss */
 .stats div.recent_vote {
   border-right: none;
   padding-right: 8px;
 }
-/* line 420, ../../app/stylesheets/bills.scss */
+/* line 422, ../../app/stylesheets/bills.scss */
 .stats div.session {
   border-right: none;
   border-left: 1px solid #f8f8f8;
 }
 
-/* line 426, ../../app/stylesheets/bills.scss */
+/* line 428, ../../app/stylesheets/bills.scss */
 .sponsor_mugs {
   float: left;
   padding: 5px 0 5px 0px;
 }
 
-/* line 432, ../../app/stylesheets/bills.scss */
+/* line 434, ../../app/stylesheets/bills.scss */
 .sponsor-meta {
   display: block;
   color: #999;
@@ -477,17 +483,17 @@ li .sponsor_mugs {
   width: 180px;
   clear: none;
 }
-/* line 440, ../../app/stylesheets/bills.scss */
+/* line 442, ../../app/stylesheets/bills.scss */
 .sponsor-meta a {
   padding-right: 5px;
 }
 
-/* line 445, ../../app/stylesheets/bills.scss */
+/* line 447, ../../app/stylesheets/bills.scss */
 .bills.index .sponsor_mugs {
   min-width: 260px;
 }
 
-/* line 449, ../../app/stylesheets/bills.scss */
+/* line 451, ../../app/stylesheets/bills.scss */
 .sponsor_mugs span.person-photo {
   clear: both !important;
   float: left !important;
@@ -496,12 +502,12 @@ li .sponsor_mugs {
   padding-top: 9px !important;
 }
 
-/* line 458, ../../app/stylesheets/bills.scss */
+/* line 460, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   float: left;
 }
 
-/* line 466, ../../app/stylesheets/bills.scss */
+/* line 468, ../../app/stylesheets/bills.scss */
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
 .states.show .sponsor_mugs .sponsor_mug {
@@ -572,12 +578,12 @@ li .sponsor_mugs {
   box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
 }
 
-/* line 486, ../../app/stylesheets/bills.scss */
+/* line 488, ../../app/stylesheets/bills.scss */
 .states.show .sponsor_mugs .sponsor_mug {
   margin-bottom: 15px;
 }
 
-/* line 491, ../../app/stylesheets/bills.scss */
+/* line 493, ../../app/stylesheets/bills.scss */
 .sponsor_mugs img {
   border: 1px solid #fff;
   display: block;
@@ -585,33 +591,33 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
-/* line 498, ../../app/stylesheets/bills.scss */
+/* line 500, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* line 503, ../../app/stylesheets/bills.scss */
+/* line 505, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
 }
 
-/* line 507, ../../app/stylesheets/bills.scss */
+/* line 509, ../../app/stylesheets/bills.scss */
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
 }
 
-/* line 511, ../../app/stylesheets/bills.scss */
+/* line 513, ../../app/stylesheets/bills.scss */
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
 
-/* line 516, ../../app/stylesheets/bills.scss */
+/* line 518, ../../app/stylesheets/bills.scss */
 .sponsor-name {
   padding-top: 7px;
 }
 
-/* line 520, ../../app/stylesheets/bills.scss */
+/* line 522, ../../app/stylesheets/bills.scss */
 .bill-title {
   font-size: 14px;
   display: block;
@@ -619,9 +625,9 @@ li .sponsor_mugs {
   padding: 5px 0 0 0;
 }
 
-/* line 529, ../../app/stylesheets/bills.scss */
+/* line 531, ../../app/stylesheets/bills.scss */
 .bill-intro {
-  margin: 0 -21px 30px -34px;
+  margin: 0 -15px 30px -34px;
   padding: 10px 25px 35px 36px;
   position: relative;
   line-height: 1.2em;
@@ -632,7 +638,7 @@ li .sponsor_mugs {
   background-image: linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
 }
-/* line 539, ../../app/stylesheets/bills.scss */
+/* line 541, ../../app/stylesheets/bills.scss */
 .bill-intro .views {
   margin-right: 10px;
   float: left;
@@ -640,16 +646,16 @@ li .sponsor_mugs {
   clear: none;
   padding-right: 15px;
 }
-/* line 548, ../../app/stylesheets/bills.scss */
+/* line 550, ../../app/stylesheets/bills.scss */
 .bill-intro p {
   clear: both;
   margin-bottom: 0;
 }
-/* line 553, ../../app/stylesheets/bills.scss */
+/* line 555, ../../app/stylesheets/bills.scss */
 .bill-intro p:first-letter {
   text-transform: uppercase;
 }
-/* line 557, ../../app/stylesheets/bills.scss */
+/* line 559, ../../app/stylesheets/bills.scss */
 .bill-intro h1 {
   background: 0;
   border: 0;
@@ -661,7 +667,7 @@ li .sponsor_mugs {
   float: left;
 }
 
-/* line 570, ../../app/stylesheets/bills.scss */
+/* line 572, ../../app/stylesheets/bills.scss */
 .documents .thumbnail {
   float: left;
   margin-right: 15px;
@@ -669,7 +675,7 @@ li .sponsor_mugs {
   height: 116px;
 }
 
-/* line 577, ../../app/stylesheets/bills.scss */
+/* line 579, ../../app/stylesheets/bills.scss */
 #people_mentions {
   display: inline;
   float: left;
@@ -678,7 +684,7 @@ li .sponsor_mugs {
   width: 220px;
 }
 
-/* line 582, ../../app/stylesheets/bills.scss */
+/* line 584, ../../app/stylesheets/bills.scss */
 #popular_bills {
   display: inline;
   float: left;
@@ -688,7 +694,7 @@ li .sponsor_mugs {
   margin-left: 0;
 }
 
-/* line 588, ../../app/stylesheets/bills.scss */
+/* line 590, ../../app/stylesheets/bills.scss */
 #hot_issues {
   display: inline;
   float: left;

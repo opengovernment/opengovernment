@@ -1,31 +1,5 @@
 @import "base";
 
-/*
-
-.issues.index .intro p{
-  padding-right: 250px;
-  }
-
-
-.issues.index .intro div{
-width: 230px;
-height: 300px;
-  background: url(../images/intros/issues.png) 0px 15px no-repeat;
-  }
-
-
-
-.money_trails.index .intro div{
-width: 230px;
-height: 300px;
-  background: url(../images/intros/money.png) 20px 15px no-repeat;
-  }
-
-.money_trails.index .intro p{
-  padding-right: 250px;
-  }
-
-*/
 .image{
 padding: 5px;
 border: 1px solid #ccc;
@@ -97,8 +71,9 @@ font-size: 16px;
   }
 
 
-.states.show .intro{border: none;
-  }
+.states.show .intro{
+  border: none;
+}
 
 
 .intro{
@@ -107,8 +82,7 @@ font-size: 16px;
   line-height: 1.5em;
 /*  background: transparent url(../images/intro.jpg) 0 0 no-repeat !important;*/
   text-shadow: 0 1px 0px #fff;
-  margin: -30px 0 28px -34px;
-  width: 716px;
+  margin: -30px -15px 28px -34px;
 position: relative;
 border-bottom: 1px solid #ccc;
 background: #eff2f3;
@@ -251,20 +225,6 @@ background: #eee;
 
 
 .space {background:#fff;color:#fff;visibility:hidden; height: 30px;}
-
-
-
-
-
-.full_lined{
-  border-top: 1px solid #ddeded;
-  border-bottom: 1px solid #ddeded;
-  float: left;
-  margin: 0 0px 0 -39px !important;
-  width: 764px !important;
-  background: #f4f9fa;
-  }
-
 
 
 /*///////////// ~  Standard List  ~ /////////////*/
@@ -598,43 +558,35 @@ margin: 10px 20px 10px 0;
 border: 0;
 }
 
-.by a{
+.by {
+  a{
+    float: left;
+    overflow: hidden;
+    height: 0;
+  }
 
-float: left;
-overflow: hidden;
-height: 0;
+  a.ppf{
+    padding-top: 50px;
+    width: 85px;
+    margin-left: 47px;
+    background: transparent url(../images/by-ppf.png) -20px 0 no-repeat !important;
+  }
+
+
+  a.ppf:hover{
+    background: transparent url(../images/by-ppf.png) -20px -50px no-repeat !important;
+  }
+
+  a.sunlight{
+    padding-top: 50px;
+    width: 76px;
+    background: transparent url(../images/by-ppf.png) -102px 0 no-repeat !important;
+  }
+
+  a.sunlight:hover{
+    background: transparent url(../images/by-ppf.png) -102px -50px no-repeat !important;
+  }
 }
-
-
-.by a.ppf{
-padding-top: 50px;
-width: 85px;
-margin-left: 47px;
-  background: transparent url(../images/by-ppf.png) -20px 0 no-repeat !important;
-}
-
-
-
-.by a.ppf:hover{
-  background: transparent url(../images/by-ppf.png) -20px -50px no-repeat !important;
-}
-
-
-.by a.sunlight{
-padding-top: 50px;
-width: 76px;
-
-  background: transparent url(../images/by-ppf.png) -102px 0 no-repeat !important;
-}
-
-
-
-.by a.sunlight:hover{
-  background: transparent url(../images/by-ppf.png) -102px -50px no-repeat !important;
-}
-
-
-
 
 .badges li{
 float: left;
@@ -743,19 +695,17 @@ padding: 10px !important;
 padding: 20px 20px 10px 20px !important;
 }
 
-.grow{
-position: absolute;
-top: -10px;
-left: 186px;
-width: 70px;
-height: 0px;
-padding-top: 70px;
-z-index: 99;
-overflow: hidden;
-background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
+.grow {
+  position: absolute;
+  top: -10px;
+  left: 206px;
+  width: 70px;
+  height: 0px;
+  padding-top: 70px;
+  z-index: 99;
+  overflow: hidden;
+  background: transparent url(../images/grow.png) 1px 3px no-repeat !important;
 }
-
-
 
 .home .grow{
 display: none;
@@ -804,6 +754,8 @@ display: none;
 
 
 .search_form {
+  @include grid(7);
+  @include omega;
   padding: 10px 0 0 0;
   height: 28px;
   

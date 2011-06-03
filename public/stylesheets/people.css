@@ -12,14 +12,7 @@
   padding-right: 250px;
 }
 
-/*
-.people.index .intro div{
-width: 200px;
-height: 300px;
-  background: url(/images/intros/people.png) 10px 15px no-repeat;
-  }
-*/
-/* line 25, ../../app/stylesheets/people.scss */
+/* line 16, ../../app/stylesheets/people.scss */
 body.people.index ul.lined,
 body.districts.search ul.lined,
 body.people.lower ul.lined,
@@ -29,27 +22,27 @@ body.people.upper ul.lined {
   clear: both;
 }
 
-/* line 31, ../../app/stylesheets/people.scss */
+/* line 22, ../../app/stylesheets/people.scss */
 h3.how-they-voted {
   padding-left: 600px;
   width: 100px;
 }
 
-/* line 36, ../../app/stylesheets/people.scss */
+/* line 27, ../../app/stylesheets/people.scss */
 .lined li.person {
   margin: 0 !important;
   overflow: auto;
   padding: 0px !important;
 }
 
-/* line 42, ../../app/stylesheets/people.scss */
+/* line 33, ../../app/stylesheets/people.scss */
 .lined li.person a {
   display: block;
   height: 72px;
   padding: 20px 20px 8px 40px !important;
 }
 
-/* line 58, ../../app/stylesheets/people.scss */
+/* line 49, ../../app/stylesheets/people.scss */
 .lined li.person a .small_thumbnail {
   float: left;
   padding: 2px;
@@ -67,63 +60,63 @@ h3.how-they-voted {
   /* for firefox 3.6+ */
 }
 
-/* line 78, ../../app/stylesheets/people.scss */
+/* line 69, ../../app/stylesheets/people.scss */
 .lined li.person a .small_thumbnail img {
   display: block;
   border: 1px solid #fff;
 }
 
-/* line 84, ../../app/stylesheets/people.scss */
+/* line 75, ../../app/stylesheets/people.scss */
 .lined li.person a span.person_name {
   display: block;
   margin: 10px 0 5px;
   font-size: 20px;
 }
 
-/* line 92, ../../app/stylesheets/people.scss */
+/* line 83, ../../app/stylesheets/people.scss */
 .lined li.person a .person_district,
 .lined li.person a .person_party {
   display: inline;
 }
 
-/* line 102, ../../app/stylesheets/people.scss */
+/* line 93, ../../app/stylesheets/people.scss */
 .lined li.person a .person_views {
   margin-top: 7px;
 }
 
-/* line 107, ../../app/stylesheets/people.scss */
+/* line 98, ../../app/stylesheets/people.scss */
 .lined li.person .grid_6 {
   border-right: 1px solid #efefef;
   padding-bottom: 10px;
 }
 
-/* line 112, ../../app/stylesheets/people.scss */
+/* line 103, ../../app/stylesheets/people.scss */
 li.race_tracker {
   padding-top: 10px;
 }
 
 /* Rating party color boxes */
-/* line 117, ../../app/stylesheets/people.scss */
+/* line 108, ../../app/stylesheets/people.scss */
 .rating_person.rating_dem, .rating_person.rating_dfl {
   background: url(../images/ratings/dem-box.gif) no-repeat 0% 50%;
 }
 
-/* line 121, ../../app/stylesheets/people.scss */
+/* line 112, ../../app/stylesheets/people.scss */
 .rating_person.rating_rep {
   background: url(../images/ratings/rep-box.gif) no-repeat 0% 50%;
 }
 
-/* line 125, ../../app/stylesheets/people.scss */
+/* line 116, ../../app/stylesheets/people.scss */
 .rating_person.rating_ind {
   background: url(../images/ratings/ind-box.gif) no-repeat 0% 50%;
 }
 
-/* line 129, ../../app/stylesheets/people.scss */
+/* line 120, ../../app/stylesheets/people.scss */
 .ratings-header {
   font-weight: bold;
 }
 
-/* line 133, ../../app/stylesheets/people.scss */
+/* line 124, ../../app/stylesheets/people.scss */
 table.ratings td.rating_person {
   margin-left: 0;
   padding: 2px 0 2px 20px;
@@ -132,18 +125,18 @@ table.ratings td.rating_person {
   float: left;
 }
 
-/* line 141, ../../app/stylesheets/people.scss */
+/* line 132, ../../app/stylesheets/people.scss */
 table.ratings td {
   padding: 2px 0;
 }
 
-/* line 145, ../../app/stylesheets/people.scss */
+/* line 136, ../../app/stylesheets/people.scss */
 ul.people_mugs li {
   display: inline;
   padding-right: 3px;
 }
 
-/* line 150, ../../app/stylesheets/people.scss */
+/* line 141, ../../app/stylesheets/people.scss */
 ul.chamber_tabs li a {
   height: 36px;
 }

@@ -19,9 +19,12 @@ module OpenGov
     CENSUS_SHP_FN = '#{ga}#{fips_code}_#{vintage}_shp.zip'
 
     # TODO: Update these in June for new 2011 data
-    CENSUS_STATES_URL = 'http://www.census.gov/geo/cob/bdy/st/st00shp/st99_d00_shp.zip'
     STATES_VINTAGE = '00'
+    CENSUS_STATES_URL = "http://www.census.gov/geo/cob/bdy/st/st#{STATES_VINTAGE}shp/st#{CONGRESS_FIPS_CODE}_d#{STATES_VINTAGE}_shp.zip"
     CENSUS_STATES_SHPFN = "st99_d#{STATES_VINTAGE}.shp"
+
+    CENSUS_ZCTA_URL = 'ftp://ftp2.census.gov/geo/tiger/TIGER2010/ZCTA5/2010/tl_2010_#{fips_code}_zcta510.zip'
+    CENSUS_ZCTA_SHPFN = 'tl_2010_#{fips_code}_zcta510.shp'
 
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
@@ -31,7 +34,7 @@ module OpenGov
 
       fetch_us_congress
       fetch_state_boundaries
-      
+
       # Get state legislature files, when available
       State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
         fetch_one(state)
@@ -49,6 +52,9 @@ module OpenGov
           process_one(house, state.fips_code, "#{state.name} #{name} house")
         end
       end
+
+      puts "---------- Downloading ZCTA boundary shapefile for #{state.name}"
+      download(zcta_url_for(state.fips_code), :unzip => true)
     end
 
     def fetch_us_congress
@@ -68,23 +74,10 @@ module OpenGov
     end
 
     def import_states
-      # Import the single shapefile for state boundaries
-      shpfile = File.join(Settings.shapefiles_dir, CENSUS_STATES_SHPFN)
-
-      unless File.exists?(shpfile)
-        puts "File not found: #{shpfile}"
-        return
-      end
+      arTable = find_and_load(File.join(Settings.shapefiles_dir, CENSUS_STATES_SHPFN))
       
-      OpenGov::Shapefile.process(shpfile, :drop_table => true)
-
-      table_name = File.basename(shpfile, '.shp')
-      puts "Migrating #{table_name} table into state_boundaries"
-
-      arTable = Class.new(ActiveRecord::Base) do
-        set_table_name table_name
-      end
-
+      puts "Migrating #{arTable.table_name} table into state_boundaries"
+            
       # IDs are always 
       StateBoundary.delete_all
       
@@ -105,6 +98,13 @@ module OpenGov
         
         s.save!
       end
+    end
+    
+    def import_zctas(state)
+      fips_code = "%02d" % state.fips_code
+      arTable = find_and_load(File.join(Settings.shapefiles_dir, eval('"' + CENSUS_ZCTA_SHPFN + '"')))
+      
+      puts "Migrating #{arTable.table_name} table into zctas"
     end
 
     def import_districts
@@ -209,6 +209,22 @@ module OpenGov
     end
 
     protected
+    
+    def find_and_load(shpfile)
+      # Import the single shapefile for state boundaries
+      unless File.exists?(shpfile)
+        puts "File not found: #{shpfile}"
+        return
+      end
+
+      OpenGov::Shapefile.process(shpfile, :drop_table => true)
+
+      # Return an AR::Base model for the resulting table
+      return Class.new(ActiveRecord::Base) do
+        set_table_name File.basename(shpfile, '.shp')
+      end
+    end
+
     def process_one(ga, fips_code, area_name)
       census_fn = census_fn_for(ga, fips_code)
       curl_ops = File.exists?(census_fn) ? "-Lfz #{census_fn}" : '-Lf'
@@ -230,6 +246,11 @@ module OpenGov
       eval('"' + CENSUS_SHP_FN + '"')
     end
 
+    def zcta_url_for(fips_code)
+      fips_code = "%02d" % fips_code
+      eval('"' + CENSUS_ZCTA_URL + '"')
+    end
+    
     def shpfile_for(zipped_filename)
       zipped_filename.match(/^(.*)_shp.zip$/)[1] + ".shp"
     end
