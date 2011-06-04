@@ -19,7 +19,7 @@
   border-right: 0px;
 }
 /* line 15, ../../app/stylesheets/find_box.scss */
-.home.home .main {
+.home.home #main {
   background: url(../images/header.jpg) 0px 0px no-repeat;
 }
 /* line 19, ../../app/stylesheets/find_box.scss */

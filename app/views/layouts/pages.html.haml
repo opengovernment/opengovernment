@@ -1,5 +1,5 @@
 = content_for(:content) do
-  .sidebar
+  #sidebar
     %nav#left_nav
       = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
     = yield :below_left_nav

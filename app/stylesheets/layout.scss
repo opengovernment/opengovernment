@@ -500,7 +500,7 @@ border: none;
 .illo {
 background: #f6f8fa;
 padding: 60px 0 30px;
-margin: -4px 0 -16px 0;
+margin: -4px 0 0px 0;
 }
 body.home .illo h2 {
 width: 503px;
@@ -588,23 +588,32 @@ background: url(../images/map.gif) center -50px no-repeat;
 
 ///////////////////////////*/
 
+/* the whole page */
 #wrap {
   width: 987px;
   margin: 0px auto;
 }
 
-.main {
+/* the content area between the header adn footer */
+#main {
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 1px 2px #6d6a58;
+  -webkit-box-shadow: 0px 1px 2px #6d6a58;
+  box-shadow: 0px 1px 2px #6d6a58;
+
   background: #fff url(../images/side.png) -2px top repeat-y;
   padding-bottom: 50px;
+  
+  @include clear;
 }
 /* No background on the homepage */
-.home.index .main,
-.home.home .main,
-.widgets .main   {
+.home.index #main,
+.home.home #main,
+.widgets #main   {
   background: #fff;
   position: relative;
 }
-.home.home .main {
+.home.home #main {
   padding-bottom: 0px;
 }
 
@@ -660,7 +669,7 @@ header .by {
 ~ Left sidebar
 
 ///////////////////////////*/
-.sidebar {
+#sidebar {
   @include grid(4);
   @include alpha;
   position: relative; /* allows dropdowns to be positioned absolutely */
@@ -677,6 +686,8 @@ header .by {
   width: 710px;
   margin-left: 30px;
   margin-right: 15px;
+  
+  @include clear;
 }
 
 
@@ -892,6 +903,8 @@ top: 12px;
 #footer {
   clear: both;
   padding-top: 15px;
+  
+  @include clear;
   
   li {
     clear: none;

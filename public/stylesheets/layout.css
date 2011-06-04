@@ -517,7 +517,7 @@ body.people #left_nav ul li ul li ul li#overview.selected a.selected:hover {
 .illo {
   background: #f6f8fa;
   padding: 60px 0 30px;
-  margin: -4px 0 -16px 0;
+  margin: -4px 0 0px 0;
 }
 
 /* line 505, ../../app/stylesheets/layout.scss */
@@ -621,40 +621,54 @@ h2.grid_14.push_1 {
   background: url(../images/map.gif) center -50px no-repeat;
 }
 
-/* line 591, ../../app/stylesheets/layout.scss */
+/* the whole page */
+/* line 592, ../../app/stylesheets/layout.scss */
 #wrap {
   width: 987px;
   margin: 0px auto;
 }
 
-/* line 596, ../../app/stylesheets/layout.scss */
-.main {
+/* the content area between the header adn footer */
+/* line 598, ../../app/stylesheets/layout.scss */
+#main {
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 1px 2px #6d6a58;
+  -webkit-box-shadow: 0px 1px 2px #6d6a58;
+  box-shadow: 0px 1px 2px #6d6a58;
   background: white url(../images/side.png) -2px top repeat-y;
   padding-bottom: 50px;
 }
+/* line 125, ../../app/stylesheets/_base.scss */
+#main:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
 /* No background on the homepage */
-/* line 603, ../../app/stylesheets/layout.scss */
-.home.index .main,
-.home.home .main,
-.widgets .main {
+/* line 612, ../../app/stylesheets/layout.scss */
+.home.index #main,
+.home.home #main,
+.widgets #main {
   background: #fff;
   position: relative;
 }
 
-/* line 607, ../../app/stylesheets/layout.scss */
-.home.home .main {
+/* line 616, ../../app/stylesheets/layout.scss */
+.home.home #main {
   padding-bottom: 0px;
 }
 
-/* line 616, ../../app/stylesheets/layout.scss */
+/* line 625, ../../app/stylesheets/layout.scss */
 header {
   height: 67px;
   position: relative;
   /* allows 'grow' to be positioned absolutely */
 }
 
-/* line 621, ../../app/stylesheets/layout.scss */
+/* line 630, ../../app/stylesheets/layout.scss */
 header .by {
   display: inline;
   float: left;
@@ -666,7 +680,7 @@ header .by {
   margin-right: 0;
 }
 
-/* line 628, ../../app/stylesheets/layout.scss */
+/* line 637, ../../app/stylesheets/layout.scss */
 #account {
   display: inline;
   float: left;
@@ -678,14 +692,14 @@ header .by {
   padding-margin: 0;
   padding-padding: 0;
 }
-/* line 637, ../../app/stylesheets/layout.scss */
+/* line 646, ../../app/stylesheets/layout.scss */
 #account a strong {
   text-decoration: none;
   display: none;
   font-size: 16px;
   line-height: 1em;
 }
-/* line 643, ../../app/stylesheets/layout.scss */
+/* line 652, ../../app/stylesheets/layout.scss */
 #account a {
   margin-top: 15px;
   color: #215357;
@@ -695,13 +709,13 @@ header .by {
   display: block;
   overflow: hidden;
 }
-/* line 652, ../../app/stylesheets/layout.scss */
+/* line 661, ../../app/stylesheets/layout.scss */
 #account a:hover {
   background: url(../images/opengovernment.png) 0px -42px no-repeat;
 }
 
-/* line 663, ../../app/stylesheets/layout.scss */
-.sidebar {
+/* line 672, ../../app/stylesheets/layout.scss */
+#sidebar {
   display: inline;
   float: left;
   margin-left: 10px;
@@ -712,7 +726,7 @@ header .by {
   /* allows dropdowns to be positioned absolutely */
 }
 
-/* line 674, ../../app/stylesheets/layout.scss */
+/* line 683, ../../app/stylesheets/layout.scss */
 #content {
   display: inline;
   float: left;
@@ -720,20 +734,28 @@ header .by {
   margin-left: 30px;
   margin-right: 15px;
 }
+/* line 125, ../../app/stylesheets/_base.scss */
+#content:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
-/* line 683, ../../app/stylesheets/layout.scss */
+/* line 694, ../../app/stylesheets/layout.scss */
 .less_padding {
   padding: 0px 0;
 }
 
-/* line 692, ../../app/stylesheets/layout.scss */
+/* line 703, ../../app/stylesheets/layout.scss */
 #page-content {
   width: 710px;
   margin-left: 30px;
   margin-right: 15px;
 }
 
-/* line 702, ../../app/stylesheets/layout.scss */
+/* line 713, ../../app/stylesheets/layout.scss */
 .views {
   font-size: 11px;
   padding: 4px 0 4px 24px;
@@ -746,37 +768,37 @@ header .by {
   margin-bottom: 5px;
 }
 
-/* line 714, ../../app/stylesheets/layout.scss */
+/* line 725, ../../app/stylesheets/layout.scss */
 .views.tiny {
   padding-bottom: 0;
   padding-top: 0;
   background: url(../images/sprites.png) 0px -175px no-repeat;
 }
 
-/* line 721, ../../app/stylesheets/layout.scss */
+/* line 732, ../../app/stylesheets/layout.scss */
 .long-title {
   clear: both;
   color: #666;
 }
 
-/* line 726, ../../app/stylesheets/layout.scss */
+/* line 737, ../../app/stylesheets/layout.scss */
 .full_name {
   font-weight: bold;
   display: inline-block;
 }
 
-/* line 733, ../../app/stylesheets/layout.scss */
+/* line 744, ../../app/stylesheets/layout.scss */
 .hot_person .mention {
   clear: both;
 }
 
-/* line 740, ../../app/stylesheets/layout.scss */
+/* line 751, ../../app/stylesheets/layout.scss */
 .hot-details .date,
 .hot-details a {
   color: #666;
 }
 
-/* line 744, ../../app/stylesheets/layout.scss */
+/* line 755, ../../app/stylesheets/layout.scss */
 .hot-details {
   float: left;
   width: 160px;
@@ -784,7 +806,7 @@ header .by {
   overflow: hidden;
 }
 
-/* line 751, ../../app/stylesheets/layout.scss */
+/* line 762, ../../app/stylesheets/layout.scss */
 .district {
   color: #888;
   font-size: 11px;
@@ -792,41 +814,41 @@ header .by {
   padding-bottom: 5px;
 }
 
-/* line 759, ../../app/stylesheets/layout.scss */
+/* line 770, ../../app/stylesheets/layout.scss */
 .state-popular-col {
   min-height: 400px !important;
   position: relative;
 }
 
-/* line 764, ../../app/stylesheets/layout.scss */
+/* line 775, ../../app/stylesheets/layout.scss */
 .state-popular-col strong {
   font-size: 13px;
 }
 
-/* line 768, ../../app/stylesheets/layout.scss */
+/* line 779, ../../app/stylesheets/layout.scss */
 .state-popular-col .more {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-/* line 774, ../../app/stylesheets/layout.scss */
+/* line 785, ../../app/stylesheets/layout.scss */
 .state-popular-col li {
   min-height: 7.5em !important;
 }
 
-/* line 778, ../../app/stylesheets/layout.scss */
+/* line 789, ../../app/stylesheets/layout.scss */
 #people_mentions li, #popular_bills li {
   height: 7.5em;
   overflow: hidden;
 }
 
-/* line 783, ../../app/stylesheets/layout.scss */
+/* line 794, ../../app/stylesheets/layout.scss */
 #hot_issues h2 {
   margin-bottom: 8px;
 }
 
-/* line 787, ../../app/stylesheets/layout.scss */
+/* line 798, ../../app/stylesheets/layout.scss */
 #hot_issues li {
   padding-bottom: 15px;
   padding-top: 5px;
@@ -834,7 +856,7 @@ header .by {
   background: url(../images/icons.png) 0px -702px no-repeat !important;
 }
 
-/* line 796, ../../app/stylesheets/layout.scss */
+/* line 807, ../../app/stylesheets/layout.scss */
 #hot_issues .link a {
   font-size: 13px;
   padding-left: 38px;
@@ -844,20 +866,20 @@ header .by {
   color: #000;
 }
 
-/* line 808, ../../app/stylesheets/layout.scss */
+/* line 819, ../../app/stylesheets/layout.scss */
 .addresses li {
   clear: none;
   font-size: 11px;
   min-height: 150px;
 }
 
-/* line 813, ../../app/stylesheets/layout.scss */
+/* line 824, ../../app/stylesheets/layout.scss */
 .details {
   padding: 10px 0 15px;
   line-height: 1.4em;
 }
 
-/* line 818, ../../app/stylesheets/layout.scss */
+/* line 829, ../../app/stylesheets/layout.scss */
 .district_map {
   display: inline;
   float: left;
@@ -866,7 +888,7 @@ header .by {
   width: 160px;
   margin-left: 0;
 }
-/* line 822, ../../app/stylesheets/layout.scss */
+/* line 833, ../../app/stylesheets/layout.scss */
 .district_map img {
   padding-bottom: 20px;
 }
@@ -889,63 +911,71 @@ background: url(../images/sprites.png) left -61px no-repeat;
 }
 
 */
-/* line 854, ../../app/stylesheets/layout.scss */
+/* line 865, ../../app/stylesheets/layout.scss */
 .committees_count {
   float: right;
   margin-top: -40px;
 }
 
-/* line 863, ../../app/stylesheets/layout.scss */
+/* line 874, ../../app/stylesheets/layout.scss */
 p.donate {
   padding: 20px 0 0 15px;
 }
 
-/* line 866, ../../app/stylesheets/layout.scss */
+/* line 877, ../../app/stylesheets/layout.scss */
 p.donate a {
   display: block;
 }
 
-/* line 874, ../../app/stylesheets/layout.scss */
+/* line 885, ../../app/stylesheets/layout.scss */
 .key_votes {
   position: relative;
 }
 
-/* line 877, ../../app/stylesheets/layout.scss */
+/* line 888, ../../app/stylesheets/layout.scss */
 .key_votes a.what {
   position: absolute;
   right: 0;
   top: 12px;
 }
 
-/* line 882, ../../app/stylesheets/layout.scss */
+/* line 893, ../../app/stylesheets/layout.scss */
 .key_votes div.small.quiet {
   position: absolute;
   left: 100px;
   top: 12px;
 }
 
-/* line 892, ../../app/stylesheets/layout.scss */
+/* line 903, ../../app/stylesheets/layout.scss */
 #footer {
   clear: both;
   padding-top: 15px;
 }
-/* line 896, ../../app/stylesheets/layout.scss */
+/* line 125, ../../app/stylesheets/_base.scss */
+#footer:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 909, ../../app/stylesheets/layout.scss */
 #footer li {
   clear: none;
   line-height: 2.5em;
 }
-/* line 901, ../../app/stylesheets/layout.scss */
+/* line 914, ../../app/stylesheets/layout.scss */
 #footer h4 {
   margin-top: 10px;
   line-height: 2em;
   border-bottom: 1px solid #d1dddd;
   color: #777;
 }
-/* line 908, ../../app/stylesheets/layout.scss */
+/* line 921, ../../app/stylesheets/layout.scss */
 #footer li a {
   display: block;
 }
-/* line 912, ../../app/stylesheets/layout.scss */
+/* line 925, ../../app/stylesheets/layout.scss */
 #footer .principles, #footer .about_us, #footer .more_links, #footer .get_involved {
   display: inline;
   float: left;
@@ -953,7 +983,7 @@ p.donate a {
   margin-right: 10px;
   width: 220px;
 }
-/* line 916, ../../app/stylesheets/layout.scss */
+/* line 929, ../../app/stylesheets/layout.scss */
 #footer .sources {
   display: inline;
   float: left;
@@ -962,7 +992,7 @@ p.donate a {
   width: 700px;
   margin-left: 0;
 }
-/* line 922, ../../app/stylesheets/layout.scss */
+/* line 935, ../../app/stylesheets/layout.scss */
 #footer .credits {
   display: inline;
   float: left;
@@ -972,7 +1002,7 @@ p.donate a {
   margin-right: 0;
   font-size: 11.5px;
 }
-/* line 928, ../../app/stylesheets/layout.scss */
+/* line 941, ../../app/stylesheets/layout.scss */
 #footer .by {
   display: inline;
   float: left;
@@ -982,7 +1012,7 @@ p.donate a {
   margin-right: 0;
 }
 
-/* line 940, ../../app/stylesheets/layout.scss */
+/* line 953, ../../app/stylesheets/layout.scss */
 .fourohfour {
   font-size: 100px;
   display: block;
@@ -997,33 +1027,33 @@ p.donate a {
   text-shadow: 5px 5px 0px #6e8499;
 }
 
-/* line 954, ../../app/stylesheets/layout.scss */
+/* line 967, ../../app/stylesheets/layout.scss */
 .centered * {
   text-align: center !important;
 }
 
-/* line 962, ../../app/stylesheets/layout.scss */
+/* line 975, ../../app/stylesheets/layout.scss */
 #user_new {
   width: 300px;
 }
 
-/* line 965, ../../app/stylesheets/layout.scss */
+/* line 978, ../../app/stylesheets/layout.scss */
 #user_new p {
   padding: 10px 0 10px 42px;
 }
 
-/* line 968, ../../app/stylesheets/layout.scss */
+/* line 981, ../../app/stylesheets/layout.scss */
 #user_new label {
   font-size: 14px;
 }
 
-/* line 971, ../../app/stylesheets/layout.scss */
+/* line 984, ../../app/stylesheets/layout.scss */
 #user_remember_me {
   float: left;
   margin: 0 10px 0 0;
 }
 
-/* line 976, ../../app/stylesheets/layout.scss */
+/* line 989, ../../app/stylesheets/layout.scss */
 #user_email,
 #user_password {
   border: 0;
@@ -1046,7 +1076,7 @@ p.donate a {
   background: -moz-linear-gradient(top,  #eee,  #fff);*/
 }
 
-/* line 996, ../../app/stylesheets/layout.scss */
+/* line 1009, ../../app/stylesheets/layout.scss */
 #user_submit {
   padding: 10px;
   cursor: pointer;
@@ -1056,7 +1086,7 @@ p.donate a {
   font-size: 14px;
 }
 
-/* line 1004, ../../app/stylesheets/layout.scss */
+/* line 1017, ../../app/stylesheets/layout.scss */
 .sign h3 {
   border-bottom: 1px solid #d1dddd;
   margin-left: -26px;
@@ -1065,7 +1095,7 @@ p.donate a {
   margin-right: 10px;
 }
 
-/* line 1012, ../../app/stylesheets/layout.scss */
+/* line 1025, ../../app/stylesheets/layout.scss */
 .sign input,
 .sign label {
   clear: both !important;
@@ -1073,12 +1103,12 @@ p.donate a {
   display: block;
 }
 
-/* line 1017, ../../app/stylesheets/layout.scss */
+/* line 1030, ../../app/stylesheets/layout.scss */
 .sign input {
   margin-bottom: 20px;
 }
 
-/* line 1020, ../../app/stylesheets/layout.scss */
+/* line 1033, ../../app/stylesheets/layout.scss */
 .visit_blog {
   background: url(../images/blog.png) 0 0 no-repeat;
   display: block;
@@ -1091,12 +1121,12 @@ p.donate a {
   overflow: hidden;
 }
 
-/* line 1031, ../../app/stylesheets/layout.scss */
+/* line 1044, ../../app/stylesheets/layout.scss */
 .visit_blog:hover {
   background: url(../images/blog.png) 0px -133px no-repeat;
 }
 
-/* line 1036, ../../app/stylesheets/layout.scss */
+/* line 1049, ../../app/stylesheets/layout.scss */
 .small_finally h2 {
   border: none !important;
   font-size: 15px;
@@ -1105,30 +1135,30 @@ p.donate a {
   margin-bottom: 30px;
 }
 
-/* line 1044, ../../app/stylesheets/layout.scss */
+/* line 1057, ../../app/stylesheets/layout.scss */
 .small_finally h2 span {
   display: block;
   padding: 5px 0;
 }
 
-/* line 1049, ../../app/stylesheets/layout.scss */
+/* line 1062, ../../app/stylesheets/layout.scss */
 .small_finally ul {
   background: url(../images/small_track.png) 20px 0px no-repeat;
   padding: 12px 0 10px 20px;
 }
 
-/* line 1055, ../../app/stylesheets/layout.scss */
+/* line 1068, ../../app/stylesheets/layout.scss */
 .small_finally ul li {
   padding: 0 0 0 90px;
 }
 
-/* line 1060, ../../app/stylesheets/layout.scss */
+/* line 1073, ../../app/stylesheets/layout.scss */
 .small_finally ul li div {
   padding: 0 0 0 0px;
   font-size: 18px;
 }
 
-/* line 1066, ../../app/stylesheets/layout.scss */
+/* line 1079, ../../app/stylesheets/layout.scss */
 .small_finally ul li span {
   padding: 0 0 0 0px;
   font-size: 12px;
@@ -1137,72 +1167,72 @@ p.donate a {
   width: 140px;
 }
 
-/* line 1075, ../../app/stylesheets/layout.scss */
+/* line 1088, ../../app/stylesheets/layout.scss */
 .track {
   margin: 0px 0 72px;
 }
 
-/* line 1079, ../../app/stylesheets/layout.scss */
+/* line 1092, ../../app/stylesheets/layout.scss */
 .track span {
   color: #83a0a4;
 }
 
-/* line 1084, ../../app/stylesheets/layout.scss */
+/* line 1097, ../../app/stylesheets/layout.scss */
 .contact {
   margin: 0px 0 65px;
 }
 
-/* line 1088, ../../app/stylesheets/layout.scss */
+/* line 1101, ../../app/stylesheets/layout.scss */
 .contact span {
   color: #a26361;
 }
 
-/* line 1094, ../../app/stylesheets/layout.scss */
+/* line 1107, ../../app/stylesheets/layout.scss */
 .shareli {
   padding-bottom: 10px;
 }
 
-/* line 1099, ../../app/stylesheets/layout.scss */
+/* line 1112, ../../app/stylesheets/layout.scss */
 .shareli span {
   color: #9abd92;
 }
 
-/* line 1104, ../../app/stylesheets/layout.scss */
+/* line 1117, ../../app/stylesheets/layout.scss */
 .more_links ul.standard {
   padding-top: 10px;
 }
 
-/* line 1108, ../../app/stylesheets/layout.scss */
+/* line 1121, ../../app/stylesheets/layout.scss */
 .more_links ul.standard li {
   clear: none !important;
 }
 
-/* line 1121, ../../app/stylesheets/layout.scss */
+/* line 1134, ../../app/stylesheets/layout.scss */
 .ca .small_finally {
   background: url(../images/large-states/california.png) 12px 129px no-repeat;
 }
 
-/* line 1125, ../../app/stylesheets/layout.scss */
+/* line 1138, ../../app/stylesheets/layout.scss */
 .la .small_finally {
   background: url(../images/large-states/louisiana.png) 12px 129px no-repeat;
 }
 
-/* line 1129, ../../app/stylesheets/layout.scss */
+/* line 1142, ../../app/stylesheets/layout.scss */
 .md .small_finally {
   background: url(../images/large-states/maryland.png) 12px 209px no-repeat;
 }
 
-/* line 1133, ../../app/stylesheets/layout.scss */
+/* line 1146, ../../app/stylesheets/layout.scss */
 .wi .small_finally {
   background: url(../images/large-states/wisonsin.png) 12px 129px no-repeat;
 }
 
-/* line 1137, ../../app/stylesheets/layout.scss */
+/* line 1150, ../../app/stylesheets/layout.scss */
 .tx .small_finally {
   background: url(../images/large-states/texas.png) 12px 129px no-repeat;
 }
 
-/* line 1150, ../../app/stylesheets/layout.scss */
+/* line 1163, ../../app/stylesheets/layout.scss */
 #bill_tabs h3 {
   border: none;
   float: none;
@@ -1210,18 +1240,18 @@ p.donate a {
   display: inline;
 }
 
-/* line 1157, ../../app/stylesheets/layout.scss */
+/* line 1170, ../../app/stylesheets/layout.scss */
 #bill_tabs .more {
   padding: 15px 15px 15px 0;
 }
 
-/* line 1164, ../../app/stylesheets/layout.scss */
+/* line 1177, ../../app/stylesheets/layout.scss */
 #bill_tabs ul {
   display: inline;
   float: none;
 }
 
-/* line 1170, ../../app/stylesheets/layout.scss */
+/* line 1183, ../../app/stylesheets/layout.scss */
 .tabs {
   float: left;
   padding: 0px 0 0px 40px;
@@ -1236,7 +1266,7 @@ p.donate a {
 */
 }
 
-/* line 1184, ../../app/stylesheets/layout.scss */
+/* line 1197, ../../app/stylesheets/layout.scss */
 .tabs li {
   float: left;
   clear: none;
@@ -1244,12 +1274,12 @@ p.donate a {
   margin: 0;
 }
 
-/* line 1193, ../../app/stylesheets/layout.scss */
+/* line 1206, ../../app/stylesheets/layout.scss */
 .tabs li.divider {
   display: none;
 }
 
-/* line 1199, ../../app/stylesheets/layout.scss */
+/* line 1212, ../../app/stylesheets/layout.scss */
 .tabs li a {
   float: left;
   clear: none;
@@ -1280,12 +1310,12 @@ p.donate a {
   background: -moz-linear-gradient(top, white, #efefef);
 }
 
-/* line 1233, ../../app/stylesheets/layout.scss */
+/* line 1246, ../../app/stylesheets/layout.scss */
 .tabs li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* line 1239, ../../app/stylesheets/layout.scss */
+/* line 1252, ../../app/stylesheets/layout.scss */
 .tabs li a.active,
 .tabs li a.active:hover {
   border: none;
@@ -1300,7 +1330,7 @@ p.donate a {
   cursor: default;
 }
 
-/* line 1256, ../../app/stylesheets/layout.scss */
+/* line 1269, ../../app/stylesheets/layout.scss */
 .tabs li.all a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1309,14 +1339,14 @@ p.donate a {
   border-right: 0;
 }
 
-/* line 1266, ../../app/stylesheets/layout.scss */
+/* line 1279, ../../app/stylesheets/layout.scss */
 .tabs li.all a.active {
   -moz-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   -webkit-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
 }
 
-/* line 1272, ../../app/stylesheets/layout.scss */
+/* line 1285, ../../app/stylesheets/layout.scss */
 .people .tabs li.senate a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1325,7 +1355,7 @@ p.donate a {
   margin-left: 200px;
 }
 
-/* line 1286, ../../app/stylesheets/layout.scss */
+/* line 1299, ../../app/stylesheets/layout.scss */
 .tabs li.house a {
   -moz-border-radius-topright: 4px;
   -moz-border-radius-bottomright: 4px;
@@ -1334,19 +1364,19 @@ p.donate a {
   border-left: 0;
 }
 
-/* line 1293, ../../app/stylesheets/layout.scss */
+/* line 1306, ../../app/stylesheets/layout.scss */
 .tabs li.house a.active {
   -moz-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   -webkit-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
 }
 
-/* line 1299, ../../app/stylesheets/layout.scss */
+/* line 1312, ../../app/stylesheets/layout.scss */
 .tabs li.all {
   margin-left: 140px;
 }
 
-/* line 1306, ../../app/stylesheets/layout.scss */
+/* line 1319, ../../app/stylesheets/layout.scss */
 .sorts {
   position: relative;
   top: -1px;
@@ -1358,17 +1388,17 @@ p.donate a {
   margin: 0 0px 0px -39px;
 }
 
-/* line 1320, ../../app/stylesheets/layout.scss */
+/* line 1333, ../../app/stylesheets/layout.scss */
 .sorts li.sort_label {
   display: none;
 }
 
-/* line 1325, ../../app/stylesheets/layout.scss */
+/* line 1338, ../../app/stylesheets/layout.scss */
 .sorts li {
   clear: none;
 }
 
-/* line 1330, ../../app/stylesheets/layout.scss */
+/* line 1343, ../../app/stylesheets/layout.scss */
 .sorts li a {
   float: left;
   clear: none;
@@ -1398,12 +1428,12 @@ p.donate a {
   background: -moz-linear-gradient(top, white, #efefef);
 }
 
-/* line 1370, ../../app/stylesheets/layout.scss */
+/* line 1383, ../../app/stylesheets/layout.scss */
 .sorts li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* line 1374, ../../app/stylesheets/layout.scss */
+/* line 1387, ../../app/stylesheets/layout.scss */
 .sorts li a.active {
   font-weight: bold !important;
   border: 0;
@@ -1417,28 +1447,28 @@ p.donate a {
   text-shadow: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1392, ../../app/stylesheets/layout.scss */
+/* line 1405, ../../app/stylesheets/layout.scss */
 .bills .sorts {
   padding: 30px 6px 20px 84px;
 }
 
-/* line 1397, ../../app/stylesheets/layout.scss */
+/* line 1410, ../../app/stylesheets/layout.scss */
 .people .sorts {
   padding: 30px 6px 20px 164px;
 }
 
-/* line 1404, ../../app/stylesheets/layout.scss */
+/* line 1417, ../../app/stylesheets/layout.scss */
 .issues.index ul.lined li {
   font-size: 16px;
   padding: 20px;
 }
 
-/* line 1412, ../../app/stylesheets/layout.scss */
+/* line 1425, ../../app/stylesheets/layout.scss */
 box {
   border: none !important;
 }
 
-/* line 1418, ../../app/stylesheets/layout.scss */
+/* line 1431, ../../app/stylesheets/layout.scss */
 box box {
   width: 250px;
   height: 120px !important;
@@ -1454,20 +1484,20 @@ box box {
   background: -moz-linear-gradient(top, #eeeeee, #dddddd);
 }
 
-/* line 1437, ../../app/stylesheets/layout.scss */
+/* line 1450, ../../app/stylesheets/layout.scss */
 box div {
   -moz-border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
   border: none !important;
 }
 
-/* line 1444, ../../app/stylesheets/layout.scss */
+/* line 1457, ../../app/stylesheets/layout.scss */
 box div div {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
 }
 
-/* line 1451, ../../app/stylesheets/layout.scss */
+/* line 1464, ../../app/stylesheets/layout.scss */
 body.home h2 {
   background: 0 !important;
 }
