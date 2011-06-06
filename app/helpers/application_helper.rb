@@ -32,30 +32,6 @@ module ApplicationHelper
     end
   end
 
-  def dropdown(hot_selector, menu_selector)
-      javascript do (%Q|
-        $(document).ready(function(){ 
-          create_dropdown_menu("#{hot_selector}", "#{menu_selector}");
-        });
-      |)
-      end
-  end
-
-  def dialog(dialog_selector, dialog_link_selector)
-    javascript do
-      (%Q|
-      $(document).ready(function() {
-        $("#{dialog_selector}").dialog({
-          autoOpen: false
-        });
-        $('#{dialog_link_selector}').click(function() {  
-          $('#{dialog_selector}').dialog('open');  
-        });
-      });
-    |)
-    end
-  end
-
   def tweets(q, limit = 5)
     javascript do
     (%Q|
@@ -66,7 +42,7 @@ module ApplicationHelper
 
   def track(object)
     if MongoMapper.connected?
-      footer_javascript do
+      javascript do
         %Q|
             $(document).ready(function() {
               Tracker.req.object_id = #{object.id};
@@ -133,7 +109,7 @@ module ApplicationHelper
       }());
       })
     end
-  
+
     # Universal 
     return %q{<script type="text/javascript">
       (function() {

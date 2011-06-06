@@ -1,0 +1,24 @@
+%div.skip-link.screen-reader-text
+  %a(href="#content" title="Skip to content") Skip to content
+%a(href="/pages/help" class="grow") Help Us Grow
+#account
+  %a{:href => home_url(:subdomain => false)}
+    %strong= t('site.name')
+
+  %span.beta Beta
+  .hide
+    - if current_user
+      = succeed(',') do
+        = t('site.greeting')
+      %a.account(href="#content" title="Username") #{current_user.login}.
+      = link_to(t('site.sign_out'), destroy_user_session_path)
+    - else
+      = link_to(t('site.sign_in'), new_user_session_path, :class => 'modal')
+    %a.help{:href => page_url('site-help'), :title => "Help Center"} Help
+- if current_place
+  .search_form
+    = render 'shared/search_form'
+- else
+  .by
+    %a.ppf{:href => 'http://participatorypolitics.org/'} by PPF
+    %a.sunlight{:href => 'http://sunlightfoundation.com/'} and the Sunlight Foundation

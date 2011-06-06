@@ -60,7 +60,7 @@ $(function() {
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/
   $('a[rel=tipsy],span[rel=tipsy]').tipsy();
- $('a[rel=tipsy-south],span[rel=tipsy-south]').tipsy({gravity: 's'});
+  $('a[rel=tipsy-south],span[rel=tipsy-south]').tipsy({gravity: 's'});
 
   // For backwards-compatible placeholder attribute in input fields
   // http://plugins.jquery.com/plugin-tags/placeholder
@@ -80,7 +80,7 @@ $(function() {
     }
   );
 
-  // Modals.
+  // AjAX Modals
   // http://colorpowered.com/colorbox/
   $('a.modal').colorbox({
       transition: 'none',
@@ -93,6 +93,25 @@ $(function() {
       opacity: 0.8,
       scrolling: false,
       height: 400
+  });
+
+  // Initialize dropdown menus
+  $('a[data-dropdown]').each(function() {
+    create_dropdown_menu(this, $(this).data('dropdown'));
+  });
+  
+  // Initialize inline dialogs
+  $('a[data-dialog]').each(function() {
+    var dialog_selector = $(this).data('dialog');
+
+    $(dialog_selector).dialog({
+      autoOpen: false
+    });
+
+    $(this).click(function() {  
+      $(dialog_selector).dialog('open');  
+    });
+    
   });
 
   // Show the spinner on AJAX calls
