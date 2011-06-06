@@ -125,6 +125,13 @@ $(function() {
     }
   );
 
+  // Twitter searches
+  $('div[data-twitter-search]').each(function () {
+    var limit = $(this).data('twitter-limit') || 2;
+    console.log('"' + $(this).data('twitter-search') + '"', this, limit);
+    TwitterAPI.hook('"' + $(this).data('twitter-search') + '"', this, limit);
+  });
+
   // On pages with votes, resize the vote bar to show votes relative to one another.
   if ($('.vote-bar')) {
     vote_counts = $('.vote-bar').map(function () { return $(this).data('vote-count'); });

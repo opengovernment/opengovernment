@@ -7,7 +7,7 @@ TwitterAPI.search = function(q, callback){
 	$.getJSON(requestURL, callback);
 };
 
-TwitterAPI.refresh = function(q, limit) {
+TwitterAPI.refresh = function(q, dest, limit) {
   TwitterAPI.search(q, function(json, status){
   	var content = "";
     var count = 0;
@@ -24,21 +24,18 @@ TwitterAPI.refresh = function(q, limit) {
   	});
 
     if (count > 0) {
-      $("#twitter").show();
-  	  $("ul#tweets").html(content);
+      $(dest).show();
+  	  $(dest).find(".tweets").html(content);
   	  jQuery("time.timeago").timeago(); 
     } else {
-      $("#twitter").show();
-      $("#notweets").show();
+      $(dest).show();
+      $(dest).find(".notweets").show();
     }
 
   });
 };
 
-TwitterAPI.hook = function(q, limit) {
-  $(document).ready(function() {
-    TwitterAPI.refresh(q, limit);
-  });
-
-  setInterval(function() { TwitterAPI.refresh(q, limit);  }, 30000);
+TwitterAPI.hook = function(q, dest, limit) {
+  TwitterAPI.refresh(q, dest, limit);
+  setInterval(function() { TwitterAPI.refresh(q, dest, limit);  }, 30000);
 };

@@ -1,15 +1,13 @@
 = title(t('.tweets_about', :official_name => @person.official_name))
-- tweets(@person.full_name, 10)
 
 = render('wrapper')
 
 .grid_12
   %p= t '.intro', :search_term => @person.full_name
     
-  #twitter(style="display: none;")
+  .twitter{:style => "display: none;", :'data-twitter-search' => @person.full_name, :'data-twitter-limit' => 10}
     %h2= t('.tweets')
     .grid_12.alpha
-      #notweets(style="display: none;")
+      .notweets(style="display: none;")
         %p= t('.no_mentions') 
-      %ul.lined#tweets
-    
+      %ul.lined.tweets
