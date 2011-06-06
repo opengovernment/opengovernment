@@ -9,7 +9,7 @@
         .view_count 
           = t '.views', :count => bill.views
         - if bill.votesmart_key_vote? && (!defined?(hide_key_vote) || !hide_key_vote)
-          %span.vote_smart_keyvote
+          %span.votesmart_keyvote
             This is a Votesmart Key Vote!
 
         %span=content_tag(:span, truncate(bill.title, :length => 500))

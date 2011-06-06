@@ -435,13 +435,13 @@ ol.lined li {
 /* line 306, ../../app/stylesheets/classes.scss */
 span.vote_smart_keyvote {
   height: 0;
-  margin-left: 250px;
+  margin-left: 200px;
   overflow: hidden;
   line-height: 3em;
   padding-top: 100px !important;
   width: 100px;
   background: url(../images/key-vote.png) 0px 0px no-repeat;
-  top: -65px;
+  top: 15px;
   position: absolute;
   display: block;
 }
