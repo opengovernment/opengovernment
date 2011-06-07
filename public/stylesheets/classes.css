@@ -4,7 +4,7 @@
  */
 /* line 22, ../../app/stylesheets/_base.scss */
 .black {
-  color: black !important;
+  color: black;
 }
 
 /* line 3, ../../app/stylesheets/classes.scss */
@@ -34,11 +34,15 @@
   float: right;
   clear: both;
   margin: 0px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, rgba(200, 200, 200, 0.4)));
-  background-image: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -moz-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -o-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.4)), color-stop(100%, rgba(200, 200, 200, 0.1)));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   border: 1px solid #999;
   border-top: 1px solid #b4b4b4;
   border-bottom: 1px solid #8f8f8f;
@@ -60,22 +64,32 @@
   -khtml-border-radius: 100px;
   border-radius: 100px;
 }
-/* line 98, ../../app/stylesheets/_base.scss */
+/* line 106, ../../app/stylesheets/_base.scss */
 .more:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 104, ../../app/stylesheets/_base.scss */
+/* line 111, ../../app/stylesheets/_base.scss */
 .more:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#dddddd, #eeeeee);
-  background-image: -moz-linear-gradient(#dddddd, #eeeeee);
-  background-image: -o-linear-gradient(#dddddd, #eeeeee);
-  background-image: linear-gradient(#dddddd, #eeeeee);
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(#eeeeee, #dddddd);
+  background: -moz-linear-gradient(#eeeeee, #dddddd);
+  background: -o-linear-gradient(#eeeeee, #dddddd);
+  background: linear-gradient(#eeeeee, #dddddd);
   text-decoration: none;
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;
@@ -149,11 +163,15 @@
 /*///////////// ~  Standard Button  ~ /////////////*/
 /* line 92, ../../app/stylesheets/classes.scss */
 .button {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, rgba(200, 200, 200, 0.4)));
-  background-image: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -moz-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -o-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.4)), color-stop(100%, rgba(200, 200, 200, 0.1)));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   border: 1px solid #999;
   border-top: 1px solid #b4b4b4;
   border-bottom: 1px solid #8f8f8f;
@@ -175,22 +193,32 @@
   -khtml-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 98, ../../app/stylesheets/_base.scss */
+/* line 106, ../../app/stylesheets/_base.scss */
 .button:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 104, ../../app/stylesheets/_base.scss */
+/* line 111, ../../app/stylesheets/_base.scss */
 .button:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#dddddd, #eeeeee);
-  background-image: -moz-linear-gradient(#dddddd, #eeeeee);
-  background-image: -o-linear-gradient(#dddddd, #eeeeee);
-  background-image: linear-gradient(#dddddd, #eeeeee);
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(#eeeeee, #dddddd);
+  background: -moz-linear-gradient(#eeeeee, #dddddd);
+  background: -o-linear-gradient(#eeeeee, #dddddd);
+  background: linear-gradient(#eeeeee, #dddddd);
   text-decoration: none;
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;

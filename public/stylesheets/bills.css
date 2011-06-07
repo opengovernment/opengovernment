@@ -4,7 +4,7 @@
  */
 /* line 22, ../../app/stylesheets/_base.scss */
 .black {
-  color: black !important;
+  color: black;
 }
 
 /* line 4, ../../app/stylesheets/bills.scss */
@@ -522,11 +522,15 @@ li .sponsor_mugs {
   -khtml-border-radius: 3px;
   border-radius: 3px;
   -webkit-transition: all .6s ease-in-out;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, rgba(200, 200, 200, 0.4)));
-  background-image: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -moz-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: -o-linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
-  background-image: linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.4)), color-stop(100%, rgba(200, 200, 200, 0.1)));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   border: 1px solid #999;
   border-top: 1px solid #b4b4b4;
   border-bottom: 1px solid #8f8f8f;
@@ -542,26 +546,36 @@ li .sponsor_mugs {
   -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
   box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
 }
-/* line 98, ../../app/stylesheets/_base.scss */
+/* line 106, ../../app/stylesheets/_base.scss */
 .sponsor_mugs .photo:hover,
 .bill.grid_12 .sponsor_mugs .sponsor_mug:hover,
 .states.show .sponsor_mugs .sponsor_mug:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 104, ../../app/stylesheets/_base.scss */
+/* line 111, ../../app/stylesheets/_base.scss */
 .sponsor_mugs .photo:active,
 .bill.grid_12 .sponsor_mugs .sponsor_mug:active,
 .states.show .sponsor_mugs .sponsor_mug:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#dddddd, #eeeeee);
-  background-image: -moz-linear-gradient(#dddddd, #eeeeee);
-  background-image: -o-linear-gradient(#dddddd, #eeeeee);
-  background-image: linear-gradient(#dddddd, #eeeeee);
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
+  background: -webkit-linear-gradient(#eeeeee, #dddddd);
+  background: -moz-linear-gradient(#eeeeee, #dddddd);
+  background: -o-linear-gradient(#eeeeee, #dddddd);
+  background: linear-gradient(#eeeeee, #dddddd);
   text-decoration: none;
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;
@@ -631,11 +645,15 @@ li .sponsor_mugs {
   padding: 10px 25px 35px 36px;
   position: relative;
   line-height: 1.2em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(194, 220, 224, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(194, 220, 224, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
 }
 /* line 541, ../../app/stylesheets/bills.scss */

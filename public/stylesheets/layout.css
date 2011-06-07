@@ -4,7 +4,7 @@
  */
 /* line 22, ../../app/stylesheets/_base.scss */
 .black {
-  color: black !important;
+  color: black;
 }
 
 /* line 9, ../../app/stylesheets/layout.scss */
@@ -638,7 +638,7 @@ h2.grid_14.push_1 {
   background: white url(../images/side.png) -2px top repeat-y;
   padding-bottom: 50px;
 }
-/* line 125, ../../app/stylesheets/_base.scss */
+/* line 130, ../../app/stylesheets/_base.scss */
 #main:after {
   content: ".";
   display: block;
@@ -734,7 +734,7 @@ header .by {
   margin-left: 30px;
   margin-right: 15px;
 }
-/* line 125, ../../app/stylesheets/_base.scss */
+/* line 130, ../../app/stylesheets/_base.scss */
 #content:after {
   content: ".";
   display: block;
@@ -951,7 +951,7 @@ p.donate a {
   clear: both;
   padding-top: 15px;
 }
-/* line 125, ../../app/stylesheets/_base.scss */
+/* line 130, ../../app/stylesheets/_base.scss */
 #footer:after {
   content: ".";
   display: block;

@@ -163,10 +163,7 @@ opacity: 1;
   margin-left: 10px;
   float: left;
   width: 400px;
-  -moz-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  -o-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
+  @include box-shadow(0 1px 0px white, inset 0 1px 0px #eeeeee);
 }
 
 .bill_status div {
@@ -474,13 +471,9 @@ min-width: 260px;
 
   @include border-radius(3px);
   
-
-
   -webkit-transition: all .6s ease-in-out; 
   
   @include gray-button;
-  
-  
   
 }
 

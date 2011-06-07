@@ -4,7 +4,7 @@
  */
 /* line 22, ../../app/stylesheets/_base.scss */
 .black {
-  color: black !important;
+  color: black;
 }
 
 /* line 4, ../../app/stylesheets/sharing.scss */
@@ -212,11 +212,16 @@ ul.share {
 
 /* line 217, ../../app/stylesheets/sharing.scss */
 .write_buttons {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  /* IE; docs say this should go first: */
+  /* IE; docs say this filter-gradient should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
