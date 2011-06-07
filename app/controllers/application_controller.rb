@@ -7,10 +7,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   def layout_by_resource
-    if request.headers['X-PJAX']
-      # jquery-pjax support (see https://github.com/defunkt/jquery-pjax)
-      'pjax'
-    elsif request.xhr?
+    if request.xhr?
       # for ajax modals via jquery.colorbox.js
       "popup"
     elsif devise_controller?
