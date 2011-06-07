@@ -52,8 +52,9 @@ javascripts:
     - public/javascripts/jquery/jquery.placeholder.js
     - public/javascripts/jquery/jquery.pjax.js
     - public/javascripts/tracker.js
-    - public/javascripts/application.js
+    - public/javascripts/dropdown.js
     - public/javascripts/twitter.js
+    - public/javascripts/application.js
 
   viewer:
     - public/javascripts/DV/vendor/jquery-1.5.1.js

@@ -592,7 +592,7 @@ li .sponsor_mugs {
 }
 
 /* line 500, ../../app/stylesheets/bills.scss */
-.bills.show .sponsor_mugs li {
+.bill-mugs .sponsor_mugs li {
   font-size: 13px;
   margin-bottom: 10px;
 }

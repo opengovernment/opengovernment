@@ -1,61 +1,7 @@
-/* Upgrade a text field to a search element, if supported. */
-var mouse_is_on_menu = false;
-
-function create_dropdown_menu(anchor_div, menu_div) {
-
-  /* Breadcrumb dropdown menu */
-  $(anchor_div).click(function() {
-      // When trigger is clicked...  
-      //Following events are applied to the subnav itself (moving subnav up and down)  
-      var t = $(this).data("destroyHandle");
-      if (t) {
-        clearTimeout(t);
-      }
-
-      if (!$(this).hasClass("subhover")) {
-        $(this).parent().find(menu_div).show(); //Drop down the subnav on click  
-        $(this).addClass("subhover"); //On hover over, add class "subhover"
-      } else {
-        $(menu_div).hide();
-        $(anchor_div).removeClass("subhover");
-      }
-
-      return false;
-  });
-
-  // Leave the menu open when we hover over it,
-  // but close it after a delay when we leave it.
-  $(menu_div).parent().hover(
-    function() {
-      $(this).find("a").data("onMenu", true);
-      var t = $(this).find("a").data("destroyHandle");
-      if (t) {
-        clearTimeout(t);
-      }
-    },
-    function() {
-      $(this).find("a").data("onMenu", false);
-      var t = setTimeout(function() {
-        $(menu_div).hide();
-        $(anchor_div).removeClass("subhover");
-      }, 1200);
-
-      $(this).find("a").data("destroyHandle", t);
-      return false;
-    }
-  );
-
-  // Close the menu when someone clicks outside of it.
-  $('body').mouseup(function(){ 
-      if(! $(menu_div).parent().find("a").data("onMenu")) {
-        $(menu_div).hide();
-        $(anchor_div).removeClass("subhover");
-      }
-  });
-
-}
-
-$(function() {
+var page_hooks = function() {
+  // **                 **
+  // **  GENERAL HOOKS  **
+  // **                 **
 
   // Hover tooltips
   // http://onehackoranother.com/projects/jquery/tipsy/
@@ -111,7 +57,11 @@ $(function() {
     $(this).click(function() {  
       $(dialog_selector).dialog('open');  
     });
-    
+  });
+  
+  // Initialize any tabs()
+  $('div[data-tabs]').each(function() {
+      $(this).tabs();
   });
 
   // Show the spinner on AJAX calls
@@ -131,6 +81,31 @@ $(function() {
     console.log('"' + $(this).data('twitter-search') + '"', this, limit);
     TwitterAPI.hook('"' + $(this).data('twitter-search') + '"', this, limit);
   });
+}
+
+$(function() {
+  page_hooks();
+
+  // When finishing a PJAX load,
+  // attach page hooks and tell google and chartbeat.
+/*  $('body').bind('end.pjax', function() {
+    page_hooks();
+    
+    _gaq.push(['_trackPageview']); // tell Google
+
+  }); */
+  
+  // **                 **
+  // **  SPECIFIC HOOKS **
+  // **                 **
+
+  // PJAX on left navigation; swap out content in the #main div
+  if ($('#left_nav')) {
+    $('#left_nav a').pjax({
+      container: '#main',
+      timeout: 4000
+    });
+  }
 
   // On pages with votes, resize the vote bar to show votes relative to one another.
   if ($('.vote-bar')) {

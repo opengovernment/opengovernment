@@ -6,20 +6,10 @@
   %h1= @state.legislature.name
 
 
-.display-none.grid_5.alpha
+.hide.grid_5.alpha
   %p= t '.intro'
 
 .bills
-  :ruby
-    javascript do
-      (%q|
-        $(function() {
-            $("#chamber_tabs").tabs();
-        	});
-
-      |)
-    end
-
   #popular_bills.state-popular-col
     %h2= t '.popular_bills'
     %ul.lined
@@ -33,8 +23,6 @@
       - @hot_people.each_with_index do |person, i|
         %li.hot_person
           = link_to(photo_for(person, :tiny), person_path(person), :class => "floatleft margin-right sponsor_mug#{i == 0 ? ' active' : ''}")
-
-
 
           .hot-details
             %strong= link_to(person.full_name, person_path(person), :class => "black")
@@ -61,11 +49,9 @@
     = render :partial => 'shared/find_my_rep_form'
 .clear.space
 
-
 .grid_12.alpha
-  
   .grid_4.omega.floatright
-    #chamber_tabs
+    #chamber_tabs(data-tabs='true')
       %ul.small_tabs
         - @state.chambers.each do |chamber|
           %li

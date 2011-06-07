@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if request.headers['X-PJAX']
       # jquery-pjax support (see https://github.com/defunkt/jquery-pjax)
-      false
+      'pjax'
     elsif request.xhr?
       # for ajax modals via jquery.colorbox.js
       "popup"

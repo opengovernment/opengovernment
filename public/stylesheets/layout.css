@@ -1387,18 +1387,15 @@ p.donate a {
   border-right: none;
   margin: 0 0px 0px -39px;
 }
-
-/* line 1333, ../../app/stylesheets/layout.scss */
+/* line 1330, ../../app/stylesheets/layout.scss */
 .sorts li.sort_label {
   display: none;
 }
-
-/* line 1338, ../../app/stylesheets/layout.scss */
+/* line 1335, ../../app/stylesheets/layout.scss */
 .sorts li {
   clear: none;
 }
-
-/* line 1343, ../../app/stylesheets/layout.scss */
+/* line 1340, ../../app/stylesheets/layout.scss */
 .sorts li a {
   float: left;
   clear: none;
@@ -1427,13 +1424,11 @@ p.donate a {
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
   background: -moz-linear-gradient(top, white, #efefef);
 }
-
-/* line 1383, ../../app/stylesheets/layout.scss */
+/* line 1377, ../../app/stylesheets/layout.scss */
 .sorts li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
-
-/* line 1387, ../../app/stylesheets/layout.scss */
+/* line 1383, ../../app/stylesheets/layout.scss */
 .sorts li a.active {
   font-weight: bold !important;
   border: 0;
@@ -1447,28 +1442,28 @@ p.donate a {
   text-shadow: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1405, ../../app/stylesheets/layout.scss */
-.bills .sorts {
+/* line 1399, ../../app/stylesheets/layout.scss */
+.bill_sorts {
   padding: 30px 6px 20px 84px;
 }
 
-/* line 1410, ../../app/stylesheets/layout.scss */
-.people .sorts {
+/* line 1403, ../../app/stylesheets/layout.scss */
+.people_sorts {
   padding: 30px 6px 20px 164px;
 }
 
-/* line 1417, ../../app/stylesheets/layout.scss */
-.issues.index ul.lined li {
+/* line 1409, ../../app/stylesheets/layout.scss */
+ul.lined.state-issues li {
   font-size: 16px;
   padding: 20px;
 }
 
-/* line 1425, ../../app/stylesheets/layout.scss */
+/* line 1417, ../../app/stylesheets/layout.scss */
 box {
   border: none !important;
 }
 
-/* line 1431, ../../app/stylesheets/layout.scss */
+/* line 1423, ../../app/stylesheets/layout.scss */
 box box {
   width: 250px;
   height: 120px !important;
@@ -1484,20 +1479,20 @@ box box {
   background: -moz-linear-gradient(top, #eeeeee, #dddddd);
 }
 
-/* line 1450, ../../app/stylesheets/layout.scss */
+/* line 1442, ../../app/stylesheets/layout.scss */
 box div {
   -moz-border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
   border: none !important;
 }
 
-/* line 1457, ../../app/stylesheets/layout.scss */
+/* line 1449, ../../app/stylesheets/layout.scss */
 box div div {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
 }
 
-/* line 1464, ../../app/stylesheets/layout.scss */
+/* line 1456, ../../app/stylesheets/layout.scss */
 body.home h2 {
   background: 0 !important;
 }

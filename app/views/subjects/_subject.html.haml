@@ -5,7 +5,7 @@
     - else
       %span.link
         = link_to(subject.name, subject_path(params[:session], subject))
-    - surround '(',')' do
+    = surround '(',')' do
       = pluralize(subject.bill_count, 'Bill')
 - else
   %li

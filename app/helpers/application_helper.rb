@@ -4,10 +4,6 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
-  
-  def hashtags(hash_tags)
-    content_for(:hashtags) { hash_tags }
-  end
 
   # Javascript hooks -- eg. document ready events. or other page-level
   # javascript that can't be accomplished via rails-ujs.
@@ -32,17 +28,9 @@ module ApplicationHelper
     end
   end
 
-  def tweets(q, limit = 5)
-    javascript do
-    (%Q|
-      TwitterAPI.hook('"#{q}"', #{limit});
-    |)
-    end
-  end
-
   def track(object)
     if MongoMapper.connected?
-      javascript do
+      footer_javascript do
         %Q|
             $(document).ready(function() {
               Tracker.req.object_id = #{object.id};
