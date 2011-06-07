@@ -204,66 +204,66 @@
   box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
 }
 
-/* line 172, ../../app/stylesheets/bills.scss */
+/* line 169, ../../app/stylesheets/bills.scss */
 .bill_status div {
   padding: 0px 0 5px;
 }
 
-/* line 176, ../../app/stylesheets/bills.scss */
+/* line 173, ../../app/stylesheets/bills.scss */
 .bill_status div.top {
   padding: 5px 0 0px;
 }
 
-/* line 181, ../../app/stylesheets/bills.scss */
+/* line 178, ../../app/stylesheets/bills.scss */
 #bill_documents {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 335px;
 }
 
-/* line 187, ../../app/stylesheets/bills.scss */
+/* line 184, ../../app/stylesheets/bills.scss */
 ul.bill_documents {
   width: 300px;
   padding: 0 !important;
   margin-bottom: 0;
 }
 
-/* line 195, ../../app/stylesheets/bills.scss */
+/* line 192, ../../app/stylesheets/bills.scss */
 .sponsor_preview h2, .document_preview h2, .committee_preview h2 {
   display: inline-block;
 }
 
-/* line 199, ../../app/stylesheets/bills.scss */
+/* line 196, ../../app/stylesheets/bills.scss */
 .people_news_preview h3 {
   display: inline;
   float: none;
 }
 
-/* line 204, ../../app/stylesheets/bills.scss */
+/* line 201, ../../app/stylesheets/bills.scss */
 a.see_all {
   padding-left: 5px;
   display: inline;
 }
 
-/* line 209, ../../app/stylesheets/bills.scss */
+/* line 206, ../../app/stylesheets/bills.scss */
 .people_header {
   display: inline;
 }
 
-/* line 215, ../../app/stylesheets/bills.scss */
+/* line 212, ../../app/stylesheets/bills.scss */
 li.mention a {
   padding-top: 5px;
   font-size: 13px;
   display: block;
   line-height: 1.3em;
 }
-/* line 222, ../../app/stylesheets/bills.scss */
+/* line 219, ../../app/stylesheets/bills.scss */
 li.mention .date {
   font-size: 10px;
   color: #666;
   float: right;
 }
-/* line 228, ../../app/stylesheets/bills.scss */
+/* line 225, ../../app/stylesheets/bills.scss */
 li.mention .excerpt {
   padding-top: 10px;
   font-size: 11px;
@@ -271,7 +271,7 @@ li.mention .excerpt {
   float: right;
   line-height: 1.5em;
 }
-/* line 236, ../../app/stylesheets/bills.scss */
+/* line 233, ../../app/stylesheets/bills.scss */
 li.mention .source {
   padding-top: 10px;
   padding-bottom: 30px;
@@ -282,41 +282,41 @@ li.mention .source {
 }
 
 /* Adjust mentions ul for the people profile page */
-/* line 247, ../../app/stylesheets/bills.scss */
+/* line 244, ../../app/stylesheets/bills.scss */
 ul.lined li.mention .excerpt, ul.lined li.mention .date, ul.lined li.mention .source {
   float: none;
 }
 
-/* line 251, ../../app/stylesheets/bills.scss */
+/* line 248, ../../app/stylesheets/bills.scss */
 ul.lined li.mention .source {
   padding-bottom: 0;
 }
 
-/* line 255, ../../app/stylesheets/bills.scss */
+/* line 252, ../../app/stylesheets/bills.scss */
 .action_status {
   padding: 10px 0;
 }
 
-/* line 259, ../../app/stylesheets/bills.scss */
+/* line 256, ../../app/stylesheets/bills.scss */
 .action_date {
   float: left;
   padding: 20px 20px 0 0;
 }
 
-/* line 264, ../../app/stylesheets/bills.scss */
+/* line 261, ../../app/stylesheets/bills.scss */
 p.action_text {
   font-size: 20px;
   padding: 20px 0;
 }
 
-/* line 279, ../../app/stylesheets/bills.scss */
+/* line 276, ../../app/stylesheets/bills.scss */
 #bill_list li {
   border-bottom: 1px solid #f8f8f8;
   padding: 0 0 10px !important;
   margin: 0 0 20px !important;
 }
 
-/* line 286, ../../app/stylesheets/bills.scss */
+/* line 283, ../../app/stylesheets/bills.scss */
 .bill_titles {
   display: inline;
   float: left;
@@ -326,14 +326,14 @@ p.action_text {
   margin-left: 0;
   margin-bottom: 4px;
 }
-/* line 291, ../../app/stylesheets/bills.scss */
+/* line 288, ../../app/stylesheets/bills.scss */
 .bill_titles a {
   font-size: 14px;
   float: left;
   padding-top: 1px;
   line-height: 1.3em;
 }
-/* line 298, ../../app/stylesheets/bills.scss */
+/* line 295, ../../app/stylesheets/bills.scss */
 .bill_titles .view_count {
   font-size: 11px;
   float: left;
@@ -343,7 +343,7 @@ p.action_text {
   padding-left: 30px;
   background: url(../images/sprites.png) 10px -173px no-repeat;
 }
-/* line 308, ../../app/stylesheets/bills.scss */
+/* line 305, ../../app/stylesheets/bills.scss */
 .bill_titles span {
   display: block;
   font-size: 12px;
@@ -353,7 +353,7 @@ p.action_text {
   color: #777;
 }
 
-/* line 318, ../../app/stylesheets/bills.scss */
+/* line 315, ../../app/stylesheets/bills.scss */
 .small_date {
   font-size: 11px;
   font-weight: bold;
@@ -362,7 +362,7 @@ p.action_text {
   line-height: 1.4em;
 }
 
-/* line 327, ../../app/stylesheets/bills.scss */
+/* line 324, ../../app/stylesheets/bills.scss */
 .small_label {
   text-transform: uppercase;
   font-size: 9px;
@@ -371,13 +371,13 @@ p.action_text {
   color: #a9a9a9;
 }
 
-/* line 338, ../../app/stylesheets/bills.scss */
+/* line 335, ../../app/stylesheets/bills.scss */
 .introduced .small_date,
 .introduced .small_label {
   text-align: left;
 }
 
-/* line 342, ../../app/stylesheets/bills.scss */
+/* line 339, ../../app/stylesheets/bills.scss */
 .stats div {
   float: left;
   margin-top: 3px;
@@ -385,57 +385,57 @@ p.action_text {
   border-right: 1px solid #f8f8f8;
 }
 
-/* line 349, ../../app/stylesheets/bills.scss */
+/* line 346, ../../app/stylesheets/bills.scss */
 .stats div.introduced {
   padding-left: 0;
 }
 
-/* line 354, ../../app/stylesheets/bills.scss */
+/* line 351, ../../app/stylesheets/bills.scss */
 .bill-mugs {
   margin: 0px 0 20px 0px;
   width: 315px;
   padding: 0;
   float: left;
 }
-/* line 362, ../../app/stylesheets/bills.scss */
+/* line 359, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs,
 .bill-mugs .sponsor_preview,
 .bill-mugs .lined {
   margin: 0px !important;
   padding: 0;
 }
-/* line 368, ../../app/stylesheets/bills.scss */
+/* line 365, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs {
   float: left;
 }
 
-/* line 373, ../../app/stylesheets/bills.scss */
+/* line 370, ../../app/stylesheets/bills.scss */
 li .sponsor_mugs {
   font-size: 11px;
   line-height: 4em;
   color: #aaa;
 }
 
-/* line 381, ../../app/stylesheets/bills.scss */
+/* line 378, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined {
   margin: 0px !important;
   float: left;
   padding: 19px 20px 0 0;
 }
-/* line 387, ../../app/stylesheets/bills.scss */
+/* line 384, ../../app/stylesheets/bills.scss */
 .bill-mugs .lined li {
   display: inline;
   border: 0;
   font-size: 11px;
 }
-/* line 393, ../../app/stylesheets/bills.scss */
+/* line 390, ../../app/stylesheets/bills.scss */
 .bill-mugs .modal {
   padding: 19px 0 0 0px !important;
   float: left;
 }
 
 /* override sponsors .lined */
-/* line 400, ../../app/stylesheets/bills.scss */
+/* line 397, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -443,12 +443,12 @@ li .sponsor_mugs {
   box-shadow: none;
 }
 
-/* line 404, ../../app/stylesheets/bills.scss */
+/* line 401, ../../app/stylesheets/bills.scss */
 .popup.sponsors .lined li {
   padding: 5px 0 5px 0;
 }
 
-/* line 408, ../../app/stylesheets/bills.scss */
+/* line 405, ../../app/stylesheets/bills.scss */
 .bills .sponsor_mugs img {
   display: block;
   padding-top: 3px;
@@ -457,24 +457,24 @@ li .sponsor_mugs {
   clear: both;
 }
 
-/* line 417, ../../app/stylesheets/bills.scss */
+/* line 414, ../../app/stylesheets/bills.scss */
 .stats div.recent_vote {
   border-right: none;
   padding-right: 8px;
 }
-/* line 422, ../../app/stylesheets/bills.scss */
+/* line 419, ../../app/stylesheets/bills.scss */
 .stats div.session {
   border-right: none;
   border-left: 1px solid #f8f8f8;
 }
 
-/* line 428, ../../app/stylesheets/bills.scss */
+/* line 425, ../../app/stylesheets/bills.scss */
 .sponsor_mugs {
   float: left;
   padding: 5px 0 5px 0px;
 }
 
-/* line 434, ../../app/stylesheets/bills.scss */
+/* line 431, ../../app/stylesheets/bills.scss */
 .sponsor-meta {
   display: block;
   color: #999;
@@ -483,17 +483,17 @@ li .sponsor_mugs {
   width: 180px;
   clear: none;
 }
-/* line 442, ../../app/stylesheets/bills.scss */
+/* line 439, ../../app/stylesheets/bills.scss */
 .sponsor-meta a {
   padding-right: 5px;
 }
 
-/* line 447, ../../app/stylesheets/bills.scss */
+/* line 444, ../../app/stylesheets/bills.scss */
 .bills.index .sponsor_mugs {
   min-width: 260px;
 }
 
-/* line 451, ../../app/stylesheets/bills.scss */
+/* line 448, ../../app/stylesheets/bills.scss */
 .sponsor_mugs span.person-photo {
   clear: both !important;
   float: left !important;
@@ -502,12 +502,12 @@ li .sponsor_mugs {
   padding-top: 9px !important;
 }
 
-/* line 460, ../../app/stylesheets/bills.scss */
+/* line 457, ../../app/stylesheets/bills.scss */
 .bills.show .sponsor_mugs li {
   float: left;
 }
 
-/* line 468, ../../app/stylesheets/bills.scss */
+/* line 465, ../../app/stylesheets/bills.scss */
 .sponsor_mugs .photo,
 .bill.grid_12 .sponsor_mugs .sponsor_mug,
 .states.show .sponsor_mugs .sponsor_mug {
@@ -522,7 +522,7 @@ li .sponsor_mugs {
   -khtml-border-radius: 3px;
   border-radius: 3px;
   -webkit-transition: all .6s ease-in-out;
-  /* IE; docs say this filter-gradient should go first: */
+  /* IE; docs say this should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
@@ -539,19 +539,16 @@ li .sponsor_mugs {
   text-decoration: none;
   font-size: 11px;
   text-shadow: 0 1px 0 #fff;
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -ms-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -o-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -webkit-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -o-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
 }
-/* line 106, ../../app/stylesheets/_base.scss */
+/* line 103, ../../app/stylesheets/_base.scss */
 .sponsor_mugs .photo:hover,
 .bill.grid_12 .sponsor_mugs .sponsor_mug:hover,
 .states.show .sponsor_mugs .sponsor_mug:hover {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
@@ -562,12 +559,11 @@ li .sponsor_mugs {
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 111, ../../app/stylesheets/_base.scss */
+/* line 108, ../../app/stylesheets/_base.scss */
 .sponsor_mugs .photo:active,
 .bill.grid_12 .sponsor_mugs .sponsor_mug:active,
 .states.show .sponsor_mugs .sponsor_mug:active {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
@@ -580,24 +576,18 @@ li .sponsor_mugs {
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;
   border-bottom: 1px solid #b4b4b4;
-  -moz-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -webkit-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -o-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -ms-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -o-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -khtml-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
+  -moz-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -o-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
 }
 
-/* line 488, ../../app/stylesheets/bills.scss */
+/* line 481, ../../app/stylesheets/bills.scss */
 .states.show .sponsor_mugs .sponsor_mug {
   margin-bottom: 15px;
 }
 
-/* line 493, ../../app/stylesheets/bills.scss */
+/* line 486, ../../app/stylesheets/bills.scss */
 .sponsor_mugs img {
   border: 1px solid #fff;
   display: block;
@@ -605,33 +595,33 @@ li .sponsor_mugs {
   background: url(../images/man.png) center no-repeat;
 }
 
-/* line 500, ../../app/stylesheets/bills.scss */
+/* line 493, ../../app/stylesheets/bills.scss */
 .bill-mugs .sponsor_mugs li {
   font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* line 505, ../../app/stylesheets/bills.scss */
+/* line 498, ../../app/stylesheets/bills.scss */
 .long-title {
   display: block;
 }
 
-/* line 509, ../../app/stylesheets/bills.scss */
+/* line 502, ../../app/stylesheets/bills.scss */
 .sponsor_preview .sponsor_mugs, .document_preview .documents {
   padding: 0;
 }
 
-/* line 513, ../../app/stylesheets/bills.scss */
+/* line 506, ../../app/stylesheets/bills.scss */
 .people_news_preview ul.people_mugs {
   padding-top: 7px;
 }
 
-/* line 518, ../../app/stylesheets/bills.scss */
+/* line 511, ../../app/stylesheets/bills.scss */
 .sponsor-name {
   padding-top: 7px;
 }
 
-/* line 522, ../../app/stylesheets/bills.scss */
+/* line 515, ../../app/stylesheets/bills.scss */
 .bill-title {
   font-size: 14px;
   display: block;
@@ -639,13 +629,13 @@ li .sponsor_mugs {
   padding: 5px 0 0 0;
 }
 
-/* line 531, ../../app/stylesheets/bills.scss */
+/* line 524, ../../app/stylesheets/bills.scss */
 .bill-intro {
   margin: 0 -15px 30px -34px;
   padding: 10px 25px 35px 36px;
   position: relative;
   line-height: 1.2em;
-  /* IE; docs say this filter-gradient should go first: */
+  /* IE; docs say this should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
@@ -656,7 +646,7 @@ li .sponsor_mugs {
   background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
 }
-/* line 541, ../../app/stylesheets/bills.scss */
+/* line 534, ../../app/stylesheets/bills.scss */
 .bill-intro .views {
   margin-right: 10px;
   float: left;
@@ -664,16 +654,16 @@ li .sponsor_mugs {
   clear: none;
   padding-right: 15px;
 }
-/* line 550, ../../app/stylesheets/bills.scss */
+/* line 543, ../../app/stylesheets/bills.scss */
 .bill-intro p {
   clear: both;
   margin-bottom: 0;
 }
-/* line 555, ../../app/stylesheets/bills.scss */
+/* line 548, ../../app/stylesheets/bills.scss */
 .bill-intro p:first-letter {
   text-transform: uppercase;
 }
-/* line 559, ../../app/stylesheets/bills.scss */
+/* line 552, ../../app/stylesheets/bills.scss */
 .bill-intro h1 {
   background: 0;
   border: 0;
@@ -685,7 +675,7 @@ li .sponsor_mugs {
   float: left;
 }
 
-/* line 572, ../../app/stylesheets/bills.scss */
+/* line 565, ../../app/stylesheets/bills.scss */
 .documents .thumbnail {
   float: left;
   margin-right: 15px;
@@ -693,7 +683,7 @@ li .sponsor_mugs {
   height: 116px;
 }
 
-/* line 579, ../../app/stylesheets/bills.scss */
+/* line 572, ../../app/stylesheets/bills.scss */
 #people_mentions {
   display: inline;
   float: left;
@@ -702,7 +692,7 @@ li .sponsor_mugs {
   width: 220px;
 }
 
-/* line 584, ../../app/stylesheets/bills.scss */
+/* line 577, ../../app/stylesheets/bills.scss */
 #popular_bills {
   display: inline;
   float: left;
@@ -712,7 +702,7 @@ li .sponsor_mugs {
   margin-left: 0;
 }
 
-/* line 590, ../../app/stylesheets/bills.scss */
+/* line 583, ../../app/stylesheets/bills.scss */
 #hot_issues {
   display: inline;
   float: left;

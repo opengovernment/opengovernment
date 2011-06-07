@@ -213,7 +213,6 @@ ul.share {
 /* line 217, ../../app/stylesheets/sharing.scss */
 .write_buttons {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');

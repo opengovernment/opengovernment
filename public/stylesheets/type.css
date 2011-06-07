@@ -24,7 +24,7 @@ h1 {
   position: relative;
   line-height: 1.2em;
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
-  /* IE; docs say this filter-gradient should go first: */
+  /* IE; docs say this should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');

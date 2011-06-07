@@ -34,7 +34,7 @@
   float: right;
   clear: both;
   margin: 0px;
-  /* IE; docs say this filter-gradient should go first: */
+  /* IE; docs say this should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
@@ -51,12 +51,10 @@
   text-decoration: none;
   font-size: 11px;
   text-shadow: 0 1px 0 #fff;
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -ms-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -o-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -webkit-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -o-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   -o-border-radius: 100px;
@@ -64,10 +62,9 @@
   -khtml-border-radius: 100px;
   border-radius: 100px;
 }
-/* line 106, ../../app/stylesheets/_base.scss */
+/* line 103, ../../app/stylesheets/_base.scss */
 .more:hover {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
@@ -78,10 +75,9 @@
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 111, ../../app/stylesheets/_base.scss */
+/* line 108, ../../app/stylesheets/_base.scss */
 .more:active {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
@@ -94,16 +90,10 @@
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;
   border-bottom: 1px solid #b4b4b4;
-  -moz-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -webkit-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -o-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -ms-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -o-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -khtml-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
+  -moz-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -o-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
 }
 
 /* line 40, ../../app/stylesheets/classes.scss */
@@ -163,7 +153,7 @@
 /*///////////// ~  Standard Button  ~ /////////////*/
 /* line 92, ../../app/stylesheets/classes.scss */
 .button {
-  /* IE; docs say this filter-gradient should go first: */
+  /* IE; docs say this should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
@@ -180,12 +170,10 @@
   text-decoration: none;
   font-size: 11px;
   text-shadow: 0 1px 0 #fff;
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -ms-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -o-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
+  -moz-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -webkit-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  -o-box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
+  box-shadow: 0 1px 0px #dddddd, inset 0 1px 0px white;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
@@ -193,10 +181,9 @@
   -khtml-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 106, ../../app/stylesheets/_base.scss */
+/* line 103, ../../app/stylesheets/_base.scss */
 .button:hover {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
@@ -207,10 +194,9 @@
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 111, ../../app/stylesheets/_base.scss */
+/* line 108, ../../app/stylesheets/_base.scss */
 .button:active {
   /* IE; docs say this should go first: */
-  /* IE; docs say this filter-gradient should go first: */
   *zoom: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
@@ -223,16 +209,10 @@
   border: 1px solid #999;
   border-top: 1px solid #8f8f8f;
   border-bottom: 1px solid #b4b4b4;
-  -moz-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -webkit-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -o-box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  box-shadow: inset 0 1px 2px rgba(200, 200, 200, 0.4);
-  -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-  -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -ms-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -o-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  -khtml-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-  box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
+  -moz-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  -o-box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
+  box-shadow: 0 1px 0px white, inset 0 1px 1px #888888;
 }
 
 /* line 97, ../../app/stylesheets/classes.scss */
