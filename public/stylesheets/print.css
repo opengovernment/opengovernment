@@ -16,7 +16,8 @@
     display: none !important;
   }
 
-  /* line 6, ../../app/stylesheets/print.scss */
+  /* Doing this right now because no logo shows (it's a background image anyway) */
+  /* line 8, ../../app/stylesheets/print.scss */
   #content h1:before {
     content: "OpenGovernment.org: ";
   }

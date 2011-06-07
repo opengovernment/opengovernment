@@ -144,32 +144,35 @@ textarea#embed-code {
 
 /* line 137, ../../app/stylesheets/widget.scss */
 .widgets h1 {
-  margin-top: 0 !important;
-  margin-left: -21px;
+  margin-top: 0;
+  margin-left: -10px;
+  margin-right: -35px;
 }
 
-/* line 144, ../../app/stylesheets/widget.scss */
+/* line 145, ../../app/stylesheets/widget.scss */
 .widgets .share_top {
   position: absolute;
   z-index: 9999999;
+  background: transparent;
+  border-bottom: none;
   right: 0;
   top: 29px;
   width: 240px;
 }
 
-/* line 153, ../../app/stylesheets/widget.scss */
+/* line 156, ../../app/stylesheets/widget.scss */
 .widgets .share_top .share {
   margin: 0 !important;
 }
 
-/* line 157, ../../app/stylesheets/widget.scss */
+/* line 160, ../../app/stylesheets/widget.scss */
 .chooser {
   width: 70px;
   float: left;
   margin-right: 20px;
 }
 
-/* line 163, ../../app/stylesheets/widget.scss */
+/* line 166, ../../app/stylesheets/widget.scss */
 .chooser label {
   display: block;
   text-align: center;
@@ -178,7 +181,7 @@ textarea#embed-code {
   font-weight: normal;
 }
 
-/* line 172, ../../app/stylesheets/widget.scss */
+/* line 175, ../../app/stylesheets/widget.scss */
 .chooser input {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -190,7 +193,7 @@ textarea#embed-code {
   margin: 0 auto;
 }
 
-/* line 183, ../../app/stylesheets/widget.scss */
+/* line 186, ../../app/stylesheets/widget.scss */
 #embed-code {
   width: 430px !important;
   -moz-border-radius: 4px;
@@ -198,7 +201,7 @@ textarea#embed-code {
   border: 1px solid rgba(101, 101, 101, 0.2);
 }
 
-/* line 195, ../../app/stylesheets/widget.scss */
+/* line 198, ../../app/stylesheets/widget.scss */
 .widgets .button.tiny {
   margin: 7px 19px 0;
 }
