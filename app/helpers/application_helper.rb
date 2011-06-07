@@ -32,7 +32,7 @@ module ApplicationHelper
     if MongoMapper.connected?
       footer_javascript do
         %Q|
-            $(document).ready(function() {
+            $(function() {
               Tracker.req.object_id = #{object.id};
               Tracker.req.object_type = '#{object.class}';
               Tracker.track();

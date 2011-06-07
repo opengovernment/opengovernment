@@ -8,7 +8,7 @@
     %link(rel='apple-touch-icon-precomposed' href='/images/home_screen.png')
 
     = csrf_meta_tag
-    = include_stylesheets :common, :other
+    = include_stylesheets :common, :other, :media => 'all'
     :javascript
       var _sf_startpt=(new Date()).getTime()
 

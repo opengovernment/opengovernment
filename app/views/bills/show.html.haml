@@ -62,7 +62,7 @@
     :ruby
       javascript do
         (%Q|
-          $(document).ready(function() {
+          $(function() {
             $('#find_my_rep input:submit').click(function(e){
               $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&addr='+ encodeURI($('#find_my_rep input[name=addr]').val()));
               $('#rep_link').click();

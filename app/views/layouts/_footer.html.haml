@@ -1,4 +1,4 @@
-.principles
+%nav.principles
   %h4=   t '.our_principles'
   %ul
     %li= t '.free_for_everyone'
@@ -7,7 +7,7 @@
     %li= t '.not_for_profit'
     %li= t '.non_partisan'
 
-.about_us
+%nav.about_us
   %h4
     =t '.about_us'
   %ul
@@ -17,7 +17,7 @@
     %li= link_to t('.user_support'),     'http://support.opencongress.org/anonymous_requests/new'
     %li= link_to t('.join_our_email'),   page_url('help')
 
-.more_links
+%nav.more_links
   %h4
     = t '.more_open_gov'
   %ul
@@ -28,7 +28,7 @@
     %li= link_to t('.our_open_code'),  page_url('wish-list', :subdomain => false)
     %li= link_to t('.wish_list'),      page_url('wish-list', :subdomain => false)
 
-.get_involved
+%nav.get_involved
   %h4 
     = t '.get_involved'
   %ul

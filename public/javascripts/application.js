@@ -67,13 +67,11 @@ var page_hooks = function() {
   // Show the spinner on AJAX calls
   $('a[data-remote]').live('ajax:loading', function() {
     $(this).closest('ul').find(".spin").show();
-    }
-  );
+  });
 
   $('a[data-remote]').live('ajax:complete', function() {
     $(this).closest('ul').find(".spin").hide();
-    }
-  );
+  });
 
   // Twitter searches
   $('div[data-twitter-search]').each(function () {
@@ -86,26 +84,9 @@ var page_hooks = function() {
 $(function() {
   page_hooks();
 
-  // When finishing a PJAX load,
-  // attach page hooks and tell google and chartbeat.
-/*  $('body').bind('end.pjax', function() {
-    page_hooks();
-    
-    _gaq.push(['_trackPageview']); // tell Google
-
-  }); */
-  
   // **                 **
   // **  SPECIFIC HOOKS **
   // **                 **
-
-  // PJAX on left navigation; swap out content in the #main div
-  if ($('#left_nav')) {
-    $('#left_nav a').pjax({
-      container: '#main',
-      timeout: 4000
-    });
-  }
 
   // On pages with votes, resize the vote bar to show votes relative to one another.
   if ($('.vote-bar')) {

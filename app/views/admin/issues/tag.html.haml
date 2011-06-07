@@ -1,7 +1,7 @@
 :ruby
   javascript do
     (%q|
-      $(document).ready(function() {
+      $(function() {
           var hidden_field = $('input#tag');
           $('#tags a.tagger').live('click', function(event) {
             hidden_field.val($(this).html());

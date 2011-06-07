@@ -1,0 +1,9 @@
+/* PRINT */
+@media print {
+	body, #main, #content { color: #000 !important; }
+	a, a:link, a:visited { color: #000 !important; text-decoration:none !important; }
+	header, nav, #sidebar { display: none !important; }
+
+  /* Doing this right now because no logo shows (it's a background image anyway) */
+  #content h1:before { content: "OpenGovernment.org: "; }
+}

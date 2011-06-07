@@ -51,7 +51,6 @@ javascripts:
     - public/javascripts/jquery/jquery.tipsy.js
     - public/javascripts/jquery/jquery.colorbox.js
     - public/javascripts/jquery/jquery.placeholder.js
-    - public/javascripts/jquery/jquery.pjax.js
     - public/javascripts/tracker.js
     - public/javascripts/dropdown.js
     - public/javascripts/twitter.js

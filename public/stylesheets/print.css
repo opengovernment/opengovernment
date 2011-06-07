@@ -1,0 +1,23 @@
+/* PRINT */
+@media print {
+  /* line 3, ../../app/stylesheets/print.scss */
+  body, #main, #content {
+    color: #000 !important;
+  }
+
+  /* line 4, ../../app/stylesheets/print.scss */
+  a, a:link, a:visited {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  /* line 5, ../../app/stylesheets/print.scss */
+  header, nav, #sidebar {
+    display: none !important;
+  }
+
+  /* line 6, ../../app/stylesheets/print.scss */
+  #content h1:before {
+    content: "OpenGovernment.org: ";
+  }
+}
