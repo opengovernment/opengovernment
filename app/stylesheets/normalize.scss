@@ -1,23 +1,19 @@
-/* If this file is named anything other than _base.scss,
- * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
- * Modify app/stylesheets/[filename].scss instead.
- */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black;
-}
+@import "base";
+
 
 /* BEGIN Normalize.css as of June 7, 2011
 From https://github.com/necolas/normalize.css
 */
+
 /* =============================================================================
    HTML5 element display
    ========================================================================== */
+
 /*
  * Add display for block-level HTML5 elements
  * Addresses display not defined in IE6/7/8/9 & FF3
  */
-/* line 26, ../../app/stylesheets/reset.scss */
+
 article,
 aside,
 details,
@@ -28,25 +24,27 @@ header,
 hgroup,
 nav,
 section {
-  display: block;
+    display: block;
 }
 
 /*
  * Add display for embedded HTML5 elements
  * Addresses display not defined in IE6/7/8/9 & FF3
  */
-/* line 37, ../../app/stylesheets/reset.scss */
+
 audio[controls],
 canvas,
 video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
 }
+
 
 /* =============================================================================
    Base
    ========================================================================== */
+
 /*
  * 1. Add font size
  *    Addresses text resizing oddly in IE6/7 when body font-size is set using em units
@@ -58,40 +56,35 @@ video {
  * 4. Remove iOS text size adjust without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
  */
-/* line 60, ../../app/stylesheets/reset.scss */
+
 html {
-  font-size: 100%;
-  /* 1 */
-  overflow-y: scroll;
-  /* 2 */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  /* 3 */
-  -webkit-text-size-adjust: 100%;
-  /* 4 */
-  -ms-text-size-adjust: 100%;
-  /* 4 */
+    font-size: 100%; /* 1 */
+    overflow-y: scroll; /* 2 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
 }
 
 /*
  * Remove margin
  * Addresses margins handled incorrectly in IE6/7
  */
-/* line 73, ../../app/stylesheets/reset.scss */
+
 body {
-  margin: 0;
+    margin: 0;
 }
 
 /* 
  * Define base font-family
  * Addresses font-family inconsistency between <textarea> and other form elements.
  */
-/* line 86, ../../app/stylesheets/reset.scss */
+
 body,
 button,
 input,
 select,
 textarea {
-  font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 /*
@@ -101,34 +94,32 @@ textarea {
  *    Improves readability when scaled in IE7
  *    Read before using : code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
-/* line 98, ../../app/stylesheets/reset.scss */
+
 img {
-  border: 0;
-  /* 1 */
-  -ms-interpolation-mode: bicubic;
-  /* 2 */
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
 }
+
 
 /* =============================================================================
    Links
    ========================================================================== */
-/* line 108, ../../app/stylesheets/reset.scss */
+
 a {
-  color: #00e;
+    color: #00e;
 }
 
-/* line 112, ../../app/stylesheets/reset.scss */
 a:visited {
-  color: #551a8b;
+    color: #551a8b;
 }
 
 /*
  * Define outline as thin dotted
  * Addresses outline displayed oddly in Chrome
  */
-/* line 121, ../../app/stylesheets/reset.scss */
+
 a:focus {
-  outline: thin dotted;
+    outline: thin dotted;
 }
 
 /*
@@ -136,56 +127,57 @@ a:focus {
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-/* line 132, ../../app/stylesheets/reset.scss */
+
 a:hover,
 a:active {
-  outline: 0;
+    outline: 0;
 }
+
 
 /* =============================================================================
    Typography
    ========================================================================== */
+
 /*
  * Add bottom border
  * Fixes styling not present in IE7/8/9 S5 Chrome
  */
-/* line 146, ../../app/stylesheets/reset.scss */
+
 abbr[title] {
-  border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 
 /*
  * Add bold font weight
  * Fixes style set to 'bolder' in FF3/4 S4/5 Chrome
 */
-/* line 156, ../../app/stylesheets/reset.scss */
-b,
-strong {
-  font-weight: bold;
+
+b, 
+strong { 
+    font-weight: bold; 
 }
 
-/* line 160, ../../app/stylesheets/reset.scss */
 blockquote {
-  margin: 1em 40px;
+    margin: 1em 40px;
 }
 
 /*
  * Add italic font style
  * Fixes styling not present in S5 Chrome
  */
-/* line 169, ../../app/stylesheets/reset.scss */
+
 dfn {
-  font-style: italic;
+    font-style: italic;
 }
 
 /*
  * Add yellow background and black text
  * Fixes styling not present in IE6/7/8/9
  */
-/* line 178, ../../app/stylesheets/reset.scss */
+
 mark {
-  background: #ff0;
-  color: #000;
+    background: #ff0;
+    color: #000;
 }
 
 /*
@@ -194,27 +186,25 @@ mark {
  * 1. Fixes font family set oddly in S5 Chrome
  * 2. Fixes monospace font family set oddly in IE6
  */
-/* line 193, ../../app/stylesheets/reset.scss */
+
 pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  _font-family: 'courier new', monospace;
-  /* 2 */
-  font-size: 1em;
+    font-family: monospace, monospace; /* 1 */
+    _font-family: 'courier new', monospace; /* 2 */
+    font-size: 1em;
 }
 
 /*
  * Add line wrapping
  * Improves readability of pre-formatted text in all browsers
  */
-/* line 204, ../../app/stylesheets/reset.scss */
+
 pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /*
@@ -222,26 +212,27 @@ pre {
  * 1. Addresses CSS quotes not supported in IE6/7
  * 2. Addresses quote property not supported in S4
  */
+
 /* 1 */
-/* line 218, ../../app/stylesheets/reset.scss */
+
 q {
-  quotes: none;
+    quotes: none;
 }
 
 /* 2 */
-/* line 225, ../../app/stylesheets/reset.scss */
+
 q:before,
 q:after {
-  content: '';
-  content: none;
+    content: '';
+    content: none;
 }
 
 /*
  * Define font-size
  */
-/* line 234, ../../app/stylesheets/reset.scss */
+
 small {
-  font-size: 75%;
+    font-size: 75%;
 }
 
 /*
@@ -249,86 +240,87 @@ small {
  * Fixes alignment within multi-line text displayed oddly in all browsers
  * gist.github.com/413930
  */
-/* line 245, ../../app/stylesheets/reset.scss */
+
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
-/* line 252, ../../app/stylesheets/reset.scss */
 sup {
-  top: -0.5em;
+    top: -0.5em;
 }
 
-/* line 256, ../../app/stylesheets/reset.scss */
 sub {
-  bottom: -0.25em;
+    bottom: -0.25em;
 }
+
 
 /* =============================================================================
    Lists
    ========================================================================== */
-/* line 266, ../../app/stylesheets/reset.scss */
+
 ul,
 ol {
-  margin: 1em 0;
-  padding: 0 0 0 40px;
+    margin: 1em 0;
+    padding: 0 0 0 40px;
 }
 
-/* line 271, ../../app/stylesheets/reset.scss */
 dd {
-  margin: 0 0 0 40px;
+    margin: 0 0 0 40px;
 }
 
-/* line 276, ../../app/stylesheets/reset.scss */
 nav ul,
 nav ol {
-  list-style: none;
+    list-style: none;
 }
+
 
 /* =============================================================================
    Figures
    ========================================================================== */
+
 /*
  * Remove margin
  * Addresses margin not present in IE6/7/8/9, S5, O11
  */
-/* line 290, ../../app/stylesheets/reset.scss */
+
 figure {
-  margin: 0;
+    margin: 0;
 }
+
 
 /* =============================================================================
    Forms
    ========================================================================== */
+
 /*
  * Remove margin
  * Fixes styling in IE6/7
  */
-/* line 304, ../../app/stylesheets/reset.scss */
+
 form {
-  margin: 0;
+    margin: 0;
 }
 
 /*
  * Define consistent margin and padding
  */
-/* line 312, ../../app/stylesheets/reset.scss */
+
 fieldset {
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
 }
 
 /*
  * Add negative left margin
  * Fixes alignment displayed oddly in IE6/7
  */
-/* line 322, ../../app/stylesheets/reset.scss */
+
 legend {
-  *margin-left: -7px;
+    *margin-left: -7px;
 }
 
 /*
@@ -337,19 +329,15 @@ legend {
  *    Fixes different margins set in FF3/4 S5 Chrome
  * 3. Define consistent vertical alignment display in all browsers
  */
-/* line 336, ../../app/stylesheets/reset.scss */
+
 button,
 input,
 select,
 textarea {
-  font-size: 100%;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  vertical-align: baseline;
-  /* 3 */
-  *vertical-align: middle;
-  /* 3 */
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
 }
 
 /*
@@ -358,13 +346,11 @@ textarea {
  * 2. Make overflow visible
  *    Fixes spacing displayed oddly in IE6/7
  */
-/* line 351, ../../app/stylesheets/reset.scss */
+
 button,
 input {
-  line-height: normal;
-  /* 1 */
-  *overflow: visible;
-  /* 2 */
+    line-height: normal; /* 1 */
+    *overflow: visible;  /* 2 */
 }
 
 /*
@@ -373,25 +359,23 @@ input {
  * 2. Define appearance for clickable form elements
  *    Fixes inability to style clickable <input> types in iOS
  */
-/* line 366, ../../app/stylesheets/reset.scss */
+
 button,
-input[type="button"],
-input[type="reset"],
+input[type="button"], 
+input[type="reset"], 
 input[type="submit"] {
-  cursor: pointer;
-  /* 1 */
-  -webkit-appearance: button;
-  /* 2 */
+    cursor: pointer; /* 1 */
+    -webkit-appearance: button; /* 2 */
 }
 
 /*
  * Define box sizing
  * Addresses box sizing set to content-box in IE8/9
  */
-/* line 377, ../../app/stylesheets/reset.scss */
+
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /*
@@ -399,21 +383,21 @@ input[type="radio"] {
  * Addresses box sizing set to border-box in S5 Chrome (include -moz to future-proof)
  * Addresses appearance set to searchfield in S5 Chrome
  */
-/* line 387, ../../app/stylesheets/reset.scss */
+
 input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 /*
  * Remove WebKit search decoration
  * Addresses inner padding displaying oddly in S5 Chrome on OSX
  */
-/* line 399, ../../app/stylesheets/reset.scss */
+
 input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 /*
@@ -421,11 +405,11 @@ input[type="search"]::-webkit-search-decoration {
  * Fixes appearance displayed oddly in FF3/4
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
-/* line 410, ../../app/stylesheets/reset.scss */
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+    border: 0;
+    padding: 0;
 }
 
 /*
@@ -434,33 +418,32 @@ input::-moz-focus-inner {
  * 2. Add top vertical alignment
  *    Improves readability and aligment in all browsers
  */
-/* line 422, ../../app/stylesheets/reset.scss */
+
 textarea {
-  overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
 }
+
 
 /* =============================================================================
    Tables
    ========================================================================== */
+
 /* 
  * Remove most spacing between table cells
  * Consistent vertical and horizontal alignment in all browsers
  */
-/* line 437, ../../app/stylesheets/reset.scss */
+
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-/* line 443, ../../app/stylesheets/reset.scss */
 th,
 td {
-  padding: 0;
-  text-align: left;
-  vertical-align: middle;
+    padding: 0;
+    text-align: left;
+    vertical-align: middle;
 }
 
 /* END Normalize.css */

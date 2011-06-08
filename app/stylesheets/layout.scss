@@ -1,5 +1,92 @@
 @import "base";
 
+/*///////////////////////////////////////////////////
+
+~ HTML
+
+///////////////////////////////////////////////////*/
+
+
+body{
+  margin: 0;
+  padding: 20px 0 40px;
+background: #ddd;
+  background: url(../images/bg.png) repeat-x, url(../images/bg.gif);
+  font-size:12px;
+  color:#222;
+  line-height: 1.3em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+
+hr {
+  border:none;
+  border-top: 1px solid #fff;
+
+  color:#ddd;
+  clear:both;
+  float:none;
+  margin: 0;
+  width:100%;
+  height: 0px;
+  }
+
+
+p{
+line-height: 1.4em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ol{
+padding-left: 1.5em;
+}
+
+ol li{
+list-style-type: decimal !important;
+color: #36676f;
+font-weight: bold;
+font-style: italic;
+}
+
+
+ol li p{
+margin: 0;
+color: #333;
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+/*///////////// ~  Tables  ~ /////////////*/
+
+
+table{ width: 100%;}
+
+
+thead th{ text-align: left;}
+
+
+th{
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #f9f9f9;
+  text-align: left;
+}
+
+
+td{
+  min-width: 100px;
+  padding: 6px 20px 6px 0 !important;
+  vertical-align: top;
+  }
+
+
+table, td, th, tr{ margin: 0;}
+
+
 /*///////////////////////////
 
 ~ NAv
@@ -15,12 +102,12 @@ position: relative;
 }
 
 #left_nav ul {
-margin: 0 !important;
+margin: 0;
 }
 
 #left_nav ul li {
 margin: 0;
-padding: 0 !important;
+padding: 0;
 background: -webkit-gradient(linear, left top, left bottom, from(#ecf4f5), to(#e2ecee));
 background: -moz-linear-gradient(top,  #ecf4f5,  #e2ecee);
 -moz-box-shadow: inset 0 1px 0px #f4f9f9;

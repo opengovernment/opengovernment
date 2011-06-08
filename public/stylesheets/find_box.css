@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black;
-}
-
 /* line 4, ../../app/stylesheets/find_box.scss */
 .home.home .find_box {
   display: inline-block;

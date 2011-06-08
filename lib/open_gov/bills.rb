@@ -124,6 +124,8 @@ module OpenGov
 
         # There is no unique data on these tables that we can key off of, so we're
         # deleting them.
+        @bill.delete_associated_nonuniques unless @bill.new_record?
+
         unless @bill.new_record?
           @bill.actions.delete_all
           @bill.sponsorships.delete_all
@@ -164,7 +166,8 @@ module OpenGov
             :kind_two => action[:type].try(:second),
             :kind_three => action[:type].try(:third),
             :action_number => action[:action_number],
-            :date => action_date
+            :date => action_date,
+            :updated_at => @sync_date
           )
         end
 
@@ -211,13 +214,14 @@ module OpenGov
 
         # Same deal as with actions, above
         import_queue = []
-        
+
         bill.sponsors.each do |sponsor|
           import_queue << BillSponsorship.new(
             :sponsor_id => sponsor.leg_id.blank? ? nil : @people[sponsor.leg_id],
             :sponsor_name => sponsor[:name],
             :kind => sponsor[:type],
-            :bill_id => @bill.id
+            :bill_id => @bill.id,
+            :updated_at => @sync_date
           )
         end
         BillSponsorship.import(import_queue) unless import_queue.blank?

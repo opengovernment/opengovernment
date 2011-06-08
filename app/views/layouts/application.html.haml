@@ -13,13 +13,13 @@
       var _sf_startpt=(new Date()).getTime()
 
     <!--[if lt IE 9]>
-    %script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    %script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
     = include_stylesheets :ie8
     <![endif]-->
 
     -# jQuery & jQuery UI via http://code.google.com/apis/libraries/devguide.html
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"
     = include_javascripts :common
 
     - if content_for? :js_hook

@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black;
-}
-
 /* line 3, ../../app/stylesheets/classes.scss */
 .image {
   padding: 5px;
@@ -62,7 +57,7 @@
   -khtml-border-radius: 100px;
   border-radius: 100px;
 }
-/* line 103, ../../app/stylesheets/_base.scss */
+/* line 101, ../../app/stylesheets/_base.scss */
 .more:hover {
   /* IE; docs say this should go first: */
   *zoom: 1;
@@ -75,7 +70,7 @@
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 108, ../../app/stylesheets/_base.scss */
+/* line 106, ../../app/stylesheets/_base.scss */
 .more:active {
   /* IE; docs say this should go first: */
   *zoom: 1;
@@ -181,7 +176,7 @@
   -khtml-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 103, ../../app/stylesheets/_base.scss */
+/* line 101, ../../app/stylesheets/_base.scss */
 .button:hover {
   /* IE; docs say this should go first: */
   *zoom: 1;
@@ -194,7 +189,7 @@
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
-/* line 108, ../../app/stylesheets/_base.scss */
+/* line 106, ../../app/stylesheets/_base.scss */
 .button:active {
   /* IE; docs say this should go first: */
   *zoom: 1;

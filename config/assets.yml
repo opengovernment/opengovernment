@@ -2,8 +2,7 @@ template_function: _.template
 
 stylesheets:
   common:
-    - public/stylesheets/reset.css
-    - public/stylesheets/html5.css
+    - public/stylesheets/normalize.css
     - public/stylesheets/960.css
     - public/stylesheets/layout.css
     - public/stylesheets/type.css

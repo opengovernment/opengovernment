@@ -4,11 +4,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black;
-}
-
 /* line 9, ../../app/stylesheets/widget.scss */
 .og-widget .og-widget-container {
   -moz-border-radius: 4px;
