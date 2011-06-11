@@ -2,6 +2,7 @@
 
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7'
 gem 'rails'
 gem 'rack-contrib'
 gem 'SystemTimer', :platforms => :ruby_18
