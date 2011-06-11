@@ -11,7 +11,9 @@ module Trackable
     def most_viewed(ops = {})
       # Accept 'mn.staging' or whatever request.subdomain
       # might contain as a subdomain param.
-      ops[:subdomain] = ops[:subdomain].split('.').try(:first) || ops[:subdomain]
+      if ops[:subdomain]
+        ops[:subdomain] = ops[:subdomain].split('.').try(:first) || ops[:subdomain]
+      end
       
       return self.none unless MongoMapper.connected?
 
