@@ -1,19 +1,13 @@
 module OpenGov
   class Bills < Resources
+    include StateWise
+
     def initialize
       # Cache all of the ids of people so we don't have to keep looking them up.
       @people = {}
 
       Person.all(:conditions => "openstates_id is not null").each do |p|
         @people[p.openstates_id] = p.id
-      end
-    end
-
-    # TODO: The :remote => false option only applies to the intial import.
-    # after that, we always want to use import_state(state)
-    def import(options = {})
-      State.loadable.each do |state|
-        import_state(state, options)
       end
     end
 
@@ -125,13 +119,6 @@ module OpenGov
         # There is no unique data on these tables that we can key off of, so we're
         # deleting them.
         @bill.delete_associated_nonuniques unless @bill.new_record?
-
-        unless @bill.new_record?
-          @bill.actions.delete_all
-          @bill.sponsorships.delete_all
-          @bill.citations.destroy_all
-          @bill.subjects.destroy_all
-        end
 
         unless @bill.save!
           # The transaction has rolled back if we get to this point.

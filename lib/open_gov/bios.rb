@@ -1,20 +1,12 @@
 module OpenGov
   class Bios < Resources
+    include StateWise
+
     def initialize
       @u, @s = 0, 0
     end
-
-    def import
-      puts 'Fetching bios for all current people with transparencydata ids'
-
-      Person.with_transparencydata_id.each do |person|
-        import_one(person)
-      end
-
-      puts "Updated #{@u} people, skipped #{@s} bios"
-    end
     
-    def import_state(state)
+    def import_state(state, options = {})
       puts "Fetching bios for all people in #{state.abbrev} with transparencydata ids"
 
       state.people.with_transparencydata_id.each do |person|
@@ -30,7 +22,7 @@ module OpenGov
         person = Person.find(person.id)
 
         begin
-          td_person = GovKit::TransparencyData::Entity.find_by_id(person.transparencydata_id)
+          td_person = GovKit::TransparencyData::Entity.find(person.transparencydata_id)
         rescue GovKit::ResourceNotFound
           puts "No results found for TransparencyData entity #{person.transparencydata_id}."
         end

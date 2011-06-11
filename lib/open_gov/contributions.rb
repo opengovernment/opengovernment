@@ -1,14 +1,9 @@
 module OpenGov
   class Contributions < Resources
+    include StateWise
 
     # This value for transaction_namespace= in TD API cals limits our queries with TransparencyData to the NIMSP dataset.
     IMSP_NAMESPACE = 'urn:nimsp:recipient'
-
-    def import(options = {})
-      State.loadable.each do |state|
-        import_state(state, options)
-      end
-    end
 
     def import_state(state, options = {})      
       options[:immediate] ||= false

@@ -1,12 +1,8 @@
 module OpenGov
   class Committees < Resources  
-    COMMITTEE_DIR = File.join(Settings.openstates_dir, "committees")
+    include StateWise
 
-    def import(options = {})
-      State.loadable.each do |state|
-        import_state(state, options)
-      end
-    end
+    COMMITTEE_DIR = File.join(Settings.openstates_dir, "committees")
 
     def import_state(state, options = {})
       unless options[:remote] || File.exists?(COMMITTEE_DIR)
