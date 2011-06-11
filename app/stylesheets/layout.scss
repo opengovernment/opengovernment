@@ -1101,22 +1101,31 @@ width: 275px;
 float: left;
 font-size: 14px;
 }
-.sign h3 {
-border-bottom: 1px solid #d1dddd;
-margin-left: -26px;
-width: 202px;
-padding: 12px 0 12px 25px;
-margin-right: 10px;
+
+
+#sidebar.sign {
+  padding-left: 10px;
+  margin-right: 0;
+
+  h3 {
+    border-bottom: 1px solid #d1dddd;
+    width: 202px;
+    padding: 12px 0 12px 0;
+    margin-right: 10px;
+  }
+
+  input,
+  label {
+    clear: both !important;
+    float: none !important;
+    display: block;
+  }
+
+  input {
+    margin-bottom: 20px
+  }
 }
-.sign input,
-.sign label {
-clear: both !important;
-float: none !important;
-display: block;
-}
-.sign input {
-margin-bottom: 20px
-}
+
 .visit_blog {
 background: url(../images/blog.png) 0 0 no-repeat;
 display: block;

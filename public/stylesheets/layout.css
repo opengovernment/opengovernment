@@ -1166,29 +1166,31 @@ p.donate a {
   font-size: 14px;
 }
 
-/* line 1104, ../../app/stylesheets/layout.scss */
-.sign h3 {
+/* line 1106, ../../app/stylesheets/layout.scss */
+#sidebar.sign {
+  padding-left: 10px;
+  margin-right: 0;
+}
+/* line 1110, ../../app/stylesheets/layout.scss */
+#sidebar.sign h3 {
   border-bottom: 1px solid #d1dddd;
-  margin-left: -26px;
   width: 202px;
-  padding: 12px 0 12px 25px;
+  padding: 12px 0 12px 0;
   margin-right: 10px;
 }
-
-/* line 1112, ../../app/stylesheets/layout.scss */
-.sign input,
-.sign label {
+/* line 1118, ../../app/stylesheets/layout.scss */
+#sidebar.sign input,
+#sidebar.sign label {
   clear: both !important;
   float: none !important;
   display: block;
 }
-
-/* line 1117, ../../app/stylesheets/layout.scss */
-.sign input {
+/* line 1124, ../../app/stylesheets/layout.scss */
+#sidebar.sign input {
   margin-bottom: 20px;
 }
 
-/* line 1120, ../../app/stylesheets/layout.scss */
+/* line 1129, ../../app/stylesheets/layout.scss */
 .visit_blog {
   background: url(../images/blog.png) 0 0 no-repeat;
   display: block;
@@ -1201,12 +1203,12 @@ p.donate a {
   overflow: hidden;
 }
 
-/* line 1131, ../../app/stylesheets/layout.scss */
+/* line 1140, ../../app/stylesheets/layout.scss */
 .visit_blog:hover {
   background: url(../images/blog.png) 0px -133px no-repeat;
 }
 
-/* line 1136, ../../app/stylesheets/layout.scss */
+/* line 1145, ../../app/stylesheets/layout.scss */
 .small_finally h2 {
   border: none !important;
   font-size: 15px;
@@ -1215,30 +1217,30 @@ p.donate a {
   margin-bottom: 30px;
 }
 
-/* line 1144, ../../app/stylesheets/layout.scss */
+/* line 1153, ../../app/stylesheets/layout.scss */
 .small_finally h2 span {
   display: block;
   padding: 5px 0;
 }
 
-/* line 1149, ../../app/stylesheets/layout.scss */
+/* line 1158, ../../app/stylesheets/layout.scss */
 .small_finally ul {
   background: url(../images/small_track.png) 20px 0px no-repeat;
   padding: 12px 0 10px 20px;
 }
 
-/* line 1155, ../../app/stylesheets/layout.scss */
+/* line 1164, ../../app/stylesheets/layout.scss */
 .small_finally ul li {
   padding: 0 0 0 90px;
 }
 
-/* line 1160, ../../app/stylesheets/layout.scss */
+/* line 1169, ../../app/stylesheets/layout.scss */
 .small_finally ul li div {
   padding: 0 0 0 0px;
   font-size: 18px;
 }
 
-/* line 1166, ../../app/stylesheets/layout.scss */
+/* line 1175, ../../app/stylesheets/layout.scss */
 .small_finally ul li span {
   padding: 0 0 0 0px;
   font-size: 12px;
@@ -1247,72 +1249,72 @@ p.donate a {
   width: 140px;
 }
 
-/* line 1175, ../../app/stylesheets/layout.scss */
+/* line 1184, ../../app/stylesheets/layout.scss */
 .track {
   margin: 0px 0 72px;
 }
 
-/* line 1179, ../../app/stylesheets/layout.scss */
+/* line 1188, ../../app/stylesheets/layout.scss */
 .track span {
   color: #83a0a4;
 }
 
-/* line 1184, ../../app/stylesheets/layout.scss */
+/* line 1193, ../../app/stylesheets/layout.scss */
 .contact {
   margin: 0px 0 65px;
 }
 
-/* line 1188, ../../app/stylesheets/layout.scss */
+/* line 1197, ../../app/stylesheets/layout.scss */
 .contact span {
   color: #a26361;
 }
 
-/* line 1194, ../../app/stylesheets/layout.scss */
+/* line 1203, ../../app/stylesheets/layout.scss */
 .shareli {
   padding-bottom: 10px;
 }
 
-/* line 1199, ../../app/stylesheets/layout.scss */
+/* line 1208, ../../app/stylesheets/layout.scss */
 .shareli span {
   color: #9abd92;
 }
 
-/* line 1204, ../../app/stylesheets/layout.scss */
+/* line 1213, ../../app/stylesheets/layout.scss */
 .more_links ul.standard {
   padding-top: 10px;
 }
 
-/* line 1208, ../../app/stylesheets/layout.scss */
+/* line 1217, ../../app/stylesheets/layout.scss */
 .more_links ul.standard li {
   clear: none !important;
 }
 
-/* line 1221, ../../app/stylesheets/layout.scss */
+/* line 1230, ../../app/stylesheets/layout.scss */
 .ca .small_finally {
   background: url(../images/large-states/california.png) 12px 129px no-repeat;
 }
 
-/* line 1225, ../../app/stylesheets/layout.scss */
+/* line 1234, ../../app/stylesheets/layout.scss */
 .la .small_finally {
   background: url(../images/large-states/louisiana.png) 12px 129px no-repeat;
 }
 
-/* line 1229, ../../app/stylesheets/layout.scss */
+/* line 1238, ../../app/stylesheets/layout.scss */
 .md .small_finally {
   background: url(../images/large-states/maryland.png) 12px 209px no-repeat;
 }
 
-/* line 1233, ../../app/stylesheets/layout.scss */
+/* line 1242, ../../app/stylesheets/layout.scss */
 .wi .small_finally {
   background: url(../images/large-states/wisonsin.png) 12px 129px no-repeat;
 }
 
-/* line 1237, ../../app/stylesheets/layout.scss */
+/* line 1246, ../../app/stylesheets/layout.scss */
 .tx .small_finally {
   background: url(../images/large-states/texas.png) 12px 129px no-repeat;
 }
 
-/* line 1250, ../../app/stylesheets/layout.scss */
+/* line 1259, ../../app/stylesheets/layout.scss */
 #bill_tabs h3 {
   border: none;
   float: none;
@@ -1320,18 +1322,18 @@ p.donate a {
   display: inline;
 }
 
-/* line 1257, ../../app/stylesheets/layout.scss */
+/* line 1266, ../../app/stylesheets/layout.scss */
 #bill_tabs .more {
   padding: 15px 15px 15px 0;
 }
 
-/* line 1264, ../../app/stylesheets/layout.scss */
+/* line 1273, ../../app/stylesheets/layout.scss */
 #bill_tabs ul {
   display: inline;
   float: none;
 }
 
-/* line 1270, ../../app/stylesheets/layout.scss */
+/* line 1279, ../../app/stylesheets/layout.scss */
 .tabs {
   float: left;
   padding: 0px 0 0px 40px;
@@ -1346,7 +1348,7 @@ p.donate a {
 */
 }
 
-/* line 1284, ../../app/stylesheets/layout.scss */
+/* line 1293, ../../app/stylesheets/layout.scss */
 .tabs li {
   float: left;
   clear: none;
@@ -1354,12 +1356,12 @@ p.donate a {
   margin: 0;
 }
 
-/* line 1293, ../../app/stylesheets/layout.scss */
+/* line 1302, ../../app/stylesheets/layout.scss */
 .tabs li.divider {
   display: none;
 }
 
-/* line 1299, ../../app/stylesheets/layout.scss */
+/* line 1308, ../../app/stylesheets/layout.scss */
 .tabs li a {
   float: left;
   clear: none;
@@ -1390,12 +1392,12 @@ p.donate a {
   background: -moz-linear-gradient(top, white, #efefef);
 }
 
-/* line 1333, ../../app/stylesheets/layout.scss */
+/* line 1342, ../../app/stylesheets/layout.scss */
 .tabs li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* line 1339, ../../app/stylesheets/layout.scss */
+/* line 1348, ../../app/stylesheets/layout.scss */
 .tabs li a.active,
 .tabs li a.active:hover {
   border: none;
@@ -1410,7 +1412,7 @@ p.donate a {
   cursor: default;
 }
 
-/* line 1356, ../../app/stylesheets/layout.scss */
+/* line 1365, ../../app/stylesheets/layout.scss */
 .tabs li.all a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1419,14 +1421,14 @@ p.donate a {
   border-right: 0;
 }
 
-/* line 1366, ../../app/stylesheets/layout.scss */
+/* line 1375, ../../app/stylesheets/layout.scss */
 .tabs li.all a.active {
   -moz-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   -webkit-box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
   box-shadow: inset 1px 1px 2px #999, 0 1px 0 #fff;
 }
 
-/* line 1372, ../../app/stylesheets/layout.scss */
+/* line 1381, ../../app/stylesheets/layout.scss */
 .people .tabs li.senate a {
   -moz-border-radius-topleft: 4px;
   -moz-border-radius-bottomleft: 4px;
@@ -1435,7 +1437,7 @@ p.donate a {
   margin-left: 200px;
 }
 
-/* line 1386, ../../app/stylesheets/layout.scss */
+/* line 1395, ../../app/stylesheets/layout.scss */
 .tabs li.house a {
   -moz-border-radius-topright: 4px;
   -moz-border-radius-bottomright: 4px;
@@ -1444,19 +1446,19 @@ p.donate a {
   border-left: 0;
 }
 
-/* line 1393, ../../app/stylesheets/layout.scss */
+/* line 1402, ../../app/stylesheets/layout.scss */
 .tabs li.house a.active {
   -moz-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   -webkit-box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
   box-shadow: inset -1px 1px 2px #889b9e, 0 1px 0 #d8ebee;
 }
 
-/* line 1399, ../../app/stylesheets/layout.scss */
+/* line 1408, ../../app/stylesheets/layout.scss */
 .tabs li.all {
   margin-left: 140px;
 }
 
-/* line 1406, ../../app/stylesheets/layout.scss */
+/* line 1415, ../../app/stylesheets/layout.scss */
 .sorts {
   position: relative;
   top: -1px;
@@ -1467,15 +1469,15 @@ p.donate a {
   border-right: none;
   margin: 0 0px 0px -39px;
 }
-/* line 1417, ../../app/stylesheets/layout.scss */
+/* line 1426, ../../app/stylesheets/layout.scss */
 .sorts li.sort_label {
   display: none;
 }
-/* line 1422, ../../app/stylesheets/layout.scss */
+/* line 1431, ../../app/stylesheets/layout.scss */
 .sorts li {
   clear: none;
 }
-/* line 1427, ../../app/stylesheets/layout.scss */
+/* line 1436, ../../app/stylesheets/layout.scss */
 .sorts li a {
   float: left;
   clear: none;
@@ -1504,11 +1506,11 @@ p.donate a {
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
   background: -moz-linear-gradient(top, white, #efefef);
 }
-/* line 1464, ../../app/stylesheets/layout.scss */
+/* line 1473, ../../app/stylesheets/layout.scss */
 .sorts li a:hover {
   color: rgba(0, 0, 0, 0.9);
 }
-/* line 1470, ../../app/stylesheets/layout.scss */
+/* line 1479, ../../app/stylesheets/layout.scss */
 .sorts li a.active {
   font-weight: bold !important;
   border: 0;
@@ -1522,28 +1524,28 @@ p.donate a {
   text-shadow: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1486, ../../app/stylesheets/layout.scss */
+/* line 1495, ../../app/stylesheets/layout.scss */
 .bill_sorts {
   padding: 30px 6px 20px 84px;
 }
 
-/* line 1490, ../../app/stylesheets/layout.scss */
+/* line 1499, ../../app/stylesheets/layout.scss */
 .people_sorts {
   padding: 30px 6px 20px 164px;
 }
 
-/* line 1496, ../../app/stylesheets/layout.scss */
+/* line 1505, ../../app/stylesheets/layout.scss */
 ul.lined.state-issues li {
   font-size: 16px;
   padding: 20px;
 }
 
-/* line 1504, ../../app/stylesheets/layout.scss */
+/* line 1513, ../../app/stylesheets/layout.scss */
 box {
   border: none !important;
 }
 
-/* line 1510, ../../app/stylesheets/layout.scss */
+/* line 1519, ../../app/stylesheets/layout.scss */
 box box {
   width: 250px;
   height: 120px !important;
@@ -1559,20 +1561,20 @@ box box {
   background: -moz-linear-gradient(top, #eeeeee, #dddddd);
 }
 
-/* line 1529, ../../app/stylesheets/layout.scss */
+/* line 1538, ../../app/stylesheets/layout.scss */
 box div {
   -moz-border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
   border: none !important;
 }
 
-/* line 1536, ../../app/stylesheets/layout.scss */
+/* line 1545, ../../app/stylesheets/layout.scss */
 box div div {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
 }
 
-/* line 1543, ../../app/stylesheets/layout.scss */
+/* line 1552, ../../app/stylesheets/layout.scss */
 body.home h2 {
   background: 0 !important;
 }
