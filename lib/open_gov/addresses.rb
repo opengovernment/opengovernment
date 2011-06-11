@@ -34,8 +34,6 @@ module OpenGov
 
         Address.delete_all(:person_id => person.id)
 
-        puts person.votesmart_id  
-
         main_office = GovKit::VoteSmart::Address.find(person.votesmart_id)
         
         # TODO: Remove this unless once GovKit stops returning [] for 0-1 item calls

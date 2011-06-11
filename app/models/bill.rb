@@ -119,7 +119,7 @@ class Bill < ActiveRecord::Base
     actions.delete_all
     sponsorships.delete_all
     citations.destroy_all
-    subjects.destroy_all
+    bills_subjects.destroy_all
   end
 
   def as_json(opts = {})
