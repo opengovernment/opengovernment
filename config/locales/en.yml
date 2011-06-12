@@ -53,7 +53,7 @@ en:
       track:             Track 
       and_share:         and Share
   states:
-    blue_party_label: Democratic
+    blue_party_label: Democrat
     red_party_label:  Republican
     grey_party_label: Other
     show:

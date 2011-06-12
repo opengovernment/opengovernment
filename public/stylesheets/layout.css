@@ -43,7 +43,7 @@ ol {
 
 /* line 47, ../../app/stylesheets/layout.scss */
 ol li {
-  list-style-type: decimal !important;
+  list-style-type: decimal;
   color: #36676f;
   font-weight: bold;
   font-style: italic;
@@ -78,7 +78,7 @@ th {
 /* line 80, ../../app/stylesheets/layout.scss */
 td {
   min-width: 100px;
-  padding: 6px 20px 6px 0 !important;
+  padding: 6px 20px 6px 0;
   vertical-align: top;
 }
 
