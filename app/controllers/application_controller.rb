@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     if request.xhr?
+      # for ajax modals via jquery.colorbox.js
       "popup"
     elsif devise_controller?
       "pages"

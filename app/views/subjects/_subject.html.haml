@@ -1,12 +1,12 @@
-- unless subject[:bill_count].blank?
+- if !defined?(style) || style == :full
   %li
     - if subject.bill_count.to_i == 0
       = subject.name
     - else
       %span.link
         = link_to(subject.name, subject_path(params[:session], subject))
-    - surround '(',')' do
+    = surround '(',')' do
       = pluralize(subject.bill_count, 'Bill')
-- else
+- elsif style == :compact
   %li
     .link= link_to(subject.name, subject_path(params[:session], subject))

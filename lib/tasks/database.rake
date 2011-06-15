@@ -1,13 +1,15 @@
+require File.dirname(__FILE__) + "/rake_extensions"
+
 desc "Prepare the database: load schema, load sql seeds, load postgis tables"
 namespace :db do
 
-  namespace :test do
+#  namespace :test do
     # TODO: This is a big tricksy. I'd rather find a smoother way to get the CI
     # server not to run db:test:prepare when trying to run tests.
-    remove_task :"db:test:prepare"
+#    remove_task :"db:test:prepare"
     
-    task :prepare => ["db:reset"]
-  end
+#    task :prepare => ["db:reset"]
+#  end
 
   desc "Create database w/postgis, full schema, and additional DDL"
   task :prepare_without_fixtures do
@@ -25,7 +27,7 @@ namespace :db do
     Rake::Task['db:seed:ddl'].invoke
   end
 
-  desc "Prepare the database: load postgis, schema, DDL, and "
+  desc "Prepare the database: load postgis, schema, DDL."
   task :prepare do
     Rake::Task['db:prepare_without_fixtures'].invoke
 
@@ -72,13 +74,22 @@ namespace :db do
     task :postgis => :environment do
       unless ActiveRecord::Base.connection.table_exists?("geometry_columns")
         puts "\n---------- Installing PostGIS tables"
+        
         # Find PostGIS
         if `pg_config` =~ /SHAREDIR = (.*)/
-          postgis_dir = Dir.glob(File.join($1, 'contrib', 'postgis-*')).last || File.join($1, 'contrib')
-          raise "Could not find PostGIS" unless File.exists? postgis_dir
+          possible_postgis_dirs = [
+            Dir.glob(File.join($1, 'contrib', 'postgis-*')).last,
+            File.join($1, 'contrib'),
+            '/usr/local/share/postgis'
+          ].compact
+
+          postgis_dir = possible_postgis_dirs.find { |dir| dir if File.exists?(File.join(dir, 'postgis.sql')) }
+
+          raise "Could not find PostGIS" if postgis_dir.blank?
         else
-          raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
+          raise "Could not find pg_config; please install PostgreSQL and PostGIS"
         end
+        puts "Found PostGIS in #{postgis_dir}"
 
         if File.exists?(File.join(postgis_dir, 'postgis.sql'))
           load_pgsql_files(File.join(postgis_dir, 'postgis.sql'),

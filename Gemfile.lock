@@ -43,7 +43,7 @@ GEM
     acts-as-taggable-on (2.0.6)
     addressable (2.2.6)
     archive-tar-minitar (0.5.2)
-    arel (2.0.9)
+    arel (2.0.10)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-rails (4.1.0)
@@ -193,7 +193,7 @@ GEM
     plucky (0.3.8)
       mongo (~> 1.3)
     polyglot (0.3.1)
-    rack (1.2.2)
+    rack (1.2.3)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-mount (0.6.14)
@@ -331,8 +331,9 @@ DEPENDENCIES
   paperclip
   pg
   rack-contrib
-  rails
+  rails (= 3.0.7)
   rails_complete
+  rake (= 0.8.7)
   rb-fsevent
   rspec-rails (>= 2.0.0.rc)
   ruby-debug

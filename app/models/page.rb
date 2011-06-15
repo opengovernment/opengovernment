@@ -68,10 +68,19 @@ class Page
       mr_opts[:query]['hour'] = { '$gt' => ops[:since].try(:utc) }
     end
 
-    top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, mr_opts )
+    begin
+      top_views = PageView.collection.map_reduce( MAP_FUNCTION, REDUCE_FUNCTION, mr_opts )
 
-    # p['value'] contains the total hit count, but we're not using it right now.
-    top_views.find.sort([['value','descending']]).limit(ops[:limit]).collect { |p| Page.find(p['_id']) }
+      # p['value'] contains the total hit count, but we're not using it right now.
+      top_views.find.sort([['value','descending']]).limit(ops[:limit]).collect { |p| Page.find(p['_id']) }
+      
+    # When we view this the very first time after installing MongoDB, the PageView collection doesn't yet exist.
+    # But it will get created when a specific bill is viewed;
+    # so for now, just catch the exception and continue.
+    rescue Mongo::OperationFailure => e
+      Rails.logger.info "Tried to read Mongodb when no db had been initialized."
+      []
+    end
   end
 
   protected

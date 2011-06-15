@@ -55,10 +55,17 @@ namespace :db do
   task :restore, :roles => :db, :only => {:primary => true} do
     # Find PostGIS
     if `pg_config` =~ /SHAREDIR = (.*)/
-      postgis_dir = Dir.glob(File.join($1, 'contrib', 'postgis-*')).last || File.join($1, 'contrib')
-      raise "Could not find PostGIS" unless File.exists? postgis_dir
+      possible_postgis_dirs = [
+        Dir.glob(File.join($1, 'contrib', 'postgis-*')).last,
+        File.join($1, 'contrib'),
+        '/usr/local/share/postgis'
+      ].compact
+
+      postgis_dir = possible_postgis_dirs.find { |dir| dir if File.exists?(File.join(dir, 'postgis.sql')) }
+
+      raise "Could not find PostGIS" if postgis_dir.blank?
     else
-      raise "Could not find pg_config; please install PostgreSQL and PostGIS #{POSTGIS_VERSION}"
+      raise "Could not find pg_config; please install PostgreSQL and PostGIS"
     end
 
     development_info = YAML.load_file("config/database.yml")['development']

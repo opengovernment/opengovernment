@@ -28,23 +28,16 @@ end
 
 Rake.application.instance_variable_get('@tasks').delete('default')
 
-# We are not using the regular spec prereq of db:test:prepare. We use
-# db:prepare instead, because it will load PostGIS, seeds.sql, etc.
-#spec_prereq = Rails.root.join('config', 'database.yml').exist? ? "db:test:prepare" : :noop
-spec_prereq = :noop
-task :noop do
-end
-
 task :default => :spec
 task :stats => "spec:statsetup"
 
 desc "Run all specs in spec directory (excluding plugin specs)"
-RSpec::Core::RakeTask.new(:spec => spec_prereq)
+RSpec::Core::RakeTask.new(:spec)
 
 namespace :spec do
   [:requests, :models, :controllers, :views, :helpers, :mailers, :lib].each do |sub|
     desc "Run the code examples in spec/#{sub}"
-    RSpec::Core::RakeTask.new(sub => spec_prereq) do |t|
+    RSpec::Core::RakeTask.new(sub) do |t|
       t.pattern = "./spec/#{sub}/**/*_spec.rb"
     end
   end

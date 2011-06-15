@@ -265,48 +265,42 @@ margin-top: 10px;
 
 
 /* Big vote chart -- votes/show */
-.vote_chart table {
-  width: 400px !important;
-}
+.vote_chart {
+  table {
+    width: 686px;
+  }
 
-.vote_chart table td {
-  min-width: 25px;
-}
+  table td {
+    min-width: 20px;
+  }
 
-.vote_chart table td.vote_chart {
-  width: 300px ; /* See votes_helper full-size chart width */
-}
+  table td.vote_chart {
+    width: 300px ; /* See votes_helper full-size chart width */
+  }
 
-.vote_chart table caption {
-  background: transparent;
-  font-size: 10px;
-}
+  table caption {
+    background: transparent;
+    font-size: 10px;
+  }
 
-.vote_chart table td,
-.vote_chart table th {
-  height: 24px;
-  vertical-align: middle;
-  text-align: right;
-  line-height: 24px;
-  padding: 0;
-  border: 0;
-}
+  .label {
+    vertical-align: middle;
+    text-align: right;
+    padding: 0;
+    border: 0;
+    padding: 4px 2px 2px 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.3em;
+  }
 
-.vote_chart table td.first,
-.vote_chart table th.first
-{
-  padding-top: 26px !important;
-}
+  .first .label {
+    padding-top: 32px;
+  }
 
-.vote_chart table td.last,
-.vote_chart table th.last {
-  padding-bottom: 9px !important;
-}
-
-.vote_chart table .label {
-  padding-right: 2px;
-  font-size: 16px;
-  font-weight: bold;
+  .last .label {
+    padding-bottom: 9px;
+  }
 }
 
 .vote-type{

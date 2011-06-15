@@ -17,7 +17,7 @@
     %a{:href => lower_bills_path(@session, :sort => @sort), :class => (@current_tab == :lower ? 'active' : '')}= @state.lower_chamber.short_name
 
 .sort.grid_12.alpha
-  %ul.sorts
+  %ul.sorts.bill_sorts
     %li.sort_label
       Sort by
     - @sorts.each do |k, v|

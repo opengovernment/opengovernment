@@ -1,5 +1,4 @@
 - title(t '.vote_on', :bill_number => @vote.bill.bill_number )
-- dialog('#votes_needed_dialog', '#votes_needed_why')
 
 %h1
   %span.state-and-chamber
@@ -29,22 +28,22 @@
   %h2 
     = t '.vote_breakdown'
   %table
-    %tr
-      %th.first.label(scope='row')= t '.yeslabel'
-      %td.first.label!= @vote.passed? ? '&radic;' : ''
-      %td.first.label= @vote.yes_count
+    %tr.first
+      %th.label(scope='row')= t '.yeslabel'
+      %td.label!= @vote.passed? ? '&radic;' : ''
+      %td.label= @vote.yes_count
       %td(rowspan=3 class="vote_chart")= vote_chart_image_tag(@vote)
     %tr
       %th.label(scope='row')= t '.nolabel'
       %td.label!= @vote.passed? ? '' : '&radic;'
       %td.label= @vote.no_count
-    %tr
-      %th.last.label(scope='row')= t '.otherlabel'
-      %td.last.label
-      %td.last.label #{@vote.other_count}
+    %tr.last
+      %th.label(scope='row')= t '.otherlabel'
+      %td.label
+      %td.label #{@vote.other_count}
     %caption(align='bottom')
       = t '.not_always_accurate'
-      = link_to(t('.why'), '#', :id => "votes_needed_why")
+      = link_to(t('.why'), '#', :id => "votes_needed_why", :'data-dialog' => '#votes_needed_dialog')
 
 %hr.space
 

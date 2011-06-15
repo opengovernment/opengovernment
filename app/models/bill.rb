@@ -115,6 +115,13 @@ class Bill < ActiveRecord::Base
     "##{State.find(state_id).abbrev.downcase}bill ##{bill_number.downcase.gsub(' ', '')}"
   end
 
+  def delete_associated_nonuniques
+    actions.delete_all
+    sponsorships.delete_all
+    citations.destroy_all
+    bills_subjects.destroy_all
+  end
+
   def as_json(opts = {})
     default_opts = {
       :methods => [:views, :permalink, :to_param],

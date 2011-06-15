@@ -163,10 +163,7 @@ opacity: 1;
   margin-left: 10px;
   float: left;
   width: 400px;
-  -moz-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  -webkit-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  -o-box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
-  box-shadow: 0 1px 0px white, inset 0 1px 0px #eeeeee;
+  @include box-shadow(0 1px 0px white, inset 0 1px 0px #eeeeee);
 }
 
 .bill_status div {
@@ -284,6 +281,8 @@ p.action_text {
 
 
 .bill_titles {
+  @include grid(4);
+  @include alpha;
   margin-bottom: 4px;
 
   a{
@@ -472,13 +471,9 @@ min-width: 260px;
 
   @include border-radius(3px);
   
-
-
   -webkit-transition: all .6s ease-in-out; 
   
   @include gray-button;
-  
-  
   
 }
 
@@ -495,7 +490,7 @@ min-width: 260px;
   background: url(../images/man.png) center no-repeat;
 }
 
-.bills.show .sponsor_mugs li{
+.bill-mugs .sponsor_mugs li{
   font-size: 13px;
   margin-bottom: 10px;
 }
@@ -527,7 +522,7 @@ min-width: 260px;
 
 
 .bill-intro {
-  margin: 0 -21px 30px -34px;
+  margin: 0 -15px 30px -34px;
   padding: 10px 25px 35px 36px;  
   position: relative;
   line-height: 1.2em; 

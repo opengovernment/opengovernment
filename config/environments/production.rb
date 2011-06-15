@@ -1,5 +1,3 @@
-require 'syslog_logger'
-
 OpenGov::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -24,9 +22,9 @@ OpenGov::Application.configure do
   # config.log_level = :debug
 
   # Use a different logger for distributed setups
-  config.logger = SyslogLogger.new
-  config.colorize_logging = false
-  config.active_support.deprecation = :notify
+  #config.logger = SyslogLogger.new
+  #config.colorize_logging = false
+  #config.active_support.deprecation = :notify
 
   # Use a different cache store in production
   config.cache_store = :mem_cache_store, '10.13.219.6:11211', { :namespace => 'opengovernment_production' }

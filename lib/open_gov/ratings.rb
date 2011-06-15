@@ -1,109 +1,103 @@
 module OpenGov
   class Ratings < Resources
+    include StateWise
+
     include ActionView::Helpers::TextHelper
-    
-    def import
-      import_categories
-      import_sigs
-      import_ratings
+
+    def import_state(state, options = {})
+      # TODO: make ratings work on a state-by-state basis too
+      import_categories(state)
+      import_sigs(state)
+      import_ratings(state)
     end
 
-    def import_categories
-      #puts "Deleting existing categories"
-      #Category.delete_all
-
-      State.loadable.each do |state|
-        begin
-          puts "Importing categories.."
-          categories = GovKit::VoteSmart::Category.list(state.abbrev)
-          categories.each do |kat|
-            category = Category.find_or_initialize_by_votesmart_id(kat.categoryId)
-            category.name = kat.name
-            category.save!
-          end
-        rescue GovKit::ResourceNotFound
-          puts "No resource found for #{state.abbrev}"
+    def import_categories(state)
+      begin
+        puts "Importing categories.."
+        categories = GovKit::VoteSmart::Category.list(state.abbrev)
+        categories.each do |kat|
+          category = Category.find_or_initialize_by_votesmart_id(kat.categoryId)
+          category.name = kat.name
+          category.save!
         end
+      rescue GovKit::ResourceNotFound
+        puts "No resource found for #{state.abbrev}"
       end
     end
 
-    def import_sigs
+    def import_sigs(state)
       #puts "Deleting existing Special Interest Groups"
       #SpecialInterestGroup.delete_all
-
-      State.loadable.each do |state|
-        puts "Importing Special Interest groups for .. #{state.name} "
-        Category.all.each do |category|
-          begin
-            partial_sigs = GovKit::VoteSmart::SIG.list(category.votesmart_id, state.abbrev)
-          rescue GovKit::ResourceNotFound
-            next
-          end
-
-          if partial_sigs
-            # Essentially a to_a, but works on any object.
-            partial_sigs = [*partial_sigs]                
-
-            partial_sigs.each do |partial_sig|
-              puts "Fetching SIG for ID: #{partial_sig.sigId}"
-              begin
-                remote_sig = GovKit::VoteSmart::SIG.find(partial_sig.sigId)
-                sig = state.special_interest_groups.find_or_initialize_by_votesmart_id(remote_sig.sigId)
-                sig.name = remote_sig.name
-                sig.address = remote_sig.address
-                sig.description = remote_sig.description
-                sig.category_id = category.id
-                sig.contact_name = remote_sig.contactName
-                sig.city = remote_sig.city
-                sig.address = remote_sig.address
-                sig.zip = remote_sig.zip
-                sig.url = remote_sig.url
-                sig.phone_one = remote_sig.phone1
-                sig.phone_two = remote_sig.phone2
-                sig.email = remote_sig.email
-                sig.fax = remote_sig.fax
-                sig.save!
-              rescue GovKit::ResourceNotFound
-                puts "No resource found for #{state.abbrev}"
-              end
-            end
-          end # if partial_sigs
+      puts "Importing Special Interest groups for .. #{state.name} "
+      Category.all.each do |category|
+        begin
+          partial_sigs = GovKit::VoteSmart::SIG.list(category.votesmart_id, state.abbrev)
+        rescue GovKit::ResourceNotFound
+          next
         end
+
+        if partial_sigs
+          # Essentially a to_a, but works on any object.
+          partial_sigs = [*partial_sigs]                
+
+          partial_sigs.each do |partial_sig|
+            puts "Fetching SIG for ID: #{partial_sig.sigId}"
+            begin
+              remote_sig = GovKit::VoteSmart::SIG.find(partial_sig.sigId)
+              sig = state.special_interest_groups.find_or_initialize_by_votesmart_id(remote_sig.sigId)
+              sig.name = remote_sig.name
+              sig.address = remote_sig.address
+              sig.description = remote_sig.description
+              sig.category_id = category.id
+              sig.contact_name = remote_sig.contactName
+              sig.city = remote_sig.city
+              sig.address = remote_sig.address
+              sig.zip = remote_sig.zip
+              sig.url = remote_sig.url
+              sig.phone_one = remote_sig.phone1
+              sig.phone_two = remote_sig.phone2
+              sig.email = remote_sig.email
+              sig.fax = remote_sig.fax
+              sig.save!
+            rescue GovKit::ResourceNotFound
+              puts "No resource found for #{state.abbrev}"
+            end
+          end
+        end # if partial_sigs
       end
     end
 
-    def import_ratings
+    def import_ratings(state)
       puts "Deleting existing ratings from Special Interest Groups"
-      Rating.delete_all
 
-      State.loadable.each do |state|
-        puts "------- Importing Ratings in #{state.name}"
+      Rating.delete_all(["person_id in (select person_id from v_all_roles r, people p where r.state_id = ? and p.votesmart_id is not null)", state.id])
 
-        state.chambers.each do |chamber|
-          chamber.people.with_votesmart_id.each do |person|
-            print "Importing Ratings for #{person.full_name}..."
-            i = 0
-            state.special_interest_groups.each do |sig|
-              begin
-                remote_ratings = [*GovKit::VoteSmart::Rating.find(person.votesmart_id, sig.votesmart_id)]
-                remote_ratings.each do |rr|
-                  rating = person.ratings.find_or_initialize_by_votesmart_id(rr.ratingId)
-                  rating.rating = rr.rating
-                  rating.rating_name = rr.ratingName
-                  rating.rating_text = rr.ratingText
-                  rating.timespan = rr.timespan
-                  rating.sig_id = SpecialInterestGroup.find_by_votesmart_id(rr.sigId).id
-                  rating.save
-                  i += 1
-                end
-              rescue GovKit::ResourceNotFound
-                # puts "No ratings by #{sig.name} (#{sig.votesmart_id})"
+      puts "------- Importing Ratings in #{state.name}"
+
+      state.chambers.each do |chamber|
+        chamber.people.with_votesmart_id.each do |person|
+          print "Importing Ratings for #{person.full_name}..."
+          i = 0
+          state.special_interest_groups.each do |sig|
+            begin
+              remote_ratings = [*GovKit::VoteSmart::Rating.find(person.votesmart_id, sig.votesmart_id)]
+              remote_ratings.each do |rr|
+                rating = person.ratings.find_or_initialize_by_votesmart_id(rr.ratingId)
+                rating.rating = rr.rating
+                rating.rating_name = rr.ratingName
+                rating.rating_text = rr.ratingText
+                rating.timespan = rr.timespan
+                rating.sig_id = SpecialInterestGroup.find_by_votesmart_id(rr.sigId).id
+                rating.save
+                i += 1
               end
-            end # sigs
-            puts " #{pluralize(i, 'rating')}."
-          end # people
-        end # chambers
-      end # states
+            rescue GovKit::ResourceNotFound
+              # puts "No ratings by #{sig.name} (#{sig.votesmart_id})"
+            end
+          end # sigs
+          puts " #{pluralize(i, 'rating')}."
+        end # people
+      end # chambers
     end
   end
 end

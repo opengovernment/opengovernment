@@ -1,19 +1,15 @@
 - title(t('.tweets_about', :bill_number => @bill.bill_number))
-- tweets(@bill.to_hashtags, 2)
 
 = render 'wrapper'
 
 %p= t '.intro', :search_term => @bill.to_hashtags
 
-#twitter(style="display: none;")
+.twitter{:style => "display: none;", :'data-twitter-search' => @bill.to_hashtags}
   %h2 Tweets
   .grid_12.alpha
-    #notweets(style="display: none;")
-      %p 
-        = t('.no_mentions')
-      %p 
-        = t('.click_tweet_this')
-      %p 
-        = t('.theres_more_to_do')
+    .notweets(style="display: none;")
+      %p= t('.no_mentions')
+      %p= t('.click_tweet_this')
+      %p= t('.theres_more_to_do')
 
-    %ul#tweets
+    %ul.tweets

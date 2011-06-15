@@ -1,10 +1,10 @@
 = content_for(:content) do
-  .grid_4
+  #sidebar
     %nav#left_nav
       = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation || raw('&nbsp;'))
     = yield :below_left_nav
 
-  .grid_12  
+  #content
     %aside.full_lined.share_top
       .share_callout
         %strong
@@ -12,8 +12,9 @@
         = t '.about_og' 
       = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => (yield(:title) || "OpenGovernment"), :url => request.url}
 
+    .clearfix
     - if content_for?(:title)
-      %h1.clearboth.alpha= yield(:title)
+      %h1= yield(:title)
     = yield
 
 = render :file => 'layouts/application'

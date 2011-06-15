@@ -1,19 +1,13 @@
 module OpenGov
   class Bills < Resources
+    include StateWise
+
     def initialize
       # Cache all of the ids of people so we don't have to keep looking them up.
       @people = {}
 
       Person.all(:conditions => "openstates_id is not null").each do |p|
         @people[p.openstates_id] = p.id
-      end
-    end
-
-    # TODO: The :remote => false option only applies to the intial import.
-    # after that, we always want to use import_state(state)
-    def import(options = {})
-      State.loadable.each do |state|
-        import_state(state, options)
       end
     end
 
@@ -124,12 +118,7 @@ module OpenGov
 
         # There is no unique data on these tables that we can key off of, so we're
         # deleting them.
-        unless @bill.new_record?
-          @bill.actions.delete_all
-          @bill.sponsorships.delete_all
-          @bill.citations.destroy_all
-          @bill.subjects.destroy_all
-        end
+        @bill.delete_associated_nonuniques unless @bill.new_record?
 
         unless @bill.save!
           # The transaction has rolled back if we get to this point.
@@ -164,7 +153,8 @@ module OpenGov
             :kind_two => action[:type].try(:second),
             :kind_three => action[:type].try(:third),
             :action_number => action[:action_number],
-            :date => action_date
+            :date => action_date,
+            :updated_at => @sync_date
           )
         end
 
@@ -211,13 +201,14 @@ module OpenGov
 
         # Same deal as with actions, above
         import_queue = []
-        
+
         bill.sponsors.each do |sponsor|
           import_queue << BillSponsorship.new(
             :sponsor_id => sponsor.leg_id.blank? ? nil : @people[sponsor.leg_id],
             :sponsor_name => sponsor[:name],
             :kind => sponsor[:type],
-            :bill_id => @bill.id
+            :bill_id => @bill.id,
+            :updated_at => @sync_date
           )
         end
         BillSponsorship.import(import_queue) unless import_queue.blank?

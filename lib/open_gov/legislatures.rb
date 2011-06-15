@@ -1,12 +1,8 @@
 module OpenGov
   class Legislatures < Resources
-    def import
-      State.loadable.each do |state|
-        import_state(state)
-      end
-    end
+    include StateWise
 
-    def import_state(state)
+    def import_state(state, options = {})
       puts "Importing legislature & sessions for #{state.abbrev}"
       if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
         leg = Legislature.find_or_create_by_state_id(state.id)

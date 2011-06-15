@@ -1,56 +1,54 @@
-%div.footer.container_16
-  .grid_4
-    %h4=   t '.our_principles'
-    %ul
-      %li= t '.free_for_everyone'
-      %li= t '.open_source'
-      %li= t '.open_standards'
-      %li= t '.not_for_profit'
-      %li= t '.non_partisan'
+%nav.principles
+  %h4=   t '.our_principles'
+  %ul
+    %li= t '.free_for_everyone'
+    %li= t '.open_source'
+    %li= t '.open_standards'
+    %li= t '.not_for_profit'
+    %li= t '.non_partisan'
 
-  .grid_4
-    %h4
-      =t '.about_us'
-    %ul
-      %li= link_to t('.about_us'),         page_url('about', :subdomain => false)
-      %li= link_to t('.our_data_sources'), page_url('about', :anchor => 'our_data_sources', :subdomain => false)
-      %li= link_to t('.blog'),             'http://blog.opengovernment.org'
-      %li= link_to t('.user_support'),     'http://support.opencongress.org/anonymous_requests/new'
-      %li= link_to t('.join_our_email'),   page_url('help')
-  
-  .grid_4
-    %h4
-      = t '.more_open_gov'
-    %ul
-      %li= link_to t('.more_open_gov'),  page_url('contact', :subdomain => false)
-      %li= link_to t('.twitter'),       'http://www.opencongress.org/wiki/Project:OpenGovernment'
-      %li= link_to t('.wiki_community'), page_url('resources', :subdomain => false)
-      %li= link_to t('.tools'),          page_url('about', :anchor => 'developer_hub', :subdomain => false)
-      %li= link_to t('.our_open_code'),  page_url('wish-list', :subdomain => false)
-      %li= link_to t('.wish_list'),      page_url('wish-list', :subdomain => false)
-  
-  .grid_4
-    %h4 
-      = t '.get_involved'
-    %ul
-      %li= link_to t('.volunteer'),          page_url('help', :subdomain => false)
-      %li= link_to t('.donate'),            'http://www.opencongress.org/donate'
-      %li= link_to t('.og_for_all_states'),  page_url('help', :subdomain => false)
-      %li= link_to t('.our_sibling'),       'http://www.opencongress.org/'
-      %li= link_to t('.badges'),             page_url('badges', :subdomain => false)
+%nav.about_us
+  %h4
+    =t '.about_us'
+  %ul
+    %li= link_to t('.about_us'),         page_url('about', :subdomain => false)
+    %li= link_to t('.our_data_sources'), page_url('about', :anchor => 'our_data_sources', :subdomain => false)
+    %li= link_to t('.blog'),             'http://blog.opengovernment.org'
+    %li= link_to t('.user_support'),     'http://support.opencongress.org/anonymous_requests/new'
+    %li= link_to t('.join_our_email'),   page_url('help')
 
+%nav.more_links
+  %h4
+    = t '.more_open_gov'
+  %ul
+    %li= link_to t('.more_open_gov'),  page_url('contact', :subdomain => false)
+    %li= link_to t('.twitter'),       'http://www.opencongress.org/wiki/Project:OpenGovernment'
+    %li= link_to t('.wiki_community'), page_url('resources', :subdomain => false)
+    %li= link_to t('.tools'),          page_url('about', :anchor => 'developer_hub', :subdomain => false)
+    %li= link_to t('.our_open_code'),  page_url('wish-list', :subdomain => false)
+    %li= link_to t('.wish_list'),      page_url('wish-list', :subdomain => false)
+
+%nav.get_involved
+  %h4 
+    = t '.get_involved'
+  %ul
+    %li= link_to t('.volunteer'),          page_url('help', :subdomain => false)
+    %li= link_to t('.donate'),            'http://www.opencongress.org/donate'
+    %li= link_to t('.og_for_all_states'),  page_url('help', :subdomain => false)
+    %li= link_to t('.our_sibling'),       'http://www.opencongress.org/'
+    %li= link_to t('.badges'),             page_url('badges', :subdomain => false)
 
 
-  .clearfix
 
+.clearfix
 
-.sub_footer.container_16
-  .grid_12.alpha
+.credits
+  .sources
     %p= t '.og_is_free'
 
-  .grid_4.omega.by
+  .by
     %a.ppf{:href => 'http://participatorypolitics.org/'} by PPF
     %a.sunlight{:href => 'http://sunlightfoundation.com/'} and the Sunlight Foundation
-                 
+               
 
   .clearfix

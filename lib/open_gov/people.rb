@@ -1,12 +1,8 @@
 module OpenGov
   class People < Resources
-    LEG_DIR = File.join(Settings.openstates_dir, "legislators")
+    include StateWise
 
-    def import(options = {})
-      State.loadable.each do |state|
-        import_state(state, options)
-      end
-    end
+    LEG_DIR = File.join(Settings.openstates_dir, "legislators")
 
     def import_state(state, options = {})
       if options[:remote]

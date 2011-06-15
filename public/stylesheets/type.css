@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black !important;
-}
-
 /* typography.css */
 /* line 5, ../../app/stylesheets/type.scss */
 h1, h2, h3, h4, h5, h6 {
@@ -19,16 +14,20 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   overflow: visible;
   font-size: 23px;
-  margin: 0 -21px 30px -34px;
+  margin: 0 -15px 30px -34px;
   padding: 25px 25px 25px 36px;
   position: relative;
   line-height: 1.2em;
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(194, 220, 224, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(194, 220, 224, 0.1));
+  /* IE; docs say this should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(194, 220, 224, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
 }
 
 /* ------ delete ------ */

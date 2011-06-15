@@ -4,10 +4,6 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
-  
-  def hashtags(hash_tags)
-    content_for(:hashtags) { hash_tags }
-  end
 
   # Javascript hooks -- eg. document ready events. or other page-level
   # javascript that can't be accomplished via rails-ujs.
@@ -32,43 +28,11 @@ module ApplicationHelper
     end
   end
 
-  def dropdown(hot_selector, menu_selector)
-      javascript do (%Q|
-        $(document).ready(function(){ 
-          create_dropdown_menu("#{hot_selector}", "#{menu_selector}");
-        });
-      |)
-      end
-  end
-
-  def dialog(dialog_selector, dialog_link_selector)
-    javascript do
-      (%Q|
-      $(document).ready(function() {
-        $("#{dialog_selector}").dialog({
-          autoOpen: false
-        });
-        $('#{dialog_link_selector}').click(function() {  
-          $('#{dialog_selector}').dialog('open');  
-        });
-      });
-    |)
-    end
-  end
-
-  def tweets(q, limit = 5)
-    javascript do
-    (%Q|
-      TwitterAPI.hook('"#{q}"', #{limit});
-    |)
-    end
-  end
-
   def track(object)
     if MongoMapper.connected?
       footer_javascript do
         %Q|
-            $(document).ready(function() {
+            $(function() {
               Tracker.req.object_id = #{object.id};
               Tracker.req.object_type = '#{object.class}';
               Tracker.track();
@@ -133,7 +97,7 @@ module ApplicationHelper
       }());
       })
     end
-  
+
     # Universal 
     return %q{<script type="text/javascript">
       (function() {

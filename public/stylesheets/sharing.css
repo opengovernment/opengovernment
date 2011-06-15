@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black !important;
-}
-
 /* line 4, ../../app/stylesheets/sharing.scss */
 .take_action {
   opacity: .8;
@@ -212,11 +207,15 @@ ul.share {
 
 /* line 217, ../../app/stylesheets/sharing.scss */
 .write_buttons {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, rgba(200, 200, 200, 0.1)));
-  background-image: -webkit-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -moz-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: -o-linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
-  background-image: linear-gradient(#ffffff, rgba(200, 200, 200, 0.1));
+  /* IE; docs say this should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
@@ -338,17 +337,21 @@ ul.share li a {
 
 /* line 347, ../../app/stylesheets/sharing.scss */
 .share_top {
-  border-top: 0 !important;
-  margin-bottom: 20px !important;
+  border-top: 0;
+  border-bottom: 1px solid #ddeded;
+  margin: 0 -15px 0 -34px;
+  padding-left: 18px;
+  width: 760px;
+  background: #f4f9fa;
 }
 
-/* line 354, ../../app/stylesheets/sharing.scss */
+/* line 358, ../../app/stylesheets/sharing.scss */
 .share_callout {
-  padding: 11px 0 0 40px;
+  padding: 11px 0 0 20px;
   float: left;
 }
 
-/* line 359, ../../app/stylesheets/sharing.scss */
+/* line 363, ../../app/stylesheets/sharing.scss */
 .share_top ul.share {
   margin: 5px 0 5px 15px !important;
 }

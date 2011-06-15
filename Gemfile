@@ -2,7 +2,11 @@
 
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rake', '0.8.7'
+
+# Using 3.0.7 until "Cannot modify SafeBuffer in place" bug is fixed...
+gem 'rails', '3.0.7'
+
 gem 'rack-contrib'
 gem 'SystemTimer', :platforms => :ruby_18
 

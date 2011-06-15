@@ -53,7 +53,7 @@ en:
       track:             Track 
       and_share:         and Share
   states:
-    blue_party_label: Democratic
+    blue_party_label: Democrat
     red_party_label:  Republican
     grey_party_label: Other
     show:
@@ -286,8 +286,8 @@ en:
       addresses: "Addresses"
       sorry_no_addresses: "Sorry, we found no addresses. We believe it should be easy to see this person's official office addresses in the capitol and his or her district, but the government does not make data about addresses available in ways that are fully open. So, <a href=\"/pages/help\">help us find this info</a> to display it here for everyone on the open Web!  "
       public_schedule: "Public Schedule - we believe it should be easy to see a calendar of this elected official's recent and upcoming public events, but the government does not make this data available in ways that are fully open. So, <a href=\"/pages/help\">help us find it</a>! "
-      social_media: "Social media - we believe it should be easy to see a list of this elected official's social media presence -- e.g., Facebook and Twitter accounts -- but the government does not make this data available in ways that are fully open. So, <a href=\"/pages/help\">help us find it</a>!" 
-      members_official_contact_info: "Member's official contact info via the non-partisan <a href=\"http://votesmart.org/index.htm\" target=\"_blank\">Project VoteSmart</a>. Here on OpenGovernment, we seek to make the process of contacting elected officials even easier, more social, and more productive -- find out <a href=\"/pages/help\">how you can help</a>. Do you have contact info for this member to display here on the open Web? <a href=\"/pages/contact\">Let us know</a>."
+      social_media: "Social media - we believe it should be easy to access this elected official's online presence -- for example, public Facebook and Twitter accounts -- but the government does not make this data available in ways that are fully open. So, <a href=\"/pages/help\">help us find it</a>!" 
+      members_official_contact_info: "Member's official contact info via the non-partisan <a href=\"http://votesmart.org/index.htm\" target=\"_blank\">Project VoteSmart</a>. Here on OpenGovernment, we seek to make the process of contacting elected officials even easier, more social, and more productive -- find out <a href=\"/pages/help\">how you can help</a>. Do you have contact info for this member to display here for the public on the open Web? <a href=\"/pages/contact\">Let us know</a>."
     discuss:
       discuss: "Discuss %{official_name}"
       intro: "Use this public forum productively to share information about this legislator that may be relevant to other visitors. Peer-to-peer communication is powerful -- please don't use this forum to leave messages for this member (instead, send them to him or her directly). Short, specific comments that refer to individual bills by their official numbers work best here. Thanks for helping to build public knowledge about elected officials in our democracy."
@@ -322,7 +322,7 @@ en:
       user_support:      "User Support / Contact Us"
       join_our_email:    "Join Our Email List"
       more_open_gov:     "More OpenGovernment"
-      twitter:           "Twitter& Facebook"
+      twitter:           "Twitter &amp; Facebook"
       wiki_community:    "Wiki Community Project"
       tools:             "Tools / Resources / Goodies"
       our_open_code:     "Our Open Code and Data"

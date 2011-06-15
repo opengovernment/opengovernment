@@ -14,7 +14,7 @@ class StatesController < SubdomainController
 
           @most_viewed_bills = bill.most_viewed(:subdomain => request.subdomain).limit(3) || []
 
-          @hot_issues = Subject.limit(8)
+          @hot_issues = Subject.with_session_bill_count(@session.family, :order => :popularity, :limit => 8)
 
           @hot_people = Person.find_by_sql(["select
             p.*,

@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black;
-}
-
 /* BEGIN Normalize.css as of June 7, 2011
 From https://github.com/necolas/normalize.css
 */
@@ -17,7 +12,7 @@ From https://github.com/necolas/normalize.css
  * Add display for block-level HTML5 elements
  * Addresses display not defined in IE6/7/8/9 & FF3
  */
-/* line 26, ../../app/stylesheets/reset.scss */
+/* line 26, ../../app/stylesheets/normalize.scss */
 article,
 aside,
 details,
@@ -35,7 +30,7 @@ section {
  * Add display for embedded HTML5 elements
  * Addresses display not defined in IE6/7/8/9 & FF3
  */
-/* line 37, ../../app/stylesheets/reset.scss */
+/* line 37, ../../app/stylesheets/normalize.scss */
 audio[controls],
 canvas,
 video {
@@ -58,7 +53,7 @@ video {
  * 4. Remove iOS text size adjust without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
  */
-/* line 60, ../../app/stylesheets/reset.scss */
+/* line 60, ../../app/stylesheets/normalize.scss */
 html {
   font-size: 100%;
   /* 1 */
@@ -76,7 +71,7 @@ html {
  * Remove margin
  * Addresses margins handled incorrectly in IE6/7
  */
-/* line 73, ../../app/stylesheets/reset.scss */
+/* line 73, ../../app/stylesheets/normalize.scss */
 body {
   margin: 0;
 }
@@ -85,7 +80,7 @@ body {
  * Define base font-family
  * Addresses font-family inconsistency between <textarea> and other form elements.
  */
-/* line 86, ../../app/stylesheets/reset.scss */
+/* line 86, ../../app/stylesheets/normalize.scss */
 body,
 button,
 input,
@@ -101,7 +96,7 @@ textarea {
  *    Improves readability when scaled in IE7
  *    Read before using : code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
-/* line 98, ../../app/stylesheets/reset.scss */
+/* line 98, ../../app/stylesheets/normalize.scss */
 img {
   border: 0;
   /* 1 */
@@ -112,12 +107,12 @@ img {
 /* =============================================================================
    Links
    ========================================================================== */
-/* line 108, ../../app/stylesheets/reset.scss */
+/* line 108, ../../app/stylesheets/normalize.scss */
 a {
   color: #00e;
 }
 
-/* line 112, ../../app/stylesheets/reset.scss */
+/* line 112, ../../app/stylesheets/normalize.scss */
 a:visited {
   color: #551a8b;
 }
@@ -126,7 +121,7 @@ a:visited {
  * Define outline as thin dotted
  * Addresses outline displayed oddly in Chrome
  */
-/* line 121, ../../app/stylesheets/reset.scss */
+/* line 121, ../../app/stylesheets/normalize.scss */
 a:focus {
   outline: thin dotted;
 }
@@ -136,7 +131,7 @@ a:focus {
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-/* line 132, ../../app/stylesheets/reset.scss */
+/* line 132, ../../app/stylesheets/normalize.scss */
 a:hover,
 a:active {
   outline: 0;
@@ -149,7 +144,7 @@ a:active {
  * Add bottom border
  * Fixes styling not present in IE7/8/9 S5 Chrome
  */
-/* line 146, ../../app/stylesheets/reset.scss */
+/* line 146, ../../app/stylesheets/normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -158,13 +153,13 @@ abbr[title] {
  * Add bold font weight
  * Fixes style set to 'bolder' in FF3/4 S4/5 Chrome
 */
-/* line 156, ../../app/stylesheets/reset.scss */
+/* line 156, ../../app/stylesheets/normalize.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 160, ../../app/stylesheets/reset.scss */
+/* line 160, ../../app/stylesheets/normalize.scss */
 blockquote {
   margin: 1em 40px;
 }
@@ -173,7 +168,7 @@ blockquote {
  * Add italic font style
  * Fixes styling not present in S5 Chrome
  */
-/* line 169, ../../app/stylesheets/reset.scss */
+/* line 169, ../../app/stylesheets/normalize.scss */
 dfn {
   font-style: italic;
 }
@@ -182,7 +177,7 @@ dfn {
  * Add yellow background and black text
  * Fixes styling not present in IE6/7/8/9
  */
-/* line 178, ../../app/stylesheets/reset.scss */
+/* line 178, ../../app/stylesheets/normalize.scss */
 mark {
   background: #ff0;
   color: #000;
@@ -194,7 +189,7 @@ mark {
  * 1. Fixes font family set oddly in S5 Chrome
  * 2. Fixes monospace font family set oddly in IE6
  */
-/* line 193, ../../app/stylesheets/reset.scss */
+/* line 193, ../../app/stylesheets/normalize.scss */
 pre,
 code,
 kbd,
@@ -210,7 +205,7 @@ samp {
  * Add line wrapping
  * Improves readability of pre-formatted text in all browsers
  */
-/* line 204, ../../app/stylesheets/reset.scss */
+/* line 204, ../../app/stylesheets/normalize.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
@@ -223,13 +218,13 @@ pre {
  * 2. Addresses quote property not supported in S4
  */
 /* 1 */
-/* line 218, ../../app/stylesheets/reset.scss */
+/* line 218, ../../app/stylesheets/normalize.scss */
 q {
   quotes: none;
 }
 
 /* 2 */
-/* line 225, ../../app/stylesheets/reset.scss */
+/* line 225, ../../app/stylesheets/normalize.scss */
 q:before,
 q:after {
   content: '';
@@ -239,7 +234,7 @@ q:after {
 /*
  * Define font-size
  */
-/* line 234, ../../app/stylesheets/reset.scss */
+/* line 234, ../../app/stylesheets/normalize.scss */
 small {
   font-size: 75%;
 }
@@ -249,7 +244,7 @@ small {
  * Fixes alignment within multi-line text displayed oddly in all browsers
  * gist.github.com/413930
  */
-/* line 245, ../../app/stylesheets/reset.scss */
+/* line 245, ../../app/stylesheets/normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -258,12 +253,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 252, ../../app/stylesheets/reset.scss */
+/* line 252, ../../app/stylesheets/normalize.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 256, ../../app/stylesheets/reset.scss */
+/* line 256, ../../app/stylesheets/normalize.scss */
 sub {
   bottom: -0.25em;
 }
@@ -271,19 +266,19 @@ sub {
 /* =============================================================================
    Lists
    ========================================================================== */
-/* line 266, ../../app/stylesheets/reset.scss */
+/* line 266, ../../app/stylesheets/normalize.scss */
 ul,
 ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 
-/* line 271, ../../app/stylesheets/reset.scss */
+/* line 271, ../../app/stylesheets/normalize.scss */
 dd {
   margin: 0 0 0 40px;
 }
 
-/* line 276, ../../app/stylesheets/reset.scss */
+/* line 276, ../../app/stylesheets/normalize.scss */
 nav ul,
 nav ol {
   list-style: none;
@@ -296,7 +291,7 @@ nav ol {
  * Remove margin
  * Addresses margin not present in IE6/7/8/9, S5, O11
  */
-/* line 290, ../../app/stylesheets/reset.scss */
+/* line 290, ../../app/stylesheets/normalize.scss */
 figure {
   margin: 0;
 }
@@ -308,7 +303,7 @@ figure {
  * Remove margin
  * Fixes styling in IE6/7
  */
-/* line 304, ../../app/stylesheets/reset.scss */
+/* line 304, ../../app/stylesheets/normalize.scss */
 form {
   margin: 0;
 }
@@ -316,7 +311,7 @@ form {
 /*
  * Define consistent margin and padding
  */
-/* line 312, ../../app/stylesheets/reset.scss */
+/* line 312, ../../app/stylesheets/normalize.scss */
 fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
@@ -326,7 +321,7 @@ fieldset {
  * Add negative left margin
  * Fixes alignment displayed oddly in IE6/7
  */
-/* line 322, ../../app/stylesheets/reset.scss */
+/* line 322, ../../app/stylesheets/normalize.scss */
 legend {
   *margin-left: -7px;
 }
@@ -337,7 +332,7 @@ legend {
  *    Fixes different margins set in FF3/4 S5 Chrome
  * 3. Define consistent vertical alignment display in all browsers
  */
-/* line 336, ../../app/stylesheets/reset.scss */
+/* line 336, ../../app/stylesheets/normalize.scss */
 button,
 input,
 select,
@@ -358,7 +353,7 @@ textarea {
  * 2. Make overflow visible
  *    Fixes spacing displayed oddly in IE6/7
  */
-/* line 351, ../../app/stylesheets/reset.scss */
+/* line 351, ../../app/stylesheets/normalize.scss */
 button,
 input {
   line-height: normal;
@@ -373,7 +368,7 @@ input {
  * 2. Define appearance for clickable form elements
  *    Fixes inability to style clickable <input> types in iOS
  */
-/* line 366, ../../app/stylesheets/reset.scss */
+/* line 366, ../../app/stylesheets/normalize.scss */
 button,
 input[type="button"],
 input[type="reset"],
@@ -388,7 +383,7 @@ input[type="submit"] {
  * Define box sizing
  * Addresses box sizing set to content-box in IE8/9
  */
-/* line 377, ../../app/stylesheets/reset.scss */
+/* line 377, ../../app/stylesheets/normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -399,7 +394,7 @@ input[type="radio"] {
  * Addresses box sizing set to border-box in S5 Chrome (include -moz to future-proof)
  * Addresses appearance set to searchfield in S5 Chrome
  */
-/* line 387, ../../app/stylesheets/reset.scss */
+/* line 387, ../../app/stylesheets/normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -411,7 +406,7 @@ input[type="search"] {
  * Remove WebKit search decoration
  * Addresses inner padding displaying oddly in S5 Chrome on OSX
  */
-/* line 399, ../../app/stylesheets/reset.scss */
+/* line 399, ../../app/stylesheets/normalize.scss */
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -421,7 +416,7 @@ input[type="search"]::-webkit-search-decoration {
  * Fixes appearance displayed oddly in FF3/4
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
-/* line 410, ../../app/stylesheets/reset.scss */
+/* line 410, ../../app/stylesheets/normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -434,7 +429,7 @@ input::-moz-focus-inner {
  * 2. Add top vertical alignment
  *    Improves readability and aligment in all browsers
  */
-/* line 422, ../../app/stylesheets/reset.scss */
+/* line 422, ../../app/stylesheets/normalize.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -449,13 +444,13 @@ textarea {
  * Remove most spacing between table cells
  * Consistent vertical and horizontal alignment in all browsers
  */
-/* line 437, ../../app/stylesheets/reset.scss */
+/* line 437, ../../app/stylesheets/normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 443, ../../app/stylesheets/reset.scss */
+/* line 443, ../../app/stylesheets/normalize.scss */
 th,
 td {
   padding: 0;

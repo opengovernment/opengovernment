@@ -22,31 +22,3 @@
     %a{:href => "http://www.stumbleupon.com/submit?url=#{u url}&amp;title=#{u title}"} StumbleUpon   
   %li.facebook
     %iframe(src="http://www.facebook.com/plugins/like.php?href=#{u url}&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true")
-
-:ruby
-  footer_javascript do (%Q|
-    var bitly = new BitlyAPI("#{ApiKeys.bitly_login}", "#{ApiKeys.bitly_key}");
-    var og_page_title = '#{u title}';
-    var og_page_url = '#{u url}';
-    var og_submit_url;
-
-    $('a.shorten_link').click(function(event) {
-      event.preventDefault(); //stop default browser behaviour 
-
-      switch ($(this).parent().attr('class')) {
-        case 'twitter':
-          og_submit_url = 'http://twitter.com/home?status=' + og_page_title + ' SHORT_URL';
-          break;
-        // in case we add more services later...
-      }
-
-      bitly.shorten(og_page_url, function(json, status) {
-        if (json['status_code'] == '200') {
-          window.location.href = og_submit_url.replace(/SHORT_URL/, json['data']['url']);
-        } else {
-          window.location.href = og_submit_url.replace(/SHORT_URL/, og_page_url);
-        }
-      });
-    });
-  |)
-  end

@@ -1,0 +1,40 @@
+- unless flash.empty?
+  %div#flash
+    - flash.each do |key, value|
+      %div(id="flash_#{key}")
+        =h value
+
+- if content_for?(:content)
+  -# :content can be yielded by nested templates eg. pages.html.haml
+  = yield(:content)
+- else
+  = yield :before_left_nav
+  #sidebar
+    %a#statelevel{:href => root_url(:subdomain => current_place_subdomain)}
+      = current_place_name || t('site.select_state')
+
+    %a#state_dropdown{:class => 'dropdown-hot', :href => '#', :'data-dropdown' => '#state-select'}
+
+    #state-select{:class => 'dropdown-menu'}
+      %span.triangle
+      %ul
+        - State.loadable.each do |state|
+          %li.state_name= link_to state.name, state_url(state)
+
+
+    - if @available_sessions.size > 1
+      %a#session_dropdown{:class => 'dropdown-hot', :href => '#', :'data-dropdown' => '#session-select'} #{current_session_name} session
+
+      #session-select{:class => 'dropdown-menu', :style => 'display: none;'}
+        %span.triangle
+        %ul
+          - @available_sessions.each do |session|
+            %li{:class => session.id == current_session.id ? 'active' : nil}= link_to session.name_fm, state_path(:session => session)
+    - else
+      #session_dropdown{:class => 'bar'} #{current_session_name} session
+    %nav#left_nav
+      = content_for?(:left_nav) ? yield(:left_nav) : (render_navigation(:level => 1..3) || raw('&nbsp;'))
+    = yield :below_left_nav
+
+  #content
+    = yield

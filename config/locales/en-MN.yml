@@ -7,22 +7,22 @@ en-MN:
       background: |       
         Here are more links with background on the Minnesota government and the best online explanations of how its legislative branch works: 
         <ul class="standard">
-        <li>The official website of the <a href="http://www.leg.state.mn.us/">Minnesota State Legislature</a>. This is where the legislature publishes bill nod vote information, but it falls far short of the <a href="http://www.opengovdata.org/">8 Principles of Open Government Data</a>
-        <li><a href="http://www.mmb.state.mn.us/tap">Then Transparency and Accountability Project for Minnesota</a>, a government website making budget, spending and contracting information more easily accessible</li>
-        <li>Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/Minnesota_House_of_Representatives">House of Representatives</a> and <a href="http://en.wikipedia.org/wiki/Minnesota_Senate">Senate</a>.</li> 
+        <li>The official website of the <a href="http://www.leg.state.mn.us/">Minnesota State Legislature</a></li>
+        <li>The <a href="http://www.mmb.state.mn.us/tap">Transparency and Accountability Project for Minnesota</a>, a government website making budget, spending and contracting information more easily accessible</li>
+        <li>Wikipedia articles on the <a href="http://en.wikipedia.org/wiki/Minnesota_House_of_Representatives">House of Representatives</a> and <a href="http://en.wikipedia.org/wiki/Minnesota_Senate">Senate</a></li> 
         <li>Ballotpedia on <a href="http://ballotpedia.org/wiki/index.php/Minnesota">the Legislature</a>, <a href="http://ballotpedia.org/wiki/index.php/Minnesota_State_Senate_elections,_2010">Senate elections</a>, <a href="http://ballotpedia.org/wiki/index.php/Minnesota_House_of_Representatives_elections,_2010">House elections</a>, and <a href="http://ballotpedia.org/wiki/index.php/Minnesota_2012_ballot_measures">ballot measures</a></li>
         <li>OpenCongress pages for <a href="http://www.opencongress.org/states/MN">MN federal legislators</a>, including <a href="http://www.opencongress.org/people/senators#M">senators</a> and <a href="http://www.opencongress.org/people/representatives#MN">representatives</a>.</li>
         <li>OpenCongress Wiki's list of <a href="http://www.opencongress.org/wiki/Minnesota">Minnesota state political blogs</a></li>
         <li><a href="http://www.govloop.com/">GovLoop</a> - social networking for government, including employees from federal, state, and local government.</li>
-         <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a>.</li>
-        <li><a href="http://sunshinereview.org/index.php/Minnesota">Sunshine Review - Minnesota</a>, a non-profit organization dedicated to state and local government transparency.</li>
-        <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846251">Common Cause - California</a>, a non-profit, non-partisan citizens' lobby organization.</li>   
+         <li><a href="http://www.stateline.org/live/">Stateline</a> - a nonprofit, nonpartisan online news site that practices journalism in the public interest by reporting on emerging trends and issues in state policy and politics. A project of the <a href="http://www.pewcenteronthestates.org/">Pew Center on the States</a></li>
+        <li><a href="http://sunshinereview.org/index.php/Minnesota">Sunshine Review - Minnesota</a>, a non-profit organization dedicated to state and local government transparency</li>
+        <li><a href="http://www.commoncause.org/site/pp.asp?c=dkLNK1MQIwG&b=4846251">Common Cause - Minnesota</a>, a non-profit, non-partisan citizens' lobby organization</li>   
         <li><a href="http://www.drawminnesota.org/">Draw Minnesota</a>, a non-profit effort to ensure the redistricting process is fair and transparent.</></li>
-        <li><a href="http://www.law.cornell.edu/states/minnesota.html">Minnesota State Laws</a> online on the Cornell University <a href="http://www.law.cornell.edu/states/minnesota.html" target="_blank">Legal Information Institute</a> (LII).</li> 
-        <li>Official <a href="http://www.state.mn.us/portal/mn/jsp/home.do?agency=NorthStar">MN State Government portal</a> from USA.gov.</li>
-        <li>Minnesota Public Radio <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/" target="_blank">coverage</a> of the legislature, including issue areas such as <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/taxes_finance" target="_blank">taxes & finance</a>.</li>
+        <li><a href="http://www.law.cornell.edu/states/minnesota.html">Minnesota State Laws</a> online on the Cornell University <a href="http://www.law.cornell.edu/states/minnesota.html" target="_blank">Legal Information Institute</a> (LII)</li> 
+        <li>Official <a href="http://www.state.mn.us/portal/mn/jsp/home.do?agency=NorthStar">MN State Government portal</a> from USA.gov</li>
+        <li>Minnesota Public Radio <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/" target="_blank">coverage</a> of the legislature, including issue areas such as <a href="http://minnesota.publicradio.org/collections/special/ongoing/legislature/taxes_finance" target="_blank">taxes & finance</a></li>
         </ul>
-        How did we get the above information? Well, almost no U.S. legislature (including California) makes its data available in ways that are fully open, so we had to work around them. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
+        How did we obtain this official government information? Almost no U.S. legislature (including Minnesota) makes its data available in ways that are fully compliant with the community-generated <a href="http://www.opengovdata.org/" target="_blank">Principles of Open Government Data</a>, so we had to work around them. Read more <a href="/pages/about/#our_data_sources">about our data sources</a>. 
         
   videos:
     miro_url: 'http://mnopengov.mirocommunity.org/'

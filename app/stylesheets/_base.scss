@@ -2,46 +2,55 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-
+ 
 // Always put config variables above imports.
 $ninesixty-columns: 16;
 
-
+// Don't import anything that includes any CSS rules on import. It will add them to every stylesheet.
+@import "compass/css3";
+@import "960/grid";
 
 
 // Colors
-
-
 $lightgray: rgba(200,200,200, .1);
 $gray: rgba(200,200,200, .4);
 $darkgray: rgba(0,0,0,.7);
-$black: rgba(0,0,0, 1) !important;
+$black: rgba(0,0,0, 1);
 
 $lightblue: rgba(194,220,224,.1);
-
-.black{color:$black}
 
 $lightwhite: rgba(255,255,255, .3);
 $white: rgba(255,255,255, 1);
 
+
 @mixin gray-gradient {
-  @include linear-gradient($gray, $lightgray);
+  /* IE; docs say this should go first: */
+  @include filter-gradient($gray, $lightgray);
+  @include background(linear-gradient($gray, $lightgray));
 }
 
 @mixin reverse-gray-gradient {
-  @include linear-gradient(#eee, #ddd);
+  /* IE; docs say this should go first: */
+  @include filter-gradient(#eee, #ddd);
+  @include background(linear-gradient(#eee, #ddd));
 }
 
 @mixin light-gray-gradient {
-  @include linear-gradient($lightgray, #fff);
+  /* IE; docs say this should go first: */
+  @include filter-gradient($lightgray, #fff);
+  @include background(linear-gradient($lightgray, #fff));
 }
 
 @mixin light-blue-gradient {
-  @include linear-gradient($lightblue, #fff);
+  /* IE; docs say this should go first: */
+  @include filter-gradient($lightblue, #fff);
+  @include background(linear-gradient($lightblue, #fff));
 }
 
 @mixin reverse-light-blue-gradient {
-  @include linear-gradient(#fff,$lightblue);
+  /* IE; docs say this should go first: */
+  @include filter-gradient(#fff, $lightblue);
+  @include background(linear-gradient(#fff,$lightblue));
 }
 
 
@@ -87,35 +96,19 @@ $grayinnershadow: inset 0 1px 2px $gray;
   font-size: 11px;
   text-shadow: 0 1px 0 #fff;
   
-  -moz-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -webkit-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -ms-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -o-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  -khtml-box-shadow: 0 1px 0px #ddd, inset 0 1px 0px #fff;
-  box-shadow:  0 1px 0px #ddd, inset 0 1px 0px #fff;
-  
+  @include box-shadow(0 1px 0px #ddd, inset 0 1px 0px #fff);
 
   &:hover{
     @include light-gray-gradient;
     text-decoration: none;
-
   }
-    
+
   &:active{
     @include reverse-gray-gradient;
     text-decoration: none;
     @include reverse-borders;
-    @include box-shadow($grayinnershadow);
-    
-    -moz-box-shadow: 0 1px 0px #fff, inset 0 1px 1px #888;
-    -webkit-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-    -ms-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-    -o-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-    -khtml-box-shadow: 0 1px 0px #fff, inset 0 1px 2px #888;
-    box-shadow:  0 1px 0px #fff, inset 0 1px 1px #888;
-    
-  }  
-  
+    @include box-shadow(0 1px 0px #fff, inset 0 1px 1px #888);
+  }
   
 }
 
@@ -131,12 +124,3 @@ $grayinnershadow: inset 0 1px 2px $gray;
   }
 }
 
-
-
-
-
-
-
-// Don't import anything that includes any CSS rules on import. It will add them to every stylesheet.
-@import "compass/css3";
-@import "960/grid";

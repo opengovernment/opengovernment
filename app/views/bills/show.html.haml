@@ -4,8 +4,6 @@
 
 - title("#{@bill.state.name} #{@bill.chamber.name} #{@bill.bill_number}")
 - track(@bill)
-- tweets(@bill.to_hashtags, 2)
-
 
 = render 'wrapper'
 
@@ -64,7 +62,7 @@
     :ruby
       javascript do
         (%Q|
-          $(document).ready(function() {
+          $(function() {
             $('#find_my_rep input:submit').click(function(e){
               $('#rep_link').attr('href', '#{search_people_path}?chamber_id=#{@bill.chamber.id}&addr='+ encodeURI($('#find_my_rep input[name=addr]').val()));
               $('#rep_link').click();
@@ -123,11 +121,11 @@
 
 .grid_12.alpha
 
-  #twitter(style="display: none;")
+  .twitter{:style => "display: none;", :'data-twitter-search' => @bill.to_hashtags}
     %h2= t '.twitter_mentions' 
-    #notweets(style="display: none;")
+    .notweets(style="display: none;")
       %p= t 'site.no_tweets', :hashtags => @bill.to_hashtags
-    %ul#tweets
+    %ul.tweets
 
 - if @bill.citations.any?
   .citations

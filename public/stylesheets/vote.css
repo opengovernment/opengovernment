@@ -2,11 +2,6 @@
  * DO NOT MODIFY THIS FILE! YOUR CHANGES WILL BE OVERWRITTEN.
  * Modify app/stylesheets/[filename].scss instead.
  */
-/* line 22, ../../app/stylesheets/_base.scss */
-.black {
-  color: black !important;
-}
-
 /* line 4, ../../app/stylesheets/vote.scss */
 tr.committee-vote h4 {
   padding-left: 20px;
@@ -293,59 +288,45 @@ td.vote-failed .vote-no {
 }
 
 /* Big vote chart -- votes/show */
-/* line 268, ../../app/stylesheets/vote.scss */
+/* line 269, ../../app/stylesheets/vote.scss */
 .vote_chart table {
-  width: 400px !important;
+  width: 686px;
 }
-
-/* line 272, ../../app/stylesheets/vote.scss */
+/* line 273, ../../app/stylesheets/vote.scss */
 .vote_chart table td {
-  min-width: 25px;
+  min-width: 20px;
 }
-
-/* line 276, ../../app/stylesheets/vote.scss */
+/* line 277, ../../app/stylesheets/vote.scss */
 .vote_chart table td.vote_chart {
   width: 300px;
   /* See votes_helper full-size chart width */
 }
-
-/* line 280, ../../app/stylesheets/vote.scss */
+/* line 281, ../../app/stylesheets/vote.scss */
 .vote_chart table caption {
   background: transparent;
   font-size: 10px;
 }
-
 /* line 286, ../../app/stylesheets/vote.scss */
-.vote_chart table td,
-.vote_chart table th {
-  height: 24px;
+.vote_chart .label {
   vertical-align: middle;
   text-align: right;
-  line-height: 24px;
   padding: 0;
   border: 0;
+  padding: 4px 2px 2px 0;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.3em;
 }
-
 /* line 297, ../../app/stylesheets/vote.scss */
-.vote_chart table td.first,
-.vote_chart table th.first {
-  padding-top: 26px !important;
+.vote_chart .first .label {
+  padding-top: 32px;
 }
-
-/* line 302, ../../app/stylesheets/vote.scss */
-.vote_chart table td.last,
-.vote_chart table th.last {
-  padding-bottom: 9px !important;
+/* line 301, ../../app/stylesheets/vote.scss */
+.vote_chart .last .label {
+  padding-bottom: 9px;
 }
 
 /* line 306, ../../app/stylesheets/vote.scss */
-.vote_chart table .label {
-  padding-right: 2px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-/* line 312, ../../app/stylesheets/vote.scss */
 .vote-type {
   padding: 2px 0 0 10px;
   display: block;

@@ -1,5 +1,92 @@
 @import "base";
 
+/*///////////////////////////////////////////////////
+
+~ HTML
+
+///////////////////////////////////////////////////*/
+
+
+body{
+  margin: 0;
+  padding: 20px 0 40px;
+background: #ddd;
+  background: url(../images/bg.png) repeat-x, url(../images/bg.gif);
+  font-size:12px;
+  color:#222;
+  line-height: 1.3em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+
+hr {
+  border:none;
+  border-top: 1px solid #fff;
+
+  color:#ddd;
+  clear:both;
+  float:none;
+  margin: 0;
+  width:100%;
+  height: 0px;
+  }
+
+
+p{
+line-height: 1.4em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ol{
+padding-left: 1.5em;
+}
+
+ol li{
+list-style-type: decimal;
+color: #36676f;
+font-weight: bold;
+font-style: italic;
+}
+
+
+ol li p{
+margin: 0;
+color: #333;
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+/*///////////// ~  Tables  ~ /////////////*/
+
+
+table{ width: 100%;}
+
+
+thead th{ text-align: left;}
+
+
+th{
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #f9f9f9;
+  text-align: left;
+}
+
+
+td{
+  min-width: 100px;
+  padding: 6px 20px 6px 0;
+  vertical-align: top;
+  }
+
+
+table, td, th, tr{ margin: 0;}
+
+
 /*///////////////////////////
 
 ~ NAv
@@ -7,7 +94,7 @@
 ///////////////////////////*/
 
 #left_nav {
-margin-left: -21px;
+margin-left: -1px;
 width: 226px;
 overflow: hidden;
 letter-spacing: .03em;
@@ -15,12 +102,12 @@ position: relative;
 }
 
 #left_nav ul {
-margin: 0 !important;
+margin: 0;
 }
 
 #left_nav ul li {
 margin: 0;
-padding: 0 !important;
+padding: 0;
 background: -webkit-gradient(linear, left top, left bottom, from(#ecf4f5), to(#e2ecee));
 background: -moz-linear-gradient(top,  #ecf4f5,  #e2ecee);
 -moz-box-shadow: inset 0 1px 0px #f4f9f9;
@@ -503,7 +590,7 @@ border: none;
 .illo {
 background: #f6f8fa;
 padding: 60px 0 30px;
-margin: 0 -10px -18px -10px;
+margin: -4px 0 0px 0;
 }
 body.home .illo h2 {
 width: 503px;
@@ -566,12 +653,7 @@ text-align: center !important;
 font-size: 17px;
 font-weight: bold;
 }
-.sub_footer {
-width: 960px;
-padding: 0 15px;
-margin: 0px auto 20px;
-font-size: 11.5px;
-}
+
 .menu {
 padding-top: 220px;
 width: 300px;
@@ -595,66 +677,123 @@ background: url(../images/map.gif) center -50px no-repeat;
 ~ Container
 
 ///////////////////////////*/
-.main {
-background: #fff url(../images/side.png) -2px top repeat-y;
-padding-bottom: 50px;
+
+/* the whole page */
+#wrap {
+  width: 987px;
+  margin: 0px auto;
+}
+
+/* the content area between the header adn footer */
+#main {
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 1px 2px #6d6a58;
+  -webkit-box-shadow: 0px 1px 2px #6d6a58;
+  box-shadow: 0px 1px 2px #6d6a58;
+
+  background: #fff url(../images/side.png) -2px top repeat-y;
+  padding-bottom: 50px;
+  
+  @include clear;
 }
 /* No background on the homepage */
-.home.index .main,
-.home.home .main,
-.widgets .main   {
-background: #fff
+.home.index #main,
+.home.home #main,
+.widgets #main   {
+  background: #fff;
+  position: relative;
 }
-.home.home .main {
-padding-bottom: 0px
+.home.home #main {
+  padding-bottom: 0px;
 }
+
 /*///////////////////////////
 
 ~ Header
 
 ///////////////////////////*/
+header {
+  height: 67px;
+  position: relative; /* allows 'grow' to be positioned absolutely */
+}
+
+header .by {
+  @include grid(7);
+  @include grid-push(3);
+  @include omega;
+}
+
+
 #account {
-padding: 16px 0 0
+  @include grid(9);
+  @include alpha;
+  padding: 16px 0 0
+
+  p {
+  margin: 0;
+  padding: 0;
+  }
+  a strong {
+    text-decoration: none;
+    display: none;
+    font-size: 16px;
+    line-height: 1em;
+  }
+  a {
+    margin-top: 15px;
+    color: #215357;
+    background: url(../images/opengovernment.png) 0px 0px no-repeat;
+    height: 25px;
+    width: 205px;
+    display: block;
+    overflow: hidden;
+  }
+  a:hover {
+    background: url(../images/opengovernment.png) 0px -42px no-repeat
+  }
+
 }
-#account p {
-margin: 0;
-padding: 0;
+
+/*///////////////////////////
+
+~ Left sidebar
+
+///////////////////////////*/
+#sidebar {
+  @include grid(4);
+  @include alpha;
+  position: relative; /* allows dropdowns to be positioned absolutely */
 }
-#account a {
-margin: 0;
-padding: 0 20px 0 0;
-}
-#account strong {
-padding: 0px !important;
-font-size: 16px;
-margin-left: -20px;
-line-height: 1em;
-float: left;
-margin-top: -2px;
-}
-#account strong a {
-padding: 25px 0 0 0px !important;
-float: left;
-text-decoration: none;
-color: #215357;
-background: url(../images/opengovernment.png) 0px 0px no-repeat;
-height: 0;
-width: 205px;
-overflow: hidden;
-}
-#account strong a:hover {
-background: url(../images/opengovernment.png) 0px -42px no-repeat
-}
+
 /*///////////////////////////
 
 ~ Content
 
 ///////////////////////////*/
-.content {
-position: relative;
+#content {
+  display: inline;
+  float: left;
+  width: 710px;
+  margin-left: 30px;
+  margin-right: 15px;
+  
+  @include clear;
 }
+
+
 .less_padding {
-padding: 0px 0
+  padding: 0px 0
+}
+
+/*///////////////////////////
+
+~ Page Content
+
+///////////////////////////*/
+#page-content {
+  width: 710px;
+  margin-left: 30px;
+  margin-right: 15px;
 }
 /*///////////////////////////
 
@@ -823,8 +962,7 @@ margin-top: -40px;
 
 ///////////////////////////*/
 p.donate {
-padding-top: 20px;
-margin-right: 19px;
+padding: 20px 0 0 15px;
 }
 p.donate a {
 display: block
@@ -852,22 +990,51 @@ top: 12px;
 ~ Footer
 
 ///////////////////////////*/
-.footer {
-clear: both
+#footer {
+  clear: both;
+  padding-top: 15px;
+  
+  @include clear;
+  
+  li {
+    clear: none;
+    line-height: 2.5em;
+  }
+
+  h4 {
+    margin-top: 10px;
+    line-height: 2em;
+    border-bottom: 1px solid #d1dddd;
+    color: #777;
+  }
+
+  li a {
+    display: block
+  }
+    
+  .principles, .about_us, .more_links, .get_involved {
+    @include grid(4);
+  }
+
+  .sources {
+    @include grid(12);
+    @include alpha;
+  }
+  
+
+  .credits {
+    @include grid(16);
+    @include omega;
+    font-size: 11.5px;
+  }
+  
+  .by {
+    @include grid(4);
+    @include omega;
+  }
+  
 }
-.footer li {
-clear: none;
-line-height: 2.5em;
-}
-.footer h4 {
-margin-top: 10px;
-line-height: 2em;
-border-bottom: 1px solid #d1dddd;
-color: #777;
-}
-.footer li a {
-display: block
-}
+
 /*///////////////////////////
 
 ~ 404
@@ -937,22 +1104,31 @@ width: 275px;
 float: left;
 font-size: 14px;
 }
-.sign h3 {
-border-bottom: 1px solid #d1dddd;
-margin-left: -26px;
-width: 202px;
-padding: 12px 0 12px 25px;
-margin-right: 10px;
+
+
+#sidebar.sign {
+  padding-left: 10px;
+  margin-right: 0;
+
+  h3 {
+    border-bottom: 1px solid #d1dddd;
+    width: 202px;
+    padding: 12px 0 12px 0;
+    margin-right: 10px;
+  }
+
+  input,
+  label {
+    clear: both !important;
+    float: none !important;
+    display: block;
+  }
+
+  input {
+    margin-bottom: 20px
+  }
 }
-.sign input,
-.sign label {
-clear: both !important;
-float: none !important;
-display: block;
-}
-.sign input {
-margin-bottom: 20px
-}
+
 .visit_blog {
 background: url(../images/blog.png) 0 0 no-repeat;
 display: block;
@@ -1250,94 +1426,86 @@ margin-left: 200px;
   border-right: none;
   margin: 0 0px 0px -39px;
   
-  }
-  
-
-.sorts li.sort_label {
-  display: none
+  li.sort_label {
+    display: none;
   }
 
 
-.sorts li {
-  clear: none
+  li {
+    clear: none;
   }
 
 
-.sorts li a {
-  float: left;
-  clear: none;
-  position: relative;
-  z-index: 99999999;
-  font-size: 11px;
-  line-height: 1.3em;
-  margin: 0px 14px 0 0;
-  padding: 5px 16px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
+  li a {
+    float: left;
+    clear: none;
+    position: relative;
+    z-index: 99999999;
+    font-size: 11px;
+    line-height: 1.3em;
+    margin: 0px 14px 0 0;
+    padding: 5px 16px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
   
-  font-weight: normal;
+    font-weight: normal;
   
-  -moz-outline: none;
-  outline: none;
+    -moz-outline: none;
+    outline: none;
   
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
 
   
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 
 
-  border: 1px solid #ccc;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #aaa;
+    border: 1px solid #ccc;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #aaa;
 
-  -moz-box-shadow: inset 0 1px 0px #fff, 0 1px 0px rgba(69, 69, 69, .14);
-  -webkit-box-shadow: inset 0 1px 0px #fff,  0 1px 0px rgba(69, 69, 69, .14);
+    -moz-box-shadow: inset 0 1px 0px #fff, 0 1px 0px rgba(69, 69, 69, .14);
+    -webkit-box-shadow: inset 0 1px 0px #fff,  0 1px 0px rgba(69, 69, 69, .14);
 
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); 
-  background: -moz-linear-gradient(top,  #fff,  #efefef); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef)); 
+    background: -moz-linear-gradient(top,  #fff,  #efefef); 
 
-
+    &:hover {
+      color: rgba(0, 0, 0, .9);
+    }
   }
 
-.sorts li a:hover {
-  color: rgba(0, 0, 0, .9);
+
+  li a.active {
+    font-weight: bold !important;
+    border: 0;
+    margin-top: 1px;
+    -moz-box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
+    box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
+  
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
+    background: -moz-linear-gradient(top,  #ddd,  #efefef); 
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: rgba(255, 255, 255, 0.3);
+  }
 }
 
-.sorts li a.active {
-  font-weight: bold !important;
-  border: 0;
-  margin-top: 1px;
-  -moz-box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
-  -webkit-box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
-  box-shadow: inset 0px 1px 2px #999, 0 1px 0 #fff;
-  
-  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#efefef)); 
-  background: -moz-linear-gradient(top,  #ddd,  #efefef); 
-  color: rgba(0, 0, 0, 0.4);
-  text-shadow: rgba(255, 255, 255, 0.3);
-  
-  }
 
-
-
-
-.bills .sorts {
+.bill_sorts {
   padding: 30px 6px 20px 84px;
- 
-  }
+}
 
-.people .sorts {
+.people_sorts {
   padding: 30px 6px 20px 164px;
- 
-  }
+}
 
 
 
-.issues.index ul.lined li{
+ul.lined.state-issues li{
 font-size: 16px;
 padding: 20px;
 }

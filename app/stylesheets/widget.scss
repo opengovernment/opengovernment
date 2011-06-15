@@ -135,8 +135,9 @@ margin-top: 0 !important;
 
 
 .widgets h1{
-margin-top: 0 !important;
-margin-left: -21px;
+margin-top: 0;
+margin-left: -10px;
+margin-right: -35px;
 }
 
 
@@ -144,6 +145,8 @@ margin-left: -21px;
 .widgets .share_top{
 position: absolute;
 z-index: 9999999;
+background: transparent;
+border-bottom: none;
 right: 0;
 top: 29px;
 width: 240px;

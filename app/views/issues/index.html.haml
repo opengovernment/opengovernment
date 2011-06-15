@@ -12,15 +12,8 @@
   %div
   %p= t '.intro', :legislature_name => @state.legislature.name
 
--# %h2 Project Vote Smart Issue Areas
-
--# %ul.lined
--#  = render @issues
-
 %h2
   = t '.bill_subjects'
 
-
-
-%ul.lined
+%ul.lined.state-issues
   = render @subjects

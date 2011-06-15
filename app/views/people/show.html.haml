@@ -2,7 +2,6 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Votes by #{@person.official_name}"})
 - track(@person)
-- tweets(@person.full_name, 2)
 
 = render 'wrapper'
 = render :partial => 'shared/view_counts', :locals => {:page => @person}
@@ -99,11 +98,11 @@
       %p= t '.no_mentions'
 
   .grid_4.omega
-    #twitter(style="display: none;")
+    .twitter{:style=>"display: none;", :'data-twitter-search' => @person.full_name}
       %h2= t '.twitter_mentions' 
-      #notweets(style="display: none;")
+      .notweets(style="display: none;")
         %p= t 'site.no_tweets', :hashtags => @person.full_name
-      %ul.lined#tweets
+      %ul.lined.tweets
       = link_to(t('site.more_link'), social_person_path(@person), :class => 'more')
 .space.clear
 

@@ -1,114 +1,110 @@
-/*///////////////////////////////////////////////////
+/* line 8, ../../app/stylesheets/html5.scss */
+html {
+  font-size: 100.01%;
+}
 
-~ HTML
-
-///////////////////////////////////////////////////*/
-
-
-html {font-size:100.01%;}
-
-
-body{
+/* line 11, ../../app/stylesheets/html5.scss */
+body {
   margin: 0;
   padding: 20px 0 40px;
-background: #ddd;
+  background: #ddd;
   background: url(../images/bg.png) repeat-x, url(../images/bg.gif);
-  font-size:12px;
-  color:#222;
+  font-size: 12px;
+  color: #222;
   line-height: 1.3em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
+}
 
-article, 
-aside, 
-dialog, 
-figure, 
-footer, 
+/* line 31, ../../app/stylesheets/html5.scss */
+article,
+aside,
+dialog,
+figure,
+footer,
 header,
-hgroup, 
-menu, 
-nav, 
-section { display: block; }
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
 
+/* line 35, ../../app/stylesheets/html5.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+}
 
-
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; }
-
-
+/* line 38, ../../app/stylesheets/html5.scss */
 hr {
-  border:none;
+  border: none;
   border-top: 1px solid #fff;
-
-  color:#ddd;
-  clear:both;
-  float:none;
+  color: #ddd;
+  clear: both;
+  float: none;
   margin: 0;
-  width:100%;
+  width: 100%;
   height: 0px;
-  }
+}
 
-
-
-header{ 
+/* header{ 
   margin: 0 10px !important;
   height: 46px;
   position: relative;
   margin: 0;
   }
-
-
-
-p{
-line-height: 1.4em;
+*/
+/* line 61, ../../app/stylesheets/html5.scss */
+p {
+  line-height: 1.4em;
 }
 
-ol{
-padding-left: 1.5em;
+/* line 65, ../../app/stylesheets/html5.scss */
+ol {
+  padding-left: 1.5em;
 }
 
-ol li{
-list-style-type: decimal !important;
-color: #36676f;
-font-weight: bold;
-font-style: italic;
+/* line 69, ../../app/stylesheets/html5.scss */
+ol li {
+  list-style-type: decimal !important;
+  color: #36676f;
+  font-weight: bold;
+  font-style: italic;
 }
 
-
-ol li p{
-margin: 0;
-color: #333;
-font-weight: normal;
-font-style: normal;
+/* line 77, ../../app/stylesheets/html5.scss */
+ol li p {
+  margin: 0;
+  color: #333;
+  font-weight: normal;
+  font-style: normal;
 }
-
-
-
 
 /*///////////// ~  Tables  ~ /////////////*/
+/* line 90, ../../app/stylesheets/html5.scss */
+table {
+  width: 100%;
+}
 
+/* line 93, ../../app/stylesheets/html5.scss */
+thead th {
+  text-align: left;
+}
 
-table{ width: 100%;}
-
-
-thead th{ text-align: left;}
-
-
-th{
+/* line 96, ../../app/stylesheets/html5.scss */
+th {
   padding: 0px 0px 10px 0px;
   border-bottom: 1px solid #f9f9f9;
   text-align: left;
 }
 
-
-td{
+/* line 103, ../../app/stylesheets/html5.scss */
+td {
   min-width: 100px;
   padding: 6px 20px 6px 0 !important;
   vertical-align: top;
-  }
+}
 
-
-table, td, th, tr{ margin: 0;}
-
-
-
-
+/* line 110, ../../app/stylesheets/html5.scss */
+table, td, th, tr {
+  margin: 0;
+}
