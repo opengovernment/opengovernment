@@ -41,28 +41,27 @@ h1 a {
 /* line 35, ../../app/stylesheets/type.scss */
 h2 {
   margin: 0 0 0px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1em;
   padding: 10px 0;
   color: #36676f;
   letter-spacing: .02em;
-  font-weight: normal;
+  font-weight: bold;
   clear: left;
-  text-transform: uppercase;
 }
 
-/* line 48, ../../app/stylesheets/type.scss */
+/* line 47, ../../app/stylesheets/type.scss */
 .home.index h2 {
   color: #000;
   text-transform: none;
 }
 
-/* line 54, ../../app/stylesheets/type.scss */
+/* line 53, ../../app/stylesheets/type.scss */
 .money_trails.index h2 {
   font-weight: bold;
 }
 
-/* line 61, ../../app/stylesheets/type.scss */
+/* line 60, ../../app/stylesheets/type.scss */
 h3 {
   padding: 5px 0;
   border-bottom: 1px solid #f4f9fa;
@@ -74,7 +73,7 @@ h3 {
   font-weight: bold;
 }
 
-/* line 73, ../../app/stylesheets/type.scss */
+/* line 72, ../../app/stylesheets/type.scss */
 h4 {
   font-size: 12px;
   line-height: 1.25;
@@ -88,238 +87,238 @@ h4 {
   width: 100%;
 }
 
-/* line 87, ../../app/stylesheets/type.scss */
+/* line 86, ../../app/stylesheets/type.scss */
 h5 {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 1.5em;
 }
 
-/* line 88, ../../app/stylesheets/type.scss */
+/* line 87, ../../app/stylesheets/type.scss */
 h6 {
   font-size: 1em;
   font-weight: bold;
 }
 
-/* line 89, ../../app/stylesheets/type.scss */
+/* line 88, ../../app/stylesheets/type.scss */
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
   margin: 0;
 }
 
-/* line 90, ../../app/stylesheets/type.scss */
+/* line 89, ../../app/stylesheets/type.scss */
 p {
   margin: 0 0 1.5em;
   line-height: 1.5em;
 }
 
-/* line 91, ../../app/stylesheets/type.scss */
+/* line 90, ../../app/stylesheets/type.scss */
 p img.left {
   float: left;
   margin: 1.5em 1.5em 1.5em 0;
   padding: 0;
 }
 
-/* line 92, ../../app/stylesheets/type.scss */
+/* line 91, ../../app/stylesheets/type.scss */
 p img.right {
   float: right;
   margin: 1.5em 0 1.5em 1.5em;
 }
 
-/* line 93, ../../app/stylesheets/type.scss */
+/* line 92, ../../app/stylesheets/type.scss */
 a:focus, a:hover {
   color: #000;
   text-decoration: underline;
 }
 
-/* line 94, ../../app/stylesheets/type.scss */
+/* line 93, ../../app/stylesheets/type.scss */
 a {
   color: #215357;
 }
 
-/* line 95, ../../app/stylesheets/type.scss */
+/* line 94, ../../app/stylesheets/type.scss */
 a:visited {
   color: #666;
 }
 
-/* line 96, ../../app/stylesheets/type.scss */
+/* line 95, ../../app/stylesheets/type.scss */
 blockquote {
   margin: 1.5em;
   color: #666;
   font-style: italic;
 }
 
-/* line 97, ../../app/stylesheets/type.scss */
+/* line 96, ../../app/stylesheets/type.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 98, ../../app/stylesheets/type.scss */
+/* line 97, ../../app/stylesheets/type.scss */
 em, dfn {
   font-style: italic;
 }
 
-/* line 99, ../../app/stylesheets/type.scss */
+/* line 98, ../../app/stylesheets/type.scss */
 dfn {
   font-weight: bold;
 }
 
-/* line 100, ../../app/stylesheets/type.scss */
+/* line 99, ../../app/stylesheets/type.scss */
 sup, sub {
   line-height: 0;
 }
 
-/* line 101, ../../app/stylesheets/type.scss */
+/* line 100, ../../app/stylesheets/type.scss */
 abbr, acronym {
   border-bottom: 1px dotted #666;
 }
 
-/* line 102, ../../app/stylesheets/type.scss */
+/* line 101, ../../app/stylesheets/type.scss */
 address {
   margin: 0 0 1.5em;
   font-style: italic;
 }
 
-/* line 103, ../../app/stylesheets/type.scss */
+/* line 102, ../../app/stylesheets/type.scss */
 del {
   color: #666;
 }
 
-/* line 104, ../../app/stylesheets/type.scss */
+/* line 103, ../../app/stylesheets/type.scss */
 pre {
   margin: 1.5em 0;
   white-space: pre;
 }
 
-/* line 105, ../../app/stylesheets/type.scss */
+/* line 104, ../../app/stylesheets/type.scss */
 pre, code, tt {
   font: 1em 'andale mono', 'lucida console', monospace;
   line-height: 1.5;
 }
 
-/* line 106, ../../app/stylesheets/type.scss */
+/* line 105, ../../app/stylesheets/type.scss */
 li ul, li ol {
   margin: 0;
 }
 
-/* line 107, ../../app/stylesheets/type.scss */
+/* line 106, ../../app/stylesheets/type.scss */
 ul, ol {
   margin: 0 1.5em 1.5em 0px;
 }
 
-/* line 108, ../../app/stylesheets/type.scss */
+/* line 107, ../../app/stylesheets/type.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 109, ../../app/stylesheets/type.scss */
+/* line 108, ../../app/stylesheets/type.scss */
 ul li {
   clear: both;
   line-height: 1.7em;
   list-style: none !important;
 }
 
-/* line 109, ../../app/stylesheets/type.scss */
+/* line 108, ../../app/stylesheets/type.scss */
 li {
   clear: both;
   line-height: 1.7em;
   list-style: none !important;
 }
 
-/* line 110, ../../app/stylesheets/type.scss */
+/* line 109, ../../app/stylesheets/type.scss */
 ol {
   list-style-type: decimal;
 }
 
-/* line 111, ../../app/stylesheets/type.scss */
+/* line 110, ../../app/stylesheets/type.scss */
 dl {
   margin: 0 0 1.5em 0;
 }
 
-/* line 112, ../../app/stylesheets/type.scss */
+/* line 111, ../../app/stylesheets/type.scss */
 dl dt {
   font-weight: bold;
 }
 
-/* line 113, ../../app/stylesheets/type.scss */
+/* line 112, ../../app/stylesheets/type.scss */
 dd {
   margin-left: 1.5em;
 }
 
-/* line 115, ../../app/stylesheets/type.scss */
+/* line 114, ../../app/stylesheets/type.scss */
 tfoot {
   font-style: italic;
 }
 
-/* line 116, ../../app/stylesheets/type.scss */
+/* line 115, ../../app/stylesheets/type.scss */
 caption {
   background: #eee;
 }
 
-/* line 117, ../../app/stylesheets/type.scss */
+/* line 116, ../../app/stylesheets/type.scss */
 .small {
   font-size: 11px;
   margin-top: 5px;
   color: gray;
 }
 
-/* line 118, ../../app/stylesheets/type.scss */
+/* line 117, ../../app/stylesheets/type.scss */
 .large {
   font-size: 1.2em;
   line-height: 2.5em;
   margin-bottom: 1.25em;
 }
 
-/* line 119, ../../app/stylesheets/type.scss */
+/* line 118, ../../app/stylesheets/type.scss */
 .hide {
   display: none;
 }
 
-/* line 120, ../../app/stylesheets/type.scss */
+/* line 119, ../../app/stylesheets/type.scss */
 .quiet {
   color: #666;
 }
 
-/* line 121, ../../app/stylesheets/type.scss */
+/* line 120, ../../app/stylesheets/type.scss */
 .loud {
   color: #000;
 }
 
-/* line 122, ../../app/stylesheets/type.scss */
+/* line 121, ../../app/stylesheets/type.scss */
 .highlight {
   background: #ff0;
 }
 
-/* line 123, ../../app/stylesheets/type.scss */
+/* line 122, ../../app/stylesheets/type.scss */
 .added {
   background: #060;
   color: #fff;
 }
 
-/* line 124, ../../app/stylesheets/type.scss */
+/* line 123, ../../app/stylesheets/type.scss */
 .removed {
   background: #900;
   color: #fff;
 }
 
-/* line 125, ../../app/stylesheets/type.scss */
+/* line 124, ../../app/stylesheets/type.scss */
 .first {
   margin-left: 0;
   padding-left: 0;
 }
 
-/* line 126, ../../app/stylesheets/type.scss */
+/* line 125, ../../app/stylesheets/type.scss */
 .last {
   margin-right: 0;
   padding-right: 0;
 }
 
-/* line 127, ../../app/stylesheets/type.scss */
+/* line 126, ../../app/stylesheets/type.scss */
 .top {
   margin-top: 0;
   padding-top: 0;
 }
 
-/* line 128, ../../app/stylesheets/type.scss */
+/* line 127, ../../app/stylesheets/type.scss */
 .bottom {
   margin-bottom: 0;
   padding-bottom: 0;
