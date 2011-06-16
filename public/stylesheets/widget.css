@@ -207,11 +207,16 @@ textarea#embed-code {
 }
 
 /* line 209, ../../app/stylesheets/widget.scss */
+.widgets.index .grid_16 {
+  background: none !important;
+}
+
+/* line 213, ../../app/stylesheets/widget.scss */
 .widget_preview {
   padding: 50px 0 0 20px;
 }
 
-/* line 212, ../../app/stylesheets/widget.scss */
+/* line 218, ../../app/stylesheets/widget.scss */
 .widget_config {
   padding: 50px 0 0 0px;
 }
