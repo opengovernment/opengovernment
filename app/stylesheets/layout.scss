@@ -1557,3 +1557,71 @@ body.home h2{
 background: 0 !important;
 }
 
+
+
+
+.people.show {
+
+  h1{
+    padding-top: 20px;
+    }
+
+
+ .subhead{
+    padding: 5px 0 0 0;
+    }
+
+ .share-tools{
+     padding-top: 10px;
+
+ }
+
+}
+
+
+
+
+.bill-intro {
+  margin: 0 -15px 30px -34px;
+  padding: 10px 25px 35px 36px;  
+  position: relative;
+  line-height: 1.2em; 
+  
+  @include light-blue-gradient;
+
+  border-bottom: 1px solid rgba(67, 67, 67, .2);
+
+  .views{
+    margin-right: 10px;
+    float: left;
+    margin-top: 3px;
+    clear: none;
+    padding-right: 15px;
+  }
+
+
+  p{
+    clear: both;
+    margin-bottom: 0;
+  }
+
+  p:first-letter{
+    text-transform: uppercase;
+  }
+
+  h1 {
+    background: 0;
+    border: 0;
+    padding-top: 0;
+    padding-left: 31px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    float: left;
+  }
+}
+
+
+
+
+

@@ -1584,3 +1584,62 @@ box div div {
 body.home h2 {
   background: 0 !important;
 }
+
+/* line 1565, ../../app/stylesheets/layout.scss */
+.people.show h1 {
+  padding-top: 20px;
+}
+/* line 1570, ../../app/stylesheets/layout.scss */
+.people.show .subhead {
+  padding: 5px 0 0 0;
+}
+/* line 1574, ../../app/stylesheets/layout.scss */
+.people.show .share-tools {
+  padding-top: 10px;
+}
+
+/* line 1584, ../../app/stylesheets/layout.scss */
+.bill-intro {
+  margin: 0 -15px 30px -34px;
+  padding: 10px 25px 35px 36px;
+  position: relative;
+  line-height: 1.2em;
+  /* IE; docs say this should go first: */
+  *zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(194, 220, 224, 0.1)), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -moz-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -o-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  border-bottom: 1px solid rgba(67, 67, 67, 0.2);
+}
+/* line 1594, ../../app/stylesheets/layout.scss */
+.bill-intro .views {
+  margin-right: 10px;
+  float: left;
+  margin-top: 3px;
+  clear: none;
+  padding-right: 15px;
+}
+/* line 1603, ../../app/stylesheets/layout.scss */
+.bill-intro p {
+  clear: both;
+  margin-bottom: 0;
+}
+/* line 1608, ../../app/stylesheets/layout.scss */
+.bill-intro p:first-letter {
+  text-transform: uppercase;
+}
+/* line 1612, ../../app/stylesheets/layout.scss */
+.bill-intro h1 {
+  background: 0;
+  border: 0;
+  padding-top: 0;
+  padding-left: 31px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  float: left;
+}
