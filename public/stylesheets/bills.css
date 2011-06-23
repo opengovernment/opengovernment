@@ -624,53 +624,7 @@ li .sponsor_mugs {
   padding: 5px 0 0 0;
 }
 
-/* line 524, ../../app/stylesheets/bills.scss */
-.bill-intro {
-  margin: 0 -15px 30px -34px;
-  padding: 10px 25px 35px 36px;
-  position: relative;
-  line-height: 1.2em;
-  /* IE; docs say this should go first: */
-  *zoom: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(194, 220, 224, 0.1)), color-stop(100%, #ffffff));
-  background: -webkit-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
-  background: -moz-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
-  background: -o-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
-  background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
-  border-bottom: 1px solid rgba(67, 67, 67, 0.2);
-}
-/* line 534, ../../app/stylesheets/bills.scss */
-.bill-intro .views {
-  margin-right: 10px;
-  float: left;
-  margin-top: 3px;
-  clear: none;
-  padding-right: 15px;
-}
-/* line 543, ../../app/stylesheets/bills.scss */
-.bill-intro p {
-  clear: both;
-  margin-bottom: 0;
-}
-/* line 548, ../../app/stylesheets/bills.scss */
-.bill-intro p:first-letter {
-  text-transform: uppercase;
-}
-/* line 552, ../../app/stylesheets/bills.scss */
-.bill-intro h1 {
-  background: 0;
-  border: 0;
-  padding-top: 0;
-  padding-left: 31px;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  float: left;
-}
-
-/* line 565, ../../app/stylesheets/bills.scss */
+/* line 523, ../../app/stylesheets/bills.scss */
 .documents .thumbnail {
   float: left;
   margin-right: 15px;
@@ -678,7 +632,7 @@ li .sponsor_mugs {
   height: 116px;
 }
 
-/* line 572, ../../app/stylesheets/bills.scss */
+/* line 530, ../../app/stylesheets/bills.scss */
 #people_mentions {
   display: inline;
   float: left;
@@ -687,7 +641,7 @@ li .sponsor_mugs {
   width: 220px;
 }
 
-/* line 577, ../../app/stylesheets/bills.scss */
+/* line 535, ../../app/stylesheets/bills.scss */
 #popular_bills {
   display: inline;
   float: left;
@@ -697,7 +651,7 @@ li .sponsor_mugs {
   margin-left: 0;
 }
 
-/* line 583, ../../app/stylesheets/bills.scss */
+/* line 541, ../../app/stylesheets/bills.scss */
 #hot_issues {
   display: inline;
   float: left;

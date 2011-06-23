@@ -24,6 +24,7 @@
         %li.hot_person
           = link_to(photo_for(person, :tiny), person_path(person), :class => "floatleft margin-right sponsor_mug#{i == 0 ? ' active' : ''}")
 
+
           .hot-details
             %strong= link_to(person.full_name, person_path(person), :class => "black")
           

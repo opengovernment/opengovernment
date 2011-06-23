@@ -191,12 +191,33 @@ border: 1px solid rgba(101,101,101,.2);
 }
 
 .widget_config{
-
+   
 }
 
 
 .widgets .button.tiny{
 margin: 7px 19px 0;
   }
+
+
+
+.widgets .grid_16{
+  background: url(../images/widg-bg.jpg) 9px 100px no-repeat;
+}
+
+
+.widgets.index .grid_16{
+  background:none !important;
+}
+
+.widget_preview{
+padding: 50px 0 0 20px;
+}
+
+
+.widget_config{
+padding: 50px 0 0 0px;
+}
+
 
 

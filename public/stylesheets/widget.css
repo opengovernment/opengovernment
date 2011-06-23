@@ -200,3 +200,23 @@ textarea#embed-code {
 .widgets .button.tiny {
   margin: 7px 19px 0;
 }
+
+/* line 204, ../../app/stylesheets/widget.scss */
+.widgets .grid_16 {
+  background: url(../images/widg-bg.jpg) 9px 100px no-repeat;
+}
+
+/* line 209, ../../app/stylesheets/widget.scss */
+.widgets.index .grid_16 {
+  background: none !important;
+}
+
+/* line 213, ../../app/stylesheets/widget.scss */
+.widget_preview {
+  padding: 50px 0 0 20px;
+}
+
+/* line 218, ../../app/stylesheets/widget.scss */
+.widget_config {
+  padding: 50px 0 0 0px;
+}

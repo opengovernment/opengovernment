@@ -14,13 +14,14 @@
         %span.soon= t('.coming_soon')
 
 
-
-%h1
-  = @person.official_name
-  .subhead
-    #{@person.try(:party)}, #{@person.try(:district_name)}
-
-.share-tools
-  %h4.pad Share this
-  = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
-
+.bill-intro  
+  %h1
+    = @person.official_name
+    .subhead
+      #{@person.try(:party)}, #{@person.try(:district_name)}
+  
+  .share-tools
+    %h4.pad Share this
+    = render :partial => 'shared/share_tools', :locals => {:message => "Share", :title => "I'm reading about #{@state.abbrev} #{@person.official_name} on OpenGovernment.org", :url => request.url}
+  .clear
+  

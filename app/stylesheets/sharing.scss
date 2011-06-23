@@ -43,10 +43,8 @@
 
 .share-tools {
   height: 30px;
-  position: absolute;
-  right: 0;
+float: right;
   width: 240px; 
-  z-index: 99999;
 
   h4{
     display: none;
