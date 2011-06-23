@@ -1,6 +1,4 @@
 class SubjectsController < SubdomainController
-  before_filter :get_subject, :only => :show
-
   def index
     @min_bills = 1
     page = params[:page] || 1
@@ -13,9 +11,9 @@ class SubjectsController < SubdomainController
     @subjects = @subjects.select("distinct subjects.*").where(["upper(subjects.name) like ?", @letter + '%']).page(params[:page])
   end
 
-  def get_subject
+  def show
     @subject = Subject.find(params[:id])
-    @subject_bills = @subject.bills.where(["bills.session_id in (?)", @session.family]).page(params[:page])
+    @subject_bills = @subject.bills.where(["bills.session_id in (?)", @session.family]).order("bills.last_action_at desc").page(params[:page])
     @subject || resource_not_found
   end  
 end
