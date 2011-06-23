@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   # for geometry options
   has_attached_file :photo, :styles => {:full => '90', :thumb => '50x50#'}, :convert_options => { :all => '-gravity north'}
 
-  acts_as_noteworthy :with => [:official_name]
+  acts_as_noteworthy :with => [:official_name], :geo => "state.name"
 
   validates_inclusion_of :gender, :in => %w(M F), :allow_blank => true
   validates_presence_of :first_name, :last_name
@@ -152,7 +152,7 @@ class Person < ActiveRecord::Base
   end
 
   def state_id
-    current_roles.try(:first).try(:state_id)
+    current_roles.try(:first).try(:state_id) || chamber.legislature.state
   end
  
   def state

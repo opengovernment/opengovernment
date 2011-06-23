@@ -55,7 +55,7 @@ class Bill < ActiveRecord::Base
   scope :for_state, lambda { |s| {:conditions => ["state_id = ?", s]} }
 
   # Creates #mentions associations.
-  acts_as_noteworthy :with => [:bill_number, "state.name"]
+  acts_as_noteworthy :with => [:bill_number], :geo => "state.name"
 
   has_many :citations, :as => :citeable
   has_many :bills_subjects
