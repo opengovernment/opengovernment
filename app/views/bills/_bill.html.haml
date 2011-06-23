@@ -28,8 +28,7 @@
           .recent_action.grid_5.omega.alpha
             - if bill.last_action_at
               %span.small_date!= bill.last_action_at
-              %span.latest-action= bill.actions.first.try(:kind_fm).try(:titleize)
-
+              %span.latest-action= bill.actions.first.try(:kind_fm).try(:titleize).try(:truncate, 40)
 
           .recent_vote.grid_1.alpha.omega
             %span.small_date!= bill.votes.count
