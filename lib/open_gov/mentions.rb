@@ -27,24 +27,24 @@ module OpenGov
     private
 
     def make_mentions(obj)
-      puts "#{obj.to_param}"
       raw_mentions = obj.raw_mentions
 
-      raw_mentions[:google_news].map { |c| make_mention(obj, c, "Google News") }
-      raw_mentions[:google_blogs].map { |c| make_mention(obj, c, "Google Blogs") }
+      [:bing, :google_news, :google_blogs].each do |type|
+        raw_mentions[type].map { |c| make_mention(obj, c) }
+      end
 
       obj.save!
     end
 
-    def make_mention(owner, mention, source)
-      owner.mentions.find_or_create_by_url(mention.url) do |c|
-        c.source = mention.source[0..253]
-        c.date = Date.valid_date!(mention.date)
-        c.weight = mention.weight
-        c.title = mention.title
-        c.excerpt = mention.excerpt
-        c.search_source = source
-      end
+    def make_mention(owner, mention)
+      c = owner.mentions.find_or_create_by_url(mention.url)
+      c.source = mention.source[0..253]
+      c.date = Date.valid_date!(mention.date)
+      c.weight = mention.weight
+      c.title = mention.title
+      c.excerpt = mention.excerpt
+      c.search_source = mention.search_source
+      c.save!
     end
   end
 end
