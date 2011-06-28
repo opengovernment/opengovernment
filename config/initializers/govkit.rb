@@ -7,5 +7,6 @@ if defined? GovKit
     config.ftm_apikey = ApiKeys.follow_the_money
     config.opencongress_apikey = ApiKeys.opencongress
     config.technorati_apikey = ApiKeys.technorati
+    config.bing_appid = ApiKeys.bing
   end
 end
