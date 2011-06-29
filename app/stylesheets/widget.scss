@@ -220,4 +220,36 @@ padding: 50px 0 0 0px;
 }
 
 
+.list {
+  background: url(../images/og-widg.jpg) right 65px no-repeat;
+float: left;
+min-height: 500px;
+width: 100%;
+}
 
+.list h2{
+margin-left: 20px;}
+
+.list ul{
+padding: 0px;
+border: 1px solid rgba(101,101,101,.2);
+background:  rgba(101,101,101,.2);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  width: 320px;
+  margin: 0 0 0 20px
+}
+
+
+
+.list ul li{
+padding: 20px 30px 5px;
+border-bottom: 1px solid #aaa;
+}
+
+
+.list ul li:last-child{
+border-bottom: none;
+}

@@ -220,3 +220,40 @@ textarea#embed-code {
 .widget_config {
   padding: 50px 0 0 0px;
 }
+
+/* line 223, ../../app/stylesheets/widget.scss */
+.list {
+  background: url(../images/og-widg.jpg) right 65px no-repeat;
+  float: left;
+  min-height: 500px;
+  width: 100%;
+}
+
+/* line 230, ../../app/stylesheets/widget.scss */
+.list h2 {
+  margin-left: 20px;
+}
+
+/* line 233, ../../app/stylesheets/widget.scss */
+.list ul {
+  padding: 0px;
+  border: 1px solid rgba(101, 101, 101, 0.2);
+  background: rgba(101, 101, 101, 0.2);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  width: 320px;
+  margin: 0 0 0 20px;
+}
+
+/* line 247, ../../app/stylesheets/widget.scss */
+.list ul li {
+  padding: 20px 30px 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+/* line 253, ../../app/stylesheets/widget.scss */
+.list ul li:last-child {
+  border-bottom: none;
+}
