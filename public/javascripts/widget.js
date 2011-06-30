@@ -39,7 +39,6 @@ OG = window.OG || {};
   	return new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," "));
   };
 
-
   /*
    * Date Format 1.2.3
    * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
@@ -227,6 +226,8 @@ OG = window.OG || {};
       var http = isHttps ? 'https://' : 'http://';
       var domain = 'opengovernment.org';
 
+      domain = '127localhost.com:3000';
+
       // From http://javascriptweblog.wordpress.com/2010/11/29/json-and-jsonp/
       var jsonp = {
           CALLBACK_NUMBER: 0,
@@ -306,11 +307,11 @@ OG = window.OG || {};
 
         _getUrl: function() {
           if (this._isBillsWidget) {
-            return http + this._subdomain + '/bills.json?sort=views&limit=5&callback=?';
+            return http + this._subdomain + '/bills.json?sort=views&limit=3&callback=?';
           } else if (this._isBillWidget) {
             return http + this._subdomain + '/sessions/' + escape(this.bill.session + '/bills/' + this.bill.number) + '.json?callback=?';
           } else {
-            return http + this._subdomain + '/people.json?sort=views&limit=5&callback=?';
+            return http + this._subdomain + '/people.json?sort=views&limit=3&callback=?';
           }
         },
 
@@ -318,13 +319,21 @@ OG = window.OG || {};
           return this.ops;
         },
 
+        getOptionsForSnippet: function() {
+          var ops = {};
+          // essentially this.ops.except(:preview)
+          for (attrname in this.ops) { ops[attrname] = this.ops[attrname]; }
+          delete ops.preview;
+          return ops;
+        },
+
         setWidth: function(w) {
-            this.width = w ? w : 'auto',
+          this.ops.width = w ? w : 'auto';
 
-            // min width: 150px, min height: 100px.
-            w == "auto" || w == "100%" ? this.width = "100%" : this.width = (this.width < 150 ? 150 : this.width) + "px";
+          // min width: 150px, min height: 100px.
+          this.width = (this.ops.width == "auto" || this.ops.width == "100%") ? "100%" : (this.ops.width < 150 ? 150 : this.ops.width) + "px";
 
-            return this;
+          return this;
         },
 
         _setWidth: function() {
@@ -353,7 +362,7 @@ OG = window.OG || {};
               return theme.header || that._getDefaultTheme().header
             } ()
           };
-          var style = '#' + this.id + ', #' + this.id + ' h1 {\
+          var style = '#' + this.id + ', #' + this.id + ' h1, #' + this.id + ' h1 a {\
             color: ' + this.theme.header + ' !important;\
           }\
           #' + this.id + ' a {\

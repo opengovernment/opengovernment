@@ -10,8 +10,10 @@
     @include border-radius(4px);
     border: 1px solid rgba(101,101,101,.2);
     background: url(../images/widg-bg.png) 0px 0px no-repeat;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
     margin: 0;
-    
+
     h1 {
       line-height: 1em;
       font-size: 18px;
@@ -21,6 +23,10 @@
       background: none;
     }
 
+    h1 a {
+      font-weight: normal;
+    }
+  
     h1 span {
       line-height: 1.5em;
       font-size: 14px;
@@ -32,7 +38,10 @@
     }
 
     ul {
+      list-style-type: none;
+      margin: 0 1.5em 1.5em 0;
       padding-top: 5px;
+      padding-left: 0;
     }
 
     li {
@@ -40,6 +49,8 @@
       margin: 10px 0 0 20px;
       border-bottom: 1px solid rgba(101,101,101, .1);
       background: none;
+      line-height: 1.7em;
+      clear: both;    
     }
 
     li:last-child {
@@ -47,17 +58,33 @@
     }
 
     h2 {
-      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
       text-transform: none;
       line-height: 1.2em;
       margin: 0 0 10px;
+      font-weight: normal;
       font-size: 14px;
       padding: 0;
       margin: 0;
+      clear: left;
     }
 
     h2 a {
+      font-size: 12px;
+    }
+
+    h1 a, h2 a, h3 a {
       text-decoration: none;
+    }
+
+    h3 {
+      padding: 3px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin: 0 0 2px 0;
+      display: inline;
+      float: left;
+      width: auto;
+      line-height: 1.1em;
       font-size: 12px;
     }
   
@@ -114,7 +141,7 @@ margin-right: 15px;
 float: left;
 }
 
-.og-widget-action{
+.og-widget-bill-action{
 font-size: 11px;
 line-height: 16px;
 margin-top: 5px;

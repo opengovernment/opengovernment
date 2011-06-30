@@ -61,6 +61,10 @@ gem "compass", ">= 0.11.1"
 gem 'compass-960-plugin'
 gem 'jquery-rails'
 
+# JSON / APIs
+gem 'rabl'
+gem 'json'
+
 # Tagging
 gem 'acts-as-taggable-on'
 
@@ -68,7 +72,6 @@ gem 'acts-as-taggable-on'
 gem 'httparty'
 gem 'nokogiri'
 gem 'chronic' # Complex date string parsing
-gem 'json'
 gem 'fastercsv'
 # gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
 

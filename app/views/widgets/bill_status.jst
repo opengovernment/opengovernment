@@ -1,10 +1,12 @@
-<div class="og-widget-container">
-<h1><span><%= state.toUpperCase() %> Bill <%= bill_status.bill_number %></span></h1>
+<div class="og-widget-container og-state-<%= state %>">
+<h1><a href="http://<%= subdomain %>"><strong>Open</strong>Government</a>
+<span><a href="http://<%= subdomain + bill_status.permalink %>"><%= state.toUpperCase() %> Bill Status</a></span>
+</h1>
 <ul>
   <li>
-    <h2><a href="http://<%= subdomain + bill_status.permalink %>"><%= bill_status.title.substring(0, 60) %></a></h2>
-    <div class="og-widget-intro">Introduced <time class="og-widget-first-bill-action" datetime="<%= bill_status.first_action_at %>"><%= OG.dateFromISO8601(bill_status.first_action_at).format("longDate") %></time></div>
-    <div class="og-widget-action">Last action on <time class="og-widget-last-bill-action" datetime="<%= bill_status.last_action_at %>"><%= OG.dateFromISO8601(bill_status.last_action_at).format("longDate") %></time></div>
+    <h2><a href="http://<%= subdomain + bill_status.permalink %>"><strong><%= bill_status.bill_number %></strong>: <%= bill_status.title.truncate(60) %></a></h2>
+    <div class="og-widget-intro">Introduced <time class="og-widget-first-bill-action" datetime="<%= bill_status.first_action_at %>"><%= OG.dateFromISO8601(bill_status.first_action_at).format("mediumDate") %></time></div>
+    <div class="og-widget-action">Last action on <time class="og-widget-last-bill-action" datetime="<%= bill_status.last_action_at %>"><%= OG.dateFromISO8601(bill_status.last_action_at).format("mediumDate") %></time></div>
     <div class="og-widget-clear">&nbsp;</div>
   </li>
 </ul>

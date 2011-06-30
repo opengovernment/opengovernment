@@ -4,9 +4,7 @@ class StatesController < SubdomainController
     
     if @state.supported?
       respond_to do |format|
-        format.json {
-          render :json => @state
-        }
+        format.json { render :json => @state }
         format.html {
           session[:preferred_location] = request.subdomains.first
 
