@@ -5,7 +5,7 @@ var isNumeric = function(input) {
 var getEmbed = function(widget) {
   return '<script src="http://opengovernment.org/assets/widget.js" type="text/javascript"></scr' + 'ipt>\n' +
 '<script>\n' +
-'new OG.Widget(' + JSON.stringify(widget.getOptions(), null, '\t') + ').render();\n' +
+'new OG.Widget(' + JSON.stringify(widget.getOptionsForSnippet(), null, '\t') + ').render();\n' +
 '</scr' + 'ipt>\n';
 };
 
@@ -55,7 +55,7 @@ $(function() {
   $('.widgetVar').change(function() {
     refreshTheme(testWidget);
   });
-  
+
   // Refresh the theme with this trigger is called
   $('#widgetData').bind('refresh', function() {
     refreshTheme(testWidget);

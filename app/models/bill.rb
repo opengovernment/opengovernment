@@ -93,6 +93,10 @@ class Bill < ActiveRecord::Base
     bill_number + ': ' + title
   end
 
+  def other_titles
+    YAML::load(alternate_titles)
+  end
+
   def name_with_context
     session.name_fm + ' ' + chamber.name + ' Bill ' + bill_number
   end
