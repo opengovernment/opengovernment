@@ -93,6 +93,22 @@
   }
 }
 
+.og-widget-person {
+  h2 {
+    display: inline;
+  }
+  
+  h2, div {
+    float: none;
+  }
+  
+}
+
+.og-widget-photo {
+  float: left;
+  padding-right: 10px;
+}
+
 .og-widget-footer {
   display: block;
   margin-bottom: 1.5em;

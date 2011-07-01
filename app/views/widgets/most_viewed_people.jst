@@ -1,12 +1,12 @@
 <div class="og-widget-container og-state-<%= state %>">
   <h1><strong>Open</strong>Government <span>Most Viewed People</span></h1>
   <ul>
-    <% _.each(most_viewed_people, function(person) { %>
-      <li>
+    <% _.each(most_viewed_people, function(p) {
+      var person = p.person; %>
+      <li class="og-widget-person">
+        <img src="<%= person.photo_urls.thumb %>" class="og-widget-photo" width="50" height="50">
         <h2><a href="http://<%= person.permalink %>"><%= person.full_name %></a></h2>
         <div class="og-widget-views"><%= person.views %> views</div>
-        <div class="og-widget-bio"><%= person.bio_data.truncate(160) %></div>
-        <div class="og-widget-clear">&nbsp;</div>
       </li>
     <% }); %>
   </ul>

@@ -225,6 +225,7 @@ OG = window.OG || {};
     OG.Widget.prototype = function () {
       var http = isHttps ? 'https://' : 'http://';
       var domain = 'opengovernment.org';
+      domain = '127localhost.com:3000'
 
       // From http://javascriptweblog.wordpress.com/2010/11/29/json-and-jsonp/
       var jsonp = {
