@@ -13,11 +13,12 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
     margin: 0;
+    padding-left: 20px;
 
     h1 {
       line-height: 1em;
       font-size: 18px;
-      padding: 15px 0 0 20px;
+      padding: 15px 0 0 0;
       margin: 0;
       border: 0;
       background: none;
@@ -39,14 +40,14 @@
 
     ul {
       list-style-type: none;
-      margin: 0 1.5em 1.5em 0;
+      margin: 0 1.5em 0 0;
       padding-top: 5px;
       padding-left: 0;
     }
 
     li {
       padding-bottom: 15px;
-      margin: 10px 0 0 20px;
+      margin: 10px 0 0 0px;
       border-bottom: 1px solid rgba(101,101,101, .1);
       background: none;
       line-height: 1.7em;
@@ -88,8 +89,15 @@
       font-size: 12px;
     }
   
+  
   }
 }
+
+.og-widget-footer {
+  display: block;
+  margin-bottom: 1.5em;
+}
+
 
 // Styles for the widget config pages
 textarea#embed-code {
