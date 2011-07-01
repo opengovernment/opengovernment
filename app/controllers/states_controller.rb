@@ -16,8 +16,8 @@ class StatesController < SubdomainController
 
           @hot_people = Person.find_by_sql(["select
             p.*,
-            current_district_name_for(p.id) as district_name,  
-            current_party_for(p.id) as party,
+            r.district_name,  
+            r.party,
             m.mentions_count
           from
             people p join (
@@ -31,6 +31,7 @@ class StatesController < SubdomainController
               order by mentions_count desc
               limit 50) m
             on m.owner_id = p.id
+            join v_most_recent_roles r on r.person_id = p.id
           where
             p.photo_url is not null
           limit 3

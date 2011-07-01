@@ -20,24 +20,6 @@ begin
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
 
-CREATE OR REPLACE FUNCTION current_district_name_for(p_id integer) RETURNS varchar AS $$
-DECLARE
-  name VARCHAR;
-BEGIN
-  select district_name into name from v_most_recent_roles where person_id = p_id limit 1;
-  RETURN name;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE OR REPLACE FUNCTION current_party_for(p_id integer) RETURNS varchar AS $$
-DECLARE
-  p VARCHAR;
-BEGIN
-  select party into p from v_most_recent_roles where person_id = p_id limit 1;
-  RETURN p;
-END;
-$$ LANGUAGE plpgsql;
-
 CREATE OR REPLACE FUNCTION current_state_for(p_id integer) RETURNS varchar AS $$
 DECLARE
   s INTEGER;
@@ -274,6 +256,7 @@ CREATE OR REPLACE VIEW v_all_roles AS
     left outer join sessions s on (r.session_id = s.id)
     left outer join districts d on (d.id = r.district_id);
 
+-- This view MUST return only one row per person_id.
 CREATE OR REPLACE VIEW v_most_recent_roles AS
   SELECT
     ar.*
