@@ -1,5 +1,5 @@
 <div class="og-widget-container og-state-<%= state %>">
-  <h1><a href="http://<%= subdomain %>"><strong>Open</strong>Government</a> <span>Most Viewed Bills in <%= state.toUpperCase() %></span></h1>
+  <h1><a href="<%= subdomain %>"><strong>Open</strong>Government</a> <span>Most Viewed Bills in <%= state.toUpperCase() %></span></h1>
   <ul>
     <% _.each(most_viewed_bills, function(h) {
       var bill = h.bill; %>
@@ -14,5 +14,5 @@
       </li>
     <% }); %>
   </ul>
-  <a href="http://<%= subdomain %>" class="og-widget-footer">More on OpenGovernment <%= state.toUpperCase() %> &rarr;</a>
+  <a href="<%= subdomain %>" class="og-widget-footer">More on OpenGovernment <%= state.toUpperCase() %> &rarr;</a>
 </div>
