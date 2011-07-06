@@ -125,8 +125,7 @@ width: 250px;
   font-family: 'ogeye';
   font-style:  normal;
   font-weight: normal;
-  src: url('../fonts/ogeye.eot');
-  src: local('ogeye'), url('../fonts/ogeye.ttf') format('truetype');
+  src: url('../fonts/ogeye3.ttf');    
 }
 
 .og-widget-intro{
@@ -147,12 +146,12 @@ float: left;
   opacity: 0.8;
 }
 
-.og-widget-action:before {
+.og-widget-bill-action:before {
   padding-right: 10px;
   font-family: 'ogeye';
   content: 'A';
   position: relative;
-  font-size: 11px;
+  font-size: 12px;
   opacity: 0.8;
 }
 
