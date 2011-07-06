@@ -221,6 +221,19 @@ line-height: 2em;
 font-weight: normal;
 }
 
+label#widgetBillLookup {
+  display: block;
+}
+
+#billLookupResults li {
+  margin: 2px 0 2px 0;
+  padding: 5px;
+  background-color: #eee;
+}
+
+#billLookupResults li:hover {
+  background-color: #cdc;
+}
 
 .chooser input {
   -moz-border-radius: 3px;
