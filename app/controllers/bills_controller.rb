@@ -3,7 +3,7 @@ class BillsController < SubdomainController
   before_filter :get_bill, :except => [:index, :upper, :lower, :search]
   before_filter :setup_sort, :only => [:index, :upper, :lower]
   respond_to :html, :only => [:index, :show]
-  respond_to :json, :only => [:index, :show, :search]
+  respond_to :json, :xml, :only => [:index, :show, :search]
 
   def index
     expires_in 30.minutes
