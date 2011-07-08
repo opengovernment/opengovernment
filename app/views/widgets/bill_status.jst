@@ -4,7 +4,7 @@
 </h1>
 <ul>
   <li>
-    <h2><a href="<%= subdomain + bill_status.permalink %>"><strong><%= bill_status.bill_number %></strong>: <%= bill_status.title.truncate(60) %></a></h2>
+    <h2><a href="<%= subdomain + bill_status.permalink %>"><strong><%= bill_status.bill_number %></strong>: <%= bill_status.title.truncate(140) %></a></h2>
     <div class="og-widget-intro">Introduced <time class="og-widget-first-bill-action" datetime="<%= bill_status.first_action_at %>"><%= OG.dateFromISO8601(bill_status.first_action_at).format("mediumDate") %></time></div>
     <div class="og-widget-bill-action">Last action on <time class="og-widget-last-bill-action" datetime="<%= bill_status.last_action_at %>"><%= OG.dateFromISO8601(bill_status.last_action_at).format("mediumDate") %></time></div>
     <div class="og-widget-clear">&nbsp;</div>
