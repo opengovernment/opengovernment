@@ -162,6 +162,8 @@ module OpenGov
 
         # Save the first & last action dates
         @bill.save
+        
+        puts @bill.bill_number
 
         # Bill documents & versions are very processor intensive to build for
         # the document viewer, so we avoid deleting and reimporting them if we can
@@ -171,13 +173,14 @@ module OpenGov
           # Versions aren't really useful without a URL, so we're
           # not importing them.
           unless version[:url].blank?
-            BillDocument.find_or_create_by_bill_id_and_url(@bill.id, version[:url]) do |v|
-              v.name = version[:name],
-              v.published_at = Date.valid_date!(version[:'+date']),
-              v.document_type = 'version',
-              v.updated_at = @sync_date
-              v.save
-            end
+            v = BillDocument.find_or_initialize_by_bill_id_and_url(@bill.id, version[:url])
+            v.attributes = {
+              :name => version[:name],
+              :published_at => Date.valid_date!(version[:'+date']),
+              :document_type => 'version',
+              :updated_at => @sync_date
+            }
+            v.save
           end
         end
 
@@ -185,16 +188,17 @@ module OpenGov
           # Documents aren't really useful without a URL, so we're
           # not importing them.
           unless doc[:url].blank?
-            BillDocument.find_or_create_by_bill_id_and_url(@bill.id, doc[:url]) do |document|
-              document.name = doc[:name]
-              document.published_at = Date.valid_date!(doc[:'+date'])
-              document.document_type = 'document'
-              document.updated_at = @sync_date
-              document.save
-            end
+            document = BillDocument.find_or_initialize_by_bill_id_and_url(@bill.id, doc[:url])
+            document.attributes = {
+              :name => doc[:name],
+              :published_at => Date.valid_date!(doc[:'+date']),
+              :document_type => 'document',
+              :updated_at => @sync_date
+            }
+            document.save
           end
         end
-
+        
         # Delete any versions or documents that we didn't just touch.
         @bill.versions.where(['updated_at <> ?', @sync_date]).destroy_all
         @bill.documents.where(['updated_at <> ?', @sync_date]).destroy_all
