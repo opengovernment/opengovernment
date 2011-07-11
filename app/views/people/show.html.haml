@@ -1,4 +1,4 @@
-- title(@person.official_name)
+- title(@person.official_name, "#{@person.official_name} - #{@state.name} #{@person.chamber.name}")
 - content_for :head do
   = auto_discovery_link_tag(:atom, {:format => :atom}, {:title => "Votes by #{@person.official_name}"})
 - track(@person)

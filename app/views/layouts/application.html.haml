@@ -28,7 +28,7 @@
 
     = yield :head
 
-    %title= t('site.name') + " - " + (content_for?(:title) ? yield(:title) : t('site.tagline'))
+    %title= (content_for?(:html_title) ? yield(:html_title) : t('site.tagline'))  + " - " + t('site.name') + (current_place.blank? ? '' : ' ' + current_place.name)
 
   %body{:id => 'wrap', :class => page_class + (current_place_subdomain.blank? ? '' : ' ' + current_place_subdomain)}
     %header= render 'layouts/header'
