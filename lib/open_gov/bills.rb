@@ -13,13 +13,13 @@ module OpenGov
 
     def import_state(state, options = {})
       if options[:remote]
-        import_remote(state)
+        import_remote(state, options)
       else
         state_dir = File.join(Settings.openstates_dir, "bills", state.abbrev.downcase)
 
         unless File.exists?(state_dir)
           puts "Local Open State API data for #{state.name} is missing."
-          return import_state(state, :remote => true)
+          return import_state(state, options.merge({ :remote => true }))
         end
 
         puts "\nLoading local Open State data for #{state.name}."
@@ -46,7 +46,7 @@ module OpenGov
       end
     end
 
-    def import_remote(state)
+    def import_remote(state, options = {})
       puts "\nUpdating Open State bill data for #{state.name} from remote API"
 
       if state.bills.count > 0
