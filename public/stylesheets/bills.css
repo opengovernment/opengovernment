@@ -96,6 +96,7 @@
   background-image: -webkit-linear-gradient(#ffffff, #efefef);
   background-image: -moz-linear-gradient(#ffffff, #efefef);
   background-image: -o-linear-gradient(#ffffff, #efefef);
+  background-image: -ms-linear-gradient(#ffffff, #efefef);
   background-image: linear-gradient(#ffffff, #efefef);
   margin-top: 0px;
 }
@@ -519,12 +520,12 @@ li .sponsor_mugs {
   -webkit-transition: all .6s ease-in-out;
   /* IE; docs say this should go first: */
   *zoom: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#66C8C8C8', endColorstr='#1AC8C8C8');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.4)), color-stop(100%, rgba(200, 200, 200, 0.1)));
   background: -webkit-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   background: -moz-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   background: -o-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
+  background: -ms-linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.1));
   border: 1px solid #999;
   border-top: 1px solid #b4b4b4;
@@ -545,12 +546,12 @@ li .sponsor_mugs {
 .states.show .sponsor_mugs .sponsor_mug:hover {
   /* IE; docs say this should go first: */
   *zoom: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC8C8C8', endColorstr='#FFFFFFFF');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(200, 200, 200, 0.1)), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   background: -moz-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   background: -o-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
+  background: -ms-linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   background: linear-gradient(rgba(200, 200, 200, 0.1), #ffffff);
   text-decoration: none;
 }
@@ -560,12 +561,12 @@ li .sponsor_mugs {
 .states.show .sponsor_mugs .sponsor_mug:active {
   /* IE; docs say this should go first: */
   *zoom: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFDDDDDD');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #dddddd));
   background: -webkit-linear-gradient(#eeeeee, #dddddd);
   background: -moz-linear-gradient(#eeeeee, #dddddd);
   background: -o-linear-gradient(#eeeeee, #dddddd);
+  background: -ms-linear-gradient(#eeeeee, #dddddd);
   background: linear-gradient(#eeeeee, #dddddd);
   text-decoration: none;
   border: 1px solid #999;

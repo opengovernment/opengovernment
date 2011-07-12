@@ -21,12 +21,12 @@ h1 {
   border-bottom: 1px solid rgba(67, 67, 67, 0.2);
   /* IE; docs say this should go first: */
   *zoom: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF')";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#1AC2DCE0', endColorstr='#FFFFFFFF');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(194, 220, 224, 0.1)), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
   background: -moz-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
   background: -o-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
+  background: -ms-linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
   background: linear-gradient(rgba(194, 220, 224, 0.1), #ffffff);
 }
 
