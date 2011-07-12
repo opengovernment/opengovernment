@@ -9,7 +9,7 @@
 
   %p= t '.results_intro', :search_term => "#{@bill.state.name} #{@bill.bill_number}"
   
-  %div.grid_6.alpha
+  %div.grid_4.alpha
     %h3 
       = t('.google_news')
     - if @bill.google_news_mentions.any?
@@ -17,7 +17,15 @@
         = render @bill.google_news_mentions
     - else 
       %p Sorry, no results found at this time. If you know of a relevant news article to display here, <a href="/pages/contact">let us know</a>. 
-  %div.grid_6.omega
+  %div.grid_4
+    %h3 
+      = t('.bing')
+    - if @bill.bing_mentions.any?
+      %ul.lined.and_spaced.with_titles
+        = render @bill.bing_mentions
+    - else 
+      %p Sorry, no results found at this time. If you know of a relevant blog article to display here, <a href="/pages/contact">let us know</a>. 
+  %div.grid_4.omega
     %h3 
       = t('.blogs')
     - if @bill.google_blog_mentions.any?

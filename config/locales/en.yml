@@ -104,6 +104,7 @@ en:
             Here are the news and blog mentions found with our daily automated search of the Web (via Google News and Blog Search) for the search term: "%{search_term}". Remember, you can help build public knowledge about this bill. Simply mention this bill by its official title (as above) in a blog post or on your website, and if it's published on the open Web where search engines can find it, a link to your webpage will automatically appear here within 24 hours. Or, if you don't have a blog or website, you can write a letter to a local newspaper or political blog that mentions this bill, and if your letter is published on the Web, a link to that page will be swept up and displayed here.<br><br>
           google_news:  Google News
           blogs:        Blogs
+          bing:         Bing News
     votes:
       no_actions:       We have no actions for this bill.
       major_action: |
