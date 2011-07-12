@@ -7,7 +7,7 @@
         <% if (bill.subjects.length > 0) { %>
           <h3 class="og-widget-bill-subject"><%= bill.subjects[0].subject.name %></h3>
         <% } %>
-        <h2><a href="http://<%= subdomain + bill.permalink %>"><strong><%= bill.bill_number %></strong>: <%= bill.title.truncate(60) %></a></h2>
+        <h2><a href="<%= subdomain + bill.permalink %>"><strong><%= bill.bill_number %></strong>: <%= bill.title.truncate(60) %></a></h2>
         <div class="og-widget-views"><%= bill.views_last_month %> views in the last month</div>
         <div class="og-widget-bill-action">Last action on <time class="og-widget-last-bill-action" datetime="<%= bill.last_action_at %>"><%= OG.dateFromISO8601(bill.last_action_at).format("mediumDate") %></time></div>
         <div class="og-widget-clear">&nbsp;</div>
