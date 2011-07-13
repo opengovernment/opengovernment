@@ -1044,9 +1044,9 @@ top: 12px;
 .fourohfour {
 font-size: 100px;
 display: block;
-width: 900px;
+width: 600px;
 text-align: center;
-margin: 100px auto -20px;
+margin: 50px auto 50px;
 padding-top: 100px;
 font-weight: bold;
 overflow: hidden;
@@ -1058,6 +1058,31 @@ text-shadow: 5px 5px 0px #6e8499;
 .centered * {
 text-align: center !important
 }
+
+.small-box{
+background: rgba(255,255,255, .5);
+padding: 0;
+}
+
+.small-box h1{
+background: rgba(255,255,255, .5);
+margin: 0;
+text-align: center;
+}
+.small-box h2{
+padding: 20px 35px;
+margin: 0 ;
+}
+
+.small-box p{
+margin: 0;
+
+background: rgba(255,255,255, .5);
+padding: 20px 35px;
+}
+
+
+
 /*///////////////////////////
 
 ~ Sign
