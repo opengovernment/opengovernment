@@ -222,6 +222,7 @@ OG = window.OG || {};
   	
     OG.Widget.WIDGET_NUMBER = 0;
 
+    // The actual widget code starts here.
     OG.Widget.prototype = function () {
       var http = isHttps ? 'https://' : 'http://';
       var domain = 'opengovernment.org';

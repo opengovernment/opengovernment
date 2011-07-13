@@ -26,8 +26,6 @@ class State < Place
   scope :unsupported, :conditions => {:launch_date => nil}
 
   has_many :state_roles, :foreign_key => 'state_id', :class_name => 'Role'
-
-#  has_and_belongs_to_many :legislators, :join_table => 'v_most_recent_roles', :conditions => 'district_id is null', :class_name => 'Person'
   
   def senators
     Person.joins('join v_most_recent_roles vr on (people.id = vr.person_id)').where('vr.state_id' => self.id).where("district_id is null")

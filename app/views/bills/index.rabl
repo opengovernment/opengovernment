@@ -1,5 +1,3 @@
-collection @bills
-
 attributes :title, :short_title, :bill_number, :votesmart_id, :votesmart_key_vote
 attributes :created_at, :last_action_at
 attributes :state_id, :id, :chamber_id, :openstates_id
@@ -9,10 +7,7 @@ code(:views_last_month) { |bill| bill.views(1.month.ago.utc) }
 
 # --- Child objects ---
 
-child(:session) {
-  attributes :to_param, :start_year, :end_year, :id, :legislature_id, :parent_id
-  attributes :name_fm => :name, :name => :original_name
-}
+child(:session) { extends "sessions/session" }
 child(:documents => :documents) { extends "documents/document" }
 child(:versions => :versions) { extends "documents/document" }
 

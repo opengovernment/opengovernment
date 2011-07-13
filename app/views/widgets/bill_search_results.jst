@@ -1,7 +1,7 @@
 <% if (bill_search_results.length > 0) { %>
 <ul id="searchResults">
   <% _.each(bill_search_results, function(bill) { %>
-    <li><a class="billSearchResult" href="#" data-bill="<%= bill.to_param %>" data-session="<%= bill.session.to_param %>"><strong><%= bill.session.name_fm %> <%= bill.bill_number %></strong> <%= bill.title.substring(0, 50) + (bill.title.length > 50 ? "..." : '') %></a></li>
+    <li><a class="billSearchResult" href="#" data-bill="<%= bill.to_param %>" data-session="<%= bill.session.to_param %>"><strong><%= bill.session.name_fm %> &mdash; <%= bill.bill_number %></strong> &mdash; <%= bill.title.substring(0, 120) + (bill.title.length > 120 ? "..." : '') %></a></li>
   <% }); %>
 </div>
 <% } else { %>

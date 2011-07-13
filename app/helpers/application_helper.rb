@@ -1,8 +1,9 @@
 module ApplicationHelper
 
   # Page title
-  def title(page_title)
+  def title(page_title, html_title = nil)
     content_for(:title) { page_title }
+    content_for(:html_title) { html_title || page_title }
   end
 
   # Javascript hooks -- eg. document ready events. or other page-level

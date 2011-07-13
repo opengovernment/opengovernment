@@ -1,6 +1,6 @@
 class PeopleController < SubdomainController
   before_filter :find_person, :except => [:index, :search]
-  respond_to :html, :json, :only => [:index, :votes]
+  respond_to :html, :json, :xml, :only => [:index, :votes]
 
   # /people
   def index
@@ -33,7 +33,7 @@ class PeopleController < SubdomainController
     @people =
       case @sort
         when 'views'
-          Person.select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").most_viewed(:subdomain => request.subdomain).limit(@limit || 10)
+          Person.select("people.*, v_most_recent_roles.district_name, v_most_recent_roles.party").joins(:v_most_recent_role).most_viewed(:subdomain => request.subdomain).limit(@limit || 10)
         else
           people_by_facets
       end
@@ -134,7 +134,7 @@ class PeopleController < SubdomainController
 
   protected
   def find_person
-    @person = Person.where(:id => params[:id]).select("people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party").first
+    @person = Person.where(:id => params[:id]).joins(:v_most_recent_role).select("people.*, v_most_recent_roles.district_name, v_most_recent_roles.party").first
     @person || resource_not_found
   end
 
@@ -162,7 +162,7 @@ class PeopleController < SubdomainController
     begin
       # TODO: This is less than ideal. We're calling some stored procedures here because
       # we don't have a better way (like outer joining to the current roles view).
-      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => @limit || 1000, :select => "people.*, current_district_name_for(people.id) as district_name, current_party_for(people.id) as party"
+      @facets = Person.facets :with => {:chamber_ids => @chamber.id, :session_ids => current_session.primary_id}, :order => @order, :per_page => @limit || 1000, :select => "people.*, v_most_recent_roles.district_name, v_most_recent_roles.party", :joins => :v_most_recent_role
     rescue Riddle::ConnectionError
       flash[:error] = %q{Sorry, we can't look people up at the moment. We'll fix the problem shortly.}
       return nil

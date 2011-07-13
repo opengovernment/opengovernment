@@ -21,6 +21,7 @@ class Person < ActiveRecord::Base
   after_create :queue_photo_download
 
   has_many :roles, :dependent => :destroy
+  has_one :v_most_recent_role
   has_many :addresses, :dependent => :destroy do
     def in_district
       where("addresses.votesmart_type = 'District'")
@@ -114,16 +115,12 @@ class Person < ActiveRecord::Base
     addresses.in_district.first.try(:city)
   end
 
-  def current_roles
-    Role.joins('join v_most_recent_roles vr on (vr.role_id = roles.id)').where(['vr.person_id = ?', id])
-  end
-
   def current_role
-    current_roles.first
+    Role.joins('join v_most_recent_roles vr on (vr.role_id = roles.id)').where(['vr.person_id = ?', id]).try(:first)
   end
 
   def current_district_name
-    Person.find_by_sql(["select current_district_name_for(?) as name", id]).try(:first).try(:name)
+    current_role.district_name
   end
 
   def official_name
@@ -152,7 +149,7 @@ class Person < ActiveRecord::Base
   end
 
   def state_id
-    current_roles.try(:first).try(:state_id) || chamber.legislature.state
+    current_role.try(:state_id) || chamber.legislature.state
   end
  
   def state
