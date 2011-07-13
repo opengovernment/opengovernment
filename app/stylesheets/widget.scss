@@ -97,12 +97,24 @@ height: 250px;
 width: 250px;
 }
 
+
+
+
 @font-face {
-  font-family: 'ogeye';
-  font-style:  normal;
-  font-weight: normal;
-  src: url('../fonts/ogeye3.ttf');    
+    font-family: 'ogeyeRegular';
+    src: url('../fonts/ogglyphs-webfont.eot');
+    src: url('../fonts/ogglyphs-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ogglyphs-webfont.woff') format('woff'),
+         url('../fonts/ogglyphs-webfont.ttf') format('truetype'),
+         url('../fonts/ogglyphs-webfont.svg#ogeyeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
+
+
 
 .og-widget-intro{
 font-size: 11px;
@@ -115,7 +127,7 @@ float: left;
 
 .og-widget-views:before, .og-widget-intro:before {
   padding-right: 6px;
-  font-family: 'ogeye';
+  font-family: 'ogeyeRegular';
   content: 'B';
   position: relative;
   font-size: 12px;
@@ -124,7 +136,7 @@ float: left;
 
 .og-widget-bill-action:before {
   padding-right: 10px;
-  font-family: 'ogeye';
+  font-family: 'ogeyeRegular';
   content: 'A';
   position: relative;
   font-size: 12px;
