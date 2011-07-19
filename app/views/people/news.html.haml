@@ -17,11 +17,15 @@
 
   %hr
 
-  .grid_6.alpha
+  .grid_4.alpha
     %h2 Google News
     %ul.lined.and_spaced.with_titles
       = render @google_news_mentions
-  .grid_6.omega
+  .grid_4
+    %h2 Bing
+    %ul.lined.and_spaced.with_titles
+      = render @bing_mentions
+  .grid_4.omega
     %h2 Blogs
     %ul.lined.and_spaced.with_titles
       = render @google_blog_mentions

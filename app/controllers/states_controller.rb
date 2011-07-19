@@ -33,7 +33,7 @@ class StatesController < SubdomainController
             on m.owner_id = p.id
             join v_most_recent_roles r on r.person_id = p.id
           where
-            p.photo_url is not null
+            p.photo_file_name is not null
           limit 3
           ", @session.id])
         }

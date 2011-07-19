@@ -125,6 +125,7 @@ class PeopleController < SubdomainController
     @mentions = @person.mentions
     @google_news_mentions = @person.google_news_mentions
     @google_blog_mentions = @person.google_blog_mentions
+    @bing_mentions = @person.bing_mentions
 
     respond_to do |format|
       format.html

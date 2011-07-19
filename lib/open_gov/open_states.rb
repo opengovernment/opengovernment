@@ -11,14 +11,14 @@ module OpenGov
         FileUtils.mkdir_p(Settings.openstates_dir)
         Dir.chdir(Settings.openstates_dir)
 
-        puts "---------- Downloading the OpenStates data for #{state.name}"
-        `rm -f {committees,legislators}/#{state.abbrev.upcase}*`
-        `rm -rf {bills}/#{state.abbrev.downcase}`
-
         # If available from OpenStates, use the latest_dump_url and latest_dump_date.
         openstates_url = fs_state[:latest_dump_url]
         openstates_fn = File.basename(openstates_url)
         openstates_date = (fs_state[:latest_dump_date] && fs_state[:latest_dump_date].to_time) || Time.now
+        
+        puts "---------- Downloading the OpenStates data for #{state.name} - #{openstates_fn}"
+        `rm -f {committees,legislators}/#{state.abbrev.upcase}*`
+        `rm -rf {bills}/#{state.abbrev.downcase}`
 
         if openstates_url.blank?
           puts "No latest_dump_url returned for #{state.name}; skipping download."
