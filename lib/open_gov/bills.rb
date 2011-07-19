@@ -163,8 +163,6 @@ module OpenGov
         # Save the first & last action dates
         @bill.save
         
-        puts @bill.bill_number
-
         # Bill documents & versions are very processor intensive to build for
         # the document viewer, so we avoid deleting and reimporting them if we can
         # help it.
