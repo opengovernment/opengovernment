@@ -40,7 +40,7 @@ module OpenGov
         total = 0
 
         begin
-          entity = GovKit::TransparencyData::Entity.find_by_id(person.transparencydata_id)
+          entity = GovKit::TransparencyData::Entity.find(person.transparencydata_id)
           entity.external_ids.each do |eid|
             page = 0
             td_contributions = []
@@ -52,7 +52,7 @@ module OpenGov
               begin
                 page += 1
                 begin
-                  td_contributions = GovKit::TransparencyData::Contribution.find(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
+                  td_contributions = GovKit::TransparencyData::Contribution.search(:recipient_ext_id => eid[:id], :recipient_type => 'P', :page => page)
 
                   contributions_to_import = []
 

@@ -67,10 +67,10 @@
 
             %p.small
               = succeed ',' do
-                = link_to pluralize(chamber.primary_committees.count, t('.committee')), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
+                = link_to pluralize(chamber.primary_committees.count, t('.committee').to_str), chamber.type == 'UpperChamber' ? upper_committees_path : lower_committees_path
               %br
 
-              = link_to pluralize(@state.joint_committees.count, t('.joint_committee')), joint_committees_path
+              = link_to pluralize(@state.joint_committees.count, t('.joint_committee').to_str), joint_committees_path
               %br
               = succeed ',' do
                 = link_to "#{number_with_delimiter(Bill.for_session_including_children(@session.primary_id).in_chamber(chamber).count, :delimiter => ',')} #{t('.bills')}", bills_path(params[:session])

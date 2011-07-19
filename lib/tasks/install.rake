@@ -6,6 +6,12 @@ require File.dirname(__FILE__) + "/rake_extensions"
 task :install => ["opengov:install"]
 task :install_dev => ["opengov:install_dev"]
 
+task :launch_state => :environment do
+  with_states do |state|
+    state ? state.update_attribute(:launch_date, Time.now) : puts("Nothing performed; use LOAD_STATES to specify which states to launch.")
+  end
+end
+
 namespace :opengov do
   task :prepare do
     # Get ready to run tests -- on the CI server
