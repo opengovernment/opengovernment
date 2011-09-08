@@ -5,7 +5,7 @@ atom_feed(:root_url => bill_url(@bill, :only_path => false)) do |feed|
   # This has a similar issue as people/votes.atom.builder: hard to tell when
   # things change. We're using md5 here for the ID
   for action in @actions
-    feed.entry(action, :id => "tag:#{request.host}:#{action.class}/#{action.to_md5}", :published => action.date, :updated => action.date) do |entry|
+    feed.entry(action, :url => votes_bill_url(@bill.session, @bill), :id => "tag:#{request.host}:#{action.class}/#{action.to_md5}", :published => action.date, :updated => action.date) do |entry|
       entry.title(action.action)
       entry.content(action.description, :type => 'html')
 
