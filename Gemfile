@@ -70,7 +70,7 @@ gem 'acts-as-taggable-on'
 
 # Importing & parsing stuff
 gem 'httparty'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.5.5'
 gem 'chronic' # Complex date string parsing
 gem 'fastercsv'
 # gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
