@@ -72,7 +72,7 @@ namespace :fetch do
   desc "Get the SHP files for Congress, all active state SLDs, all state boundaries, and ZCTAs"
   task :boundaries => :setup do
     with_states do |state|
-      state ? OpenGov::Boundaries.new.fetch_one(state) : OpenGov::Boundaries.new.fetch
+      state ? OpenGov::Boundaries.new.fetch_one(state, :clobber => false) : OpenGov::Boundaries.new.fetch(:clobber => false)
     end
     
   end
@@ -91,7 +91,7 @@ namespace :fetch do
     # Download the bills & legislator data from OpenStates.
 
     with_states do |state|
-      state ? OpenGov::OpenStates.new.fetch_one(state) : OpenGov::OpenStates.new.fetch
+      state ? OpenGov::OpenStates.new.fetch_one(state, :clobber => false) : OpenGov::OpenStates.new.fetch(:clobber => false)
     end
   end
 end

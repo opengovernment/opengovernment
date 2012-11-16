@@ -28,20 +28,20 @@ module OpenGov
 
     AT_LARGE_LSADS = ['c1', 'c4'].freeze
 
-    def fetch
+    def fetch(opts = {})
       FileUtils.mkdir_p(Settings.shapefiles_dir)
       Dir.chdir(Settings.shapefiles_dir)
 
-      fetch_us_congress
-      fetch_state_boundaries
+      fetch_us_congress opts
+      fetch_state_boundaries opts
 
       # Get state legislature files, when available
       State.loadable.find(:all, :conditions => "fips_code is not null").each do |state|
-        fetch_one(state)
+        fetch_one(state, opts)
       end
     end
     
-    def fetch_one(state)
+    def fetch_one(state, opts = {})
       FileUtils.mkdir_p(Settings.shapefiles_dir)
       Dir.chdir(Settings.shapefiles_dir)
 
@@ -49,28 +49,28 @@ module OpenGov
 
         # Unicameral states don't have lower house files.
         unless state.unicameral == true && house == AREA_STATE_LOWER
-          process_one(house, state.fips_code, "#{state.name} #{name} house")
+          process_one(house, state.fips_code, "#{state.name} #{name} house", opts)
         end
       end
 
       puts "---------- Downloading ZCTA boundary shapefile for #{state.name}"
-      download(zcta_url_for(state.fips_code), :unzip => true)
+      download(zcta_url_for(state.fips_code), {:unzip => true}.merge(opts))
     end
 
-    def fetch_us_congress
+    def fetch_us_congress(opts = {})
       FileUtils.mkdir_p(Settings.shapefiles_dir)
       Dir.chdir(Settings.shapefiles_dir)
 
       # Get the federal data.
-      process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress")
+      process_one(AREA_CONGRESSIONAL_DISTRICT, CONGRESS_FIPS_CODE, "US Congress", opts)
     end
 
-    def fetch_state_boundaries
+    def fetch_state_boundaries(opts = {})
       FileUtils.mkdir_p(Settings.shapefiles_dir)
       Dir.chdir(Settings.shapefiles_dir)
 
       puts "---------- Downloading state boundary shapefile"
-      shpfile = download(CENSUS_STATES_URL, :unzip => true)
+      shpfile = download(CENSUS_STATES_URL, {:unzip => true}.merge(opts))
     end
 
     def import_states
@@ -93,6 +93,7 @@ module OpenGov
           :lsad => shape.lsad,
           :region => shape.region,
           :division => shape.division,
+          # @note may be "geom" depending on PostGIS version
           :geom => shape.the_geom
         )
         
@@ -126,7 +127,7 @@ module OpenGov
 
       # All district shapefiles will have at least:
       # - state (fips_code)
-      # - the_geom (geometry)
+      # - the_geom or geom (geometry)
       # - lsad (district type)
 
       # If table_name starts with sl (lower chamber):
@@ -179,6 +180,7 @@ module OpenGov
             :state => state,
             :at_large => AT_LARGE_LSADS.include?(shape.lsad.downcase),
             :census_district_type => shape.lsad,
+            # @note may be "geom" depending on PostGIS version
             :geom => shape.the_geom
           )
 
@@ -225,12 +227,12 @@ module OpenGov
       end
     end
 
-    def process_one(ga, fips_code, area_name)
+    def process_one(ga, fips_code, area_name, opts = {})
       census_fn = census_fn_for(ga, fips_code)
       curl_ops = File.exists?(census_fn) ? "-Lfz #{census_fn}" : '-Lf'
 
       puts "---------- Downloading the district shapefile for #{area_name}"
-      download(census_url_for(ga, fips_code), :curl_ops => curl_ops, :output_fn => census_fn, :unzip => true)
+      download(census_url_for(ga, fips_code), {:curl_ops => curl_ops, :output_fn => census_fn, :unzip => true}.merge(opts))
     end
 
     def census_url_for(ga, fips_code)
