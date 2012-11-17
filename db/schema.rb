@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 85) do
+ActiveRecord::Schema.define(:version => 86) do
 
   create_table "actions", :force => true do |t|
     t.integer  "bill_id"
@@ -330,7 +330,7 @@ ActiveRecord::Schema.define(:version => 85) do
   end
 
 # Could not dump table "st99_d00" because of following StandardError
-#   Unknown type 'geometry' for column 'the_geom'
+#   Unknown type 'geometry(MultiPolygon,4269)' for column 'geom'
 
   create_table "states", :force => true do |t|
     t.string   "name",                                         :null => false
@@ -395,7 +395,7 @@ ActiveRecord::Schema.define(:version => 85) do
     t.boolean  "passed"
     t.integer  "chamber_id"
     t.string   "openstates_id"
-    t.string   "motion"
+    t.string   "motion",         :limit => 1000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "kind"
