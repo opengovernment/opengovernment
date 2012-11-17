@@ -71,27 +71,29 @@ namespace :fetch do
 
   desc "Get the SHP files for Congress, all active state SLDs, all state boundaries, and ZCTAs"
   task :boundaries => :setup do
+    opts = ENV['FASTMODE'] ? {:clobber => false} : {}
     with_states do |state|
-      state ? OpenGov::Boundaries.new.fetch_one(state, :clobber => false) : OpenGov::Boundaries.new.fetch(:clobber => false)
+      state ? OpenGov::Boundaries.new.fetch_one(state, opts) : OpenGov::Boundaries.new.fetch(opts)
     end
-    
   end
 
   desc "Fetch latest GeoIP dataset (updated monthly)"
   task :geoip => :setup do
-    geoip_url = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
+    unless ENV['FASTMODE'] && File.exist?(File.basename(geoip_url))
+      geoip_url = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
 
-    puts "---------- Downloading GeoIP datafile"
-    `curl -fO #{geoip_url}`
-    `gzip -df #{File.basename(geoip_url)}`
+      puts "---------- Downloading GeoIP datafile"
+      `curl -fO #{geoip_url}`
+      `gzip -df #{File.basename(geoip_url)}`
+    end
   end
 
   desc "Get the openstates files for all active states"
   task :openstates => :setup do
     # Download the bills & legislator data from OpenStates.
-
+    opts = ENV['FASTMODE'] ? {:clobber => false} : {}
     with_states do |state|
-      state ? OpenGov::OpenStates.new.fetch_one(state, :clobber => false) : OpenGov::OpenStates.new.fetch(:clobber => false)
+      state ? OpenGov::OpenStates.new.fetch_one(state, opts) : OpenGov::OpenStates.new.fetch(opts)
     end
   end
 end
