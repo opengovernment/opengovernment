@@ -79,9 +79,8 @@ namespace :fetch do
 
   desc "Fetch latest GeoIP dataset (updated monthly)"
   task :geoip => :setup do
+    geoip_url = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
     unless ENV['FASTMODE'] && File.exist?(File.basename(geoip_url))
-      geoip_url = 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz'
-
       puts "---------- Downloading GeoIP datafile"
       `curl -fO #{geoip_url}`
       `gzip -df #{File.basename(geoip_url)}`
