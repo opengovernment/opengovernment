@@ -73,7 +73,7 @@ gem 'httparty'
 gem 'nokogiri', '~> 1.5.5'
 gem 'chronic' # Complex date string parsing
 gem 'fastercsv'
-# gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
+gem 'govkit', '~> 0.7.2'
 
 # Indexing and Search
 gem 'thinking-sphinx', '~> 2.0.3'
