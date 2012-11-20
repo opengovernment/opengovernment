@@ -73,7 +73,7 @@ gem 'httparty'
 gem 'nokogiri', '~> 1.5.5'
 gem 'chronic' # Complex date string parsing
 gem 'fastercsv'
-gem 'govkit', '~> 0.7.2'
+gem 'govkit', '0.7.2'
 
 # Indexing and Search
 gem 'thinking-sphinx', '~> 2.0.3'
@@ -94,7 +94,7 @@ end
 group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
-  gem 'rspec-rails', '>= 2.0.0.rc'
+  gem 'rspec-rails', '2.5.0'
   gem 'spork'
   gem 'capybara', '~> 0.4.1'
   gem 'cucumber', '~> 0.10.0'
