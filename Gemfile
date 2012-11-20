@@ -73,7 +73,7 @@ gem 'httparty'
 gem 'nokogiri', '~> 1.5.5'
 gem 'chronic' # Complex date string parsing
 gem 'fastercsv'
-gem 'govkit', '0.7.2'
+gem 'govkit', '~> 0.7.4'
 
 # Indexing and Search
 gem 'thinking-sphinx', '~> 2.0.3'
@@ -101,7 +101,7 @@ group :test, :development do
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'autotest'
   gem 'autotest-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '1.7.0' # Later versions of factory_girl_rails are not 1.8 compatible
   gem 'linecache', :platforms => :ruby_18
   gem 'linecache19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :ruby_18
