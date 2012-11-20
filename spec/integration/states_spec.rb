@@ -12,7 +12,7 @@ describe "State Page" do
 
   context "Left nav" do
     it "should render left side nav" do
-      page.should have_css('.search_form > form > input#q')
+      page.should have_css('.find_form > form > input#addr')
 
       within("nav#left_nav") do
         page.should have_link("Bills")
