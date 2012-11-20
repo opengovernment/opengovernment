@@ -6,10 +6,10 @@ module OpenGov
       Person.with_votesmart_id.with_current_role.where("photo_url is null").each do |person|
         begin
           bio = GovKit::VoteSmart::Bio.find(person.votesmart_id)
-          i += 1
 
           # puts "Updating #{person.to_param}"
-          unless bio.photo.blank?
+          if bio && !bio.photo.blank?
+            i += 1
             person.photo_url = bio.photo
             #puts "Updating #{person.to_param}"
             person.save
