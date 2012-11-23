@@ -262,6 +262,8 @@ GEM
     ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.1.4)
     selenium-webdriver (2.0.1)
       childprocess (>= 0.1.9)
@@ -355,6 +357,7 @@ DEPENDENCIES
   ruby-debug
   ruby-debug19
   ruby_parser
+  rvm-capistrano
   settingslogic
   silent-postgres
   simple-navigation

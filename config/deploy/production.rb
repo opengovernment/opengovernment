@@ -1,6 +1,3 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "rvm/capistrano"
-
 set :application, "opengovernment"
 set :rvm_ruby_string, 'ree@og'
 set :rails_env, "production"

@@ -27,6 +27,7 @@ gem 'settingslogic'
 gem 'hoptoad_notifier'
 gem 'capistrano'
 gem 'capistrano-ext'
+gem 'rvm-capistrano'
 gem 'whenever', :require => false
 
 # An alternative form builder
