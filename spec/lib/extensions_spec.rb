@@ -4,7 +4,7 @@ require Rails.root + 'lib/extensions'
 describe "Date" do
   describe ".valid_date!" do
     it "should return a valid date given a float" do
-      Date.valid_date!(1242187200.0).should == Date.parse("Tue, 12 May 2009")
+      Date.valid_date!(1242187200.0).should == Date.parse("Wed, 13 May 2009")
     end
 
     it "should return a date given a string" do
