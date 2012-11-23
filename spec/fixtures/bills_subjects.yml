@@ -1,6 +1,6 @@
-one:
+education:
   bill: hb10
-  subject_id: 1
+  subject: education
 two:
   bill: hb1000
   subject_id: 2
