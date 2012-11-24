@@ -231,7 +231,9 @@ namespace :load do
 
   desc "Fetch and load people ratings VoteSmart"
   task :ratings => :environment do
-    OpenGov::Ratings.new.import
+    with_states do |state|
+      state ? OpenGov::Ratings.new.import_state(state) : OpenGov::Ratings.new.import
+    end
   end
 
   desc "Import Census Bureau boundaries"
