@@ -1,7 +1,6 @@
 set :application, "opengovernment"
 set :rvm_ruby_string, 'ree@og'
 set :rails_env, "production"
-set :branch, "production"
 set :deploy_to, "/web/opengovernment.org"
 
 role :web, "bearclaw.in.opengovernment.org"
