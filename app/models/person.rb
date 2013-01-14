@@ -149,7 +149,7 @@ class Person < ActiveRecord::Base
   end
 
   def state_id
-    current_role.try(:state_id) || chamber.legislature.state
+    current_role.try(:state_id) || chamber.legislature.state.id
   end
  
   def state
