@@ -7,7 +7,7 @@
 
 # For OpenGovernment, whenever is only installed on production (see config/deploy/production.rb)
 
-env :MAILTO, 'develop@opengovernment.org'
+env :MAILTO, 'sysadmin@ppolitics.org'
 
 set :job_template, "bash -l -c 'rvm use ree@og && :job'"
 
