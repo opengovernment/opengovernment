@@ -2,7 +2,7 @@ class Committee < ActiveRecord::Base
   belongs_to :legislature
   has_many :committee_memberships
   has_many :members, :through => :committee_memberships, :source => :person
-  belongs_to :parent, :class_name => 'Committee'
+  belongs_to :parent, :class_name => 'Committee', :foreign_key => :votesmart_parent_id, :primary_key => :votesmart_id
 
   define_index do
     indexes name, :sortable => true
