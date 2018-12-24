@@ -1,5 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe State do
+  fixtures :districts, :people, :roles
+
   before(:each) do
     @valid_attributes = {
       :name => "Connecticut",
@@ -8,7 +10,6 @@ describe State do
       :fips_code => 9999,
       :official_url => 'http://www.connecticut.com/'
     }
-    @texas = State.find_by_abbrev('TX')
   end
 
   it "should create a new instance given valid attributes" do
@@ -37,8 +38,7 @@ describe State do
   end
 
   it "should return current senators in the US Congress" do
-    senators = @texas.senators
+    senators = State.find_by_abbrev('TX').senators
     senators.size.should eql(2)
   end
-
 end

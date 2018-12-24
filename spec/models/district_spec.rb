@@ -37,14 +37,18 @@ describe District do
     # 3000 French Pl, Austin, TX 78722
     districts = District.for_x_y(30.286308, -97.719782)
     districts.size.should eql(3)
-    districts.to_a.should eql(@french_pl_districts.to_a)
+    @french_pl_districts.to_a.each do |district|
+      districts.to_a.should include(district)
+    end
   end
 
   it "should allow us to find the correct districts by address" do
     districts = District.find_by_address("3000 French Pl, Austin, TX")
     districts.size.should eql(2)
     districts[1].size.should eql(3)
-    districts[1].to_a.should eql(@french_pl_districts.to_a)
+    @french_pl_districts.to_a.each do |district|
+      districts[1].to_a.should include(district)
+    end
   end
 
   it "should return a district by number" do

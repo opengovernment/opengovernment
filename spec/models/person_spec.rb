@@ -1,5 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Person do
+  fixtures :bills, :bill_sponsorships, :chambers, :legislatures, :people, :roles, :sessions, :states
+
   before do
     @john = people(:john)
   end

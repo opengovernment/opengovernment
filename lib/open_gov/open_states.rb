@@ -1,36 +1,36 @@
 module OpenGov
   class OpenStates < Resources
-    def fetch
+    def fetch(opts = {})
       State.loadable.each do |state|
-        fetch_one(state)
+        fetch_one(state, opts)
       end
     end
 
-    def fetch_one(state)
+    def fetch_one(state, opts = {})
       if fs_state = GovKit::OpenStates::State.find_by_abbreviation(state.abbrev)
         FileUtils.mkdir_p(Settings.openstates_dir)
         Dir.chdir(Settings.openstates_dir)
 
-        # If available from OpenStates, use the latest_dump_url and latest_dump_date.
-        openstates_url = fs_state[:latest_dump_url]
+        # If available from OpenStates, use the latest_json_url and latest_json_date.
+        openstates_url = fs_state[:latest_json_url]
+        if openstates_url.blank?
+          puts "No latest_json_url returned for #{state.name}; skipping download."
+          return
+        end
+
         openstates_fn = File.basename(openstates_url)
-        openstates_date = (fs_state[:latest_dump_date] && fs_state[:latest_dump_date].to_time) || Time.now
+        openstates_date = (fs_state[:latest_json_date] && fs_state[:latest_json_date].to_time) || Time.now
         
         puts "---------- Downloading the OpenStates data for #{state.name} - #{openstates_fn}"
         `rm -f {committees,legislators}/#{state.abbrev.upcase}*`
         `rm -rf {bills}/#{state.abbrev.downcase}`
-
-        if openstates_url.blank?
-          puts "No latest_dump_url returned for #{state.name}; skipping download."
-          return
-        end
 
         unless File.exists?(openstates_fn) && openstates_date > File.mtime(openstates_fn)
           tries = 3
           begin
             curl_ops = File.exists?(openstates_fn) ? "-LOz #{openstates_fn}" : '-LO'
 
-            download(openstates_url, :curl_ops => curl_ops)
+            download(openstates_url, {:curl_ops => curl_ops}.merge(opts))
             tries -= 1
           end while !system("unzip -qt #{openstates_fn} || (rm -f #{openstates_fn} && false)") && tries > 0
 

@@ -59,7 +59,8 @@ class StatesController < SubdomainController
 
     @search_options = {
       :order => params[:order],
-      :with => { :state_id => @state.id }
+      :with => { :state_id => @state.id },
+      :page => params[:page],
     }
 
     case @search_type
@@ -88,13 +89,13 @@ class StatesController < SubdomainController
     if @query
       case @search_type
         when "everything"
-          @results = ThinkingSphinx.search(@query, @search_options).page(params[:page])
+          @results = ThinkingSphinx.search(@query, @search_options)
         when "bills"
-          @bills = Bill.search(@query, @search_options).page(params[:page])
+          @bills = Bill.search(@query, @search_options)
         when "legislators"
-          @legislators = Person.search(@query, @search_options).page(params[:page])
+          @legislators = Person.search(@query, @search_options)
         when "committees"
-          @committees = @committee_type.search(@query, @search_options).page(params[:page])
+          @committees = @committee_type.search(@query, @search_options)
       end
 
       @facets = ThinkingSphinx.facets(@query, @search_options)

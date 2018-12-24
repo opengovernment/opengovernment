@@ -5,7 +5,6 @@ if defined? GovKit
     config.sunlight_apikey = ApiKeys.sunlight_labs
     config.votesmart_apikey = ApiKeys.votesmart
     config.ftm_apikey = ApiKeys.follow_the_money
-    config.opencongress_apikey = ApiKeys.opencongress
     config.technorati_apikey = ApiKeys.technorati
     config.bing_appid = ApiKeys.bing
   end

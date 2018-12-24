@@ -1,5 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Role do
+  fixtures :people, :states
+
   before(:each) do
     @valid_attributes = {
       :senate_class => 1,

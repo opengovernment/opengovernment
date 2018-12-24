@@ -20,7 +20,7 @@ john_one:
   person: john
   party: "Republican"
   senate_class: 2
-  session: us111
+  session: tx81
   chamber: s
   state: tx
   start_date: "2009-01-06"

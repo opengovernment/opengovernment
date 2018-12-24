@@ -5,7 +5,7 @@ source 'http://rubygems.org'
 gem 'rake', '0.8.7'
 
 # Using 3.0.7 until "Cannot modify SafeBuffer in place" bug is fixed...
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.19'
 
 gem 'rack-contrib'
 gem 'SystemTimer', :platforms => :ruby_18
@@ -27,6 +27,7 @@ gem 'settingslogic'
 gem 'hoptoad_notifier'
 gem 'capistrano'
 gem 'capistrano-ext'
+gem 'rvm-capistrano'
 gem 'whenever', :require => false
 
 # An alternative form builder
@@ -70,10 +71,10 @@ gem 'acts-as-taggable-on'
 
 # Importing & parsing stuff
 gem 'httparty'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.5.5'
 gem 'chronic' # Complex date string parsing
 gem 'fastercsv'
-# gem 'govkit', :git => 'git://github.com/opengovernment/govkit.git' (SUBMODULE)
+gem 'govkit', '~> 0.7.4'
 
 # Indexing and Search
 gem 'thinking-sphinx', '~> 2.0.3'
@@ -94,14 +95,14 @@ end
 group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'    # So you can do "Then show me the page"
-  gem 'rspec-rails', '>= 2.0.0.rc'
+  gem 'rspec-rails', '2.5.0'
   gem 'spork'
   gem 'capybara', '~> 0.4.1'
   gem 'cucumber', '~> 0.10.0'
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'autotest'
   gem 'autotest-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '1.7.0' # Later versions of factory_girl_rails are not 1.8 compatible
   gem 'linecache', :platforms => :ruby_18
   gem 'linecache19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :ruby_18
