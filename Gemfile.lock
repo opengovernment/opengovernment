@@ -184,7 +184,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.3.8)
     multi_json (1.0.4)
-    multi_xml (0.5.1)
+    multi_xml (0.6.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
