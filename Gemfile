@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rake', '0.8.7'
+gem 'rake', '12.3.3'
 
 # Using 3.0.7 until "Cannot modify SafeBuffer in place" bug is fixed...
 gem 'rails', '3.0.19'
