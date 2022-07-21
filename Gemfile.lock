@@ -287,7 +287,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.35)
+    tzinfo (0.3.61)
     vcr (1.5.1)
     warden (1.0.4)
       rack (>= 1.0)
